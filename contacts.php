@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts.php,v 1.2 2004/01/03 12:10:09 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts.php,v 1.3 2004/01/04 21:31:07 ajetam Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -20,6 +20,7 @@ $_SESSION['nocc_loggedin'] = 1;
 <head>
 <link href="themes/<?php echo $theme ?>/style.css" rel="stylesheet" type="text/css" />
 <title>NOCC - Webmail - <?php echo $html_contact_list . " " . $_SESSION["nocc_user"]; ?></title>
+<meta content="text/html; charset=<?php echo $charset ?>" http-equiv="Content-Type" />
 <script language="JavaScript">
 
 
