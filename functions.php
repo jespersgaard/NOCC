@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.155 2002/04/24 19:32:30 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.156 2002/04/24 19:58:01 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -49,7 +49,7 @@ function inbox(&$pop, $skip = 0)
         $from_array = nocc_imap::mime_header_decode($ref_contenu_message->fromaddress);
         for ($j = 0; $j < count($from_array); $j++)
             $from .= $from_array[$j]->text;
-        if ($pop->is_imap)
+        if ($pop->is_imap())
             $msg_size = get_mail_size($struct_msg);
         else
             $msg_size = ($struct_msg->bytes > 1000) ? ceil($struct_msg->bytes / 1000) : 1;
@@ -110,10 +110,9 @@ function inbox(&$pop, $skip = 0)
 /* ----------------------------------------------------- */
 function aff_mail(&$attach_tab, &$mail, $verbose, &$ev)
 {
-    GLOBAL $conf;
-    GLOBAL $PHP_SELF;
-    GLOBAL $lang_locale;
-    GLOBAL $no_locale_date_format;
+    global $conf;
+    global $lang_locale;
+    global $no_locale_date_format;
 
     $mailhost = $_SESSION['servr'];
     $folder = $_SESSION['folder'];
@@ -413,7 +412,7 @@ function GetSinglePart(&$attach_tab, &$this_part, &$header, &$body)
 
 function remove_stuff(&$body, &$mime)
 {
-    GLOBAL $PHP_SELF;
+    global $PHP_SELF;
 
     $lang = $_SESSION['lang'];
 
@@ -681,7 +680,7 @@ function clear_attachments()
 // the way to send messages
 function get_crlf(&$smtp)
 {
-    GLOBAL $OS;
+    global $OS;
 
     $crlf = stristr($OS, 'Windows') ? "\r\n" : "\n";
     $crlf = $smtp ? "\r\n" : $crlf;
