@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.71 2001/03/13 11:06:28 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.72 2001/03/16 14:05:17 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,7 +13,7 @@ $attach_tab = Array();
 
 /* ----------------------------------------------------- */
 
-function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang)
+function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang, $theme)
 {
 	$mailhost = $servr;
 	require("conf.php");
@@ -53,7 +53,7 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang)
 					if ($struct_msg->subtype == "ALTERNATIVE" || $struct_msg->subtype == "RELATED")
 						$attach = "&nbsp;";
 					else
-						$attach = "<img src=\"img/attach.gif\" height=\"28\" width=\"27\" alt=\"\" />";
+						$attach = "<img src=\"themes/".$theme."/img/attach.gif\" height=\"28\" width=\"27\" alt=\"\" />";
 				}
 				else
 					$attach = "&nbsp;";
@@ -80,7 +80,7 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang)
 					$new_mail_from_header = "&nbsp;";
 				}
 				if ($new_mail_from_header == "")
-					$newmail = "<img src=\"img/new.gif\" alt=\"\" height=\"17\" width=\"17\" />";
+					$newmail = "<img src=\"themes/".$theme."/img/new.gif\" alt=\"\" height=\"17\" width=\"17\" />";
 				else
 					$newmail = "&nbsp;";
 				$msg_list[$i] =  Array(

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.27 2001/02/23 09:31:57 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.28 2001/03/13 11:06:28 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -99,7 +99,7 @@ switch ($action)
 		break;
 	default:
 		// Default we display the mailbox
-		$tab_mail = inbox($servr, $user, stripslashes($passwd), $folder, $sort, $sortdir, $lang);
+		$tab_mail = inbox($servr, $user, stripslashes($passwd), $folder, $sort, $sortdir, $lang, $theme);
 		switch ($tab_mail)
 		{
 			case -1:
