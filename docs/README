@@ -69,7 +69,7 @@ Requirements
   Mandatory Items
   ---------------
 
-   * PHP 4.0.0 or later with IMAP support (--with-imap) -- SEE NEXT SECTION
+   * PHP 4.1.0 or later with IMAP support (--with-imap) -- SEE NEXT SECTION
   
    * A Web server supported by PHP (i.e. Apache for most people)
   
@@ -180,20 +180,17 @@ specifically tested and are known to work)
       - Microsoft IIS 4.0, IIS 5.0 w/CGI, IIS 5.0 w/ISAPI.
       - O'Reilly WebSite Pro 2.x & 3.
       - Xitami.
-      - PHP 4.0.0, 4.0.1, 4.0.1pl1, 4.0.2, 4.0.3pl1, 4.0.4, 4.0.4pl1, 4.0.5,
-          4.1.1, 4.1.2, 4.2.3, 4.3.7, 5.0.0 (see FAQ).
+      - PHP 4.1.1, 4.1.2, 4.2.3, 4.3.7, 4.3.8, 5.0.0, 5.0.1
       - PHP running through a wrapper: suEXEC.
       - various OS including GNU/Linux, FreeBSD, NetBSD, OpenBSD and Win2k.
-      - PHP 4.0.4-dev compiled as module for Apache Win32.
-      - warning: due to a sessions bug, only PHP 4.0.4 or higher will run
-        correctly on Win32 platforms.
 
     * browsers: (256 colors setups are ok)
       - Netscape 4.x, 7.x for Unix and Windows.
       - IE 4.x, 6.x for Windows.
       - Lynx 2.8.3, Konqueror, Opera, WebTV 3.0.
       - Mozilla 1.x for Linux and Windows.
-      - Safari 1.x
+      - Camino 0.8.x for MacOS X
+      - Safari 1.x for MacOS X
       - Firefox 0.5.x, 0.6.x, 0.7.x, 0.8.x, 0.9.x
       - cookies needed as of 0.9.5.
 
@@ -202,7 +199,7 @@ these have been tested and work)
       - UCB POP3 1.831beta.
       - MS Exchange 5.5 Build 2650-24 Service Pack 3.
       - Default RedHat 6.1 IMAP daemon v.12.250 (perhaps Cyrus IMAPd ?).
-      - Courier-IMAP 3.0.3, 3.0.4, 3.0.5
+      - Courier-IMAP 3.0.x
 
         * MTA: (Nocc should work with any MTA, however, these have been tested
 and work)

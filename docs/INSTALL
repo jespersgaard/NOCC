@@ -13,7 +13,7 @@ Requirements
   Mandatory Items
   ---------------
 
-   * PHP 4.0.0 or later with IMAP support (--with-imap) -- SEE NEXT SECTION
+   * PHP 4.1.0 or later with IMAP support (--with-imap) -- SEE NEXT SECTION
   
    * A Web server supported by PHP (i.e. Apache for most people)
   

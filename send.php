@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.124 2004/06/28 15:37:45 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.125 2004/08/24 10:40:30 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -30,7 +30,7 @@ if (!isset($_SESSION['nocc_loggedin']))
 if (!function_exists('is_uploaded_file'))
     include_once ('./is_uploaded_file.php');
 
-if ($HTTP_SERVER_VARS['REQUEST_METHOD'] != 'POST') {
+if ($_SERVER['REQUEST_METHOD'] != 'POST') {
     clear_attachments();
     require_once './proxy.php';
     header('Location: ' . $conf->base_url . 'action.php');
