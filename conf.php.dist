@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.19 2001/02/20 17:40:39 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.21 2001/02/20 18:50:46 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -82,7 +82,7 @@ $have_ucb_pop_server = "0";
 // set $use_theme to false and fill in the $default_theme to the theme name
 // you want to use
 // Theme handling
-$use_theme = true;
+$use_theme = false;
 
 // Default theme
 $default_theme = "standard";
