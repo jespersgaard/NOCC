@@ -1,6 +1,6 @@
 NOCC 0.9.5	??   ??, 2001
 	* Added Turkish translation.
-
+	* correct all the warnings when using E_ALL in error reporting.
 
 NOCC 0.9.4	June 02, 2001
 

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.59 2001/05/31 10:54:14 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.60 2001/05/31 18:18:41 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -30,7 +30,7 @@ else
 	{
 		case 'add':
 			// Counting the attachments number in the array
-			if (!is_array($attach_tab))
+			if (!is_array($attach_array))
 				$num_attach = 1;
 			else
 				$num_attach++;
@@ -45,6 +45,7 @@ else
 				$attach_array[$num_attach]->file_mime = $mail_att_type;
 			}
 			// Registering the attachments array into the session
+			session_unregister('attach_array');
 			session_register('num_attach', 'attach_array');
 			// Displaying the sending form with the new attachments array
 			header("Content-type: text/html; Charset=$charset");
