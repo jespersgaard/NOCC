@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
 	<HEAD><TITLE>NOCC - Webmail</TITLE>
 		<META http-equiv="pragma" content="no-cache">
