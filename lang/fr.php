@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.66 2004/06/14 10:55:04 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.67 2004/06/14 11:30:06 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -105,7 +105,7 @@ $html_filter_to = 'A';
 $html_filter_cc = 'Cc';
 $html_filter_from = 'De';
 $html_filter_change_tip = 'Pour changer un filtre, re&eacute;crivez dessus.';
-$html_reapply_filters = 'R&eacute;ppliquer tous les filtres';
+$html_reapply_filters = 'R&eacute;appliquer tous les filtres';
 $html_filter_contains = 'contient';
 $html_filter_name = 'Nom du filtre';
 $html_filter_action = 'Action';

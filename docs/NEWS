@@ -1,5 +1,14 @@
 NOCC 0.9.6    ??, 2002
-
+    * Add IMAP folder delete (Arnaud Boudou)
+    * Correct multiple bugs on IMAP folder management (Arnaud Boudou)
+    * Downloadable mails (jourds and Arnaud Boudou, RFE #811868)
+    * Move on next message on delete (jourds and Arnaud Boudou, RFE #811856)
+    * Prompt on delete (jourds and Arnaud Boudou, RFE #811848)
+    * Contact list (jourds and Arnaud Boudou, RFE #811843)
+    * Multiple send prevention (jourds and Arnaud Boudou, RFE #811836)
+    * Usenet signature separator user preference (jourds and Arnaud Boudou, RFE #811823)
+    * Wrap outgoing messages user preference (jourds and Arnaud Boudou, RFE #811816)
+    * PHP 5.0 compatibility (Arnaud Boudou)
     * Added support for displaying RFC2045-encoded words, used in headers.
       (Alexander Sabournekov)
     * Preferences can be disabled by unsetting/clearing $conf->prefs_dir.
@@ -77,7 +86,7 @@ NOCC 0.9.6    ??, 2002
       Greek, Croatian, Icelandic, Finnish and German (Benjamin Brauer),
       Norwegian (Bjørn Roger Rasmussen), Persian (Mahdi Dalirrooyfard),
       Portuguese (Paulo Matos), Russian (Alexander Sabourenkov),
-      Dutch (Silvan Jongerius) and Thai (Anat Trakoonsirisak) translations.
+      Dutch (Silvan Jongerius), Thai (Anat Trakoonsirisak) and French (Arnaud Boudou) translations.
 
 
 NOCC 0.9.5    November   25, 2001

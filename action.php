@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.149 2004/06/14 11:15:23 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.150 2004/06/14 11:30:05 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -441,7 +441,7 @@ switch($action)
         if ($pop->is_imap()) {
             if ($pop->folder == 'INBOX') {
                 $user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
-                if (!empty($conf->prefs)) {
+                if (!empty($conf->prefs_dir)) {
                     $filters = NOCCUserFilters::read($user_key, $ev);
                     if(NoccException::isException($ev)) {
                         error_log("Error reading filters for user '$user_key': ".$ev->getMessage());
@@ -453,16 +453,15 @@ switch($action)
                     if (isset($_REQUEST['reapply_filters']) && $_REQUEST['reapply_filters'] == 1) {
                         $small_search = '';
                     }
-
                     foreach($filters->filterset as $name => $filter) {
-                        $filter_messages = $pop->search($small_search . $filter['SEARCH']);
+                        $filter_messages = $pop->search($small_search . $filter['SEARCH'],'',$ev);
                         if (is_array($filter_messages)) {
                             $filter_to_folder = array();
                             foreach($filter_messages as $filt_msg_no) {
                                 if ($filter['ACTION'] == 'DELETE') {
-                                    $pop->delete($filt_msg_no);
+                                    $pop->delete($filt_msg_no, $ev);
                                 } elseif (preg_match("/^MOVE:(.+)$/", $filter['ACTION'], $filter_to_folder)) {
-                                    $pop->mail_move($filt_msg_no, $filter_to_folder[1]);
+                                    $pop->mail_move($filt_msg_no, $filter_to_folder[1], $ev);
                                 }
                             }
                         }
