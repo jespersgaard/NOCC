@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.15 2001/01/22 20:33:59 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.16 2001/01/22 22:40:18 nicocha Exp $
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -76,10 +76,7 @@ class mime_mail
 			default:
 				break;
 		}
-		return  ("Content-Type: ".$part["ctype"].";".($part["name"]? 
-"\n\tname=\"".imap_8bit($part["name"])."\"" : "")."\nContent-Transfer-Encoding: 
-$encoding\nContent-Disposition: attachment;".($part["name"]? 
-"\n\tfilename=\"".imap_8bit($part["name"])."\"" : "")."\n".$message."\n");
+		return  ("Content-Type: ".$part["ctype"].";".($part["name"]? "\n\tname=\"".imap_8bit($part["name"])."\"" : "")."\nContent-Transfer-Encoding: ".$encoding."".($part["name"]? "\nContent-Disposition: attachment;\n\tfilename=\"".imap_8bit($part["name"])."\"" : "")."\n\n".$message."\n");
 	}
 
 /*
@@ -89,8 +86,7 @@ $encoding\nContent-Disposition: attachment;".($part["name"]?
 	function build_multipart() 
 	{
 		$boundary =  "NextPart".md5(uniqid(time()));
-		$multipart =  "Content-Type: multipart/mixed;\n\tboundary = $boundary\n\nThis is a MIME encoded 
-message.\n\n--$boundary";
+		$multipart =  "Content-Type: multipart/mixed;\n\tboundary = $boundary\n\nThis is a MIME encoded message.\n\n--$boundary";
 		
 		for($i = sizeof($this->parts)-1; $i >= 0; $i--) 
 			$multipart .=  "\n".$this->build_message($this->parts[$i]). "--$boundary";
