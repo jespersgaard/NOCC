@@ -1,8 +1,8 @@
 <?
 /*
-	$Author$
-	$Revision$
-	$Date$
+	$Author: nicocha $
+	$Revision: 1.12 $
+	$Date: 2000/10/23 23:57:13 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -140,7 +140,8 @@ class mime_mail
 			$this->add_attachment($this->body,  "",  "text/plain", "8bit");
 			$mime .= $this->build_body();
 		}
-		// Wether or not to use SMTP or sendmail, depends on the config file (conf.php)
+		// Whether or not to use SMTP or sendmail
+		// depends on the config file (conf.php)
 		if ($this->smtp_server == "" || $this->smtp_port == "")
 			return (mail(join(", ", $this->to), $this->subject,  "", $mime));
 		else
