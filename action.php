@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.34 2001/04/19 19:32:06 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.35 2001/05/27 10:04:50 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -118,7 +118,7 @@ switch ($action)
 				$num_msg = 0;
 				require ('html/menu_inbox.php');
 				require ('html/html_top_table.php');
-				include ('no_mail.php");
+				include ('no_mail.php');
 				require ('html/html_bottom_table.php');
 				break;
 			default:
