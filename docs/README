@@ -103,11 +103,8 @@ Installing NOCC
 
        2) untar/unzip nocc into the directory you want.
 	  Default directory is nocc.
-
-       3) Follow the instructions in the nocc/docs/INSTALL file to properly
-          setup NOCC.  
-       
-       4) Change into the 'nocc' directory, make changes to the 
+      
+       3) Change into the 'nocc' directory, make changes to the 
           config file (conf.php.dist) and save the new one to conf.php
 	  (remove .dist in the file name)
 
@@ -118,7 +115,7 @@ Installing NOCC
 	   The file is fairly well documented, so you should be able to pick
 	   out what you need to change fairly easily.
 
-       5) (Optional step)
+       4) (Optional step)
 	  if you run with suEXEC, you'll need to run './addcgipath path' to add
 	  the parser line at the beginning of PHP files.
 
