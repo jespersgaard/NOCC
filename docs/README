@@ -144,12 +144,10 @@ specifically tested and are known to work)
 
 	* browsers: (some pages even pass the W3 Validator test available at
 'http://validator.w3.org/' and 256 colors setups are ok)
-	  - Netscape 4.x for Unix and Windows.
-	  - IE 5.x for Windows.
-	  - IE 4.x for Windows
+	  - Netscape 4.x, 6.x for Unix and Windows.
+	  - IE 4.x, 5.x for Windows.
 	  - Lynx 2.8.3.
-	  - Mozilla M18 for Linux and Windows.
-	  - K-Meleon 0.3.
+	  - Mozilla 0.x for Linux and Windows.
 	  - with or without cookies.
 
 	* mail servers: (Nocc should work with any IMAP/POP3 server, however,
