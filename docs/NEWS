@@ -1,5 +1,6 @@
 NOCC 0.9.6    ??
 
+    * Added Icelandic translation.
     * Fixed attachments bug [#509857]. Thanks crystalcyril.
     * Simplified handling of attachments, removed 'num_attach' stuff.
     * Switched from 'X-Mailer' header to 'User-Agent' [#547441]
