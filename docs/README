@@ -2,9 +2,9 @@ History:
 =======
 
 NOCC started as Epimail, a Webmail for our school as a free project.
-The first version were written in Perl because it was powerful, object features, adapted to the Web and available in our school. It also didn't require any superuser privileges.
+The first version was written in Perl because it was powerful, object features, adapted to the Web and available in our school. It also didn't require any superuser privileges.
 
-Webmail clients we found either required database support, superuser privileges or an IMAP server. We had neither of these and we wanted to have something quite simple to access a POP server and a SMTP server.
+Webmail clients we found either required database support, superuser privileges or an IMAP server. We had neither of these and we wanted to have something quite simple to access a POP server and an SMTP server.
 
 The Perl version was nice and is now released for your pleasure in GPL (some people already actually committed patches) but it won't work out-of-the-box, we don't have time to write doc neither maintain it anymore).
 
