@@ -17,6 +17,8 @@ Short term
 Long term
 ---------
 
+ - RFCs-compliant MIME library, etc.
+ - RFC 1894 support (Delivery Status Notification) (?).
  - Editable From and Reply-To addresses.
  - Dynamic Gzip support: allows live display compression, might speed up when
    connected though slow lines.
