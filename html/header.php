@@ -9,7 +9,7 @@
 			}
 		</script>
 	</head>
-	<body alink="<?php echo $glob_theme->alink_color?>" bgcolor="<?php echo $glob_theme->bgcolor ?>" link="<?php echo $glob_theme->link_color ?>" text="<?php echo $glob_theme->text_color ?>" vlink="<?php echo $glob_theme->vlink_color ?>">
+	<body dir=<?php echo $lang_dir> ? alink="<?php echo $glob_theme->alink_color?>" bgcolor="<?php echo $glob_theme->bgcolor ?>" link="<?php echo $glob_theme->link_color ?>" text="<?php echo $glob_theme->text_color ?>" vlink="<?php echo $glob_theme->vlink_color ?>">
 		<table border="0" width="100%">
 			<tr>
 				<td align="left" valign="middle" colspan="2">
