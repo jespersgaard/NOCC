@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.38 2000/12/11 00:33:36 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.39 2000/12/15 20:39:09 nicocha Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -132,7 +132,7 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 			$glob_body = base64_decode(imap_fetchbody($pop, $mail, $tmp["number"]));
 		else
 			$glob_body = imap_fetchbody($pop, $mail, $tmp["number"]);
-		$glob_body = remove_stuff($glob_body, $lang, $tmp["mime"]);			
+		$glob_body = remove_stuff($glob_body, $lang, $tmp["mime"]);
 	}
 	@imap_close($pop);
 	switch (sizeof($attach_tab))
@@ -290,9 +290,10 @@ function remove_stuff($body, $lang, $mime)
 		$body = eregi_replace("target=\"([[:alnum:]/\n+-=%&:_.~?]+[#[:alnum:]+]*)\"", "", $body);
 		$body = eregi_replace("href=\"([[:alnum:]/\n+-=%&:_.~?]+[#[:alnum:]+]*)\"","<A HREF=\"open.php?f=\\1&lang=$lang\" TARGET=_blank", $body);
 	}
-	else
+	elseif (eregi("plain", $mime))
 	{
 		$body = eregi_replace("(http|https|ftp)://([[:alnum:]/\n+-=%&:_.~?]+[#[:alnum:]+]*)","<A HREF=\"open.php?f=\\1://\\2&lang=$lang\" TARGET=_blank>\\1://\\2</a>", $body);
+		$body = nl2br($body);
 		if (function_exists('wordwrap'))
 			$body = wordwrap($body, 80, "\n");
 	}	
