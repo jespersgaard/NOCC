@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.108 2002/05/15 16:34:04 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.109 2002/05/20 16:46:14 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -41,6 +41,8 @@ $mail_bcc = safestrip($_REQUEST['mail_bcc']);
 $mail_subject = safestrip($_REQUEST['mail_subject']);
 $mail_body = safestrip($_REQUEST['mail_body']);
 $mail_att = $_FILES['mail_att'];
+$mail_receipt = isset($_REQUEST['receipt']);
+$mail_priority = safestrip($_REQUEST['priority']);
 
 switch($_REQUEST['sendaction'])
 {
