@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.26 2000/12/23 13:02:20 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.27 2000/12/28 15:48:39 nicocha Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -96,5 +96,5 @@ $html_msg = "Message";
 $html_msgs = "Messages";
 
 $original_msg = "-- Message Original --";
-$to_empty = "Le champ 'A' ne doit pas &ecirc;tre vide !";
+$to_empty = "Le champ 'A' ne doit pas être vide !";
 ?>
