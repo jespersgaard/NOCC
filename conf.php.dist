@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.12 2001/02/06 17:01:39 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.13 2001/02/06 19:04:58 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -181,7 +181,7 @@ $alink_color = "#0033cc";
 ################### Do not modify below this line ###################
 */
 
-$nocc_version = "0.9.2-dev";
+$nocc_version = "0.9.2";
 $nocc_name = "NOCC";
 
 session_register("user", "passwd", "server", "servtype", "port");
