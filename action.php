@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.127 2002/05/15 15:48:24 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.128 2002/05/15 15:50:01 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -79,7 +79,7 @@ switch($action)
 
     case 'write':
         // Add signature
-        $mail_body = "\r\n".$prefs_signature;
+        add_signature($mail_body);
 
         require ('./html/header.php');
         require ('./html/menu_inbox.php');
@@ -119,7 +119,7 @@ switch($action)
                 $mail_body = mailquote(strip_tags($content['body'], ''), $content['from'], $html_wrote);
 
         // Add signature
-        $mail_body .= "\r\n\r\n" . $prefs_signature;
+        add_signature($mail_body);
 
         // We add the attachments of the original message
         require ('./html/header.php');
@@ -152,7 +152,7 @@ switch($action)
             $mail_body = mailquote(strip_tags2($content['body'], ''), $content['from'], $html_wrote);
 
         // Add signature
-        $mail_body .= "\r\n".$prefs_signature;
+        add_signature($mail_body);
 
         // We add the attachments of the original message
         require ('./html/header.php');
@@ -175,7 +175,7 @@ switch($action)
         $mail_subject = $html_forward_short.': '.$content['subject'];
     
         // Add signature
-        $mail_body .= "\r\n".$prefs_signature;
+        add_signature($mail_body);
 
         // Let send.php know to attach the original message
         $forward_msgnum = $mail;
@@ -373,24 +373,10 @@ switch($action)
 */
 
             // Handle an errors that occurred
-            if (Exception::isException($lastev)) {
+            if (Exception::isException($lastev))
                 $ev = $lastev;
-                require ('./html/header.php');
-                require ('./html/menu_prefs.php');
-                require ('./html/prefs.php');
-                require ('./html/folders.php');
-                require ('./html/menu_prefs.php');
-                require ('./html/footer.php');
-                break;
-            }
-
         }
-        $msg_per_page = getPref('msg_per_page');
-        $cc_self = getPref('cc_self');
-        $hide_addresses = getPref('hide_addresses');
-        $outlook_quoting = getPref('outlook_quoting');
-        $reply_leadin = getPref('leadin');
-        $signature = getPref('signature');
+
         require ('./html/header.php');
         require ('./html/menu_prefs.php');
         require ('./html/prefs.php');
@@ -464,6 +450,12 @@ switch($action)
         $pop->close();
 
         break;
+}
+
+function add_signature(&$body) {
+    $prefs_signature = getPref('signature');
+    if(!empty($prefs_signature))
+        $body .= "\r\n" . $prefs_signature;
 }
 
 ?>

@@ -12,7 +12,7 @@ $prefs_reply_leadin = getPref('leadin');
 $prefs_signature = getPref('signature');
 
 ?>
-<!-- start of $Id: prefs.php,v 1.18 2002/05/15 13:54:52 rossigee Exp $ -->
+<!-- start of $Id: prefs.php,v 1.19 2002/05/15 15:48:24 rossigee Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -76,10 +76,11 @@ $prefs_signature = getPref('signature');
                 <tr>
                     <td align="center" colspan="2">
                         <?php
-                            if(!Exception::isException($lastev) && isset($_REQUEST['submit_prefs']) )
-                                echo '<p class="prefs">'.$html_prefs_updated.'</p>';
+                            if(Exception::isException($ev))
+                                echo '<p class="prefs">'.$html_error_occurred.' : '.$ev->getMessage().'</p>';
                             else
-                                echo '<p class="prefs">'.$html_error_occurred.' : '.$lastev->getMessage().'</p>';
+                                if(isset($_REQUEST['submit_prefs']))
+                                    echo '<p class="prefs">'.$html_prefs_updated.'</p>';
                         ?>
                         <table bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%" cellspacing="0" cellpadding="0" border="0">
                             <tr>
@@ -98,4 +99,4 @@ $prefs_signature = getPref('signature');
         </td>
     </tr>
 </table>
-<!-- end of $Id: prefs.php,v 1.18 2002/05/15 13:54:52 rossigee Exp $ -->
+<!-- end of $Id: prefs.php,v 1.19 2002/05/15 15:48:24 rossigee Exp $ -->
