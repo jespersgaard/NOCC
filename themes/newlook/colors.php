@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/themes/newlook/colors.php,v 1.1 2001/03/20 09:52:39 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/themes/newlook/colors.php,v 1.2 2001/03/22 10:46:37 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -15,7 +15,7 @@
 // ################### color configuration ################### //
 
 // Color on the pages background - default is "white"
-$glob_theme->bgcolor = "\"#ffffff\" background=\"themes/newlook/img/bg.gif";
+$glob_theme->bgcolor = "#ffffff\" background=\"themes/newlook/img/bg.gif";
 
 // Color of the login box border - default is "black"
 $glob_theme->login_border = "#000000";
