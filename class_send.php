@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.41 2001/06/25 08:45:07 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.42 2001/10/18 23:30:48 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -147,6 +147,10 @@ class mime_mail
 		$mime .= 'X-Priority: ' . $this->priority . $this->crlf;
 		if (!empty($this->headers))
 			$mime .= $this->headers . $this->crlf;
+
+		// remove slashes before encoding
+		$this->body = stripslashes($this->body);
+
 		if (sizeof($this->parts) >= 1)
 		{
 			$this->add_attachment($this->body,  '',  'text/plain', 'quoted-printable', $this->charset);
