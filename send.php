@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.65 2001/06/21 12:44:17 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.66 2001/07/18 11:32:55 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,6 +12,7 @@
 require ('conf.php');
 require ('check_lang.php');
 require ('functions.php');
+require ('prefs.php');
 
 if (!session_is_registered('loggedin') && $loggedin)
 	header("Location: logout.php?lang=$lang");

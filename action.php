@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.49 2001/07/12 17:25:34 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.50 2001/10/17 22:51:44 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -54,15 +54,37 @@ switch (trim($action))
 		require ('html/html_mail_bottom.php');
 		require ('html/menu_mail.php');
 		break;
+
 	case 'logout':
 		header("Location: logout.php?lang=$lang&$php_session=".$$php_session);
 		break;
+
 	case 'write':
+		// Get preferences
+		$full_name = getPref($prefs_dir, $user, 'full_name');
+		$email_address = getPref($prefs_dir, $user, 'email_address');
+		$signature = getSig($prefs_dir, $user);
+
+		// Default address and reply-to fields, if available
+		if($email_address == "") {
+			$email_address = $user."@".$domain;
+		}
+		if($full_name != "") {
+			$mail_from = $full_name." <".$email_address.">";
+		}
+		else {
+			$mail_from = $email_address;
+		}
+
+		// Add signature
+		$mail_body .= "\n".$signature;
+
 		$num_attach = 0;
 		require ('html/menu_inbox.php');
 		require ('html/send.php');
 		require ('html/menu_inbox.php');
 		break;
+
 	case 'reply':
 		$content = aff_mail($servr, $user, stripslashes($passwd), $folder, $mail, 0, $lang, $sort, $sortdir);
 		$mail_to = !empty($content['reply_to']) ? $content['reply_to'] : $content['from'];
@@ -80,6 +102,7 @@ switch (trim($action))
 		require ('html/send.php');
 		require ('html/menu_inbox.php');
 		break;
+
 	case 'reply_all':
 		$content = aff_mail($servr, $user, stripslashes($passwd), $folder, $mail, 0, $lang, $sort, $sortdir);
 		$mail_to = get_reply_all($user, $domain, $content['from'], $content['to'], $content['cc']);
@@ -96,6 +119,7 @@ switch (trim($action))
 		require ('html/send.php');
 		require ('html/menu_inbox.php');
 		break;
+
 	case 'forward':
 		$content = aff_mail($servr, $user, stripslashes($passwd), $folder, $mail, 0, $lang, $sort, $sortdir);
 		$mail_subject = $html_forward_short.': '.$content['subject'];
@@ -108,6 +132,7 @@ switch (trim($action))
 		require ('html/send.php');
 		require ('html/menu_inbox.php');
 		break;
+
 	case 'setprefs':
 		if(isset($submit_prefs)) {
 			if (isset($full_name)) {
@@ -128,6 +153,7 @@ switch (trim($action))
 		require ('html/prefs.php');
 		require ('html/menu_prefs.php');
 		break;
+
 	default:
 		// Default we display the mailbox
 		$tab_mail = inbox($servr, $user, stripslashes($passwd), $folder, $sort, $sortdir, $lang, $theme);
