@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.67 2004/09/13 18:40:37 goddess_skuld Exp $ -->
+<!-- start of $Id: send.php,v 1.68 2004/09/28 16:54:54 goddess_skuld Exp $ -->
 <?php
 
 // Default e-mail address on send form
@@ -33,7 +33,7 @@ $mail_from = get_default_from_address();
                 </tr>
                 <tr>
                     <?php if (isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
-                        <td align="right" class="inbox"><a href="javascript:void(0);" onClick="window.open('contacts.php?field=mail_to&<? echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_to ?></a> : </td>
+                        <td align="right" class="inbox"><a href="javascript:void(0);" onClick="window.open('contacts.php?field=mail_to&<?php echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_to ?></a> : </td>
                     <?php } else { ?>
                         <td align="right" class="inbox"><?php echo $html_to ?> : </td>
                     <?php } ?>
@@ -41,7 +41,7 @@ $mail_from = get_default_from_address();
                 </tr>
                 <tr>
                     <?php if (isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
-                        <td align="right" class="inbox"><a href="javascript:void(0);" onClick="window.open('contacts.php?field=mail_cc&<? echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_cc ?></a> : </td>
+                        <td align="right" class="inbox"><a href="javascript:void(0);" onClick="window.open('contacts.php?field=mail_cc&<?php echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_cc ?></a> : </td>
                     <?php } else { ?>
                         <td align="right" class="inbox"><?php echo $html_cc ?> : </td>
                     <?php } ?>
@@ -49,7 +49,7 @@ $mail_from = get_default_from_address();
                 </tr>
                 <tr>
                     <?php if (isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
-                        <td align="right" class="inbox"><a href="javascript:void(0);" onClick="window.open('contacts.php?field=mail_bcc&<? echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_bcc ?></a> : </td>
+                        <td align="right" class="inbox"><a href="javascript:void(0);" onClick="window.open('contacts.php?field=mail_bcc&<?php echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_bcc ?></a> : </td>
                     <?php } else { ?>
                         <td align="right" class="inbox"><?php echo $html_bcc ?> : </td>
                     <?php } ?>
@@ -180,4 +180,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.67 2004/09/13 18:40:37 goddess_skuld Exp $ -->
+<!-- end of $Id: send.php,v 1.68 2004/09/28 16:54:54 goddess_skuld Exp $ -->

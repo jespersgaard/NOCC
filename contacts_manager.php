@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.11 2004/06/30 17:52:43 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.12 2004/08/06 14:56:56 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -39,7 +39,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
 function prompt_delete (email, id)
 {
 	if (confirm("<?php echo $html_delete ?> `" + email + "' <?php echo $html_contact_del ?> ?")) {
-	 		var url = "<? echo $_SERVER['PHP_SELF'] . "?" . $query_str ?>&action=delete&id=" + id;
+	 		var url = "<?php echo $_SERVER['PHP_SELF'] . "?" . $query_str ?>&action=delete&id=" + id;
 			document.location.href = url;
 		}
 }
@@ -69,7 +69,7 @@ switch($action){
 	    $tab = array_pad(explode ("\t",$contacts[$_GET['id']]), -4, "");
       }
 	?>
-<form name="form2" method="post" action="<? echo $_SERVER['PHP_SELF'] . "?" . $query_str ?>&amp;action=add">
+<form name="form2" method="post" action="<?php echo $_SERVER['PHP_SELF'] . "?" . $query_str ?>&amp;action=add">
   <table border="0" align="center" cellpadding="3" bgcolor="<?php echo $glob_theme->inside_color ?>">
     <tr align="center">
       <td colspan="2" class="menu" bgcolor="<?php echo $glob_theme->menu_color ?>"><font><b><?php echo $html_contact_list . " " . $_SESSION["nocc_user"]; ?></b></font></td>
@@ -103,15 +103,15 @@ switch($action){
     </tr>
     <tr>
       <td colspan="2" align="center"><input type="button" name="Submit2" value="<?php echo $html_cancel ?>" class="button" onClick="self.history.go (-1);">
-        <input type="hidden" name="modif" value="<? echo $_GET['modif'] ?>">
-        <input type="hidden" name="id" value="<? if (!isset($_GET['id'])) {echo '0';} else {echo $_GET['id'];} ?>">
+        <input type="hidden" name="modif" value="<?php echo $_GET['modif'] ?>">
+        <input type="hidden" name="id" value="<?php if (!isset($_GET['id'])) {echo '0';} else {echo $_GET['id'];} ?>">
         <input type="submit" name="Submit4" value="<?php echo ($_GET['modif']) ?  $html_modify : $html_add ?>" class="button"></td>
     </tr>
     <?php } else  { ?>
     <tr align="center">
       <td colspan="2"  class="inbox"><p><font color="#FF0000"><?php echo $html_contact_err1 ."\"" . $conf->contact_number_max . "\"" ?><br>
           <?php echo $html_contact_err2 ?>.</font></p>
-        <p><a href="<? echo $_SERVER['PHP_SELF']; ?>"><? echo $html_back; ?></a></p>
+        <p><a href="<?php echo $_SERVER['PHP_SELF']; ?>"><?php echo $html_back; ?></a></p>
         </td>
     </tr>
     <?php } ?>
@@ -163,7 +163,7 @@ switch($action){
 			echo "<script language=\"JavaScript\">self.history.go (-1)</script>";
 		}
 	?>
-	<script language="JavaScript">self.location.href="<? echo $_SERVER['PHP_SELF'] . "?" . $query_str ?>";</script>
+	<script language="JavaScript">self.location.href="<?php echo $_SERVER['PHP_SELF'] . "?" . $query_str ?>";</script>
 <?
 		;
 		break;
@@ -204,7 +204,7 @@ switch($action){
     <td><span style="color:<?php echo ($i % 2) ? "#ffffff" : "#000000" ?>"><?php echo ($tab[1]) ? $tab[1] : "&nbsp;"; ?></span></td>
     <td><span style="color:<?php echo ($i % 2) ? "#ffffff" : "#000000" ?>"><?php echo ($tab[2]) ? $tab[2] : "&nbsp;"; ?></span></td>
     <td><span style="color:<?php echo ($i % 2) ? "#ffffff" : "#000000" ?>"><?php echo $tab[3]; ?></span></td>
-    <td><input type="button" name="Submit5" value="<?php echo $html_modify ?>" class="button" onClick="self.location.href='<? echo $_SERVER['PHP_SELF'] . "?" . $query_str ?>&amp;action=add_prompt&amp;id=<?php echo $i ?>&amp;modif=1'">
+    <td><input type="button" name="Submit5" value="<?php echo $html_modify ?>" class="button" onClick="self.location.href='<?php echo $_SERVER['PHP_SELF'] . "?" . $query_str ?>&amp;action=add_prompt&amp;id=<?php echo $i ?>&amp;modif=1'">
     </td>
     <td><input type="button" name="Submit" value="<?php echo $html_delete ?>" class="button" onClick="prompt_delete ('<?php echo $tab[3] ?>', <?php echo $i ?>)">
     </td>
@@ -214,7 +214,7 @@ switch($action){
 ?>
 </table>
 
-<p align="center"><a href="<? echo $_SERVER['PHP_SELF'];; ?>?action=add_prompt&amp;<?php echo $query_str ?>"><font face="Verdana, Arial, Helvetica, sans-serif"><b><?php echo $html_contact_add ?></b></font></a></p>
+<p align="center"><a href="<?php echo $_SERVER['PHP_SELF'];; ?>?action=add_prompt&amp;<?php echo $query_str ?>"><font face="Verdana, Arial, Helvetica, sans-serif"><b><?php echo $html_contact_add ?></b></font></a></p>
     <?	;
 } // switch
 ?>

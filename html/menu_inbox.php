@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox.php,v 1.46 2004/06/22 11:25:27 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.47 2004/06/22 20:18:19 goddess_skuld Exp $ -->
 <?php
 $color_inbox = $color = $glob_theme->menu_color;
 $action = "";
@@ -42,7 +42,7 @@ elseif ($action == 'forward')
                     </td>
                     <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
                       <td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="javascript:void(0);" class="menu" onClick="window.open('contacts_manager.php?<? echo session_name() . '=' .   session_id() ?>','','scrollbars=yes,resizable=yes,width=600,height=400')"><?php echo $html_contacts ?></a>
+                        <a href="javascript:void(0);" class="menu" onClick="window.open('contacts_manager.php?<?php echo session_name() . '=' .   session_id() ?>','','scrollbars=yes,resizable=yes,width=600,height=400')"><?php echo $html_contacts ?></a>
                       </td>
                     <?php } ?>
                     <?php if($conf->prefs_dir) { ?>
@@ -60,4 +60,4 @@ elseif ($action == 'forward')
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_inbox.php,v 1.46 2004/06/22 11:25:27 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_inbox.php,v 1.47 2004/06/22 20:18:19 goddess_skuld Exp $ -->

@@ -1,5 +1,7 @@
 NOCC 0.9.7    ?? ??, 2004
 
+    * Moved (again) <? to <?php, better compatibility when short tags are
+      disabled (Arnaud Boudou, bug #1039217).
     * In mail list, clicking on the sender email and/or name now open a new
       mail window with the "To:" field filled with the email address (Arnaud
       Boudou).

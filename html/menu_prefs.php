@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_prefs.php,v 1.20 2002/06/27 22:17:52 rossigee Exp $ -->
+<!-- start of $Id: menu_prefs.php,v 1.21 2004/06/22 20:18:20 goddess_skuld Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -8,14 +8,14 @@
                         <a href="<?php echo $_SERVER['PHP_SELF'] ?>" class="menu"><?php echo $_SESSION['nocc_folder'] ?></a>
                     </td>
                     <td class="menu" align="center" width="120" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="<? echo $_SERVER['PHP_SELF'] ?>?action=write" class="menu"><?php echo $html_new_msg ?></a>
+                        <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=write" class="menu"><?php echo $html_new_msg ?></a>
                     </td>
                     <td width="*" bgcolor="<?php echo $glob_theme->menu_color ?>">
                         <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/spacer.gif" height="1" width="1" alt="" />
                     </td>
                     <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
                       <td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="javascript:void(0);" class="menu" onClick="window.open('contacts_manager.php?<? echo session_name() . '=' .   session_id() ?>','','scrollbars=yes,resizable=yes,width=600,height=400')"><?php echo $html_contacts ?></a>
+                        <a href="javascript:void(0);" class="menu" onClick="window.open('contacts_manager.php?<?php echo session_name() . '=' .   session_id() ?>','','scrollbars=yes,resizable=yes,width=600,height=400')"><?php echo $html_contacts ?></a>
                       </td>
                     <?php } ?>
                     <td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color_on ?>">
@@ -31,4 +31,4 @@
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_prefs.php,v 1.20 2002/06/27 22:17:52 rossigee Exp $ -->
+<!-- end of $Id: menu_prefs.php,v 1.21 2004/06/22 20:18:20 goddess_skuld Exp $ -->
