@@ -8,7 +8,7 @@
  * See the enclosed file COPYING for license information (GPL).  If you
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
- * Configuration file for the Slovak language
+ * Configuration file for the english language
  * Translation by Peter Sochna <sochna@telecom.sk>
  */
 
@@ -49,10 +49,10 @@ $alt_delete = "Vymazaª oznaËenÈ spr·vy";
 $alt_delete_one = "Vymazaªù spr·vu";
 $alt_new_msg = "Nov· spr·vy";
 $alt_reply = "Odpovedaª autorovi";
-$alt_reply_all = "Odpovedaª vöetk˝m";
+$alt_reply_all = "Odpovedaª vπetk˝m";
 $alt_forward = "Preposlaª";
-$alt_next = "œalöia spr·va";
-$alt_prev = "Predoöl· spr·va";
+$alt_next = "œalπia spr·va";
+$alt_prev = "Predoπl· spr·va";
 $html_on = "on";
 $html_theme = "Theme";
 
@@ -76,7 +76,7 @@ $html_inbox = "PrijatÈ spr·vy";
 $html_new_msg = "Poslaª spr·vu";
 $html_reply = "Odpovedaª";
 $html_reply_short = "Re";
-$html_reply_all = "Odpovedaª vöetk˝m";
+$html_reply_all = "Odpovedaª vπetk˝m";
 $html_forward = "Preposlaª";
 $html_forward_short = "Fw";
 $html_delete = "Vymazaª";
@@ -86,7 +86,7 @@ $html_att = "Attachment";
 $html_atts = "Attachmenty";
 $html_att_unknown = "[nezn·my]";
 $html_attach = "Pripojiª attachment";
-$html_attach_forget = "Pred poslanÌm spr·vy musÌte pripojiª v·ö attachment !";
+$html_attach_forget = "Pred odoslanÌm spr·vy musÌte pripojiª v·π attachment !";
 $html_attach_delete = "Odstr·Ú oznaËenÈ";
 $html_from = "Odosielateµ";
 $html_subject = "Nadpis";
@@ -102,7 +102,7 @@ $html_cc = "KÛpia";
 $html_bcc = "Tajn· kÛpia";
 $html_nosubject = "Æiaden nadpis";
 $html_send = "Poslaª";
-$html_cancel = "Zruöiª";
+$html_cancel = "Zruπiª";
 $html_no_mail = "Æiadne spr·vy.";
 $html_logout = "Odhl·senie";
 $html_msg = "Spr·va";
