@@ -9,7 +9,7 @@ $is_Imap = (ereg("IMAP", $servr)) ? 1 : 0;
 <table width="100%" cellpadding="2" cellspacing="1" border="0" bgcolor="<? echo $html_inside_color ?>">
 	<tr bgcolor="<? echo $html_tr_color ?>">
 		<td <? if ($is_Imap) echo "colspan=\"4\""; else echo "colspan=\"3\""; ?>align="left" class="titlew">
-			<B><? echo $html_inbox ?></B></FONT>
+			<B><? echo $folder ?></B></FONT>
 		</TD>
 		<TD align="right" nowrap class="titlew">
 			<? echo $current_date ?>
