@@ -1,6 +1,6 @@
 <?
 /*
- * $Header$
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.18 2000/11/24 22:01:52 wolruf Exp $
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -20,6 +20,7 @@ $ip = getenv("REMOTE_ADDR");
 $mail = new mime_mail();
 $mail->smtp_server = $smtp_server;
 $mail->smtp_port = $smtp_port;
+$mail->charset = $charset;
 $mail->from = $from;
 $mail->headers = "X-Originating-Ip: [".$ip."]\nX-Mailer: ".$nocc_name." v".$nocc_version;
 $mail->to = cut_address($to);
