@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.13 2001/11/28 14:54:51 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.14 2001/11/30 18:39:13 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -21,14 +21,14 @@ if (!session_is_registered('prefs_are_cached'))
 
 function cachePrefValues($username)
 {
-	global $prefs_dir, $prefs_are_cached, $prefs_cache;
-	   
-	if (!$prefs_dir)
+	global $conf, $prefs_are_cached, $prefs_cache;
+	
+	if (!$conf->prefs_dir)
 		return;
 	if ($prefs_are_cached)
 		return;
 	
-	$filename = $prefs_dir . $username . '.pref';
+	$filename = $conf->prefs_dir . $username . '.pref';
 	if (file_exists($filename))
 	{
 		$file = fopen($filename, 'r');
@@ -37,7 +37,7 @@ function cachePrefValues($username)
 			error_log("Could not open $filename for reading.");
 			return;
 		}
-
+		
 		/** read in all the preferences **/
 		$highlight_num = 0;
 		while (! feof($file))
@@ -71,7 +71,7 @@ function cachePrefValues($username)
 /** returns the value for $string **/
 function getPref($string)
 {
-	global $prefs_dir, $user, $domain, $prefs_cache;
+	global $conf, $user, $domain, $prefs_cache;
 	
 	$username = $user.'@'.$domain;
 	cachePrefValues($username);
@@ -84,9 +84,9 @@ function getPref($string)
 
 function savePrefValues($username)
 {
-	global $prefs_dir, $prefs_cache, $html_prefs_file_error;
+	global $conf, $prefs_cache, $html_prefs_file_error;
 
-	$filename = $prefs_dir . $username . '.pref';
+	$filename = $conf->prefs_dir . $username . '.pref';
 	if(file_exists($filename) && !is_writable($filename))
 		return (new Exception($html_prefs_file_error));
 	$file = fopen($filename, 'w');
@@ -118,7 +118,7 @@ function removePref($username, $string)
 /** sets the pref, $string, to $set_to **/
 function setPref($string, $set_to)
 {
-	global $prefs_dir, $user, $domain, $prefs_cache;
+	global $conf, $user, $domain, $prefs_cache;
 
 	$username = $user.'@'.$domain;
 	cachePrefValues($username);
@@ -136,10 +136,10 @@ function setPref($string, $set_to)
 /** [Remove in NOCC-1.0] Writes the Signature **/
 function setSig($string)
 {
-	global $prefs_dir, $user, $domain, $html_sig_file_error;
+	global $conf, $user, $domain, $html_sig_file_error;
 
 	$username = $user . '@' . $domain;
-	$filename = $prefs_dir . $username . '.sig';
+	$filename = $conf->prefs_dir . $username . '.sig';
 	if(file_exists($filename) && !is_writable($filename))
 		return new Exception($html_sig_file_error);
 	$file = fopen($filename, 'w');
@@ -152,9 +152,9 @@ function setSig($string)
 /** [Remove in NOCC-1.0] Gets the signature **/
 function getSig()
 {
-	global $prefs_dir, $user, $domain;
+	global $conf, $user, $domain;
 	$username = $user.'@'.$domain;
-	$filename = $prefs_dir . $username . '.sig';
+	$filename = $conf->prefs_dir . $username . '.sig';
 	$sig = '';
 	if (file_exists($filename))
 	{
@@ -174,9 +174,9 @@ function getSig()
 /** [Remove in NOCC-1.0] Deletes the signature **/
 function deleteSig()
 {
-	global $prefs_dir, $user, $domain;
+	global $conf, $user, $domain;
 	$username = $user.'@'.$domain;
-	$filename = $prefs_dir . $username . '.sig';
+	$filename = $conf->prefs_dir . $username . '.sig';
 	if (file_exists($filename))
 		unlink($filename);
 }
