@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.35 2001/05/31 09:54:37 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.36 2001/05/31 10:55:11 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -38,7 +38,7 @@ class mime_mail
 		$this->subject =  '';
 		$this->body =  '';
 		$this->headers =  '';
-		$this->crlf = stristr($OS, 'Windows') ? "\r\n" : "\n";
+		$this->crlf = '';
 	}
 
   /*

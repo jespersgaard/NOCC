@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.83 2001/05/29 08:51:53 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.84 2001/05/31 09:55:03 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -18,7 +18,7 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang, $theme)
 	$mailhost = $servr;
 	require('conf.php');
 
-	$pop = @imap_open('{'.$mailhost.'}'.$folder, $user, $passwd);
+	$pop = @imap_open('{' . $mailhost . '}' . $folder, $user, $passwd);
 	if ($pop == false)
 		return (-1);
 	else
@@ -53,7 +53,7 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang, $theme)
 					if ($struct_msg->subtype == 'ALTERNATIVE' || $struct_msg->subtype == 'RELATED')
 						$attach = '&nbsp;';
 					else
-						$attach = '<img src="themes/'.$theme.'/img/attach.gif" height="28" width="27" alt="" />';
+						$attach = '<img src="themes/' . $theme . '/img/attach.gif" height="28" width="27" alt="" />';
 				}
 				else
 					$attach = '&nbsp;';
@@ -80,7 +80,7 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang, $theme)
 					$new_mail_from_header = '&nbsp;';
 				}
 				if ($new_mail_from_header == '')
-					$newmail = '<img src="themes/'.$theme.'/img/new.gif" alt="" height="17" width="17" />';
+					$newmail = '<img src="themes/' . $theme . '/img/new.gif" alt="" height="17" width="17" />';
 				else
 					$newmail = '&nbsp;';
 				$msg_list[$i] =  Array(
@@ -117,7 +117,7 @@ function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort
 	if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
 		$default_date_format = $no_locale_date_format;
 	$current_date = strftime($default_date_format, time());
-	$pop = @imap_open('{'.$mailhost.'}'.$folder, $user, $passwd);
+	$pop = @imap_open('{' . $mailhost . '}' . $folder, $user, $passwd);
 	// Finding the next and previous message number
 	$sorted = imap_sort($pop, $sort, $sortdir);
 	for ($i = 0; $i < sizeof($sorted); $i++)
@@ -163,10 +163,10 @@ function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort
 				$link_att = '';
 				break;
 			case 1:
-				$link_att = '<tr><td align="right" valign="top" class="mail">'.$html_att.'</td><td bgcolor="'.$glob_theme->mail_properties.'" class="mail">'.link_att($mailhost, $mail, $attach_tab, $display_part_no).'</td></tr>';
+				$link_att = '<tr><td align="right" valign="top" class="mail">' . $html_att . '</td><td bgcolor="' . $glob_theme->mail_properties . '" class="mail">' . link_att($mailhost, $mail, $attach_tab, $display_part_no) . '</td></tr>';
 				break;
 			default:
-				$link_att = '<tr><td align="right" valign="top" class="mail">'.$html_atts.'</td><td bgcolor="'.$glob_theme->mail_properties.'" class="mail">'.link_att($mailhost, $mail, $attach_tab, $display_part_no).'</td></tr>';
+				$link_att = '<tr><td align="right" valign="top" class="mail">' . $html_atts . '</td><td bgcolor="' . $glob_theme->mail_properties . '" class="mail">' . link_att($mailhost, $mail, $attach_tab, $display_part_no) . '</td></tr>';
 				break;
 		}
 	}
@@ -228,14 +228,14 @@ function GetPart($this_part, $part_no, $display_rfc822)
 			for ($i = 0; $i < count($this_part->parts); $i++)
 			{
 				if ($part_no != '')
-					$part_no = $part_no.'.';
+					$part_no = $part_no . '.';
 				for ($i = 0; $i < count($this_part->parts); $i++)
 				{
 					// if it's an alternative, we skip the text part to only keep the HTML part
 					if ($this_part->subtype == ALTERNATIVE)// && $read == true)
-						GetPart($this_part->parts[++$i], $part_no.($i + 1), $display_rfc822);
+						GetPart($this_part->parts[++$i], $part_no . ($i + 1), $display_rfc822);
 					else 
-						GetPart($this_part->parts[$i], $part_no.($i + 1), $display_rfc822);
+						GetPart($this_part->parts[$i], $part_no . ($i + 1), $display_rfc822);
 				}
 			}
 			break;
@@ -245,9 +245,9 @@ function GetPart($this_part, $part_no, $display_rfc822)
 			$num_parts = count($this_part->parts[0]->parts);
 			if ($num_parts > 0)
 				for ($i = 0; $i < $num_parts; $i++)
-					GetPart($this_part->parts[0]->parts[$i], $part_no.".".($i + 1), $display_rfc822);
+					GetPart($this_part->parts[0]->parts[$i], $part_no . '.' . ($i + 1), $display_rfc822);
 			else
-				GetPart($this_part->parts[0], $part_no.'.1', $display_rfc822);
+				GetPart($this_part->parts[0], $part_no . '.1', $display_rfc822);
 			break;
 		// Maybe we can do something with the mime types later ??
 		case TYPEAPPLICATION:
@@ -268,7 +268,7 @@ function GetPart($this_part, $part_no, $display_rfc822)
 		default:
 			$mime_type = 'unknown';
 	}
-	$full_mime_type = $mime_type.'/'.$this_part->subtype;
+	$full_mime_type = $mime_type . '/' . $this_part->subtype;
 	switch ($this_part->encoding)
 	{
 		case ENC7BIT:
@@ -411,9 +411,9 @@ function link_att($servr, $mail, $tab, $display_part_no)
 			$mime = str_replace('/', '-', $tmp['mime']);
 			$link .= '<tr>';
 			if ($display_part_no == true)
-				$link .= "<td class='inbox'>".$tmp["number"]."</td>";
-			$att_name = imap_mime_header_decode($tmp["name"]);
-			$link .="<td class=\"inbox\"><a href=\"download.php?mail=".$mail."&amp;part=".$tmp["number"]."&amp;transfer=".$tmp["transfer"]."&amp;filename=".urlencode($att_name[0]->text)."&amp;mime=".$mime."\">".htmlentities($att_name[0]->text)."</a></td><td class=\"inbox\">".$tmp["mime"]."</td><td class=\"inbox\">".$tmp["size"]." kb</td></tr>";
+				$link .= '<td class="inbox">' . $tmp['number'] . '</td>';
+			$att_name = imap_mime_header_decode($tmp['name']);
+			$link .= '<td class="inbox"><a href="download.php?mail=' . $mail . '&amp;part=' . $tmp['number'] . '&amp;transfer=' . $tmp['transfer'] . '&amp;filename=' . urlencode($att_name[0]->text) . '&amp;mime=' . $mime . '">' . htmlentities($att_name[0]->text) . '</a></td><td class="inbox">' . $tmp['mime'] . '</td><td class="inbox">' . $tmp['size'] . ' kb</td></tr>';
 		}
 	$link .= '</table>';
 	return ($link);
@@ -516,7 +516,7 @@ function save_attachment($servr, $user, $passwd, $folder, $mail, $tmpdir)
 		elseif ($tmp['transfer'] == 'BASE64')
 			$file = base64_decode($file);
 		$filename = 'NOCC_TMP'.md5(uniqid(time()));
-		$fp = fopen($tmpdir.'/'.$filename, 'w');
+		$fp = fopen($tmpdir . '/' . $filename, 'w');
 		fwrite($fp, $file);
 		fclose($fp);
 		$attach_array[$i]->file_name = $tmp['name'];
@@ -532,7 +532,7 @@ function save_attachment($servr, $user, $passwd, $folder, $mail, $tmpdir)
 
 function view_part($servr, $user, $passwd, $folder, $mail, $part_no, $transfer, $msg_charset, $charset)
 {
-	$pop = imap_open('{'.$servr.'}'.$folder, $user, $passwd);
+	$pop = imap_open('{' . $servr . '}' . $folder, $user, $passwd);
 	$text = imap_fetchbody($pop, $mail, $part_no);
 	if ($transfer == 'BASE64')
 		$str = nl2br(imap_base64($text));
@@ -549,12 +549,12 @@ function view_part($servr, $user, $passwd, $folder, $mail, $part_no, $transfer, 
 
 function encode_mime($string, $charset)
 { 
-	$text = '=?'.$charset.'?Q?'; 
+	$text = '=?' . $charset . '?Q?'; 
 	for($i = 0; $i < strlen($string); $i++ )
 	{ 
 		$val = ord($string[$i]); 
 		$val = dechex($val); 
-		$text .= '='.$val; 
+		$text .= '=' . $val; 
 	} 
 	$text .= '?='; 
 	return ($text); 
@@ -585,6 +585,17 @@ function is_Imap($servr)
 	if (stristr($servr, '/nntp:'))
 		return (false);
 	return (true);
+}
+
+/* ----------------------------------------------------- */
+
+// This function returns the CRLF depending on the OS and
+// the way to send messages
+function get_crlf($smtp)
+{
+	$crlf = stristr($OS, 'Windows') ? "\r\n" : "\n";
+	$crlf = $smtp ? "\r\n" : $crlf;
+	return ($crlf);
 }
 
 /* ----------------------------------------------------- */
