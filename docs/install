@@ -5,9 +5,9 @@ Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
 This code is licensed under the GNU Public License.
 See the file COPYING in this directory.
 
-$Author: bjn $
-$Revision: 1.1.2.26 $
-$Date: 2000/09/19 14:53:14 $
+$Author: nicocha $
+$Revision: 1.1 $
+$Date: 2000/10/29 22:55:01 $
 
 +++++++++
 Overview:
@@ -75,6 +75,32 @@ Installing NOCC:
            different server, etc... The file is fairly well documented, so
            you should be able to pick out what you need to change fairly
            easily.
+
+
++++++++++++++++++
+Additional notes:
++++++++++++++++++
+
+NOCC has been tested with:
+
+ - servers:
+   + Apache with PHP compiled as module and CGI,
+   + Apache 1.3.x,
+   + PHP 4.0.3pl1, 4.0.4-dev,
+   + PHP running through via a wrapper: suEXEC,
+   + various OS including GNU/Linux, NetBSD, OpenBSD and Windows 2000.
+
+ - browsers:
+   + Netscape 4.x for Unix and Windows,
+   + IE 5.x for Windows,
+   + Lynx,
+   + Mozilla M18 for Linux and Windows,
+   + with or without cookies.
+
+NOCC has been used for many months at:
+
+ - a company with approx. 150 unique users/day,
+ - a school with also 150 unique users/day.
 
 ----------------------------------------------------------------------
 We hope you find NOCC useful and easy to use.  We thank you for taking
