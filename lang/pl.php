@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.9 2001/11/07 18:51:51 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.10 2001/11/09 17:05:57 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -132,6 +132,9 @@ $html_select_all = 'Zaznacz wszystko';
 $html_loading_image = '£adowanie obrazka';
 $html_send_confirmed = 'Twoja wiadomo¶æ zosta³a wys³ana';
 $html_no_sendaction = 'Nie okre¶lona akcja. Spróbuj w³±czyæ Javascript.';
+$html_error_occurred = 'An error occurred';
+$html_prefs_file_error = 'Unable to open preferences file for writing.';
+$html_sig_file_error = 'Unable to open signature file for writing.';
 
 $original_msg = '--- Wiadomo¶æ oryginalna ---';
 $to_empty = 'Pole \'Do\' nie mo¿e byæ puste!';

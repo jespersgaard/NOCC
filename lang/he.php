@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/he.php,v 1.2 2001/04/17 21:55:37 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/he.php,v 1.3 2001/05/27 15:02:33 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,12 +9,7 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
  * Configuration file for the hebrew language
- * 
  * By Tzafrir Cohen <tzafrir@technion.ac.il>
- *
- * This is still experimental, and not tested enough. Comments would be
- * welcomed [tzafrir]
- *
  */
 
 // While it could be claimed that using UTF-8 is the Right Thing , it is still
@@ -76,6 +71,19 @@ $html_server = 'שרת';
 $html_wrong = 'שם המשתמש או הסיסמה שגויים';
 $html_retry = 'נסיון נוסף';
 
+// prefs.php
+
+$html_preferences = 'Preferences';
+$html_full_name = 'Full name';
+$html_email_address = 'E-mail Address';
+$html_ccself = 'Cc self';
+$html_hide_addresses = 'Hide addresses';
+$html_outlook_quoting = 'Outlook-style quoting';
+$html_reply_to = 'Reply to';
+$html_use_signature = 'Use signature';
+$html_signature = 'Signature';
+$html_prefs_updated = 'Preferences updated';
+
 // Other pages
 
 $html_view_header = 'הצגת כותרות';
@@ -98,6 +106,7 @@ $html_att_unknown = '[לא ידוע]';
 $html_attach = 'צירוף';
 $html_attach_forget = 'חייבים לצרף קובץ לפני שליחת ההודעה!';
 $html_attach_delete = 'ביטול המסומנים';
+$html_sort_by = 'Sort by';
 $html_from = 'מאת';
 $html_subject = 'נושא';
 $html_date = 'תאריך';
@@ -118,9 +127,25 @@ $html_logout = 'יציאה';
 $html_msg = 'הודעה';
 $html_msgs = 'הודעות';
 $html_configuration = 'This server is not well set up !';
+$html_priority = 'Priority';
+$html_low = 'Low';
+$html_normal = 'Normal';
+$html_high = 'High';
+$html_select = 'Select';
+$html_select_all = 'Select All';
+$html_loading_image = 'Loading image';
+$html_send_confirmed = 'Your mail was accepted for delivery';
+$html_no_sendaction = 'No action specified. Try enabling JavaScript.';
+$html_error_occurred = 'An error occurred';
+$html_prefs_file_error = 'Unable to open preferences file for writing.';
+$html_sig_file_error = 'Unable to open signature file for writing.';
 
 # I think some people will rather leave this one untranslated as well...
 #$original_msg = '-- Original Message --';
 $original_msg = '-- הודעה מקורית --';
 $to_empty = 'לשדה ה-\'אל\' אסור להיות ריק!';
+
+// SMTP problems (class_smtp.php)
+$html_smtp_error_no_conn = "Unable to open connection";
+$html_smtp_error_unexpected = "Unexpected response:";
 ?>

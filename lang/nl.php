@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.13 2001/05/27 15:02:33 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.14 2001/06/14 18:40:38 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -11,7 +11,7 @@
  * Configuration file for the Netherlander language
  * Translation by Sander Schroevers and Pieterjan Goppel
  *  <lp_leeki@euronet.nl>
- *  Some adding by Mathijs Kolenberg (mack@solcon.nl)
+ *  Some adding by Mathijs Kolenberg <mack@solcon.nl>
  */
 
 $charset = 'ISO-8859-1';
@@ -71,6 +71,19 @@ $html_retry = 'Probeer opnieuw';
 $html_on = 'on';
 $html_theme = 'Schema';
 
+// prefs.php
+
+$html_preferences = 'Preferences';
+$html_full_name = 'Full name';
+$html_email_address = 'E-mail Address';
+$html_ccself = 'Cc self';
+$html_hide_addresses = 'Hide addresses';
+$html_outlook_quoting = 'Outlook-style quoting';
+$html_reply_to = 'Reply to';
+$html_use_signature = 'Use signature';
+$html_signature = 'Signature';
+$html_prefs_updated = 'Preferences updated';
+
 // Other pages
 
 $html_view_header = 'Broncode inzien';
@@ -91,6 +104,7 @@ $html_att_unknown = '[onbekend]';
 $html_attach = 'Voeg toe';
 $html_attach_forget = 'You must attach your file before sending your message !';
 $html_attach_delete = 'Verwijder selectie';
+$html_sort_by = 'Sort by';
 $html_from = 'Van';
 $html_subject = 'Onderwerp';
 $html_date = 'Datum';
@@ -111,8 +125,23 @@ $html_logout = 'Uitloggen';
 $html_msg = 'Bericht';
 $html_msgs = 'Berichten';
 $html_configuration = 'This server is not well set up !';
+$html_priority = 'Priority';
+$html_low = 'Low';
+$html_normal = 'Normal';
+$html_high = 'High';
+$html_select = 'Select';
+$html_select_all = 'Select All';
+$html_loading_image = 'Loading image';
+$html_send_confirmed = 'Your mail was accepted for delivery';
+$html_no_sendaction = 'No action specified. Try enabling JavaScript.';
+$html_error_occurred = 'An error occurred';
+$html_prefs_file_error = 'Unable to open preferences file for writing.';
+$html_sig_file_error = 'Unable to open signature file for writing.';
 
 $original_msg = '--Oorspronkelijk Bericht--';
 $to_empty = 'Het \'Aan\'-veld kan niet leeg zijn !';
-$from_empty = 'Het \'Van\'-veld kan niet leeg zijn !';
+
+// SMTP problems (class_smtp.php)
+$html_smtp_error_no_conn = "Unable to open connection";
+$html_smtp_error_unexpected = "Unexpected response:";
 ?>

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/kr.php,v 1.2 2001/05/07 10:20:46 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/kr.php,v 1.3 2001/05/27 15:02:33 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -68,6 +68,19 @@ $html_server = '서버';
 $html_wrong = '아이디가 없거나 비밀번호가 일치하지 않습니다';
 $html_retry = '다시입력';
 
+// prefs.php
+
+$html_preferences = 'Preferences';
+$html_full_name = 'Full name';
+$html_email_address = 'E-mail Address';
+$html_ccself = 'Cc self';
+$html_hide_addresses = 'Hide addresses';
+$html_outlook_quoting = 'Outlook-style quoting';
+$html_reply_to = 'Reply to';
+$html_use_signature = 'Use signature';
+$html_signature = 'Signature';
+$html_prefs_updated = 'Preferences updated';
+
 // Other pages
 
 $html_view_header = 'View header';
@@ -88,6 +101,7 @@ $html_att_unknown = '[unknown]';
 $html_attach = '첨부하기';
 $html_attach_forget = '파일을 첨부하셔야 편지를 보낼수 있습니다.';
 $html_attach_delete = '삭제';
+$html_sort_by = 'Sort by';
 $html_from = '보낸이';
 $html_subject = '제목';
 $html_date = '날짜';
@@ -107,7 +121,24 @@ $html_no_mail = '편지합이 비어있습니다';
 $html_logout = '로그아웃';
 $html_msg = ' 통의 편지가 있습니다';
 $html_msgs = ' 통의 편지가 있습니다';
+$html_configuration = 'This server is not well set up !';
+$html_priority = 'Priority';
+$html_low = 'Low';
+$html_normal = 'Normal';
+$html_high = 'High';
+$html_select = 'Select';
+$html_select_all = 'Select All';
+$html_loading_image = 'Loading image';
+$html_send_confirmed = 'Your mail was accepted for delivery';
+$html_no_sendaction = 'No action specified. Try enabling JavaScript.';
+$html_error_occurred = 'An error occurred';
+$html_prefs_file_error = 'Unable to open preferences file for writing.';
+$html_sig_file_error = 'Unable to open signature file for writing.';
 
 $original_msg = '-- 원본 내용 --';
 $to_empty = '이메일(email) 주소를 입력하셔야 합니다.';
+
+// SMTP problems (class_smtp.php)
+$html_smtp_error_no_conn = "Unable to open connection";
+$html_smtp_error_unexpected = "Unexpected response:";
 ?>
