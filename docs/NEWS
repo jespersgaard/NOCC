@@ -3,7 +3,7 @@ NOCC 0.9.4	??   ??, 2001
 	* Added Slovak translation
 	* Added an error reporting control. No more 'undefined variable'
 	  warning will appear.
-	* Added a new theme 'newlook'.
+	* Added a new theme 'newlook' from Anton Jakimov <t0xa@ls2.lv>
 	* Images are now in theme folder.
 	* Added support for multiple domain/server.
 	* Messages are now sent with the charset set in the header. The charset
