@@ -14,6 +14,8 @@ Last updated: $Date: 2001/04/17 21:55:36 $
     -> Check that you're allowed to connect to the POP/IMAP server manually.
     Your ISP may not allow people based on the IP.
 
+-----------------------------------
+ 
  Q. Having configured Nocc, I get this error with my favourite browser:
 
  A. Fatal error: Call to undefined function: imap_open()
@@ -24,6 +26,8 @@ Last updated: $Date: 2001/04/17 21:55:36 $
     Check the on-line PHP manual to configure IMAP/c-client support
 
 	http://www.php.net/manual/ref.imap.php
+
+-----------------------------------
 
  Q. What is this UCB POP Server parameter in the configuration file ?
 
@@ -40,6 +44,8 @@ Last updated: $Date: 2001/04/17 21:55:36 $
     quit
     Connection closed by foreign host.
 
+-----------------------------------
+
  Q. I get session_destroy() errors when logging out of Nocc with PHP 4.0.3
     on Win32.
     Warning: Session object destruction failed...
@@ -48,11 +54,15 @@ Last updated: $Date: 2001/04/17 21:55:36 $
     The problem only affects PHP Win32, not Unix.
     See the bug: http://bugs.php.net/?id=5231
 
+-----------------------------------
+
  Q. Nocc is slow with a CGI version of PHP when there're big mails
 
  A. Unfortunately, we tried to optimize the code but some functions are
     clearly very slow in CGI mode. We hope this will be solved in future
     PHP releases.
+
+-----------------------------------
 
  Q. The trashbox icon is not transparent on Netscape 4.x and some other
     browser.
@@ -60,6 +70,8 @@ Last updated: $Date: 2001/04/17 21:55:36 $
  A. This is a known issue, Netscape 4.x doesn't support transparent PNG
     images whereas it's ok with GIF. We might switch to GIF again but we
     were wondering about license issues...
+
+-----------------------------------
 
  Q. I get "Maximum time execution of 30 seconds exceeded" when loading
     a mailbox.
@@ -70,6 +82,8 @@ Last updated: $Date: 2001/04/17 21:55:36 $
 
     max_execution_time = 300
 
+-----------------------------------
+
  Q. I get "Warning: open(/tmp\sess_341b23452436243bfff454e5664756c67, O_RDWR)
     failed".
 
@@ -78,6 +92,8 @@ Last updated: $Date: 2001/04/17 21:55:36 $
 
     session.save_path = c:\php\sessions
 
+-----------------------------------
+
  Q. I get "Fatal error: Failed opening required 'lang/ en.php' [...]".
 
  A. This is a know bug from flawed PHP 4 install on RedHat 7.
@@ -85,6 +101,8 @@ Last updated: $Date: 2001/04/17 21:55:36 $
     which has a fix that suppresses extra spaces within this variable.
 
     See: http://www.redhat.com/bugzilla/show_bug.cgi?id=24933
+
+-----------------------------------
 
  Q. When I tried to attach a file it says 'This server is not well set up !'
 
