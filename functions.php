@@ -51,7 +51,32 @@ function inbox($servr, $user, $passwd, $sort, $sortdir)
 				}
 				else
 					$attach = "&nbsp;";
-				if (($ref_contenu_message->Unseen == 'U') || ($ref_contenu_message->Recent == 'N'))
+				// Check Status Line with UCB POP Server to
+				// see if this a new message. This is a
+				// non-RFC standard line header.
+				// Change the following line to 1 if you
+				// have such a beast !
+                                if ($have_ucb_pop_server = "0")
+                                {
+					$header_msg = imap_fetchheader($pop, imap_msgno($pop, $msgnum));
+					$header_lines = explode("\r\n", $header_msg);
+					while (list($k, $v) = each($header_lines))
+					{
+						list ($header_field, $header_value) = explode(":", $v);
+						if ($header_field == "Status") 
+						{
+							$new_mail_from_header = $header_value;
+						}
+					}
+				}
+				else
+				{
+					if (($ref_contenu_message->Unseen == 'U') || ($ref_contenu_message->Recent == 'N'))
+						$new_mail_from_header = "";
+					else
+						$new_mail_from_header = "&nbsp;";
+				}
+				if ($new_mail_from_header == "")
 					$newmail = "<img src=img/new.gif>";
 				else
 					$newmail = "&nbsp;";
