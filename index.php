@@ -1,16 +1,13 @@
 <?
 /*
-	$Author: nicocha $
-	$Revision: 1.26 $
-	$Date: 2000/11/01 17:18:07 $
-
-	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
-  
-  You should have received a copy of the GNU Public
-  License along with this package; if not, write to the
-  Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-  Boston, MA 02111-1307, USA.
-*/
+ * $Header$ 
+ *
+ * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
+ * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
+ *
+ * See the enclosed file COPYING for license information (GPL).  If you
+ * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
+ */
 
 require ("conf.php");
 require ("check_lang.php");
@@ -127,6 +124,13 @@ echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 							<tr> 
 								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
 							</tr>
+							<?
+							if (!(extension_loaded('imap')))
+							{ ?>
+							<tr>
+								<td colspan="3" height="12"><font color="red"><b>The IMAP module does not seem to be installed on this PHP setup, please see Nocc's documentation.</b></font></td>
+							</tr>
+							<? } ?>
 						</table>
 					</td>
 				</tr>
