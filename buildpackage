@@ -18,7 +18,7 @@ myname=`basename \`pwd\``
 cd .. && cp -rp $myname $distname
 cd $distname
  rm -rf CVS/ buildpackage
- for i in docs img html lang 
+ for i in docs img html lang themes
    do
    cd $i
    rm -rf CVS/
