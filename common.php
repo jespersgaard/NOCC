@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.11 2002/04/29 09:06:55 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.12 2002/05/02 12:21:19 rossigee Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -42,8 +42,6 @@ if(isset($_REQUEST['user']))
     $_SESSION['user'] = safestrip($_REQUEST['user']);
 if(isset($_REQUEST['passwd']))
     $_SESSION['passwd'] = safestrip($_REQUEST['passwd']);
-if(isset($_REQUEST['theme']))
-    $_SESSION['theme'] = safestrip($_REQUEST['theme']);
 if(isset($_REQUEST['lang']))
     $_SESSION['lang'] = safestrip($_REQUEST['lang']);
 if(isset($_REQUEST['sort']))
@@ -74,8 +72,6 @@ else {
 
 // Import language translation variables
 require ('./lang/'. $lang.'.php');
-
-// What theme should we use?
 
 // Start with default smtp server/port, override later
 $_SESSION['smtp_server'] = $conf->default_smtp_server;
@@ -112,10 +108,14 @@ if (isset($_REQUEST['server'])) {
 }
 
 // If we are forced to use a particular theme...
+if(!$conf->use_theme)
+    $_SESSION['theme'] = $conf->default_theme;
+else
+    if(isset($_REQUEST['theme']))
+        $_SESSION['theme'] = safestrip($_REQUEST['theme']);
+// Add to global namespace for now
 if(isset($_SESSION['theme']))
     $theme = $_SESSION['theme'];
-if(!$conf->use_theme || empty($theme))
-    $theme = $conf->default_theme;
 
 require_once ('./conf_lang.php');
 require_once ('./themes/'.$theme.'/colors.php');
