@@ -17,7 +17,7 @@ $days = Array(
 	Mon => "Monday",
 	Tue => "Tuesday",
 	Wed => "Wednesday",
-	Thu => "thursday",
+	Thu => "Thursday",
 	Fri => "Friday",
 	Sat => "Saturday",
 	Sun => "Sunday");
@@ -27,7 +27,7 @@ $months = Array(
 	Feb => "February",
 	Mar => "March",
 	Apr => "April",
-	May => "Mai",
+	May => "May",
 	Jun => "June",
 	Jul => "July",
 	Aug => "August",
@@ -44,7 +44,7 @@ $err_passwd_empty = "The password field is empty";
 
 // html message
 
-$alt_delete = "Delete selectionned messages";
+$alt_delete = "Delete selected messages";
 $alt_delete_one = "Delete the message";
 $alt_new_msg = "New messages";
 $alt_reply = "Reply to the author";
@@ -98,7 +98,7 @@ $html_msg = "Message";
 $html_msgs = "Messages";
 
 $original_msg = "-- Original Message --";
-$to_empty = "The 'To' field must not br empty !";
+$to_empty = "The 'To' field must not be empty !";
 
 $html_outside = "You see that page outside of <b>".$name."</b>. To go back, close this window.";
 
