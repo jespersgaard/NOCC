@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.70 2001/06/03 22:16:52 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.71 2001/06/19 08:42:42 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -117,7 +117,7 @@ function updateTheme()
 									{
 										echo '@ <select name="domainnum">';
 										$i = 0; 
-										while ($domains[$i]->in != '')
+										while (!empty($domains[$i]->in))
 										{
 											echo "<option value=\"$i\">".$domains[$i]->domain.'</option>';
 											$i++;
