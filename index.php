@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.31 2001/01/15 19:28:37 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.32 2001/01/18 22:16:50 nicocha Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -128,7 +128,7 @@ height="12" width="12" ALT="<? echo $alt_es ?>"></a>
 							?>
 							<TR>
 								<TD COLSPAN="3" align="center" class="f">
-									<INPUT name="enter" type="submit" value="<? echo $html_submit ?>">
+									<INPUT name="enter" class="button" type="submit" value="<? echo $html_submit ?>">
 								</TD>
 							</TR>
 							<tr> 

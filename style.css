@@ -4,11 +4,11 @@ A.menu:hover {color: #0000FF; text-decoration:underline;}
 .sw {
 	COLOR: #ffffff; 
 	FONT-FAMILY: arial,verdana,sans-serif; 
-	FONT-SIZE: 11px;
+	FONT-SIZE: 10px;
 }
 .s {
 	FONT-FAMILY: arial,verdana,sans-serif; 
-	FONT-SIZE: 11px
+	FONT-SIZE: 10px
 }
 .inbox {
 	FONT-FAMILY: arial,verdana,sans-serif; 
@@ -16,22 +16,33 @@ A.menu:hover {color: #0000FF; text-decoration:underline;}
 }
 .mail {
 	FONT-FAMILY: arial,verdana,sans-serif; 
-	FONT-SIZE: 14px;
+	FONT-SIZE: 13px;
 }
 .titlew {
 	FONT-FAMILY: arial,verdana,sans-serif; 
-	FONT-SIZE: 16px;
+	FONT-SIZE: 14px;
 	COLOR: #ffffff;
 }
 .login {
 	FONT-FAMILY: arial,verdana,sans-serif; 
-	FONT-SIZE: 20px;
+	FONT-SIZE: 18px;
 }
 .f {
 	FONT-FAMILY: arial,verdana,sans-serif
 }
 .menu {
 	FONT-FAMILY: arial,verdana,sans-serif; 
-	FONT-SIZE: 12px;
+	FONT-SIZE: 11px;
 	TEXT-DECORATION: none;
+}
+.button {
+	color: white;
+	background-color: #002266;
+	border-bottom: thin solid #222244;
+	border-right: thin solid #222244;
+	border-top: thin solid #9999cc;
+	border-left: thin solid #9999cc;
+	font-size: 12px;
+	font-family: Arial,Helvetica,sans-serif;
+	font-weight: none;
 }

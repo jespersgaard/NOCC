@@ -1,19 +1,20 @@
 <?
 $arrow = ($sortdir == 0) ? "up" : "down";
 $new_sortdir = ($sortdir == 0) ? 1 : 0;
+$is_Imap = (ereg("IMAP", $servr)) ? 1 : 0;
 ?>
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 <tr><td bgcolor="<? echo $html_inside_color ?>">
 
 <table width="100%" cellpadding="2" cellspacing="1" border="0" bgcolor="<? echo $html_inside_color ?>">
 	<tr bgcolor="<? echo $html_tr_color ?>">
-		<td colspan="4" class="titlew">
+		<td <? if ($is_Imap) echo "colspan=\"4\""; else echo "colspan=\"3\""; ?>align="left" class="titlew">
 			<B><? echo $html_inbox ?></B></FONT>
 		</TD>
-		<TD ALIGN="center" nowrap class="titlew">
+		<TD align="right" nowrap class="titlew">
 			<? echo $current_date ?>
 		</TD>
-		<TD colspan="2" ALIGN="RIGHT" class="titlew">
+		<TD colspan="3" align="right" class="titlew" nowrap="nowrap">
 			<? echo $num_msg ?> <? if ($num_msg > 1) {echo $html_msgs;} else {echo $html_msg;}?>
 		</TD>
 	</tr>
@@ -21,12 +22,13 @@ $new_sortdir = ($sortdir == 0) ? 1 : 0;
 		<TD align="center" class="inbox">
 			<? echo $html_mark ?>
 		</TD>
+		<? if ($is_Imap) { ?>
 		<TD align="center" class="inbox">
-			<!--<A HREF="<? echo $PHP_SELF ?>?sort=&lang=<? echo $lang ?>">-->
-			<? echo $html_new ?><!--</A>-->
+			<? echo $html_new ?>
 		</TD>
+		<? } ?>
 		<TD align="center" class="inbox">
-			<? echo $html_att ?>
+			&nbsp <? //echo $html_att ?>
 		</TD>
 		<td nowrap align="center" class="inbox" <? if ($sort == 2) echo "bgcolor='$html_sort_color'" ?>>
 			<A HREF="<? echo $PHP_SELF ?>?sort=2&sortdir=<? echo $new_sortdir ?>&lang=<? echo $lang ?>">

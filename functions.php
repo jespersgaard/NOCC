@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.47 2000/12/28 15:17:41 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.48 2001/01/08 18:10:39 nicocha Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -48,7 +48,7 @@ function inbox($servr, $user, $passwd, $sort, $sortdir, $lang)
 					if ($struct_msg->subtype == "ALTERNATIVE" || $struct_msg->subtype == "RELATED")
 						$attach = "&nbsp;";
 					else
-						$attach = "<img src=\"img/attach.png\" alt=\"A\" height\"28\" width=\"27\">";
+						$attach = "<img src=\"img/attach.png\" height\"28\" width=\"27\">";
 				}
 				else
 					$attach = "&nbsp;";

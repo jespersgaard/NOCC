@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.17 2000/12/18 15:02:16 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.18 2001/01/15 19:16:30 nicocha Exp $
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -98,6 +98,7 @@ switch ($action)
 				break;
 			case 0:
 				// the mailbox is empty
+				$num_msg = 0;
 				require ("html/menu_inbox.php");
 				require ("html/html_top_table.php");
 				include ("no_mail.php");

@@ -2,10 +2,11 @@
 	<tr>
 		<td bgcolor="<? echo $html_inside_color ?>">
 			<TABLE WIDTH="100%" CELLSPACING="2" CELLPADDING="1" BORDER="0" bgcolor="<? echo $html_inside_color ?>">
-				<FORM ENCTYPE="multipart/form-data" METHOD="POST" ACTION="send.php" onSubmit="this.att_name.value=this.mail_att.value;validate(this)">
+				<FORM name="sendform" ENCTYPE="multipart/form-data" METHOD="POST" onSubmit="return(check_form(this));" ACTION="send.php">
 				<input type="hidden" name="sort" value="<? echo $sort ?>">
 				<input type="hidden" name="sortdir" value="<? echo $sortdir ?>">
 				<input type="hidden" name="lang" value="<? echo $lang ?>">
+				<input type="hidden" name="sendaction" value="">
 				<TR>
 					<TD ALIGN="RIGHT" class="inbox"><? echo $html_from ?> : </TD>
 					<TD>
@@ -16,44 +17,45 @@
 				</TR>
 				<TR>
 					<TD ALIGN="RIGHT" class="inbox"><? echo $html_to ?> : </TD>
-					<TD><INPUT TYPE="text" NAME="to" SIZE="80" MAXLENGTH="200" VALUE="<?echo $mail_to?>"></td>
+					<TD><INPUT TYPE="text" NAME="to" SIZE="60" MAXLENGTH="200" VALUE="<?echo $mail_to?>"></td>
 				</TR>
 				<TR>
 					<TD ALIGN="RIGHT" class="inbox"><? echo $html_cc ?> : </TD>
-					<TD><INPUT TYPE="text" NAME="cc" SIZE="80" MAXLENGTH="200" VALUE="<?echo $mail_cc?>"></td>
+					<TD><INPUT TYPE="text" NAME="cc" SIZE="60" MAXLENGTH="200" VALUE="<?echo $mail_cc?>"></td>
 				</TR>
 				<TR>
 					<TD ALIGN="RIGHT" class="inbox"><? echo $html_bcc ?> : </TD>
-					<TD><INPUT TYPE="text" NAME="bcc" SIZE="80" MAXLENGTH="200" VALUE="<?echo $mail_bcc?>"></td>
+					<TD><INPUT TYPE="text" NAME="bcc" SIZE="60" MAXLENGTH="200" VALUE="<?echo $mail_bcc?>"></td>
 				</TR>
 				<TR>
 					<TD ALIGN="RIGHT" class="inbox"><? echo $html_subject ?> : </TD>
-					<TD><INPUT TYPE="text" NAME="subject" SIZE="80" MAXLENGTH="200" VALUE="<?echo $mail_subject?>"></TD>
+					<TD><INPUT TYPE="text" NAME="subject" SIZE="60" MAXLENGTH="200" VALUE="<?echo $mail_subject?>"></TD>
 				</TR>
 				<TR>
 					<TD ALIGN="RIGHT" class="inbox"><? echo $html_att ?> : </TD>
 					<TD>
-						<INPUT TYPE="file" NAME="mail_att" SIZE="66" MAXLENGTH="200" VALUE="">
+						<INPUT TYPE="file" NAME="mail_att" SIZE="40" MAXLENGTH="200" VALUE="">
+						<input type="button" class="button" onclick="attach()" value="<? echo $html_attach ?>">
 						<INPUT TYPE="hidden" NAME="att_name" VALUE="">
 					</td>
 				</TR>
 				<TR>
-					<TD colspan="2" align="center"><TEXTAREA NAME="send_body" COLS="80" ROWS="20" WRAP="physical"><?echo $mail_body?></TEXTAREA></TD>
+					<TD colspan="2" align="center"><TEXTAREA NAME="send_body" COLS="70" ROWS="20" WRAP="physical"><?echo $mail_body?></TEXTAREA></TD>
 				</TR>
 				<TR>
 					<TD align="center" colspan="2">
 						<TABLE bgcolor="<? echo $html_inside_color ?>" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">
 							<TR>
-									<TD ALIGN="RIGHT" VALIGN="TOP" width="50%">
-										<INPUT TYPE="submit" value="<? echo $html_send ?>">&nbsp;
-									</TD>
-									<TD ALIGN="LEFT" VALIGN="TOP" width="50%"></FORM>
-										<FORM METHOD="GET" ACTION="action.php">
-										<INPUT TYPE="HIDDEN" NAME="lang" VALUE="<? echo $lang ?>">
-										&nbsp;<INPUT TYPE="submit" value="<? echo $html_cancel ?>">
-										</FORM>
-									</TD>
-								</TR>
+								<TD ALIGN="RIGHT" VALIGN="TOP" width="50%">
+									<INPUT TYPE="submit" class="button" value="<? echo $html_send ?>">&nbsp;
+								</TD>
+								<TD ALIGN="LEFT" VALIGN="TOP" width="50%"></FORM>
+									<FORM METHOD="GET" ACTION="action.php">
+									<INPUT TYPE="HIDDEN" NAME="lang" VALUE="<? echo $lang ?>">
+									&nbsp;<INPUT TYPE="submit" class="button" value="<? echo $html_cancel ?>">
+									</FORM>
+								</TD>
+							</TR>
 						</TABLE>
 					</td>
 				</tr>
@@ -62,8 +64,16 @@
 	</tr>
 </table>
 
-<script language='javascript'>
+<script language="javascript">
 <!--
+function check_form(form)
+{
+	if (validate(form) == false)
+		return (false);
+	else
+		form.att_name.value = form.mail_att.value;
+}
+
 function validate(f) 
 {
 	if (window.RegExp) 
@@ -73,8 +83,21 @@ function validate(f)
 		{
 			alert("<? echo $to_empty ?>");
 			f.elements['to'].focus();
-			return(false);
+			return (false);
 		}
+		else
+		{
+			sendform.sendaction.value = "send";
+		}
+	}
+}
+
+function attach()
+{
+	if (sendform.mail_att.value != "")
+	{
+		sendform.sendaction.value = "add";
+		sendform.submit();
 	}
 }
 //-->
