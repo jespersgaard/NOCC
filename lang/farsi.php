@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.4 2004/01/03 12:04:47 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.5 2004/06/14 11:30:06 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -84,6 +84,7 @@ $html_reply_leadin = 'Reply Leadin';  //to translate
 $html_prefs_updated = '&#1578;&#1606;&#1591;&#1610;&#1605;&#1575;&#1578; &#1576;&#1585;&#1608;&#1586; &#1588;&#1583;';
 $html_manage_folders_link = 'Manage IMAP Folders';  //to translate
 $html_manage_filters_link = 'Manage Email Filters';  //to translate
+$html_use_graphical_smilies = 'Use graphical smilies'; //to translate
 
 // folders.php
 $html_folders_create_failed = '&#1588;&#1575;&#1582;&#1607; &#1606;&#1605;&#1609;&#1578;&#1608;&#1575;&#1606;&#1583; &#1575;&#1610;&#1580;&#1575;&#1583; &#1588;&#1608;&#1583;';

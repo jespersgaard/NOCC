@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.4 2003/03/03 07:34:53 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.5 2003/12/21 15:40:20 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -22,8 +22,9 @@ class NOCCUserPrefs {
 	var $seperate_msg_win;
 	var $reply_leadin;
 	var $signature;
-    var $wrap_msg;
-    var $sig_sep;
+        var $wrap_msg;
+        var $sig_sep;
+	var $graphical_smilies;
 
 	// Set when preferences have not been commit
 	var $dirty_flag;
@@ -94,10 +95,12 @@ class NOCCUserPrefs {
 				$prefs->signature = base64_decode($value);
 			if($key == 'reply_leadin')
 				$prefs->reply_leadin = base64_decode($value);
-            if($key == 'wrap_msg')
-                $prefs->wrap_msg = $value;
+                        if($key == 'wrap_msg')
+                                $prefs->wrap_msg = $value;
 			if($key == 'sig_sep')
 				$prefs->sig_sep = ($value == 1 || $value == 'on');
+			if($key == 'graphical_smilies')
+				$prefs->graphical_smilies = ($value == 1 || $value == 'on');
 		}
 		fclose($file);
 
@@ -138,6 +141,7 @@ class NOCCUserPrefs {
 		fwrite($file, "signature=".base64_encode($this->signature)."\n");
         fwrite($file, "wrap_msg=".$this->wrap_msg."\n");
 		fwrite($file, "sig_sep=".$this->sig_sep."\n");
+		fwrite($file, "graphical_smilies=".$this->graphical_smilies."\n");
 		fclose($file);
 
 		$this->dirty_flag = 0;

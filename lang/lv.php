@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/lv.php,v 1.2 2004/04/11 15:34:23 ajetam Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/lv.php,v 1.3 2004/06/14 11:30:06 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -84,6 +84,7 @@ $html_reply_leadin = 'Reply Leadin'; // to translate
 $html_prefs_updated = 'Uzstâdîjumi saglabâti';
 $html_manage_folders_link = 'Manage IMAP Folders'; // to translate
 $html_manage_filters_link = 'Manage Email Filters'; // to translate
+$html_use_graphical_smilies = 'Use graphical smilies'; //to translate
 
 // folders.php
 $html_folders_create_failed = 'Folder could not be created!'; // to translate

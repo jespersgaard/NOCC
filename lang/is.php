@@ -82,6 +82,7 @@ $html_reply_leadin = 'Reply Leadin';  //to translate
 $html_prefs_updated = 'Valmöguleikar uppfærğir';
 $html_manage_folders_link = 'Manage IMAP Folders';  //to translate
 $html_manage_filters_link = 'Manage Email Filters';  //to translate
+$html_use_graphical_smilies = 'Use graphical smilies'; //to translate
 
 // folders.php
 $html_folders_create_failed = 'Folder could not be created!';  //to translate

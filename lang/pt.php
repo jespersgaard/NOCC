@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.31 2004/01/03 12:04:47 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.32 2004/06/14 11:30:07 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -85,6 +85,7 @@ $html_reply_leadin = 'Responder com prefixo';
 $html_prefs_updated = 'Prefer&ecirc;ncias actualizadas';
 $html_manage_folders_link = 'Gerir Pastas IMAP'; 
 $html_manage_filters_link = 'Gerir Filtros de Email';
+$html_use_graphical_smilies = 'Use graphical smilies'; //to translate
 
 // folders.php
 $html_folders_create_failed = 'Folder could not be created!';  //to translate

@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.29 2002/12/16 15:23:20 rossigee Exp $ -->
+<!-- start of $Id: prefs.php,v 1.30 2003/12/21 15:40:20 goddess_skuld Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -90,6 +90,12 @@
 						<input type="checkbox" name="sig_sep" id="sig_sep" value="on" <?php if(isset($user_prefs->sig_sep) && $user_prefs->sig_sep) echo "checked"; ?> /><label for="sig_sep"><?php echo $html_usenet_separator ?></label>
 					</td>
 				</tr>
+				<tr>
+					<td align="right" class="prefs" valign="top">&nbsp;</td>
+					<td align="left" class="prefs">
+						<input type="checkbox" name="graphical_smilies" id="graphical_smilies" value="on" <?php if (isset($user_prefs->graphical_smilies) && $user_prefs->graphical_smilies) echo "checked"; ?> /><label for="graphical_smilies"><?php echo $html_use_graphical_smilies ?></label>
+					</td>
+				</tr>
                 <tr>
                     <td align="center" colspan="2">
                         <?php
@@ -125,4 +131,4 @@
     ?>
 
 </table>
-<!-- end of $Id: prefs.php,v 1.29 2002/12/16 15:23:20 rossigee Exp $ -->
+<!-- end of $Id: prefs.php,v 1.30 2003/12/21 15:40:20 goddess_skuld Exp $ -->

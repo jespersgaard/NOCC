@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.180 2003/03/05 13:28:48 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.181 2003/12/21 15:40:20 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -241,7 +241,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
         'time' => $time,
         'complete_date' => $date,
         'att' => $link_att,
-        'body' => $body,
+        'body' => $pop->graphicalsmilies($body),
         'body_mime' => $tmp['mime'],
         'body_transfer' => $tmp['transfer'],
         'header' => $header,
