@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.7 2004/06/19 12:00:57 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.8 2004/06/20 09:39:32 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -215,4 +215,7 @@ $lang_could_not_connect = '&#1606;&#1605;&#1609;&#1578;&#1608;&#1575;&#1606;&#16
 $html_file_upload_attack = 'Possible file upload attack';  //to translate
 $html_invalid_email_address = 'Invalid e-mail address';  //to translate
 $html_seperate_msg_win = 'Messages in separate window';  //to translate
+
+// Exceptions
+$html_err_file_contacts = 'Unable to open contacts file for writing.'; //to translate
 ?>

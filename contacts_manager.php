@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.6 2004/01/10 08:47:17 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.7 2004/06/21 12:57:38 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -119,13 +119,25 @@ switch($action){
 		{
 	    	$line = $_POST['first'] . "\t" . $_POST['last'] . "\t" . $_POST['nick'] . "\t" . $_POST['email'];
 			array_push ($contacts, $line);
-			save_list ($path, $contacts);
+			save_list ($path, $contacts, $ev);
+			if (NoccException::isException($ev)) {
+			   require ('./html/error.php');
+			   require ('./html/footer.php');
+			   break;
+			}
+
 		}
 		if (!empty ($_POST['modif']))
 		{
 	    	$line = $_POST['first'] . "\t" . $_POST['last'] . "\t" . $_POST['nick'] . "\t" . $_POST['email'];
 			$contacts[$_POST['id']] = $line;
-			save_list ($path, $contacts);
+			save_list ($path, $contacts, $ev);
+			if (NoccException::isException($ev)) {
+			   require ('./html/error.php');
+			   require ('./html/footer.php');
+			   break;
+			}
+
 		}
 		$contacts = load_list ($path);
 	}
@@ -144,7 +156,13 @@ switch($action){
 		if ($_GET['id'] != $i)
 			$new_contacts[] = $contacts[$i];
 
-	save_list ($path, $new_contacts);
+	save_list ($path, $new_contacts, $ev);
+	if (NoccException::isException($ev)) {
+	   require ('./html/error.php');
+	   require ('./html/footer.php');
+	   break;
+	}
+
 	$contacts = load_list ($path);
 		;
 

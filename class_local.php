@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.32 2004/06/19 12:00:55 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.33 2004/06/20 20:16:25 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -34,6 +34,10 @@ class nocc_imap
     function nocc_imap(&$ev)
     {
         global $lang_could_not_connect;
+        if(!isset($_SESSION['nocc_servr']) || !isset($_SESSION['nocc_folder']) || !isset($_SESSION['nocc_login']) || !isset($_SESSION['nocc_passwd'])) {
+	    $ev = new NoccException($lang_could_not_connect);
+            return;
+        }
 
         $this->server = $_SESSION['nocc_servr'];
         $this->folder = $_SESSION['nocc_folder'];

@@ -214,4 +214,7 @@ $lang_could_not_connect = 'Could not connect to server';
 $html_file_upload_attack = 'Possible file upload attack';  //to translate
 $html_invalid_email_address = 'Invalid e-mail address';  //to translate
 $html_seperate_msg_win = 'Messages in seperate window';  //to translate
+
+// Exceptions
+$html_err_file_contacts = 'Unable to open contacts file for writing.'; //to translate
 ?>

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ru-koi.php,v 1.19 2004/06/19 12:00:58 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ru-koi.php,v 1.20 2004/06/20 09:39:32 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -217,4 +217,7 @@ $lang_could_not_connect = 'Не могу подключится к серверу';
 $html_file_upload_attack = 'Подозрение на атаку через file upload';
 $html_invalid_email_address = 'Неправильный e-mail адрес';
 $html_seperate_msg_win = 'Сообщения в отдельном окне';
+
+// Exceptions
+$html_err_file_contacts = 'Unable to open contacts file for writing.'; //to translate
 ?>

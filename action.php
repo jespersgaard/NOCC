@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.152 2004/06/15 10:37:08 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.153 2004/06/21 08:40:22 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -415,6 +415,13 @@ switch($action)
 
             // Commit preferences
             $user_prefs->commit($ev);
+	    if (NoccException::isException($ev)) {
+	       require ('./html/header.php'); 
+	       require ('./html/error.php');
+	       require ('./html/footer.php');
+	    break;      
+								            }               
+
             $_SESSION['nocc_user_prefs'] = $user_prefs;
         }
 
@@ -455,19 +462,21 @@ switch($action)
                     if (isset($_REQUEST['reapply_filters']) && $_REQUEST['reapply_filters'] == 1) {
                         $small_search = '';
                     }
-                    foreach($filters->filterset as $name => $filter) {
-                        $filter_messages = $pop->search($small_search . $filter['SEARCH'],'',$ev);
-                        if (is_array($filter_messages)) {
-                            $filter_to_folder = array();
-                            foreach($filter_messages as $filt_msg_no) {
-                                if ($filter['ACTION'] == 'DELETE') {
-                                    $pop->delete($filt_msg_no, $ev);
-                                } elseif (preg_match("/^MOVE:(.+)$/", $filter['ACTION'], $filter_to_folder)) {
-                                    $pop->mail_move($filt_msg_no, $filter_to_folder[1], $ev);
+		    if ($filters!=null) {
+                        foreach($filters->filterset as $name => $filter) {
+                            $filter_messages = $pop->search($small_search . $filter['SEARCH'],'',$ev);
+                            if (is_array($filter_messages)) {
+                                $filter_to_folder = array();
+                                foreach($filter_messages as $filt_msg_no) {
+                                    if ($filter['ACTION'] == 'DELETE') {
+                                        $pop->delete($filt_msg_no, $ev);
+                                    } elseif (preg_match("/^MOVE:(.+)$/", $filter['ACTION'], $filter_to_folder)) {
+                                        $pop->mail_move($filt_msg_no, $filter_to_folder[1], $ev);
+                                    }
                                 }
                             }
                         }
-                    }
+		    }
                 }
                 $pop->expunge($ev);
                 if(NoccException::isException($ev)) {

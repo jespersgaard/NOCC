@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/he.php,v 1.15 2004/06/19 12:00:58 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/he.php,v 1.16 2004/06/20 09:39:32 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -220,4 +220,7 @@ $lang_could_not_connect = 'Could not connect to server';  //to translate
 $html_file_upload_attack = 'Possible file upload attack';  //to translate
 $html_invalid_email_address = 'Invalid e-mail address';  //to translate
 $html_seperate_msg_win = 'Messages in separate window';  //to translate
+
+// Exceptions
+$html_err_file_contacts = 'Unable to open contacts file for writing.'; //to translate
 ?>

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.5 2003/12/21 15:40:20 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.6 2004/06/15 10:37:08 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -124,11 +124,19 @@ class NOCCUserPrefs {
 
 		// Write prefs to file
 		$filename = $conf->prefs_dir . '/' . $this->key . '.pref';
-		if(file_exists($filename) && !is_writable($filename))
-			return (new NoccException($html_prefs_file_error));
+		if(file_exists($filename) && !is_writable($filename)){
+		        $ev = new NoccException($html_prefs_file_error);
+			return; 
+		}
+		if(!is_writable($filename)){
+			$ev = new NoccException($html_prefs_file_error);
+			return;
+		}
 		$file = fopen($filename, 'w');
-		if(!$file)
-			return (new NoccException($html_prefs_file_error));
+		if(!$file){
+			$ev = new NoccException($html_prefs_file_error);
+			return;
+		}
 
 		fwrite($file, "full_name=".$this->full_name."\n");
 		fwrite($file, "email_address=".$this->email_address."\n");

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.27 2004/06/19 12:00:58 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.28 2004/06/20 09:39:32 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -219,4 +219,7 @@ $lang_could_not_connect = 'Verbinding met de server kan niet worden geinitialise
 $html_file_upload_attack = 'Mogelijk bestandsupload aanval';
 $html_invalid_email_address = 'Ongeldig e-mail adres';
 $html_seperate_msg_win = 'Berichten in apart venster';
+
+// Exceptions
+$html_err_file_contacts = 'Unable to open contacts file for writing.'; //to translate
 ?>

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/user_filters.php,v 1.4 2003/03/03 07:34:53 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/user_filters.php,v 1.5 2003/12/21 15:40:20 goddess_skuld Exp $
  *
  * Copyright 2002 Mike Rylander <mrylander@mail.com>
  *
@@ -94,6 +94,10 @@ class NOCCUserFilters {
                         $ev = new NoccException($html_prefs_file_error);
                         return;
                 }
+		if(!is_writeable($filename)) {
+		    $ev = new NoccException($html_prefs_file_error);
+		    return;
+		}
                 $file = fopen($filename, 'w');
                 if(!$file) {
                         $ev = new NoccException($html_prefs_file_error);
