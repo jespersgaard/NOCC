@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.73 2001/03/20 09:51:56 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.74 2001/03/29 08:36:27 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -364,6 +364,10 @@ function remove_stuff($body, $lang, $mime)
 	if (eregi("html", $mime))
 	{
 		$to_removed_array = array (
+						"'<html>'si",
+						"'</html>'si",
+						"'<body[^>]*>'si",
+						"'</body>'si",
 						"'<head[^>]*>.*?</head>'si",
 						"'<style[^>]*>.*?</style>'si",
 						"'<script[^>]*>.*?</script>'si",
@@ -375,7 +379,7 @@ function remove_stuff($body, $lang, $mime)
 		$body = preg_replace("|href=\"(.*)script:|i", "href=\"nocc_removed_script:", $body);
 		$body = preg_replace("|<([^>]*)java|i", "<nocc_removed_java_tag", $body);
 		$body = preg_replace("|<([^>]*)&{.*}([^>]*)>|i", "<&{;}\\3>", $body);
-		$body = preg_replace("|<([^>]*)mocha:([^>]*)>|i", "<nocc_removed_mocha:\\2>",$body);
+		//$body = preg_replace("|<([^>]*)mocha:([^>]*)>|i", "<nocc_removed_mocha:\\2>",$body);
 		$body = eregi_replace("href=\"mailto:([[:alnum:]+-=%&:_.~?@]+[#[:alnum:]+]*)\"","<A HREF=\"$PHP_SELF?action=write&amp;mail_to=\\1&amp;lang=$lang\"", $body);
 		$body = eregi_replace("href=mailto:([[:alnum:]+-=%&:_.~?@]+[#[:alnum:]+]*)","<A HREF=\"$PHP_SELF?action=write&amp;mail_to=\\1&amp;lang=$lang\"", $body);
 		$body = eregi_replace("target=\"([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)\"", "", $body);
