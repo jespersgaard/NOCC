@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.12 2004/06/24 17:32:50 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.13 2004/06/28 15:28:04 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -135,6 +135,7 @@ $html_reply_short = 'Re';  //to translate
 $html_reply_all = '&#1662;&#1575;&#1587;&#1582; &#1583;&#1575;&#1583;&#1606; &#1576;&#1607; &#1607;&#1605;&#1607;';
 $html_forward = '&#1601;&#1585;&#1587;&#1578;&#1575;&#1583;&#1606;';
 $html_forward_short = 'Fw';  //to translate
+$html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
 $html_delete = '&#1662;&#1575;&#1705; &#1705;&#1585;&#1583;&#1606;';
 $html_new = '&#1580;&#1583;&#1610;&#1583;';
 $html_mark = '&#1662;&#1575;&#1705; &#1705;&#1585;&#1583;&#1606;';

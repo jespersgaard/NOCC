@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/hu.php,v 1.22 2004/06/24 17:32:50 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/hu.php,v 1.23 2004/06/28 15:28:04 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -69,7 +69,7 @@ $html_wrong = 'Az azonos&iacute;t&oacute; vagy jelsz&oacute; nem megfelel&otilde
 $html_retry = '&Uacute;jra';
 
 // prefs.php
-
+o
 $html_msgperpage = 'Messages per page';  //to translate
 $html_preferences = 'Preferences';  //to translate
 $html_full_name = 'Full name';  //to translate
@@ -135,6 +135,7 @@ $html_reply_short = 'Re';  //to translate
 $html_reply_all = 'Mindre v&aacute;laszol';
 $html_forward = 'Tov&aacute;bbk&uuml;ld';
 $html_forward_short = 'Fw';  //to translate
+$html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
 $html_delete = 'T&ouml;r&ouml;l';
 $html_new = '&Uacute;j';
 $html_mark = 'T&ouml;r&ouml;l';

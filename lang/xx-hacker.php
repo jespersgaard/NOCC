@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.1 2004/08/23 07:32:26 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.2 2004/08/23 18:33:00 wolruf Exp $ 
  *
  * Copyright 2004 Nicolas Chalanset <nicocha at free.fr>
  * Copyright 2004 Olivier Cahagne <wolruf at free.fr>
@@ -137,6 +137,7 @@ $html_reply_short = 'R3';
 $html_reply_all = 'R3ply 4ll';
 $html_forward = 'F0rw4rd';
 $html_forward_short = 'Fw';
+$html_forward_info = 'Th3 f0rw4rd3d m3ss4g3 w!ll b3 s3nd 4s 4n 4tt4chm3nt t0 th!s 0n3.';
 $html_delete = 'D3l3t3';
 $html_new = 'N3w';
 $html_mark = 'D3l3t3';

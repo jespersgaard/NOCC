@@ -133,6 +133,7 @@ $html_reply_short = 'Re';  //to translate
 $html_reply_all = 'Svara öllum';
 $html_forward = 'Framsenda';
 $html_forward_short = 'Fw';  //to translate
+$html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
 $html_delete = 'Eyða';
 $html_new = 'Nýtt';
 $html_mark = 'Eyða';

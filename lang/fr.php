@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.75 2004/06/28 15:28:04 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.76 2004/07/15 21:10:51 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -135,6 +135,7 @@ $html_reply_short = 'Re';
 $html_reply_all = 'R&eacute;pondre &agrave; tous';
 $html_forward = 'Transf&eacute;rer';
 $html_forward_short = 'Tr';
+$html_forward_info = 'Le message transf&eacute;r&eacute; sera envoy&eacute; en pi&egrave;ce jointe avec ce message.';
 $html_delete = 'Supprimer';
 $html_new = 'Nouveau';
 $html_mark = 'Effacer';

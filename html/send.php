@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.65 2004/06/22 11:25:27 goddess_skuld Exp $ -->
+<!-- start of $Id: send.php,v 1.66 2004/06/28 15:37:46 goddess_skuld Exp $ -->
 <?php
 
 // Default e-mail address on send form
@@ -106,8 +106,13 @@ $mail_from = get_default_from_address();
                             }
                             echo '<tr><td colspan="2"><input type="button" class="button" onclick="delete_attach()" value="' . $html_attach_delete . '" /></td><td class="inbox"><b>' . $html_totalsize . ' : ' . $totalsize . ' ' . $html_bytes . '</b></td></tr></table>';
                         }
-                        else
-                            echo '&nbsp;';
+                        else {
+                            if ($_GET["action"] == 'forward') {
+                                echo '<span class="inbox">' . $html_forward_info . '</span>';
+                            } else {
+                                echo '&nbsp;';
+                            }
+                        }
                         ?>
                     </td>
                 </tr>
@@ -175,4 +180,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.65 2004/06/22 11:25:27 goddess_skuld Exp $ -->
+<!-- end of $Id: send.php,v 1.66 2004/06/28 15:37:46 goddess_skuld Exp $ -->

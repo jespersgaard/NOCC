@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/da.php,v 1.22 2004/06/24 17:32:50 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/da.php,v 1.23 2004/06/28 15:28:04 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -135,6 +135,7 @@ $html_reply_short = 'Sv';
 $html_reply_all = 'Svar alle';
 $html_forward = 'Videresend';
 $html_forward_short = 'Vs';
+$html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
 $html_delete = 'Slet';
 $html_new = 'Ny';
 $html_mark = 'Slet';

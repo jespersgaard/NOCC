@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.35 2004/06/28 15:28:04 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.36 2004/07/23 10:45:23 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -135,6 +135,7 @@ $html_reply_short = 'Re';
 $html_reply_all = 'Rispondi a tutti';
 $html_forward = 'Inoltra';
 $html_forward_short = 'Fw';
+$html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
 $html_delete = 'Elimina';
 $html_new = 'Nuovo';
 $html_mark = 'Elimina';
