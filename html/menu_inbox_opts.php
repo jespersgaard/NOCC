@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox_opts.php,v 1.12 2002/06/27 22:17:52 rossigee Exp $ -->
+<!-- start of $Id: menu_inbox_opts.php,v 1.13 2002/07/02 08:13:40 rossigee Exp $ -->
 <tr>
  <td colspan="7">
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
@@ -17,11 +17,18 @@
         </td>
         <td align="right">
             <?php
-                echo '<input type="submit" name="delete_mode" class="button" value="' . $html_delete . '" />';
+                if ($pop->is_imap()) {
+                    echo '<input type="submit" name="mark_read_mode" class="button" value="' . $html_mark_read . '" />';
+                    echo '&nbsp;';
+                    echo '<input type="submit" name="mark_unread_mode" class="button" value="' . $html_mark_unread . '" />';
+                }
+            ?>
+            <?php
+                echo '<input type="submit" name="delete_mode" class="button" value="' . $html_delete . '" onClick="if (confirm(\'' . $html_del_msg . '\')) return true; else return false;"/>';
             ?>
         </td>
     </tr>
 </table>
  </td>
 </tr>
-<!-- end of $Id: menu_inbox_opts.php,v 1.12 2002/06/27 22:17:52 rossigee Exp $ -->
+<!-- end of $Id: menu_inbox_opts.php,v 1.13 2002/07/02 08:13:40 rossigee Exp $ -->

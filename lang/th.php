@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/th.php,v 1.5 2004/06/14 11:30:07 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/th.php,v 1.6 2004/06/15 10:37:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -180,6 +180,9 @@ $html_error_occurred = 'เกิดข้อผิดพลาดขึ้น';
 $html_prefs_file_error = 'ไม่สามารถตั้งค่าได้';
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
 $html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
+$html_mark_read = 'Mark as read'; //to translate
+$html_mark_unread = 'Mark as unread'; //to translate
+
 // Contacts manager
 $html_add = 'Add';  //to translate
 $html_contacts = 'Contacts';  //to translate

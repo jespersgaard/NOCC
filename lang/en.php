@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.66 2004/06/14 11:30:06 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.67 2004/06/15 10:37:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -180,6 +180,9 @@ $html_error_occurred = 'An error occurred';
 $html_prefs_file_error = 'Unable to open preferences file for writing.';
 $html_wrap = 'Wrap outgoing messages to :';
 $html_usenet_separator = 'Usenet separator ("-- \n") Before signature';
+$html_mark_read = 'Mark as read';
+$html_mark_unread = 'Mark as unread';
+
 // Contacts manager
 $html_add = 'Add';
 $html_contacts = 'Contacts';

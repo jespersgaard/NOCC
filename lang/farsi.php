@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.5 2004/06/14 11:30:06 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.6 2004/06/15 10:37:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -180,6 +180,9 @@ $html_error_occurred = '&#1610;&#1705; &#1582;&#1591;&#1575; &#1575;&#1578;&#160
 $html_prefs_file_error = '&#1606;&#1605;&#1609;&#1578;&#1608;&#1575;&#1606;&#1605; &#1601;&#1575;&#1610;&#1604; &#1578;&#1606;&#1592;&#1610;&#1605;&#1575;&#1578; &#1601;&#1585;&#1583;&#1609; &#1585;&#1575; &#1576;&#1585;&#1575;&#1609; &#1606;&#1608;&#1588;&#1578;&#1606; &#1576;&#1575;&#1586; &#1705;&#1606;&#1605;';
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
 $html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
+$html_mark_read = 'Mark as read'; //to translate
+$html_mark_unread = 'Mark as unread'; //to translate
+
 // Contacts manager
 $html_add = 'Add';  //to translate
 $html_contacts = 'Contacts';  //to translate

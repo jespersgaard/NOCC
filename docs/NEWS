@@ -1,5 +1,6 @@
 NOCC 0.9.6    ??, 2004
 
+    * Add possibility to mark a message as read or unread - IMAP only (Arnaud Boudou, RFE #587725)
     * Add typed domain names option and login suffix option (Leif Gustafson, patch #975016)
     * Add graphical smilies support (Arnaud Boudou)
     * Add IMAP folder delete (Arnaud Boudou)

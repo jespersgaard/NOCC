@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.22 2004/06/14 11:30:07 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.23 2004/06/15 10:37:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -180,6 +180,9 @@ $html_error_occurred = 'Wyst±pi³ b³±d';
 $html_prefs_file_error = 'Nie mo¿na otworzyæ pliku z ustawieniami do zapisu.';
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
 $html_usenet_separator = 'U¿yj separatora ("-- \n") Przed sygnatur±';
+$html_mark_read = 'Mark as read'; //to translate
+$html_mark_unread = 'Mark as unread'; //to translate
+
 // Contacts manager
 $html_add = 'Dodaj';
 $html_contacts = 'Kontakty';

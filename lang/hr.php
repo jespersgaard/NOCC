@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/hr.php,v 1.10 2004/06/14 11:30:06 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/hr.php,v 1.11 2004/06/15 10:37:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -180,6 +180,9 @@ $html_error_occurred = 'Dogodila se greska';
 $html_prefs_file_error = 'Ne mogu zapisati postavke.';
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
 $html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
+$html_mark_read = 'Mark as read'; //to translate
+$html_mark_unread = 'Mark as unread'; //to translate
+
 // Contacts manager
 $html_add = 'Add';
 $html_contacts = 'Contacts';  //to translate

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.30 2004/06/13 16:56:05 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.31 2004/06/15 10:37:08 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -199,6 +199,14 @@ class nocc_imap
         $ev = new NoccException("imap_getsubscribed: ".imap_last_error());
         return;
     }
+    
+    function mail_mark_read(&$mail, &$ev) {
+        return imap_setflag_full($this->conn,  imap_uid($this->conn, $mail), "\\Seen", ST_UID);
+    }
+    function mail_mark_unread(&$mail, &$ev) {
+        return imap_clearflag_full($this->conn, imap_uid($this->conn, $mail), "\\Seen",ST_UID);
+    }
+
 
     /*
      * These functions are static, but if we could re-implement them without

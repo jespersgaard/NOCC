@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.68 2002/09/10 23:27:01 mrylander Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.69 2003/12/21 15:40:20 goddess_skuld Exp $ -->
 <?php
 
 require_once 'class_local.php';
@@ -126,7 +126,7 @@ if ($pop->is_imap()) {
             &nbsp;
             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>">
             <?php echo $html_size ?></a>
-            <form method="post" action="delete.php" name="delete_form" onSubmit="if (confirm('<?php echo $html_del_msg ?>')) return true; else return false;">
+            <form method="post" action="delete.php" name="delete_form" onSubmit="/* if (confirm('<?php echo $html_del_msg ?>')) return true; else return false;*/">
         </td>
     </tr>
-<!-- start of $Id: html_top_table.php,v 1.68 2002/09/10 23:27:01 mrylander Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.69 2003/12/21 15:40:20 goddess_skuld Exp $ -->
