@@ -93,7 +93,7 @@ $to_empty = "Le champs 'A' ne doit pas être vide !";
 $version = "NOCC Webmail v1.0";
 $name = "NOCC Webmail";
 
-$ad = "\n\n________________________________________________________________________\nNOCC, votre bureau à porté de clic : http://nocc.sourceforge.net";
+$ad = "\n\n________________________________________________________________________\nNOCC, votre bureau à portée de clic : http://nocc.sourceforge.net";
 
 $html_outside = "Vous voyez cette page en dehors de <b>".$name."</b>. Pour y retourner, fermez cette fenêtre.";
 
