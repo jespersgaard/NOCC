@@ -1,5 +1,6 @@
 NOCC 0.9.3	?? ??, 2001
 
+	* Fixed a bug with Postfix when "strict_rfc821_envelopes = yes"
 	* Fixed replying to someone with a name containing accent (bug #133573).
 	* Better display of text/plain messages.
 	* Fixed bug with Netscape 4.x which prevented to send attachement.
