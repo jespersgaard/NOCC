@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.139 2002/12/03 06:37:06 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.140 2002/12/16 15:22:39 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -291,7 +291,7 @@ switch($action)
 
     case 'managefilters':
         $pop = new nocc_imap($ev);
-		$user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
+        $user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
         $filterset = NOCCUserFilters::read($user_key, $ev);
 
         if (Exception::isException($ev)) {
@@ -414,9 +414,14 @@ switch($action)
             if ($pop->folder == 'INBOX') {
                 $user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
                 $filters = NOCCUserFilters::read($user_key, $ev);
+                if(Exception::isException($ev)) {
+                        error_log("Error reading filters for user '$user_key': ".$ev->getMessage());
+                        $filters = NULL;
+                        $ev = NULL;
+                }
 
                 $small_search = 'unseen ';
-                if ($_REQUEST['reapply_filters'] == 1) {
+                if (isset($_REQUEST['reapply_filters']) && $_REQUEST['reapply_filters'] == 1) {
                     $small_search = '';
                 }
 
@@ -434,7 +439,12 @@ switch($action)
                         }
                     }
                 }
-                $pop->expunge();
+
+                $pop->expunge($ev);
+                if(Exception::isException($ev)) {
+                        error_log("Error expunging mail for user '$user_key': ".$ev->getMessage());
+                        $ev = NULL;
+                }
             }
         }
 
@@ -499,7 +509,7 @@ switch($action)
             foreach($subscribed as $folder) {
                 $folder_name = substr(strstr($folder->name, '}'), 1);
                 $tmp_pop = imap_open($folder->name, $pop->login, $pop->passwd, 'OP_READONLY');
-		
+
                 $unseen_messages = imap_search($tmp_pop,'UNSEEN');
 
                 imap_close($tmp_pop);
