@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.191 2004/07/09 06:32:01 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.192 2004/07/15 21:10:51 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -63,12 +63,12 @@ function inbox(&$pop, $skip = 0, &$ev)
         if (isset($struct_msg->type) && ( $struct_msg->type == 1 || $struct_msg->type == 3))
         {
             if ($struct_msg->subtype == 'ALTERNATIVE' || $struct_msg->subtype == 'RELATED')
-                $attach = '&nbsp';
+                $attach = '&nbsp;';
             else
                 $attach = '<img src="themes/' . $_SESSION['nocc_theme'] . '/img/attach.gif" alt="" />';
         }
         else
-            $attach = '&nbsp';
+            $attach = '&nbsp;';
         // Check Status Line with UCB POP Server to
         // see if this is a new message. This is a
         // non-RFC standard line header.
