@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.15 2002/05/22 14:23:42 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.16 2002/05/30 14:07:20 rossigee Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -20,9 +20,9 @@ session_start();
 require_once './functions.php';
 
 // Useful for debugging sessions
-echo "<pre>Session:";
-var_dump($_SESSION);
-echo "</pre>";
+//echo "<pre>Session:";
+//var_dump($_SESSION);
+//echo "</pre>";
 
 // Set defaults
 if (!isset($_SESSION['nocc_folder'])) {
