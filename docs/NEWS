@@ -1,5 +1,6 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Strip slashes from body on reply.
 	* Prevented preferences from creating prefs/sig until user is
 	  properly logged in.
 	* Added error handling for prefs/sig file writing errors

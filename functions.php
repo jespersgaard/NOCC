@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.116 2001/11/08 12:12:48 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.117 2001/11/08 12:22:24 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -416,6 +416,8 @@ function remove_stuff($body, $lang, $mime)
 {
 	GLOBAL $PHP_SELF;
 
+	// Remove unwanted slashes
+	stripslashes($body);
 	if (eregi('html', $mime))
 	{
 		$to_removed_array = array (
