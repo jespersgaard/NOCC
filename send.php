@@ -13,7 +13,7 @@ require ("conf.php");
 require ("check_lang.php");
 require ("functions.php");
 
-if (!session_is_registered("loggedin"))
+if (!session_is_registered("loggedin") && $loggedin)
 	header("Location: logout.php?lang=$lang");
 
 if (!function_exists("is_uploaded_file"))
