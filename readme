@@ -2,8 +2,8 @@ NOCC readme documentation                                              README
 =--------------------------------------------------------------------------=
 
 $Author: nicocha $
-$Revision: 1.1 $
-$Date: 2000/10/24 15:53:17 $
+$Revision: 1.2 $
+$Date: 2000/10/24 15:54:37 $
 
 
 Release Documentation
@@ -13,6 +13,7 @@ docs/CHANGES  - A list of changes by release
 docs/HELP     - How you can help
 docs/INSTALL  - Installation instructions and notes
 docs/CREDITS  - Who developed this 
+docs/TODO     - The features wishlist
 
 Installation
 ~~~~~~~~~~~~
