@@ -1,9 +1,10 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.101 2002/03/25 13:56:38 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.102 2002/03/25 18:33:57 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
+ * Copyright 2002 Mike Rylander <mrylander@mail.com>
  *
  * See the enclosed file COPYING for license information (GPL).  If you
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
@@ -342,9 +343,7 @@ switch (trim($action))
         $is_imap = $pop->is_imap();
         $tab_mail = 0;
         if ($pop->num_msg() > 0)
-            $tab_mail = inbox($conf, $pop, $sort, $sortdir, $lang, $theme);
-
-        $pop->close();
+            $tab_mail = inbox($conf, $pop, $sort, $sortdir, $lang, $theme, $skip);
 
         switch ($tab_mail)
         {
@@ -374,7 +373,8 @@ switch (trim($action))
                 $loggedin = 1;
                 session_register('loggedin');
                 // there are messages, we display
-                $num_msg = count($tab_mail);
+                #$num_msg = count($tab_mail);
+                $num_msg = $pop->num_msg();
                 require ('./html/header.php');
                 require ('./html/menu_inbox.php');
                 require ('./html/html_top_table.php');
@@ -387,6 +387,9 @@ switch (trim($action))
                 require ('./html/footer.php');
                 break;
         }
+
+        $pop->close();
+
         break;
 }
 
