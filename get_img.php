@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/get_img.php,v 1.19 2002/03/24 17:00:36 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/get_img.php,v 1.20 2002/04/16 00:52:52 mrylander Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -15,7 +15,7 @@ require_once './functions.php';
 $passwd = safestrip($passwd);
 
 $ev = "";
-$pop = new nocc_imap($servr, $folder, $login, safestrip($passwd), &$ev);
+$pop = new nocc_imap($servr, $folder, $login, safestrip($passwd), $ev);
 if($ev) {
     echo "<p class=\"error\">".$ev->getMessage()."</p>";
     return;
