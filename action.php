@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.122 2002/05/02 12:21:19 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.123 2002/05/14 18:36:59 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -50,7 +50,7 @@ switch($action)
 {
     case 'aff_mail':
         $attach_tab = array();
-        $content = aff_mail($attach_tab, $mail, $_REQUEST['verbose'], $ev);
+        $content = aff_mail($attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
@@ -106,7 +106,7 @@ switch($action)
 
     case 'reply':
         $attach_tab = array();
-        $content = aff_mail($attach_tab, $mail, 0, $ev);
+        $content = aff_mail($attach_tab, $_REQUEST['mail'], 0, $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
@@ -147,7 +147,7 @@ switch($action)
 
     case 'reply_all':
         $attach_tab = array();
-        $content = aff_mail($mail, 0, $ev);
+        $content = aff_mail($attach_tab, $_REQUEST['mail'], 0, $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
@@ -180,7 +180,7 @@ switch($action)
 
     case 'forward':
         $attach_tab = array();
-        $content = aff_mail($attach_tab, $mail, 0, $ev);
+        $content = aff_mail($attach_tab, $_REQUEST['mail'], 0, $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
