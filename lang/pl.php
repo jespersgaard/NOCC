@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.25 2004/06/20 09:39:32 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.26 2004/06/21 18:39:27 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -82,7 +82,7 @@ $html_use_signature = 'U¿ywaj podpisu';
 $html_signature = 'Podpis';
 $html_reply_leadin = 'Nag³ówek odpowiedzi';
 $html_prefs_updated = 'Zapisano nowe ustawienia';
-$html_manage_folders_link = 'Zarz±dzaj Foldreami IMAP';
+$html_manage_folders_link = 'Zarz±dzaj Folderami IMAP';
 $html_manage_filters_link = 'Regu³y wiadomo¶ci';
 $html_use_graphical_smilies = 'U¿ywaj emotikon';
 
@@ -170,7 +170,7 @@ $html_priority = 'Wa¿no¶æ';
 $html_low = 'Niska';
 $html_normal = 'Normalna';
 $html_high = 'Wysoka';
-$html_receipt = 'Zaz±daj potwierdzenia otrzymania wiadomo¶ci';
+$html_receipt = 'Za¿±daj potwierdzenia otrzymania wiadomo¶ci';
 $html_select = 'Zaznacz';
 $html_select_all = 'Zaznacz wszystko';
 $html_loading_image = '£adowanie obrazka';
@@ -182,7 +182,7 @@ $html_wrap = 'Wrap outgoing messages to :';  //to translate
 $html_usenet_separator = 'U¿yj separatora ("-- \n") Przed sygnatur±';
 $html_mark_as = 'Zaznacz jako';
 $html_read = 'Przeczytane';
-$html_unread = 'Nieprzeczytane';
+$html_unread = 'Nie przeczytane';
 
 // Contacts manager
 $html_add = 'Dodaj';
