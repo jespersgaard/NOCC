@@ -1,7 +1,7 @@
 <?php
 
 require_once ('./prefs.php');
-$pref_email_address = getPref($prefs_dir, $user, 'email_address');
+$pref_email_address = getPref('email_address');
 
 $custom_header = "./themes/$theme/header.php";
 if(file_exists($custom_header)) {

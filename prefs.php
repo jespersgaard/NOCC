@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.4 2001/10/20 11:42:12 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.5 2001/10/21 21:26:23 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -32,6 +32,11 @@ function cachePrefValues($data_dir, $username)
 	if (file_exists($filename))
 	{
 		$file = fopen($filename, 'r');
+		if(!$file)
+		{
+			error_log("Could not open $filename for reading.");
+			return;
+		}
 
 		/** read in all the preferences **/
 		$highlight_num = 0;
@@ -65,10 +70,11 @@ function cachePrefValues($data_dir, $username)
    
    
 /** returns the value for $string **/
-function getPref($data_dir, $username, $string)
+function getPref($string)
 {
-	global $prefs_cache;
-	  
+	global $prefs_dir, $user, $domain, $prefs_cache;
+	
+	$username = $user.'@'.$domain;
 	cachePrefValues($data_dir, $username);
 	  
 	if (isset($prefs_cache[$string]))
@@ -81,7 +87,13 @@ function savePrefValues($data_dir, $username)
 {
 	global $prefs_cache;
 	  
-	$file = fopen($data_dir . $username . '.pref', 'w');
+	$filename = $data_dir . $username . '.pref';
+	$file = fopen($filename, 'w');
+	if(!$file)
+	{
+		error_log("Could not open $filename for writing.");
+		return;
+	}
 	foreach ($prefs_cache as $Key => $Value)
 	{
 		if (isset($Value))
@@ -104,46 +116,67 @@ function removePref($data_dir, $username, $string)
 }
    
 /** sets the pref, $string, to $set_to **/
-function setPref($data_dir, $username, $string, $set_to)
+function setPref($string, $set_to)
 {
-	global $prefs_cache;
-	  
-	cachePrefValues($data_dir, $username);
+	global $prefs_dir, $user, $domain, $prefs_cache;
+
+	$username = $user.'@'.$domain;
+	cachePrefValues($prefs_dir, $username);
 	if (isset($prefs_cache[$string]) && $prefs_cache[$string] == $set_to)
 		return;
 	if ($set_to === '')
 	{
-		removePref($data_dir, $username, $string);
+		removePref($prefs_dir, $username, $string);
 		return;
 	}
 	$prefs_cache[$string] = $set_to;
-	savePrefValues($data_dir, $username);
+	savePrefValues($prefs_dir, $username);
 }
 
 
 /** This checks if there is a pref file, if there isn't, it will create it. **/
 function checkForPrefs($data_dir, $username)
 {
+	$default_pref = $data_dir . 'default_pref';
 	$filename = $data_dir . $username . '.pref';
-	if (!file_exists($filename))
+	if (file_exists($filename))
+		return;
+
+	// If preferences file doesn't exist, create it
+	if (file_exists($default_pref))
 	{
-		$default_pref = $data_dir . 'default_pref';
-		if (file_exists($default_pref))
-		{
-			if (!copy($default_pref, $filename))
-			{
-				$file = fopen($data_dir . $username . '.pref', 'w');
-				fclose($file);
-			}
-		}
+		if (copy($default_pref, $filename))
+			error_log("Copied default_pref to $filename");
+		else
+			error_log("Failed to copy default_pref to $filename");
+		return;
 	}
+
+	// Default preferences doesn't exist, create empty user preferences
+	$file = fopen(filename, 'w');
+	if($file)
+	{
+		fclose($file);
+		error_log("Created empty $filename.");
+	}
+	else
+		error_log("Could not open $filename for writing.");
 }
 
 
 /** Writes the Signature **/
-function setSig($data_dir, $username, $string)
+function setSig($string)
 {
-	$file = fopen($data_dir . $username . '.sig', 'w');
+	global $prefs_dir, $user, $domain;
+
+	$username = $user . '@' . $domain;
+	$filename = $prefs_dir . $username . '.sig';
+	$file = fopen($filename, 'w');
+	if(!$file)
+	{
+		error_log("Could not open $file for writing.");
+		return;
+	}
 	fwrite($file, $string);
 	fclose($file);
 }
@@ -151,13 +184,21 @@ function setSig($data_dir, $username, $string)
 
 
 /** Gets the signature **/
-function getSig($data_dir, $username)
+function getSig()
 {
-	$filename = $data_dir . $username . '.sig';
+	global $prefs_dir, $user, $domain;
+
+	$username = $user.'@'.$domain;
+	$filename = $prefs_dir . $username . '.sig';
 	$sig = '';
 	if (file_exists($filename))
 	{
 		$file = fopen($filename, 'r');
+		if(!$file)
+		{
+			error_log("Could not open $filename for reading.");
+			return '';
+		}
 		while (!feof($file))
 			$sig .= fgets($file, 1024);
 		fclose($file);
