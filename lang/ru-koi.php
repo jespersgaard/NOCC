@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ru-koi.php,v 1.21 2004/06/22 10:36:01 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ru-koi.php,v 1.22 2004/06/22 11:25:28 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -173,7 +173,7 @@ $html_normal = 'обычный';
 $html_high = 'высокий';
 $html_receipt = 'Запросить подтверждение получения';
 $html_select = 'Выбрать';
-$html_select_all = 'Выбрать все';
+$html_select_all = 'Invert Selection';  //to translate
 $html_loading_image = 'Загрузка картинки';
 $html_send_confirmed = 'Сообщение принято к доставке';
 $html_no_sendaction = 'Не задано действие. Попробуйте включить Javascript.';

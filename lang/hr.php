@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/hr.php,v 1.14 2004/06/22 10:36:01 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/hr.php,v 1.15 2004/06/22 11:25:27 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -172,7 +172,7 @@ $html_normal = 'Normalan';
 $html_high = 'Visok';
 $html_receipt = 'Request a return receipt';
 $html_select = 'Selektiraj';
-$html_select_all = 'Selektiraj sve';
+$html_select_all = 'Invert Selection';  //to translate
 $html_loading_image = 'Ucitavam sliku';
 $html_send_confirmed = 'Vasa poruka je isporucena';
 $html_no_sendaction = 'Nista nije specificirano - ukljucite JavaScript.';

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.29 2004/06/22 10:36:01 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.30 2004/06/22 11:25:27 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -175,7 +175,7 @@ $html_normal = 'Normal';  //to translate
 $html_high = 'Hoog';
 $html_receipt = 'Ontvangstbevestiging';
 $html_select = 'Selecteer';
-$html_select_all = 'Selecteer Alles';
+$html_select_all = 'Invert Selection';  //to translate
 $html_loading_image = 'Plaatje laden';
 $html_send_confirmed = 'Het bericht is verzonden';
 $html_no_sendaction = 'Geen actie gespecificeerd. Evt. JavaScript aanzetten.';

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/lv.php,v 1.7 2004/06/22 10:36:01 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/lv.php,v 1.8 2004/06/22 11:25:27 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -172,7 +172,7 @@ $html_normal = 'Normâla';
 $html_high = 'Augsta';
 $html_receipt = 'Request a return receipt'; // to translate
 $html_select = 'Izvçlçties';
-$html_select_all = 'Izvçlçties visas';
+$html_select_all = 'Invert Selection';  //to translate
 $html_loading_image = 'Bilde tiek ielâdçta';
 $html_send_confirmed = 'Vçstule tika pieòemta nosûtîðanai';
 $html_no_sendaction = 'Rîcîba nav norâdîta. Pamçìiniet ieslçgt Java-script.';

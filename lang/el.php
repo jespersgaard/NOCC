@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/el.php,v 1.18 2004/06/22 10:36:00 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/el.php,v 1.19 2004/06/22 11:25:27 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -172,7 +172,7 @@ $html_normal = 'Κανονική';
 $html_high = 'Υψηλή';
 $html_receipt = 'Request a return receipt';  //to translate
 $html_select = 'Διαλέξτε';
-$html_select_all = 'Επιλογή Ολων';
+$html_select_all = 'Invert Selection';  //to translate
 $html_loading_image = 'Φορτώνω την εικόνα';
 $html_send_confirmed = 'Το μήνυμα σας θα αποσταλεί.';
 $html_no_sendaction = 'Δεν επιλέχθηκε εντολή. Δοκιμάστε να ενεργοποιήσετε τηνJavaScript.';

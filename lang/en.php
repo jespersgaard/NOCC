@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.70 2004/06/22 10:36:00 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.71 2004/06/22 11:25:27 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -172,7 +172,7 @@ $html_normal = 'Normal';
 $html_high = 'High';
 $html_receipt = 'Request a return receipt';
 $html_select = 'Select';
-$html_select_all = 'Select All';
+$html_select_all = 'Invert Selection';
 $html_loading_image = 'Loading image';
 $html_send_confirmed = 'Your mail was accepted for delivery';
 $html_no_sendaction = 'No action specified. Try enabling JavaScript.';

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fi.php,v 1.19 2004/06/22 10:36:01 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fi.php,v 1.20 2004/06/22 11:25:27 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -172,7 +172,7 @@ $html_normal = 'Tavallinen';
 $html_high = 'Korkea';
 $html_receipt = 'Request a return receipt';
 $html_select = 'Valitse';
-$html_select_all = 'Valitse kaikki';
+$html_select_all = 'Invert Selection';  //to translate
 $html_loading_image = 'Lataan kuvaa';
 $html_send_confirmed = 'S&auml;hk&ouml;postisi on onnistuneesti l&auml;hetetty';
 $html_no_sendaction = 'Toimintoa ei m&auml;&auml;ritelty. Kokeile sallia JavaScriptin suoritus selaimessasi.';

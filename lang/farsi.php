@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.9 2004/06/22 10:36:01 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.10 2004/06/22 11:25:27 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -172,7 +172,7 @@ $html_normal = '&#1605;&#1593;&#1605;&#1608;&#1604;&#1609;';
 $html_high = '&#1586;&#1610;&#1575;&#1583;';
 $html_receipt = 'Request a return receipt';  //to translate
 $html_select = '&#1575;&#1606;&#1578;&#1582;&#1575;&#1576;';
-$html_select_all = '&#1575;&#1606;&#1578;&#1582;&#1575;&#1576; &#1607;&#1605;&#1607;';
+$html_select_all = 'Invert Selection';  //to translate
 $html_loading_image = '&#1582;&#1608;&#1575;&#1606;&#1583;&#1606; &#1578;&#1589;&#1608;&#1610;&#1585;';
 $html_send_confirmed = '&#1606;&#1575;&#1605;&#1607; &#1588;&#1605;&#1575; &#1576;&#1585;&#1575;&#1609; &#1601;&#1585;&#1587;&#1578;&#1575;&#1583;&#1606; &#1662;&#1584;&#1610;&#1585;&#1601;&#1578;&#1607; &#1588;&#1583;';
 $html_no_sendaction = '&#1607;&#1610;&#1670; &#1593;&#1605;&#1604;&#1609; &#1575;&#1606;&#1580;&#1575;&#1605; &#1606;&#1588;&#1583;. JavaScrip &#1585;&#1575; &#1601;&#1593;&#1575;&#1604; &#1606;&#1605;&#1575;&#1574;&#1610;&#1583;';

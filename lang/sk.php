@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/sk.php,v 1.21 2004/06/22 10:36:01 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sk.php,v 1.22 2004/06/22 11:25:28 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -172,7 +172,7 @@ $html_normal = 'Normálna';
 $html_high = 'Vysoká';
 $html_receipt = 'Request a return receipt';
 $html_select = 'Oznaè';
-$html_select_all = 'Oznaè v¹etko';
+$html_select_all = 'Invert Selection';  //to translate
 $html_loading_image = 'Nahrávam obrázok';
 $html_send_confirmed = 'Správa bola akceptovaná na odoslanie.';
 $html_no_sendaction = 'Nemo¾no vykona». Skúste zapnút podporu Javaskript vo va¹om prehliadaèi.';

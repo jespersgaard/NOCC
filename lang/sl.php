@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/sl.php,v 1.22 2004/06/22 10:36:01 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sl.php,v 1.23 2004/06/22 11:25:28 goddess_skuld Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -172,7 +172,7 @@ $html_normal = 'Obièajna';
 $html_high = 'Visoka';
 $html_receipt = 'Request a return receipt';  //to translate
 $html_select = 'Oznaèi';
-$html_select_all = 'Oznaèi vse';
+$html_select_all = 'Invert Selection';  //to translate
 $html_loading_image = 'Nalagam sliko';
 $html_send_confirmed = 'Vase sporoèilo je bilo poslano.';
 $html_no_sendaction = 'Napaka: Brez ukaza. Poskusite vkljuèiti JavaScript.';
