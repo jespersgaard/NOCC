@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.23 2001/03/13 11:34:37 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.25 2001/04/24 19:11:36 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -33,10 +33,10 @@ class mime_mail
 		$this->to =  Array();
 		$this->cc = Array();
 		$this->bcc = Array();
-		$this->from =  "";
-		$this->subject =  "";
-		$this->body =  "";
-		$this->headers =  "";
+		$this->from =  '';
+		$this->subject =  '';
+		$this->body =  '';
+		$this->headers =  '';
 	}
 
   /*
@@ -46,11 +46,11 @@ class mime_mail
 	function add_attachment($message, $name, $ctype, $encoding, $charset)
 	{
 	$this->parts[] = array	(
-					"ctype" => $ctype,
-                    "message" => $message,
-                    "encoding" => $encoding,
-					"charset" => $charset,
-                    "name" => $name
+					'ctype' => $ctype,
+                    'message' => $message,
+                    'encoding' => $encoding,
+					'charset' => $charset,
+                    'name' => $name
 					);
 	}
 
@@ -60,25 +60,25 @@ class mime_mail
  */ 
 	function build_message($part)
 	{
-		$message = $part["message"];
-		$encoding = $part["encoding"];
-		$charset = $part["charset"];
+		$message = $part['message'];
+		$encoding = $part['encoding'];
+		$charset = $part['charset'];
 		switch($encoding)
 		{
-			case "base64":
+			case 'base64':
 				$message = chunk_split(base64_encode($message));
 				break;
-			case "quoted-printable":
+			case 'quoted-printable':
 				$message = imap_8bit($message);
 				break;
 			default:
 				break;
 		}
-		$val = "Content-Type: ".$part["ctype"].";";
-		$val .= ($part["charset"] ? " charset=".$part["charset"] : "");
-		$val .= ($part["name"] ? "\r\n\tname=\"".$part["name"]."\"" : "");
+		$val = 'Content-Type: '.$part['ctype'].';';
+		$val .= ($part['charset'] ? ' charset='.$part['charset'] : '');
+		$val .= ($part['name'] ? "\r\n\tname=\"".$part['name'].'"' : '');
 		$val .= "\r\nContent-Transfer-Encoding: ".$encoding;
-		$val .= ($part["name"] ? "\r\nContent-Disposition: attachment;\r\n\tfilename=\"".$part["name"]."\"" : "");
+		$val .= ($part['name'] ? "\r\nContent-Disposition: attachment;\r\n\tfilename=\"".$part['name'].'"' : '');
 		$val .= "\r\n\r\n".$message."\r\n";
 		return($val);
 	}
@@ -89,7 +89,7 @@ class mime_mail
  */ 
 	function build_multipart() 
 	{
-		$boundary =  "NextPart".md5(uniqid(time()));
+		$boundary =  'NextPart'.md5(uniqid(time()));
 		$multipart =  "Content-Type: multipart/mixed;\r\n\tboundary = $boundary\r\n\r\nThis is a MIME encoded message.\r\n\r\n--$boundary";
 		
 		for($i = sizeof($this->parts) - 1; $i >= 0; $i--) 
@@ -107,7 +107,7 @@ class mime_mail
 		if (sizeof($this->parts) == 1)
 			$part = $this->build_message($this->parts[0]);
 		else
-			$part = "";
+			$part = '';
 		return ($part."\r\n");
 	}
 
@@ -117,35 +117,35 @@ class mime_mail
  */ 
 	function send() 
 	{
-		$mime =  "";
+		$mime =  '';
 		if (!empty($this->from))
-			$mime .= "From: ".$this->from."\r\n";
-		if (($this->smtp_server != "" && $this->smtp_port != "") && ($this->to[0] != ""))
-			$mime .= "To: ".join(", ", $this->to)."\r\n"; 
-		if ($this->cc[0] != "")
-			$mime .= "Cc: ".join(", ", $this->cc)."\r\n";
-		if ($this->bcc[0] != "")
-			$mime .= "Bcc: ".join(", ", $this->bcc)."\r\n";
+			$mime .= 'From: '.$this->from."\r\n";
+		if (($this->smtp_server != '' && $this->smtp_port != '') && ($this->to[0] != ''))
+			$mime .= 'To: '.join(', ', $this->to)."\r\n"; 
+		if ($this->cc[0] != '')
+			$mime .= 'Cc: '.join(', ', $this->cc)."\r\n";
+		if ($this->bcc[0] != '')
+			$mime .= 'Bcc: '.join(', ', $this->bcc)."\r\n";
 		if (!empty($this->from))
-			$mime .= "Reply-To: ".$this->from."\r\nErrors-To: ".$this->from."\r\n";
+			$mime .= 'Reply-To: '.$this->from."\r\nErrors-To: ".$this->from."\r\n";
 		if (!empty($this->subject))
-			$mime .= "Subject: ".$this->subject."\r\n";
+			$mime .= 'Subject: '.$this->subject."\r\n";
 		if (!empty($this->headers))
 			$mime .= $this->headers."\r\n";
 		if (sizeof($this->parts) >= 1)
 		{
-			$this->add_attachment($this->body,  "",  "text/plain", "quoted-printable", $this->charset);
+			$this->add_attachment($this->body,  '',  'text/plain', 'quoted-printable', $this->charset);
 			$mime .= "MIME-Version: 1.0\r\n".$this->build_multipart();
 		}
 		else
 		{
-			$this->add_attachment($this->body,  "",  "text/plain", "8bit", $this->charset);
+			$this->add_attachment($this->body,  '',  'text/plain', '8bit', $this->charset);
 			$mime .= $this->build_body();
 		}
 		// Whether or not to use SMTP or sendmail
 		// depends on the config file (conf.php)
-		if ($this->smtp_server == "" || $this->smtp_port == "")
-			return (mail(join(", ", $this->to), $this->subject,  "", $mime));
+		if ($this->smtp_server == '' || $this->smtp_port == '')
+			return (mail(join(', ', $this->to), $this->subject,  '', $mime));
 		else
 		{
 			if (($smtp = new smtp()) != 0)
