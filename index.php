@@ -1,6 +1,6 @@
 <?
 /*
- * $Header$ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.28 2000/11/24 19:56:10 wolruf Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -129,6 +129,13 @@ echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 							{ ?>
 							<tr>
 								<td colspan="3" height="12"><font color="red"><b>The IMAP module does not seem to be installed on this PHP setup, please see Nocc's documentation.</b></font></td>
+							</tr>
+							<? }
+							if (floor(phpversion()) == 3)
+							{
+							?>
+							<tr>
+								<td colspan="3" height="12"><font color="red"><b>You seem to be running PHP 3, you need PHP 4 at least to run Nocc.</b></font></td>
 							</tr>
 							<? } ?>
 						</table>
