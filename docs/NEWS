@@ -1,5 +1,7 @@
 NOCC 0.9.7    ?? ??, 2004
 
+    * Add possibility to allow a limited set of characters for login (Arnaud
+      Boudou, RFE #979305)
     * Add compatibility with PHP5's register_long_arrays=On, but break
       compatibility with PHP version prior than 4.1.0 (Arnaud Boudou)
     * Add possibility for force default language rather than browser preference

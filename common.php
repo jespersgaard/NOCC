@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.37 2004/08/26 20:12:31 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.38 2004/08/27 10:55:45 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -174,6 +174,19 @@ if(isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
         }
         $user_filters = $_SESSION['nocc_user_filters'];
     }
+}
+
+// Check allowed chars for login
+if ($_SESSION['nocc_login'] != '' && isset($conf->allowed_char) && $conf->allowed_char != '' && !ereg($conf->allowed_char, $_SESSION['nocc_login'])) {
+    $ev = new NoccException($html_wrong);
+       if(isset($_REQUEST['theme'])) {
+         $_SESSION['nocc_theme'] = safestrip($_REQUEST['theme']);
+         require ('./themes/' . $_SESSION['nocc_theme'] . '/colors.php');
+       }
+       require ('./html/header.php');
+       require ('./html/error.php');
+       require ('./html/footer.php');
+       exit;
 }
 
 require_once ('./conf_lang.php');
