@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.66 2001/02/26 11:33:14 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.67 2001/02/28 10:58:23 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -17,6 +17,7 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang)
 {
 	$mailhost = $servr;
 	require("conf.php");
+
 	$pop = @imap_open("{".$mailhost."}".$folder, $user, $passwd);
 	if ($pop == false)
 		return (-1);
@@ -488,9 +489,10 @@ function cut_address($addr, $charset)
 function save_attachment($servr, $user, $passwd, $folder, $mail)
 {
 	GLOBAL $attach_tab;
-	$attach_array = array();
-	$pop = imap_open("{".$servr."}".$folder, $user, $passwd);
 	$i = 0;
+	$attach_array = array();
+	
+	$pop = imap_open("{".$servr."}".$folder, $user, $passwd);
 	while ($tmp = array_shift($attach_tab))
 	{
 		$i++;
