@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: nicocha $
-	$Revision: 1.21 $
-	$Date: 2000/11/06 19:22:08 $
+	$Revision: 1.22 $
+	$Date: 2000/11/22 17:06:47 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -134,7 +134,7 @@ $alink_color = "#0033cc";
 */
 $alt_fr = "Fran&ccedil;ais";
 $alt_en = "English";
-$alt_de = "Deutsch"
+$alt_de = "Deutsch";
 
 $nocc_version = "0.9";
 $nocc_name = "NOCC";
