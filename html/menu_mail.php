@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_mail.php,v 1.24 2002/04/28 21:28:47 wolruf Exp $ -->
+<!-- start of $Id: menu_mail.php,v 1.25 2002/05/14 18:46:43 rossigee Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -20,7 +20,7 @@
                         <a href="<?php echo $PHP_SELF ?>?action=forward&amp;mail=<?php echo $content['msgnum'] ?>" class="menu"><?php echo $html_forward ?></a>
                     </td>
                     <td class="menu" align="center" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="delete.php?delete_mode=1&mail=<?php echo $mail ?>&amp;only_one=1" class="menu"><?php echo $html_delete ?></a>
+                        <a href="delete.php?delete_mode=1&mail=<?php echo $content['msgnum'] ?>&amp;only_one=1" class="menu"><?php echo $html_delete ?></a>
                     </td>
                     <?php if ($conf->enable_logout) { ?>
                     <td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
@@ -35,4 +35,4 @@
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_mail.php,v 1.24 2002/04/28 21:28:47 wolruf Exp $ -->
+<!-- end of $Id: menu_mail.php,v 1.25 2002/05/14 18:46:43 rossigee Exp $ -->
