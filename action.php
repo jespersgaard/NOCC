@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.136 2002/06/30 21:43:45 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.137 2002/09/10 23:27:01 mrylander Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -445,7 +445,7 @@ switch($action)
         $_SESSION['nocc_loggedin'] = 1;
 
         // Fetch message list
-        $tab_mail = 0;
+        $tab_mail = array();
         $skip = 0;
         if(isset($_REQUEST['skip']))
                 $skip = $_REQUEST['skip'];

@@ -1,5 +1,6 @@
 NOCC 0.9.6    ??, 2002
 
+    * Attachment array being initialised as integer zero (Paulo Matos)
     * Fixed MIME line termination incompliance with RFC822 (Paulo Matos)
     * Removed 'delete_button_icon' option, as it didn't work. (#575741)
     * Rewrote 'prefs.php' as 'user_prefs.php'.
