@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.69 2001/10/28 22:58:34 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.70 2001/10/31 09:26:07 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -92,7 +92,7 @@ switch (trim($action))
 		break;
 
 	case 'reply':	
-	$content = aff_mail($servr, $user, stripslashes($passwd), $folder, $mail, 0, $lang, $sort, $sortdir);
+		$content = aff_mail($servr, $user, stripslashes($passwd), $folder, $mail, 0, $lang, $sort, $sortdir);
 		$mail_to = !empty($content['reply_to']) ? $content['reply_to'] : $content['from'];
 		// Test for Re: in subject, should not be added twice ! 
 		if (!strcasecmp(substr($content['subject'], 0, 2), $html_reply_short))
