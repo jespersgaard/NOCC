@@ -1,28 +1,19 @@
 Tasks for NOCC. If you think something is missing here,
 please send a note to <nocc-discuss at lists.sourceforge.net>.
 
-Short term
-----------
-
- - Change langage files to use an array ($lang_text->...)
+ - HTML mail send capability (using htmlarea).
+ - Change langage files to use an array ($lang_text->...).
  - Create specific icons for attachments.
  - Colored quotes.
  - Should warn when smtp relaying is forbidden instead of silently pretending
    it succeeded in sending mail.
-
-Long term
----------
-
  - SMTP+Auth support.
  - Cache messages data to speed up loading by logging in POP or IMAP once.
- - RFC 1894 support (Delivery Status Notification) (?).
+ - RFC 1894 support (Delivery Status Notification).
  - Dynamic Gzip support: allows live display compression, might speed up when
    connected through slow lines.
- - Switch to pure CSS for color backgrounds, etc. (unlikely to do this soon as
-   many browsers/users still won't support it for the next 1-2 years)
-   a valid XML DTD.
+ - Switch to pure CSS for color backgrounds, get rid of tables, switch to divs.
  - Printer-friendly e-mail formatting.
- - Handling the Delete flag with IMAP.
  - Cleaner BiDi support (arabic for example) with mailbox display.
  - Translate the charset in the mail headers to the charset chosen at login.
  - Webmail user documentation.
