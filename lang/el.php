@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/el.php,v 1.3 2001/11/18 17:53:32 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/el.php,v 1.4 2001/11/18 21:08:06 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -27,10 +27,10 @@ $lang_dir = 'ltr';
 
 // What format string should we pass to strftime() for messages sent on
 // days other than today?
-$default_date_format = '%Y-%m-%d'; 
+$default_date_format = '%d-%m-%Y'; 
 
 // If the local is not implemented on the host, how we display the date
-$no_locale_date_format = '%Y-%m-%d';
+$no_locale_date_format = '%d-%m-%Y';
 
 // What format string should we pass to strftime() for messages sent
 // today?
@@ -70,16 +70,16 @@ $html_retry = 'Επανάληψη';
 
 // prefs.php
 
-$html_preferences = 'Preferences';
-$html_full_name = 'Full name';
-$html_email_address = 'E-mail Address';
-$html_ccself = 'Cc self';
-$html_hide_addresses = 'Hide addresses';
-$html_outlook_quoting = 'Outlook-style quoting';
-$html_reply_to = 'Reply to';
-$html_use_signature = 'Use signature';
-$html_signature = 'Signature';
-$html_prefs_updated = 'Preferences updated';
+$html_preferences = 'Προτιμήσεις';
+$html_full_name = 'Ονοματεπώνυμο';
+$html_email_address = 'E-mail διεύθυνση';
+$html_ccself = 'Αντίγραφο στον ευατό μου';
+$html_hide_addresses = 'Απόκρυψη διευθύνσεων';
+$html_outlook_quoting = 'Στυλ Outlook παραθέσεις';
+$html_reply_to = 'Απάντηση σε';
+$html_use_signature = 'Χρησιμοποίηση υπογραφής';
+$html_signature = 'Υπογραφή';
+$html_prefs_updated = 'Οι Προτιμήσεις σας ανανεώθηκαν';
 
 // Other pages
 
@@ -122,24 +122,24 @@ $html_no_mail = 'Δεν υπάρχουν μηνύματα.';
 $html_logout = 'Εξοδος';
 $html_msg = 'Μήνυμα';
 $html_msgs = 'Μηνύματα';
-$html_configuration = 'This server is not well set up !';
-$html_priority = 'Priority';
-$html_low = 'Low';
-$html_normal = 'Normal';
-$html_high = 'High';
-$html_select = 'Select';
-$html_select_all = 'Select All';
-$html_loading_image = 'Loading image';
-$html_send_confirmed = 'Your mail was accepted for delivery';
-$html_no_sendaction = 'No action specified. Try enabling JavaScript.';
-$html_error_occurred = 'An error occurred';
-$html_prefs_file_error = 'Unable to open preferences file for writing.';
-$html_sig_file_error = 'Unable to open signature file for writing.';
+$html_configuration = 'Αυτός ο διακομιστής δεν έχει οριστεί σωστά !';
+$html_priority = 'Προταιραιότητα';
+$html_low = 'Χαμηλή';
+$html_normal = 'Κανονική';
+$html_high = 'Υψηλή';
+$html_select = 'Διαλέξτε';
+$html_select_all = 'Επιλογή Ολων';
+$html_loading_image = 'Φορτώνω την εικόνα';
+$html_send_confirmed = 'Το μήνυμα σας θα αποσταλεί.';
+$html_no_sendaction = 'Δεν επιλέχθηκε εντολή. Δοκιμάστε να ενεργοποιήσετε τηνJavaScript.';
+$html_error_occurred = 'Ενα σφάλμα συνέβη';
+$html_prefs_file_error = 'Δεν μπορώ να γράψω στο αρχείο προτιμήσεων.';
+$html_sig_file_error = 'Δεν μπορώ να γράψω στο αρχείο υπογραφής.';
 
 $original_msg = '-- Πρωτότυπο Μήνυμα --';
 $to_empty = 'Το πεδίο \'Πρός\' δεν πρέπει να είναι άδειο !';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = "Unable to open connection";
-$html_smtp_error_unexpected = "Unexpected response:";
+$html_smtp_error_no_conn = "Δεν μπορώ να ανοίξω σύνδεση";
+$html_smtp_error_unexpected = "Αγνωστη απάντηση:";
 ?>
