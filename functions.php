@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.182 2004/06/15 10:37:08 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.183 2004/06/20 15:44:18 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -466,17 +466,15 @@ function remove_stuff(&$body, &$mime)
             "'<object[^>]*>.*?</object>'si",
             "'<embed[^>]*>.*?</embed>'si",
             "'<applet[^>]*>.*?</applet>'si",
-            "'<mocha[^>]*>.*?</mocha>'si"
+            "'<mocha[^>]*>.*?</mocha>'si",
+            "'<meta[^>]*>'si"
         );
         $body = preg_replace($to_removed_array, '', $body);
         $body = preg_replace("|href=\"(.*)script:|i", 'href="nocc_removed_script:', $body);
         $body = preg_replace("|<([^>]*)java|i", '<nocc_removed_java_tag', $body);
         $body = preg_replace("|<([^>]*)&{.*}([^>]*)>|i", "<&{;}\\3>", $body);
-        //$body = preg_replace("|<([^>]*)mocha:([^>]*)>|i", "<nocc_removed_mocha:\\2>",$body);
         $body = eregi_replace("href=\"mailto:([a-zA-Z0-9+-=%&:_.~?@]+[#a-zA-Z0-9+]*)\"","<A HREF=\"$PHP_SELF?action=write&amp;mail_to=\\1\"", $body);
         $body = eregi_replace("href=mailto:([a-zA-Z0-9+-=%&:_.~?@]+[#a-zA-Z0-9+]*)","<A HREF=\"$PHP_SELF?action=write&amp;mail_to=\\1\"", $body);
-        //$body = eregi_replace("target=\"([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)\"", "", $body);
-        //$body = eregi_replace("target=([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)", "", $body);
         $body = eregi_replace("href=\"([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)\"","<a href=\"\\1\" target=\"_blank\"", $body);
         $body = eregi_replace("href=([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)","<a href=\"\\1\" target=\"_blank\"", $body);
     }

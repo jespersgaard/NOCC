@@ -1,5 +1,7 @@
 NOCC 0.9.6    June 2?, 2004
 
+    * Strip META flags outside the HEAD block within HTML mails (Arnaud Boudou,
+      RFE #489443).
     * Correct problem where no attachment shown when mail contains only an
       attachment without message (Arnaud Boudou, bug #621260).
     * Added possibility to mark a message as read or unread - IMAP only
