@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.51 2001/10/18 12:37:58 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.52 2001/10/18 21:09:23 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -27,19 +27,17 @@ if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
 $current_date = strftime($default_date_format, time());
 
 // Get preferences
-$full_name = getPref($prefs_dir, $user, 'full_name');
-$email_address = getPref($prefs_dir, $user, 'email_address');
-$signature = getSig($prefs_dir, $user);
+$prefs_full_name = getPref($prefs_dir, $user, 'full_name');
+$prefs_email_address = getPref($prefs_dir, $user, 'email_address');
+$prefs_signature = getSig($prefs_dir, $user);
 
-// Default address and reply-to fields, if available
-if($email_address == "") {
-	$email_address = $user."@".$domain;
+// Default e-mail address on send form
+$mail_from = $prefs_email_address;
+if($prefs_email_address == "") {
+	$mail_from = $user."@".$domain;
 }
-if($full_name != "") {
-	$mail_from = $full_name." <".$email_address.">";
-}
-else {
-	$mail_from = $email_address;
+if($prefs_full_name != "") {
+	$mail_from = $prefs_full_name." <".$mail_from.">";
 }
 
 switch (trim($action))
@@ -157,9 +155,9 @@ switch (trim($action))
 				setSig($prefs_dir, $user, $signature);
 			}
 		} else {
-			$full_name = getPref($prefs_dir, $user, 'full_name');
-			$email_address = getPref($prefs_dir, $user, 'email_address');
-			$signature = getSig($prefs_dir, $user);
+			$full_name = $prefs_full_name;
+			$email_address = $prefs_email_address;
+			$signature = $prefs_signature;
 		}
 		require ('html/menu_prefs.php');
 		require ('html/prefs.php');
