@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: nicocha $
-	$Revision: 1.23 $
-	$Date: 2000/10/29 23:20:57 $
+	$Revision: 1.24 $
+	$Date: 2000/10/30 22:35:26 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -138,7 +138,7 @@ echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 	</td>
 </tr>
 <tr>
-	<td align="center" colspan="2"><a href="http://nocc.sourceforge.net/" target="_blank"><img src="img/button.gif" border="0" height="30" width="90" alt"Powered by NOCC"></a></td>
+	<td align="center" colspan="2"><a href="http://nocc.sourceforge.net/" target="_blank"><img src="img/button.gif" border="0" height="30" width="90" alt="Powered by NOCC"></a></td>
 </tr>
 </table>
 </form>
