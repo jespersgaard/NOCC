@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.36 2000/11/25 12:53:38 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.37 2000/11/25 13:11:44 nicocha Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -355,7 +355,7 @@ function change_date($date, $lang)
 // We have to figure out the entire mail size
 function get_mail_size($this_part)
 {
-	$size = 0;
+	$size = $this_part->bytes;
 	for ($i = 0; $i < count($this_part->parts); $i++)
 		$size += $this_part->parts[$i]->bytes;
 	$size = ($size > 1024) ? round($size / 1024) : 1;
