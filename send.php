@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.25 2001/02/16 15:17:46 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.26 2001/02/16 15:47:40 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -46,6 +46,7 @@ switch ($sendaction)
 		$attach_array[$i]->file_size = $mail_att_size;
 		$attach_array[$i]->file_mime = $mail_att_type;
 		// Displaying the sending form with the new attachment array
+		header("Content-type: text/html; Charset=$charset");
 		require ("html/header.php");
 		require ("html/menu_inbox.php");
 		require ("html/send.php");

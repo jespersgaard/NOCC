@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.42 2001/02/15 10:27:01 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.43 2001/02/16 15:17:46 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -8,6 +8,11 @@
  * See the enclosed file COPYING for license information (GPL).  If you
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
+
+require ("conf.php");
+require ("check_lang.php");
+session_destroy();
+Header("Content-type: text/html; Charset=$charset");
 
 if (floor(phpversion()) != 4)
 {
@@ -19,15 +24,12 @@ if (!(extension_loaded('imap')))
 	echo ("<font color=\"red\"><b>The IMAP module does not seem to be installed on this PHP setup, please see NOCC's documentation.</b></font><br /><br /><div align=\"center\"><img src=\"img/button.png\" width=\"88\" height=\"31\" alt=\"Powered by NOCC\" /></div>");
 	exit;
 }
-require ("conf.php");
-require ("check_lang.php");
-session_destroy();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<? echo $lang ?>" lang="<? echo $lang ?>">
 <head>
 <title>NOCC - Webmail</title>
-<meta http-equiv="Content-Type" content="text/html; charset=<? echo $charset ?>" />
+
 <link href="style.css" rel="stylesheet" />
 <script type="text/javascript">
 <!--
