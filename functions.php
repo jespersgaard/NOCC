@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.178 2003/02/08 06:17:07 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.179 2003/03/03 07:34:53 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -188,9 +188,9 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
         $body = remove_stuff($body, $tmp['mime']);
 
         $body_charset =  ($tmp['charset'] == "default") ? detect_charset($body) : $tmp['charset'];
-        $body_converted = iconv( $body_charset, $GLOBALS['charset'], $body);
+        $body_converted = ( function_exists('iconv') ) ? @iconv( $body_charset, $GLOBALS['charset'], $body) : FALSE;
         $body = ($body_converted===FALSE) ? $body : $body_converted;
-        $tmp['charset'] = ($body_converted===FALSE) ? $GLOBALS['charset'] : $tmp['charset'];
+        $tmp['charset'] = ($body_converted===FALSE) ? $body_charset : $GLOBALS['charset'];
     }
     else
         array_push($attach_tab, $tmp);
