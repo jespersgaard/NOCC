@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/check.php,v 1.8 2002/03/24 17:00:36 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/check.php,v 1.9 2003/12/21 15:40:20 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -27,6 +27,11 @@ if (empty($conf->tmpdir))
 if (!empty($conf->prefs_dir) && !is_dir($conf->prefs_dir))
 {
     echo '<font color="red"><b>"$conf->prefs_dir" is set in "conf.php" but doesn\'t exists. You must create "$conf->prefs_dir" (' .$conf->prefs_dir . ') in order for NOCC to run.</b></font><br /><br /><div align="center"><img src="themes/standard/img/button.png" width="88" height="31" alt="Powered by NOCC" /></div>';
+    exit;
+}
+if (ini_get("register_globals") != "" && ini_get("register_globals") != null)
+{
+    echo '<font color="red"><b>The variable "register_globals" must be set to Off within your php.ini file</b></font><br /><br /><div align="center"><img src="themes/standard/img/button.png" width="88" height="31" alt="Powered by NOCC" /></div>';
     exit;
 }
 ?>
