@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.19 2002/04/24 21:58:06 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.20 2002/04/24 23:16:57 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -134,21 +134,11 @@ class nocc_imap
     }
 
     function getmailboxes() {
-        if ($this->is_imap()) {
-            return imap_getmailboxes($this->conn, '{'.$this->server.'}', '*');
-        } else {
-            $temp = array();
-            return $temp;
-        }
-    }
+        return imap_getmailboxes($this->conn, '{'.$this->server.'}', '*');
+   }
 
     function getsubscribed() {
-        if ($this->is_imap()) {
-            return imap_getsubscribed($this->conn, '{'.$this->server.'}', '*');
-        } else {
-            $temp = array();
-            return $temp;
-        }
+        return imap_getsubscribed($this->conn, '{'.$this->server.'}', '*');
     }
 
     /*
