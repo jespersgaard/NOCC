@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: nicocha $
-	$Revision: 1.11 $
-	$Date: 2000/10/23 23:57:13 $
+	$Revision: 1.12 $
+	$Date: 2000/10/23 23:59:40 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -37,6 +37,12 @@ $use_verbose = true;
 
 // the user can logout or not (if nocc is used within your website put 'false' here else leave 'true'
 $enable_logout = true;
+
+// Whether or not to display attachment part number
+$display_part_no = true;
+
+// Whether or not to display the Message/RFC822 into the attachments (the attachment of that part are still available even if set on false
+$display_rfc822 = true;
 
 // By default the messages are sorted by date ()
 $default_sort = "1";

@@ -1,8 +1,8 @@
 <?
 /*
-	$Author$
-	$Revision$
-	$Date$
+	$Author: nicocha $
+	$Revision: 1.10 $
+	$Date: 2000/10/23 23:57:13 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
 the function get_part is based on a function from matt@bonneau.net
@@ -121,7 +121,7 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read)
 	if (sizeof($struct_msg->parts) > 0)
 	{
 			$body = "";
-			GetPart($struct_msg, "", $read);
+			GetPart($struct_msg, "", $read, $display_rfc822);
 	}
 	else
 		$body = @imap_body($pop, $mail);
@@ -153,12 +153,10 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read)
 			$link_att = "";
 			break;
 		case 1:
-			$link_att = "<tr><td align=\"right\" valign=\"top\" class=\"mail\">".$html_att."</td><td bgcolor=\"".$html_mail_properties."\" class=\"mail\">".link_att($mailhost, $mail, 
-$attach_tab)."</td></tr>";
+			$link_att = "<tr><td align=\"right\" valign=\"top\" class=\"mail\">".$html_att."</td><td bgcolor=\"".$html_mail_properties."\" class=\"mail\">".link_att($mailhost, $mail, $attach_tab, $display_part_no)."</td></tr>";
 			break;
 		default:
-			$link_att = "<tr><td align=\"right\" valign=\"top\" class=\"mail\">".$html_atts."</td><td bgcolor=\"".$html_mail_tr_color."\" class=\"mail\">".link_att($mailhost, $mail, 
-$attach_tab)."</td></tr>";
+			$link_att = "<tr><td align=\"right\" valign=\"top\" class=\"mail\">".$html_atts."</td><td bgcolor=\"".$html_mail_properties."\" class=\"mail\">".link_att($mailhost, $mail, $attach_tab, $display_part_no)."</td></tr>";
 			break;
 	}
 	$subject = imap_mime_header_decode($ref_contenu_message->subject);
@@ -174,14 +172,14 @@ $attach_tab)."</td></tr>";
 				"body" => $body,
 				"header" => $header,
 				"verbose" => $verbose);
-
+	
 	return ($content);
 }
 
 /* ----------------------------------------------------- */
 
 // based on a function from matt@bonneau.net
-function GetPart($this_part, $part_no, $read)
+function GetPart($this_part, $part_no, $read, $display_rfc822)
 {
 	GLOBAL $attach_tab;
 	$att_name = "[unknown]";
@@ -211,9 +209,9 @@ function GetPart($this_part, $part_no, $read)
 				{
 					// if it's an alternative, we skip the text part to only keep the HTML part
 					if ($this_part->subtype == ALTERNATIVE && $read == true)
-						GetPart($this_part->parts[++$i], $part_no.($i + 1), $read);
+						GetPart($this_part->parts[++$i], $part_no.($i + 1), $read, $display_rfc822);
 					else 
-						GetPart($this_part->parts[$i], $part_no.($i + 1), $read);
+						GetPart($this_part->parts[$i], $part_no.($i + 1), $read, $display_rfc822);
 				}
 			}
 			break;
@@ -221,7 +219,7 @@ function GetPart($this_part, $part_no, $read)
 			$mime_type = "message";
 			// well it's a message we have to parse it to find attachments or text message
 			for ($i = 0; $i < count($this_part->parts[0]->parts); $i++)
-				GetPart($this_part->parts[0]->parts[$i], $part_no.".".($i + 1), $read);
+				GetPart($this_part->parts[0]->parts[$i], $part_no.".".($i + 1), $read, $display_rfc822);
 			break;
 		// Maybe we can do something with the mime types later ??
 		case TYPEAPPLICATION:
@@ -265,17 +263,17 @@ function GetPart($this_part, $part_no, $read)
 			break;
 	}
 
-	if ($mime_type != "multipart")
-	{
-		$tmp = Array(
-				"number" => $part_no,
-				"name" => $att_name,
-				"mime" => $full_mime_type,
-				"transfer" => $encoding,
-				"size" => ($this_part->bytes > 1024) ? round($this_part->bytes / 1024) : 1);
+	if (($full_mime_type == "message/RFC822" && $display_rfc822 == true) || ($mime_type != "multipart" && $full_mime_type != "message/RFC822"))
+		{
+			$tmp = Array(
+					"number" => $part_no,
+					"name" => $att_name,
+					"mime" => $full_mime_type,
+					"transfer" => $encoding,
+					"size" => ($this_part->bytes > 1024) ? round($this_part->bytes / 1024) : 1);
 		
-		array_unshift($attach_tab, $tmp);
-	}
+			array_unshift($attach_tab, $tmp);
+		}
 }
 
 /* ----------------------------------------------------- */
@@ -284,20 +282,16 @@ function remove_stuff($body, $lang, $mime)
 {
 	if (eregi("html", $mime))
 	{
-		$body = strip_tags($body, 
-"<b>,<i>,<a>,<font>,<table>,<tr>,<td>,<ul>,<li>,<img>,<div>,<p>,<center>");
+		$body = strip_tags($body, "<b>,<i>,<a>,<font>,<table>,<tr>,<td>,<ul>,<li>,<img>,<div>,<p>,<center>");
 		$body = eregi_replace("<SCRIPT", "<!-- <SCRIPT", $body);
 		$body = eregi_replace("SCRIPT>", "SCRIPT> !>", $body);
-		$body = eregi_replace("href=\"mailto:([[:alnum:]/\n+-=%&:_.~?@]+[#[:alnum:]+]*)\"","<A 
-HREF=\"$PHP_SELF?action=write&mail_to=\\1&lang=$lang\"", $body);
+		$body = eregi_replace("href=\"mailto:([[:alnum:]/\n+-=%&:_.~?@]+[#[:alnum:]+]*)\"","<A HREF=\"$PHP_SELF?action=write&mail_to=\\1&lang=$lang\"", $body);
 		$body = eregi_replace("target=\"([[:alnum:]/\n+-=%&:_.~?]+[#[:alnum:]+]*)\"", "", $body);
-		$body = eregi_replace("href=\"([[:alnum:]/\n+-=%&:_.~?]+[#[:alnum:]+]*)\"","<A 
-HREF=\"open.php?f=\\1&lang=$lang\" TARGET=_blank", $body);
+		$body = eregi_replace("href=\"([[:alnum:]/\n+-=%&:_.~?]+[#[:alnum:]+]*)\"","<A HREF=\"open.php?f=\\1&lang=$lang\" TARGET=_blank", $body);
 	}
 	else
 	{
-		$body = eregi_replace("(http|https|ftp)://([[:alnum:]/\n+-=%&:_.~?]+[#[:alnum:]+]*)","<A 
-HREF=\"open.php?f=\\1://\\2&lang=$lang\" TARGET=_blank>\\1://\\2</a>", $body);
+		$body = eregi_replace("(http|https|ftp)://([[:alnum:]/\n+-=%&:_.~?]+[#[:alnum:]+]*)","<A HREF=\"open.php?f=\\1://\\2&lang=$lang\" TARGET=_blank>\\1://\\2</a>", $body);
 		$body = "<PRE>".$body."</PRE>";
 	}	
 	return ($body);
@@ -305,16 +299,17 @@ HREF=\"open.php?f=\\1://\\2&lang=$lang\" TARGET=_blank>\\1://\\2</a>", $body);
 
 /* ----------------------------------------------------- */
 
-function link_att($servr, $mail, $tab)
+function link_att($servr, $mail, $tab, $display_part_no)
 {
 	sort($tab);
 	$link = "<table border='0'";
 	while ($tmp = array_shift($tab))
-		$link .= "<tr><td><span class='inbox'>".$tmp["number"]."</span></td><td><span class='inbox'><a 
-href=download.php?mail=".$mail."&part=".$tmp["number"]."&transfer=".$tmp["transfer"]."&filename="
-.urlencode($tmp["name"]).">".$tmp["name"]."</a></span></td><td><span 
-class='inbox'>".$tmp["mime"]."</span></td><td><span class='inbox'>".$tmp["size"]." 
-kb</span></td><tr>";
+	{
+		$link .= "<tr>";
+		if ($display_part_no == true)
+			$link .= "<td class='inbox'>".$tmp["number"]."</td>";
+		$link .="<td class='inbox'><a href=download.php?mail=".$mail."&part=".$tmp["number"]."&transfer=".$tmp["transfer"]."&filename=".urlencode($tmp["name"]).">".$tmp["name"]."</a></td><td class='inbox'>".$tmp["mime"]."</td><td class='inbox'>".$tmp["size"]." kb</td><tr>";
+	}
 	$link .= "</table>";
 	return ($link);
 }
