@@ -10,7 +10,7 @@ $is_Imap = (ereg("IMAP", $servr)) ? 1 : 0;
 
 <table width="100%" cellpadding="2" cellspacing="1" border="0" bgcolor="<?php echo $glob_theme->inside_color ?>">
 	<tr bgcolor="<?php echo $glob_theme->tr_color ?>">
-		<td <?php if ($is_Imap) echo "colspan=\"4\""; else echo "colspan=\"3\""; ?>align="left" class="titlew">
+		<td <?php if (($is_Imap) || ($have_ucb_pop_server)) echo "colspan=\"4\""; else echo "colspan=\"3\""; ?>align="left" class="titlew">
 			<b><?php echo $folder ?></b>
 		</td>
 		<td align="right" nowrap="nowrap" class="titlew">
