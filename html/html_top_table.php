@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.43 2002/02/09 20:25:04 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.44 2002/02/09 20:46:24 rossigee Exp $ -->
 <?php
 $arrow = ($sortdir == 0) ? 'up' : 'down';
 $new_sortdir = ($sortdir == 0) ? 1 : 0;
@@ -18,7 +18,7 @@ $new_sortdir = ($sortdir == 0) ? 1 : 0;
 		</td>
 	</tr>
 	<tr bgcolor="<?php echo $glob_theme->inbox_text_color ?>">
-		<td align="center" class="inbox" colspan="2">
+		<td align="center" class="inbox">
 			<?php echo $html_select ?>
 		</td>
 		<?php if (($is_imap) || ($conf->have_ucb_pop_server)) { ?>
@@ -26,6 +26,7 @@ $new_sortdir = ($sortdir == 0) ? 1 : 0;
 			<?php echo $html_new ?>
 		</td>
 		<?php } ?>
+        <td align="center" class="inbox">&nbsp;</td>
 		<td align="center" class="inbox" <?php if ($sort == 2) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
 			<a href="<?php echo $PHP_SELF ?>?sort=2&sortdir=<?php echo $new_sortdir ?>&lang=<?php echo $lang ?>">
 			<img src="themes/<?php echo $theme ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_from; ?>" /></a>
@@ -55,4 +56,4 @@ $new_sortdir = ($sortdir == 0) ? 1 : 0;
 			<?php echo $html_size ?></a>
 		</td>
 	</tr>
-<!-- start of $Id: html_top_table.php,v 1.43 2002/02/09 20:25:04 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.44 2002/02/09 20:46:24 rossigee Exp $ -->
