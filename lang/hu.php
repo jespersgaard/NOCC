@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.26 2001/03/09 12:40:03 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/hu.php,v 1.1 2001/03/31 09:12:27 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,14 +9,14 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
  * Configuration file for the Hungarian language
- * Translation by Hajdu Zoltan <wirhock@wirhock.com>
+ * Translation by Hajdu Zoltán <wirhock@wirhock.com>
  */
 
 $charset = "ISO-8859-1";
 
 // Configuration for the days and months
 
-// What language to use (Here, english US --> en_US)
+// What language to use
 // see '/usr/share/locale/' for more information
 $lang_locale = "hu_HU";
 

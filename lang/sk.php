@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.26 2001/03/09 12:40:03 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sk.php,v 1.2 2001/03/22 13:04:19 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -8,7 +8,7 @@
  * See the enclosed file COPYING for license information (GPL).  If you
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
- * Configuration file for the english language
+ * Configuration file for the Slovak language
  * Translation by Peter Sochna <sochna@telecom.sk>
  */
 
