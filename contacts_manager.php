@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.7 2004/06/21 12:57:38 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.8 2004/06/22 10:36:00 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -39,6 +39,15 @@ function prompt_delete (email, id)
 </head>
 
     <body dir="<?php echo $lang_dir; ?>" alink="<?php echo $glob_theme->alink_color; ?>" bgcolor="<?php echo $glob_theme->bgcolor; ?>" link="<?php echo $glob_theme->link_color ?>" text="<?php echo $glob_theme->text_color ?>" vlink="<?php echo $glob_theme->vlink_color; ?>">
+    <p align="center"><font color="#FF0000" size="2" face="Verdana, Arial, Helvetica, sans-serif"><b>
+        <?php
+            if (!isset($conf->contact_number_max) || $conf->contact_number_max == 0) {
+                echo $html_contact_err3;
+                exit;
+            }
+        ?>
+    </p>
+    
     <?php
 if (!isset($_GET['action']))
 {

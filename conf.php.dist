@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.119 2004/01/03 12:10:09 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.120 2004/06/19 11:03:18 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -200,7 +200,7 @@ set_magic_quotes_runtime(0);
 // Delay between 2 mail send (in second)
 $conf->send_delay = 30;
 
-// Number of contacts per user, 0 for none
+// Number of contacts per user, 0 to disable contacts list
 $conf->contact_number_max = 10;
 
 
