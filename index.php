@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.34 2001/01/29 17:38:45 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.35 2001/01/30 09:45:33 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -50,21 +50,6 @@ cellspacing="0" width="428">
 							<tr> 
 								<td colspan="3" height="18"><font size="-3">&nbsp;</font></td>
 							</tr>
-							<!--<tr> 
-								<td colspan="3" align="center">
-								<a href="<? echo $PHP_SELF ?>?lang=fr"><img src="img/fr.png" border="0" 
-height="12" width="12" ALT="<? echo $alt_fr ?>"></a>
-								&nbsp;
-								<a href="<? echo $PHP_SELF ?>?lang=en"><img src="img/uk.png" border="0" 
-height="12" width="12" ALT="<? echo $alt_en ?>"></a>
-								&nbsp;
-								<a href="<? echo $PHP_SELF ?>?lang=de"><img src="img/de.png" border="0" 
-height="12" width="12" ALT="<? echo $alt_de ?>"></a>
-								&nbsp;
-								<a href="<? echo $PHP_SELF ?>?lang=es"><img src="img/es.png" border="0" 
-height="12" width="12" ALT="<? echo $alt_es ?>"></a>
-								</td>
-							</tr>-->
 							<tr> 
 								<td colspan="3" height="18"><font size="-3">&nbsp;</font></td>
 							</tr>
