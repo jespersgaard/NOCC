@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.19 2001/11/18 18:43:12 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.20 2001/11/18 21:08:06 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -74,8 +74,8 @@ $html_theme = 'Tema';
 $html_preferences = 'Prefer&ecirc;ncias';
 $html_full_name = 'Nome completo';
 $html_email_address = 'Endere&ccedil;o E-mail';
-$html_ccself = 'Cc self';
-$html_hide_addresses = 'Hide addresses';
+$html_ccself = 'Cc pr&oacute;prio';
+$html_hide_addresses = 'Esconder Endere&ccedil;os';
 $html_outlook_quoting = 'Outlook-style quoting';
 $html_reply_to = 'Responder para';
 $html_use_signature = 'Utilizar assinatura';
@@ -102,12 +102,12 @@ $html_att_unknown = '[desconhecido]';
 $html_attach = 'Anexar';
 $html_attach_forget = 'Tem de premir \`Anexar\` antes de enviar a mensagem !';
 $html_attach_delete = 'Retirar Ficheiros Seleccionados';
-$html_sort_by = 'Sort by';
+$html_sort_by = 'Ordenar por';
 $html_from = 'De';
 $html_subject = 'Assunto';
 $html_date = 'Data';
 $html_sent = 'Enviar';
-$html_wrote = 'wrote';
+$html_wrote = 'escreveu';
 $html_size = 'Tamanho';
 $html_totalsize = 'Tamanho Total';
 $html_kb = 'Kb';
@@ -129,12 +129,12 @@ $html_low = 'Baixa';
 $html_normal = 'Normal';
 $html_high = 'Alta';
 $html_select_all = 'Seleccionar tudo';
-$html_loading_image = 'Loading image';
-$html_send_confirmed = 'Your mail was accepted for delivery';
-$html_no_sendaction = 'No action specified. Try enabling JavaScript.';
-$html_error_occurred = 'An error occurred';
-$html_prefs_file_error = 'Unable to open preferences file for writing.';
-$html_sig_file_error = 'Unable to open signature file for writing.';
+$html_loading_image = 'Carregando imagem';
+$html_send_confirmed = 'Sua mensagem foi aceite para envio';
+$html_no_sendaction = 'Ac&ccedil;&atilde;o n&atilde;o indicada. Tente activar o JavaScript.';
+$html_error_occurred = 'Ocorreu um erro';
+$html_prefs_file_error = 'N&atilde;o foi poss&iacute;vel abrir o ficheiro de preferen&ccedil;as para escrita.';
+$html_sig_file_error = 'N&atilde;o foi poss&iacute;vel abrir o ficheiro de assinatura para escrita.';
 
 $original_msg = '-- Mensagem Original --';
 $to_empty = 'O campo \'Para\' tem de ser preenchido !';
