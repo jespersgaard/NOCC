@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.54 2001/05/30 13:21:33 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.57 2001/05/31 09:04:55 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -54,7 +54,7 @@ else
 			require ('html/menu_inbox.php');
 			break;
 		case 'send':
-			$crlf = stristr($OS, 'Windows') ? "\r\n" : "\n";	
+			$crlf = stristr($OS, 'Windows') ? "\r\n" : "\n";
 			$ip = (getenv('HTTP_X_FORWARDED_FOR') ? getenv('HTTP_X_FORWARDED_FOR') : getenv('REMOTE_ADDR'));
 			$mail = new mime_mail();
 			$mail->smtp_server = $smtp_server;
@@ -62,7 +62,7 @@ else
 			$mail->charset = $charset;
 			$mail->from = cut_address($mail_from, $charset);
 			$mail->from = $mail->from[0];
-			$mail->headers = 'X-Originating-Ip: [' . $ip . ']' . $crlf . 'X-Mailer: '.$nocc_name.' v'.$nocc_version;
+			$mail->headers = 'X-Originating-Ip: [' . $ip . ']' . $crlf . 'X-Mailer: ' . $nocc_name . ' v' . $nocc_version;
 			$mail->to = cut_address($mail_to, $charset);
 			$mail->cc = cut_address($mail_cc, $charset);
 			$mail->bcc = cut_address($mail_bcc, $charset);
