@@ -1,6 +1,6 @@
 <?php 
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.42 2002/05/15 10:07:18 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.43 2002/05/30 14:07:20 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -31,8 +31,8 @@ if (Exception::isException($ev)) {
 
 $num_messages = $pop->num_msg();
 
-$mail = $_REQUEST['mail'];
 if (isset($_REQUEST['only_one'])) {
+    $mail = $_REQUEST['mail'];
     if (isset($_REQUEST['move_mode'])) {
         if ($target_folder != $folder) {
             $pop->mail_move($mail, $target_folder);
