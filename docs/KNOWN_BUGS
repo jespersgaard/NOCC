@@ -1,6 +1,6 @@
 Known bugs for Nocc
 -------------------
-Last updated: $Date: 2001/05/27 18:47:28 $
+Last updated: $Date: 2001/06/02 08:04:23 $
 
 This is a list of known bugs for which we didn't have time to fix properly.
 Please report bugs via SourceForge Project Web page.
@@ -31,3 +31,14 @@ Please report bugs via SourceForge Project Web page.
               Does not happen neither with PHP < 4.0.5
 
  Work-around: configure Nocc to use an SMTP server when using Win32.
+
+----------------------------------
+
+ Bug: There seems to be some problem with POP3 server QPopper.
+
+ Explanation: not yet, we lack of information.
+
+ Work-around: help us debug this by sending a bug report using a sniffer
+	      to see what really goes on the network when trying to log in
+	      with NOCC. As usual, also send version used, etc.
+	      You can also track and update bug #473264.
