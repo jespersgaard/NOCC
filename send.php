@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.70 2001/10/21 16:05:15 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.71 2001/10/21 22:10:56 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -78,10 +78,14 @@ else
 			$mail->bcc = cut_address(trim($mail_bcc), $charset);
 			if ($mail_subject != '')
 				$mail->subject = stripcslashes(trim($mail_subject));
-			if ($mail_body != '')
-				$mail->body = stripcslashes($mail_body) . $mail->crlf . $mail->crlf . $ad;
-			else
-				$mail->body = $ad;
+
+			// Append advertisement tag, if set
+			if (isset($ad))
+				if ($mail_body != '')
+					$mail->body = stripcslashes($mail_body) . $mail->crlf . $mail->crlf . $ad;
+				else
+					$mail->body = $ad;
+
 			// Getting the attachments
 			if (isset($attach_array))
 			{
