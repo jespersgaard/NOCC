@@ -9,14 +9,13 @@
 			}
 		</script>
 	</head>
-	<body alink="<?php echo $glob_theme->alink_color?>" bgcolor="<?php echo $glob_theme->bgcolor ?>" link="<?php echo $glob_theme->link_color ?>" text="<?php 
-echo $glob_theme->text_color ?>" vlink="<?php echo $glob_theme->vlink_color ?>">
+	<body alink="<?php echo $glob_theme->alink_color?>" bgcolor="<?php echo $glob_theme->bgcolor ?>" link="<?php echo $glob_theme->link_color ?>" text="<?php echo $glob_theme->text_color ?>" vlink="<?php echo $glob_theme->vlink_color ?>">
 		<table border="0" width="100%">
 			<tr>
 				<td align="left" valign="middle" colspan="2">
 					<img src="themes/<?php echo $theme ?>/img/logo.gif" width="153" height="47" alt="Logo" />
 					<?php
-					if ($domain != "" && $user != "")
+					if (!empty($domain) && !empty($user))
 					{ ?>
 						&nbsp;&nbsp;<font class="login"><b><?php echo $user."@".$domain ?></b></font>
 					<?php } ?>
