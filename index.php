@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.37 2001/01/31 18:08:48 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.38 2001/02/04 20:14:57 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -21,6 +21,7 @@ session_destroy();
 <META http-equiv="Content-Type" content="text/html; charset=<? echo $charset ?>">
 <LINK href="style.css" rel="stylesheet">
 <script type="text/javascript">
+<!--
 function updatePort () {
   if 
 (document.nocc_webmail_login.servtype.options[document.nocc_webmail_login.servtype.selectedIndex].value 
@@ -32,12 +33,19 @@ function updatePort () {
     document.nocc_webmail_login.port.value = 110;
   }
 }
+function selectLang() {
+ if
+(document.nocc_webmail_login.user.value == "" && document.nocc_webmail_login.passwd.value == "") {
+    var lang_page = "<?echo $PHP_SELF?>?lang=" + document.nocc_webmail_login.lang[document.nocc_webmail_login.lang.selectedIndex].value;
+    self.location = lang_page;
+  }
+}
+//-->
 </script>
 </HEAD>
 <BODY bgcolor="<? echo $bgcolor ?>" link="<? echo $link_color ?>" text="<? echo $text_color ?>" vlink="<? 
 echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 <FORM action="action.php" method="post" name="nocc_webmail_login" target="_top">
-<input type="hidden" name="lang" value="<? echo $lang ?>">
 <table border="0" width="100%" height="100%">
 	<tr>
 		<td align="center" valign="middle">
@@ -118,7 +126,7 @@ cellspacing="0" width="428">
 								<td><font size="-3">&nbsp;</font></td>
 								<td class="f">
 									<?
-										echo ("<select name=\"lang\" onchange=\"changeLang()\">");
+										echo ("<select name=\"lang\" onChange=\"selectLang()\">");
 										for ($i = 0; $i < sizeof($lang_array); $i++)
 											if (file_exists("lang/".$lang_array[$i]->filename.".php"))
 											{
@@ -165,17 +173,9 @@ you need PHP 4 at least to run Nocc.</b></font></td>
 			</table>
 			<script type="text/javascript">
 			<!--
-				function changeLang()
-				{
-					if (document.nocc_webmail_login.user.value == "" && document.nocc_webmail_login.passwd.value == "")
-					{
-						var lang_page = "<?echo $PHP_SELF?>?lang=" + document.nocc_webmail_login.lang[document.nocc_webmail_login.lang.selectedIndex].value;
-						self.location = lang_page;
-					}
-				}
 				document.nocc_webmail_login.user.focus();
 				document.nocc_webmail_login.passwd.value='';
-			// -->
+			//-->
 			</script>
 	</td>
 </tr>
@@ -185,5 +185,6 @@ src="img/button.png" border="0" height="31" width="88" alt="Powered by NOCC"></a
 </tr>
 </table>
 </form>
+</script>
 </body>
 </html>
