@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.13 2001/02/23 09:57:11 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.14 2001/02/24 21:00:59 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -86,7 +86,7 @@ class smtp
 	function smtp_mail_from($smtp) 
 	{ 
         global $SMTP_GLOBAL_STATUS; 
-        fputs($smtp, "MAIL FROM: $this->from\n"); 
+        fputs($smtp, "MAIL FROM: $this->from\r\n"); 
         $line = fgets($smtp, 1024);
 		$SMTP_GLOBAL_STATUS[$smtp]["LASTRESULT"] = substr($line, 0, 1); 
         $SMTP_GLOBAL_STATUS[$smtp]["LASTRESULTTXT"] = substr($line, 0, 1024); 
