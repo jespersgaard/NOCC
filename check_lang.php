@@ -1,6 +1,6 @@
-<?
+<?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/check_lang.php,v 1.11 2001/02/20 10:56:39 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/check_lang.php,v 1.12 2001/02/20 12:22:58 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>

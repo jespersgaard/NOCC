@@ -1,6 +1,6 @@
-<?
+<?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/logout.php,v 1.6 2001/01/31 18:08:48 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/logout.php,v 1.7 2001/02/20 17:37:19 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>

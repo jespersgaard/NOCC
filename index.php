@@ -1,6 +1,6 @@
-<?
+<?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.46 2001/02/20 17:37:19 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.47 2001/02/20 21:06:03 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -26,11 +26,11 @@ if (!(extension_loaded('imap')))
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<? echo $lang ?>" lang="<? echo $lang ?>">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang ?>" lang="<?php echo $lang ?>">
 <head>
 <title>NOCC - Webmail</title>
 
-<link href="themes/<? echo $theme ?>/style.css" rel="stylesheet" type="text/css" />
+<link href="themes/<?php echo $theme ?>/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 <!--
 function updatePort () 
@@ -49,7 +49,7 @@ function selectLang()
 {
 	if (document.nocc_webmail_login.user.value == "" && document.nocc_webmail_login.passwd.value == "")
 	{
-		var lang_page = "<?echo $PHP_SELF?>?lang=" + document.nocc_webmail_login.lang[document.nocc_webmail_login.lang.selectedIndex].value;
+		var lang_page = "<?phpecho $PHP_SELF?>?lang=" + document.nocc_webmail_login.lang[document.nocc_webmail_login.lang.selectedIndex].value;
 		self.location = lang_page;
 	}
 }
@@ -58,23 +58,23 @@ function selectTheme()
 {
 	if (document.nocc_webmail_login.user.value == "" && document.nocc_webmail_login.passwd.value == "")
 	{
-		var theme_page = "<?echo $PHP_SELF?>?theme=" + document.nocc_webmail_login.theme[document.nocc_webmail_login.theme.selectedIndex].value;
+		var theme_page = "<?phpecho $PHP_SELF?>?theme=" + document.nocc_webmail_login.theme[document.nocc_webmail_login.theme.selectedIndex].value;
 		self.location = theme_page;
 	}
 }
 // -->
 </script>
 </head>
-<body bgcolor="<? echo $glob_theme->bgcolor ?>" link="<? echo $glob_theme->link_color ?>" text="<? echo $glob_theme->text_color ?>" vlink="<? 
-echo $glob_theme->vlink_color ?>" alink="<? echo $glob_theme->alink_color ?>">
+<body bgcolor="<?php echo $glob_theme->bgcolor ?>" link="<?php echo $glob_theme->link_color ?>" text="<?php echo $glob_theme->text_color ?>" vlink="<?php 
+echo $glob_theme->vlink_color ?>" alink="<?php echo $glob_theme->alink_color ?>">
 <form action="action.php" method="post" name="nocc_webmail_login" target="_top">
 <table border="0" width="100%">
 	<tr>
 		<td align="center" valign="middle">
-			<table bgcolor="<? echo $glob_theme->login_border ?>" border="0" cellpadding="1" cellspacing="0" width="428" align="center">
+			<table bgcolor="<?php echo $glob_theme->login_border ?>" border="0" cellpadding="1" cellspacing="0" width="428" align="center">
 				<tr> 
 					<td valign="bottom"> 
-						<table bgcolor="<? echo $glob_theme->login_box_bgcolor ?>" border="0" cellpadding="0" cellspacing="0" width="428">
+						<table bgcolor="<?php echo $glob_theme->login_box_bgcolor ?>" border="0" cellpadding="0" cellspacing="0" width="428">
 							<tr> 
 								<td colspan="3" height="18"><font size="-3">&nbsp;</font></td>
 							</tr>
@@ -82,21 +82,21 @@ echo $glob_theme->vlink_color ?>" alink="<? echo $glob_theme->alink_color ?>">
 								<td colspan="3" height="18"><font size="-3">&nbsp;</font></td>
 							</tr>
 							<tr valign="top"> 
-				               <td align="center" colspan="3" class="f"><b><? echo $html_welcome." ".$nocc_name." v".$nocc_version; ?></b></td>
+				               <td align="center" colspan="3" class="f"><b><?php echo $html_welcome." ".$nocc_name." v".$nocc_version; ?></b></td>
 							</tr>
 							<tr> 
 								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
 							</tr>
 							<tr>
-								<td align="right" class="f"><? echo $html_login ?></td>
+								<td align="right" class="f"><?php echo $html_login ?></td>
 								<td><font size="-3">&nbsp;</font></td>
 								<td class="f"> 
 									<input type="text" name="user" size="15" />
-									<?
+									<?php
 									if ($servr != "" && $domain != "")
 									{ ?>
-										@<select name="domain"><option value=""><? echo $domain ?></option></select>
-									<?
+										@<select name="domain"><option value=""><?php echo $domain ?></option></select>
+									<?php
 									}
 									?>
 								</td>
@@ -105,7 +105,7 @@ echo $glob_theme->vlink_color ?>" alink="<? echo $glob_theme->alink_color ?>">
 								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
 							</tr>
 							<tr> 
-								<td align="right" class="f"><? echo $html_passwd ?></td>
+								<td align="right" class="f"><?php echo $html_passwd ?></td>
 								<td><font size="-3">&nbsp;</font></td>
 								<td class="f"> 
 									<input type="password" name="passwd" size="15" />
@@ -114,12 +114,12 @@ echo $glob_theme->vlink_color ?>" alink="<? echo $glob_theme->alink_color ?>">
 							<tr> 
 								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
 							</tr>
-							<?
+							<?php
 							if ($servr == "")
 							{ ?>
 							<tr>
 								<td align="right" class="f">
-									<? echo $html_server ?>
+									<?php echo $html_server ?>
 								</td>
 								<td><font size="-3">&nbsp;</font></td>
 								<td class="f">
@@ -134,16 +134,16 @@ echo $glob_theme->vlink_color ?>" alink="<? echo $glob_theme->alink_color ?>">
 							<tr> 
 								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
 							</tr>
-							<?
+							<?php
 							}
 							?>
 							<tr>
 								<td align="right" class="f">
-									<? echo $html_lang ?>
+									<?php echo $html_lang ?>
 								</td>
 								<td><font size="-3">&nbsp;</font></td>
 								<td class="f">
-									<?
+									<?php
 										echo ("<select name=\"lang\" onchange=\"selectLang()\">");
 										for ($i = 0; $i < sizeof($lang_array); $i++)
 											if (file_exists("lang/".$lang_array[$i]->filename.".php"))
@@ -160,14 +160,14 @@ echo $glob_theme->vlink_color ?>" alink="<? echo $glob_theme->alink_color ?>">
 							<tr> 
 								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
 							</tr>
-							<? if ($use_theme == true) { ?>
+							<?php if ($use_theme == true) { ?>
 							<tr>
 								<td align="right" class="f">
-									<? echo $html_theme ?>
+									<?php echo $html_theme ?>
 								</td>
 								<td><font size="-3">&nbsp;</font></td>
 								<td class="f">
-									<?
+									<?php
 										echo ("<select name=\"theme\" onchange=\"selectTheme()\">");
 										$handle = opendir("./themes");
 										while (($file = readdir($handle)) != false) 
@@ -188,10 +188,10 @@ echo $glob_theme->vlink_color ?>" alink="<? echo $glob_theme->alink_color ?>">
 							<tr>
 								<td colspan="3">&nbsp;</td>
 							</tr>
-							<? } ?>
+							<?php } ?>
 							<tr>
 								<td colspan="3" align="center" class="f">
-									<input name="enter" class="button" type="submit" value="<? echo $html_submit ?>" />
+									<input name="enter" class="button" type="submit" value="<?php echo $html_submit ?>" />
 								</td>
 							</tr>
 							<tr> 
@@ -205,4 +205,4 @@ echo $glob_theme->vlink_color ?>" alink="<? echo $glob_theme->alink_color ?>">
 				document.nocc_webmail_login.user.focus();
 				document.nocc_webmail_login.passwd.value='';
 			</script>
-<? require ("html/footer.php"); ?>
+<?php require ("html/footer.php"); ?>

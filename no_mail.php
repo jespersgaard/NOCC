@@ -1,6 +1,6 @@
-<?
+<?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/no_mail.php,v 1.7 2001/02/20 17:37:19 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/no_mail.php,v 1.8 2001/02/20 20:39:26 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,8 +13,8 @@ require ("conf.php");
 require ("check_lang.php");
 ?>
 
-<tr bgcolor="<? echo $glob_theme->inbox_color ?>">
+<tr bgcolor="<?php echo $glob_theme->inbox_color ?>">
 	<td align="center" colspan="7" class="inbox">
-		<? echo $html_no_mail ?>
+		<?php echo $html_no_mail ?>
 	</td>
 </tr>

@@ -1,6 +1,6 @@
-<tr bgcolor="<? echo $glob_theme->tr_color ?>">
+<tr bgcolor="<?php echo $glob_theme->tr_color ?>">
 	<td align="center" valign="middle">
-		<input type="image" src="img/delete.gif" alt="<? echo $alt_delete ?>" />
+		<input type="image" src="img/delete.gif" alt="<?php echo $alt_delete ?>" />
 	</td>
 	<td colspan="6">&nbsp;</td>
 </tr>
@@ -9,4 +9,4 @@
 </form>
 </td></tr>
 </table>
-<? require ("html/menu_inbox.php"); ?>
+<?php require ("html/menu_inbox.php"); ?>
