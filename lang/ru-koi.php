@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ru-koi.php,v 1.11 2002/06/30 21:43:46 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ru-koi.php,v 1.12 2002/11/29 07:04:58 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -82,6 +82,8 @@ $html_reply_to = 'Reply to';
 $html_use_signature = 'Use signature';
 $html_signature = 'Signature';
 $html_prefs_updated = 'Preferences updated';
+$html_prefs_file_error = 'Unable to open preferences file for writing.';
+$html_sig_file_error = 'Unable to open signature file for writing.';
 
 // Other pages
 
@@ -110,8 +112,8 @@ $html_date = 'Время';
 $html_sent = 'Отправить';
 $html_size = 'Размер';
 $html_totalsize = 'Общий размер';
-$html_kb = 'Kb';
-$html_bytes = 'bytes';
+$html_kb = 'Кбайт';
+$html_bytes = 'байт';
 $html_filename = 'Имя файла';
 $html_to = 'Кому';
 $html_cc = 'Копия';
@@ -122,29 +124,64 @@ $html_cancel = 'Отменить';
 $html_no_mail = 'Сообщений нет';
 $html_logout = 'Выйти';
 $html_msg = 'Сообщение';
-$html_msgs = 'Сообщения';
-$html_configuration = 'This server is not well set up !';
-$html_priority = 'Priority';
-$html_low = 'Low';
-$html_normal = 'Normal';
-$html_high = 'High';
-$html_select = 'Select';
-$html_select_all = 'Select All';
-$html_loading_image = 'Loading image';
-$html_send_confirmed = 'Your mail was accepted for delivery';
-$html_no_sendaction = 'No action specified. Try enabling JavaScript.';
-$html_error_occurred = 'An error occurred';
-$html_prefs_file_error = 'Unable to open preferences file for writing.';
-$html_sig_file_error = 'Unable to open signature file for writing.';
+$html_msgs = 'Сообщений';
+$html_configuration = 'Сей сервер плохо настроен!';
+$html_priority = 'Приоритет';
+$html_low = 'низкий';
+$html_normal = 'обычный';
+$html_high = 'высокий';
+$html_select = 'Выбрать';
+$html_select_all = 'Выбрать все';
+$html_loading_image = 'Загрузка картинки';
+$html_send_confirmed = 'Сообщение принято к доставке';
+$html_no_sendaction = 'Не задано действие. Попробуйте включить Javascript.';
+$html_error_occurred = 'Произошла ошибка.';
+$html_receipt = 'Запросить подтверждение получения';
 
 $original_msg = '-- Original Message --';
 $to_empty = 'Поле \'Кому\' не должно быть пустым !';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = "Unable to open connection";
-$html_smtp_error_unexpected = "Unexpected response:";
-$lang_could_not_connect = 'Could not connect to server';  //to translate
-$html_file_upload_attack = 'Possible file upload attack';  //to translate
-$html_invalid_email_address = 'Invalid e-mail address';  //to translate
-$html_seperate_msg_win = 'Messages in separate window';  //to translate
+$html_smtp_error_no_conn = 'Невозможно открыть соединение';
+$html_smtp_error_unexpected = 'Странный ответ сервера:';
+$lang_could_not_connect = 'Не могу подключится к серверу';  //to translate
+$html_file_upload_attack = 'Подозрение на атаку через file upload';  //to translate
+$html_invalid_email_address = 'Неправильный e-mail адрес';  //to translate
+$html_seperate_msg_win = 'Сообщения в отдельном окне';  //to translate
+$html_msgperpage = 'Сообщений на страницу';
+$html_reply_leadin = 'Заголовок ответа';
+$html_manage_folders_link = 'Настройка папок IMAP';
+$html_manage_filters_link = 'Настройка фильтров';
+$html_folders_create_failed = 'Невозможно создать папку!';
+$html_folders_sub_failed = 'Нельзя подписаться на папку!';
+$html_folders_unsub_failed = 'Нельзя отписаться от папки!';
+$html_folders_rename_failed = 'Папка не может быть переименована!';
+$html_folders_updated = 'Папки обновлены';
+$html_folder_subscribe = 'Подписаться на';
+$html_folder_rename = 'Переименовать';
+$html_folder_create = 'Создать новую папку';
+$html_folder_remove = 'Отписаться от';
+$html_filter_remove = 'Удалить';
+$html_filter_body = 'Тело сообщения';
+$html_filter_subject = 'Тема';
+$html_filter_to = 'Кому';
+$html_filter_cc = 'Копия';
+$html_filter_from = 'Автор';
+$html_filter_change_tip = 'Для изменения фильтра попросту перепишите его.';
+$html_reapply_filters = 'Отфильтровать';
+$html_select_one = '--Выберите--';
+$html_and = 'И';
+$html_new_msg_in = 'Новые сообщения в';
+$html_or = 'или';
+$html_move = 'Переместить';
+$html_copy = 'Скопировать';
+$html_messages_to = 'выбранные сообщения в';
+$html_gotofolder = 'Перейти к папке';
+$html_other_folders = 'Список папок';
+$html_wrote = '(на)писал';
+
+$html_gotopage = 'Перейти';
+$html_page = 'Страница';
+$html_of = 'из';
+
 ?>
