@@ -1,6 +1,7 @@
 NOCC 0.9.3	?? ??, 2001
 	* correct a bug with netscape 4.x which and attachement sending feature
 	* html code is now XHTML 1.0 Transitional compliant
+	* NOCC is completely XHTML compliant if using with php-4.0.5-dev or later
 
 NOCC 0.9.2	February 08, 2001
 	
