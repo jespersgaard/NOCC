@@ -36,6 +36,7 @@ function updatePort () {
 <BODY bgcolor="<? echo $bgcolor ?>" link="<? echo $link_color ?>" text="<? echo $text_color ?>" vlink="<? 
 echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 <FORM action="action.php" method="post" name="nocc_webmail_login" target="_top">
+<input type="hidden" name="lang" value="<? echo $lang ?>">
 <table border="0" width="100%" height="100%">
 	<tr>
 		<td align="center" valign="middle">
