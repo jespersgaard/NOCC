@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.58 2002/04/23 13:33:27 mrylander Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.59 2002/04/24 22:55:39 rossigee Exp $ -->
 <?php
 
 require_once 'class_local.php';
@@ -30,7 +30,7 @@ if($pages > 1) {
         $next .= "<img src=\"themes/".$theme."/img/right_arrow.gif\" border=\"0\" /></a>\n";
     }
 
-    $page_line = "<form method=\"POST\" action=\"$PHP_SELF\">";
+    $page_line = "<form method=\"post\" action=\"$PHP_SELF\">";
     $page_line .= "<input type=\"hidden\" name=\"folder\" value=\"$folder\" />";
     $page_line .= "$html_page <select name=\"skip\">\n";
     $selected = '';
@@ -121,4 +121,4 @@ if ($pop->is_imap()) {
             <form method="post" action="delete.php" name="delete_form">
         </td>
     </tr>
-<!-- start of $Id: html_top_table.php,v 1.58 2002/04/23 13:33:27 mrylander Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.59 2002/04/24 22:55:39 rossigee Exp $ -->
