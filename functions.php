@@ -116,7 +116,10 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 	$num_messages = @imap_num_msg($pop);
 	$ref_contenu_message = @imap_header($pop, $mail);
 	$struct_msg = @imap_fetchstructure($pop, $mail);
-	GetPart($struct_msg, NULL, $read, $display_rfc822);
+	if (sizeof($struct_msg->parts) > 0)
+		GetPart($struct_msg, NULL, $read, $display_rfc822);
+	else
+		GetSinglePart($struct_msg, htmlspecialchars(imap_fetchheader($pop, $mail)), @imap_body($pop, $mail));
 	if ($verbose == 1 && $use_verbose == 1)
 		$header = htmlspecialchars(imap_fetchheader($pop, $mail));
 	else
@@ -124,7 +127,6 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 	$tmp = array_pop($attach_tab);
 	if (eregi("text/html", $tmp["mime"]) || eregi("text/plain", $tmp["mime"]))
 	{	
-		$glob_body_mime = $tmp["mime"];
 		if ($tmp["transfer"] == "QUOTED-PRINTABLE")
 			$glob_body = imap_qprint(imap_fetchbody($pop, $mail, $tmp["number"]));
 		elseif ($tmp["transfer"] == "BASE64")
@@ -163,7 +165,7 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 				"date" => change_date(chop($ref_contenu_message->udate), $lang),
 				"att" => $link_att,
 				"body" => $glob_body,
-				"body_mime" => $glob_body_mime,
+				"body_mime" => $tmp["mime"],
 				"header" => $header,
 				"verbose" => $verbose);
 	
@@ -176,6 +178,7 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 function GetPart($this_part, $part_no, $read, $display_rfc822)
 {
 	GLOBAL $attach_tab;
+
 	$att_name = "[unknown]";
 	if ($this_part->ifdescription == TRUE)
 		$att_name = $this_part->description;
@@ -272,13 +275,53 @@ function GetPart($this_part, $part_no, $read, $display_rfc822)
 
 /* ----------------------------------------------------- */
 
+function GetSinglePart($this_part, $header, $body)
+{
+	GLOBAL $attach_tab;
+
+	if (eregi("text/plain", $header))
+		$full_mime_type = "text/plain";
+	elseif (eregi("text/html", $header))
+		$full_mime_type = "text/html";
+	switch ($this_part->encoding)
+	{
+		case ENC7BIT:
+			$encoding = "7BIT";
+			break;
+		case ENC8BIT:
+			$encoding = "8BIT";
+			break;
+		case ENCBINARY:
+			$encoding = "BINARY";
+			break;
+		case ENCBASE64:
+			$encoding = "BASE64";
+			break;
+		case ENCQUOTEDPRINTABLE:
+			$encoding = "QUOTED-PRINTABLE";
+			break;
+		default:
+			$encoding = "none";
+			break;
+	}
+	$tmp = Array(
+					"number" => 1,
+					"id" => $this_part->id,
+					"name" => "",
+					"mime" => $full_mime_type,
+					"transfer" => $encoding,
+					"size" => ($this_part->bytes > 1024) ? round($this_part->bytes / 1024) : 1);
+	array_unshift($attach_tab, $tmp);
+}
+
+/* ----------------------------------------------------- */
+
 function remove_stuff($body, $lang, $mime)
 {
 	GLOBAL $PHP_SELF;
 
 	if (eregi("html", $mime))
 	{
-		//$body = strip_tags($body, "<b>,<i>,<a>,<font>,<table>,<tr>,<td>,<ul>,<li>,<img>,<div>,<p>,<pre>,<center>");
 		$to_removed_array = array (
 						"'<head[^>]*>.*?</head>'si",
 						"'<style[^>]*>.*?</style>'si",
@@ -293,12 +336,15 @@ function remove_stuff($body, $lang, $mime)
 		$body = preg_replace("|<([^>]*)&{.*}([^>]*)>|i", "<&{;}\\3>", $body);
 		$body = preg_replace("|<([^>]*)mocha:([^>]*)>|i", "<nocc_removed_mocha:\\2>",$body);
 		$body = eregi_replace("href=\"mailto:([[:alnum:]+-=%&:_.~?@]+[#[:alnum:]+]*)\"","<A HREF=\"$PHP_SELF?action=write&mail_to=\\1&lang=$lang\"", $body);
+		$body = eregi_replace("href=mailto:([[:alnum:]+-=%&:_.~?@]+[#[:alnum:]+]*)","<A HREF=\"$PHP_SELF?action=write&mail_to=\\1&lang=$lang\"", $body);
 		$body = eregi_replace("target=\"([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)\"", "", $body);
-		$body = eregi_replace("href=\"([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)\"","<A HREF=\"open.php?f=\\1&lang=$lang\" TARGET=_blank", $body);
+		$body = eregi_replace("target=([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)", "", $body);
+		$body = eregi_replace("href=\"([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)\"","<A HREF=\"open.php?\\1&lang=$lang\" TARGET=_blank", $body);
+		$body = eregi_replace("href=([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)","\"<A HREF=\"open.php?\\1&lang=$lang\" TARGET=_blank\"", $body);
 	}
 	elseif (eregi("plain", $mime))
 	{
-		$body = eregi_replace("(http|https|ftp)://([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)","<A HREF=\"open.php?f=\\1://\\2&lang=$lang\" TARGET=_blank>\\1://\\2</a>", $body);
+		$body = eregi_replace("(http|https|ftp)://([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)","<A HREF=\"open.php?\\1://\\2&lang=$lang\" TARGET=_blank>\\1://\\2</a>", $body);
 		$body = eregi_replace("([[:alnum:]+-_.]+[#[:alnum:]+]*)@([[:alnum:]+-_.]+[#[:alnum:]+]*)\.([[:alnum:]]+[#[:alnum:]+]*)","<A HREF=\"$PHP_SELF?action=write&mail_to=\\1@\\2.\\3&lang=$lang\">\\1@\\2.\\3</a>", $body);
 		$body = nl2br($body);
 		if (function_exists('wordwrap'))
