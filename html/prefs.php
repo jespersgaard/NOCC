@@ -1,10 +1,11 @@
-<!-- start of $Id: prefs.php,v 1.9 2001/11/30 18:39:13 rossigee Exp $ -->
+<!-- start of $Id: prefs.php,v 1.10 2001/12/13 10:39:09 nicocha Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
 		<td bgcolor="<?php echo $glob_theme->inside_color ?>">
 			<form method="post" action="<?php echo $PHP_SELF; ?>">
 			<input type="hidden" name="action" value="setprefs" />
 			<input type="hidden" name="submit_prefs" value="set" />
+			<input type="hidden" name="lang" value="<?php echo $lang; ?>" />
 			<table border="0" cellpadding="2" cellspacing="1" bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%">
 				<tr>
 					<td align="right" class="prefs" valign="top"><?php echo $html_full_name ?> : </td>
@@ -15,7 +16,11 @@
 				<tr>
 					<td align="right" class="prefs" valign="top"><?php echo $html_email_address ?> : </td>
 					<td align="left" class="prefs">
-						<input type="text" name="email_address" value="<?php echo $email_address ?>" size="40"/>
+						<?php if ($allow_address_change) { ?>
+							<input type="text" name="email_address" value="<?php echo $email_address != "" ? $email_address : $user.'@'.$domain ?>" size="40"/>
+						<?php } else { ?>
+							<input type="hidden" name="email_address" value="<?php echo $email_address != "" ? $email_address : $user.'@'.$domain ?>"/><?php echo $email_address != "" ? $email_address : $user.'@'.$domain ?>
+						<?php } ?>
 					</td>
 				</tr>
 				<tr>
@@ -72,4 +77,4 @@
 		</td>
 	</tr>
 </table>
-<!-- end of $Id: prefs.php,v 1.9 2001/11/30 18:39:13 rossigee Exp $ -->
+<!-- end of $Id: prefs.php,v 1.10 2001/12/13 10:39:09 nicocha Exp $ -->
