@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.105 2002/04/24 23:32:25 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.106 2002/05/15 13:02:57 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -92,7 +92,7 @@ switch($_REQUEST['sendaction'])
         $mail->from = cut_address(trim($mail_from), $charset);
         $mail->from = $mail->from[0];
         $mail->priority = $_REQUEST['priority'];
-        $mail->receipt = $_REQUEST['receipt'];
+        $mail->receipt = isset($_REQUEST['receipt']);
         $mail->headers = "";
         // $ip = (getenv('HTTP_X_FORWARDED_FOR') ? getenv('HTTP_X_FORWARDED_FOR') : getenv('REMOTE_ADDR'));
         // $mail->headers .= 'X-Originating-Ip: [' . $ip . ']' . $mail->crlf;
