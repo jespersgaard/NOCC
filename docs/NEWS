@@ -1,12 +1,12 @@
-NOCC 0.9.1	November ??, 2000
+NOCC 0.9.1	December 01, 2000
 
 	* Added PHP and IMAP lib version initial checking.
 	* Fixed language problem with Amaya.
 	* Added German translation (thanks to David Ferch).
 	* text/plain messages are now wrapped to 80 cols if PHP >= 4.0.2 found.
 	* Reply and Forward bugs solved.
-	* To and cc fields are now decoded from quoted-printable or mime
-	* Attachment name are also decoded if coded in quoted-printable or mime
+	* To and Cc fields are now decoded from quoted-printable or mime.
+	* Attachment names are decoded if coded in quoted-printable or mime.
 
 NOCC 0.9	November 10, 2000
 
