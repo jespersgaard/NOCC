@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.93 2001/06/19 10:10:45 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.94 2001/06/20 16:27:38 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -93,6 +93,7 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang, $theme)
 					$next = $prev = 0;
 				}
 				*/
+				list($date, $complete_date) = change_date(chop($ref_contenu_message->udate), $lang);
 				$msg_list[$i] =  Array(
 						'new' => $newmail, 
 						'number' => imap_msgno($pop, $msgnum),
@@ -103,7 +104,8 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang, $theme)
 						'attach' => $attach, 
 						'from' => htmlspecialchars($from), 
 						'subject' => htmlspecialchars($subject), 
-						'date' => change_date(chop($ref_contenu_message->udate), $lang),
+						'date' => $date,
+						'complete_date' => $complete_date, 
 						'size' => $msg_size,
 						'sort' => $sort,
 						'sortdir' => $sortdir);
@@ -194,12 +196,14 @@ function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort
 	$cc_array = isset($ref_contenu_message->ccaddress) ? imap_mime_header_decode($ref_contenu_message->ccaddress) : 0;
 	for ($j = 0; $j < count($cc_array); $j++)
 		$cc .= $cc_array[$j]->text;
+	list($date, $complete_date) = change_date(chop($ref_contenu_message->udate), $lang);
 	$content = Array(
 				'from' => htmlspecialchars($from),
 				'to' => htmlspecialchars($to),
 				'cc' => htmlspecialchars($cc),
 				'subject' => htmlspecialchars($subject),
-				'date' => change_date(chop($ref_contenu_message->udate), $lang),
+				'date' => $date,
+				'complete_date' => $complete_date,
 				'att' => $link_att,
 				'body' => $glob_body,
 				'body_mime' => $tmp['mime'],
@@ -468,14 +472,15 @@ function change_date($date, $lang)
 	{
 		if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
 			$default_date_format = $no_locale_date_format;
+		$complete_date = strftime($default_date_format, $date); 
 		if ((date('Y', $date) != date('Y')) || (date('M') != date('M', $date)) || (date('d') != date('d', $date)))
 			// not today, use the date
-			$msg_date = strftime($default_date_format, $date);
+			$msg_date = $complete_date;
 		else
 			// else it's today, use the time
 			$msg_date = strftime($default_time_format, $date);
 	}
-	return ($msg_date);
+	return (array($msg_date, $complete_date));
 }
 
 
