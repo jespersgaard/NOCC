@@ -11,7 +11,7 @@ the function get_part is based on a function from matt@bonneau.net
 
 require ("conf.php");
 require ("class_send.php");
-//require ("class_smtp.php");
+require ("class_smtp.php");
 require ("functions.php");
 require ("check_lang.php");
 
