@@ -6,14 +6,14 @@
 					<td class="menu" align="center" width="120" bgcolor="<?php echo $glob_theme->menu_color ?>">
 						<a href="<?php echo $PHP_SELF ?>?lang=<?php echo $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>" class="menu"><?php echo $html_inbox ?></a>
 					</td>
-					<td class="menu" align="center" width="120" bgcolor="<?php echo $glob_theme->menu_color_on ?>">
-						<?php echo $html_preferences ?>
+					<td class="menu" align="center" width="120" bgcolor="<?php echo $glob_theme->menu_color ?>">
+						<a href="<? echo $PHP_SELF ?>?action=write&amp;lang=<?php echo $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>" class="menu"><?php echo $html_new_msg ?></a>
 					</td>
 					<td width="*" bgcolor="<?php echo $glob_theme->menu_color ?>">
 						<img src="themes/<?php echo $theme ?>/img/spacer.gif" height="1" width="1" alt="" />
 					</td>
-					<td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
-						<a href="<?php echo $PHP_SELF ?>?lang=<?php echo $lang ?>&amp;action=setprefs" class="menu"><?php echo $html_preferences ?></a>
+					<td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color_on ?>">
+						<font color="<?php echo $glob_theme->link_color ?>"><?php echo $html_preferences ?></font>
 					</td>
 					<?php if ($enable_logout) { ?>
 					<td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
