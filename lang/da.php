@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/da.php,v 1.4 2001/05/27 15:02:33 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/da.php,v 1.5 2001/11/18 17:53:32 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -53,8 +53,8 @@ $alt_reply_all = 'Svar alle';
 $alt_forward = 'Videresend';
 $alt_next = 'Næste';
 $alt_prev = 'Forrige';
-$html_on = 'on';
-$html_theme = 'Theme';
+$html_on = 'til';
+$html_theme = 'Tema';
 
 // index.php
 
@@ -67,8 +67,6 @@ $html_help = 'Hjælp';
 $html_server = 'Server';
 $html_wrong = 'Brugernavn eller kodeord er forkert';
 $html_retry = 'Prøv igen';
-$html_on = 'til';
-$html_theme = 'Tema';
 
 // prefs.php
 
@@ -108,6 +106,7 @@ $html_from = 'Fra';
 $html_subject = 'Emne';
 $html_date = 'Dato';
 $html_sent = 'Sendt';
+$html_wrote = 'wrote';
 $html_size = 'Størrelse';
 $html_totalsize = 'Total Størrelse';
 $html_kb = 'Kb';

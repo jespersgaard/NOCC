@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/no.php,v 1.1 2001/07/16 11:25:27 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/no.php,v 1.2 2001/11/18 18:17:34 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -106,6 +106,7 @@ $html_from = 'Fra';
 $html_subject = 'Emne';
 $html_date = 'Dato';
 $html_sent = 'Sendt';
+$html_wrote = 'wrote';
 $html_size = 'Størrelse';
 $html_totalsize = 'Total Størrelse';
 $html_kb = 'Kb';

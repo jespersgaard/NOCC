@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/sk.php,v 1.5 2001/05/27 15:02:33 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sk.php,v 1.6 2001/11/18 18:43:12 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -106,6 +106,7 @@ $html_from = 'Odosielateµ';
 $html_subject = 'Nadpis';
 $html_date = 'Dátum';
 $html_sent = 'Poslané';
+$html_wrote = 'wrote';
 $html_size = 'Velkos»';
 $html_totalsize = 'Celková velkos»';
 $html_kb = 'Kb';

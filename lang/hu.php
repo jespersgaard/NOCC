@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/hu.php,v 1.4 2001/05/27 15:02:33 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/hu.php,v 1.5 2001/11/18 18:17:34 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -106,6 +106,7 @@ $html_from = 'Felad&oacute;';
 $html_subject = 'C&iacute;m';
 $html_date = 'D&aacute;tum';
 $html_sent = 'Elk&uuml;ldve';
+$html_wrote = 'wrote';
 $html_size = 'M&eacute;ret';
 $html_totalsize = 'Teljes m&eacute;ret';
 $html_kb = 'Kb';

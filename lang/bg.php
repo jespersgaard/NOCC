@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/bg.php,v 1.3 2001/11/07 18:51:51 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/bg.php,v 1.4 2001/11/18 17:53:32 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>

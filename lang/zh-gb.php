@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-gb.php,v 1.2 2001/05/27 15:02:33 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-gb.php,v 1.3 2001/11/18 18:43:12 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -106,6 +106,7 @@ $html_from = '发件人';
 $html_subject = '主题';
 $html_date = '日期';
 $html_sent = '发送';
+$html_wrote = 'wrote';
 $html_size = '大小';
 $html_totalsize = '总大小';
 $html_kb = 'Kb';

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fi.php,v 1.2 2001/09/08 11:12:23 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fi.php,v 1.3 2001/11/18 18:17:34 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -106,6 +106,7 @@ $html_from = 'Kenelt&auml;';
 $html_subject = 'Aihe';
 $html_date = 'P&auml;iv&auml;';
 $html_sent = 'L&auml;het&auml;';
+$html_wrote = 'wrote';
 $html_size = 'Koko';
 $html_totalsize = 'Kokonais m&auml;&auml;r&auml;';
 $html_kb = 'Kb';
