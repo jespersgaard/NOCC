@@ -2,7 +2,7 @@
 <HTML>
 	<HEAD><TITLE>NOCC - Webmail</TITLE>
 		<META http-equiv="pragma" content="no-cache">
-		<META content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+		<META content="text/html; charset=<? echo $charset ?>" http-equiv="Content-Type">
 		<LINK href="style.css" rel="stylesheet">
 	</HEAD>
 	<BODY alink="<? echo $alink_color?>" bgcolor="<? echo $bgcolor ?>" link="<? echo $link_color ?>" text="<? echo $text_color ?>" vlink="<? echo $vlink_color ?>">

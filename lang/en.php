@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: nicocha $
-	$Revision: 1.4 $
-	$Date: 2000/10/24 00:58:53 $
+	$Revision: 1.5 $
+	$Date: 2000/10/30 11:59:11 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -15,6 +15,8 @@
 /*
  Configuration file for the english language
 */
+
+$charset = "ISO-8859-1";
 
 // Configuration for the days and months
 $days = Array(

@@ -1,8 +1,8 @@
 <?
 /*
-	$Author: wolruf $
-	$Revision: 1.22 $
-	$Date: 2000/10/28 17:54:26 $
+	$Author: nicocha $
+	$Revision: 1.23 $
+	$Date: 2000/10/29 23:20:57 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -21,7 +21,7 @@ session_unset();
 <HEAD>
 <TITLE>NOCC - Webmail</TITLE>
 <META http-equiv="pragma" content="no-cache">
-<META content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<META content="text/html; charset=<? echo $charset ?>" http-equiv="Content-Type">
 <LINK href="style.css" rel="stylesheet">
 <script type="text/javascript">
 function updatePort () {
