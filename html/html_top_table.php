@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.71 2004/06/19 12:06:48 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.72 2004/08/06 13:44:28 goddess_skuld Exp $ -->
 <?php
 
 require_once 'class_local.php';
@@ -68,7 +68,7 @@ if ($pop->is_imap()) {
 <table width="100%" cellpadding="2" cellspacing="1" border="0" bgcolor="<?php echo $glob_theme->inside_color ?>">
     <tr bgcolor="<?php echo $glob_theme->tr_color ?>">
         <td <?php if ($conf->have_ucb_pop_server || $pop->is_imap()) echo 'colspan="5"'; else echo 'colspan="4"'; ?> align="left" class="titlew">
-            <b><?php echo $_SESSION['nocc_folder'] ?></b>
+            <b><?php if ($_SESSION['nocc_folder'] != INBOX) { echo $_SESSION['nocc_folder']; } else { echo $html_inbox; } ?></b>
         </td>
         <td align="right" class="titlew" colspan="2">
             <?php echo $num_msg ?> <?php if ($num_msg == 1) {echo $html_msg;} else {echo $html_msgs;}?>
@@ -133,4 +133,4 @@ if ($pop->is_imap()) {
             <form method="post" action="delete.php" name="delete_form">
         </td>
     </tr>
-<!-- start of $Id: html_top_table.php,v 1.71 2004/06/19 12:06:48 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.72 2004/08/06 13:44:28 goddess_skuld Exp $ -->

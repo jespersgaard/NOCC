@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox.php,v 1.48 2004/10/04 18:23:30 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.49 2004/10/21 11:27:37 goddess_skuld Exp $ -->
 <?php
 $color_inbox = $color = $glob_theme->menu_color;
 $action = "";
@@ -32,7 +32,7 @@ elseif ($action == 'forward')
             <table border="0" cellpadding="2" cellspacing="1" bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%">
                 <tr>
                     <td class="menu" align="center" width="120" bgcolor="<?php echo $color_inbox ?>">
-                        <a href="<?php echo $_SERVER['PHP_SELF'] ?>" class="menu"><?php echo $_SESSION['nocc_folder'] ?></a>
+<a href="<?php echo $_SERVER['PHP_SELF'] ?>" class="menu"><?php if ($_SESSION['nocc_folder'] != INBOX) { echo $_SESSION['nocc_folder']; } else { echo $html_inbox; } ?></a>
                     </td>
                     <td class="menu" align="center" width="120" bgcolor="<?php echo $color ?>">
                         <?php echo $line ?>
@@ -60,4 +60,4 @@ elseif ($action == 'forward')
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_inbox.php,v 1.48 2004/10/04 18:23:30 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_inbox.php,v 1.49 2004/10/21 11:27:37 goddess_skuld Exp $ -->

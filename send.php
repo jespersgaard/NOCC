@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.129 2004/11/08 16:33:32 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.130 2004/11/25 17:33:51 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -56,7 +56,7 @@ $mail_priority = safestrip($_REQUEST['priority']);
 
 switch($_REQUEST['sendaction'])
 {
-    case $html_attach:
+    case unhtmlentities($html_attach):
         // Counting the attachments number in the array
         if (!isset($_SESSION['nocc_attach_array']))
             $_SESSION['nocc_attach_array'] = array();
@@ -96,7 +96,7 @@ switch($_REQUEST['sendaction'])
         require ('./html/menu_inbox.php');
         require ('./html/footer.php');
         break;
-    case $html_send:
+    case unhtmlentities($html_send):
         $mail = new mime_mail();
         $mail->crlf = $conf->crlf;
         $mail->smtp_server = $_SESSION['nocc_smtp_server'];

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.12 2004/08/06 14:56:56 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.13 2004/10/04 18:23:29 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -38,7 +38,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
 <script language="JavaScript">
 function prompt_delete (email, id)
 {
-	if (confirm("<?php echo $html_delete ?> `" + email + "' <?php echo $html_contact_del ?> ?")) {
+	if (confirm("<?php echo unhtmlentities($html_delete) ?> `" + email + "' <?php echo unhtmlentities($html_contact_del) ?> ?")) {
 	 		var url = "<?php echo $_SERVER['PHP_SELF'] . "?" . $query_str ?>&action=delete&id=" + id;
 			document.location.href = url;
 		}

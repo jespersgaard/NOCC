@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts.php,v 1.7 2004/06/22 11:25:27 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts.php,v 1.8 2004/06/23 09:45:58 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -38,7 +38,7 @@ function action (bt, email)
 {
 var field = window.opener.document.sendform.<?php echo $_GET["field"]; ?>.value;
 
-if (bt.value == '<?php echo $html_add ?>')
+if (bt.value == '<?php echo unhtmlentities($html_add) ?>')
 	{
 		if (field == '')
 			window.opener.document.sendform.<?php echo $_GET["field"]; ?>.value = email;
@@ -62,10 +62,10 @@ if (bt.value == '<?php echo $html_add ?>')
 
 function toggle (bt)
 {
-	if (bt.value == '<?php echo $html_add ?>')
-		bt.value = '<?php echo $html_delete ?>';
+	if (bt.value == '<?php echo unhtmlentities($html_add) ?>')
+		bt.value = '<?php echo unhtmlentities($html_delete) ?>';
 	else
-		bt.value = '<?php echo $html_add ?>';
+		bt.value = '<?php echo unhtmlentities($html_add) ?>';
 }
 
 </script>
@@ -104,7 +104,7 @@ function toggle (bt)
     <td><span style="color:<?php echo ($i % 2) ? "#ffffff" : "#000000" ?>"><?php echo ($tab[1]) ? $tab[1] : "&nbsp;"; ?></span></td>
     <td><span style="color:<?php echo ($i % 2) ? "#ffffff" : "#000000" ?>"><?php echo ($tab[2]) ? $tab[2] : "&nbsp;"; ?></span></td>
     <td><span style="color:<?php echo ($i % 2) ? "#ffffff" : "#000000" ?>"><?php echo $tab[3]; ?></span></td>
-    <td align="right"><input type="button" name="Submit" value="<?php echo $html_add ?>" class="button" onClick="action (this, '<?php echo trim($tab[3]); ?>');toggle (this);"></td>
+    <td align="right"><input type="button" name="Submit" value="<?php echo unhtmlentities($html_add) ?>" class="button" onClick="action (this, '<?php echo trim($tab[3]); ?>');toggle (this);"></td>
   </tr>
 <?
     }
