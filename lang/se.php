@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.21 2001/02/06 20:47:46 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/se.php,v 1.1 2001/02/21 19:13:01 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,7 +9,7 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
  * Configuration file for the Swedish language
- * Tanslation by Robert Niska <r.niska@redbox.d2g.nu>
+ * Translation by Robert Niska <r.niska@redbox.d2g.nu>
  */
 
 $charset = "ISO-8859-1";
