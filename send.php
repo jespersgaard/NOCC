@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.113 2002/06/30 16:27:13 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.114 2002/12/01 13:03:56 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -104,7 +104,7 @@ switch($_REQUEST['sendaction'])
         $mail->to = cut_address(trim($mail_to), $charset);
         $mail->cc = cut_address(trim($mail_cc), $charset);
 	$user_prefs = $_SESSION['nocc_user_prefs'];
-        if($user_prefs->cc_self) {
+        if(isset($user_prefs->cc_self) && $user_prefs->cc_self) {
             array_unshift($mail->cc, $mail->from);
         }
         $mail->bcc = cut_address(trim($mail_bcc), $charset);

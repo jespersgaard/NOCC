@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.138 2002/12/01 13:05:54 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.139 2002/12/03 06:37:06 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -122,10 +122,10 @@ switch($action)
             $mail_subject = $html_reply_short.': '.$content['subject'];
 
         // Set body
-        if($user_prefs->outlook_quoting)
+        if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
             $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . strip_tags($content['body'], '');
         else {
-            if ($user_prefs->reply_leadin != '')
+            if (isset($user_prefs->reply_leadin) && ($user_prefs->reply_leadin != ''))
             {
                 $parsed_leadin = NOCCUserPrefs::parseLeadin($user_prefs->reply_leadin, $content);
                 $mail_body = mailquote(strip_tags($content['body'], ''), $parsed_leadin, '');
@@ -174,7 +174,7 @@ switch($action)
         else
             $mail_subject = $html_reply_short.': '.$content['subject'];
         // Set body
-        if($user_prefs->outlook_quoting)
+        if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
             $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . strip_tags2($content['body'], '');
         else
             $mail_body = mailquote(strip_tags2($content['body'], ''), $content['from'], $html_wrote);
@@ -526,7 +526,7 @@ switch($action)
 
 function add_signature(&$body) {
     $user_prefs = $_SESSION['nocc_user_prefs'];
-    if($user_prefs->signature)
+    if(isset($user_prefs->signature))
         $body .= "\r\n" . $user_prefs->signature;
 }
 

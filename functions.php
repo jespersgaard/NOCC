@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.169 2002/09/10 23:27:01 mrylander Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.170 2002/12/01 13:03:56 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -703,7 +703,7 @@ function display_address(&$address)
     $user_prefs = $_SESSION['nocc_user_prefs'];
 
     // If not set, return full address.
-    if(!$user_prefs->hide_addresses)
+    if(!isset($user_prefs->hide_addresses))
         return $address;
 
     // If no '<', return full address.
@@ -759,7 +759,7 @@ function valid_email($email)
 function get_per_page() {
     global $conf;
     $user_prefs = $_SESSION['nocc_user_prefs'];
-    if (!$user_prefs->msg_per_page) {
+    if (!isset($user_prefs->msg_per_page)) {
         return $conf->msg_per_page;
     }
     return $user_prefs->msg_per_page;

@@ -40,7 +40,7 @@
                     <input type="hidden" name="do" value="create" />
                     <td align="right" class="prefs" valign="top" colspan="2">
                         <select name="thing1">
-                            <option value="-" selected>--Select One--</option>
+                            <option value="-" selected><?php echo $html_select_one ?></option>
                             <option value="BODY"><?php echo $html_filter_body ?></option>
                             <option value="SUBJECT"><?php echo $html_filter_subject ?></option>
                             <option value="TO"><?php echo $html_filter_to ?></option>
@@ -78,7 +78,7 @@
                     <td align="right" class="prefs" valign="top">
                         <?php echo $html_and ?>&nbsp;
                         <select name="thing3">
-                            <option value="-" selected>--Select One--</option>
+                            <option value="-" selected><?php echo $html_select_one ?></option>
                             <option value="BODY"><?php echo $html_filter_body ?></option>
                             <option value="SUBJECT"><?php echo $html_filter_subject ?></option>
                             <option value="TO"><?php echo $html_filter_to ?></option>
