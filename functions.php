@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.95 2001/06/21 12:17:23 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.96 2001/06/21 12:44:17 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -467,7 +467,9 @@ function change_date($date, $lang)
 {
 	require ('check_lang.php');
 	if (empty($date))
-		$msg_date = '';
+	{
+		$msg_date = $complete_date = '';
+	}
 	else
 	{
 		if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
