@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.113 2002/06/30 21:26:53 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.114 2002/06/30 21:43:45 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -155,9 +155,6 @@ $conf->default_theme = 'standard';
 // Display all errors (including IMAP connection errors, such as
 // 'host not found' or 'invalid login')
 $conf->debug_level = E_ALL;
-
-// Display delete button as icon (true) or as an HTML button (false)
-$conf->delete_button_icon = true;
 
 // Base URL where NOCC is hosted (only needed for Xitami servers, see #463390)
 // (NOTE: should end in a slash). Leave blank to prevent warnings if not used.

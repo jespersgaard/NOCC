@@ -1,6 +1,6 @@
 Frequently Asked Questions for Nocc
 -----------------------------------
-Last updated: $Date: 2002/03/24 17:16:16 $
+Last updated: $Date: 2002/04/28 21:48:09 $
 
  Q. Nocc keeps me asking for a correct login/password.
 
@@ -65,19 +65,6 @@ Last updated: $Date: 2002/03/24 17:16:16 $
  A. Unfortunately, we tried to optimize the code but some functions are
     clearly very slow in CGI mode. We hope this will be solved in future
     PHP releases.
-
------------------------------------
-
- Q. The trashbox icon is not transparent on Netscape 4.x and some other
-    browser.
-
- A. This is a known issue, Netscape 4.x doesn't support transparent PNG
-    images whereas it's ok with GIF. We might switch to GIF again but we
-    were wondering about license issues...
-    You can switch to a form button using this pref (conf.php):
-
-    // Display delete button as icon (true) or as an HTML button (false)
-    $conf->delete_button_icon = true;
 
 -----------------------------------
 

@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox_opts.php,v 1.11 2002/05/30 14:07:22 rossigee Exp $ -->
+<!-- start of $Id: menu_inbox_opts.php,v 1.12 2002/06/27 22:17:52 rossigee Exp $ -->
 <tr>
  <td colspan="7">
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
@@ -17,9 +17,6 @@
         </td>
         <td align="right">
             <?php
-            if ($conf->delete_button_icon)
-                echo '<input type="image" name="delete_mode" value="1" src="themes/' . $_SESSION['nocc_theme'] . '/img/delete.gif" alt="' . $alt_delete . '" />';
-            else
                 echo '<input type="submit" name="delete_mode" class="button" value="' . $html_delete . '" />';
             ?>
         </td>
@@ -27,4 +24,4 @@
 </table>
  </td>
 </tr>
-<!-- end of $Id: menu_inbox_opts.php,v 1.11 2002/05/30 14:07:22 rossigee Exp $ -->
+<!-- end of $Id: menu_inbox_opts.php,v 1.12 2002/06/27 22:17:52 rossigee Exp $ -->
