@@ -1,8 +1,8 @@
-<!-- start of $Id: html_bottom_table.php,v 1.25 2001/11/04 23:32:35 rossigee Exp $ -->
+<!-- start of $Id: html_bottom_table.php,v 1.26 2001/11/16 18:48:43 nicocha Exp $ -->
 </table>
-</td></tr>
 <input type="hidden" name="nothing" value="looks_good" />
 </form>
+</td></tr>
 </table>
 
 <script type="text/javascript">
@@ -19,4 +19,4 @@ function SelectAll() {
 </script>
 
 <?php require_once ('./html/menu_inbox.php'); ?>
-<!-- end of $Id: html_bottom_table.php,v 1.25 2001/11/04 23:32:35 rossigee Exp $ -->
+<!-- end of $Id: html_bottom_table.php,v 1.26 2001/11/16 18:48:43 nicocha Exp $ -->

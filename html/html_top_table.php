@@ -1,13 +1,13 @@
-<!-- start of $Id: html_top_table.php,v 1.35 2001/11/04 23:32:35 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.36 2001/11/16 18:48:43 nicocha Exp $ -->
 <?php
 $arrow = ($sortdir == 0) ? 'up' : 'down';
 $new_sortdir = ($sortdir == 0) ? 1 : 0;
 $is_Imap = is_Imap($servr);
 ?>
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
+<tr><td bgcolor="<?php echo $glob_theme->inside_color ?>">
 <form method="post" action="delete.php" name="delete_form">
 <input type="hidden" name="lang" value="<?php echo $lang ?>" />
-<tr><td bgcolor="<?php echo $glob_theme->inside_color ?>">
 
 <table width="100%" cellpadding="2" cellspacing="1" border="0" bgcolor="<?php echo $glob_theme->inside_color ?>">
 	<tr bgcolor="<?php echo $glob_theme->tr_color ?>">
@@ -62,4 +62,4 @@ $is_Imap = is_Imap($servr);
 			<?php echo $html_size ?></a>
 		</td>
 	</tr>
-<!-- start of $Id: html_top_table.php,v 1.35 2001/11/04 23:32:35 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.36 2001/11/16 18:48:43 nicocha Exp $ -->
