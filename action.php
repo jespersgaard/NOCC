@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.94 2002/02/09 20:35:37 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.95 2002/02/18 09:52:18 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -45,12 +45,12 @@ if(!$prefs_signature) {
 }
 
 // Default e-mail address on send form
-if($prefs_email_address != "")
+if($prefs_email_address != '')
 	$mail_from = $prefs_email_address;
 else
-	$mail_from = $user."@".$domain;
-if($prefs_full_name != "")
-	$mail_from = $prefs_full_name." <".$mail_from.">";
+	$mail_from = $user. '@' . $domain;
+if($prefs_full_name != '')
+	$mail_from = $prefs_full_name . ' <' . $mail_from . '>';
 
 if(!isset($action))
 	$action = '';
@@ -77,8 +77,8 @@ switch (trim($action))
 				{
 					echo '<hr />';
 					echo '<center>';
-					echo '<p>'.$html_loading_image.' '.$tmp['name']."...</p>";
-					echo '<img src="get_img.php?'.$php_session.'='.$$php_session.'&mail='.$mail.'&folder='.$folder.'&num='.$tmp['number'].'&mime='.$img_type.'&transfer='.$tmp['transfer'].'" />';
+					echo '<p>' . $html_loading_image . ' ' . $tmp['name'] . '...</p>';
+					echo '<img src="get_img.php?' . $php_session . '=' . $$php_session . '&mail=' . $mail.'&folder=' . $folder . '&num=' . $tmp['number'] . '&mime=' . $img_type . '&transfer=' . $tmp['transfer'] . '" />';
 					echo '</center>';
 				}
 			}
@@ -116,10 +116,12 @@ switch (trim($action))
 		if($outlook_quoting)
 			$mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . strip_tags($content['body'], '');
 		else
-			if ($prefs_reply_leadin) {
+			if ($prefs_reply_leadin)
+            {
 				$parsed_leadin = parseLeadin($prefs_reply_leadin, $content);
-				$mail_body = mailquote(strip_tags($content['body'], ''), $parsed_leadin, "");
-			} else
+				$mail_body = mailquote(strip_tags($content['body'], ''), $parsed_leadin, '');
+			}
+            else
 				$mail_body = mailquote(strip_tags($content['body'], ''), $content['from'], $html_wrote);
 
 		// Add signature
