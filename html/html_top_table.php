@@ -3,10 +3,9 @@ $arrow = ($sortdir == 0) ? "up" : "down";
 $new_sortdir = ($sortdir == 0) ? 1 : 0;
 ?>
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
-<tr><td bgcolor="#cacaca">
+<tr><td>
 
-<table width="100%" cellpadding="2" cellspacing="1" border="0" bgcolor="<? echo $html_inside_color ?>" 
-bordercolor="#000000">
+<table width="100%" cellpadding="2" cellspacing="1" border="0" bgcolor="<? echo $html_inside_color ?>">
 	<tr bgcolor="<? echo $html_tr_color ?>">
 		<td colspan="4" class="titlew">
 			<B><? echo $html_inbox ?></B></FONT>
@@ -18,13 +17,12 @@ bordercolor="#000000">
 			<? echo $num_msg ?> <? if ($num_msg > 1) {echo $html_msgs;} else {echo $html_msg;}?>
 		</TD>
 	</tr>
-	<tr bgcolor=#ffffff>
+	<tr bgcolor="<? echo $inbox_text_color ?>">
 		<TD align=center class="inbox">
 			<? echo $html_mark ?>
 		</TD>
 		<TD align=center class="inbox">
-			<!--<A HREF="<? echo $PHP_SELF ?>?sort=&lang=<? echo $lang ?>">-->
-			<? echo $html_new ?></A>
+			<? echo $html_new ?>
 		</TD>
 		<TD align=center class="inbox">
 			<? echo $html_att ?>
