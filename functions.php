@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: nicocha $
-	$Revision: 1.24 $
-	$Date: 2000/11/01 23:47:22 $
+	$Revision: 1.25 $
+	$Date: 2000/11/06 18:43:12 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
 the function get_part is based on a function from matt@bonneau.net
@@ -111,7 +111,6 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 	GLOBAL $attach_tab;
 	GLOBAL $glob_body;
 	GLOBAL $PHP_SELF;
-	//$body_mime = "text/plain";
 
 	$current_date = date("D, d M");
 	$pop = @imap_open("{".$mailhost."}INBOX", $user, $passwd);
