@@ -1,5 +1,8 @@
 NOCC 0.9.6    ??
 
+    * Exception from nocc_imap now returns useful error information.
+    * Badly placed return statement was preventing connection
+      exception from being reported to the user.
     * Moving to PEAR coding guidelines slowly (spaces instead of tabs, better
       comments should follow slowly).
     * Trim mail subjects when longer than 55 chars and displaying Inbox
@@ -151,8 +154,8 @@ NOCC 0.9.4    June 02, 2001
 NOCC 0.9.3pl1    March 18, 2001
 
     * Fixed loosing charset preference after deleting an attachment.
-        * Minor bugfixes: typo in CREDITS, missing variables in language files,
-          corrupted russian language file (Unix encoding).
+    * Minor bugfixes: typo in CREDITS, missing variables in language files,
+      corrupted russian language file (Unix encoding).
 
 
 NOCC 0.9.3    March 12, 2001
