@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.164 2002/05/29 19:54:22 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.165 2002/05/30 14:07:21 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -670,7 +670,7 @@ function encode_mime(&$string, &$charset)
 function clear_attachments()
 {
     global $conf;
-    if (isset($_SESSION['nocc_attach_array']) && is_array($_SESSION['attach_array']))
+    if (isset($_SESSION['nocc_attach_array']) && is_array($_SESSION['nocc_attach_array']))
         while ($tmp = array_shift($_SESSION['nocc_attach_array']))
             @unlink($conf->tmpdir.'/'.$tmp->tmp_file);
     unset($_SESSION['nocc_attach_array']);
