@@ -1,6 +1,6 @@
 <?php 
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.13 2001/02/23 09:31:57 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.14 2001/03/29 08:37:13 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -11,10 +11,10 @@
  * this file just delete the selected message(s)
  */
 
-session_register ("user", "passwd");
-require ("conf.php");
+session_register ('user', 'passwd');
+require ('conf.php');
 
-$pop = imap_open("{".$servr."}INBOX", $user, stripslashes($passwd));
+$pop = imap_open('{'.$servr.'}INBOX', $user, stripslashes($passwd));
 $num_messages = imap_num_msg($pop);
 
 if (isset($only_one) && ($only_one == 1))

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/get_img.php,v 1.9 2001/01/30 09:45:33 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/get_img.php,v 1.10 2001/02/23 09:31:57 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,17 +9,17 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
 
-session_register ("user", "passwd");
-require ("conf.php");
+session_register ('user', 'passwd');
+require ('conf.php');
 
-$pop = imap_open("{".$servr."}INBOX", $user, stripslashes($passwd));
+$pop = imap_open('{'.$servr.'}INBOX', $user, stripslashes($passwd));
 $img = imap_fetchbody($pop, $mail, $num);
 imap_close($pop);
-if ($transfer == "BASE64")
+if ($transfer == 'BASE64')
 	$img = base64_decode($img);
-elseif ($transfer == "QUOTED-PRINTABLE")
+elseif ($transfer == 'QUOTED-PRINTABLE')
 	$img = imap_qprint($img);
 
-header("Content-type: image/".$mime);
+header('Content-type: image/'.$mime);
 echo $img;
 ?>
