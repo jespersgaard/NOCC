@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.92 2002/04/19 14:39:30 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.93 2002/04/24 21:08:18 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -50,7 +50,7 @@ function updateLang()
 {
     if (document.nocc_webmail_login.user.value == "" && document.nocc_webmail_login.passwd.value == "")
     {
-        var lang_page = "index.php?lang=" + document.nocc_webmail_login.lang[document.nocc_webmail_login.lang.selectedIndex].value + "&amp;theme=<?php echo $theme ?>";
+        var lang_page = "index.php?lang=" + document.nocc_webmail_login.lang[document.nocc_webmail_login.lang.selectedIndex].value + "&theme=<?php echo $theme ?>";
         self.location = lang_page;
     }
 }
@@ -59,7 +59,7 @@ function updateTheme()
 {
     if (document.nocc_webmail_login.user.value == "" && document.nocc_webmail_login.passwd.value == "")
     {
-        var lang_page = "index.php?lang=<?php echo $lang ?>&amp;theme=" + document.nocc_webmail_login.theme[document.nocc_webmail_login.theme.selectedIndex].value;
+        var lang_page = "index.php?lang=<?php echo $lang ?>&theme=" + document.nocc_webmail_login.theme[document.nocc_webmail_login.theme.selectedIndex].value;
         self.location = lang_page;
     }
 }
