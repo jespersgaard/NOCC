@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.22 2001/01/30 13:27:25 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.23 2001/01/30 22:38:09 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -126,4 +126,5 @@ switch ($sendaction)
 		header("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang");
 		break;
 }
+require ("html/footer.php");
 ?>
