@@ -1,3 +1,4 @@
+<!-- start of $Id$ -->
 <tr bgcolor="<?php echo $glob_theme->tr_color ?>">
 	<td align="center" valign="middle">
 		<input type="image" src="themes/<?php echo $theme ?>/img/delete.gif" alt="<?php echo $alt_delete ?>" />
@@ -24,3 +25,4 @@ function SelectAll() {
 </script>
 
 <?php require_once ('./html/menu_inbox.php'); ?>
+<!-- end of $Id$ -->

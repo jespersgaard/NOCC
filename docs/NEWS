@@ -1,5 +1,6 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Added start/end identifier comments to html templates.
 	* Fixed several potential 'uninitialised variable' warnings
 	* Fixed order of session headers
 	* Added error logging of file opening problems in prefs.php.

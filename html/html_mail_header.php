@@ -1,3 +1,4 @@
+<!-- start of $Id$ -->
 <?php
 if ($verbose == 1 && $use_verbose == true)
 	echo "<tr><td class=\"mail\"><a href=\"$PHP_SELF?action=aff_mail&amp;mail=$mail&amp;verbose=0&amp;lang=".$lang."&amp;sort=".$sort."&amp;sortdir=".$sortdir."\" class=\"mail\">".$html_remove_header."</a></td>";
@@ -36,3 +37,4 @@ if ($content['subject'] == '')
 <tr><td colspan="2" bgcolor="<?php echo $glob_theme->mail_color ?>" class="mail"><pre><?php echo $content['header'] ?></pre><br />
 <?php //echo @convert_cyr_string($content['body'], $content['charset'], $charset); ?>
 <?php echo $content['body'] ?>
+<!-- end of $Id$ -->

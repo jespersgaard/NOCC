@@ -1,3 +1,4 @@
+<!-- start of $Id$ -->
 <tr bgcolor="<?php echo $glob_theme->inbox_color ?>">
 	<td align="center">
 		<input type="checkbox" name="msg-<?php echo $tmp['number'] ?>" value="Y" />
@@ -23,3 +24,4 @@
 		<?php echo $tmp['size'] ?> <?php echo $html_kb ?>
 	</td>
 </tr>
+<!-- end of $Id$ -->

@@ -1,3 +1,4 @@
+<!-- start of $Id$ -->
 <?php
 $color_inbox = $color = $glob_theme->menu_color;
 if ($action == '') 
@@ -46,3 +47,4 @@ if ($action == 'forward')
 		</td>
 	</tr>
 </table>
+<!-- end of $Id$ -->

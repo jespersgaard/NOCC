@@ -1,3 +1,4 @@
+<!-- start of $Id$ -->
 <?php
 $arrow = ($sortdir == 0) ? 'up' : 'down';
 $new_sortdir = ($sortdir == 0) ? 1 : 0;
@@ -61,3 +62,4 @@ $is_Imap = is_Imap($servr);
 			<?php echo $html_size ?></a>
 		</td>
 	</tr>
+<!-- start of $Id$ -->
