@@ -1,0 +1,86 @@
+NOCC Installation Guide
+Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
+Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
+
+This code is licensed under the GNU Public License.
+See the file COPYING in this directory.
+
+$Author: bjn $
+$Revision: 1.1.2.26 $
+$Date: 2000/09/19 14:53:14 $
+
++++++++++
+Overview:
++++++++++
+
+This file contains the following sections:
+	  + Overview
+          + Requirements for IMP
+          + Installing IMP
+          + Additional Notes for IMP
+          
+
++++++++++++++
+Requirements:
++++++++++++++
+
+  ----------------
+  Mandatory Items:
+  ================
+
+   * PHP 4.0 or greater with IMAP support (--with-imap) -- SEE NEXT SECTION
+  
+   * A web server supported by PHP (Apache is most widely used)
+  
+   * An IMAP or POP3 server to connect to.
+
+
+  ---------------
+  Optional Items:
+  ===============
+
+   * An SSL Web-server so the client connection to NOCC is secure
+       (Apache+mod_ssl+OpenSSL is popular)
+
+
++++++++++++++
+Notes on PHP:
++++++++++++++
+
+PHP needs to be compiled with IMAP support. (--with-imap at the configure stage)
+
+
+++++++++++++++++
+Installing NOCC:
+++++++++++++++++
+
+
+  --------------------
+  Installation of NOCC
+  ====================
+       
+       1) Obtain nocc*.tar.gz
+
+       2) untar/gzip nocc into the directory you want.
+       
+       3) Follow the instructions in the nocc/INSTALL file to properly
+          setup NOCC.  
+       
+       4) Change into the 'nocc' directory, make changes to the 
+          config file (conf.php)
+
+           'conf.php' contains a large number of
+           defaults that you'll need to configure for your system, such as
+           the default IMAP server, whether or not users can pick a
+           different server, etc... The file is fairly well documented, so
+           you should be able to pick out what you need to change fairly
+           easily.
+
+----------------------------------------------------------------------
+We hope you find NOCC useful and easy to use.  We thank you for taking
+the time to try it and if you ever have any questions, just ask.
+
+Enjoy,
+
+The NOCC team
+----------------------------------------------------------------------
