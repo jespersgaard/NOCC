@@ -1,4 +1,5 @@
-<!-- start of $Id: menu_mail.php,v 1.25 2002/05/14 18:46:43 rossigee Exp $ -->
+<!-- start of $Id: menu_mail.php,v 1.26 2002/05/15 10:12:01 rossigee Exp $ -->
+<? $PHP_SELF = $_SERVER['PHP_SELF']; ?>
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -35,4 +36,4 @@
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_mail.php,v 1.25 2002/05/14 18:46:43 rossigee Exp $ -->
+<!-- end of $Id: menu_mail.php,v 1.26 2002/05/15 10:12:01 rossigee Exp $ -->
