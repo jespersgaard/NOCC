@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/wrong.php,v 1.15 2001/10/19 10:34:25 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/wrong.php,v 1.16 2002/02/09 20:46:24 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -25,7 +25,7 @@ session_destroy();
 								<td>&nbsp;</td>
 							</tr>
 							<tr>
-								<td align="center" class="f"><?php echo $html_wrong ?><br /><br /><a href="index.php?lang=<?php echo $lang ?>&theme=<?php echo $theme ?>"><?php echo $html_retry ?></a></td>
+								<td align="center" class="f"><?php echo $html_wrong ?><br /><br /><a href="index.php?lang=<?php echo $lang ?>&amp;theme=<?php echo $theme ?>"><?php echo $html_retry ?></a></td>
 							</tr>
 							<tr>
 								<td>&nbsp;</td>

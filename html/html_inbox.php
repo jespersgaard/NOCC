@@ -1,4 +1,4 @@
-<!-- start of $Id: html_inbox.php,v 1.27 2002/02/09 20:46:24 rossigee Exp $ -->
+<!-- start of $Id: html_inbox.php,v 1.28 2002/02/18 10:39:48 nicocha Exp $ -->
 <tr bgcolor="<?php echo $glob_theme->inbox_color ?>">
 	<td align="center">
 		<input type="checkbox" name="msg-<?php echo $tmp['number'] ?>" value="Y" />
@@ -12,10 +12,10 @@
 		<?php echo $tmp['attach'] ?>
 	</td>
 	<td class="inbox" align="left">
-		<a href="<?php echo $PHP_SELF ?>?action=aff_mail&mail=<?php echo $tmp['number'] ?>&sort=<?php echo $sort ?>&sortdir=<?php echo $sortdir?>&verbose=0&lang=<?php echo $lang ?>" title="<?php echo htmlspecialchars($tmp['from']); ?>"><?php echo htmlspecialchars(display_address ($tmp['from'])); ?></a>
+		<a href="<?php echo $PHP_SELF ?>?action=aff_mail&amp;mail=<?php echo $tmp['number'] ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir?>&amp;verbose=0&amp;lang=<?php echo $lang ?>" title="<?php echo htmlspecialchars($tmp['from']); ?>"><?php echo htmlspecialchars(display_address ($tmp['from'])); ?></a>
 	</td>
 	<td class="inbox" align="left">
-		<a href="<?php echo $PHP_SELF ?>?action=aff_mail&mail=<?php echo $tmp['number'] ?>&sort=<?php echo $sort ?>&sortdir=<?php echo $sortdir?>&verbose=0&lang=<?php echo $lang ?>"><?php echo $tmp['subject']? htmlspecialchars($tmp['subject']) : $html_nosubject; ?></a>
+		<a href="<?php echo $PHP_SELF ?>?action=aff_mail&amp;mail=<?php echo $tmp['number'] ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir?>&amp;verbose=0&amp;lang=<?php echo $lang ?>"><?php echo $tmp['subject']? htmlspecialchars($tmp['subject']) : $html_nosubject; ?></a>
 	</td>
 	<td class="inbox" align="left">
 		<?php echo $tmp['date'] ?>
@@ -24,4 +24,4 @@
 		<?php echo $tmp['size'] ?> <?php echo $html_kb ?>
 	</td>
 </tr>
-<!-- end of $Id: html_inbox.php,v 1.27 2002/02/09 20:46:24 rossigee Exp $ -->
+<!-- end of $Id: html_inbox.php,v 1.28 2002/02/18 10:39:48 nicocha Exp $ -->

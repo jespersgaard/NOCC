@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.95 2002/02/18 09:52:18 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.96 2002/02/18 10:19:12 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -78,7 +78,7 @@ switch (trim($action))
 					echo '<hr />';
 					echo '<center>';
 					echo '<p>' . $html_loading_image . ' ' . $tmp['name'] . '...</p>';
-					echo '<img src="get_img.php?' . $php_session . '=' . $$php_session . '&mail=' . $mail.'&folder=' . $folder . '&num=' . $tmp['number'] . '&mime=' . $img_type . '&transfer=' . $tmp['transfer'] . '" />';
+					echo '<img src="get_img.php?' . $php_session . '=' . $$php_session . '&amp;mail=' . $mail.'&amp;folder=' . $folder . '&amp;num=' . $tmp['number'] . '&amp;mime=' . $img_type . '&amp;transfer=' . $tmp['transfer'] . '" />';
 					echo '</center>';
 				}
 			}
@@ -89,7 +89,7 @@ switch (trim($action))
 
 	case 'logout':
 		require_once ('./proxy.php');
-		header("Location: ".$conf->base_url."logout.php?lang=$lang&$php_session=".$$php_session);
+		header("Location: ".$conf->base_url."logout.php?lang=$lang&amp;$php_session=".$$php_session);
 		break;
 
 	case 'write':

@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.44 2002/02/09 20:46:24 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.45 2002/02/18 10:40:49 nicocha Exp $ -->
 <?php
 $arrow = ($sortdir == 0) ? 'up' : 'down';
 $new_sortdir = ($sortdir == 0) ? 1 : 0;
@@ -28,32 +28,32 @@ $new_sortdir = ($sortdir == 0) ? 1 : 0;
 		<?php } ?>
         <td align="center" class="inbox">&nbsp;</td>
 		<td align="center" class="inbox" <?php if ($sort == 2) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
-			<a href="<?php echo $PHP_SELF ?>?sort=2&sortdir=<?php echo $new_sortdir ?>&lang=<?php echo $lang ?>">
+			<a href="<?php echo $PHP_SELF ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>">
 			<img src="themes/<?php echo $theme ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_from; ?>" /></a>
 			&nbsp;
-			<a href="<?php echo $PHP_SELF ?>?sort=2&sortdir=<?php echo $new_sortdir ?>&lang=<?php echo $lang ?>">
+			<a href="<?php echo $PHP_SELF ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>">
 			<?php echo $html_from ?></a>
 		</td>
 		<td align="center" class="inbox" <?php if ($sort == 3) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
-			<a href="<?php echo $PHP_SELF ?>?sort=3&sortdir=<?php echo $new_sortdir ?>&lang=<?php echo $lang ?>">
+			<a href="<?php echo $PHP_SELF ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>">
 			<img src="themes/<?php echo $theme ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_subject; ?>" /></a>
 			&nbsp;
-			<a href="<?php echo $PHP_SELF ?>?sort=3&sortdir=<?php echo $new_sortdir ?>&lang=<?php echo $lang ?>">
+			<a href="<?php echo $PHP_SELF ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>">
 			<?php echo $html_subject ?></a>
 		</td>
 		<td align="center" class="inbox" <?php if ($sort == 1) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
-			<a href="<?php echo $PHP_SELF ?>?sort=1&sortdir=<?php echo $new_sortdir ?>&lang=<?php echo $lang ?>">
+			<a href="<?php echo $PHP_SELF ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>">
 			<img src="themes/<?php echo $theme ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_date; ?>" /></a>
 			&nbsp;
-			<a href="<?php echo $PHP_SELF ?>?sort=1&sortdir=<?php echo $new_sortdir ?>&lang=<?php echo $lang ?>">
+			<a href="<?php echo $PHP_SELF ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>">
 			<?php echo $html_date ?></a>
 		</td>
 		<td align="right" class="inbox" <?php if ($sort == 6) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
-			<a href="<?php echo $PHP_SELF ?>?sort=6&sortdir=<?php echo $new_sortdir ?>&lang=<?php echo $lang ?>">
+			<a href="<?php echo $PHP_SELF ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>">
 			<img src="themes/<?php echo $theme ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_size; ?>" /></a>
 			&nbsp;
-			<a href="<?php echo $PHP_SELF ?>?sort=6&sortdir=<?php echo $new_sortdir ?>&lang=<?php echo $lang ?>">
+			<a href="<?php echo $PHP_SELF ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>">
 			<?php echo $html_size ?></a>
 		</td>
 	</tr>
-<!-- start of $Id: html_top_table.php,v 1.44 2002/02/09 20:46:24 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.45 2002/02/18 10:40:49 nicocha Exp $ -->
