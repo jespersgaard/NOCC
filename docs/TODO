@@ -11,6 +11,8 @@ Short term
 Long term
 ---------
 
+ - Editable From and Reply-To addresses.
+ - Check compatibility with PHP running in Safe mode.
  - Look for MX records in a free Webmail version.
  - Add more languages.
  - Switch to pure CSS for color backgrounds, etc.
