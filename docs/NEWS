@@ -1,5 +1,9 @@
 NOCC 0.9.6    ??
 
+    * Moving to PEAR coding guidelines slowly (spaces instead of tabs, better
+      comments should follow slowly).
+    * Trim mail subjects when longer than 55 chars and displaying Inbox
+      (patch thanks to Arno Bean #477829).
     * Fixed some regexp issues (patch thanks to Patrick #522389).
     * Added fix for mime encoding problem (#495626).
     * Fixed lang returning to default after prefs page.
