@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.113 2001/11/04 21:34:19 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.115 2001/11/07 18:53:44 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -532,21 +532,69 @@ function get_reply_all($user, $domain, $from, $to, $cc)
 // We need that to build a correct list of all the recipient when we send a message
 function cut_address($addr, $charset)
 {
-	$name = '';
+	// Strip slashes from input
+	$addr = stripslashes($addr);
 
+	// Break address line into individual addresses, taking
+	// quoted addresses into account
+	$array = array();
+	$token = '';
+	$quot_esc = false;
+	for ($i = 0; $i < strlen($addr); $i++) {
+		$c = substr($addr, $i, 1);
+
+		// Are we entering/leaving escaped mode
+		if($c == '"') {
+			$quote_esc = !$quote_esc;
+		}
+
+		// Is this an address seperator (comma/semicolon)
+		if($c == ',' || $c == ';') {
+			if(!$quote_esc) {
+				if(trim($token) != '') {
+					$array[] = $token;
+				}
+				$token = '';
+				next;
+			}
+		}
+
+		$token .= $c;
+	}
+	if(!$quote_esc) {
+		if(trim($token) != '') {
+			$array[] = $token;
+		}
+	}
+
+	/* old way
+	// Replace commas with semicolons as address seperator
 	$addr = str_replace(',', ';', $addr);
+
+	// Break address line into individual addresses
 	$array = explode(';', $addr);
+	*/
+
+	// Loop through addresses
 	for ($i = 0; $i < sizeof($array); $i++)
 	{
+
+		// Remove leading/trailling spame
+		$array[$i] = trim($array[$i]);
+
+		// Discard empty addresses
 		if($array[$i] == '')
 			continue;
+
+		// Wrap address in brackets, if not already
 		$pos = strrpos($array[$i], '<');
 		if (!is_int($pos))
 			$array[$i] = '<'.$array[$i].'>';
 
-		/* FIXME: encode_mime breaks sendmail badly */
+		/* FIXME: encode_mime mangles addresses badly */
 		/*else
 		{
+			$name = '';
 			if ($pos != 0)
 				$name = encode_mime(substr($array[$i], 0, $pos - 1), $charset).' ';
 			$addr = substr($array[$i], $pos);

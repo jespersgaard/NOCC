@@ -1,5 +1,6 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Fixed cut_addresses to handle addresses with quoted commas.
 	* Fixed various XHTML incompliances.
 	* Added the srpski jezik language.
 	* Updated Bulgarian translation.
