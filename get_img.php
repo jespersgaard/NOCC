@@ -1,4 +1,13 @@
 <?
+/*
+NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>  
+
+  You should have received a copy of the GNU Public
+  License along with this package; if not, write to the
+  Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+  Boston, MA 02111-1307, USA.
+*/
+
 session_register ("user");
 session_register ("passwd");
 require ("conf.php");
@@ -11,10 +20,6 @@ if ($transfer == "BASE64")
 elseif ($transfer == "QUOTED-PRINTABLE")
 	$img = imap_qprint($img);
 
-//echo $num." ";
-//echo $mime."<br>";
-
 header("Content-type: image/".$mime);
-//header( "Content-Disposition: inline; filename=" . $filename );
 echo $img;
 ?>

@@ -1,6 +1,18 @@
 <?
-// Configuration for the days and months
+/*
+NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
+  
+  You should have received a copy of the GNU Public
+  License along with this package; if not, write to the
+  Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+  Boston, MA 02111-1307, USA.
+*/
 
+/*
+ Configuration file for the french language (the first made, we're french !!)
+*/
+
+// Configuration for the days and months
 $days = Array(
 	Mon => "Lundi",
 	Tue => "Mardi",
@@ -24,9 +36,6 @@ $months = Array(
 	Nov => "Novembre",
 	Dec => "D&eacute;cembre");
 
-
-
-
 // Here is the configuration for the HTML
 
 $err_user_empty = "Vous n'avez pas saisi de login";
@@ -34,7 +43,6 @@ $err_passwd_empty = "Vous n'avez pas saisi de mot de passe";
 
 
 // html message
-
 
 $alt_delete = "Effacer les messages selectionn&eacute;s";
 $alt_delete_one = "Effacer le message";
@@ -56,6 +64,8 @@ $html_help = "Aide";
 $html_server = "Serveur";
 $html_wrong = "Le login ou le mot de passe ne sont pas valides";
 $html_retry = "R&eacute;essayer";
+
+// Other pages
 
 $html_view_header = "Voir l'ent&ecirc;te";
 $html_remove_header = "Masquer l'ent&ecirc;te";
@@ -90,10 +100,8 @@ $html_msgs = "Messages";
 $original_msg = "-- Message Original --";
 $to_empty = "Le champ 'A' ne doit pas &ecirc;tre vide !";
 
-$ad = "\n\n________________________________________________________________________\nNOCC, vos e-mail 
-n'importe où : http://nocc.sourceforge.net";
+$html_outside = "Vous voyez cette page en dehors de <b>".$name."</b>. Pour y retourner, fermez cette fen&ecirc;tre.";
 
-$html_outside = "Vous voyez cette page en dehors de <b>".$name."</b>. Pour y retourner, fermez cette 
-fen&ecirc;tre.";
-
+// This message is added to every message, the user cannot delete it
+$ad = "\n\n________________________________________________________________________\nNOCC, vos e-mail n'importe où : http://nocc.sourceforge.net";
 ?>

@@ -12,7 +12,7 @@ onSubmit="this.att_name.value=this.mail_att.value;">
 					<TD ALIGN="RIGHT" class="inbox"><? echo $html_from ?> : </TD>
 					<TD>
 						<SELECT name="from">
-							<option value="<? echo $user."@".$provider ?>"><? echo $user."@".$provider 
+							<option value="<? echo $user."@".$domain ?>"><? echo $user."@".$domain 
 ?></option>
 						</SELECT>
 					</td>

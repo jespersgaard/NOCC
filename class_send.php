@@ -1,4 +1,12 @@
 <?
+/*
+NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>  
+
+  You should have received a copy of the GNU Public
+  License along with this package; if not, write to the
+  Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+  Boston, MA 02111-1307, USA.
+*/
 
 class mime_mail 
 {
@@ -44,7 +52,7 @@ class mime_mail
 	}
 
 /*
- *      void build_message(array part=
+ *      void build_message(array part)
  *      Build message parts of an multipart mail
  */ 
 	function build_message($part)
@@ -128,6 +136,8 @@ class mime_mail
 			$this->add_attachment($this->body,  "",  "text/plain", "8bit");
 			$mime .= $this->build_body();
 		}
+
+		// Wether or not to use SMTP or sendmail, depends on the config file (conf.php)
 		if ($this->smtp_server == "" || $this->smtp_port == "")
 			return (mail($this->to, $this->subject,  "", $mime));
 		else

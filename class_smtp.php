@@ -1,5 +1,13 @@
 <?
-// Thanks to Unk. (rgroesb_garbage@triple-it_garbage.nl) 
+/*
+NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>  
+This class is based on a work from Unk <rgroesb_garbage@triple-it_garbage.nl>
+
+  You should have received a copy of the GNU Public
+  License along with this package; if not, write to the
+  Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+  Boston, MA 02111-1307, USA.
+*/
 
 class smtp
 {
@@ -12,6 +20,7 @@ class smtp
 	var $subject;
 	var $data;
 		
+	// This function is the constructor don't forget this one
 	function smtp()
 	{
 		$this->$smtp_server = "";
@@ -90,6 +99,7 @@ class smtp
 	function smtp_rcpt_to($smtp) 
 	{ 
         global $SMTP_GLOBAL_STATUS; 
+		// Modified by nicocha to use to, cc and bcc field
 		while ($tmp = array_shift($this->to))
 		{
 			fputs($smtp,  "RCPT TO: <$tmp>\r\n");
@@ -127,8 +137,7 @@ class smtp
         $SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULTTXT"] = substr($line, 0, 1024); 
 
         if ($SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULT"] <>  "3") return 0; 
-
-        //fputs($smtp,  "Mime-Version: 1.0\r\n");  
+		
         fputs($smtp,  "$this->data\r\n\r\n"); 
         fputs($smtp,  ".\r\n"); 
         $line = fgets($smtp, 1024); 

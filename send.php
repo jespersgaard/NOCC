@@ -1,7 +1,17 @@
 <?
+/*
+NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>  
+the function get_part is based on a function from matt@bonneau.net
+
+  You should have received a copy of the GNU Public
+  License along with this package; if not, write to the
+  Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+  Boston, MA 02111-1307, USA.
+*/
+
 require ("conf.php");
 require ("class_send.php");
-require ("class_smtp.php");
+//require ("class_smtp.php");
 require ("functions.php");
 require ("check_lang.php");
 
@@ -35,48 +45,5 @@ function get_filename($filename)
 {
 	$tab = explode("\\", $filename);
 	return (array_pop($tab));
-}
-
-
-function guess_mime_type($filename)
-{
-	$tab = split("\.", $filename);
-	$ext = $tab[1];
-	if ($ext == "")
-	{
-		return ("application/octet-stream");
-	}
-	else
-	{
-		if ($ext == "gif") {return "image/gif";}
-		elseif ($ext == "jpg") {return "image/jpg";}
-		elseif ($ext == "png") {return "image/png";}
-		elseif ($ext == "bmp") {return "image/x-MS-bmp";}
-		elseif ($ext == "tif") {return "image/tiff";}
-		elseif (($ext == "gz") || ($ext == "tgz")) {return "application/x-gzip";}
-		elseif (($ext == "html") || ($ext == "htm")) {return "text/html";}
-		elseif ($ext == "tar") {return "application/x-tar";}
-		elseif ($ext == "txt") {return "text/plain";}
-		elseif ($ext == "zip") {return "application/zip";}
-		elseif ($ext == "hqx") {return "application/mac-binhex40";}
-		elseif ($ext == "doc") {return "application/msword";}
-		elseif ($ext == "pdf") {return "application/pdf";}
-		elseif ($ext == "ps") {return "application/postcript";}
-		elseif ($ext == "rtf") {return "application/rtf";}
-		elseif ($ext == "dvi") {return "application/x-dvi";}
-		elseif ($ext == "latex") {return "application/x-latex";}
-		elseif ($ext == "swf") {return "application/x-shockwave-flash";}
-		elseif ($ext == "tex") {return "application/x-tex";}
-		elseif ($ext == "mid") {return "audio/midi";}
-		elseif ($ext == "au") {return "audio/basic";}
-		elseif ($ext == "mp3") {return "audio/mpeg";}
-		elseif (($ext == "ram") || ($ext == "rm")) {return "audio/x-pn-realaudio";}
-		elseif ($ext == "ra") {return "audio/x-realaudio";}
-		elseif ($ext == "wav") {return "audio/x-wav";}
-		elseif (($ext == "mpeg") || ($ext == "mpg")) {return "video/mpeg";}
-		elseif (($ext == "wrl") || ($ext == "vrml")) {return "model/vrml";}
-		elseif (($ext == "qt") || ($ext == "mov")) {return "video/quicktime";}
-		elseif ($ext == "avi") {return "video/x-msvideo";}
-	}	
 }
 ?>

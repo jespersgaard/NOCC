@@ -1,4 +1,15 @@
 <?
+/*
+NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>  
+the function get_part is based on a function from matt@bonneau.net
+
+  You should have received a copy of the GNU Public
+  License along with this package; if not, write to the
+  Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+  Boston, MA 02111-1307, USA.
+*/
+
+
 $attach_tab = Array();
 $body = "";
 
@@ -115,13 +126,11 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read)
 			$link_att = "";
 			break;
 		case 1:
-			$link_att = "<tr><td align=\"right\" valign=\"top\" class=\"mail\">".$html_att."</td><td 
-bgcolor=\"".$html_mail_properties."\" class=\"mail\">".link_att($mailhost, $mail, 
+			$link_att = "<tr><td align=\"right\" valign=\"top\" class=\"mail\">".$html_att."</td><td bgcolor=\"".$html_mail_properties."\" class=\"mail\">".link_att($mailhost, $mail, 
 $attach_tab)."</td></tr>";
 			break;
 		default:
-			$link_att = "<tr><td align=\"right\" valign=\"top\" class=\"mail\">".$html_atts."</td><td 
-bgcolor=\"".$html_mail_tr_color."\" class=\"mail\">".link_att($mailhost, $mail, 
+			$link_att = "<tr><td align=\"right\" valign=\"top\" class=\"mail\">".$html_atts."</td><td bgcolor=\"".$html_mail_tr_color."\" class=\"mail\">".link_att($mailhost, $mail, 
 $attach_tab)."</td></tr>";
 			break;
 	}
@@ -144,6 +153,7 @@ $attach_tab)."</td></tr>";
 
 /* ----------------------------------------------------- */
 
+// based on a function from matt@bonneau.net
 function GetPart($this_part, $part_no, $read)
 {
 	GLOBAL $attach_tab;
@@ -172,6 +182,7 @@ function GetPart($this_part, $part_no, $read)
 					$part_no = $part_no.".";
 				for ($i = 0; $i < count($this_part->parts); $i++)
 				{
+					// if it's an alternative, we skip the text part to only keep the HTML part
 					if ($this_part->subtype == ALTERNATIVE && $read == true)
 						GetPart($this_part->parts[++$i], $part_no.($i + 1), $read);
 					else 
@@ -181,17 +192,11 @@ function GetPart($this_part, $part_no, $read)
 			break;
 		case TYPEMESSAGE:
 			$mime_type = "message";
-			//GetPart($this_part->parts[0], $part_no, $read);
-			//for ($i = 0; $i < count($this_part->parts[0]->parts); $i++)
-			//{
-				//if (count($this_part->parts[0]->parts) > 0)
-				//$part_no = $part_no.".";
-				for ($i = 0; $i < count($this_part->parts[0]->parts); $i++)
-				{	
-					GetPart($this_part->parts[0]->parts[$i], $part_no.".".($i + 1), $read);
-				}
-			//}
+			// well it's a message we have to parse it to find attachments or text message
+			for ($i = 0; $i < count($this_part->parts[0]->parts); $i++)
+				GetPart($this_part->parts[0]->parts[$i], $part_no.".".($i + 1), $read);
 			break;
+		// Maybe we can do something with the mime types later ??
 		case TYPEAPPLICATION:
 			$mime_type = "application";
 			break;
@@ -302,6 +307,7 @@ function change_date($date)
 
 /* ----------------------------------------------------- */
 
+// We have to figure out the entire mail size
 function get_mail_size($this_part)
 {
 	$size = 0;
@@ -313,23 +319,25 @@ function get_mail_size($this_part)
 
 /* ----------------------------------------------------- */
 
-function get_reply_all($user, $provider, $from, $to, $cc)
+// this function build an array with all the recipients of the message for later reply or reply all 
+function get_reply_all($user, $domain, $from, $to, $cc)
 {
-	if (!eregi($user."@".$provider, $from)) 
+	if (!eregi($user."@".$domain, $from)) 
 		$rcpt = $from;
 	$tab = explode(",", $to);
 	while ($tmp = array_shift($tab))
-		if (!eregi($user."@".$provider, $tmp))
+		if (!eregi($user."@".$domain, $tmp))
 			$rcpt .= $tmp.", ";
 	$tab = explode(",", $cc);
 	while ($tmp = array_shift($tab))
-		if (!eregi($user."@".$provider, $tmp))
+		if (!eregi($user."@".$domain, $tmp))
 			$rcpt .= $tmp.", ";
 	return (substr($rcpt, 0, strlen($rcpt) - 2));
 }
 
 /* ----------------------------------------------------- */
 
+// We need that to build a correct list of all the recipient when we send a message
 function cut_address($addr)
 {
 	$addr = eregi_replace(",", " ", $addr);

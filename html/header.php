@@ -12,9 +12,9 @@ text="<? echo $text_color ?>" vlink="<? echo $vlink_color ?>">
 				<td align="left" valign="absmiddle" colspan="2">
 					<img src="img/logo.gif">
 					<?
-					if ($provider != "")
+					if ($domain != "")
 					{ ?>
-						&nbsp;&nbsp;<font class="login"><b><i><? echo $user."@".$provider 
+						&nbsp;&nbsp;<font class="login"><b><i><? echo $user."@".$domain 
 ?></i></b></font>
 					<? } ?>
 				</td>
