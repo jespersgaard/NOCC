@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.85 2001/12/04 09:53:20 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.86 2001/12/08 17:58:55 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -69,7 +69,7 @@ switch (trim($action))
 			// If it's a text/plain, display it
 			if ((!eregi('ATTACHMENT', $tmp['disposition'])) && $display_text_attach && (eregi('text/plain', $tmp['mime'])))
 				echo '<hr />'.view_part($servr, $user, $passwd, $folder, $mail, $tmp['number'], $tmp['transfer'], $tmp['charset'], $charset);
-			if ($display_img_attach && (eregi('image', $tmp['mime']) && ($tmp['number'] != '')))
+			if ($conf->display_img_attach && (eregi('image', $tmp['mime']) && ($tmp['number'] != '')))
 			{
 				// if it's an image, display it
 				$img_type = array_pop(explode('/', $tmp['mime']));
@@ -88,7 +88,7 @@ switch (trim($action))
 		break;
 
 	case 'logout':
-		header("Location: ".$base_url."logout.php?lang=$lang&$php_session=".$$php_session);
+		header("Location: ".$conf->base_url."logout.php?lang=$lang&$php_session=".$$php_session);
 		break;
 
 	case 'write':

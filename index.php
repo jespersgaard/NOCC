@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.80 2001/10/22 00:10:28 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.81 2001/10/25 12:45:30 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -79,7 +79,7 @@ function updateTheme()
 								<td colspan="3" height="18"><font size="-3">&nbsp;</font></td>
 							</tr>
 							<tr valign="top"> 
-				               <td align="center" colspan="3" class="f"><b><?php echo $html_welcome.' '.$nocc_name.' v'.$nocc_version; ?></b></td>
+				               <td align="center" colspan="3" class="f"><b><?php echo $html_welcome.' '.$conf->nocc_name.' v'.$conf->nocc_version; ?></b></td>
 							</tr>
 							<tr> 
 								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
@@ -90,13 +90,13 @@ function updateTheme()
 								<td class="f" align="left"> 
 									<input type="text" name="user" size="15" value="<?php if(isset($REMOTE_USER)) echo $REMOTE_USER; ?>"/>
 									<?php
-									if (count($domains) > 1)
+									if (count($conf->domains) > 1)
 									{
 										echo '@ <select name="domainnum">';
 										$i = 0; 
-										while (!empty($domains[$i]->in))
+										while (!empty($conf->domains[$i]->in))
 										{
-											echo "<option value=\"$i\">".$domains[$i]->domain.'</option>';
+											echo "<option value=\"$i\">".$conf->domains[$i]->domain.'</option>';
 											$i++;
 										}
 										echo '</select>';
@@ -122,7 +122,7 @@ function updateTheme()
 								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
 							</tr>
 							<?php
-							if ($domains[0]->in == '')
+							if ($conf->domains[0]->in == '')
 							{
 								echo '<tr><td align="right" class="f">'.$html_server.'</td>';
 								echo '<td><font size="-3">&nbsp;</font></td>';
@@ -160,7 +160,7 @@ function updateTheme()
 							<tr> 
 								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
 							</tr>
-							<?php if ($use_theme == true) 
+							<?php if ($conf->use_theme == true) 
 							{
 								echo '<tr><td align="right" class="f">'.$html_theme.'</td><td><font size="-3">&nbsp;</font></td><td class="f" align="left">';
 								echo '<select name="theme" onchange="updateTheme()">';

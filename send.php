@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.82.2.2 2001/11/25 13:05:23 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.83 2001/11/28 14:54:51 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -15,13 +15,13 @@ require_once ('./functions.php');
 require_once ('./prefs.php');
 
 if (!session_is_registered('loggedin') && $loggedin)
-	header('Location: ' . $base_url . "logout.php?lang=$lang&$php_session=" . $$php_session);
+	header('Location: ' . $base_url . 'logout.php?lang=' . $lang . '&' . $php_session . '='  . $$php_session);
 
 if (!function_exists('is_uploaded_file'))
 	include_once ('./is_uploaded_file.php');
 
 if ($HTTP_SERVER_VARS['REQUEST_METHOD'] != 'POST')
-	go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $lang, true);
+	go_back_index($attach_array, $conf->tmpdir, $php_session, $sort, $sortdir, $lang, true);
 else
 {
 	require_once ('./class_send.php');
@@ -49,7 +49,7 @@ else
 			// Adding the new file to the array
 			if (is_uploaded_file($mail_att))
 			{
-				copy($mail_att, $tmpdir . '/' . $tmp_name);
+				copy($mail_att, $conf->tmpdir . '/' . $tmp_name);
 				$attach_array[$num_attach]->file_name = basename($mail_att_name);
 				$attach_array[$num_attach]->tmp_file = $tmp_name;
 				$attach_array[$num_attach]->file_size = $mail_att_size;
@@ -75,7 +75,7 @@ else
 			$mail->from = cut_address(trim($mail_from), $charset);
 			$mail->from = $mail->from[0];
 			$mail->priority = $priority;
-			$mail->headers = 'X-Originating-Ip: [' . $ip . ']' . $mail->crlf . 'X-Mailer: ' . $nocc_name . ' v' . $nocc_version;
+			$mail->headers = 'X-Originating-Ip: [' . $ip . ']' . $mail->crlf . 'X-Mailer: ' . $conf->nocc_name . ' v' . $conf->nocc_version;
 			$mail->to = cut_address(trim($mail_to), $charset);
 			$mail->cc = cut_address(trim($mail_cc), $charset);
 			$cc_self = getPref('cc_self');
@@ -92,9 +92,9 @@ else
 
 			if (isset($ad))
 				if ($mail_body != '')
-					$mail->body = $mail_body . $mail->crlf . $mail->crlf . $ad;
+					$mail->body = $mail_body . $mail->crlf . $mail->crlf . $conf->ad;
 				else
-					$mail->body = $ad;
+					$mail->body = $conf->ad;
 
 			// Getting the attachments
 			if (isset($attach_array))
@@ -102,15 +102,15 @@ else
 				for ($i = 1; $i <= $num_attach; $i++)
 				{
 					// If the temporary file exists, attach it
-					if (file_exists($tmpdir.'/'.$attach_array[$i]->tmp_file))
+					if (file_exists($conf->tmpdir . '/' . $attach_array[$i]->tmp_file))
 					{
-						$fp = fopen($tmpdir.'/'.$attach_array[$i]->tmp_file, "rb");
+						$fp = fopen($conf->tmpdir . '/' . $attach_array[$i]->tmp_file, 'rb');
 						$file = fread($fp, $attach_array[$i]->file_size);
 						fclose($fp);
 						// add it to the message, by default it is encoded in base64
 						$mail->add_attachment($file, imap_qprint($attach_array[$i]->file_name), $attach_array[$i]->file_mime, 'base64', '');
 						// then we delete the temporary file
-						unlink($tmpdir.'/'.$attach_array[$i]->tmp_file);
+						unlink($conf->tmpdir . '/' . $attach_array[$i]->tmp_file);
 					}
 				}
 			}
@@ -141,7 +141,7 @@ else
 			$tmp_array = array();
 			for ($i = $j = 1; $i <= $num_attach; $i++)
 			{
-				$thefile = 'file'.$i;
+				$thefile = 'file' . $i;
 				if (empty($$thefile))
 				{
 					$tmp_array[$j]->file_name = $attach_array[$i]->file_name;
@@ -151,7 +151,7 @@ else
 					$j++;
 				}
 				else
-					@unlink($tmpdir.'/'.$attach_array[$i]->tmp_file);
+					@unlink($conf->tmpdir . '/' . $attach_array[$i]->tmp_file);
 			}
 			$num_attach = ($j > 1 ? $j - 1 : 0);
 			// Removing the attachments array from the current session

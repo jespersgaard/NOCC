@@ -1,4 +1,4 @@
-<!-- start of $Id$ -->
+<!-- start of $Id: menu_prefs.php,v 1.4 2001/10/25 15:22:34 rossigee Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
 		<td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -16,7 +16,7 @@
 					<td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color_on ?>">
 						<font color="<?php echo $glob_theme->link_color ?>"><?php echo $html_preferences ?></font>
 					</td>
-					<?php if ($enable_logout) { ?>
+					<?php if ($conf->enable_logout) { ?>
 					<td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
 						<a href="logout.php?lang=<?php echo $lang ?>" class="menu"><?php echo $html_logout ?></a>
 					</td>
@@ -29,4 +29,4 @@
 		</td>
 	</tr>
 </table>
-<!-- end of $Id$ -->
+<!-- end of $Id: menu_prefs.php,v 1.4 2001/10/25 15:22:34 rossigee Exp $ -->

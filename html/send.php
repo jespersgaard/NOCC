@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.37 2001/11/19 01:02:54 nicocha Exp $ -->
+<!-- start of $Id: send.php,v 1.38 2001/12/03 10:05:30 nicocha Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
 		<td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -63,15 +63,15 @@
 						<?php
 						if (isset($num_attach) && ($num_attach > 0))
 						{
-							echo ("<table border=\"0\" cellspacing=\"2\"><tr><td class=\"inbox\">&nbsp;</td><td class=\"inbox\"><b>$html_filename</b></td><td class=\"inbox\"><b>$html_size ($html_bytes)</b></td></tr>");
+							echo '<table border="0" cellspacing="2"><tr><td class="inbox">&nbsp;</td><td class="inbox"><b>' . $html_filename . '</b></td><td class="inbox"><b>' . $html_size . '(' . $html_bytes . ')</b></td></tr>';
 							$totalsize = 0;
 							for ($i = 1; $i <= $num_attach; $i++)
 							{	
 								$totalsize += $attach_array[$i]->file_size;
 								$att_name = imap_mime_header_decode($attach_array[$i]->file_name);
-								echo ("<tr><td class=\"inbox\">\n<input type=\"checkbox\" name=\"file$i\" /></td><td class=\"inbox\">".htmlentities($att_name[0]->text)."</td><td class=\"inbox\">".$attach_array[$i]->file_size."</td></tr>");
+								echo '<tr><td class="inbox"><input type="checkbox" name="file' . $i . '" /></td><td class="inbox">' . htmlentities($att_name[0]->text) . '</td><td class="inbox">' . $attach_array[$i]->file_size . '</td></tr>';
 							}
-							echo ("<tr><td colspan=\"2\"><input type=\"button\" class=\"button\" onclick=\"delete_attach()\" value=\"$html_attach_delete\" /></td><td class=\"inbox\"><b>$html_totalsize : $totalsize $html_bytes</b></td></tr></table>");
+							echo '<tr><td colspan="2"><input type="button" class="button" onclick="delete_attach()" value="' . $html_attach_delete . '" /></td><td class="inbox"><b>' . $html_totalsize . ' : ' . $totalsize . ' ' . $html_bytes . '</b></td></tr></table>';
 						}
 						else
 							echo '&nbsp;';
@@ -139,4 +139,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.37 2001/11/19 01:02:54 nicocha Exp $ -->
+<!-- end of $Id: send.php,v 1.38 2001/12/03 10:05:30 nicocha Exp $ -->

@@ -1,9 +1,9 @@
-<!-- start of $Id: html_inbox.php,v 1.24 2001/11/08 18:56:43 rossigee Exp $ -->
+<!-- start of $Id: html_inbox.php,v 1.25 2001/11/16 17:10:46 rossigee Exp $ -->
 <tr bgcolor="<?php echo $glob_theme->inbox_color ?>">
 	<td align="center">
 		<input type="checkbox" name="msg-<?php echo $tmp['number'] ?>" value="Y" />
 	</td>
-	<?php if (($is_Imap) || ($have_ucb_pop_server)) { ?>
+	<?php if (($is_Imap) || ($conf->have_ucb_pop_server)) { ?>
 	<td align="center">
 		<?php echo $tmp['new'] ?>
 	</td>
@@ -24,4 +24,4 @@
 		<?php echo $tmp['size'] ?> <?php echo $html_kb ?>
 	</td>
 </tr>
-<!-- end of $Id: html_inbox.php,v 1.24 2001/11/08 18:56:43 rossigee Exp $ -->
+<!-- end of $Id: html_inbox.php,v 1.25 2001/11/16 17:10:46 rossigee Exp $ -->

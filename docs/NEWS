@@ -1,11 +1,13 @@
 NOCC 0.9.6	??
 
-	* Added Croatian translation
-	* Updated Slovak translation (Peter Sochna)
+	* Configuration parameters are now in an array ($conf).
+	* Speed up a bit by using ' instead of " for strings.
+	* Added Croatian translation.
+	* Updated Slovak translation (Peter Sochna).
 	* Added 'session_start' to top of action.php, as per advice from
 	  Karma Dorji.
 	* Fixed some potential bugs on Win32 when sending message via
-	  SMTP (class_smtp.php)
+	  SMTP (class_smtp.php).
 	* Added exception handling when sending mail via PHP internal
 	  mail() function.
 	* Gets signature/leadin string from a base64-encoded preference.
@@ -15,7 +17,7 @@ NOCC 0.9.6	??
 	* Added a 'timestamp' member to the content array in aff_mail.
 	* Fixed message header display bug.
 	* Remove date display from INBOX.
-	* Updated Portugese translation (Jose Carlos)
+	* Updated Portugese translation (Jose Carlos).
 
 
 NOCC 0.9.5	November   25, 2001

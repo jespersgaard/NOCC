@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.127 2001/11/28 14:54:51 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.128 2001/11/30 17:18:24 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -60,7 +60,7 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang, $theme)
 				// see if this is a new message. This is a
 				// non-RFC standard line header.
 				// Set this in conf.php
-				if ($have_ucb_pop_server)
+				if ($conf->have_ucb_pop_server)
 				{
 					$header_msg = imap_fetchheader($pop, imap_msgno($pop, $msgnum));
 					$header_lines = explode("\r\n", $header_msg);
@@ -147,10 +147,10 @@ function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort
 	$ref_contenu_message = @imap_headerinfo($pop, $mail);
 	$struct_msg = @imap_fetchstructure($pop, $mail);
 	if (isset($struct_msg->parts) && (sizeof($struct_msg->parts) > 0))
-		GetPart($struct_msg, NULL, $display_rfc822);
+		GetPart($struct_msg, NULL, $conf->display_rfc822);
 	else
 		GetSinglePart($struct_msg, imap_fetchheader($pop, $mail), @imap_body($pop, $mail));
-	if (($verbose == 1) && ($use_verbose == true))
+	if (($verbose == 1) && ($conf->use_verbose == true))
 		$header = imap_fetchheader($pop, $mail);
 	else
 		$header = '';
@@ -176,10 +176,10 @@ function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort
 				$link_att = '';
 				break;
 			case 1:
-				$link_att = '<tr><td align="right" valign="top" class="mail">' . $html_att . '</td><td bgcolor="' . $glob_theme->mail_properties . '" class="mail">' . link_att($mailhost, $mail, $attach_tab, $display_part_no) . '</td></tr>';
+				$link_att = '<tr><td align="right" valign="top" class="mail">' . $html_att . '</td><td bgcolor="' . $glob_theme->mail_properties . '" class="mail">' . link_att($mailhost, $mail, $attach_tab, $conf->display_part_no) . '</td></tr>';
 				break;
 			default:
-				$link_att = '<tr><td align="right" valign="top" class="mail">' . $html_atts . '</td><td bgcolor="' . $glob_theme->mail_properties . '" class="mail">' . link_att($mailhost, $mail, $attach_tab, $display_part_no) . '</td></tr>';
+				$link_att = '<tr><td align="right" valign="top" class="mail">' . $html_atts . '</td><td bgcolor="' . $glob_theme->mail_properties . '" class="mail">' . link_att($mailhost, $mail, $attach_tab, $conf->display_part_no) . '</td></tr>';
 				break;
 		}
 	}
