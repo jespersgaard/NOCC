@@ -10,7 +10,7 @@
                 $box_array = array();
                 $boxes = $pop->getsubscribed();
 
-                $temp_box = new nocc_imap($servr, $box, $user, $passwd, $ev, OP_READONLY|OP_HALFOPEN);
+                $temp_box = new nocc_imap($servr, $box, $user, $passwd, OP_READONLY|OP_HALFOPEN, $ev);
 
                 while(list($junk,$box) = each($boxes)) {
                     if ($temp_box->reopen($box->name, OP_READONLY)) {
