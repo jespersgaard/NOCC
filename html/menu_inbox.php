@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox.php,v 1.43 2002/12/01 13:07:42 rossigee Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.44 2003/12/21 15:40:20 goddess_skuld Exp $ -->
 <?php
 $color_inbox = $color = $glob_theme->menu_color;
 $action = "";
@@ -41,7 +41,7 @@ elseif ($action == 'forward')
                         <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/spacer.gif" height="1" width="1" alt="" />
                     </td>
 					<td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
-						<a href="javascript:void(0);" class="menu" onClick="window.open('contacts_manager.php?<? echo session_name() . '=' . session_id() ?>','','scrollbars=yes,resizable=yes,width=600,height=400')">Contacts</a>
+						<a href="javascript:void(0);" class="menu" onClick="window.open('contacts_manager.php?<? echo session_name() . '=' . session_id() ?>','','scrollbars=yes,resizable=yes,width=600,height=400')"><?php echo $html_contacts ?></a>
 					</td>
                     <?php if($conf->prefs_dir) { ?>
                     <td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
@@ -58,4 +58,4 @@ elseif ($action == 'forward')
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_inbox.php,v 1.43 2002/12/01 13:07:42 rossigee Exp $ -->
+<!-- end of $Id: menu_inbox.php,v 1.44 2003/12/21 15:40:20 goddess_skuld Exp $ -->
