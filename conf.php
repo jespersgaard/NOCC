@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: wolruf $
-	$Revision: 1.17 $
-	$Date: 2000/10/26 12:16:58 $
+	$Revision: 1.18 $
+	$Date: 2000/10/26 12:34:42 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -128,8 +128,8 @@ $alink_color = "#0033cc";
 $alt_fr = "Fran&ccedil;ais";
 $alt_en = "English";
 
-$version = "v1.0";
-$name = "NOCC";
+$nocc_version = "0.9";
+$nocc_name = "NOCC";
 
 session_register("user", "passwd", "server", "servtype", "port");
 if ($servr == "" && $server != "" && $servtype != "" && $port != "")

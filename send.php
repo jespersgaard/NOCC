@@ -1,8 +1,8 @@
 <?
 /*
-	$Author$
-	$Revision$
-	$Date$
+	$Author: nicocha $
+	$Revision: 1.16 $
+	$Date: 2000/10/23 23:57:13 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -24,7 +24,7 @@ $mail = new mime_mail();
 $mail->smtp_server = $smtp_server;
 $mail->smtp_port = $smtp_port;
 $mail->from = $from;
-$mail->headers = "X-Originating-Ip: [".$ip."]\nX-Mailer: ".$name." ".$version;
+$mail->headers = "X-Originating-Ip: [".$ip."]\nX-Mailer: ".$nocc_name." v".$nocc_version;
 $mail->to = cut_address($to);
 $mail->cc = cut_address($cc);
 $mail->bcc = cut_address($bcc);

@@ -1,8 +1,8 @@
 <?
 /*
-	$Author: wolruf $
-	$Revision: 1.10 $
-	$Date: 2000/10/26 14:08:33 $
+	$Author: nicocha $
+	$Revision: 1.11 $
+	$Date: 2000/10/29 23:10:18 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -29,7 +29,7 @@ switch ($action)
 		// Here we display the message
 		require ("html/menu_mail.php");
 		require ("html/html_mail_top.php");
-		$content = aff_mail($servr, $user, $passwd, $mail, $verbose, true);
+		$content = aff_mail($servr, $user, $passwd, $mail, $verbose, true, $lang);
 		require ("html/html_mail_header.php"); 
 		while ($tmp = array_shift($attach_tab))
 		{
@@ -58,7 +58,7 @@ switch ($action)
 		break;
 	case "reply":
 		require ("html/menu_inbox.php");
-		$content = aff_mail($servr, $user, $passwd, $mail, $verbose, false);
+		$content = aff_mail($servr, $user, $passwd, $mail, $verbose, false, $lang);
 		$mail_to = $content["from"];
 		$mail_subject = $html_reply_short.": ".$content["subject"];
 		$mail_body = $original_msg."\n".$html_from.": ".$content["from"]."\n".$html_to.": ".$content["to"]."\n".$html_sent.": ".$content["date"]."\n".$html_subject.": ".$content["subject"]."\n\n".strip_tags($content["body"], "");
@@ -67,7 +67,7 @@ switch ($action)
 		break;
 	case "reply_all":
 		require ("html/menu_inbox.php");
-		$content = aff_mail($servr, $user, $passwd, $mail, $verbose, false);
+		$content = aff_mail($servr, $user, $passwd, $mail, $verbose, false, $lang);
 		$mail_to = get_reply_all($user, $domain, $content["from"], $content["to"], $content["cc"]);
 		$mail_subject = $html_reply_short.": ".$content["subject"];
 		$mail_body = $original_msg."\n".$html_from.": ".$content["from"]."\n".$html_to.": ".$content["to"]."\n".$html_sent.": ".$content["date"]."\n".$html_subject.": ".$content["subject"]."\n\n".strip_tags($content["body"], "");
@@ -76,7 +76,7 @@ switch ($action)
 		break;
 	case "forward":
 		require ("html/menu_inbox.php");
-		$content = aff_mail($servr, $user, $passwd, $mail, $verbose, false);
+		$content = aff_mail($servr, $user, $passwd, $mail, $verbose, false, $lang);
 		$mail_subject = $html_forward_short.": ".$content["subject"];
 		$mail_body = $original_msg."\n".$html_from.": ".$content["from"]."\n".$html_to.": ".$content["to"]."\n".$html_sent.": ".$content["date"]."\n".$html_subject.": ".$content["subject"]."\n\n".strip_tags($content["body"], "");
 		require("html/send.php");

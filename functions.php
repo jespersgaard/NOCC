@@ -1,8 +1,8 @@
 <?
 /*
-	$Author: wolruf $
-	$Revision: 1.16 $
-	$Date: 2000/10/26 12:14:35 $
+	$Author: nicocha $
+	$Revision: 1.17 $
+	$Date: 2000/10/28 11:07:56 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
 the function get_part is based on a function from matt@bonneau.net
@@ -103,7 +103,7 @@ function inbox($servr, $user, $passwd, $sort, $sortdir, $lang)
 
 /* ----------------------------------------------------- */
 
-function aff_mail($servr, $user, $passwd, $mail, $verbose, $read)
+function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 {
 	$mailhost = $servr;
 	require ("conf.php");
@@ -342,8 +342,8 @@ function get_mail_size($this_part)
 // this function build an array with all the recipients of the message for later reply or reply all 
 function get_reply_all($user, $domain, $from, $to, $cc)
 {
-	if (!eregi($user."@".$domain, $from)) 
-		$rcpt = $from;
+	if (!eregi($user."@".$domain, $from))
+		$rcpt = $from.", ";
 	$tab = explode(",", $to);
 	while ($tmp = array_shift($tab))
 		if (!eregi($user."@".$domain, $tmp))
