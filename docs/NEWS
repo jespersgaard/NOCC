@@ -1,5 +1,9 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Fixed a bug which prevented to send email on RH7 with RPM version
+	  of PHP (bug #430069)
+	* Fixed long list of addresses not wrapped (bug #440905)
+	* In the send form, the user can now change his email address
 	* Added Norvegian translation
 	* Correct a problem with some Linux installation which displayed
 	  an 'invalid range' error message (bug #432724)
