@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.35 2001/04/09 08:58:39 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.36 2001/04/09 09:27:55 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -54,7 +54,7 @@ switch ($sendaction)
 		require ("html/menu_inbox.php");
 		break;
 	case "send":
-		$ip = getenv("REMOTE_ADDR");
+		$ip = (getenv("HTTP_X_FORWARDED_FOR") ? getenv("HTTP_X_FORWARDED_FOR") : getenv("REMOTE_ADDR"));
 		$mail = new mime_mail();
 		$mail->smtp_server = $smtp_server;
 		$mail->smtp_port = $smtp_port;
