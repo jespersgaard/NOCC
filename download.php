@@ -1,6 +1,6 @@
 <?
 /*
- * $Header$
+ * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.7 2000/11/24 22:01:52 wolruf Exp $
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -20,10 +20,10 @@ $pop = imap_open("{".$servr."}INBOX", $user, $passwd);
 $file = imap_fetchbody($pop, $mail, $part);
 imap_close($pop);
 if ($transfer == "BASE64")
-	$file = base64_decode($file);
-// We use "Content-Type: unknown" to be sure the file is downloaded
-// and not displayed
-header("Content-Type: unknown");
-header("Content-Disposition: attachment; filename=".$filename);
+	$file = imap_base64($file);
+// We use "Content-Type: unknown" to be sure the file is downloaded and not displayed
+header("Content-Type: application/x-unknown-$mime");
+header('Content-Disposition: attachment; filename="'.urldecode($filename).'"');
+header('Content-Length: ' . strlen($file));
 echo $file;
 ?>

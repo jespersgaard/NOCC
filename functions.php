@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.41 2000/12/18 15:02:26 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.42 2000/12/21 17:03:05 nicocha Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -116,7 +116,6 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 	$num_messages = @imap_num_msg($pop);
 	$ref_contenu_message = @imap_header($pop, $mail);
 	$struct_msg = @imap_fetchstructure($pop, $mail);
-
 	GetPart($struct_msg, NULL, $read, $display_rfc822);
 	if ($verbose == 1 && $use_verbose == 1)
 		$header = htmlspecialchars(imap_fetchheader($pop, $mail));
@@ -134,6 +133,8 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 			$glob_body = imap_fetchbody($pop, $mail, $tmp["number"]);
 		$glob_body = remove_stuff($glob_body, $lang, $tmp["mime"]);
 	}
+	else
+		array_push($attach_tab, $tmp);
 	@imap_close($pop);
 	switch (sizeof($attach_tab))
 	{
@@ -270,6 +271,8 @@ function GetPart($this_part, $part_no, $read, $display_rfc822)
 
 function remove_stuff($body, $lang, $mime)
 {
+	GLOBAL $PHP_SELF;
+
 	if (eregi("html", $mime))
 	{
 		//$body = strip_tags($body, "<b>,<i>,<a>,<font>,<table>,<tr>,<td>,<ul>,<li>,<img>,<div>,<p>,<pre>,<center>");
@@ -286,13 +289,14 @@ function remove_stuff($body, $lang, $mime)
 		$body = preg_replace("|<([^>]*)java|i", "<nocc_removed_java_tag", $body);
 		$body = preg_replace("|<([^>]*)&{.*}([^>]*)>|i", "<&{;}\\3>", $body);
 		$body = preg_replace("|<([^>]*)mocha:([^>]*)>|i", "<nocc_removed_mocha:\\2>",$body);
-		$body = eregi_replace("href=\"mailto:([[:alnum:]/\n+-=%&:_.~?@]+[#[:alnum:]+]*)\"","<A HREF=\"$PHP_SELF?action=write&mail_to=\\1&lang=$lang\"", $body);
-		$body = eregi_replace("target=\"([[:alnum:]/\n+-=%&:_.~?]+[#[:alnum:]+]*)\"", "", $body);
-		$body = eregi_replace("href=\"([[:alnum:]/\n+-=%&:_.~?]+[#[:alnum:]+]*)\"","<A HREF=\"open.php?f=\\1&lang=$lang\" TARGET=_blank", $body);
+		$body = eregi_replace("href=\"mailto:([[:alnum:]+-=%&:_.~?@]+[#[:alnum:]+]*)\"","<A HREF=\"$PHP_SELF?action=write&mail_to=\\1&lang=$lang\"", $body);
+		$body = eregi_replace("target=\"([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)\"", "", $body);
+		$body = eregi_replace("href=\"([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)\"","<A HREF=\"open.php?f=\\1&lang=$lang\" TARGET=_blank", $body);
 	}
 	elseif (eregi("plain", $mime))
 	{
-		$body = eregi_replace("(http|https|ftp)://([[:alnum:]/\n+-=%&:_.~?]+[#[:alnum:]+]*)","<A HREF=\"open.php?f=\\1://\\2&lang=$lang\" TARGET=_blank>\\1://\\2</a>", $body);
+		$body = eregi_replace("(http|https|ftp)://([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)","<A HREF=\"open.php?f=\\1://\\2&lang=$lang\" TARGET=_blank>\\1://\\2</a>", $body);
+		$body = eregi_replace("([[:alnum:]+-_.]+[#[:alnum:]+]*)@([[:alnum:]+-_.]+[#[:alnum:]+]*)\.([[:alnum:]]+[#[:alnum:]+]*)","<A HREF=\"$PHP_SELF?action=write&mail_to=\\1@\\2.\\3&lang=$lang\">\\1@\\2.\\3</a>", $body);
 		$body = nl2br($body);
 		if (function_exists('wordwrap'))
 			$body = wordwrap($body, 80, "\n");
@@ -309,11 +313,12 @@ function link_att($servr, $mail, $tab, $display_part_no)
 	while ($tmp = array_shift($tab))
 		if ($tmp["id"] == "")
 		{
+			$mime = str_replace('/', '-', $tmp["mime"]);
 			$link .= "<tr>";
 			if ($display_part_no == true)
 				$link .= "<td class='inbox'>".$tmp["number"]."</td>";
 			$att_name = imap_mime_header_decode($tmp["name"]);
-			$link .="<td class='inbox'><a href=download.php?mail=".$mail."&part=".$tmp["number"]."&transfer=".$tmp["transfer"]."&filename=".urlencode($att_name[0]->text).">".$att_name[0]->text."</a></td><td class='inbox'>".$tmp["mime"]."</td><td class='inbox'>".$tmp["size"]." kb</td></tr>";
+			$link .="<td class='inbox'><a href=download.php?mail=".$mail."&part=".$tmp["number"]."&transfer=".$tmp["transfer"]."&filename=".urlencode($att_name[0]->text)."&mime=".$mime.">".$att_name[0]->text."</a></td><td class='inbox'>".$tmp["mime"]."</td><td class='inbox'>".$tmp["size"]." kb</td></tr>";
 		}
 	$link .= "</table>";
 	return ($link);
