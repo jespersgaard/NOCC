@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.20 2001/11/28 14:54:51 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.21 2002/02/09 20:25:04 rossigee Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -106,7 +106,7 @@ $html_from = 'Von';
 $html_subject = 'Betreff';
 $html_wrote = 'schrieb';
 $html_date = 'Datum';
-$html_sent = 'Senden';
+$html_sent = 'Gesendet';
 $html_size = 'Gr&ouml;sse';
 $html_totalsize = 'Gesamtgr&ouml;sse';
 $html_kb = 'KB';
@@ -114,7 +114,7 @@ $html_bytes = 'Byte';
 $html_filename = 'Datei';
 $html_to = 'An';
 $html_cc = 'Kopie';
-$html_bcc = 'Blindekopie';
+$html_bcc = 'Blindkopie';
 $html_nosubject = 'Kein Betreff';
 $html_send = 'Senden';
 $html_cancel = 'Abbrechen';
