@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.18 2002/04/28 21:56:07 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.19 2002/04/28 22:23:17 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -15,7 +15,7 @@
 $i = 0;
 
 // Arabic (UTF-8)
-$i++;
+
 $lang_array[$i]->filename = 'ar';
 $lang_array[$i]->label = 'Arabic';
 

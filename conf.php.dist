@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.103 2002/04/28 21:24:06 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.104 2002/04/28 22:26:10 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -47,7 +47,6 @@ $conf->default_smtp_port = 25;
 
 $i = 0;
 
-$i++;
 $conf->domains[$i]->domain = '';
 $conf->domains[$i]->in = '';
 $conf->domains[$i]->smtp = '';
