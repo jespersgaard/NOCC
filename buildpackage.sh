@@ -21,6 +21,7 @@ cd $distname
  rm -f buildpackage.sh
  rm -f lang/add_message.sh
  rm -f lang/remove_message.sh
+ rm -rf img/
 cd ..
 tar cf $distname.tar $distname
 rm -f $distname.tar.*
