@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.12 2002/05/02 12:21:19 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.13 2002/05/09 09:30:32 rossigee Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -108,7 +108,7 @@ if (isset($_REQUEST['server'])) {
 }
 
 // If we are forced to use a particular theme...
-if(!$conf->use_theme)
+if(!$conf->use_theme || !isset($_SESSION['theme']))
     $_SESSION['theme'] = $conf->default_theme;
 else
     if(isset($_REQUEST['theme']))
