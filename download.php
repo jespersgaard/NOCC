@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.31 2002/04/18 21:38:40 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.32 2002/04/24 15:17:51 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -11,12 +11,21 @@
  * File for downloading the attachments
  */
 
+if(!isset($HTTP_USER_AGENT))
+    $HTTP_USER_AGENT = $_SERVER['HTTP_USER_AGENT'];
+error_log("User agent: $HTTP_USER_AGENT");
 if (eregi('MSIE', $HTTP_USER_AGENT) || eregi('Internet Explorer', $HTTP_USER_AGENT))
     session_cache_limiter('public');
 
 require_once './conf.php';
 require_once './common.php';
 require_once './class_local.php';
+
+$mime = $_REQUEST['mime'];
+$filename = $_REQUEST['filename'];
+$mail = $_REQUEST['mail'];
+$transfer = $_REQUEST['transfer'];
+$part = $_REQUEST['part'];
 
 header('Content-Type: application/x-unknown-' . $mime);
 // IE 5.5 is weird, the line is not correct but it works
