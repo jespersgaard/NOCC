@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.8 2001/10/20 01:28:57 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.9 2001/11/07 18:51:51 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -62,6 +62,7 @@ $html_lang = 'Jêzyk';
 $html_welcome = 'Witaj w';
 $html_login = 'Nazwa konta';
 $html_passwd = 'Has³o';
+$html_submit = 'OK';
 $html_help = 'Pomoc';
 $html_server = 'Serwer';
 $html_wrong = 'Nazwa konta lub has³o jest niepoprawne';
@@ -72,11 +73,13 @@ $html_retry = 'Ponów';
 $html_preferences = 'Ustawienia';
 $html_full_name = 'Nazwa wy¶wietlana';
 $html_email_address = 'Adres email';
+$html_ccself = 'Wysy³aj kopie wiadomo¶ci do siebie';
+$html_hide_addresses = 'Nie pokazuj adresów email';
+$html_outlook_quoting = 'Cytowanie a\'la Outlook';
 $html_reply_to = 'Odpisuj na adres';
 $html_use_signature = 'U¿ywaj podpisu';
 $html_signature = 'Podpis';
-$html_submit = 'OK';
-$html_prefs_updated = 'Nowe ustawienia zapisane';
+$html_prefs_updated = 'Zapisano nowe ustawienia';
 
 // Other pages
 
@@ -90,7 +93,7 @@ $html_reply_all = 'Odpowiedz wszystkim';
 $html_forward = 'Prze¶lij dalej';
 $html_forward_short = 'PD';
 $html_delete = 'Skasuj';
-$html_new = 'Nowa<br/>wiadomo¶æ';
+$html_new = 'Nowe';
 $html_mark = 'Zaznacz';
 $html_att = 'Za³±cznik';
 $html_atts = 'Za³±czniki';
@@ -103,6 +106,7 @@ $html_from = 'Nadawca';
 $html_subject = 'Temat';
 $html_date = 'Data';
 $html_sent = 'Wy¶lij';
+$html_wrote = 'napisa³(a)';
 $html_size = 'Rozmiar';
 $html_totalsize = 'Rozmiar';
 $html_kb = 'Kb';
@@ -123,8 +127,16 @@ $html_priority = 'Wa¿no¶æ';
 $html_low = 'Niska';
 $html_normal = 'Normalna';
 $html_high = 'Wysoka';
+$html_select = 'Zaznacz';
 $html_select_all = 'Zaznacz wszystko';
+$html_loading_image = '£adowanie obrazka';
+$html_send_confirmed = 'Twoja wiadomo¶æ zosta³a wys³ana';
+$html_no_sendaction = 'Nie okre¶lona akcja. Spróbuj w³±czyæ Javascript.';
 
 $original_msg = '--- Wiadomo¶æ oryginalna ---';
 $to_empty = 'Pole \'Do\' nie mo¿e byæ puste!';
+
+// SMTP problems (class_smtp.php)
+$html_smtp_error_no_conn = "Nie mo¿na utworzyæ po³±czenia";
+$html_smtp_error_unexpected = "Nieoczekiwana reakcja:";
 ?>
