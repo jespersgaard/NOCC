@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.54 2001/05/27 10:04:50 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.55 2001/05/27 10:16:23 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -179,7 +179,7 @@ else
 	$theme = $default_theme;
 $php_session = ini_get('session.name');
 $upload_tmp_dir = ini_get('upload_tmp_dir');
-$tmpdir = (!empty($upload_tmp_dir) ? $upload_tmp_dir : $tmpdir);
+$tmpdir = (!empty($upload_tmp_dir)) ? $upload_tmp_dir : $tmpdir;
 error_reporting($debug_level);
 require('conf_lang.php');
 require('themes/'.$theme.'/colors.php');
