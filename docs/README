@@ -153,6 +153,15 @@ signature files (useful ? privacy issue ?) and perhaps use them for spam...
 Note: due to this fact and that it might not be easy/possible for everyone,
 depending on provider, Web server, etc., this is disabled by default.
 
+ - How to use Nocc with PHP safe mode ?
+In order to add attachments to mails you send, you'll have to create a tmp
+directory ($conf->tmpdir in configuration file), belonging to Nocc's php 
+scripts files, and with a 777 access mode.
+In order to use preferences, IMAP filters and contacts manager, you'll have
+to create a preference directory ($conf->prefs_dir in configuration file),
+belonging to Nocc's php scripts. You can let the standard access mode (i.e. 
+755).
+
 Additional notes
 ****************
 
@@ -172,7 +181,7 @@ specifically tested and are known to work)
       - O'Reilly WebSite Pro 2.x & 3.
       - Xitami.
       - PHP 4.0.0, 4.0.1, 4.0.1pl1, 4.0.2, 4.0.3pl1, 4.0.4, 4.0.4pl1, 4.0.5,
-          4.1.1, 4.1.2, 4.2.3, 5.0.0RC3.
+          4.1.1, 4.1.2, 4.2.3, 4.3.7, 5.0.0RC3.
       - PHP running through a wrapper: suEXEC.
       - various OS including GNU/Linux, FreeBSD, NetBSD, OpenBSD and Win2k.
       - PHP 4.0.4-dev compiled as module for Apache Win32.
@@ -191,6 +200,7 @@ these have been tested and work)
       - UCB POP3 1.831beta.
       - MS Exchange 5.5 Build 2650-24 Service Pack 3.
       - Default RedHat 6.1 IMAP daemon v.12.250 (perhaps Cyrus IMAPd ?).
+      - Courier-IMAP 3.0.3, 3.0.4, 3.0.5
 
         * MTA: (Nocc should work with any MTA, however, these have been tested
 and work)
