@@ -1,6 +1,6 @@
 <?php 
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.24 2001/12/13 10:39:09 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.25 2001/12/19 23:06:25 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -31,5 +31,6 @@ else
 }
 imap_close($pop, CL_EXPUNGE);
 
+require_once ('./proxy.php');
 header('Location: ' . $conf->base_url . "action.php?sort=$sort&sortdir=$sortdir&lang=$lang&$php_session=" . $$php_session);
 ?>

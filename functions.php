@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.130 2001/12/19 23:06:25 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.131 2001/12/30 18:20:20 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -681,7 +681,10 @@ function go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $l
 	session_unregister('num_attach');
 	session_unregister('attach_array');
 	if ($redirect)
+	{
+		require_once ('./proxy.php');
 		header("Location: ".$base_url."action.php?sort=$sort&sortdir=$sortdir&lang=$lang&$php_session=" . $$php_session);
+	}
 }
 
 /* ----------------------------------------------------- */
