@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.45 2001/04/19 20:07:34 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.46 2001/04/24 19:10:39 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -125,7 +125,7 @@ else
 			require ("html/menu_inbox.php");
 			break;
 		default:
-			go_back_index($attach_array, $php_session, $sort, $sortdir, $lang);
+			go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $lang);
 			break;
 	}
 	require ("html/footer.php");
