@@ -14,3 +14,5 @@ long term:
  - Ease installation by detecting if IMAP support is installed
  - Add more languages
  - Switch to pure CSS for color backgrounds, etc.
+ - Database usage for address books, user settings, etc.
+ - Multiple file attachments
