@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.39 2001/11/17 15:47:45 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.40 2001/11/28 14:51:39 rossigee Exp $ -->
 <?php
 $arrow = ($sortdir == 0) ? 'up' : 'down';
 $new_sortdir = ($sortdir == 0) ? 1 : 0;
@@ -9,7 +9,7 @@ $is_Imap = is_Imap($servr);
 <form method="post" action="delete.php" name="delete_form">
 <input type="hidden" name="lang" value="<?php echo $lang ?>" />
 
-<table width="100%" cellpadding="2" cellspacing="1" border="2" bgcolor="<?php echo $glob_theme->inside_color ?>">
+<table width="100%" cellpadding="2" cellspacing="1" border="0" bgcolor="<?php echo $glob_theme->inside_color ?>">
 	<tr bgcolor="<?php echo $glob_theme->tr_color ?>">
 		<td <?php if (($is_Imap) || ($have_ucb_pop_server)) echo 'colspan="5"'; else echo 'colspan="4"'; ?>align="left" class="titlew">
 			<b><?php echo $folder ?></b>
@@ -56,4 +56,4 @@ $is_Imap = is_Imap($servr);
 			<?php echo $html_size ?></a>
 		</td>
 	</tr>
-<!-- start of $Id: html_top_table.php,v 1.39 2001/11/17 15:47:45 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.40 2001/11/28 14:51:39 rossigee Exp $ -->
