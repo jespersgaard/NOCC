@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.49 2001/02/23 09:40:31 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.50 2001/02/23 21:40:27 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -46,21 +46,12 @@ function updatePort ()
 	}
 }
 
-function selectLang() 
+function updatePage() 
 {
 	if (document.nocc_webmail_login.user.value == "" && document.nocc_webmail_login.passwd.value == "")
 	{
-		var lang_page = "<?php echo $PHP_SELF?>?lang=" + document.nocc_webmail_login.lang[document.nocc_webmail_login.lang.selectedIndex].value;
+		var lang_page = "<?php echo $PHP_SELF?>?lang=" + document.nocc_webmail_login.lang[document.nocc_webmail_login.lang.selectedIndex].value + "&theme=" + document.nocc_webmail_login.theme[document.nocc_webmail_login.theme.selectedIndex].value;
 		self.location = lang_page;
-	}
-}
-
-function selectTheme()
-{
-	if (document.nocc_webmail_login.user.value == "" && document.nocc_webmail_login.passwd.value == "")
-	{
-		var theme_page = "<?php echo $PHP_SELF?>?theme=" + document.nocc_webmail_login.theme[document.nocc_webmail_login.theme.selectedIndex].value;
-		self.location = theme_page;
 	}
 }
 // -->
@@ -144,7 +135,7 @@ function selectTheme()
 								<td><font size="-3">&nbsp;</font></td>
 								<td class="f">
 									<?php
-										echo ("<select name=\"lang\" onchange=\"selectLang()\">");
+										echo ("<select name=\"lang\" onchange=\"updatePage()\">");
 										for ($i = 0; $i < sizeof($lang_array); $i++)
 											if (file_exists("lang/".$lang_array[$i]->filename.".php"))
 											{
@@ -168,7 +159,7 @@ function selectTheme()
 								<td><font size="-3">&nbsp;</font></td>
 								<td class="f">
 									<?php
-										echo ("<select name=\"theme\" onchange=\"selectTheme()\">");
+										echo ("<select name=\"theme\" onchange=\"updatePage()\">");
 										$handle = opendir("./themes");
 										while (($file = readdir($handle)) != false) 
 										{
