@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: wolruf $
-	$Revision: 1.15 $
-	$Date: 2000/10/26 12:06:54 $
+	$Revision: 1.16 $
+	$Date: 2000/10/26 12:14:35 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
 the function get_part is based on a function from matt@bonneau.net
@@ -21,8 +21,9 @@ $body = "";
 
 function inbox($servr, $user, $passwd, $sort, $sortdir, $lang)
 {
+	$mailhost = $servr;
 	require("conf.php");
-	$pop = @imap_open("{".$servr."}INBOX", $user, $passwd);
+	$pop = imap_open("{".$mailhost."}INBOX", $user, $passwd);
 	if ($pop == false)
 		return (-1);
 	else
@@ -42,7 +43,7 @@ function inbox($servr, $user, $passwd, $sort, $sortdir, $lang)
 				$struct_msg = imap_fetchstructure($pop, imap_msgno($pop, $msgnum));
 				$subject = imap_mime_header_decode($ref_contenu_message->subject);
 				$from = imap_mime_header_decode($ref_contenu_message->fromaddress);
-				if (ereg("IMAP", $servr))
+				if (ereg("IMAP", $mail_server))
 					$msg_size = get_mail_size($struct_msg);
 				else
 					$msg_size = ($struct_msg->bytes > 1024) ? round($struct_msg->bytes / 1024) : 1;
