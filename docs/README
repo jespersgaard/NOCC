@@ -150,6 +150,7 @@ specifically tested and are known to work)
 	  - Mozilla M18 for Linux and Windows.
 	  - Amaya 4.0.
 	  - Opera 5.0.
+	  - K-Meleon 0.3.
 	  - with or without cookies.
 
 	* mail servers: (Nocc should work with any IMAP/POP3 server, however,
