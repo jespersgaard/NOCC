@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.66 2001/05/23 21:07:44 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.67 2001/05/27 10:04:50 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -156,7 +156,7 @@ function updateTheme()
 							</tr>
 							<?php if ($use_theme == true) 
 							{
-								echo '<tr><td align="right" class="f">".$html_theme."</td><td><font size="-3">&nbsp;</font></td><td class="f">';
+								echo '<tr><td align="right" class="f">'.$html_theme.'</td><td><font size="-3">&nbsp;</font></td><td class="f">';
 								echo '<select name="theme" onchange="updateTheme()">';
 								$handle = opendir('./themes');
 								while (($file = readdir($handle)) != false) 
