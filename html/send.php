@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.59 2002/12/01 13:07:42 rossigee Exp $ -->
+<!-- start of $Id: send.php,v 1.60 2002/12/16 13:32:13 rossigee Exp $ -->
 <?php
 
 // Default e-mail address on send form
@@ -8,7 +8,8 @@ $mail_from = get_default_from_address();
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
-            <form name="sendform" enctype="multipart/form-data" method="post" onsubmit="return(validate(this));" action="send.php">
+	<!-- If 'file_uploads=Off', we must set formtype to "normal" otherwise it won't work -->
+            <form name="sendform" enctype="<?php echo (ini_get("file_uploads")) ? "multipart/form-data" : "normal" ?>" method="post" onsubmit="return(validate(this));" action="send.php">
             <input type="hidden" name="sendaction" value="send" />
 <?php if(isset($forward_msgnum)) { ?>
             <input type="hidden" name="forward_msgnum" value="<?php echo $forward_msgnum ?>" />
@@ -161,4 +162,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.59 2002/12/01 13:07:42 rossigee Exp $ -->
+<!-- end of $Id: send.php,v 1.60 2002/12/16 13:32:13 rossigee Exp $ -->
