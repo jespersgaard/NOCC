@@ -1,13 +1,14 @@
 NOCC 0.9.6    ??, 2002
+
     * Add IMAP folder delete (Arnaud Boudou)
     * Correct multiple bugs on IMAP folder management (Arnaud Boudou)
-    * Downloadable mails (jourds and Arnaud Boudou, RFE #811868)
-    * Move on next message on delete (jourds and Arnaud Boudou, RFE #811856)
-    * Prompt on delete (jourds and Arnaud Boudou, RFE #811848)
-    * Contact list (jourds and Arnaud Boudou, RFE #811843)
-    * Multiple send prevention (jourds and Arnaud Boudou, RFE #811836)
-    * Usenet signature separator user preference (jourds and Arnaud Boudou, RFE #811823)
-    * Wrap outgoing messages user preference (jourds and Arnaud Boudou, RFE #811816)
+    * Downloadable mails (jourds and Arnaud Boudou, patch #811868)
+    * Move on next message on delete (jourds and Arnaud Boudou, patch #811856)
+    * Prompt on delete (jourds and Arnaud Boudou, patch #811848)
+    * Contact list (jourds and Arnaud Boudou, patch #811843)
+    * Multiple send prevention (jourds and Arnaud Boudou, patch #811836)
+    * Usenet signature separator user preference (jourds and Arnaud Boudou, patch #811823)
+    * Wrap outgoing messages user preference (jourds and Arnaud Boudou, patch #811816)
     * PHP 5.0 compatibility (Arnaud Boudou)
     * Added support for displaying RFC2045-encoded words, used in headers.
       (Alexander Sabournekov)
