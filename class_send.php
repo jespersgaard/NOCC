@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.26 2001/05/27 11:10:26 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.27 2001/05/30 08:25:44 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -117,7 +117,7 @@ class mime_mail
  */ 
 	function send() 
 	{
-		$mime =  '';
+		$mime =  "";
 		if (!empty($this->from))
 			$mime .= "From: ".$this->from."\r\n";
 		if (($this->smtp_server != '' && $this->smtp_port != '') && ($this->to[0] != ''))
