@@ -27,8 +27,8 @@ $mail->cc = cut_address($cc);
 $mail->bcc = cut_address($bcc);
 if ($subject != "")
 	$mail->subject = stripcslashes($subject);
-if ($body != "")
-	$mail->body = stripcslashes($body)."\n\n".$ad;
+if ($send_body != "")
+	$mail->body = stripcslashes($send_body)."\n\n".$ad;
 else
 	$mail->body = $ad;
 

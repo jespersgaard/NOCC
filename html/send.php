@@ -45,7 +45,7 @@ $mail_subject?>"></TD>
 					</td>
 				</TR>
 				<TR>
-					<TD colspan="2" align="center"><TEXTAREA NAME="body" COLS="80" ROWS="20" 
+					<TD colspan="2" align="center"><TEXTAREA NAME="send_body" COLS="80" ROWS="20" 
 WRAP="physical"><?echo $mail_body?></TEXTAREA></TD>
 				</TR>
 				<TR>
