@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.74 2004/06/24 05:50:34 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.75 2004/06/28 15:28:04 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -75,7 +75,7 @@ $html_preferences = 'Pr&eacute;f&eacute;rences';
 $html_full_name = 'Nom complet';
 $html_email_address = 'Adresse e-mail';
 $html_ccself = 'Recevoir une copie';
-$html_hide_addresses = 'Cacher mon adresse e-mail';
+$html_hide_addresses = 'Cacher les adresses e-mail';
 $html_outlook_quoting = 'Citation &agrave; la Outlook';
 $html_reply_to = 'R&eacute;pondre &agrave;';
 $html_use_signature = 'Utiliser la signature';

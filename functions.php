@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.190 2004/07/07 19:43:27 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.191 2004/07/09 06:32:01 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -737,6 +737,9 @@ function display_address(&$address)
     // If not set, return full address.
     if(!isset($user_prefs->hide_addresses))
         return $address;
+
+    if($user_prefs->hide_addresses!=1 && $user_prefs->hide_addresses!="on")
+         return $address; 
 
     // If no '<', return full address.
     $bracketpos = strpos($address, "<");
