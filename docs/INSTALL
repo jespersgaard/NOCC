@@ -4,7 +4,8 @@ NOCC Installation guide
 Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
 Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
 
-The full documentation can be found in README, this is meant to be a quick installation guide for people who don't want to bother the whole documentation.
+The full documentation can be found in README, this is meant to be a quick
+installation guide for people who don't want to bother the whole documentation.
 
 Requirements
 ************
@@ -29,7 +30,8 @@ Requirements
 
    * PHP needs to be compiled with IMAP support. (--with-imap at the configure
      stage).
-     You'll find information on IMAP support for PHP at 'http://www.php.net/manual/ref.imap.php'.
+     You'll find information on IMAP support for PHP at
+'http://www.php.net/manual/ref.imap.php'.
 
 Installing NOCC
 ***************

@@ -19,36 +19,51 @@ This file contains the following sections:
 Overview of Nocc
 ****************
 
-   Nocc is a Web-based e-mail reader. It uses PHP and a Web server to access a mail server (POP3, IMAP) and send e-mail (SMTP or plain sendmail).
+   Nocc is a Web-based e-mail reader. It uses PHP and a Web server to access
+a mail server (POP3, IMAP) and send e-mail (SMTP or plain sendmail).
 
-   Nocc can be used as an e-mail reader and allows you to view, send messages, manage your mail account. It can view and send MIME attachments (files, HTML, etc.).
+   Nocc can be used as an e-mail reader and allows you to view, send messages,
+manage your mail account. It can view and send MIME attachments (files, HTML,
+etc.).
 
-   Nocc has low requirements on browser, it uses JavaScript as less as possible, nearly no frames and even works with Lynx without cookies; low requirements on Web servers too: you don't need any superuser privileges to install Nocc and it can work with suEXEC (see Apache documentation) for increased security.
+   Nocc has low requirements on browser, it uses JavaScript as less as possible,
+nearly no frames and even works with Lynx without cookies; low requirements on
+Web servers too: you don't need any superuser privileges to install Nocc and it
+can work with suEXEC (see Apache documentation) for increased security.
 
-   Nocc was earlier known as Epimail, written in Perl, but was rewritten with PHP, hence the new name. See later for a bit of history.
+   Nocc was earlier known as Epimail, written in Perl, but was rewritten with
+PHP, hence the new name. See later for a bit of history.
 
    Anybody is encouraged to contribute.
 
   License
   -------
 
-   The full application (source code, icons) is distributed under the terms of the GNU General Public License. See the file COPYING for details.
+   The full application (source code, icons) is distributed under the terms of
+the GNU General Public License. See the file COPYING for details.
 
   Getting Nocc
   ------------
 
-   Nocc development is powered by the free services offered by SourceForge to the Open Source community. The Web page of Nocc is 'http://nocc.sourceforge.net/'.
+   Nocc development is powered by the free services offered by SourceForge to
+the Open Source community. The Web page of Nocc is http://nocc.sourceforge.net/
 
-   The latest release can always be found on SourceForge and is available from 'http://sourceforge.net/projects/nocc/'. Announces are sent to the 'nocc_announce' mailing lists (http://lists.sourceforge.net/mailman/listsinfo/nocc-announce).
+   The latest release can always be found on SourceForge and is available from
+'http://sourceforge.net/projects/nocc/'. Announces are sent to the
+'nocc_announce' mailing lists
+(http://lists.sourceforge.net/mailman/listsinfo/nocc-announce).
 
-   A public CVS server is also accessible. See 'http://sourceforge.net/cvs/?group_id=12177'.
+   A public CVS server is also accessible. See
+'http://sourceforge.net/cvs/?group_id=12177'.
 
   Reporting bugs, sending suggestions or contributions
   ----------------------------------------------------
 
-   We welcome bug reports or suggestions for Nocc (both program or documentation). Please email them to <nocc-discuss@lists.sourceforge.net>.
+   We welcome bug reports or suggestions for Nocc (both program or
+documentation). Please email them to <nocc-discuss@lists.sourceforge.net>.
 
-   You can also use the Web-based bug tracker from SourceForge available at 'http://sourceforge.net/bugs/?group_id=12177'.
+   You can also use the Web-based bug tracker from SourceForge available at
+'http://sourceforge.net/bugs/?group_id=12177'.
 
 Requirements
 ************
@@ -73,7 +88,8 @@ Requirements
 
    * PHP needs to be compiled with IMAP support. (--with-imap at the configure
      stage).
-     You'll find information on IMAP support for PHP at 'http://www.php.net/manual/ref.imap.php'.
+     You'll find information on IMAP support for PHP at
+     'http://www.php.net/manual/ref.imap.php'.
 
 Installing NOCC
 ***************
@@ -113,7 +129,8 @@ Additional notes
 
    NOCC has been tested with:
 
-	* servers: (Nocc should work with any server, however, these have been specifically tested and are known to work)
+	* servers: (Nocc should work with any server, however, these have been
+specifically tested and are known to work)
 	  - Apache with PHP compiled as module or CGI.
 	  - Apache 1.3.12, 1.3.14.
 	  - PHP 4.0.0, 4.0.1, 4.0.1pl1, 4.0.2, 4.0.3pl1, 4.0.4-dev.
@@ -123,7 +140,8 @@ Additional notes
 	  - warning: due to a sessions bug, only PHP 4.0.4 will run correctly
 	    on Win32 platforms.
 
-	* browsers: (some pages even pass the W3 Validator test available at 'http://validator.w3.org/' and 256 colors setups are ok)
+	* browsers: (some pages even pass the W3 Validator test available at
+'http://validator.w3.org/' and 256 colors setups are ok)
 	  - Netscape 4.x for Unix and Windows.
 	  - IE 5.x for Windows.
 	  - IE 4.x for Windows
@@ -132,7 +150,8 @@ Additional notes
 	  - Amaya 4.0.
 	  - with or without cookies.
 
-	* mail servers: (Nocc should work with any IMAP/POP3 server, however, these have been tested and work)
+	* mail servers: (Nocc should work with any IMAP/POP3 server, however,
+these have been tested and work)
 	  - UCB POP3 1.831beta.
 	  - MS Exchange 5.5 Build 2650-24 Service Pack 3.
 	  - Default RedHat 6.1 IMAP daemon v.12.250 (perhaps Cyrus IMAPd ?).
@@ -145,26 +164,41 @@ Additional notes
   Tips
   ----
 
-   Enhance randomization with PHP by uncommenting the entropy lines if your OS has this feature (known to work with NetBSD and Linux for e.g.).
-   See PHP manual, this is used for session numbers, creating temporary files, etc.
+   Enhance randomization with PHP by uncommenting the entropy lines if your OS
+has this feature (known to work with NetBSD and Linux for e.g.).
+   See PHP manual, this is used for session numbers, creating temporary files,
+etc.
 
   Brief history
   -------------
 
    NOCC started as Epimail, a Webmail for our school as a free project.
-   The first version was written in Perl because it was powerful, object features, adapted to the Web and available in our school. It also didn't require any superuser privileges.
+   The first version was written in Perl because it was powerful, object
+features, adapted to the Web and available in our school. It also didn't
+require any superuser privileges.
 
-   Webmail clients we found either required database support, superuser privileges or an IMAP server. We had neither of these and we wanted to have something quite simple to access a POP server and an SMTP server.
+   Webmail clients we found either required database support, superuser
+privileges or an IMAP server. We had neither of these and we wanted to have
+something quite simple to access a POP server and an SMTP server.
 
-   The Perl version was nice and is now released for your pleasure in GPL (some people already actually committed patches) but it won't work out-of-the-box, we don't have time to write doc neither maintain it anymore).
+   The Perl version was nice and is now released for your pleasure in GPL (some
+people already actually committed patches) but it won't work out-of-the-box, we
+don't have time to write doc neither maintain it anymore).
 
-   We started working on Epimail in May 1999 and had it working in July 1999, it's been working for more than 1 year with approx. 150 unique users per day.
-The projects has also been used by two companies through some friends who came to know it.
+   We started working on Epimail in May 1999 and had it working in July 1999,
+it's been working for more than 1 year with approx. 150 unique users per day.
+The projects has also been used by two companies through some friends who came
+to know it.
 
-   The problem was that it was our first big software written in Perl, and we didn't write it very well, mixing code and HTML, so it was hardly maintainable.
-Meanwhile, I discovered PHP and started rewritting it with PHP but lacked SMTP support so sendmail was required. Then submitted my work to Nicolas Chalanset who made a working version by adding proper session feature, etc. and actually used it for a company.
+   The problem was that it was our first big software written in Perl, and we
+didn't write it very well, mixing code and HTML, so it was hardly maintainable.
+Meanwhile, I discovered PHP and started rewritting it with PHP but lacked SMTP
+support so sendmail was required. Then submitted my work to Nicolas Chalanset
+who made a working version by adding proper session feature, etc. and actually
+used it for a company.
 
-   We decided to make a maintainable and public version under GPL so that it can be simple to setup, have POP and SMTP features, MIME decoding, etc. features.
+   We decided to make a maintainable and public version under GPL so that it
+can be simple to setup, have POP and SMTP features, MIME decoding features.
 
 
 ----------------------------------------------------------------------
