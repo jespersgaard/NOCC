@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.48 2002/03/24 16:45:26 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.49 2002/03/24 17:00:36 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -28,10 +28,10 @@ class mime_mail
     var $priority;
     var $receipt;
 
-  /*
-  *     void mime_mail()
-  *     class constructor
-  */         
+    /*
+     *     void mime_mail()
+     *     class constructor
+     */         
     function mime_mail()
     {
         $this->parts = Array();
@@ -50,10 +50,10 @@ class mime_mail
         $this->receipt = false;
     }
 
-  /*
-  *     void add_attachment(string message, [string name], [string ctype], [string encoding], [string charset])
-  *     Add an attachment to the mail object
-  */ 
+    /*
+     *     void add_attachment(string message, [string name], [string ctype], [string encoding], [string charset])
+     *     Add an attachment to the mail object
+     */ 
     function add_attachment($message, $name, $ctype, $encoding, $charset)
     {
     $this->parts[] = array    (
@@ -65,10 +65,10 @@ class mime_mail
                     );
     }
 
-/*
- *      void build_message(array part)
- *      Build message parts of a multipart mail
- */ 
+    /*
+     *      void build_message(array part)
+     *      Build message parts of a multipart mail
+     */ 
     function build_message($part)
     {
         $message = $part['message'];
@@ -94,10 +94,10 @@ class mime_mail
         return($val);
     }
 
-/*
- *      void build_multipart()
- *      Build a multipart mail
- */ 
+    /*
+     *      void build_multipart()
+     *      Build a multipart mail
+     */ 
     function build_multipart() 
     {
         $boundary = 'NextPart'.md5(uniqid(time()));
@@ -108,11 +108,10 @@ class mime_mail
         return ($multipart .= '--' . $this->crlf);
     }
 
-/*
- *        void build_body()
- *        build a non multipart mail
-*/
-
+    /*
+     *        void build_body()
+     *        build a non multipart mail
+     */
     function build_body()
     {
         if (sizeof($this->parts) == 1)
@@ -122,10 +121,10 @@ class mime_mail
         return ($part . $this->crlf);
     }
 
-/*
- *      void send()
- *      Send the mail (last class-function to be called)
- */ 
+    /*
+     *      void send()
+     *      Send the mail (last class-function to be called)
+     */ 
     function send() 
     {
         $mime = '';
