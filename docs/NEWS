@@ -1,5 +1,6 @@
 NOCC 0.9.6    ??
 
+    * Removed 'conf', 'mailhost', 'user' and 'passwd' from aff_mail arguments.
     * Moved common stuff out of conf.php into a new 'common.php' file.
     * Replaced session_* calls with use of $_SESSION[].
     * Store 'lang' and 'theme' in session, to save passing them around

@@ -1,6 +1,6 @@
 <?php 
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.35 2002/04/18 10:37:11 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.36 2002/04/18 21:38:40 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -84,7 +84,7 @@ $pop->close();
 // Redirect user to index
 // TODO: redirect user to next message
 require_once './proxy.php';
-header('Location: ' . $conf->base_url . "action.php?sort=$sort&sortdir=$sortdir&folder=$folder);
+header('Location: ' . $conf->base_url . "action.php?folder=$folder);
 
 // For debuging
 //reset($HTTP_POST_VARS);

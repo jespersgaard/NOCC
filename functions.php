@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.147 2002/04/18 13:05:12 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.148 2002/04/18 21:38:40 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -16,8 +16,15 @@ $attach_tab = Array();
 
 /* ----------------------------------------------------- */
 
-function inbox(&$conf, &$pop, &$sort, &$sortdir, &$lang, &$theme, $skip = 0)
+function inbox(&$pop, $skip = 0)
 {
+    global $conf;
+
+    $lang = $_SESSION['lang'];
+    $theme = $_SESSION['theme'];
+    $sort = $_SESSION['sort'];
+    $sortdir = $_SESSION['sortdir'];
+
     $num_msg = $pop->num_msg();
     $per_page = (getPref('msg_per_page')) ? getPref('msg_per_page') : (($conf->msg_per_page) ? $conf->msg_per_page : '25');
 
@@ -115,12 +122,19 @@ function inbox(&$conf, &$pop, &$sort, &$sortdir, &$lang, &$theme, $skip = 0)
 }
 
 /* ----------------------------------------------------- */
-
-function aff_mail(&$conf, &$mailhost, &$login, &$passwd, &$folder, &$mail, $verbose, &$lang, &$sort, &$sortdir, &$ev)
+function aff_mail(&$folder, &$mail, $verbose, &$ev)
 {
+    GLOBAL $conf;
     GLOBAL $attach_tab;
     GLOBAL $PHP_SELF;
-    
+
+    $mailhost = $_SESSION['servr'];
+    $login = $_SESSION['login'];
+    $passwd = $_SESSION['passwd'];
+    $sort = $_SESSION['sort'];
+    $sortdir = $_SESSION['sortdir'];
+    $lang = $_SESSION['lang'];
+
     $glob_body = $subject = $from = $to = $cc = $reply_to = '';
     if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
         $default_date_format = $no_locale_date_format;
@@ -692,7 +706,7 @@ function go_back_index(&$attach_array, &$tmpdir, &$sort, &$sortdir, &$lang, $red
     if ($redirect)
     {
         require_once './proxy.php';
-        header("Location: ".$base_url."action.php?sort=$sort&amp;sortdir=$sortdir");
+        header("Location: ".$base_url."action.php");
     }
 }
 

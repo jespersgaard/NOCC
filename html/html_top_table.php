@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.54 2002/04/18 19:10:40 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.55 2002/04/18 21:38:41 rossigee Exp $ -->
 <?php
 
 require_once 'class_local.php';
@@ -22,15 +22,16 @@ if($pages > 1) {
 	$pskip = $skip - 1;
 	$this_page = $skip + 1;
 	if($pskip > -1 ) {
-		$prev = "<a href=\"$PHP_SELF?sort=$sort&sortdir=$sortdir&skip=$pskip&folder=$folder\">";
+		$prev = "<a href=\"$PHP_SELF?skip=$pskip&folder=$folder\">";
 		$prev .= "<img src=\"themes/".$theme."/img/left_arrow.gif\" border=\"0\" /></a>\n";
 	}
 	if($nskip < $pages) {
-		$next = "<a href=\"$PHP_SELF?sort=$sort&sortdir=$sortdir&skip=$nskip&folder=$folder\">";
+		$next = "<a href=\"$PHP_SELF?skip=$nskip&folder=$folder\">";
 		$next .= "<img src=\"themes/".$theme."/img/right_arrow.gif\" border=\"0\" /></a>\n";
 	}
 
-	$page_line = "<form method=\"POST\" action=\"$PHP_SELF?sort=1&sortdir=1&folder=$folder\">";
+	$page_line = "<form method=\"POST\" action=\"$PHP_SELF\">";
+	$page_line = "<input type=\"hidden\" name=\"folder\" value=\"$folder\" />";
 	$page_line .= "$html_page <select name=\"skip\">\n";
 	$selected = '';
 	for ($i = 0; $i < $pages; $i++) { 
@@ -43,14 +44,15 @@ if($pages > 1) {
 		$page_line .= "\t<option $selected value=\"$i\">$current_skip</option>\n";
 	}
 	$page_line .= "</select> $html_of $pages";
-	$page_line .= "<input type=\"submit\" class=\"button\" name=\"submit\" value=\"$html_gotopage\">";
+	$page_line .= "<input type=\"submit\" class=\"button\" name=\"submit\" value=\"$html_gotopage\" />";
 	$page_line .= "</form>";
 }
 
 if ($pop->is_imap()) {
-    $fldr_line = "<form method=\"POST\" action=\"$PHP_SElF?sort=1&sortdir=1\">$html_other_folders:  \n";
+    $fldr_line = "<form method=\"POST\" action=\"$PHP_SELF\">$html_other_folders:  \n";
     $fldr_line .= $pop->html_folder_select('folder', $folder);
-    $fldr_line .= "<input type=\"submit\" class=\"button\" name=\"submit\" value=\"$html_gotofolder\"></form>";
+    $fldr_line .= "<input type=\"submit\" class=\"button\" name=\"submit\" value=\"$html_gotofolder\" />";
+    $fldr_line .= "</form>";
 }
 
 ?>
@@ -120,4 +122,4 @@ if ($pop->is_imap()) {
             <input type="hidden" name="folder" value="<?php echo $folder ?>" />
         </td>
     </tr>
-<!-- start of $Id: html_top_table.php,v 1.54 2002/04/18 19:10:40 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.55 2002/04/18 21:38:41 rossigee Exp $ -->

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.107 2002/04/18 21:38:40 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.108 2002/04/18 21:46:07 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -54,7 +54,7 @@ if(!isset($action))
 switch (trim($action))
 {
     case 'aff_mail':
-        $content = aff_mail($conf, $servr, $login, $passwd, $folder, $mail, $verbose, $lang, $sort, $sortdir, $ev);
+        $content = aff_mail($folder, $mail, $verbose, $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
@@ -110,7 +110,7 @@ switch (trim($action))
         break;
 
     case 'reply':    
-        $content = aff_mail($conf, $servr, $login, $passwd, $folder, $mail, 0, $lang, $sort, $sortdir, $ev);
+        $content = aff_mail($folder, $mail, 0, $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
@@ -151,7 +151,7 @@ switch (trim($action))
         break;
 
     case 'reply_all':
-        $content = aff_mail($conf, $servr, $login, $passwd, $folder, $mail, 0, $lang, $sort, $sortdir, $ev);
+        $content = aff_mail($folder, $mail, 0, $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
@@ -184,7 +184,7 @@ switch (trim($action))
         break;
 
     case 'forward':
-        $content = aff_mail($conf, $servr, $login, $passwd, $folder, $mail, 0, $lang, $sort, $sortdir, $ev);
+        $content = aff_mail($folder, $mail, 0, $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
@@ -450,7 +450,7 @@ switch (trim($action))
         $is_imap = $pop->is_imap();
         $tab_mail = 0;
         if ($pop->num_msg() > 0)
-            $tab_mail = inbox($conf, $pop, $sort, $sortdir, $lang, $theme, $skip);
+            $tab_mail = inbox($pop, $skip);
 
         switch ($tab_mail)
         {
