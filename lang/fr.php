@@ -12,17 +12,17 @@ $days = Array(
 
 $months = Array(
 	Jan => "Janvier",
-	Feb => "Février",
+	Feb => "F&eacute;vrier",
 	Mar => "Mars",
 	Apr => "Avril",
 	May => "Mai",
 	Jun => "Juin",
 	Jul => "Juillet",
-	Aug => "Août",
+	Aug => "Ao&ucirc;t",
 	Sep => "Septembre",
 	Oct => "Octobre",
 	Nov => "Novembre",
-	Dec => "Décembre");
+	Dec => "D&eacute;cembre");
 
 
 
@@ -36,14 +36,14 @@ $err_passwd_empty = "Vous n'avez pas saisi de mot de passe";
 // html message
 
 
-$alt_delete = "Effacer les messages selectionnés";
+$alt_delete = "Effacer les messages selectionn&eacute;s";
 $alt_delete_one = "Effacer le message";
-$alt_new_msg = "Nouveaux message";
-$alt_reply = "Répondre à l'auteur";
-$alt_reply_all = "Répondre à tous";
-$alt_forward = "Transférer";
+$alt_new_msg = "Nouveaux messages";
+$alt_reply = "R&eacute;pondre &agrave; l'auteur";
+$alt_reply_all = "R&eacute;pondre à tous";
+$alt_forward = "Transf&eacute;rer";
 $alt_next = "Suivant";
-$alt_prev = "Précédent";
+$alt_prev = "Pr&eacute;c&eacute;dent";
 
 
 // index.php
@@ -54,47 +54,47 @@ $html_submit = "Valider";
 $html_help = "Aide";
 $html_server = "Serveur";
 $html_wrong = "Le login ou le mot de passe ne sont pas valides";
-$html_retry = "Réessayer";
+$html_retry = "R&eacute;essayer";
 
-$html_view_header = "Voir l'entête";
-$html_remove_header = "Masquer l'entête";
-$html_inbox = "Boîte de réception";
+$html_view_header = "Voir l'ent&ecirc;te";
+$html_remove_header = "Masquer l'ent&ecirc;te";
+$html_inbox = "Bo&icirc;te de r&eacute;ception";
 $html_new_msg = "Ecrire";
-$html_reply = "Répondre";
+$html_reply = "R&eacute;pondre";
 $html_reply_short = "Re";
-$html_reply_all = "Répondre à tous";
-$html_forward = "Transférer";
+$html_reply_all = "R&eacute;pondre à tous";
+$html_forward = "Transf&eacute;rer";
 $html_forward_short = "Tr";
 $html_delete = "Supprimer";
 $html_new = "Nouveaux";
 $html_mark = "Effacer";
-$html_att = "Pièce jointe";
-$html_atts = "Pièces jointes";
+$html_att = "Pi&egrave;ce jointe";
+$html_atts = "Pi&egrave;ces jointes";
 $html_from = "De";
 $html_subject = "Sujet";
 $html_date = "Date";
-$html_sent = "Envoyé le";
+$html_sent = "Envoy&eacute; le";
 $html_size = "Taille";
 $html_to = "A";
 $html_cc = "Copie";
-$html_bcc = "Copie cachée";
+$html_bcc = "Copie cach&eacute;e";
 $html_nosubject = "Aucun sujet";
 $html_send = "Envoyer";
 $hmtl_cancel = "Annuler";
-$html_no_mail = "Vous n'avez pas de nouveaux message.";
-$html_logout = "Déconnexion";
+$html_no_mail = "Vous n'avez pas de nouveaux messages.";
+$html_logout = "D&eacute;connexion";
 $html_msg = "Message";
 $html_msgs = "Messages";
 
 $original_msg = "-- Message Original --";
-$to_empty = "Le champs 'A' ne doit pas être vide !";
+$to_empty = "Le champ 'A' ne doit pas &ecirc;tre vide !";
 
 
 $version = "NOCC Webmail v1.0";
 $name = "NOCC Webmail";
 
-$ad = "\n\n________________________________________________________________________\nNOCC, votre bureau à portée de clic : http://nocc.sourceforge.net";
+$ad = "\n\n________________________________________________________________________\nNOCC, votre bureau &agrave; port&eacute;e de clic : http://nocc.sourceforge.net";
 
-$html_outside = "Vous voyez cette page en dehors de <b>".$name."</b>. Pour y retourner, fermez cette fenêtre.";
+$html_outside = "Vous voyez cette page en dehors de <b>".$name."</b>. Pour y retourner, fermez cette fen&ecirc;tre.";
 
 ?>
