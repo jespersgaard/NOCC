@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.10 2000/11/25 22:01:28 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sl.php,v 1.1 2001/02/20 13:11:50 wolruf Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -53,7 +53,7 @@ $alt_prev = "Prej¹nji";
 // index.php
 
 $html_lang = "Jezik";
-$html_welcome = "Dobrodo¹li !";
+$html_welcome = "Dobrodo¹li v";
 $html_login = "Uporabni¹ko ime";
 $html_passwd = "Geslo";
 $html_submit = "Prijava";
