@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.32 2001/03/10 23:23:48 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.33 2001/03/11 12:17:31 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -95,11 +95,11 @@ $lang_array[0]->filename = "ar";
 $lang_array[0]->label = "Arabic";
 
 // Chinese
-$lang_array[1]->filename = "zh-TW";
+$lang_array[1]->filename = "zh-tw";
 $lang_array[1]->label = "Chinese (Taiwan)";
 
 // Svenska
-$lang_array[2]->filename = "dk";
+$lang_array[2]->filename = "da";
 $lang_array[2]->label = "Dansk";
 
 // German
@@ -147,7 +147,7 @@ $lang_array[13]->filename = "ru-iso";
 $lang_array[13]->label = "Russian (ISO)";
 
 // Swedish
-$lang_array[14]->filename = "se";
+$lang_array[14]->filename = "sv";
 $lang_array[14]->label = "Svenska";
 
 // Slovenian
