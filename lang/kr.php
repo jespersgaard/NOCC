@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.26 2001/03/09 12:40:03 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/kr.php,v 1.1 2001/05/05 15:39:57 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -16,7 +16,7 @@ $charset = "euc-kr";
 
 // Configuration for the days and months
 
-// What language to use (Here, english US --> en_US)
+
 // see '/usr/share/locale/' for more information
 $lang_locale = "ko";
 
