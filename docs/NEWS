@@ -1,7 +1,10 @@
 NOCC 0.9.7    ?? ??, 2004
 
+    * In mail list, clicking on the sender email and/or name now open a new
+      mail window with the "To:" field filled with the email address (Arnaud
+      Boudou).
     * Fix issue where an email address from a mailto: link into a message
-      was not used when clicked on (Arnaud Boudou, bug #1034907)
+      was not used when clicked on (Arnaud Boudou, bug #1034907).
     * Fix issue where Nocc use imap functions to open message which does not
       exists anymore, and cause IMAP toolkit crash (Leif Gustafson, patch
       #133169).

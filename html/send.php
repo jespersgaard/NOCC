@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.66 2004/06/28 15:37:46 goddess_skuld Exp $ -->
+<!-- start of $Id: send.php,v 1.67 2004/09/13 18:40:37 goddess_skuld Exp $ -->
 <?php
 
 // Default e-mail address on send form
@@ -37,7 +37,7 @@ $mail_from = get_default_from_address();
                     <?php } else { ?>
                         <td align="right" class="inbox"><?php echo $html_to ?> : </td>
                     <?php } ?>
-                    <td align="left"><input type="text" name="mail_to" size="60" value="<?php echo (isset($mail_to) ? htmlspecialchars($mail_to) : ''); ?>" /></td>
+                    <td align="left"><input type="text" name="mail_to" size="60" value="<?php echo (isset($mail_to) ? stripslashes(htmlspecialchars($mail_to)) : ''); ?>" /></td>
                 </tr>
                 <tr>
                     <?php if (isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
@@ -180,4 +180,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.66 2004/06/28 15:37:46 goddess_skuld Exp $ -->
+<!-- end of $Id: send.php,v 1.67 2004/09/13 18:40:37 goddess_skuld Exp $ -->
