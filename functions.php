@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: nicocha $
-	$Revision: 1.25 $
-	$Date: 2000/11/06 18:43:12 $
+	$Revision: 1.26 $
+	$Date: 2000/11/06 18:45:11 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
 the function get_part is based on a function from matt@bonneau.net
@@ -35,7 +35,8 @@ function inbox($servr, $user, $passwd, $sort, $sortdir, $lang)
 		}
 		else
 		{
-			$sorted = imap_sort($pop, $sort, $sortdir, SE_UID); 
+			//if ($sort != "" && $sortdir != "")
+				$sorted = imap_sort($pop, $sort, $sortdir, SE_UID); 
 			for ($i = 0; $i < $num_messages; $i++)
 			{
 				$msgnum = $sorted[$i];

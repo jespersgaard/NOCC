@@ -1,8 +1,8 @@
 <?
 /*
-	$Author: nicocha $
-	$Revision: 1.19 $
-	$Date: 2000/10/29 23:56:51 $
+	$Author: wolruf $
+	$Revision: 1.20 $
+	$Date: 2000/11/01 19:28:43 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -55,7 +55,7 @@ $display_part_no = true;
 // (the attachments of that part are still available even if false is set
 $display_rfc822 = true;
 
-// By default the messages are sorted by date
+// By default the messages are sorted by date 
 $default_sort = "1";
 
 // By default the most recent is in top ("1" --> sorting top to bottom,
