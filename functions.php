@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.65 2001/02/24 21:00:44 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.66 2001/02/26 11:33:14 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -461,13 +461,17 @@ function get_reply_all($user, $domain, $from, $to, $cc)
 // We need that to build a correct list of all the recipient when we send a message
 function cut_address($addr, $charset)
 {
+	$name = "";
+
 	$addr = str_replace(",", ";", $addr);
 	$array = explode(";", $addr);
 	for ($i = 0; $i < sizeof($array); $i++)
 	{
-		if (($pos = strrpos($array[$i], '<')) != false)
+		$pos = strrpos($array[$i], '<');
+		if (is_int($pos))
 		{
-			$name = "\"".encode_mime(substr($array[$i], 0, $pos - 1), $charset)."\"";
+			if ($pos != 0)
+				$name = "\"".encode_mime(substr($array[$i], 0, $pos - 1), $charset)."\"";
 			$addr = substr($array[$i], $pos);
 			$array[$i] = $name.$addr;
 		}
