@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.86 2002/01/29 11:24:52 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.87 2002/02/03 16:14:32 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -17,7 +17,7 @@ require_once ('./prefs.php');
 if (!session_is_registered('loggedin') && $loggedin)
 {
 	require_once ('./proxy.php');
-	header('Location: ' . $base_url . 'logout.php?lang=' . $lang . '&' . $php_session . '='  . $$php_session);
+	header('Location: ' . $conf->base_url . 'logout.php?lang=' . $lang . '&' . $php_session . '='  . $$php_session);
 }
 
 if (!function_exists('is_uploaded_file'))
