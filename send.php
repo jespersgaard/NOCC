@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.88 2002/02/09 18:50:45 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.89 2002/02/09 20:25:03 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -56,6 +56,9 @@ else
 				$attach_array[$num_attach]->file_name = basename($mail_att_name);
 				$attach_array[$num_attach]->tmp_file = $tmp_name;
 				$attach_array[$num_attach]->file_size = $mail_att_size;
+				if ($mail_att_type == "") {
+					$mail_att_type = trim(`file -b $tmpdir/$tmp_name`);
+				}
 				$attach_array[$num_attach]->file_mime = $mail_att_type;
 			}
 			// Registering the attachments array into the session
