@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.34 2001/04/09 08:58:00 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.35 2001/04/09 08:58:39 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -83,7 +83,7 @@ switch ($sendaction)
 			// If the temporary file exists, attach it
 			if (file_exists($$file_tmp))
 			{
-				$fp = fopen($$file_tmp, "r");
+				$fp = fopen($$file_tmp, "rb");
 				$file = fread($fp, $$file_size);
 				fclose($fp);
 				// add it to the message, by default it is encoded in base64
