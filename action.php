@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.73 2001/11/01 11:18:44 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.74 2001/11/03 21:04:15 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -81,7 +81,7 @@ switch (trim($action))
 		break;
 
 	case 'logout':
-		header("Location: logout.php?lang=$lang&$php_session=".$$php_session);
+		header("Location: ".$base_url."logout.php?lang=$lang&$php_session=".$$php_session);
 		break;
 
 	case 'write':

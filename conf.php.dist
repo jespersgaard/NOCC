@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.73 2001/10/24 12:32:42 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.74 2001/10/28 21:48:42 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -137,6 +137,9 @@ $debug_level = E_ALL & ~E_NOTICE;
 
 // Display delete button as icon (true) or as an HTML button (false)
 $delete_button_icon = true;
+
+// Base URL where NOCC is hosted (only needed for Xitami servers, see #463390)
+$base_uri = '';
 
 // ################### Messages Signature  ################### //
 

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.77 2001/11/03 16:51:28 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.78 2001/11/03 17:10:09 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -15,7 +15,7 @@ require_once ('./functions.php');
 require_once ('./prefs.php');
 
 if (!session_is_registered('loggedin') && $loggedin)
-	header("Location: logout.php?lang=$lang");
+	header("Location: ".$base_url."logout.php?lang=$lang");
 
 if (!function_exists('is_uploaded_file'))
 	include_once ('./is_uploaded_file.php');

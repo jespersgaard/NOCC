@@ -1,6 +1,6 @@
 <?php 
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.18 2001/10/19 10:34:25 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.19 2001/10/25 15:53:45 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -30,5 +30,5 @@ else
 }
 imap_close($pop, CL_EXPUNGE);
 
-Header ("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang");
+Header ("Location: ".$base_url."action.php?sort=$sort&sortdir=$sortdir&lang=$lang");
 ?>
