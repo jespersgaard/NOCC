@@ -25,7 +25,7 @@
 						<a href="logout.php" class="menu"><? echo $html_logout ?></a>
 					</td>
 					<td class="menu" align="center" bgcolor="<? echo $html_menu_color ?>">
-						<a href="help.php?lang=<? echo $lang ?>&sort=<? echo $sort ?>&sortdir=<? echo $sortdir ?>" class="menu"><? echo $html_help ?></a>
+						<a href="javascript:void(null)" onMouseUp="OpenHelpWindow('help.php?action=<? echo $action ?>&lang=<? echo $lang ?>&sort=<? echo $sort ?>&sortdir=<? echo $sortdir ?>','image','scrollbars=yes,resizable=yes,width=400,height=300')" class="menu"><? echo $html_help ?></a>
 					</td>
 				</tr>
 			</table>

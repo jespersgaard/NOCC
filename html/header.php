@@ -4,6 +4,12 @@
 		<META http-equiv="pragma" content="no-cache">
 		<META content="text/html; charset=<? echo $charset ?>" http-equiv="Content-Type">
 		<LINK href="style.css" rel="stylesheet">
+		<SCRIPT LANGUAGE="javascript">
+			function OpenHelpWindow(theURL,winName,features)
+			{
+				window.open(theURL,winName,features);
+			}
+		</SCRIPT>
 	</HEAD>
 	<BODY alink="<? echo $alink_color?>" bgcolor="<? echo $bgcolor ?>" link="<? echo $link_color ?>" text="<? echo $text_color ?>" vlink="<? echo $vlink_color ?>">
 		<table border="0" width="100%">
