@@ -19,9 +19,16 @@ cd .. && cp -rp $myname $distname
 cd $distname
 cd ..
 tar cf $distname.tar $distname
-rm -rf $distname $distname.tar.*
+rm -f $distname.tar.*
 bzip2 -9 $distname.tar
 md5sum $distname.tar.bz2
 sync; sleep 2
 md5sum $distname.tar.bz2
 bzip2 -t $distname.tar.bz2
+echo creating zip archive
+zip -rq9 $distname.zip $distname
+md5sum $distname.zip
+sync; sleep 2
+md5sum $distname.zip
+zip -T $distname.zip
+rm -rf $distname
