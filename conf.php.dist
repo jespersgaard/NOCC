@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.92 2002/02/09 18:55:02 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.93 2002/02/09 20:42:36 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -152,6 +152,10 @@ $conf->delete_button_icon = true;
 // Base URL where NOCC is hosted (only needed for Xitami servers, see #463390)
 // (NOTE: should end in a slash)
 $conf->base_url = 'http://www.yoursite.com/webmail/';
+
+// Another tip for Xitami users, whose $PHP_SELF is broken
+// (see http://sourceforge.net/tracker/index.php?func=detail&aid=505194&group_id=12177&atid=112177)
+//$PHP_SELF = 'action.php';
 
 // ################### Messages Signature  ################### //
 
