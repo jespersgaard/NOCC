@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.7 2002/04/24 15:07:15 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.8 2002/04/24 19:32:30 rossigee Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -9,6 +9,10 @@
  *
  * Stuff that is always checked or run or initialised for every hit.
  */
+
+$conf->nocc_name = 'NOCC';
+$conf->nocc_version = '0.9.6-dev';
+$conf->nocc_url = 'http://nocc.sourceforge.net/';
 
 // Initialise session array
 session_start();
