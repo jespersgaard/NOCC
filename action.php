@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.67 2001/10/28 22:49:57 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.68 2001/10/28 22:55:46 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -99,7 +99,8 @@ switch (trim($action))
 			$mail_subject = $content['subject'];
 		else
 			$mail_subject = $html_reply_short.': '.$content['subject'];
-		if($pref_outlook_quoting)
+		$outlook_quoting = getPref('outlook_quoting');
+		if($outlook_quoting)
 			$mail_body = $original_msg."\n".$html_from.': '.$content['from']."\n".$html_to.': '.$content['to']."\n".$html_sent.': '.$content['complete_date']."\n".$html_subject.': '.$content['subject']."\n\n".strip_tags($content['body'], '');
 		else
 			$mail_body = mailquote(strip_tags($content['body'], ''),$content['from']);
@@ -207,6 +208,7 @@ switch (trim($action))
 		$email_address = getPref('email_address');
 		$cc_self = getPref('cc_self');
 		$hide_addresses = getPref('hide_addresses');
+		$outlook_quoting = getPref('outlook_quoting');
 		$signature = getSig();
 		require ('./html/menu_prefs.php');
 		require_once ('./html/prefs.php');
