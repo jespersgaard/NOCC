@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.106 2001/10/21 19:34:23 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.107 2001/10/22 11:05:36 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -266,12 +266,11 @@ function GetPart($this_part, $part_no, $display_rfc822)
 			case 2:
 				$mime_type = 'message';
 				// well it's a message we have to parse it to find attachments or text message
-				$num_parts = count($this_part->parts[0]->parts);
-				if ($num_parts > 0)
+				if(isset($this_part->parts[0]->parts)) {
+					$num_parts = count($this_part->parts[0]->parts);
 					for ($i = 0; $i < $num_parts; $i++)
 						GetPart($this_part->parts[0]->parts[$i], $part_no . '.' . ($i + 1), $display_rfc822);
-				else
-					GetPart($this_part->parts[0], $part_no . '.1', $display_rfc822);
+				}
 				break;
 			// Maybe we can do something with the mime types later ??
 			case 3:
