@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.67 2001/10/18 12:37:58 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.68 2001/10/18 23:46:18 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,23 +9,23 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
 
-require ('conf.php');
-require ('check_lang.php');
-require ('functions.php');
-require ('prefs.php');
+require_once ('./conf.php');
+require_once ('./check_lang.php');
+require_once ('./functions.php');
+require_once ('./prefs.php');
 
 if (!session_is_registered('loggedin') && $loggedin)
 	header("Location: logout.php?lang=$lang");
 
 if (!function_exists('is_uploaded_file'))
-	include ('is_uploaded_file.php');
+	include_once ('./is_uploaded_file.php');
 
 if ($HTTP_SERVER_VARS['REQUEST_METHOD'] != 'POST')
 	go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $lang, true);
 else
 {
-	require ('class_send.php');
-	require ('class_smtp.php');
+	require_once ('./class_send.php');
+	require_once ('./class_smtp.php');
 
 	switch (trim($sendaction))
 	{
@@ -53,10 +53,10 @@ else
 			session_register('num_attach', 'attach_array');
 			// Displaying the sending form with the new attachments array
 			header("Content-type: text/html; Charset=$charset");
-			require ('html/header.php');
-			require ('html/menu_inbox.php');
-			require ('html/send.php');
-			require ('html/menu_inbox.php');
+			require_once ('./html/header.php');
+			require_once ('./html/menu_inbox.php');
+			require_once ('./html/send.php');
+			require_once ('./html/menu_inbox.php');
 			break;
 		case 'send':
 			$ip = (getenv('HTTP_X_FORWARDED_FOR') ? getenv('HTTP_X_FORWARDED_FOR') : getenv('REMOTE_ADDR'));
@@ -101,10 +101,10 @@ else
 			session_unregister('attach_array');
 			$ev = $mail->send();
 			if (PEAR::isError($ev)) {
-				require ('html/header.php');
-				require ('html/menu_inbox.php');
-				require ('html/send_error.php');
-				require ('html/menu_inbox.php');
+				require_once ('./html/header.php');
+				require_once ('./html/menu_inbox.php');
+				require_once ('./html/send_error.php');
+				require_once ('./html/menu_inbox.php');
 				exit;
 			}
 			header ("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang&$php_session=".$$php_session);
@@ -135,15 +135,15 @@ else
 			session_register('num_attach', 'attach_array');
 			// Displaying the sending form with the new attachment array
 			header("Content-type: text/html; Charset=$charset");
-			require ('html/header.php');
-			require ('html/menu_inbox.php');
-			require ('html/send.php');
-			require ('html/menu_inbox.php');
+			require_once ('./html/header.php');
+			require_once ('./html/menu_inbox.php');
+			require_once ('./html/send.php');
+			require_once ('./html/menu_inbox.php');
 			break;
 		default:
 			go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $lang, true);
 			break;
 	}
-	require ('html/footer.php');
+	require_once ('./html/footer.php');
 }
 ?>

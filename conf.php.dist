@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.69 2001/10/17 23:07:09 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.70 2001/10/18 17:49:52 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -191,6 +191,6 @@ else
 $php_session = ini_get('session.name');
 $action = isset($action) ? $action : ''; 
 error_reporting($debug_level);
-require('conf_lang.php');
-require('themes/'.$theme.'/colors.php');
+require_once ('./conf_lang.php');
+require_once ('./themes/'.$theme.'/colors.php');
 ?>

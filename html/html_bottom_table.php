@@ -23,4 +23,4 @@ function SelectAll() {
 //-->
 </script>
 
-<?php require ('html/menu_inbox.php'); ?>
+<?php require_once ('./html/menu_inbox.php'); ?>

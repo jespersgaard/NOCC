@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.53 2001/10/18 21:24:41 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.54 2001/10/19 00:01:34 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -11,16 +11,16 @@
  * This file is the main file of NOCC each function starts from here
  */
 
-require ('conf.php');
-require ('check_lang.php');
-require ('functions.php');
-require ('prefs.php');
+require_once ('./conf.php');
+require_once ('./check_lang.php');
+require_once ('./functions.php');
+require_once ('./prefs.php');
 checkForPrefs($prefs_dir, $user);
 
 if (!session_is_registered('loggedin'))
 	$action = '';
 header ("Content-type: text/html; Charset=$charset");
-require ('html/header.php');
+require_once ('./html/header.php');
 
 if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
 	$default_date_format = $no_locale_date_format;
@@ -44,10 +44,10 @@ switch (trim($action))
 {
 	case 'aff_mail':
 		// Here we display the message
-		require ('html/menu_mail.php');
-		require ('html/html_mail_top.php');
+		require_once ('./html/menu_mail.php');
+		require_once ('./html/html_mail_top.php');
 		$content = aff_mail($servr, $user, stripslashes($passwd), $folder, $mail, $verbose, $lang, $sort, $sortdir);
-		require ('html/html_mail_header.php'); 
+		require_once ('./html/html_mail_header.php'); 
 		while ($tmp = array_shift($attach_tab))
 		{
 			// $attach_tab is the array of attachments
@@ -65,8 +65,8 @@ switch (trim($action))
 				}
 			}
 		} 
-		require ('html/html_mail_bottom.php');
-		require ('html/menu_mail.php');
+		require_once ('./html/html_mail_bottom.php');
+		require_once ('./html/menu_mail.php');
 		break;
 
 	case 'logout':
@@ -79,9 +79,9 @@ switch (trim($action))
 		$mail_body .= "\n".$prefs_signature;
 
 		$num_attach = 0;
-		require ('html/menu_inbox.php');
-		require ('html/send.php');
-		require ('html/menu_inbox.php');
+		require_once ('./html/menu_inbox.php');
+		require_once ('./html/send.php');
+		require_once ('./html/menu_inbox.php');
 		break;
 
 	case 'reply':
@@ -101,9 +101,9 @@ switch (trim($action))
 		list($num_attach, $attach_array) = save_attachment($servr, $user, stripslashes($passwd), $folder, $mail, $tmpdir);
 		// Registering the attachments array into the session
 		session_register('num_attach', 'attach_array');
-		require ('html/menu_inbox.php');
-		require ('html/send.php');
-		require ('html/menu_inbox.php');
+		require_once ('./html/menu_inbox.php');
+		require_once ('./html/send.php');
+		require_once ('./html/menu_inbox.php');
 		break;
 
 	case 'reply_all':
@@ -122,9 +122,9 @@ switch (trim($action))
 		list($num_attach, $attach_array) = save_attachment($servr, $user, stripslashes($passwd), $folder, $mail, $tmpdir);
 		// Registering the attachments array into the session
 		session_register('num_attach', 'attach_array');
-		require ('html/menu_inbox.php');
-		require ('html/send.php');
-		require ('html/menu_inbox.php');
+		require_once ('./html/menu_inbox.php');
+		require_once ('./html/send.php');
+		require_once ('./html/menu_inbox.php');
 		break;
 
 	case 'forward':
@@ -138,9 +138,9 @@ switch (trim($action))
 		list($num_attach, $attach_array) = save_attachment($servr, $user, stripslashes($passwd), $folder, $mail, $tmpdir);
 		// Registering the attachments array into the session
 		session_register('num_attach', 'attach_array');
-		require ('html/menu_inbox.php');
-		require ('html/send.php');
-		require ('html/menu_inbox.php');
+		require_once ('./html/menu_inbox.php');
+		require_once ('./html/send.php');
+		require_once ('./html/menu_inbox.php');
 		break;
 
 	case 'setprefs':
@@ -159,9 +159,9 @@ switch (trim($action))
 			$email_address = $prefs_email_address;
 			$signature = $prefs_signature;
 		}
-		require ('html/menu_prefs.php');
-		require ('html/prefs.php');
-		require ('html/menu_prefs.php');
+		require_once ('./html/menu_prefs.php');
+		require_once ('./html/prefs.php');
+		require_once ('./html/menu_prefs.php');
 		break;
 
 	default:
@@ -171,17 +171,17 @@ switch (trim($action))
 		{
 			case -1:
 				// -1 either the login and/or the password are wrong or the server is down
-				require ('wrong.php');
+				require_once ('./wrong.php');
 				break;
 			case 0:
 				$loggedin = 1;
 				session_register('loggedin');
 				// the mailbox is empty
 				$num_msg = 0;
-				require ('html/menu_inbox.php');
-				require ('html/html_top_table.php');
-				include ('html/no_mail.php');
-				require ('html/html_bottom_table.php');
+				require_once ('./html/menu_inbox.php');
+				require_once ('./html/html_top_table.php');
+				include_once ('./html/no_mail.php');
+				require_once ('./html/html_bottom_table.php');
 				break;
 			default:
 				if (!isset($attach_array))
@@ -191,15 +191,15 @@ switch (trim($action))
 				session_register('loggedin');
 				// there are messages, we display
 				$num_msg = count($tab_mail);
-				require ('html/menu_inbox.php');
-				require ('html/html_top_table.php');
+				require_once ('./html/menu_inbox.php');
+				require_once ('./html/html_top_table.php');
 				while ($tmp = array_shift($tab_mail))
-					require ('html/html_inbox.php');
-				require ('html/html_bottom_table.php');
+					require ('./html/html_inbox.php');
+				require_once ('./html/html_bottom_table.php');
 				break;
 		}
 		break;
 }
 
-require ('html/footer.php');
+require_once ('./html/footer.php');
 ?>

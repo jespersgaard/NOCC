@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/wrong.php,v 1.13 2001/05/27 08:42:47 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/wrong.php,v 1.14 2001/05/29 08:51:53 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,8 +9,8 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
 
-require ('conf.php');
-require ('check_lang.php');
+require_once ('./conf.php');
+require_once ('./check_lang.php');
 session_start();
 session_destroy();
 ?>

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.20 2001/10/18 23:46:18 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.21 2001/10/18 23:48:27 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -11,7 +11,7 @@
  * Class based on a work from Unk <rgroesb_garbage@triple-it_garbage.nl>  
  */
 
-require_once ("PEAR.php");
+require_once ('PEAR.php');
 
 class smtp
 {

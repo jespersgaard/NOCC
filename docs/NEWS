@@ -1,5 +1,9 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Added './' in the path of all require, include and open calls,
+	  As we now use PEAR in php.ini include_path directive.
+	* Replace require() and include() with require_once() and include_once()
+	  when it was needed.
 	* Added logging of SMTP transactions, until all bugs fixed.
 	* Added send_error output page, to report SMTP problems to user.
 	* Used PEAR::Error for passing SMTP exceptions back to caller.

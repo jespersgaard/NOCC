@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/logout.php,v 1.17 2001/06/15 15:16:38 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/logout.php,v 1.18 2001/06/21 15:26:10 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,7 +9,7 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
 
-require ('conf.php');
+require_once ('./conf.php');
 
 session_start();
 $old_theme = $theme;

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/help.php,v 1.6 2001/05/27 08:42:47 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/help.php,v 1.7 2001/05/29 08:51:53 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -10,8 +10,8 @@
  */
 
 
-require ('conf.php');
-require ('check_lang.php');
+require_once ('./conf.php');
+require_once ('./check_lang.php');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang ?>" lang="<?php echo $lang ?>">

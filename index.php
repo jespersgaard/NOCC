@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.75 2001/10/17 20:46:30 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.76 2001/10/17 20:52:58 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,13 +9,13 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
 
-require ('conf.php');
-require ('check_lang.php');
+require_once ('./conf.php');
+require_once ('./check_lang.php');
 session_start();
 session_destroy();
 Header("Content-type: text/html; Charset=$charset");
-require ('check.php');
-require ('html/header.php');
+require_once ('./check.php');
+require_once ('./html/header.php');
 ?>
 <script type="text/javascript">
 <!--
@@ -198,4 +198,4 @@ function updateTheme()
 				document.nocc_webmail_login.passwd.value='';
 			// -->
 			</script>
-<?php require ('html/footer.php'); ?>
+<?php require_once ('./html/footer.php'); ?>

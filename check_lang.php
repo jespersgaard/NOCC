@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/check_lang.php,v 1.14 2001/03/28 14:28:36 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/check_lang.php,v 1.15 2001/04/17 20:56:47 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -19,7 +19,7 @@ if (!ISSET($lang))
 	{
 		$tmp = explode(";", $accept_lang);
 		$tmp[0] = strtolower($tmp[0]);
-		if (file_exists("lang/".$tmp[0].".php"))
+		if (file_exists("./lang/".$tmp[0].".php"))
 		{
 			$lang = $tmp[0];
 			break;
@@ -30,5 +30,5 @@ if (!ISSET($lang))
 }
 //  Fix for faulty PHP install (RH7, see bug #24933)
 $lang = trim($lang);
-require ("lang/".$lang.".php");
+require_once ("./lang/".$lang.".php");
 ?>

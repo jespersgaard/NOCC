@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.21 2001/05/29 08:50:11 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.22 2001/05/29 15:13:34 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -14,7 +14,7 @@
 if (eregi('MSIE', $HTTP_USER_AGENT) || eregi('Internet Explorer', $HTTP_USER_AGENT))
 	session_cache_limiter('public');
 session_start();
-require ('conf.php');
+require_once ('./conf.php');
 
 header('Content-Type: application/x-unknown-' . $mime);
 // IE 5.5 is weird, the line is not correct but it works

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/get_img.php,v 1.11 2001/05/27 08:42:47 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/get_img.php,v 1.12 2001/05/29 08:51:53 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -10,7 +10,7 @@
  */
 
 session_register ('user', 'passwd');
-require ('conf.php');
+require_once ('./conf.php');
 
 $pop = imap_open('{'.$servr.'}INBOX', $user, stripslashes($passwd));
 $img = imap_fetchbody($pop, $mail, $num);

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.10 2001/09/08 11:12:22 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.11 2001/09/08 11:25:24 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>

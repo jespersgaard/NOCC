@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.102 2001/07/18 11:44:21 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.103 2001/10/18 23:37:07 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -16,7 +16,7 @@ $attach_tab = Array();
 function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang, $theme)
 {
 	$mailhost = $servr;
-	require('conf.php');
+	require_once ('./conf.php');
 
 	$pop = @imap_open('{' . $mailhost . '}' . $folder, $user, $passwd);
 	if ($pop == false)
@@ -121,8 +121,8 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang, $theme)
 function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort, $sortdir)
 {
 	$mailhost = $servr;
-	require ('conf.php');
-	require ('check_lang.php');
+	require_once ('./conf.php');
+	require_once ('./check_lang.php');
 	GLOBAL $attach_tab;
 	GLOBAL $PHP_SELF;
 	$glob_body = $subject = $from = $to = $cc = '';
@@ -477,7 +477,7 @@ function link_att($servr, $mail, $tab, $display_part_no)
 
 function change_date($date, $lang)
 {
-	require ('check_lang.php');
+	require_once ('./check_lang.php');
 	if (empty($date))
 	{
 		$msg_date = $complete_date = '';

@@ -1,6 +1,6 @@
 <?php
 
-$custom_header = "themes/$theme/header.php";
+$custom_header = "./themes/$theme/header.php";
 if(file_exists($custom_header)) {
 	include($custom_header);
 }
