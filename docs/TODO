@@ -17,6 +17,9 @@ Short term
 Long term
 ---------
 
+ - SMTP+Auth support.
+ - Cache preferences to speed up loading.
+ - Cache messages data to speed up loading by logging in POP or IMAP once.
  - QMail aliasing support.
  - RFCs-compliant MIME library, etc.
  - RFC 1894 support (Delivery Status Notification) (?).
