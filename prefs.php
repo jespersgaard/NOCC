@@ -4,7 +4,7 @@
     **
     **  This contains functions for manipulating user preferences
     **
-    **  $Id: prefs.php,v 1.1 2001/10/17 22:51:44 rossigee Exp $
+    **  $Id: prefs.php,v 1.2 2001/10/18 19:39:24 rossigee Exp $
     **/
 
    if (defined('prefs_php'))
@@ -25,32 +25,29 @@
        
        $filename = $data_dir . $username . '.pref';
        
-       if (!file_exists($filename)) {
-           $file = fopen($filename, 'w');
+       if (file_exists($filename)) {
+           $file = fopen($filename, 'r');
+
+           /** read in all the preferences **/
+           $highlight_num = 0;
+           while (! feof($file)) {
+              $pref = trim(fgets($file, 1024));
+              $equalsAt = strpos($pref, '=');
+              if ($equalsAt > 0) {
+                  $Key = substr($pref, 0, $equalsAt);
+                  $Value = substr($pref, $equalsAt + 1);
+                  if (substr($Key, 0, 9) == 'highlight') {
+                      $Key = 'highlight' . $highlight_num;
+                      $highlight_num ++;
+                  }
+                  if ($Value != '') {
+                      $prefs_cache[$Key] = $Value;
+                  }
+              }
+           }
            fclose($file);
+
        }
-
-       $file = fopen($filename, 'r');
-
-       /** read in all the preferences **/
-       $highlight_num = 0;
-       while (! feof($file)) {
-          $pref = trim(fgets($file, 1024));
-          $equalsAt = strpos($pref, '=');
-          if ($equalsAt > 0) {
-              $Key = substr($pref, 0, $equalsAt);
-              $Value = substr($pref, $equalsAt + 1);
-              if (substr($Key, 0, 9) == 'highlight') {
-                  $Key = 'highlight' . $highlight_num;
-                  $highlight_num ++;
-              }
-
-              if ($Value != '') {
-                  $prefs_cache[$Key] = $Value;
-              }
-          }
-       }
-       fclose($file);
 
        session_unregister('prefs_cache');
        session_register('prefs_cache');
