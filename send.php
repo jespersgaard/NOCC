@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.43 2001/04/19 19:32:06 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.45 2001/04/19 20:07:34 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -65,7 +65,6 @@ else
 			$mail->to = cut_address($mail_to, $charset);
 			$mail->cc = cut_address($mail_cc, $charset);
 			$mail->bcc = cut_address($mail_bcc, $charset);
-			$mail->charset = $charset;
 			if ($mail_subject != "")
 				$mail->subject = stripcslashes($mail_subject);
 			if ($mail_body != "")
