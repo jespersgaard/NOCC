@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.34 2001/10/30 23:19:20 rossigee Exp $ -->
+<!-- start of $Id: send.php,v 1.35 2001/11/07 18:51:51 rossigee Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
 		<td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -13,24 +13,24 @@
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_from ?> : </td>
 					<td align="left">
-						<input type="text" name="mail_from" size="60" value="<?php echo $mail_from ?>" />
+						<input type="text" name="mail_from" size="60" value="<?php echo htmlspecialchars($mail_from) ?>" />
 					</td>
 				</tr>
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_to ?> : </td>
-					<td align="left"><input type="text" name="mail_to" size="60" maxlength="200" value="<?php echo (isset($mail_to) ? $mail_to : ''); ?>" /></td>
+					<td align="left"><input type="text" name="mail_to" size="60" maxlength="200" value="<?php echo (isset($mail_to) ? htmlspecialchars($mail_to) : ''); ?>" /></td>
 				</tr>
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_cc ?> : </td>
-					<td align="left"><input type="text" name="mail_cc" size="60" maxlength="200" value="<?php echo (isset($mail_cc) ? $mail_cc : '') ?>" /></td>
+					<td align="left"><input type="text" name="mail_cc" size="60" maxlength="200" value="<?php echo (isset($mail_cc) ? htmlspecialchars($mail_cc) : '') ?>" /></td>
 				</tr>
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_bcc ?> : </td>
-					<td align="left"><input type="text" name="mail_bcc" size="60" maxlength="200" value="<?php echo (isset($mail_bcc) ? $mail_bcc : '') ?>" /></td>
+					<td align="left"><input type="text" name="mail_bcc" size="60" maxlength="200" value="<?php echo (isset($mail_bcc) ? htmlspecialchars($mail_bcc) : '') ?>" /></td>
 				</tr>
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_subject ?> : </td>
-					<td align="left"><input type="text" name="mail_subject" size="60" maxlength="200" value="<?php echo (isset($mail_subject) ? $mail_subject : '') ?>" /></td>
+					<td align="left"><input type="text" name="mail_subject" size="60" maxlength="200" value="<?php echo (isset($mail_subject) ? htmlspecialchars($mail_subject) : '') ?>" /></td>
 				</tr>
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_att ?> : </td>
@@ -71,7 +71,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2" align="center"><textarea name="mail_body" cols="60" rows="20"><?php echo (isset($mail_body) ? $mail_body : '') ?></textarea></td>
+					<td colspan="2" align="center"><textarea name="mail_body" cols="60" rows="20"><?php echo (isset($mail_body) ? htmlspecialchars($mail_body) : '') ?></textarea></td>
 				</tr>
 				<tr>
 					<td align="center" colspan="2">
@@ -131,4 +131,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.34 2001/10/30 23:19:20 rossigee Exp $ -->
+<!-- end of $Id: send.php,v 1.35 2001/11/07 18:51:51 rossigee Exp $ -->

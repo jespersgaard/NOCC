@@ -1,5 +1,7 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Add htmlspecialchars to pre-filled fields in send.php
+	* Added safestrip, which works based on php.ini magic_quotes_gpc.
 	* Move previous strip slashes to before sending mail
 	* Strip slashes from body on reply.
 	* Prevented preferences from creating prefs/sig until user is
