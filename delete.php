@@ -1,6 +1,6 @@
 <?php 
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.17 2001/10/17 18:32:56 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.18 2001/10/19 10:34:25 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -21,7 +21,7 @@ if (isset($only_one) && ($only_one == 1))
 	imap_delete($pop, $mail, 0);
 else
 {
-	for ($i = 0; $i <= $num_messages; $i++)
+	for ($i = 1; $i <= $num_messages; $i++)
 	{
 		$delete_this_one = $HTTP_POST_VARS["msg-".$i];
 		if ($delete_this_one == "Y")
