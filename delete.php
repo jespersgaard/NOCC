@@ -1,6 +1,6 @@
 <?php 
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.32 2002/04/16 00:51:28 mrylander Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.33 2002/04/17 21:22:56 mrylander Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -16,9 +16,6 @@ session_register ('user', 'passwd');
 require_once './conf.php';
 require_once './functions.php';
 require_once './class_local.php';
-
-require('./html/header.php');
-echo "<pre>\n";
 
 $ev = "";
 $pop = new nocc_imap($servr, $folder, $login, safestrip($passwd), &$ev);
