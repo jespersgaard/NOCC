@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.96 2001/06/21 12:44:17 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.97 2001/06/21 16:18:45 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -325,7 +325,10 @@ function GetPart($this_part, $part_no, $display_rfc822)
 		if ($this_part->ifparameters)
 			while ($obj = array_pop($this_part->parameters))
 				if ($obj->attribute == 'CHARSET')
+				{
 					$charset = $obj->value;
+					break;
+				}
 		$tmp = Array(
 				'number' => ($part_no != '' ? $part_no : 1),
 				'id' => $this_part->ifid ? $this_part->id : 0,
@@ -383,7 +386,10 @@ function GetSinglePart($this_part, $header, $body)
 	if ($this_part->ifparameters)
 		while ($obj = array_pop($this_part->parameters))
 			if ($obj->attribute == 'CHARSET')
+			{
 				$charset = $obj->value;
+				break;
+			}
 	$tmp = Array(
 					'number' => 1,
 					'id' => $this_part->ifid ? $this_part->id : 0,

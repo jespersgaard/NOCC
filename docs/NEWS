@@ -1,5 +1,7 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Correct a problem with range when trying to get messages 
+	  charset (bug #432724)
 	* Correct a problem which prevented to add attachments when
 	  php was running in safe mode.
 	* Correct a problem with attachments when a Content-ID was
