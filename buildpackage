@@ -1,4 +1,27 @@
 #!/bin/sh
+#
+# buildpackage      Build a NOCC package for release
+#
+# Author:            Olivier Cahagne
+#
 
-tar cvf nocc-1.0.tar *
-gzip -9 nocc-1.0.tar
+if test $# -eq 0
+then
+  echo "Missing first parameter (name of package)"
+  echo "Usage: buildpackage <name of package>"
+  echo "Example: buildpackage nocc-0.9"
+  exit 0
+fi
+
+distname=`echo "$1"`
+myname=`basename \`pwd\`` 
+cd .. && cp -rp $myname $distname
+cd $distname
+cd ..
+tar cf $distname.tar $distname
+rm -rf $distname $distname.tar.*
+bzip2 -9 $distname.tar
+md5sum $distname.tar.bz2
+sync; sleep 2
+md5sum $distname.tar.bz2
+bzip2 -t $distname.tar.bz2
