@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: wolruf $
-	$Revision: 1.21 $
-	$Date: 2000/10/25 20:24:49 $
+	$Revision: 1.22 $
+	$Date: 2000/10/28 17:54:26 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -62,7 +62,7 @@ echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 								<td colspan="3" height="18"><font size="-3">&nbsp;</font></td>
 							</tr>
 							<tr valign="top"> 
-				               <td align="center" colspan="3" class="f"><b><? echo $html_welcome." ".$name." ".$version; ?></b></td>
+				               <td align="center" colspan="3" class="f"><b><? echo $html_welcome." ".$nocc_name." v".$nocc_version; ?></b></td>
 							</tr>
 							<tr> 
 								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
