@@ -6,6 +6,8 @@ require ("check_lang.php");
 $ip = getenv("REMOTE_ADDR");
 
 $mail = new mime_mail();
+$mail->smtp_server = $smtp_server;
+$mail->smtp_port = $smtp_port;
 $mail->from = $from;
 $mail->headers = "X-Originating-Ip: [".$ip."]\nX-Mailer: ".$version;
 $mail->to = $to;
@@ -23,7 +25,8 @@ if (file_exists($mail_att))
 	$file = fread(fopen($mail_att, "r"), filesize($mail_att));
 	$mail->add_attachment($file, get_filename($att_name), guess_mime_type($att_name), "base64");
 }
-$mail->send();
+	$mail->send();
+
 
 if ($is_standalone == 1)
 	Header ("Location: action.php");

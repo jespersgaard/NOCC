@@ -10,6 +10,8 @@ class mime_mail
 	var $headers;
 	var $subject;
 	var $body;
+	var $smtp_server;
+	var $smtp_port;
 
   /*
   *     void mime_mail()
@@ -102,8 +104,10 @@ class mime_mail
 	function send() 
 	{
 		$mime =  "";
-		if (!empty($this->from))
-			$mime .= "From: ".$this->from. "\nReply-To: ".$this->from."\nErrors-To: ".$this->from."\n";
+		if ($smtp_server != "" && !empty($this->from)) 
+			$mime .= "Reply-To: ".$this->from."\nErrors-To: ".$this->from."\n";
+		elseif (!empty($this->from))
+				$mime .= "From: ".$this->from. "\nReply-To: ".$this->from."\nErrors-To: ".$this->from."\n";
 		if (!empty($this->cc))
 			$mime .= "Cc: ".$this->cc."\n";
 		if (!empty($this->bcc))
@@ -120,7 +124,24 @@ class mime_mail
 			$this->add_attachment($this->body,  "",  "text/plain", "8bit");
 			$mime .= $this->build_body();
 		}
-		mail($this->to, $this->subject,  "", $mime);
+		if ($this->smtp_server == "" || $this->smtp_port == "")
+			mail($this->to, $this->subject,  "", $mime);
+		else
+		{
+			require("class_smtp.php");
+			if (($smtp = new smtp()) != 0)
+			{
+				$smtp->smtp_server = $this->smtp_server;
+				$smtp->port = $this->smtp_port;
+				$smtp->from = $this->from;
+				$smtp->to = $this->to;
+				$smtp->subject = $this->subject;
+				$smtp->data = $mime;
+				$smtp->send();
+			}
+			else
+				return 0;
+		}
 	}
 };  // end of class  
 ?>
