@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.25 2001/12/03 10:54:42 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.26 2001/12/03 10:57:15 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -11,7 +11,7 @@
  * Class based on a work from Unk <rgroesb_garbage@triple-it_garbage.nl>  
  */
 
-require_once ('exception.php');
+require_once 'exception.php';
 
 class smtp
 {

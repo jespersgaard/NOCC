@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.96 2002/02/18 10:19:12 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.97 2002/03/21 08:58:45 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -11,10 +11,10 @@
  * This file is the main file of NOCC each function starts from here
  */
 
-require_once ('./conf.php');
-require_once ('./check_lang.php');
-require_once ('./functions.php');
-require_once ('./prefs.php');
+require_once './conf.php';
+require_once './check_lang.php';
+require_once './functions.php';
+require_once './prefs.php';
 session_start();
 
 if (!session_is_registered('loggedin'))
@@ -88,7 +88,7 @@ switch (trim($action))
 		break;
 
 	case 'logout':
-		require_once ('./proxy.php');
+		require_once './proxy.php';
 		header("Location: ".$conf->base_url."logout.php?lang=$lang&amp;$php_session=".$$php_session);
 		break;
 

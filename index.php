@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.86 2002/03/21 10:28:26 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.87 2002/03/24 16:35:04 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,11 +13,11 @@ $conf->nocc_name = 'NOCC';
 $conf->nocc_version = '0.9.6-dev';
 $conf->nocc_url = 'http://nocc.sourceforge.net/';
 
-require_once ('./conf.php');
-require_once ('./check_lang.php');
-require_once ('./proxy.php');
+require_once './conf.php';
+require_once './check_lang.php';
+require_once './proxy.php';
 Header("Content-type: text/html; Charset=$charset");
-require_once ('./check.php');
+require_once './check.php';
 require ('./html/header.php');
 session_start();
 ?>

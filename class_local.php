@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.4 2002/02/18 09:59:39 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.5 2002/03/23 10:19:31 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,7 +12,7 @@
  * our own IMAP/POP3 classes in the future.
  */
 
-require_once ('exception.php');
+require_once 'exception.php';
 
 class nocc_imap
 {

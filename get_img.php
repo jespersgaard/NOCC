@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/get_img.php,v 1.16 2001/12/19 23:06:25 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/get_img.php,v 1.17 2002/02/09 20:25:03 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -10,8 +10,8 @@
  */
 
 session_register ('user', 'passwd');
-require_once ('./conf.php');
-require_once ('./functions.php');
+require_once './conf.php';
+require_once './functions.php';
 $passwd = safestrip($passwd);
 
 $ev = "";

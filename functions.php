@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.139 2002/03/11 23:14:25 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.140 2002/03/21 08:58:45 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,7 +9,7 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
 
-require_once('class_local.php');
+require_once 'class_local.php';
 
 $attach_tab = Array();
 
@@ -682,7 +682,7 @@ function go_back_index(&$attach_array, &$tmpdir, &$php_session, &$sort, &$sortdi
 	session_unregister('attach_array');
 	if ($redirect)
 	{
-		require_once ('./proxy.php');
+		require_once './proxy.php';
 		header("Location: ".$base_url."action.php?sort=$sort&amp;sortdir=$sortdir&amp;lang=$lang&amp;$php_session=" . $$php_session);
 	}
 }

@@ -1,9 +1,9 @@
 <?php
 
-require_once ('proxy.php');
+require_once 'proxy.php';
 header ("Content-type: text/html; Charset=$charset");
 
-require_once ('./prefs.php');
+require_once './prefs.php';
 $pref_email_address = getPref('email_address');
 
 $custom_header = './themes/' . $theme . '/header.php';

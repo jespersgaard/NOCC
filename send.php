@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.91 2002/03/21 08:58:45 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.92 2002/03/21 12:15:34 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,14 +9,14 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
 
-require_once ('./conf.php');
-require_once ('./check_lang.php');
-require_once ('./functions.php');
-require_once ('./prefs.php');
+require_once './conf.php';
+require_once './check_lang.php';
+require_once './functions.php';
+require_once './prefs.php';
 
 if (!session_is_registered('loggedin') && $loggedin)
 {
-	require_once ('./proxy.php');
+	require_once './proxy.php';
 	header('Location: ' . $conf->base_url . 'logout.php?lang=' . $lang . '&amp;' . $php_session . '='  . $$php_session);
 	return;
 }
@@ -28,8 +28,8 @@ if ($HTTP_SERVER_VARS['REQUEST_METHOD'] != 'POST')
 	go_back_index($attach_array, $conf->tmpdir, $php_session, $sort, $sortdir, $lang, true);
 else
 {
-	require_once ('./class_send.php');
-	require_once ('./class_smtp.php');
+	require_once './class_send.php';
+	require_once './class_smtp.php';
 
 	$mail_from = safestrip($mail_from);
 	$mail_to = safestrip($mail_to);

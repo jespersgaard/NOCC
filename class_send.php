@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.46 2002/01/29 11:24:52 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.47 2002/02/09 20:25:01 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,7 +9,7 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
 
-require_once ('exception.php');
+require_once 'exception.php';
 
 class mime_mail 
 {

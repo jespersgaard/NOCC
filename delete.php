@@ -1,6 +1,6 @@
 <?php 
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.27 2002/02/09 20:25:01 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.28 2002/03/21 08:58:45 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,9 +12,9 @@
  */
 
 session_register ('user', 'passwd');
-require_once ('./conf.php');
-require_once ('./functions.php');
-require_once ('./class_local.php');
+require_once './conf.php';
+require_once './functions.php';
+require_once './class_local.php';
 
 $ev = "";
 $pop = new nocc_imap('{' . $servr . '}INBOX', $login, safestrip($passwd), &$ev);
@@ -41,6 +41,6 @@ $pop->close();
 
 // Redirect user to index
 // TODO: redirect user to next message
-require_once ('./proxy.php');
+require_once './proxy.php';
 header('Location: ' . $conf->base_url . "action.php?sort=$sort&amp;sortdir=$sortdir&amp;lang=$lang&amp;$php_session=" . $$php_session);
 ?>

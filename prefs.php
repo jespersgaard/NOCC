@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.14 2001/11/30 18:39:13 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.15 2001/12/19 21:12:55 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,7 +9,7 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
 
-require_once ('exception.php');
+require_once 'exception.php';
 
 if (!session_is_registered('prefs_are_cached'))
 {
