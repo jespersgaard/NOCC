@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.113 2002/04/24 14:43:09 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.114 2002/04/24 14:47:59 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -138,7 +138,6 @@ switch (trim($action))
         $mail_body .= "\r\n\r\n" . $prefs_signature;
 
         // We add the attachments of the original message
-        //list($num_attach, $attach_array) = save_attachment($mail, $tmpdir);
         require ('./html/header.php');
         require ('./html/menu_inbox.php');
         require ('./html/send.php');
@@ -171,7 +170,6 @@ switch (trim($action))
         $mail_body .= "\r\n".$prefs_signature;
 
         // We add the attachments of the original message
-        //list($num_attach, $attach_array) = save_attachment($mail, $tmpdir);
         require ('./html/header.php');
         require ('./html/menu_inbox.php');
         require ('./html/send.php');
@@ -193,8 +191,8 @@ switch (trim($action))
         // Add signature
         $mail_body .= "\r\n".$prefs_signature;
 
-    // Let send.php know to attach the original message
-    $forward_msgnum = $mail;
+        // Let send.php know to attach the original message
+        $forward_msgnum = $mail;
 
         // We add the attachments of the original message
         list($num_attach, $attach_array) = save_attachment($mail, $tmpdir);
