@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.28 2003/12/21 15:40:20 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.29 2004/06/13 16:53:31 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -113,7 +113,7 @@ class nocc_imap
         return $headers;
     }
 
-    // From what I can find, this will not work on Cyrus imap servers.
+    // From what I can find, this will not work on Cyrus imap servers .
     // [I will test this, I use Cyrus IMAP - Ross]
     function deletemailbox(&$old_box, &$ev) {
         if(!imap_deletemailbox($this->conn, '{'.$this->server.'}'.$old_box)) {

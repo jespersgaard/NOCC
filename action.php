@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.146 2004/03/04 19:22:29 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.147 2004/06/13 16:53:31 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -262,7 +262,7 @@ switch($action)
                 if ($_REQUEST['removeoldbox']) {
                     // Don't want to remove, just unsubscribe.
                     //$pop->deletemailbox($removeoldbox, $ev);
-                    //if(NoccException::isException($ev)) break;
+                    //if(NoccException::isException($ev)) break ;
                     $pop->unsubscribe($_REQUEST['removeoldbox'], $ev);
                     if(NoccException::isException($ev)) break;
                 }
