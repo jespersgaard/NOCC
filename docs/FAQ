@@ -1,6 +1,6 @@
 Frequently Asked Questions for Nocc
 -----------------------------------
-Last updated: $Date: 2001/06/07 21:30:18 $
+Last updated: $Date: 2001/06/19 09:20:55 $
 
  Q. Nocc keeps me asking for a correct login/password.
 
@@ -130,3 +130,37 @@ Last updated: $Date: 2001/06/07 21:30:18 $
  A. If you're running NOCC on Windows, we recommend you to set
     an SMTP server in conf.php as php mail() function on windows
     has some strange behaviour.
+
+-----------------------------------
+
+ Q. I get this error when reading e-mails, randomly:
+    'Invalid Range End at line 450 in functions.php'
+
+ A. This bug seems to occur mainly on Linux systems when PHP was compiled
+    using '--with-regex=system'. And perhaps Windows systems but we
+    couldn't isolate one.
+    PHP developers believe this is a bug in system's regexp libraries:
+    http://bugs.php.net/?id=15486
+
+    If you can recompile PHP, then recompile it without this option.
+    If you cannot recompile PHP, then comment out the following line in
+    functions.php starting with:
+
+    [...]
+    elseif (eregi('plain', $mime))
+     {
+       [1 line deleted]
+       // Bug #511302: Comment out if you have the 'Invalid Range End' problem
+       $body = eregi_replace("([#a-zA-Z0-9+-._]*)@([#a-zA-Z0-9+-_.]*)
+    [...]
+
+    If you cannot find it or if the line number is not the same, search for
+    the following comment in the code:
+    // Bug #511302: Comment out if you have the 'Invalid Range End' problem
+
+    This is used to create NOCC links when it recnognizes an e-mail address
+    so that clicking on the link gives you the NOCC send form.
+
+    We need help to identify more platforms where this bug occurs, you can
+    find a reproducible testcase here:
+    http://sf.net/tracker/?func=detail&aid=511302&group_id=12177&atid=112177

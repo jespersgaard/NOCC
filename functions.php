@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.133 2002/02/09 20:25:01 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.134 2002/02/09 20:35:37 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -436,6 +436,7 @@ function remove_stuff($body, $lang, $mime)
 	elseif (eregi('plain', $mime))
 	{
 		$body = eregi_replace("(http|https|ftp)://([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)","<a href=\"\\1://\\2\" target=\"_blank\">\\1://\\2</a>", $body);
+		// Bug #511302: Comment out following line if you have the 'Invalid Range End' problem
 		$body = eregi_replace("([#a-zA-Z0-9+-._]*)@([#a-zA-Z0-9+-_.]*)\.([a-zA-Z]+)","<a href=\"$PHP_SELF?action=write&mail_to=\\1@\\2.\\3&lang=$lang&$php_session=$sessid\">\\1@\\2.\\3</a>", $body);
 		$body = nl2br($body);
 		if (function_exists('wordwrap'))
