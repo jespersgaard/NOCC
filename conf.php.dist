@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.2 2000/12/28 14:55:37 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.3 2000/12/28 15:50:21 nicocha Exp $
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -148,8 +148,8 @@ if ($servr == "" && $server != "" && $servtype != "" && $port != "")
 		$servr = $server."/".strtoupper($servtype).":".$port;
 		$domain = $server;
 }
-if (empty($sort))
+if (!ISSET($sort))
 	$sort = $default_sort;
-if (empty($sortdir))
+if (!ISSET($sortdir))
 	$sortdir = $default_sortdir;
 ?>

@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.30 2000/12/28 15:46:27 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.31 2001/01/15 19:28:37 nicocha Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -18,7 +18,7 @@ session_destroy();
 <HEAD>
 <TITLE>NOCC - Webmail</TITLE>
 <META http-equiv="pragma" content="no-cache">
-<META content="text/html; charset=<? echo $charset ?>" http-equiv="Content-Type">
+<META http-equiv="Content-Type" content="text/html; charset=<? echo $charset ?>">
 <LINK href="style.css" rel="stylesheet">
 <script type="text/javascript">
 function updatePort () {
@@ -41,29 +41,36 @@ echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 <table border="0" width="100%" height="100%">
 	<tr>
 		<td align="center" valign="middle">
-			<table bgcolor="<? echo $login_border ?>" border="0" cellpadding="1" cellspacing="0" width="428" align="center">
+			<table bgcolor="<? echo $login_border ?>" border="0" cellpadding="1" cellspacing="0" width="428" 
+align="center">
 				<tr> 
 					<td valign="bottom"> 
-						<table bgcolor="<? echo $login_box_bgcolor ?>" border="0" cellpadding="0" cellspacing="0" width="428">
+						<table bgcolor="<? echo $login_box_bgcolor ?>" border="0" cellpadding="0" 
+cellspacing="0" width="428">
 							<tr> 
 								<td colspan="3" height="18"><font size="-3">&nbsp;</font></td>
 							</tr>
 							<tr> 
 								<td colspan="3" align="center">
-								<a href="<? echo $PHP_SELF ?>?lang=fr"><img src="img/fr.png" border="0" height="12" width="12" ALT="<? echo $alt_fr ?>"></a>
+								<a href="<? echo $PHP_SELF ?>?lang=fr"><img src="img/fr.png" border="0" 
+height="12" width="12" ALT="<? echo $alt_fr ?>"></a>
 								&nbsp;
-								<a href="<? echo $PHP_SELF ?>?lang=en"><img src="img/uk.png" border="0" height="12" width="12" ALT="<? echo $alt_en ?>"></a>
+								<a href="<? echo $PHP_SELF ?>?lang=en"><img src="img/uk.png" border="0" 
+height="12" width="12" ALT="<? echo $alt_en ?>"></a>
 								&nbsp;
-								<a href="<? echo $PHP_SELF ?>?lang=de"><img src="img/de.png" border="0" height="12" width="12" ALT="<? echo $alt_de ?>"></a>
+								<a href="<? echo $PHP_SELF ?>?lang=de"><img src="img/de.png" border="0" 
+height="12" width="12" ALT="<? echo $alt_de ?>"></a>
 								&nbsp;
-								<a href="<? echo $PHP_SELF ?>?lang=es"><img src="img/es.png" border="0" height="12" width="12" ALT="<? echo $alt_es ?>"></a>
+								<a href="<? echo $PHP_SELF ?>?lang=es"><img src="img/es.png" border="0" 
+height="12" width="12" ALT="<? echo $alt_es ?>"></a>
 								</td>
 							</tr>
 							<tr> 
 								<td colspan="3" height="18"><font size="-3">&nbsp;</font></td>
 							</tr>
 							<tr valign="top"> 
-				               <td align="center" colspan="3" class="f"><b><? echo $html_welcome." ".$nocc_name." v".$nocc_version; ?></b></td>
+				               <td align="center" colspan="3" class="f"><b><? echo $html_welcome." 
+".$nocc_name." v".$nocc_version; ?></b></td>
 							</tr>
 							<tr> 
 								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
@@ -76,7 +83,8 @@ echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 									<?
 									if ($servr != "" && $domain != "")
 									{ ?>
-										@<select name="domain"><option value=""><? echo $domain ?></option></select>
+										@<select name="domain"><option value=""><? echo $domain 
+?></option></select>
 									<?
 									}
 									?>
@@ -130,14 +138,17 @@ echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 							if (!(extension_loaded('imap')))
 							{ ?>
 							<tr>
-								<td colspan="3" height="12"><font color="red"><b>The IMAP module does not seem to be installed on this PHP setup, please see Nocc's documentation.</b></font></td>
+								<td colspan="3" height="12"><font color="red"><b>The IMAP module does not seem 
+to be installed on this PHP setup, please see Nocc's 
+documentation.</b></font></td>
 							</tr>
 							<? }
 							if (floor(phpversion()) == 3)
 							{
 							?>
 							<tr>
-								<td colspan="3" height="12"><font color="red"><b>You seem to be running PHP 3, you need PHP 4 at least to run Nocc.</b></font></td>
+								<td colspan="3" height="12"><font color="red"><b>You seem to be running PHP 3, 
+you need PHP 4 at least to run Nocc.</b></font></td>
 							</tr>
 							<? } ?>
 						</table>
@@ -153,7 +164,8 @@ echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 	</td>
 </tr>
 <tr>
-	<td align="center" colspan="2"><a href="http://nocc.sourceforge.net/" target="_blank"><img src="img/button.png" border="0" height="31" width="88" alt="Powered by NOCC"></a></td>
+	<td align="center" colspan="2"><a href="http://nocc.sourceforge.net/" target="_blank"><img 
+src="img/button.png" border="0" height="31" width="88" alt="Powered by NOCC"></a></td>
 </tr>
 </table>
 </form>
