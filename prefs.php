@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.15 2001/12/19 21:12:55 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.16 2002/03/24 16:45:26 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,172 +13,172 @@ require_once 'exception.php';
 
 if (!session_is_registered('prefs_are_cached'))
 {
-	$prefs_are_cached = false;
-	$prefs_cache = array();
-	session_register('prefs_cache');
-	session_register('prefs_are_cached');
+    $prefs_are_cached = false;
+    $prefs_cache = array();
+    session_register('prefs_cache');
+    session_register('prefs_are_cached');
 }
 
 function cachePrefValues($username)
 {
-	global $conf, $prefs_are_cached, $prefs_cache;
-	
-	if (!$conf->prefs_dir)
-		return;
-	if ($prefs_are_cached)
-		return;
-	
-	$filename = $conf->prefs_dir . $username . '.pref';
-	if (file_exists($filename))
-	{
-		$file = fopen($filename, 'r');
-		if(!$file)
-		{
-			error_log("Could not open $filename for reading.");
-			return;
-		}
-		
-		/** read in all the preferences **/
-		$highlight_num = 0;
-		while (! feof($file))
-		{
-			$pref = trim(fgets($file, 1024));
-			$equalsAt = strpos($pref, '=');
-			if ($equalsAt > 0)
-			{
-				$Key = substr($pref, 0, $equalsAt);
-				$Value = substr($pref, $equalsAt + 1);
-				if (substr($Key, 0, 9) == 'highlight')
-				{
-					$Key = 'highlight' . $highlight_num;
-					$highlight_num ++;
-				}
-				if ((substr($Key, 0, 6) == 'leadin') ||
-				    (substr($Key, 0, 9) == 'signature'))
-				$Value = base64_decode($Value);
+    global $conf, $prefs_are_cached, $prefs_cache;
+    
+    if (!$conf->prefs_dir)
+        return;
+    if ($prefs_are_cached)
+        return;
+    
+    $filename = $conf->prefs_dir . $username . '.pref';
+    if (file_exists($filename))
+    {
+        $file = fopen($filename, 'r');
+        if(!$file)
+        {
+            error_log("Could not open $filename for reading.");
+            return;
+        }
+        
+        /** read in all the preferences **/
+        $highlight_num = 0;
+        while (! feof($file))
+        {
+            $pref = trim(fgets($file, 1024));
+            $equalsAt = strpos($pref, '=');
+            if ($equalsAt > 0)
+            {
+                $Key = substr($pref, 0, $equalsAt);
+                $Value = substr($pref, $equalsAt + 1);
+                if (substr($Key, 0, 9) == 'highlight')
+                {
+                    $Key = 'highlight' . $highlight_num;
+                    $highlight_num ++;
+                }
+                if ((substr($Key, 0, 6) == 'leadin') ||
+                    (substr($Key, 0, 9) == 'signature'))
+                $Value = base64_decode($Value);
 
-				if ($Value != '')
-					$prefs_cache[$Key] = $Value;
-			}
-		}
-		fclose($file);
-	}
+                if ($Value != '')
+                    $prefs_cache[$Key] = $Value;
+            }
+        }
+        fclose($file);
+    }
 
-	$prefs_are_cached = true;
+    $prefs_are_cached = true;
 }
    
    
 /** returns the value for $string **/
 function getPref($string)
 {
-	global $conf, $user, $domain, $prefs_cache;
-	
-	$username = $user.'@'.$domain;
-	cachePrefValues($username);
-	  
-	if (isset($prefs_cache[$string]))
-		return ($prefs_cache[$string]);
-	return ('');
+    global $conf, $user, $domain, $prefs_cache;
+    
+    $username = $user.'@'.$domain;
+    cachePrefValues($username);
+      
+    if (isset($prefs_cache[$string]))
+        return ($prefs_cache[$string]);
+    return ('');
 }
 
 
 function savePrefValues($username)
 {
-	global $conf, $prefs_cache, $html_prefs_file_error;
+    global $conf, $prefs_cache, $html_prefs_file_error;
 
-	$filename = $conf->prefs_dir . $username . '.pref';
-	if(file_exists($filename) && !is_writable($filename))
-		return (new Exception($html_prefs_file_error));
-	$file = fopen($filename, 'w');
-	if(!$file)
-		return (new Exception($html_prefs_file_error));
-	foreach ($prefs_cache as $Key => $Value)
-	{
-		if (isset($Value)) {
-			if (($Key == 'leadin') || ($Key == 'signature'))
-				$Value = base64_encode($Value);
-			fwrite($file, $Key . '=' . $Value . "\n");
-		}
-	}
-	fclose($file);
+    $filename = $conf->prefs_dir . $username . '.pref';
+    if(file_exists($filename) && !is_writable($filename))
+        return (new Exception($html_prefs_file_error));
+    $file = fopen($filename, 'w');
+    if(!$file)
+        return (new Exception($html_prefs_file_error));
+    foreach ($prefs_cache as $Key => $Value)
+    {
+        if (isset($Value)) {
+            if (($Key == 'leadin') || ($Key == 'signature'))
+                $Value = base64_encode($Value);
+            fwrite($file, $Key . '=' . $Value . "\n");
+        }
+    }
+    fclose($file);
 }
 
 
 function removePref($username, $string)
 {
-	global $prefs_cache;
-	  
-	cachePrefValues($username);
-	if (isset($prefs_cache[$string]))
-		unset($prefs_cache[$string]);
-	return (savePrefValues($username));
+    global $prefs_cache;
+      
+    cachePrefValues($username);
+    if (isset($prefs_cache[$string]))
+        unset($prefs_cache[$string]);
+    return (savePrefValues($username));
 }
    
 
 /** sets the pref, $string, to $set_to **/
 function setPref($string, $set_to)
 {
-	global $conf, $user, $domain, $prefs_cache;
+    global $conf, $user, $domain, $prefs_cache;
 
-	$username = $user.'@'.$domain;
-	cachePrefValues($username);
-	if (isset($prefs_cache[$string]) && $prefs_cache[$string] == $set_to)
-		return;
-	if ($set_to === '')
-	{
-		removePref($username, $string);
-		return;
-	}
-	$prefs_cache[$string] = $set_to;
-	return savePrefValues($username);
+    $username = $user.'@'.$domain;
+    cachePrefValues($username);
+    if (isset($prefs_cache[$string]) && $prefs_cache[$string] == $set_to)
+        return;
+    if ($set_to === '')
+    {
+        removePref($username, $string);
+        return;
+    }
+    $prefs_cache[$string] = $set_to;
+    return savePrefValues($username);
 }
 
 /** [Remove in NOCC-1.0] Writes the Signature **/
 function setSig($string)
 {
-	global $conf, $user, $domain, $html_sig_file_error;
+    global $conf, $user, $domain, $html_sig_file_error;
 
-	$username = $user . '@' . $domain;
-	$filename = $conf->prefs_dir . $username . '.sig';
-	if(file_exists($filename) && !is_writable($filename))
-		return new Exception($html_sig_file_error);
-	$file = fopen($filename, 'w');
-	if(!$file)
-		return new Exception($html_sig_file_error);
-	fwrite($file, $string);
-	fclose($file);
+    $username = $user . '@' . $domain;
+    $filename = $conf->prefs_dir . $username . '.sig';
+    if(file_exists($filename) && !is_writable($filename))
+        return new Exception($html_sig_file_error);
+    $file = fopen($filename, 'w');
+    if(!$file)
+        return new Exception($html_sig_file_error);
+    fwrite($file, $string);
+    fclose($file);
 }
 
 /** [Remove in NOCC-1.0] Gets the signature **/
 function getSig()
 {
-	global $conf, $user, $domain;
-	$username = $user.'@'.$domain;
-	$filename = $conf->prefs_dir . $username . '.sig';
-	$sig = '';
-	if (file_exists($filename))
-	{
-		$file = fopen($filename, 'r');
-		if(!$file)
-		{
-			error_log("Could not open $filename for reading.");
-			return ('');
-		}
-		while (!feof($file))
-			$sig .= fgets($file, 1024);
-		fclose($file);
-	}
-	return ($sig);
+    global $conf, $user, $domain;
+    $username = $user.'@'.$domain;
+    $filename = $conf->prefs_dir . $username . '.sig';
+    $sig = '';
+    if (file_exists($filename))
+    {
+        $file = fopen($filename, 'r');
+        if(!$file)
+        {
+            error_log("Could not open $filename for reading.");
+            return ('');
+        }
+        while (!feof($file))
+            $sig .= fgets($file, 1024);
+        fclose($file);
+    }
+    return ($sig);
 }
 
 /** [Remove in NOCC-1.0] Deletes the signature **/
 function deleteSig()
 {
-	global $conf, $user, $domain;
-	$username = $user.'@'.$domain;
-	$filename = $conf->prefs_dir . $username . '.sig';
-	if (file_exists($filename))
-		unlink($filename);
+    global $conf, $user, $domain;
+    $username = $user.'@'.$domain;
+    $filename = $conf->prefs_dir . $username . '.sig';
+    if (file_exists($filename))
+        unlink($filename);
 }
 
 /** Format Reply Leadin **/

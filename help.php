@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/help.php,v 1.8 2001/10/19 10:34:25 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/help.php,v 1.9 2002/03/24 16:45:26 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -8,7 +8,6 @@
  * See the enclosed file COPYING for license information (GPL).  If you
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
-
 
 require_once './conf.php';
 require_once './check_lang.php';

@@ -1,6 +1,6 @@
 <?php 
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.28 2002/03/21 08:58:45 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.29 2002/03/24 16:45:26 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -19,22 +19,22 @@ require_once './class_local.php';
 $ev = "";
 $pop = new nocc_imap('{' . $servr . '}INBOX', $login, safestrip($passwd), &$ev);
 if($ev) {
-	echo "<p class=\"error\">".$ev->getMessage()."</p>";
-	return;
+    echo "<p class=\"error\">".$ev->getMessage()."</p>";
+    return;
 }
 
 $num_messages = $pop->num_msg();
 
 if (isset($only_one) && ($only_one == 1))
-	$pop->delete($mail);
+    $pop->delete($mail);
 else
 {
-	for ($i = 1; $i <= $num_messages; $i++)
-	{
-		$delete_this_one = $HTTP_POST_VARS['msg-' . $i];
-		if ($delete_this_one == 'Y')
-			$pop->delete($i);
-	}
+    for ($i = 1; $i <= $num_messages; $i++)
+    {
+        $delete_this_one = $HTTP_POST_VARS['msg-' . $i];
+        if ($delete_this_one == 'Y')
+            $pop->delete($i);
+    }
 }
 
 $pop->close();

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/get_img.php,v 1.17 2002/02/09 20:25:03 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/get_img.php,v 1.18 2002/03/24 16:45:26 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -17,15 +17,15 @@ $passwd = safestrip($passwd);
 $ev = "";
 $pop = new nocc_imap('{' . $servr . '}INBOX', $login, safestrip($passwd), &$ev);
 if($ev) {
-	echo "<p class=\"error\">".$ev->getMessage()."</p>";
-	return;
+    echo "<p class=\"error\">".$ev->getMessage()."</p>";
+    return;
 }
 
 $img = $pop->fetchbody($mail, $num);
 if ($transfer == 'BASE64')
-	$img = base64_decode($img);
+    $img = base64_decode($img);
 elseif ($transfer == 'QUOTED-PRINTABLE')
-	$img = nocc_imap::qprint($img);
+    $img = nocc_imap::qprint($img);
 $pop->close();
 
 header('Content-type: image/'.$mime);

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.26 2002/02/09 20:25:01 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.27 2002/03/24 16:45:26 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,7 +12,7 @@
  */
 
 if (eregi('MSIE', $HTTP_USER_AGENT) || eregi('Internet Explorer', $HTTP_USER_AGENT))
-	session_cache_limiter('public');
+    session_cache_limiter('public');
 session_start();
 require_once './conf.php';
 require_once './functions.php';
@@ -23,22 +23,22 @@ $passwd = safestrip($passwd);
 header('Content-Type: application/x-unknown-' . $mime);
 // IE 5.5 is weird, the line is not correct but it works
 if (eregi('MSIE', $HTTP_USER_AGENT) && eregi('5.5', $HTTP_USER_AGENT))
-	header('Content-Disposition: filename=' . urldecode($filename));
+    header('Content-Disposition: filename=' . urldecode($filename));
 else
-	header('Content-Disposition: attachment; filename=' . urldecode($filename));
+    header('Content-Disposition: attachment; filename=' . urldecode($filename));
 
 $pop = new nocc_imap('{'.$servr.'}'.$folder, $login, $passwd, &$ev);
 if($ev) {
-	echo "<p class=\"error\">".$ev->getMessage()."</p>";
-	return;
+    echo "<p class=\"error\">".$ev->getMessage()."</p>";
+    return;
 }
 
 $file = $pop->fetchbody($mail, $part);
 
 if ($transfer == 'BASE64')
-	$file = nocc_imap::base64($file);
+    $file = nocc_imap::base64($file);
 elseif($transfer == 'QUOTED-PRINTABLE')
-	$file = nocc_imap::qprint($file);
+    $file = nocc_imap::qprint($file);
 
 $pop->close();
 

@@ -15,7 +15,7 @@ class Exception
     function Exception($message = "unknown error")
     {
         $this->message = $message;
-	}
+    }
 
     function getMessage ()
     {
