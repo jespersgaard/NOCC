@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.102 2002/04/24 21:58:06 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.103 2002/04/28 21:24:06 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -24,10 +24,10 @@ $conf->default_smtp_port = 25;
 // List of domains people can log in
 // You can have as many domains as you need
 
-// $conf->domains[0]->domain = 'sourceforge.net';
+// $conf->domains[$i]->domain = 'sourceforge.net';
 //  domain name e.g 'sourceforge.net'. This field is used when sending message
 //
-// $conf->domains[0]->in = 'mail.sourceforge.net:110/pop3';
+// $conf->domains[$i]->in = 'mail.sourceforge.net:110/pop3';
 //  imap or pop3 server name + port + protocol (only if not imap)
 //  [server_name]:[port number]/[protocol]
 //  ex for an imap server : mail.sourceforge.net:143
@@ -38,34 +38,39 @@ $conf->default_smtp_port = 25;
 //  ex for an ssl pop3 server with a self-signed certificate : mail.sourceforge.net:995/pop3/ssl/novalidate-cert
 //  protocol can only be pop3
 //
-// $conf->domains[0]->smtp = 'smtp.isp.com';
+// $conf->domains[$i]->smtp = 'smtp.isp.com';
 //  Optional: smtp server name or IP address
 //  Leave empty to send mail via sendmail
 //
-// $conf->domains[0]->smtp_port = 25;
+// $conf->domains[$i]->smtp_port = 25;
 //  Port number to connect to smtp server (usually 25)
 
-$conf->domains[0]->domain = '';
-$conf->domains[0]->in = '';
-$conf->domains[0]->smtp = '';
-$conf->domains[0]->smtp_port = 25;
+$i = 0;
+
+$i++;
+$conf->domains[$i]->domain = '';
+$conf->domains[$i]->in = '';
+$conf->domains[$i]->smtp = '';
+$conf->domains[$i]->smtp_port = 25;
 // Uncomment for 'user@domain.com' style logins
-//$conf->domains[0]->login_with_domain = 1;
+//$conf->domains[$i]->login_with_domain = 1;
 
 // If you want to add more domains, uncomment the following
 // lines and fill them in
 
-//$conf->domains[1]->domain = '';
-//$conf->domains[1]->in = '';
-//$conf->domains[1]->smtp = '';
-//$conf->domains[1]->smtp_port = 25;
-//$conf->domains[1]->login_with_domain = 1;
+//$i++;
+//$conf->domains[$i]->domain = '';
+//$conf->domains[$i]->in = '';
+//$conf->domains[$i]->smtp = '';
+//$conf->domains[$i]->smtp_port = 25;
+//$conf->domains[$i]->login_with_domain = 1;
 
-//$conf->domains[2]->domain = '';
-//$conf->domains[2]->in = '';
-//$conf->domains[2]->smtp = '';
-//$conf->domains[2]->smtp_port = 25;
-//$conf->domains[2]->login_with_domain = 1;
+//$i++;
+//$conf->domains[$i]->domain = '';
+//$conf->domains[$i]->in = '';
+//$conf->domains[$i]->smtp = '';
+//$conf->domains[$i]->smtp_port = 25;
+//$conf->domains[$i]->login_with_domain = 1;
 
 // Is the user allowed to change his "From:" address? (true/false)
 $allow_address_change = true;
