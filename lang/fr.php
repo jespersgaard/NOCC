@@ -90,7 +90,7 @@ $original_msg = "-- Message Original --";
 $to_empty = "Le champ 'A' ne doit pas &ecirc;tre vide !";
 
 
-$version = "NOCC Webmail v1.0";
+$version = "v1.0";
 $name = "NOCC Webmail";
 
 $ad = "\n\n________________________________________________________________________\nNOCC, votre bureau &agrave; port&eacute;e de clic : http://nocc.sourceforge.net";
