@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.62 2001/02/20 20:39:02 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.63 2001/02/23 09:31:57 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -116,12 +116,14 @@ function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort
 	// Finding the next and previous message number
 	$sorted = imap_sort($pop, $sort, $sortdir);
 	for ($i = 0; $i < sizeof($sorted); $i++)
+	{
 		if ($mail == $sorted[$i])
 		{
 			$prev_msg = $sorted[$i - 1];
 			$next_msg = $sorted[$i + 1];
 			break;
 		}
+	}
 	// END finding the next and previous message number
 	$num_messages = @imap_num_msg($pop);
 	$ref_contenu_message = @imap_header($pop, $mail);
