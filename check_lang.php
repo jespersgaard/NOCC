@@ -1,8 +1,8 @@
 <?
 /*
-	$Author$
-	$Revision$
-	$Date$
+	$Author: nicocha $
+	$Revision: 1.5 $
+	$Date: 2000/10/23 23:57:13 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -16,13 +16,20 @@
 /*
  This file set the language (default is browser language if it exists else it's $default_lang
 */
-
 if (!ISSET($lang))
 {
-	if (file_exists("lang/".$HTTP_ACCEPT_LANGUAGE.".php"))
-		$lang = $HTTP_ACCEPT_LANGUAGE;
+	$ar_lang = explode(",", $HTTP_ACCEPT_LANGUAGE);
+	while ($accept_lang = array_shift($ar_lang))
+	{
+		$tmp = explode(";", $accept_lang);
+		if (file_exists("lang/".$tmp[0].".php"))
+		{
+			$lang = $tmp[0];
+			break;
+		}
 	else
 		$lang = $default_lang;
+	}
 }
 require ("lang/".$lang.".php");
 ?>
