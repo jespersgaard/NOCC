@@ -1,6 +1,6 @@
 <?
 /*
- * $Header$
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php,v 1.25 2000/11/24 22:01:52 wolruf Exp $
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -133,7 +133,7 @@ $alt_fr = "Fran&ccedil;ais";
 $alt_en = "English";
 $alt_de = "Deutsch";
 
-$nocc_version = "0.9.1-dev";
+$nocc_version = "0.9.2-dev";
 $nocc_name = "NOCC";
 
 session_register("user", "passwd", "server", "servtype", "port");
