@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.80 2001/11/16 12:05:09 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.81 2001/11/16 12:19:35 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -111,9 +111,9 @@ switch (trim($action))
 		$mail_body .= "\r\n\r\n" . $prefs_signature;
 
 		// We add the attachments of the original message
-		list($num_attach, $attach_array) = save_attachment($servr, $user, $passwd, $folder, $mail, $tmpdir);
+		//list($num_attach, $attach_array) = save_attachment($servr, $user, $passwd, $folder, $mail, $tmpdir);
 		// Registering the attachments array into the session
-		session_register('num_attach', 'attach_array');
+		//session_register('num_attach', 'attach_array');
 		require ('./html/menu_inbox.php');
 		require_once ('./html/send.php');
 		require ('./html/menu_inbox.php');
@@ -137,9 +137,9 @@ switch (trim($action))
 		$mail_body .= "\r\n".$prefs_signature;
 
 		// We add the attachments of the original message
-		list($num_attach, $attach_array) = save_attachment($servr, $user, $passwd, $folder, $mail, $tmpdir);
+		//list($num_attach, $attach_array) = save_attachment($servr, $user, $passwd, $folder, $mail, $tmpdir);
 		// Registering the attachments array into the session
-		session_register('num_attach', 'attach_array');
+		//session_register('num_attach', 'attach_array');
 		require ('./html/menu_inbox.php');
 		require_once ('./html/send.php');
 		require ('./html/menu_inbox.php');
