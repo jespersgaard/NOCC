@@ -152,13 +152,7 @@ else
 			require ('./html/menu_inbox.php');
 			break;
 		default:
-			/* FIXME: Fix this properly! This is just a workaround to
-			   keep CVS functional and sane */
-			$ev = new PEAR_Error("Sorry! You currently need have Javascript enabled.");
-			require ('./html/header.php');
-			require ('./html/menu_inbox.php');
-			require ('./html/send_error.php');
-			require ('./html/menu_inbox.php');
+			go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $lang, true);
 			break;
 	}
 	require_once ('./html/footer.php');
