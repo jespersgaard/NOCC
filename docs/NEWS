@@ -10,44 +10,45 @@ NOCC 0.9.5	??   ??, 2001
 	* Strip slashes from body on reply.
 	* Prevented preferences from creating prefs/sig until user is
 	  properly logged in.
-	* Added error handling for prefs/sig file writing errors
+	* Added error handling for prefs/sig file writing errors.
 	* Fixed cut_addresses to handle addresses with quoted commas.
 	* Fixed various XHTML incompliances.
-	* Added the srpski jezik language.
-	* Updated Bulgarian translation.
 	* Added optional 'base_uri' configuration parameter (#463390)
 	* Added patch from Arno Bean to make checkbox labels clickable
 	  in prefs.
 	* Added tooltip for full e-mail address in message list.
 	* Moved 'select all' and 'delete' buttons, top and bottom.
 	* Added a 'send confirmed' page so user is sure mail was accepted.
-	* Present an error when sendaction has not been set (e.g javascript disabled)
+	* Present an error when sendaction has not been set (e.g javascript
+	  disabled).
 	* Replaced error_log calls with a sessionlog member in class_smtp.php
 	* Replaced PEAR::Error with simple Exception class.
-	* Strip slashes from user while logging in (#465418)
+	* Strip slashes from user while logging in (#465418).
 	* Bypassed redundant 'check_form' javascript method.
 	* Added 'outlook-style quoting' preference (#459461)
 	* Added config option to present delete icon as a button.
 	* Added 'hide addresses' preference (#471806).
 	* Moved inclusion of 'menu_inbox' so when the wrong password is
-	  supplied, it doesn't present options for 'Inbox', 'Preferences' etc
+	  supplied, it doesn't present options for 'Inbox', 'Preferences', etc.
 	* Removed restriction on the size of left/right arrow images.
 	* Added start/end identifier comments to html templates.
-	* Fixed several potential 'uninitialised variable' warnings
-	* Fixed order of session headers
+	* Fixed several potential 'uninitialised variable' warnings.
+	* Fixed order of session headers.
 	* Added error logging of file opening problems in prefs.php.
-	* Updated prefs.php to use domain in prefs filename (fixes #472923)
-	* Added logic patch for displaying images (from Colin Stephenson #427202).
+	* Updated prefs.php to use domain in prefs filename (fixes #472923).
+	* Added logic patch for displaying images (Colin Stephenson #427202).
 	* Added 'Loading image ...' message.
 	* Header displays email address from preferences, if available.
 	* Added 'CC self' preference to receive a copy of outgoing emails.
 	* Added './' in the path of all require, include and open calls,
-	  As we now use PEAR in php.ini include_path directive.
+	  As we now use PEAR in php.ini include_path directive (deprecated:
+	  see above, we don't use PEAR finally).
 	* Replace require() and include() with require_once() and include_once()
 	  when it was needed.
 	* Added logging of SMTP transactions, until all bugs fixed.
 	* Added send_error output page, to report SMTP problems to user.
-	* Used PEAR::Error for passing SMTP exceptions back to caller.
+	* Used PEAR::Error for passing SMTP exceptions back to caller
+	  (deprecated: we don't use PEAR finally).
 	* Disabled encode_mime in cut_addresses until it can be checked.
 	* Strip comments from e-mail addresses before using on RCPT in
 	  SMTP transactions (fixes bug #430367).
@@ -64,15 +65,14 @@ NOCC 0.9.5	??   ??, 2001
 	* Added a Theme tips section to the README.
 	* Made page header/footer theme-customisable.
 	* Added 'Select All' (patch #471732).
-	* Update Polish and Portuguese (pt.php) translations
-	  (from Jorge Silva).
 	* Fixed a problem with IE 6 (everything was centered).
 	* Fixed a bug which prevented to send email on RH7 with RPM version
 	  of PHP (bug #430069).
 	* Fixed long list of addresses not wrapped (bug #440905).
 	* In the send form, the user can now change his email address.
-	* Added Norwegian (Bokmal and Nynorsk), Turkish, Finnish,
-	  Bulgarian, translations.
+	* Added/Updated Norwegian (Bokmal and Nynorsk), Turkish, Finnish,
+	  Bulgarian, srpski jezik, Polsish, Portuguese (Jorge Silva)
+	  translations.
 	* Fixed a problem with some Linux installation which displayed
 	  an 'invalid range' error message (bug #432724).
 	* Fixed a problem which allowed people to send an e-mail without
