@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.57 2001/10/20 11:36:03 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.58 2001/10/21 16:05:14 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -54,14 +54,17 @@ switch (trim($action))
 			// If it's a text/plain, display it
 			if ((!eregi('ATTACHMENT', $tmp['disposition'])) && $display_text_attach && (eregi('text/plain', $tmp['mime'])))
 				echo '<hr />'.view_part($servr, $user, stripslashes($passwd), $folder, $mail, $tmp['number'], $tmp['transfer'], $tmp['charset'], $charset);
-			if ($display_img_attach && (eregi('image', $tmp['mime']) && ($tmp['id'] == '')))
+			if ($display_img_attach && (eregi('image', $tmp['mime']) && ($tmp['number'] != '')))
 			{
 				// if it's an image, display it
 				$img_type = array_pop(explode('/', $tmp['mime']));
 				if (eregi('JPEG', $img_type) || eregi('JPG', $img_type) || eregi('GIF', $img_type) || eregi ('PNG', $img_type))
 				{
 					echo '<hr />';
-					echo '<center><img src="get_img.php?'.$php_session.'='.$$php_session.'&amp;mail='.$mail.'&amp;folder='.$folder.'&amp;num='.$tmp['number'].'&amp;mime='.$img_type.'&amp;transfer='.$tmp['transfer'].'" /></center>';
+					echo '<center>';
+					echo '<p>'.$html_loading_image.' '.$tmp['name']."...</p>";
+					echo '<img src="get_img.php?'.$php_session.'='.$$php_session.'&amp;mail='.$mail.'&amp;folder='.$folder.'&amp;num='.$tmp['number'].'&amp;mime='.$img_type.'&amp;transfer='.$tmp['transfer'].'" />';
+					echo '</center>';
 				}
 			}
 		} 
