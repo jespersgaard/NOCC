@@ -34,6 +34,7 @@ function updatePort () {
 			<TD align="center">
 				<TABLE border="0" cellpadding="0" cellspacing="5" align="center">
 					<TR> 
+						<TD><INPUT type="text" name="user"></span></TD>
 						<TD>
 							<span class="f"><? echo $html_login ?>
 							<?
@@ -44,7 +45,6 @@ function updatePort () {
 							}
 							?>
 						</TD>
-						<TD><INPUT type="text" name="user"></span></TD>
 					</TR>
 					<TR> 
 						<TD><span class="f"><? echo $html_passwd ?></TD>
@@ -77,7 +77,8 @@ function updatePort () {
 						</TD>
 					</TR>
 				</TABLE>
-				&nbsp;<span class="s">© 2000 <a href="mailto:chalan_n@epita.fr">Nicolas Chalanset</a>. All rights reserved.</span> 
+				&nbsp;<span class="s">Powered by</span><br>
+				<a href="http://nocc.sourceforge.net"><img src="img/button.gif" border="0"></a>
 			</TD>
 		</TR>
 	</TABLE>
