@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.23 2001/02/08 22:30:22 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.24 2001/02/16 15:17:46 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -40,8 +40,9 @@ switch ($action)
 				$img_type = array_pop(explode("/", $tmp["mime"]));
 				if (eregi ("JPEG", $img_type) || eregi("JPG", $img_type) || eregi("GIF", $img_type) || eregi ("PNG", $img_type))
 				{
+					$php_session = ini_get("session.name");
 					echo "<hr />";
-					echo "<center><img src=\"get_img.php?mail=".$mail."&amp;folder=".$folder."&amp;num=".$tmp["number"]."&amp;mime=".$img_type."&amp;transfer=".$tmp["transfer"]."\" /></center>";
+					echo "<center><img src=\"get_img.php?".$php_session."=".$$php_session."&amp;mail=".$mail."&amp;folder=".$folder."&amp;num=".$tmp["number"]."&amp;mime=".$img_type."&amp;transfer=".$tmp["transfer"]."\" /></center>";
 				}
 			}
 		} 
