@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.55 2001/03/11 14:52:24 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.56 2001/03/16 14:04:33 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -17,12 +17,12 @@ Header("Content-type: text/html; Charset=$charset");
 
 if (floor(phpversion()) != 4)
 {
-	echo ("<font color=\"red\"><b>You don't seem to be running PHP 4, you need at least PHP 4 to run NOCC.</b></font><br /><br /><div align=\"center\"><img src=\"img/button.png\" width=\"88\" height=\"31\" alt=\"Powered by NOCC\" /></div>");
+	echo "<font color=\"red\"><b>You don't seem to be running PHP 4, you need at least PHP 4 to run NOCC.</b></font><br /><br /><div align=\"center\"><img src=\"img/button.png\" width=\"88\" height=\"31\" alt=\"Powered by NOCC\" /></div>";
 	exit;
 }
 if (!(extension_loaded('imap')))
 {
-	echo ("<font color=\"red\"><b>The IMAP module does not seem to be installed on this PHP setup, please see NOCC's documentation.</b></font><br /><br /><div align=\"center\"><img src=\"img/button.png\" width=\"88\" height=\"31\" alt=\"Powered by NOCC\" /></div>");
+	echo "<font color=\"red\"><b>The IMAP module does not seem to be installed on this PHP setup, please see NOCC's documentation.</b></font><br /><br /><div align=\"center\"><img src=\"img/button.png\" width=\"88\" height=\"31\" alt=\"Powered by NOCC\" /></div>";
 	exit;
 }
 ?>
@@ -121,25 +121,11 @@ function updateTheme()
 							</tr>
 							<?php
 							if ($domains[0]->in == "")
-							{ ?>
-							<tr>
-								<td align="right" class="f">
-									<?php echo $html_server ?>
-								</td>
-								<td><font size="-3">&nbsp;</font></td>
-								<td class="f">
-									<input type="text" name="server" value="mail.example.com" size="15" /><br />
-									<input type="text" size="4" name="port" value="143" />
-									<select name="servtype" onchange="updatePort()">
-										<option value="imap">IMAP</option>
-										<option value="pop3">POP3</option>
-									</select>
-								</td>
-							</tr>
-							<tr> 
-								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
-							</tr>
-							<?php
+							{
+								echo "<tr><td align=\"right\" class=\"f\">".$html_server."</td>";
+								echo "<td><font size=\"-3\">&nbsp;</font></td>";
+								echo "<td class=\"f\"><input type=\"text\" name=\"server\" value=\"mail.example.com\" size=\"15\" /><br />input type=\"text\" size=\"4\" name=\"port\" value=\"143\" /><select name=\"servtype\" onchange=\"updatePort()\"><option value=\"imap\">IMAP</option><option value=\"pop3\">POP3</option></select></td>";
+								echo "</tr><tr><td colspan=\"3\" height=\"12\"><font size=\"-3\">&nbsp;</font></td></tr>";
 							}
 							?>
 							<tr>
@@ -147,51 +133,41 @@ function updateTheme()
 								<td><font size="-3">&nbsp;</font></td>
 								<td class="f">
 									<?php
-										echo ("<select name=\"lang\" onchange=\"updateLang()\">");
+										echo "<select name=\"lang\" onchange=\"updateLang()\">";
 										for ($i = 0; $i < sizeof($lang_array); $i++)
 											if (file_exists("lang/".$lang_array[$i]->filename.".php"))
 											{
-												echo ("<option value=\"".$lang_array[$i]->filename."\"");
+												echo "<option value=\"".$lang_array[$i]->filename."\"";
 												if ($lang == $lang_array[$i]->filename)
-													echo (" selected=\"selected\"");
-												echo (">".$lang_array[$i]->label."</option>");
+													echo " selected=\"selected\"";
+												echo ">".$lang_array[$i]->label."</option>";
 											}
-										echo ("</select>");
+										echo "</select>";
 									?>
 								</td>
 							</tr>
 							<tr> 
 								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
 							</tr>
-							<?php if ($use_theme == true) { ?>
-							<tr>
-								<td align="right" class="f">
-									<?php echo $html_theme ?>
-								</td>
-								<td><font size="-3">&nbsp;</font></td>
-								<td class="f">
-									<?php
-										echo ("<select name=\"theme\" onchange=\"updateTheme()\">");
-										$handle = opendir("./themes");
-										while (($file = readdir($handle)) != false) 
-										{
-											if (($file != ".") && ($file != ".."))
-											{
-												echo ("<option value=\"".$file."\"");
-												if ($file == $theme)
-														echo (" selected=\"selected\"");
-												echo (">".$file."</option>");
-											}
-										}
-										closedir($handle); 
-										echo ("</select>");
-									?>
-								</td>
-							</tr>
-							<tr>
-								<td colspan="3">&nbsp;</td>
-							</tr>
-							<?php } ?>
+							<?php if ($use_theme == true) 
+							{
+								echo "<tr><td align=\"right\" class=\"f\">".$html_theme."</td><td><font size=\"-3\">&nbsp;</font></td><td class=\"f\">";
+								echo "<select name=\"theme\" onchange=\"updateTheme()\">";
+								$handle = opendir("./themes");
+								while (($file = readdir($handle)) != false) 
+								{
+									if (($file != ".") && ($file != ".."))
+									{
+										echo "<option value=\"".$file."\"";
+										if ($file == $theme)
+												echo " selected=\"selected\"";
+										echo ">".$file."</option>";
+									}
+								}
+								closedir($handle); 
+								echo "</select></td></tr><tr><td colspan=\"3\">&nbsp;</td></tr>";
+							}
+							?>
 							<tr>
 								<td colspan="3" align="center" class="f">
 									<input name="enter" class="button" type="submit" value="<?php echo $html_submit ?>" />
