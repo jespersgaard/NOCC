@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/se.php,v 1.5 2001/02/23 09:31:58 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/se.php,v 1.6 2001/02/23 21:10:33 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -107,4 +107,3 @@ $html_msgs = "Meddelanden";
 $original_msg = "-- Original Meddelande --";
 $to_empty = "Mottagar fältet kan inte vara tomt !";
 ?>
-
