@@ -36,7 +36,8 @@ Epimail 0.6a	September 2000 (never released because of lack of documentation)
 
 Epimail 0.6	November 1999 (never released)
 
-	* MIME decoding for headers and file attachments. Thanks to Anthony Pinagot.
+	* MIME decoding for headers and file attachments. Thanks to Anthony
+	  Pinagot.
 
 Epimail 0.5	October 1999 (never released)
 

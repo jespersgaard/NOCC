@@ -1,6 +1,6 @@
 Frequently Asked Questions for Nocc
 -----------------------------------
-Last updated: $Date: 2000/11/22 18:43:45 $
+Last updated: $Date: 2000/11/22 21:10:05 $
 
  *) Nocc keeps me asking for a correct login/password.
 
@@ -16,7 +16,8 @@ Last updated: $Date: 2000/11/22 18:43:45 $
 
  *) Having configured Nocc, I get this error with my favourite browser:
 
-  Fatal error: Call to undefined function: imap_open() in /opt/apache/htdocs/nocc/functions.php on line 26
+  Fatal error: Call to undefined function: imap_open()
+  in /opt/apache/htdocs/nocc/functions.php on line 26
 
   -> Please check that PHP has IMAP/c-client support (you can use a small
   PHP script with phpinfo() to see what it supports).
