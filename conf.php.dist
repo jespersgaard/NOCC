@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.49 2001/04/25 18:13:26 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.50 2001/05/01 10:10:50 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -15,7 +15,7 @@
 
 // Default smtp server and smtp_port (default is 25)
 // If a domain has no smtp server, this one will be used
-$default_smtp_server = "";
+$default_smtp_server = "moe.cstech.fr";
 $default_smtp_port = 25;
 
 // List of domains people can log in
@@ -25,11 +25,11 @@ $default_smtp_port = 25;
 //  domain name e.g "sourceforge.net". This field is used when sending message
 //
 // $domains[0]->in = "mail.sourceforge.net/pop3:110";
-//  IMAP or pop3 server name + protocol + port
-//  [server_name]/[PROTOCOL]:[port number]
-//  ex : mail.sourceforge.net/IMAP:143
-//  ex : mail.sourceforge.net/pop3:110
-//  PROTOCOL can be pop3 or IMAP
+//  imap or pop3 server name + protocol (only if not imap) + port
+//  [server_name]/[protocol]:[port number]
+//  ex for an imap server : mail.sourceforge.net:143
+//  ex for a pop3 server  : mail.sourceforge.net/pop3:110
+//  protocol can only be pop3
 //
 // $domains[0]->smtp = "smtp.isp.com";
 //  Optional: smtp server name or IP address
@@ -156,7 +156,11 @@ if (empty($smtp_port))
 	$smtp_port = $default_smtp_port;
 if (empty($servr) && !empty($server) && !empty($servtype) && !empty($port))
 {
-		$servr = $server."/".strtolower($servtype).":".$port;
+		$servtype = strtolower($servtype);
+		if ($servtype != "imap")
+			$servr = $server."/".$servtype.":".$port;
+		else
+			$servr = $server.":".$port;
 		$domain = $server;
 }
 
