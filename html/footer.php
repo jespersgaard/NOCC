@@ -1,3 +1,11 @@
+<?php
+
+$custom_footer = "themes/$theme/footer.php";
+if(file_exists($custom_footer)) {
+	include($custom_footer);
+}
+else {
+?>
 	</td>
 </tr>
 <tr>
@@ -7,3 +15,6 @@
 
 </body>
 </html>
+<?php
+}
+?>

@@ -1,3 +1,11 @@
+<?php
+
+$custom_header = "themes/$theme/header.php";
+if(file_exists($custom_header)) {
+	include($custom_header);
+}
+else {
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang ?>" lang="<?php echo $lang ?>">
 	<head><title>NOCC - Webmail</title>
@@ -23,3 +31,6 @@
 			</tr>
 			<tr>
 				<td align="center" valign="top">
+<?php
+}
+?>
