@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.59 2001/10/21 20:54:25 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.60 2001/10/21 22:10:56 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -146,25 +146,33 @@ switch (trim($action))
 		break;
 
 	case 'setprefs':
-		if(isset($submit_prefs)) {
-			if (isset($full_name)) {
+		if(isset($submit_prefs))
+		{
+			if (isset($full_name))
+			{
 				setPref('full_name', $full_name);
 			}
-			if (isset($email_address)) {
+			if (isset($email_address))
+			{
 				setPref('email_address', $email_address);
 			}
-			if (isset($cc_self)) {
+			if (isset($cc_self) && $cc_self == 'on')
+			{
 				setPref('cc_self', $cc_self);
 			}
-			if ($signature != "" ) {
+			else
+			{
+				setPref('cc_self', '');
+			}
+			if ($signature != "")
+			{
 				setSig($signature);
 			}
-		} else {
-			$full_name = $prefs_full_name;
-			$email_address = $prefs_email_address;
-			$cc_self = getPref('cc_self');
-			$signature = $prefs_signature;
 		}
+		$full_name = $prefs_full_name;
+		$email_address = $prefs_email_address;
+		$cc_self = getPref('cc_self');
+		$signature = $prefs_signature;
 		require ('./html/menu_prefs.php');
 		require_once ('./html/prefs.php');
 		require ('./html/menu_prefs.php');
