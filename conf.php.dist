@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.47 2001/04/24 18:57:06 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.48 2001/04/24 19:18:33 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -120,84 +120,6 @@ $default_theme = "standard";
 // Display error but no notice
 $debug_level = E_ALL & ~E_NOTICE;
 
-// ################### Language Array  ################### //
-// If you had language files to '/lang' folder, please list them here
-
-// Arabic
-$lang_array[0]->filename = "ar";
-$lang_array[0]->label = "Arabic";
-
-// Chinese
-$lang_array[1]->filename = "zh-tw";
-$lang_array[1]->label = "Chinese (Taiwan)";
-
-// Svenska
-$lang_array[2]->filename = "da";
-$lang_array[2]->label = "Dansk";
-
-// German
-$lang_array[3]->filename = "de";
-$lang_array[3]->label = "Deutsch";
-
-// Dutch
-$lang_array[4]->filename = "nl";
-$lang_array[4]->label = "Dutch";
-
-// English
-$lang_array[5]->filename = "en";
-$lang_array[5]->label = "English";
-
-// Spanish
-$lang_array[6]->filename = "es";
-$lang_array[6]->label = "Espa&ntilde;ol";
-
-// French
-$lang_array[7]->filename = "fr";
-$lang_array[7]->label = "Fran&ccedil;ais";
-
-// Italiano
-$lang_array[8]->filename = "it";
-$lang_array[8]->label = "Italiano";
-
-// Hebrew
-$lang_array[9]->filename = "he";
-$lang_array[9]->label = "Hebrew";
-
-// Magyar
-$lang_array[10]->filename = "hu";
-$lang_array[10]->label = "Magyar";
-
-// Polish
-$lang_array[11]->filename = "pl";
-$lang_array[11]->label = "Polski";
-
-// Portuguese
-$lang_array[12]->filename = "pt";
-$lang_array[12]->label = "Portug&ecirc;s";
-
-//Russian
-$lang_array[13]->filename = "ru";
-$lang_array[13]->label = "Russian (Win)";
-
-//Russian
-$lang_array[14]->filename = "ru-koi";
-$lang_array[14]->label = "Russian (Unix)";
-
-//Russian
-$lang_array[15]->filename = "ru-iso";
-$lang_array[15]->label = "Russian (ISO)";
-
-// Swedish
-$lang_array[16]->filename = "sv";
-$lang_array[16]->label = "Svenska";
-
-// Slovenian
-$lang_array[17]->filename = "sl";
-$lang_array[17]->label = "Slovensko";
-
-// Slovenski
-$lang_array[18]->filename = "sk";
-$lang_array[18]->label = "Slovensky";
 
 // ################### Messages Signature  ################### //
 
@@ -253,5 +175,6 @@ $php_session = ini_get("session.name");
 $upload_tmp_dir = ini_get("upload_tmp_dir");
 $tmpdir = (!empty($upload_tmp_dir) ? $upload_tmp_dir : $tmpdir);
 error_reporting($debug_level);
+require("conf_lang.php");
 require("themes/".$theme."/colors.php");
 ?>
