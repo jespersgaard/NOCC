@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: nicocha $
-	$Revision: 1.13 $
-	$Date: 2000/10/24 00:58:36 $
+	$Revision: 1.14 $
+	$Date: 2000/10/24 01:16:08 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -111,7 +111,7 @@ $html_tb_msg_color = "#red";
 ################### Do not modify below this line ###################
 */
 $alt_fr = "Fran&ccedil;ais";
-$alt_en = "Anglais";
+$alt_en = "English";
 
 $version = "v1.0";
 $name = "NOCC";
