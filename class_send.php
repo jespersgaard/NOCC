@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.60 2004/08/16 18:01:54 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.61 2004/10/21 11:27:36 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -176,6 +176,21 @@ class mime_mail
                 $ev = @mail($rcpt_to, $this->subject, '', $mime, '-f' . $this->from);
             else
                 $ev = @mail($rcpt_to, $this->subject, '', $mime);
+                
+            $user_prefs = $_SESSION['nocc_user_prefs'];
+            if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder){
+                // Copy email to Sent folder
+                $pop = new nocc_imap($ev);
+                if (NoccException::isException($ev)) {
+                    return($ev);
+                }
+                if ($pop->is_imap()) {
+                    $copy_return = $pop->copytosentfolder($mime, $ev, $conf);
+                    if (NoccException::isException($ev)) {
+                        return($ev);
+                    }
+                }
+            }
             if ($ev != true)
                 return (new NoccException('unable to send message, SMTP server unreachable'));
         }
