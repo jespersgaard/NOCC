@@ -35,3 +35,5 @@ Long term
  - WML (WAP) version.
  - Printer-friendly e-mail formatting.
  - Handling the Delete flag with IMAP.
+ - P3P support ?
+ - PHP 4.2 support (no more global vars).
