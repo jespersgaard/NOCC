@@ -1,5 +1,6 @@
 NOCC 0.9.6	??
 
+	* Removed insecure 'X-Originating-Ip', and fixed 'X-Mailer' headers.
 	* Conf is now passed as argument. It is no more included in functions.
 	* Fixed a wrong url for prefs after sending a message (bug #493072).
 	* Configuration parameters are now in an array ($conf).
