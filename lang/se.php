@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/se.php,v 1.4 2001/02/22 16:45:07 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/se.php,v 1.5 2001/02/23 09:31:58 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -61,8 +61,8 @@ $html_help = "Hjälp";
 $html_server = "Server";
 $html_wrong = "Användarnamnet eller lösenordet är fel";
 $html_retry = "Försök igen";
-$html_on = "on";
-$html_theme = "Theme";
+$html_on = "På";
+$html_theme = "Tema";
 
 // Other pages
 
@@ -107,3 +107,4 @@ $html_msgs = "Meddelanden";
 $original_msg = "-- Original Meddelande --";
 $to_empty = "Mottagar fältet kan inte vara tomt !";
 ?>
+
