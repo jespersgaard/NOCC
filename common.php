@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.31 2004/06/22 12:56:44 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.32 2004/06/24 06:47:53 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -39,7 +39,7 @@ if (!isset($_SESSION['nocc_sortdir']))
     $_SESSION['nocc_sortdir'] = $conf->default_sortdir;
 
 // Override session variables from request, if supplied
-if(isset($_REQUEST['user'])) {
+if(isset($_REQUEST['user']) && !isset($_SESSION['nocc_loggedin'])) {
     unset($_SESSION['nocc_login']);
     $_SESSION['nocc_user'] = safestrip($_REQUEST['user']);
 }
