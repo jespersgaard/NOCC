@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.107 2002/05/15 13:44:46 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.108 2002/05/15 16:34:04 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -61,7 +61,7 @@ switch($_REQUEST['sendaction'])
             $attach_array[$num_attach]->file_size = $mail_att['size'];
             $attach_array[$num_attach]->file_mime = $mail_att['type'];
             if (empty($mail_att['type'])) {
-                $attach_array[$num_attach]->file_mime = trim(`file -b $tmpdir/$tmp_name`);
+                $attach_array[$num_attach]->file_mime = trim(`file -b $tmp_name`);
             }
         }
         else {
@@ -126,13 +126,13 @@ switch($_REQUEST['sendaction'])
                 // If the temporary file exists, attach it
                 if (file_exists($attach_array[$i]->tmp_file))
                 {
-                    $fp = fopen($conf->tmpdir . '/' . $attach_array[$i]->tmp_file, 'rb');
+                    $fp = fopen($attach_array[$i]->tmp_file, 'rb');
                     $file = fread($fp, $attach_array[$i]->file_size);
                     fclose($fp);
                     // add it to the message, by default it is encoded in base64
                     $mail->add_attachment($file, nocc_imap::qprint($attach_array[$i]->file_name), $attach_array[$i]->file_mime, 'base64', '');
                     // then we delete the temporary file
-                    unlink($conf->tmpdir . '/' . $attach_array[$i]->tmp_file);
+                    unlink($attach_array[$i]->tmp_file);
                 }
             }
             // Finished with attachments array now.
@@ -200,7 +200,7 @@ switch($_REQUEST['sendaction'])
                 $j++;
             }
             else
-                @unlink($conf->tmpdir . '/' . $attach_array[$i]->tmp_file);
+                @unlink($attach_array[$i]->tmp_file);
         }
 
         // Registering the new attachments array into the session
