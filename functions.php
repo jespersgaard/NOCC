@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.132 2002/02/03 16:14:32 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.133 2002/02/09 20:25:01 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -110,7 +110,6 @@ function aff_mail($conf, $mailhost, $login, $passwd, $folder, $mail, $verbose, $
 	GLOBAL $PHP_SELF;
 	
 	$glob_body = $subject = $from = $to = $cc = $reply_to = '';
-
 	if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
 		$default_date_format = $no_locale_date_format;
 	$pop = new nocc_imap('{'.$mailhost.'}'.$folder, $login, $passwd, &$ev);
@@ -402,7 +401,10 @@ function GetSinglePart($this_part, $header, $body)
 
 function remove_stuff($body, $lang, $mime)
 {
+	require ('./conf.php');
 	GLOBAL $PHP_SELF;
+	GLOBAL $$php_session;
+	$sessid=$$php_session;
 
 	if (eregi('html', $mime))
 	{
@@ -424,8 +426,8 @@ function remove_stuff($body, $lang, $mime)
 		$body = preg_replace("|<([^>]*)java|i", '<nocc_removed_java_tag', $body);
 		$body = preg_replace("|<([^>]*)&{.*}([^>]*)>|i", "<&{;}\\3>", $body);
 		//$body = preg_replace("|<([^>]*)mocha:([^>]*)>|i", "<nocc_removed_mocha:\\2>",$body);
-		$body = eregi_replace("href=\"mailto:([a-zA-Z0-9+-=%&:_.~?@]+[#a-zA-Z0-9+]*)\"","<A HREF=\"$PHP_SELF?action=write&amp;mail_to=\\1&amp;lang=$lang\"", $body);
-		$body = eregi_replace("href=mailto:([a-zA-Z0-9+-=%&:_.~?@]+[#a-zA-Z0-9+]*)","<A HREF=\"$PHP_SELF?action=write&amp;mail_to=\\1&amp;lang=$lang\"", $body);
+		$body = eregi_replace("href=\"mailto:([a-zA-Z0-9+-=%&:_.~?@]+[#a-zA-Z0-9+]*)\"","<A HREF=\"$PHP_SELF?action=write&mail_to=\\1&lang=$lang&$php_session=$sessid\"", $body);
+		$body = eregi_replace("href=mailto:([a-zA-Z0-9+-=%&:_.~?@]+[#a-zA-Z0-9+]*)","<A HREF=\"$PHP_SELF?action=write&mail_to=\\1&lang=$lang&$php_session=$sessid\"", $body);
 		//$body = eregi_replace("target=\"([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)\"", "", $body);
 		//$body = eregi_replace("target=([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)", "", $body);
 		$body = eregi_replace("href=\"([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)\"","<a href=\"\\1\" target=\"_blank\"", $body);
@@ -434,7 +436,7 @@ function remove_stuff($body, $lang, $mime)
 	elseif (eregi('plain', $mime))
 	{
 		$body = eregi_replace("(http|https|ftp)://([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)","<a href=\"\\1://\\2\" target=\"_blank\">\\1://\\2</a>", $body);
-		$body = eregi_replace("([#a-zA-Z0-9+-._]*)@([#a-zA-Z0-9+-_]*)\.([a-zA-Z0-9+-_.]+[#a-zA-Z0-9+]*)","<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1@\\2.\\3&amp;lang=$lang\">\\1@\\2.\\3</a>", $body);
+		$body = eregi_replace("([#a-zA-Z0-9+-._]*)@([#a-zA-Z0-9+-_.]*)\.([a-zA-Z]+)","<a href=\"$PHP_SELF?action=write&mail_to=\\1@\\2.\\3&lang=$lang&$php_session=$sessid\">\\1@\\2.\\3</a>", $body);
 		$body = nl2br($body);
 		if (function_exists('wordwrap'))
 			$body = wordwrap($body, 80, "\n");
@@ -740,6 +742,15 @@ function safestrip($string)
 	if(get_magic_quotes_gpc())
 		$string = stripslashes($string);
 	return $string;
+}
+
+function strip_tags2($string, $allow)
+{
+	$string = eregi_replace('<<','<nocc_less_than_tag><',$string);
+	$string = eregi_replace('>>','><nocc_greater_than_tag>;',$string);
+	$string = strip_tags($string, $allow.'<nocc_less_than_tag><nocc_greater_than_tag>');
+	$string = eregi_replace('<nocc_less_than_tag>','<',$string);
+	return eregi_replace('<nocc_greater_than_tag>','>',$string);
 }
 
 ?>

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.92 2002/02/03 16:14:32 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.93 2002/02/09 20:25:01 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -78,7 +78,7 @@ switch (trim($action))
 					echo '<hr />';
 					echo '<center>';
 					echo '<p>'.$html_loading_image.' '.$tmp['name']."...</p>";
-					echo '<img src="get_img.php?'.$php_session.'='.$$php_session.'&amp;mail='.$mail.'&amp;folder='.$folder.'&amp;num='.$tmp['number'].'&amp;mime='.$img_type.'&amp;transfer='.$tmp['transfer'].'" />';
+					echo '<img src="get_img.php?'.$php_session.'='.$$php_session.'&mail='.$mail.'&folder='.$folder.'&num='.$tmp['number'].'&mime='.$img_type.'&transfer='.$tmp['transfer'].'" />';
 					echo '</center>';
 				}
 			}
@@ -144,9 +144,9 @@ switch (trim($action))
 		// Set body
 		$outlook_quoting = getPref('outlook_quoting');
 		if($outlook_quoting)
-			$mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . strip_tags($content['body'], '');
+			$mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . strip_tags2($content['body'], '');
 		else
-			$mail_body = mailquote(strip_tags($content['body'], ''), $content['from'], $html_wrote);
+			$mail_body = mailquote(strip_tags2($content['body'], ''), $content['from'], $html_wrote);
 
 		// Add signature
 		$mail_body .= "\r\n".$prefs_signature;
@@ -163,7 +163,7 @@ switch (trim($action))
 	case 'forward':
 		$content = aff_mail($conf, $servr, $login, $passwd, $folder, $mail, 0, $lang, $sort, $sortdir);
 		$mail_subject = $html_forward_short.': '.$content['subject'];
-		$mail_body = $original_msg."\n".$html_from.': '.$content['from']."\n".$html_to.': '.$content['to']."\n".$html_sent.': '.$content['complete_date']."\n".$html_subject.': '.$content['subject']."\n\n".strip_tags($content['body'], '');
+		$mail_body = $original_msg."\n".$html_from.': '.$content['from']."\n".$html_to.': '.$content['to']."\n".$html_sent.': '.$content['complete_date']."\n".$html_subject.': '.$content['subject']."\n\n".strip_tags2($content['body'],'');
 		// Add signature
 		$mail_body .= "\r\n".$prefs_signature;
 
