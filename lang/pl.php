@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.24 2004/06/19 12:00:58 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.25 2004/06/20 09:39:32 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -84,7 +84,7 @@ $html_reply_leadin = 'Nag³ówek odpowiedzi';
 $html_prefs_updated = 'Zapisano nowe ustawienia';
 $html_manage_folders_link = 'Zarz±dzaj Foldreami IMAP';
 $html_manage_filters_link = 'Regu³y wiadomo¶ci';
-$html_use_graphical_smilies = 'Use graphical smilies'; //to translate
+$html_use_graphical_smilies = 'U¿ywaj emotikon';
 
 // folders.php
 $html_folders_create_failed = 'Nie mo¿na uworzyæ folderu!';
@@ -96,7 +96,7 @@ $html_folder_subscribe = 'Do³±cz';
 $html_folder_rename = 'Zmieñ nazwê';
 $html_folder_create = 'Stwórz nowy folder o nazwie';
 $html_folder_remove = 'Od³±cz folder';
-$html_folder_delete = 'Delete';  //to translate
+$html_folder_delete = 'Skasuj';
 
 // filters.php
 $html_filter_remove = 'Skasuj';
@@ -170,7 +170,7 @@ $html_priority = 'Wa¿no¶æ';
 $html_low = 'Niska';
 $html_normal = 'Normalna';
 $html_high = 'Wysoka';
-$html_receipt = 'Zarz±daj potwierdzenia otrzymania wiadomo¶ci';
+$html_receipt = 'Zaz±daj potwierdzenia otrzymania wiadomo¶ci';
 $html_select = 'Zaznacz';
 $html_select_all = 'Zaznacz wszystko';
 $html_loading_image = '£adowanie obrazka';
@@ -180,9 +180,9 @@ $html_error_occurred = 'Wyst±pi³ b³±d';
 $html_prefs_file_error = 'Nie mo¿na otworzyæ pliku z ustawieniami do zapisu.';
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
 $html_usenet_separator = 'U¿yj separatora ("-- \n") Przed sygnatur±';
-$html_mark_as = 'Mark as'; //to translate
-$html_read = 'read'; //to translate
-$html_unread = 'unread'; //to translate
+$html_mark_as = 'Zaznacz jako';
+$html_read = 'Przeczytane';
+$html_unread = 'Nieprzeczytane';
 
 // Contacts manager
 $html_add = 'Dodaj';
@@ -200,7 +200,7 @@ $html_contact_del = 'z listy kontaktów';
 
 $html_contact_err1 = 'Maksymalna liczba kontaktów to ';
 $html_contact_err2 = 'Nie mo¿esz dodaæ nowego kontaktu';
-$html_del_msg = 'Usun±æ zaznaczone wiadomo¶æi ?';
+$html_del_msg = 'Usun±æ zaznaczone wiadomo¶ci ?';
 $html_down_mail = 'Pobierz';
 
 $original_msg = '--- Wiadomo¶æ oryginalna ---';
@@ -208,7 +208,7 @@ $to_empty = 'Pole \'Do\' nie mo¿e byæ puste!';
 
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Nie mo¿na utworzyæ po³±czenia SMTP';
-$html_smtp_error_unexpected = 'Nieoczekiwana odpowied SMTP';
+$html_smtp_error_unexpected = 'Nieoczekiwana odpowied¼ SMTP';
 
 // IMAP messages (class_local.php)
 $lang_could_not_connect = 'Nie mo¿na po³aczyæ siê z serwerem';
