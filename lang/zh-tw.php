@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-tw.php,v 1.1 2001/03/11 11:37:42 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-tw.php,v 1.2 2001/03/12 18:17:05 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -19,6 +19,11 @@ $charset = "big5";
 // What language to use (Here, english US --> en_US)
 // see '/usr/share/locale/' for more information
 $lang_locale = "zh_TW.BIG5";
+
+// Text Alignment
+// Can be right-to-left (rtl) which is needed for proper Arabic, Hebrew
+// Or left-to-right (ltr) which is default for most languages
+$lang_dir = "ltr";
 
 // What format string should we pass to strftime() for messages sent on
 // days other than today?
