@@ -1,6 +1,21 @@
 Frequently Asked Questions for Nocc
 -----------------------------------
-Last updated: $Date: 2002/04/28 21:48:09 $
+Last updated: $Date: 2002/07/02 08:13:36 $
+
+ Q. Nocc 0.9.6 has issues with PHP 5.0.0
+
+ A. Because 0.9.6 is compatible with earlier versions of PHP, namely
+    PHP < 4.1.0 we're still using $HTTP_GET_VARS
+    So, to get Nocc working with PHP 5.0.0 you need to set the
+    following in php.ini
+
+    register_long_arrays = on
+
+    We'll replace all $HTTP_GET_VARS with $_GET with Nocc 0.9.7 which
+    will work work with PHP 5.0.0 out of the box but will require PHP
+    4.1.0 or later.
+
+-----------------------------------
 
  Q. Nocc keeps me asking for a correct login/password.
 

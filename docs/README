@@ -181,7 +181,7 @@ specifically tested and are known to work)
       - O'Reilly WebSite Pro 2.x & 3.
       - Xitami.
       - PHP 4.0.0, 4.0.1, 4.0.1pl1, 4.0.2, 4.0.3pl1, 4.0.4, 4.0.4pl1, 4.0.5,
-          4.1.1, 4.1.2, 4.2.3, 4.3.7, 5.0.0RC3.
+          4.1.1, 4.1.2, 4.2.3, 4.3.7, 5.0.0 (see FAQ).
       - PHP running through a wrapper: suEXEC.
       - various OS including GNU/Linux, FreeBSD, NetBSD, OpenBSD and Win2k.
       - PHP 4.0.4-dev compiled as module for Apache Win32.
