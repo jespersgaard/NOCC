@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.90 2001/06/16 12:39:28 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.91 2001/06/18 13:42:20 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -347,27 +347,35 @@ function GetSinglePart($this_part, $header, $body)
 		$full_mime_type = 'text/html';
 	else
 		$full_mime_type = 'text/plain';
-	switch ($this_part->encoding)
+	if (isset($this_part->encoding))
 	{
-		case ENC7BIT:
-			$encoding = '7BIT';
-			break;
-		case ENC8BIT:
-			$encoding = '8BIT';
-			break;
-		case ENCBINARY:
-			$encoding = 'BINARY';
-			break;
-		case ENCBASE64:
-			$encoding = 'BASE64';
-			break;
-		case ENCQUOTEDPRINTABLE:
-			$encoding = 'QUOTED-PRINTABLE';
-			break;
-		default:
-			$encoding = 'none';
-			break;
+		switch ($this_part->encoding)
+	{
+			case 0:
+				$encoding = '7BIT';
+				break;
+			case 1:
+				$encoding = '8BIT';
+				break;
+			case 2:
+				$encoding = 'BINARY';
+				break;
+			case 3:
+				$encoding = 'BASE64';
+				break;
+			case 4:
+				$encoding = 'QUOTED-PRINTABLE';
+				break;
+			case 5:
+				$encoding = 'OTHER';
+				break;
+			default:
+				$encoding = 'none';
+				break;
+		}
 	}
+	else
+		$encoding = '7BIT';
 	$charset = '';
 	if ($this_part->ifparameters)
 		while ($obj = array_pop($this_part->parameters))
