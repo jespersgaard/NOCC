@@ -4,7 +4,8 @@ NOCC 0.9.5	??   ??, 2001
 	  of PHP (bug #430069).
 	* Fixed long list of addresses not wrapped (bug #440905).
 	* In the send form, the user can now change his email address.
-	* Added Norvegian, Turkish and Finnish translations.
+	* Added Norwegian (Bokmal and Nynorsk), Turkish and Finnish
+	  translations.
 	* Fixed a problem with some Linux installation which displayed
 	  an 'invalid range' error message (bug #432724).
 	* Fixed a problem which allowed people to send an e-mail without
