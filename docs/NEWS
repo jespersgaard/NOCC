@@ -5,6 +5,13 @@ NOCC 0.9.4	??   ??, 2001
 	  set is the one of the chosen language.
 
 
+NOCC 0.9.3pl1	March 18, 2001
+
+	* Fixed loosing charset preference after deleting an attachment.
+        * Minor bugfixes: typo in CREDITS, missing variables in language files,
+          corrupted russian language file (Unix enconding).
+
+
 NOCC 0.9.3	March 12, 2001
 
 	* Fixed a bug with Postfix when "strict_rfc821_envelopes = yes".
