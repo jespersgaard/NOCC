@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.54 2001/11/18 21:08:06 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.55 2001/12/13 10:35:56 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -130,7 +130,7 @@ $html_high = 'Haute';
 $html_select = 'S&eacute;lectionner';
 $html_select_all = 'Tout s&eacute;lectionner';
 $html_loading_image = 'Chargement de l\'image';
-$html_send_confirmed = 'Votre mail a bien &eacute;t&eacute; envoy&eacute;';
+$html_send_confirmed = 'Votre message a bien &eacute;t&eacute; envoy&eacute;';
 $html_no_sendaction = 'Aucune action sp&eacute;cifi&eacute;e. Essayer d\'activer JavaScript';
 $html_error_occurred = 'Une erreur est survenue';
 $html_prefs_file_error = 'Impossible d\'ouvrir le fichier de pr&eacute;f&eacute;rences';
