@@ -1,4 +1,4 @@
-<?php
+<?
 /*
  * $Header: /cvsroot/nocc/nocc/webmail/lang/ar.php,v 1.6 2001/02/06 20:44:05 nicocha Exp $
  *
@@ -41,8 +41,8 @@ $err_passwd_empty = " كلمة السر غير صحيحة. أعد المحاول
 
 // html message
 
-$alt_delete = "محو الرسا ئل المختارة ";
-$alt_delete_one = "محو الرسالة" ;
+$alt_delete = "ءازالة  الرسا ئل المختارة ";
+$alt_delete_one = "ءازالة الرسالة" ;
 $alt_new_msg = "رسالة جديدة";
 $alt_reply = "ءاجاابة المرسل ";
 $alt_reply_all = "ءاجاابة للجميع";
@@ -53,7 +53,7 @@ $alt_prev = "السابقة";
 
 // index.php
 
-$html_lang = "Langue";
+$html_lang = "اللغة";
 $html_welcome = " مرحبا بكم في ";
 $html_login = "المستخدم";
 $html_passwd = "كلمة السر";
@@ -65,33 +65,33 @@ $html_retry = "أعد المحاولة";
 
 // Other pages
 
-$html_view_header = "Voir l'ent&ecirc;te";
-$html_remove_header = "Masquer l'ent&ecirc;te";
+$html_view_header = "المقدمة";
+$html_remove_header = "ءاخفاء المقدمة";
 $html_inbox = "صندوق الرسائل";
 $html_new_msg = "رسالة جديدة";
 $html_reply = "ءاجابة";
-$html_reply_short = "Re";
+$html_reply_short = "رد";
 $html_reply_all = "ءاجابة للكل";
 $html_forward = "تحويل الرسالة ءالى";
 $html_forward_short = "Tr";
-$html_delete = "محو";
+$html_delete = "ءازالة";
 $html_new = "جديد";
 $html_mark = "محو";
 $html_att = "ملف مرفق";
 $html_atts = "ملفات مرفقة";
 $html_att_unknown = "[غير معروف]";
-$html_attach = "Attacher";
-$html_attach_forget = "Vous devez attacher votre fichier avant d'envoyer votre message !"; 
-$html_attach_delete = "Supprimer les fichiers selectionn�s";
+$html_attach = "ءاضافة";
+$html_attach_forget = "!يجب ءاضافة الملف قبل ءارسال الرسالة ";
+$html_attach_delete = "ءازالة الملفات المختارة";
 $html_from = "من";
 $html_subject = "الموضوع";
 $html_date = "التاريخ";
 $html_sent = "مرسل";
 $html_size = "الحجم";
-$html_totalsize = "Taille Totale";
+$html_totalsize = "الحجم الكلي";
 $html_kb = "Ko";
 $html_bytes = "octets";
-$html_filename = "Fichier";
+$html_filename = "ملف";
 $html_to = "ءالى";
 $html_cc = "نسخة";
 $html_bcc = "نسخة مختبأة";
