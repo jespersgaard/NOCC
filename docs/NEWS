@@ -1,5 +1,7 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Correct a problem which prevented to add attachments when
+	  php was running in safe mode.
 	* Correct a problem with attachments when a Content-ID was
 	  specified by the mailer.
 	* Return Path is now set correctly when not using SMTP server.

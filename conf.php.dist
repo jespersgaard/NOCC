@@ -15,9 +15,8 @@
 
 // Default smtp server and smtp_port (default is 25)
 // If a domain has no smtp server, this one will be used
-// If no smtp server is provided, NOCC will default to the php mail() function,
+// If no smtp server is provided, Nocc will default to the mail() function,
 // and try to use Sendmail or any other MTA (Postfix)
-// If you're running NOCC on Windows, please set an smtp server below.
 $default_smtp_server = '';
 $default_smtp_port = 25;
 
@@ -64,7 +63,6 @@ $domains[0]->smtp_port = 25;
 //$domains[2]->smtp_port = 25;
 
 // Default tmp directory (where to store temporary uploaded files)
-// Can be empty if 'upload_tmp_dir' is set in php.ini
 // This should be something like '/tmp' on Unix System
 // And 'c:\\temp' on Win32 (note that we must escape "\")
 $tmpdir = '';
@@ -73,7 +71,6 @@ $tmpdir = '';
 $default_folder = 'INBOX';
 
 // ===> End of required parameters
-
 // The following parameters can be changed but it's not necessary to
 // get a working version of nocc
 
@@ -101,8 +98,7 @@ $display_rfc822 = true;
 // set it to 'false'
 $display_img_attach = true;
 
-// If you don't want to display text/plain attachments marked as 'inline' 
-// set it to 'false'* 
+// If you don't want to display text/plain attachments set it to 'false'
 $display_text_attach = true;
 
 // By default the messages are sorted by date 
@@ -116,7 +112,7 @@ $default_sortdir = '1';
 // new mail detection. Recommended: leave it to 0 for any other POP or
 // IMAP server.
 // See FAQ for more details.
-$have_ucb_pop_server = '0';
+$have_ucb_pop_server = false;
 
 // If you wanna make your own theme and force people to use that one, 
 // set $use_theme to false and fill in the $default_theme to the theme name
@@ -187,8 +183,6 @@ if ($use_theme == true)
 else
 	$theme = $default_theme;
 $php_session = ini_get('session.name');
-$upload_tmp_dir = ini_get('upload_tmp_dir');
-$tmpdir = (!empty($upload_tmp_dir)) ? $upload_tmp_dir : $tmpdir;
 $action = isset($action) ? $action : ''; 
 error_reporting($debug_level);
 require('conf_lang.php');
