@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.7 2004/06/22 10:36:00 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.8 2004/06/28 15:28:03 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -128,8 +128,8 @@ class NOCCUserPrefs {
 		        $ev = new NoccException($html_prefs_file_error);
 			return; 
 		}
-		if(!is_writable($filename)){
-			$ev = new NoccException($html_prefs_file_error);
+		if(!is_writable($conf->prefs_dir)) {
+		        $ev = new NoccException($html_prefs_file_error);
 			return;
 		}
 		$file = fopen($filename, 'w');

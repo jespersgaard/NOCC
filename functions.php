@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.187 2004/06/22 17:52:17 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.188 2004/06/25 18:59:26 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -909,10 +909,14 @@ function load_list ($path)
 }
 
 
-function save_list ($path, $contacts, &$ev)
+function save_list ($path, $contacts, $conf, &$ev)
 {
   include ('lang/' . $_SESSION['nocc_lang'] . '.php');
-  if (!is_writeable($path)) {
+  if(file_exists($path) && !is_writable($path)){
+     $ev = new NoccException($html_err_file_contacts);
+     return;
+  }
+  if (!is_writeable($conf->prefs_dir)) {
       $ev = new NoccException($html_err_file_contacts);
       return;
   }
