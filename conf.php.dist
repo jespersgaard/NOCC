@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.129 2004/11/08 16:33:32 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.130 2004/11/08 17:02:55 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -277,4 +277,13 @@ function get_default_from_address() {
     return $from_address;
 }
 
+// Dynamically load imap module is needed
+if (!extension_loaded('imap'))
+{
+    if (!dl('imap.so'))
+    {
+        print('error loading imap library');
+        exit;
+    }
+}
 ?>
