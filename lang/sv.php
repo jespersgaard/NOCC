@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/sv.php,v 1.22 2004/09/13 18:40:37 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sv.php,v 1.23 2004/09/23 19:14:34 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -145,6 +145,7 @@ $html_att_unknown = '[okänd]';
 $html_attach = 'Bifoga';
 $html_attach_forget = 'Du måste bifoga din fil innan du skickar meddelandet !';
 $html_attach_delete = 'Ta bort vald';
+$html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sort by';  //to translate
 $html_from = 'Från';
 $html_subject = 'Ämne';

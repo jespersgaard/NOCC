@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/tr.php,v 1.20 2004/09/13 18:40:37 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/tr.php,v 1.21 2004/09/23 19:14:34 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -145,6 +145,7 @@ $html_att_unknown = '[bilinmiyor]';
 $html_attach = 'Ek';
 $html_attach_forget = 'Mesajý göndermeden önce dosyayý eklemelisiniz !';
 $html_attach_delete = 'Ýþaretleneni Sil';
+$html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sort by';  //to translate
 $html_from = 'Gönderen';
 $html_subject = 'Konu';

@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.69 2004/10/04 18:23:30 goddess_skuld Exp $ -->
+<!-- start of $Id: send.php,v 1.70 2004/10/08 06:14:15 jdeluise Exp $ -->
 <?php
 
 // Default e-mail address on send form
@@ -146,7 +146,16 @@ var btnClicked;
 function validate(f) 
 {
     if (btnClicked.value == "<?php echo $html_attach ?>") {
-        return(true);
+	if(f.elements['mail_att'].value == "") {
+	     alert("<?php echo $html_attach_none ?>");
+	     return (false);
+	}	
+        else {
+	     return(true);
+	}
+    }
+    if (btnClicked.value == "<?php echo $html_attach_delete ?>") {
+	return (true);
     }
     if (window.RegExp) {
         var reg = new RegExp("[0-9A-Za-z]+","g");
@@ -165,4 +174,4 @@ function validate(f)
 
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.69 2004/10/04 18:23:30 goddess_skuld Exp $ -->
+<!-- end of $Id: send.php,v 1.70 2004/10/08 06:14:15 jdeluise Exp $ -->

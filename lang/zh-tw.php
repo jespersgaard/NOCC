@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-tw.php,v 1.25 2004/09/13 18:40:37 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-tw.php,v 1.26 2004/09/23 19:14:34 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -145,6 +145,7 @@ $html_att_unknown = '[¤£©ú]';
 $html_attach = 'ªþ¥ó';
 $html_attach_forget = '§A§Ñ°O¥[¤Jªþ¥ó !';
 $html_attach_delete = ' ç°£¤w¿ï¾Üªº';
+$html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sort by';  //to translate
 $html_from = '¥Ñ';
 $html_subject = 'ÃD¥Ø';

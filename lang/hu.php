@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/hu.php,v 1.24 2004/09/13 18:40:37 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/hu.php,v 1.25 2004/09/23 19:14:34 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -145,6 +145,7 @@ $html_att_unknown = '[ismeretlen]';
 $html_attach = 'Csatol';
 $html_attach_forget = 'Csatolni kell a f&aacute;jlt &uuml;zenetk&uuml;ld&eacute;s el&otilde;tt !';
 $html_attach_delete = 'Csatolt f&aacute;jl elv&eacute;tele';
+$html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sort by';  //to translate
 $html_from = 'Felad&oacute;';
 $html_subject = 'C&iacute;m';

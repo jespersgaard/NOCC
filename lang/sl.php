@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/sl.php,v 1.27 2004/09/13 18:40:37 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sl.php,v 1.28 2004/09/23 19:14:34 goddess_skuld Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -145,6 +145,7 @@ $html_att_unknown = '[neznan]';
 $html_attach = 'Pripni';
 $html_attach_forget = 'Datoteko morate pripeti pred poišiljanjem sporoèila!';
 $html_attach_delete = 'Odstrani izbrane';
+$html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sortiraj po';
 $html_from = 'Od';
 $html_subject = 'Zadeva';

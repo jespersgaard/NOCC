@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/sr.php,v 1.21 2004/09/13 18:40:37 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sr.php,v 1.22 2004/09/23 19:14:34 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -145,6 +145,7 @@ $html_att_unknown = '[nepoznat]';
 $html_attach = 'Prilo&#382;i';
 $html_attach_forget = 'Morate prilo&#382;iti datoteku prije slanja poruke !';
 $html_attach_delete = 'Ukloni odabrane datoteke';
+$html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sort by';  //to translate
 $html_from = 'Od';
 $html_subject = 'Naslov';

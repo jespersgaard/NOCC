@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/bg.php,v 1.23 2004/09/13 18:40:37 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/bg.php,v 1.24 2004/09/23 19:14:33 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -145,6 +145,7 @@ $html_att_unknown = '[unknown]';  //to translate
 $html_attach = 'Прикачи';
 $html_attach_forget = 'Прикачи файла преди да изпратиш съобщението!';
 $html_attach_delete = 'Изтрий прикачения файл';
+$html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Сортирай по';
 $html_from = 'От';
 $html_subject = 'Тема';

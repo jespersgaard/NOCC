@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ro.php,v 1.18 2004/09/13 18:40:37 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ro.php,v 1.19 2004/09/23 19:14:34 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -146,6 +146,7 @@ $html_att_unknown = '[necunoscut]';
 $html_attach = 'Atasare';
 $html_attach_forget = 'Trebuie atasat fisierul inainte de a trimite mesajul !';
 $html_attach_delete = 'Stergere selectie';
+$html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sortare dupa';
 $html_from = 'De la';
 $html_subject = 'Subiect';

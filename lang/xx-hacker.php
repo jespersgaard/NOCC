@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.3 2004/09/13 18:40:37 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.4 2004/09/23 19:14:34 goddess_skuld Exp $ 
  *
  * Copyright 2004 Nicolas Chalanset <nicocha at free.fr>
  * Copyright 2004 Olivier Cahagne <wolruf at free.fr>
@@ -147,6 +147,7 @@ $html_att_unknown = '[unkn0wn]';
 $html_attach = '4tt4ch';
 $html_attach_forget = 'You must 4tt4ch y0ur f!l3 b3f0r3 s3nd!ng y0ur m3ss4g3 !';
 $html_attach_delete = 'R3m0v3 S3l3ct3d';
+$html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'S0rt by';
 $html_from = 'Fr0m';
 $html_subject = 'Subj3ct';

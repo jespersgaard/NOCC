@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/sk.php,v 1.26 2004/09/13 18:40:37 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sk.php,v 1.27 2004/09/23 19:14:34 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -145,6 +145,7 @@ $html_att_unknown = '[neznámy]';
 $html_attach = 'Pripoji» attachment';
 $html_attach_forget = 'Pred odoslaním správy musíte pripoji» vá¹ attachment !';
 $html_attach_delete = 'Odstráò oznaèené';
+$html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Zorad podµa';
 $html_from = 'Odosielateµ';
 $html_subject = 'Nadpis';

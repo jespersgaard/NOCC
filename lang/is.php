@@ -143,6 +143,7 @@ $html_att_unknown = '[óþekkt]';
 $html_attach = 'Hengja við';
 $html_attach_forget = 'Þú verður að hengja skrána við áður en þú sendir skilaboðin!';
 $html_attach_delete = 'Eyða völdum skrám';
+$html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Raða eftir';
 $html_from = 'Frá';
 $html_subject = 'Titill';
