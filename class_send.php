@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.39 2001/06/15 14:02:27 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.40 2001/06/19 09:15:41 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -161,10 +161,11 @@ class mime_mail
 		// depends on the config file (conf.php)
 		if ($this->smtp_server == '' || $this->smtp_port == '')
 		{
+			$rcpt_to = join(', ', $this->to);
 			if (ereg("[4-9]\.[0-9]\.[5-9].*", phpversion()))
-				return (mail(join(', ', $this->to), $this->subject,  '', $mime, '-f' . $this->from));
+				return (mail($rcpt_to, $this->subject,  '', $mime, '-f' . $this->from));
 			else
-				return (mail(join(', ', $this->to), $this->subject,  '', $mime));
+				return (mail($rcpt_to, $this->subject,  '', $mime));
 		}
 		else
 		{
