@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.176 2003/01/26 15:02:55 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.177 2003/02/06 07:28:45 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -486,7 +486,7 @@ function remove_stuff(&$body, &$mime)
 
 /* ----------------------------------------------------- */
 
-function link_att(&$mail, &$attach_tab, &$display_part_no)
+function link_att(&$mail, $attach_tab, &$display_part_no)
 {
     sort($attach_tab);
     $link = '<table border="0">';
