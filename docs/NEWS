@@ -1,5 +1,6 @@
 NOCC 0.9.6	??
 
+	* Added a 'timestamp' member to the content array in aff_mail.
 	* Fixed message header display bug.
 	* Remove date display from INBOX.
 	* Updated Portugese translation (Jose Carlos)
