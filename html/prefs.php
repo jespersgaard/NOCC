@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.26 2002/06/30 21:43:46 rossigee Exp $ -->
+<!-- start of $Id: prefs.php,v 1.27 2002/09/10 23:27:01 mrylander Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -91,11 +91,11 @@
     <?php
         if($pop->is_imap()) {
             echo "<tr>\n    <td align=\"right\" bgcolor=\"$glob_theme->inside_color\">\n";
-            echo "        <a href=\"action.php?action=managefolders\" class=\"menu\">$html_manage_folders_link</a>&nbsp|&nbsp".
-                 "<a href=\"action.php?action=managefilters\" class=\"menu\">$html_manage_filters_link</a>";
+            echo "        <a href=\"action.php?action=managefolders\" class=\"prefs\">$html_manage_folders_link</a>&nbsp|&nbsp".
+                 "<a href=\"action.php?action=managefilters\" class=\"prefs\">$html_manage_filters_link</a>";
             echo "\n    </td>\n</tr>";
         }
     ?>
 
 </table>
-<!-- end of $Id: prefs.php,v 1.26 2002/06/30 21:43:46 rossigee Exp $ -->
+<!-- end of $Id: prefs.php,v 1.27 2002/09/10 23:27:01 mrylander Exp $ -->

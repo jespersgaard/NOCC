@@ -137,8 +137,8 @@
         </td>
     </tr>
     <?php echo "<tr>\n    <td align=\"right\" bgcolor=\"$glob_theme->inside_color\">\n";
-          echo "        <a href=\"action.php?action=setprefs\" class=\"menu\">$html_preferences</a>&nbsp|&nbsp".
-               "<a href=\"action.php?action=managefolders\" class=\"menu\">$html_manage_folders_link</a>";
+          echo "        <a href=\"action.php?action=setprefs\" class=\"prefs\">$html_preferences</a>&nbsp|&nbsp".
+               "<a href=\"action.php?action=managefolders\" class=\"prefs\">$html_manage_folders_link</a>";
           echo "\n    </td>\n</tr>";
     ?>
 </table>

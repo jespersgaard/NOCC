@@ -1,4 +1,4 @@
-<!-- start of $Id: folders.php,v 1.6 2002/06/27 22:17:52 rossigee Exp $ -->
+<!-- start of $Id: folders.php,v 1.7 2002/09/10 23:27:01 mrylander Exp $ -->
 <?php
 
 $renameoldbox = $pop->html_folder_select('renameoldbox', '');
@@ -87,9 +87,9 @@ if (count($big_list) > 1) {
         </td>
     </tr>
     <?php echo "<tr>\n    <td align=\"right\" bgcolor=\"$glob_theme->inside_color\">\n";
-          echo "        <a href=\"action.php?action=setprefs\" class=\"menu\">$html_preferences</a>&nbsp|&nbsp".
-               "<a href=\"action.php?action=managefilters\" class=\"menu\">$html_manage_filters_link</a>";
+          echo "        <a href=\"action.php?action=setprefs\" class=\"prefs\">$html_preferences</a>&nbsp|&nbsp".
+               "<a href=\"action.php?action=managefilters\" class=\"prefs\">$html_manage_filters_link</a>";
           echo "\n    </td>\n</tr>";
     ?>
 </table>
-<!-- end of $Id: folders.php,v 1.6 2002/06/27 22:17:52 rossigee Exp $ -->
+<!-- end of $Id: folders.php,v 1.7 2002/09/10 23:27:01 mrylander Exp $ -->
