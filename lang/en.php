@@ -1,6 +1,10 @@
 <?
 /*
-NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
+	$Author$
+	$Revision$
+	$Date$
+
+	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
   You should have received a copy of the GNU Public
   License along with this package; if not, write to the
