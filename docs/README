@@ -141,7 +141,10 @@ Additional notes
   Known working setups
   --------------------
 
-   NOCC has been tested with:
+   NOCC has been tested with (unfortunately, we don't have enough manpower
+to test every setup at each release, we have just sometimes tested this with
+some version of NOCC and it worked, we'd like to have a matrix of what works
+for every release and be able to update it with users' setups):
 
 	* servers: (Nocc should work with any server, however, these have been
 specifically tested and are known to work)
@@ -149,7 +152,8 @@ specifically tested and are known to work)
 	  - Apache 1.3.12, 1.3.14, 1.3.17, 1.3.19, 2.0.14 (Win32).
 	  - Microsoft IIS 4.0, IIS 5.0 w/CGI, IIS 5.0 w/ISAPI.
 	  - O'Reilly WebSite Pro 2.x & 3.
-	  - PHP 4.0.0, 4.0.1, 4.0.1pl1, 4.0.2, 4.0.3pl1, 4.0.4, 4.0.4pl1.
+	  - Xitami.
+	  - PHP 4.0.0, 4.0.1, 4.0.1pl1, 4.0.2, 4.0.3pl1, 4.0.4, 4.0.4pl1, 4.0.5.
 	  - PHP running through a wrapper: suEXEC.
 	  - various OS including GNU/Linux, FreeBSD, NetBSD, OpenBSD and Win2k.
 	  - PHP 4.0.4-dev compiled as module for Apache Win32.
@@ -177,7 +181,8 @@ and work)
    NOCC has been used for many months at:
 
 	* a company with approx. 150 unique users/day,
-	* a school with also 150 unique users/day.
+	* a school with also 150 unique users/day,
+	* several other, see http://nocc.sf.net/ .
 
   Tips
   ----
