@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.74 2001/03/29 08:36:27 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.75 2001/04/13 13:35:01 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -516,7 +516,6 @@ function save_attachment($servr, $user, $passwd, $folder, $mail)
 		elseif ($tmp["transfer"] == "BASE64")
 			$file = base64_decode($file);
 		$filename = tempnam("", "NOCC_TMP".md5(uniqid(time())));
-		//$filename = ini_get("upload_tmp_dir")."/NOCC_TMP".md5(uniqid(time()));
 		$fp = fopen($filename, "w");
 		fwrite($fp, $file);
 		fclose($fp);
