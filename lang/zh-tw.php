@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-TW.php,v 1.3 2001/03/09 12:43:53 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-tw.php,v 1.1 2001/03/11 11:37:42 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -48,8 +48,8 @@ $alt_reply_all = "回覆所有人";
 $alt_forward = "轉寄";
 $alt_next = "下一封";
 $alt_prev = "上一封";
-$html_on = "on";
-$html_theme = "Theme";
+$html_on = "&#22312;";
+$html_theme = "&#32972;&#26223;&#20027;&#38988;";
 
 // index.php
 
