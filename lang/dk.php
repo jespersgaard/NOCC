@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.40 2001/02/23 09:31:58 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/dk.php,v 1.1 2001/02/28 20:38:11 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -61,8 +61,8 @@ $html_help = "Hjælp";
 $html_server = "Server";
 $html_wrong = "Brugernavn eller kodeord er forkert";
 $html_retry = "Prøv igen";
-$html_on = "on";
-$html_theme = "theme";
+$html_on = "til";
+$html_theme = "Thema";
 
 // Other pages
 
