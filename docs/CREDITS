@@ -5,13 +5,13 @@ NOCC Version 1.0 Development Team
 Core Developers
 ===============
 
-Nicolas Chalanset (nicocha@free.fr)
+Nicolas Chalanset <nicocha@free.fr>
 
 * SMTP and MIME functions
 * INBOX functions
 * Display messages functions
 
-Olivier Cahagne (cahagn_o@epita.fr)
+Olivier Cahagne <cahagn_o@epita.fr>
 
 * First version of NOCC
 * A lot of debugging
