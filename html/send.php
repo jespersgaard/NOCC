@@ -12,9 +12,11 @@
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_from ?> : </td>
 					<td>
-						<select name="mail_from">
+						<input type="text" name="mail_from" value="<?php echo $user."@".$domain ?>"> 
+						<!--<select name="mail_from">
 							<option value="<?php echo $user."@".$domain ?>"><?php echo $user."@".$domain ?></option>
 						</select>
+						-->
 					</td>
 				</tr>
 				<tr>
