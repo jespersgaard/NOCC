@@ -1,6 +1,7 @@
 NOCC 0.9.5	??   ??, 2001
 
 	* Added rudimentary user preferences (name, email and signature).
+	* Made textarea in send.php narrower, to accomodate 800x600 users.
 	* Removed nowrap table attributes, as they cause problems for
 	  800x600 users.
 	* New paperclip icon to indicate attachments.

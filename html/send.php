@@ -93,7 +93,7 @@ $mail_body .= "\n".$signature;
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2" align="center"><textarea name="mail_body" cols="70" rows="20"><?php echo (isset($mail_body) ? $mail_body : '') ?></textarea></td>
+					<td colspan="2" align="center"><textarea name="mail_body" cols="60" rows="20"><?php echo (isset($mail_body) ? $mail_body : '') ?></textarea></td>
 				</tr>
 				<tr>
 					<td align="center" colspan="2">
