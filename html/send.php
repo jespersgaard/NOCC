@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.62 2003/12/21 15:40:20 goddess_skuld Exp $ -->
+<!-- start of $Id: send.php,v 1.63 2003/12/27 09:11:43 goddess_skuld Exp $ -->
 <?php
 
 // Default e-mail address on send form
@@ -37,6 +37,7 @@ $mail_from = get_default_from_address();
 					<td align="right" class="inbox"><a href="javascript:void(0);" onClick="window.open('contacts.php?field=mail_to&<? echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_to ?></a> : </td>
                     <td align="left"><input type="text" name="mail_to" size="60" value="<?php echo (isset($mail_to) ? htmlspecialchars($mail_to) : ''); ?>" /></td>
                 </tr>
+		<tr>
 					<td align="right" class="inbox"><a href="javascript:void(0);" onClick="window.open('contacts.php?field=mail_cc&<? echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_cc ?></a> : </td>
                     <td align="left"><input type="text" name="mail_cc" size="60" value="<?php echo (isset($mail_cc) ? htmlspecialchars($mail_cc) : '') ?>" /></td>
                 </tr>
@@ -164,4 +165,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.62 2003/12/21 15:40:20 goddess_skuld Exp $ -->
+<!-- end of $Id: send.php,v 1.63 2003/12/27 09:11:43 goddess_skuld Exp $ -->
