@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.4 2001/02/06 19:15:26 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.6 2001/02/06 20:47:46 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -17,7 +17,7 @@ $charset = "ISO-8859-1";
 
 // Configuration for the days and months
 
-// What language to use (Here, english US --> en_US)
+// What language to use
 // see '/usr/share/locale/' for more information
 $lang_locale = "nl_NL";
 

@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.7 2001/02/19 11:11:30 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.8 2001/02/20 13:57:01 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -8,7 +8,7 @@
  * See the enclosed file COPYING for license information (GPL).  If you
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
- * Configuration file for the portguese language
+ * Configuration file for the portuguese language
  * Translation by sena <sena@smux.net>
  */
 
