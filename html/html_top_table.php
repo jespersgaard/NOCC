@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.62 2002/05/15 13:54:52 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.63 2002/05/22 14:23:43 rossigee Exp $ -->
 <?php
 
 require_once 'class_local.php';
@@ -93,7 +93,7 @@ if ($pop->is_imap()) {
         <td align="center" class="inbox">&nbsp;</td>
         <td align="center" class="inbox" <?php if ($_SESSION['sort'] == 2) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>">
-            <img src="themes/<?php echo $_REQUEST['theme'] ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_from; ?>" /></a>
+            <img src="themes/<?php echo $_SESSION['theme'] ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_from; ?>" /></a>
             &nbsp;
             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>">
             <?php echo $html_from ?></a>
@@ -121,4 +121,4 @@ if ($pop->is_imap()) {
             <form method="post" action="delete.php" name="delete_form">
         </td>
     </tr>
-<!-- start of $Id: html_top_table.php,v 1.62 2002/05/15 13:54:52 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.63 2002/05/22 14:23:43 rossigee Exp $ -->
