@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.56 2004/06/25 18:59:25 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.57 2004/06/25 19:03:22 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -152,6 +152,9 @@ class mime_mail
         $mime .= 'X-Priority: ' . $this->priority . $this->crlf;
         if (!empty($this->headers))
             $mime .= $this->headers . $this->crlf;
+
+	// Strip lonely "\r\n.\r\n" in order to avoid STMP errors
+	$mime = str_replace("\r\n.\r\n", "\r\n..\r\n", $mime);
 
 	if (sizeof($this->parts) >= 1)
         {

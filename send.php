@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.121 2004/06/25 16:31:02 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.122 2004/06/25 16:43:59 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -36,7 +36,6 @@ if ($HTTP_SERVER_VARS['REQUEST_METHOD'] != 'POST') {
     header('Location: ' . $conf->base_url . 'action.php');
     return;
 }
-
 require_once './class_send.php';
 require_once './class_smtp.php';
 
@@ -47,7 +46,9 @@ $mail_bcc = safestrip($_REQUEST['mail_bcc']);
 $mail_subject = safestrip($_REQUEST['mail_subject']);
 $mail_body = safestrip($_REQUEST['mail_body']);
 if(ini_get("file_uploads")) {
-	$mail_att = $_FILES['mail_att'];
+        if (isset($_FILES['mail_att'])) {
+            $mail_att = $_FILES['mail_att'];
+	}
 }
 $mail_receipt = isset($_REQUEST['receipt']);
 $mail_priority = safestrip($_REQUEST['priority']);
