@@ -1,6 +1,6 @@
 <?php 
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.14 2001/03/29 08:37:13 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.15 2001/05/27 08:42:47 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
