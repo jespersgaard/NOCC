@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: nicocha $
-	$Revision: 1.22 $
-	$Date: 2000/11/01 23:24:53 $
+	$Revision: 1.24 $
+	$Date: 2000/11/01 23:47:22 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
 the function get_part is based on a function from matt@bonneau.net
@@ -111,6 +111,7 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 	GLOBAL $attach_tab;
 	GLOBAL $glob_body;
 	GLOBAL $PHP_SELF;
+	//$body_mime = "text/plain";
 
 	$current_date = date("D, d M");
 	$pop = @imap_open("{".$mailhost."}INBOX", $user, $passwd);
@@ -139,6 +140,7 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 		$tmp = array_pop($attach_tab);
 		if (eregi("text/html", $tmp["mime"]) || eregi("text/plain", $tmp["mime"]))
 		{	
+			$glob_body_mime = $tmp["mime"];
 			if ($tmp["transfer"] == "QUOTED-PRINTABLE")
 				$glob_body = imap_qprint(imap_fetchbody($pop, $mail, $tmp["number"]));
 			elseif ($tmp["transfer"] == "BASE64")
@@ -172,6 +174,7 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 				"date" => change_date(chop($ref_contenu_message->date), $lang),
 				"att" => $link_att,
 				"body" => $glob_body,
+				"body_mime" => $glob_body_mime,
 				"header" => $header,
 				"verbose" => $verbose);
 	
@@ -329,8 +332,10 @@ function link_att($servr, $mail, $tab, $display_part_no)
 function change_date($date, $lang)
 {
 	require ("check_lang.php");
+	$date = eregi_replace("  ", " ", $date);
 	$tab = explode(" ", $date);
 	$tab[0] = eregi_replace(",", "", $tab[0]);
+	//$tab[1] = eregi_replace(" ", "", $tab[1]);
 	return ($days[$tab[0]].", ".$tab[1]." ".$months[$tab[2]]." ".$tab[3]);
 }
 

@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: nicocha $
-	$Revision: 1.11 $
-	$Date: 2000/10/29 23:10:18 $
+	$Revision: 1.12 $
+	$Date: 2000/10/29 23:56:51 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -31,20 +31,21 @@ switch ($action)
 		require ("html/html_mail_top.php");
 		$content = aff_mail($servr, $user, $passwd, $mail, $verbose, true, $lang);
 		require ("html/html_mail_header.php"); 
-		while ($tmp = array_shift($attach_tab))
-		{
-			// $attach_tab is the array of attachments
-			if (eregi ("image", $tmp["mime"]))
+		if (!eregi("html", $content["body_mime"]))
+			while ($tmp = array_shift($attach_tab))
 			{
-				// if it's an image, we display it
-				$img_type = array_pop(explode("/", $tmp["mime"]));
-				if (eregi ("JPEG", $img_type) || eregi("JPG", $img_type) || eregi("GIF", $img_type) || eregi ("PNG", $img_type))
+				// $attach_tab is the array of attachments
+				if (eregi ("image", $tmp["mime"]))
 				{
-					echo "<hr>";
-					echo "<center><img src=\"get_img.php?mail=".$mail."&num=".$tmp["number"]."&mime=".$img_type."&transfer=".$tmp["transfer"]."\"></center>";
+					// if it's an image, we display it
+					$img_type = array_pop(explode("/", $tmp["mime"]));
+					if (eregi ("JPEG", $img_type) || eregi("JPG", $img_type) || eregi("GIF", $img_type) || eregi ("PNG", $img_type))
+					{
+						echo "<hr>";
+						echo "<center><img src=\"get_img.php?mail=".$mail."&num=".$tmp["number"]."&mime=".$img_type."&transfer=".$tmp["transfer"]."\"></center>";
+					}
 				}
-			}
-		} 
+			} 
 		require ("html/html_mail_bottom.php");
 		require ("html/menu_mail.php");
 		break;
