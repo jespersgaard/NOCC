@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.8 2002/04/24 19:32:30 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.9 2002/04/24 21:08:18 rossigee Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -77,13 +77,18 @@ if (!isset($_SESSION['lang']))
 }
 require ('./lang/' . $_SESSION['lang'] . '.php');
 
+// Start with default smtp server/port, override later
+$_SESSION['smtp_server'] = $conf->default_smtp_server;
+$_SESSION['smtp_port'] = $conf->default_smtp_port;
+
 // Default login to just the username
 if(isset($_SESSION['user']))
     $_SESSION['login'] = $_SESSION['user'];
 
-// Given domainnum, set up 'domain', 'servr', 'smtp_server' and 'smtp_port'
+// Were we provided with a domainnum to use
 if (isset($_REQUEST['domainnum']))
 {
+    $domainnum = $_REQUEST['domainnum'];
     $_SESSION['domain'] = $conf->domains[$domainnum]->domain;
     $_SESSION['servr'] = $conf->domains[$domainnum]->in;
     $_SESSION['smtp_server'] = $conf->domains[$domainnum]->smtp;
@@ -93,34 +98,18 @@ if (isset($_REQUEST['domainnum']))
     if(isset($conf->domains[$domainnum]->login_with_domain))
         $_SESSION['login'] .= "@" . $domain;
 }
-if(isset($_SESSION['domain']))
-    $domain = $_SESSION['domain'];
-if(isset($_SESSION['servr']))
-    $servr = $_SESSION['servr'];
-if(isset($_SESSION['smtp_server']))
-    $smtp_server = $_SESSION['smtp_server'];
-if(isset($_SESSION['smtp_port']))
-    $smtp_port = $_SESSION['smtp_port'];
 
-// Have we specified a server/type/port to connect to?
+// Or did the user provide the details themselves
 if (isset($_REQUEST['server'])) {
     $server = safestrip($_REQUEST['server']);
     $servtype = strtolower($_REQUEST['servtype']);
     $port = safestrip($_REQUEST['port']);
-    if ($servtype != 'imap')
-        $servr = $server.'/'.$servtype.':'.$port;
-    else
-        $servr = $server.':'.$port;
+    $servr = $server.'/'.$servtype.':'.$port;
 
     // Use as default domain for user's address
     $_SESSION['domain'] = $server;
+    $_SESSION['servr'] = $servr;
 }
-
-
-if (empty($smtp_server))
-    $smtp_server = $conf->default_smtp_server;
-if (empty($smtp_port))
-    $smtp_port = $conf->default_smtp_port;
 
 // If we are forced to use a particular theme...
 if (!$conf->use_theme || empty($theme))
