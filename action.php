@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.128 2002/05/15 15:50:01 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.129 2002/05/15 16:36:16 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -90,6 +90,8 @@ switch($action)
 
     case 'reply':
         $attach_tab = array();
+	if(!isset($_REQUEST['verbose']))
+            $_REQUEST['verbose'] = 0;
         $content = aff_mail($attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
@@ -109,14 +111,16 @@ switch($action)
         $outlook_quoting = getPref('outlook_quoting');
         if($outlook_quoting)
             $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . strip_tags($content['body'], '');
-        else
-            if ($prefs_reply_leadin)
+        else {
+            $prefs_reply_leadin = getPref('leadin');
+            if ($prefs_reply_leadin != '')
             {
-                $parsed_leadin = parseLeadin(getPref('leadin'), $content);
+                $parsed_leadin = parseLeadin($prefs_reply_leadin, $content);
                 $mail_body = mailquote(strip_tags($content['body'], ''), $parsed_leadin, '');
             }
             else
                 $mail_body = mailquote(strip_tags($content['body'], ''), $content['from'], $html_wrote);
+        }
 
         // Add signature
         add_signature($mail_body);
@@ -131,6 +135,8 @@ switch($action)
 
     case 'reply_all':
         $attach_tab = array();
+	if(!isset($_REQUEST['verbose']))
+            $_REQUEST['verbose'] = 0;
         $content = aff_mail($attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
@@ -164,6 +170,8 @@ switch($action)
 
     case 'forward':
         $attach_tab = array();
+	if(!isset($_REQUEST['verbose']))
+            $_REQUEST['verbose'] = 0;
         $content = aff_mail($attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
@@ -178,7 +186,7 @@ switch($action)
         add_signature($mail_body);
 
         // Let send.php know to attach the original message
-        $forward_msgnum = $mail;
+        $forward_msgnum = $_REQUEST['mail'];
 
         require ('./html/header.php');
         require ('./html/menu_inbox.php');
