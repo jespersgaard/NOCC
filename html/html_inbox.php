@@ -18,6 +18,6 @@
 		<? echo $tmp["date"] ?>
 	</td>
 	<td align="right" nowrap class="inbox">
-		<? echo $tmp["size"] ?> Kb
+		<? echo $tmp["size"] ?> <? echo $html_kb ?>
 	</td>
 </tr>
