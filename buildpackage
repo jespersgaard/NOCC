@@ -1,0 +1,4 @@
+#!/bin/sh
+
+tar cvf nocc-1.0.tar *
+gzip -9 nocc-1.0.tar
