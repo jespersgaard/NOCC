@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.29 2001/03/20 09:51:56 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.30 2001/03/21 15:14:29 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -42,7 +42,7 @@ switch ($action)
 			{
 				// if it's an image, display it
 				$img_type = array_pop(explode("/", $tmp["mime"]));
-				if (eregi ("JPEG", $img_type) || eregi("JPG", $img_type) || eregi("GIF", $img_type) || eregi ("PNG", $img_type))
+				if (eregi("JPEG", $img_type) || eregi("JPG", $img_type) || eregi("GIF", $img_type) || eregi ("PNG", $img_type))
 				{
 					$php_session = ini_get("session.name");
 					echo "<hr />";
