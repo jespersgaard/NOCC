@@ -1,4 +1,5 @@
-<!-- start of $Id: html_inbox.php,v 1.36 2002/04/19 14:39:37 rossigee Exp $ -->
+<!-- start of $Id: html_inbox.php,v 1.37 2002/04/19 23:34:19 mrylander Exp $ -->
+<?php global $PHP_SELF ?>
 <tr bgcolor="<?php echo $glob_theme->inbox_color ?>">
     <td align="center">
         <input type="checkbox" name="msg-<?php echo $tmp['number'] ?>" value="Y" />
@@ -25,4 +26,4 @@
         <?php echo $tmp['size'] ?> <?php echo $html_kb ?>
     </td>
 </tr>
-<!-- end of $Id: html_inbox.php,v 1.36 2002/04/19 14:39:37 rossigee Exp $ -->
+<!-- end of $Id: html_inbox.php,v 1.37 2002/04/19 23:34:19 mrylander Exp $ -->

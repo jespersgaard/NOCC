@@ -1,5 +1,6 @@
-<!-- start of $Id: menu_inbox.php,v 1.34 2002/04/18 22:28:26 rossigee Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.35 2002/04/19 14:39:37 rossigee Exp $ -->
 <?php
+global $PHP_SELF;
 $color_inbox = $color = $glob_theme->menu_color;
 if ($action == '') 
 {
@@ -49,4 +50,4 @@ if ($action == 'forward')
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_inbox.php,v 1.34 2002/04/18 22:28:26 rossigee Exp $ -->
+<!-- end of $Id: menu_inbox.php,v 1.35 2002/04/19 14:39:37 rossigee Exp $ -->
