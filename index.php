@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.78 2001/10/21 18:21:20 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.79 2001/10/21 20:42:08 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -88,7 +88,7 @@ function updateTheme()
 								<td align="right" class="f"><?php echo $html_login ?></td>
 								<td><font size="-3">&nbsp;</font></td>
 								<td class="f" align="left"> 
-									<input type="text" name="user" size="15" value="<?=$REMOTE_USER?>"/>
+									<input type="text" name="user" size="15" value="<?php if(isset($REMOTE_USER)) echo $REMOTE_USER; ?>"/>
 									<?php
 									if (count($domains) > 1)
 									{
