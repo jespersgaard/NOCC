@@ -17,7 +17,7 @@ $charset = "UTF-8";
 // Configuration for the days and months
 
 
-// What language to use (Here, french FRANCE --> fr_FR)
+// What language to use
 // see '/usr/share/locale/' for more information
 $lang_locale = "ar_AR";
 
