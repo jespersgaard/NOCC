@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.57 2001/05/31 09:04:55 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.58 2001/05/31 09:54:37 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -90,7 +90,7 @@ else
 			// We need to unregister the attachments array and num_attach
 			session_unregister('num_attach');
 			session_unregister('attach_array');
-			if ($mail->send() != 0)
+			if (!$mail->send())
 				$error = true; // an error occured while sending the message
 			header ("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang&$php_session=".$$php_session);
 			break;
