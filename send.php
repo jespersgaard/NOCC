@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.40 2001/04/17 20:53:51 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.41 2001/04/17 21:55:36 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -17,6 +17,9 @@ $tmpdir = (!empty($upload_tmp_dir) ? $upload_tmp_dir : $tmpdir);
 
 if (empty($tmpdir))
 	header("Location: problem.php?lang=$lang&$php_session=".$$php_session);
+
+if (!function_exists("is_uploaded_file"))
+	include ("is_uploaded_file.php");
 
 function go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $lang)
 {
@@ -46,11 +49,15 @@ else
 				$num_attach++;
 			$tmp_name = basename($mail_att.".att");
 			// Adding the new file to the array
-			copy($mail_att, $tmpdir."/".$tmp_name);
-			$attach_array[$num_attach]->file_name = $mail_att_name;
-			$attach_array[$num_attach]->tmp_file = $tmp_name;
-			$attach_array[$num_attach]->file_size = $mail_att_size;
-			$attach_array[$num_attach]->file_mime = $mail_att_type;
+			if (is_uploaded_file($mail_att))
+			{
+				copy($mail_att, $tmpdir."/".$tmp_name);
+				copy($mail_att, $tmpdir."/".$tmp_name);
+				$attach_array[$num_attach]->file_name = $mail_att_name;
+				$attach_array[$num_attach]->tmp_file = $tmp_name;
+				$attach_array[$num_attach]->file_size = $mail_att_size;
+				$attach_array[$num_attach]->file_mime = $mail_att_type;
+			}
 			// Registering the attachment array into the session
 			session_register("num_attach", "attach_array");
 			// Displaying the sending form with the new attachments array
