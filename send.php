@@ -1,7 +1,8 @@
 <?
 require ("conf.php");
 require ("class_send.php");
-require("class_smtp.php");
+require ("class_smtp.php");
+require ("functions.php");
 require ("check_lang.php");
 
 $ip = getenv("REMOTE_ADDR");
@@ -10,10 +11,10 @@ $mail = new mime_mail();
 $mail->smtp_server = $smtp_server;
 $mail->smtp_port = $smtp_port;
 $mail->from = $from;
-$mail->headers = "X-Originating-Ip: [".$ip."]\nX-Mailer: ".$name." ".$version."\r\n";
-$mail->to = $to;
-$mail->cc = $cc;
-$mail->bcc = $bcc;
+$mail->headers = "X-Originating-Ip: [".$ip."]\nX-Mailer: ".$name." ".$version;
+$mail->to = cut_address($to);
+$mail->cc = cut_address($cc);
+$mail->bcc = cut_address($bcc);
 if ($subject != "")
 	$mail->subject = stripcslashes($subject);
 if ($body != "")
@@ -24,15 +25,11 @@ else
 if (file_exists($mail_att))
 {
 	$file = fread(fopen($mail_att, "r"), filesize($mail_att));
-	$mail->add_attachment($file, get_filename($att_name), guess_mime_type($att_name), "base64");
+	$mail->add_attachment($file, get_filename($att_name), $mail_att_type, "base64");
 }
-	$mail->send();
-
-
-if ($is_standalone == 1)
-	Header ("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang");
-else
-	Header ("Location: index.php?sort=$sort&sortdir=$sortdir&lang=$lang");
+if ($mail->send() !=0)
+	$error = true; // There has been an error while sending the message
+Header ("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang");
 
 function get_filename($filename)
 {

@@ -48,6 +48,7 @@ $alt_prev = "Pr&eacute;c&eacute;dent";
 
 // index.php
 
+$html_welcome = "Bienvenue &agrave;";
 $html_login = "Login";
 $html_passwd = "Mot de passe";
 $html_submit = "Valider";
@@ -89,11 +90,7 @@ $html_msgs = "Messages";
 $original_msg = "-- Message Original --";
 $to_empty = "Le champ 'A' ne doit pas &ecirc;tre vide !";
 
-
-$version = "v1.0";
-$name = "NOCC Webmail";
-
-$ad = "\n\n________________________________________________________________________\nNOCC, votre bureau &agrave; port&eacute;e de clic : http://nocc.sourceforge.net";
+$ad = "\n\n________________________________________________________________________\nNOCC, vos e-mail n'importe où : http://nocc.sourceforge.net";
 
 $html_outside = "Vous voyez cette page en dehors de <b>".$name."</b>. Pour y retourner, fermez cette fen&ecirc;tre.";
 

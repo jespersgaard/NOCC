@@ -19,10 +19,10 @@ class mime_mail
   */         
 	function mime_mail()
 	{
-		$this->parts = array();
-		$this->to =  "";
-		$this->cc = "";
-		$this->bcc = "";
+		$this->parts = Array();
+		$this->to =  Array();
+		$this->cc = Array();
+		$this->bcc = Array();
 		$this->from =  "";
 		$this->subject =  "";
 		$this->body =  "";
@@ -106,12 +106,12 @@ class mime_mail
 		$mime =  "";
 		if (!empty($this->from))
 			$mime .= "From: ".$this->from."\r\n";
-		if (!empty($this->to))
-			$mime .= "To: ".$this->to."\r\n";
-		if (!empty($this->cc))
-			$mime .= "Cc: ".$this->cc."\r\n";
-		if (!empty($this->bcc))
-			$mime .= "Bcc: ".$this->bcc."\r\n";
+		if (sizeof($this->to))
+			$mime .= "To: ".join(", ", $this->to)."\r\n";
+		if (sizeof($this->cc))
+			$mime .= "Cc: ".join(", ", $this->cc)."\r\n";
+		if (sizeof($this->bcc))
+			$mime .= "Bcc: ".join(", ", $this->bcc)."\r\n";
 		if (!empty($this->from))
 			$mime .= "Reply-To: ".$this->from."\nErrors-To: ".$this->from."\r\n";
 		if (!empty($this->subject))
@@ -129,7 +129,7 @@ class mime_mail
 			$mime .= $this->build_body();
 		}
 		if ($this->smtp_server == "" || $this->smtp_port == "")
-			mail($this->to, $this->subject,  "", $mime);
+			return (mail($this->to, $this->subject,  "", $mime));
 		else
 		{
 			if (($smtp = new smtp()) != 0)
@@ -138,9 +138,11 @@ class mime_mail
 				$smtp->port = $this->smtp_port;
 				$smtp->from = $this->from;
 				$smtp->to = $this->to;
+				$smtp->cc = $this->cc;
+				$smtp->bcc = $this->bcc;
 				$smtp->subject = $this->subject;
 				$smtp->data = $mime;
-				$smtp->send();
+				return ($smtp->send());
 			}
 			else
 				return 0;

@@ -19,7 +19,7 @@ if ($action == "forward")
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
 		<td bgcolor="#f0f0f0">
-			<table border="0" cellpadding="2" cellspacing="1" bgcolor="<? echo $html_tb_color ?>" bordercolor="#000000" width="100%">
+			<table border="0" cellpadding="2" cellspacing="1" bgcolor="<? echo $html_inside_color ?>" bordercolor="#000000" width="100%">
 				<tr>
 					<td class="menu" align="center" width="120" bgcolor="<? echo $color_inbox ?>">
 						<a href="<? echo $PHP_SELF ?>?lang=<?echo $lang ?>&sort=<? echo $sort ?>&sortdir=<? echo $sortdir ?>" class="menu"><? echo $html_inbox ?></a>
@@ -30,7 +30,7 @@ if ($action == "forward")
 					<td width="*" bgcolor="<? echo $html_menu_color ?>">
 						<img src="img/spacer.gif">
 					</td>
-					<? if ($is_standalone) { ?>
+					<? if ($enable_logout) { ?>
 					<td class="menu" align="center" width="80" bgcolor="<? echo $html_menu_color ?>">
 						<a href="logout.php" class="menu"><? echo $html_logout ?></a>
 					</td>

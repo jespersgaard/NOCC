@@ -7,6 +7,8 @@ class smtp
 	var $port;
 	var $from;
 	var $to;
+	var $cc;
+	var $bcc;
 	var $subject;
 	var $data;
 		
@@ -15,7 +17,9 @@ class smtp
 		$this->$smtp_server = "";
 		$this->$port = "";
 		$this->$from = "";
-		$this->$to = "";
+		$this->$to = Array();
+		$this->$cc = Array();
+		$this->$bcc = Array();
 		$this->$subject = "";
 		$this->$data = "";
 	}
@@ -86,15 +90,30 @@ class smtp
 	function smtp_rcpt_to($smtp) 
 	{ 
         global $SMTP_GLOBAL_STATUS; 
-
-        fputs($smtp,  "RCPT TO: <$this->to>\r\n"); 
-        $line = fgets($smtp, 1024); 
-        $SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULT"] = substr($line, 0, 1); 
-        $SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULTTXT"] = substr($line, 0, 1024); 
-
-        if ($SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULT"] <>  "2") return 0; 
-
-
+		while ($tmp = array_shift($this->to))
+		{
+			fputs($smtp,  "RCPT TO: <$tmp>\r\n");
+			$line = fgets($smtp, 1024); 
+			$SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULT"] = substr($line, 0, 1); 
+			$SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULTTXT"] = substr($line, 0, 1024); 
+	        if ($SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULT"] <>  "2") return 0;
+		}
+		while ($tmp = array_shift($this->cc))
+		{
+			fputs($smtp,  "RCPT TO: <$tmp>\r\n");
+			$line = fgets($smtp, 1024); 
+		    $SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULT"] = substr($line, 0, 1); 
+			$SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULTTXT"] = substr($line, 0, 1024); 
+	        if ($SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULT"] <>  "2") return 0;
+		}
+		while ($tmp = array_shift($this->bcc))
+		{
+			fputs($smtp,  "RCPT TO: <$tmp>\r\n"); 
+			$line = fgets($smtp, 1024); 
+		    $SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULT"] = substr($line, 0, 1); 
+			$SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULTTXT"] = substr($line, 0, 1024); 
+	        if ($SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULT"] <>  "2") return 0;
+		}
         return 1; 
 	} 
 
@@ -135,16 +154,12 @@ class smtp
 
 	function send()
 	{
-		if (($smtp = $this->smtp_open()) != 0)
-		{
-			$this->smtp_helo($smtp);
-			$this->smtp_mail_from($smtp);
-			$this->smtp_rcpt_to($smtp);
-			$this->smtp_data($smtp);
-			$this->smtp_quit($smtp);
-		}
-		else
-			return 0;
+		$smtp = $this->smtp_open();
+		$this->smtp_helo($smtp);
+		$this->smtp_mail_from($smtp);
+		$this->smtp_rcpt_to($smtp);
+		$this->smtp_data($smtp);
+		$this->smtp_quit($smtp);
 	}
 }
 ?>

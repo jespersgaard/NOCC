@@ -19,14 +19,7 @@ function inbox($servr, $user, $passwd, $sort, $sortdir)
 		}
 		else
 		{
-			if (empty($sort))
-			{
-				$sort = "0";
-				$sortdir = "1";
-				$sorted = imap_sort($pop, $sort, $sortdir, SE_UID); 
-			}
-			else
-				$sorted = imap_sort($pop, $sort, $sortdir, SE_UID); 
+			$sorted = imap_sort($pop, $sort, $sortdir, SE_UID); 
 			for ($i = 0; $i < $num_messages; $i++)
 			{
 				$msgnum = $sorted[$i];
@@ -122,7 +115,7 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read)
 			$link_att = "";
 			break;
 		case 1:
-			$link_att = "<tr><td align=\"right\" valign=\"top\" class=\"mail\">".$html_att."</td><td bgcolor=\"".$html_mail_tr_color."\" class=\"mail\">".link_att($mailhost, $mail, $attach_tab)."</td></tr>";
+			$link_att = "<tr><td align=\"right\" valign=\"top\" class=\"mail\">".$html_att."</td><td bgcolor=\"".$html_mail_properties."\" class=\"mail\">".link_att($mailhost, $mail, $attach_tab)."</td></tr>";
 			break;
 		default:
 			$link_att = "<tr><td align=\"right\" valign=\"top\" class=\"mail\">".$html_atts."</td><td bgcolor=\"".$html_mail_tr_color."\" class=\"mail\">".link_att($mailhost, $mail, $attach_tab)."</td></tr>";
@@ -310,18 +303,27 @@ function get_mail_size($this_part)
 
 function get_reply_all($user, $provider, $from, $to, $cc)
 {
-	$from = $from.",";
+	if (!eregi($user."@".$provider, $from)) 
+		$rcpt = $from;
 	$tab = explode(",", $to);
 	while ($tmp = array_shift($tab))
 		if (!eregi($user."@".$provider, $tmp))
-			$from .= $tmp.",";
+			$rcpt .= $tmp.", ";
 	$tab = explode(",", $cc);
 	while ($tmp = array_shift($tab))
 		if (!eregi($user."@".$provider, $tmp))
-			$from .= $tmp.",";
-	return (substr($from, 0, strlen($from) - 1));
+			$rcpt .= $tmp.", ";
+	return (substr($rcpt, 0, strlen($rcpt) - 2));
 }
 
 /* ----------------------------------------------------- */
 
+function cut_address($addr)
+{
+	$addr = eregi_replace(",", " ", $addr);
+	$addr = eregi_replace(";", " ", $addr);
+	return (split(" ", $addr));
+}
+
+/* ----------------------------------------------------- */
 ?>

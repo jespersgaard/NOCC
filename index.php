@@ -20,73 +20,99 @@ function updatePort () {
 }
 </script>
 </HEAD>
-<BODY background="img/home.gif" bgcolor="#ffffff" link="<? echo $link_color ?>" text="<? echo $text_color ?>" vlink="<? echo $vlink_color ?>" alink="<? echo $alink_color ?>">
-	<FORM action="action.php" method="post" name="nocc_webmail_login" target="_top">
-	<TABLE border="0" cellpadding="0" cellspacing="0" width="400" align="center">
-		<TR valign="top">
-			<TD align="center">
-				<IMG alt="NOCC Desktop" border="0" src="img/logo.gif">
-			</TD>
-		</TR>
-		<TR>
-			<TD align="center">
-				<TABLE border="0" cellpadding="0" cellspacing="5" align="center">
-					<TR>
-						<TD>
-							<span class="f"><? echo $html_login ?>
-						</TD>
-						<TD>
-							<INPUT type="text" name="user"></span>
+<BODY bgcolor="<? echo $bgcolor ?>" link="<? echo $link_color ?>" text="<? echo $text_color ?>" vlink="<? echo $vlink_color ?>" alink="<? echo $alink_color ?>">
+<FORM action="action.php" method="post" name="nocc_webmail_login" target="_top">
+<table border="0" width="100%" height="100%">
+	<tr>
+		<td align="center" valign="middle">
+			<table bgcolor="<? echo $login_border ?>" border="0" cellpadding="1" cellspacing="0" width="428" align="center">
+				<tr> 
+					<td valign="bottom"> 
+						<table bgcolor="<? echo $login_box_bgcolor ?>" border="0" cellpadding="0" cellspacing="0" width="428">
+							<TR valign="top">
+								<TD align="center" colspan="3">
+									<IMG alt="NOCC" border="0" src="img/logo.gif">
+								</TD>
+							</TR>
+							<tr> 
+								<td colspan="3" height="18"><font size="-3">&nbsp;</font></td>
+							</tr>
+							<tr valign="top"> 
+				               <td align="center" colspan="3"><span class="f"><b><? echo $html_welcome." ".$name." ".$version; ?></b></span></td>
+							</tr>
+							<tr> 
+								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
+							</tr>
+							<tr>
+								<td align="right"><span class="f"><? echo $html_login ?></td>
+								<td><font size="-3">&nbsp;</font></td>
+								<td> 
+									<INPUT type="text" name="user"></span>
+									<?
+									if ($servr != "" && $provider != "")
+									{ ?>
+										@<select name="provider"><option value=""><? echo $provider ?></option></select>
+									<?
+									}
+									?>
+								</td>
+							</tr>
+							<tr> 
+								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
+							</tr>
+							<tr> 
+								<td align=right><span class="f"><? echo $html_passwd ?></td>
+								<td><font size="-3">&nbsp;</font></td>
+								<td> 
+									<INPUT type="password" name="passwd">
+								</td>
+							</tr>
+							<tr> 
+								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
+							</tr>
+							<tr>
 							<?
-							if ($servr != "" && $provider != "")
+							if ($servr == "")
 							{ ?>
-								@<select name="provider"><option value=""><? echo $provider ?></option></select>
+							<TR>
+								<td align="right">
+									<span class="f"><? echo $html_server ?></span>
+								</td>
+								<td><font size="-3">&nbsp;</font></td>
+								<td>
+									<span class="f">
+									<input type="text" name="server" value="mail.example.com"><br>
+									<input type="text" size="4" name="port" value="143">
+									<select name="servtype" onChange="updatePort();">
+										<option value="imap">IMAP</option>
+										<option value="pop3">POP3</option>
+									</select>
+									</span>
+								</td>
+							</TR>
+							<tr> 
+								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
+							</tr>
 							<?
 							}
 							?>
-						</TD>
-					</TR>
-					<TR> 
-						<TD><span class="f"><? echo $html_passwd ?></TD>
-						<TD><INPUT type="password" name="passwd"></span></TD>
-					</TR>
-					<?
-					if ($servr == "")
-					{ ?>
-					<TR>
-						<td>
-							<span class="f"><? echo $html_server ?></span>
-						</td>
-						<td>
-							<span class="f">
-							<input type="text" name="server" value="mail.example.com"><br>
-							<input type="text" size="4" name="port" value="143">
-							<select name="servtype" onChange="updatePort();">
-								<option value="imap">IMAP</option>
-								<option value="pop3">POP3</option>
-							</select>
-							</span>
-						</td>
-					</TR>
-					<?
-					}
-					?>
-					<TR>
-						<TD COLSPAN="2" align="center">
-							<INPUT name="enter" type="submit" value="<? echo $html_submit ?>">
-						</TD>
-					</TR>
-				</TABLE>
-				&nbsp;<span class="s">Powered by</span><br>
-				<a href="http://nocc.sourceforge.net"><img src="img/button.gif" border="0"></a>
-			</TD>
-		</TR>
-	</TABLE>
-</FORM>
-<script type="text/javascript">
-<!--
-	document.nocc_webmail_login.user.focus();
-	document.nocc_webmail_login.passwd.value='';
-// -->
-</script>
-</BODY></HTML>
+							<TR>
+								<TD COLSPAN="3" align="center">
+									<INPUT name="enter" type="submit" value="<? echo $html_submit ?>">
+								</TD>
+							</TR>
+							<tr> 
+								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			</form>
+			<script type="text/javascript">
+			<!--
+				document.nocc_webmail_login.user.focus();
+				document.nocc_webmail_login.passwd.value='';
+			// -->
+			</script>
+<? require ("html/footer.php"); ?>

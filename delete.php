@@ -20,8 +20,6 @@ else
 }
 imap_expunge($pop);
 imap_close($pop, CL_EXPUNGE);
-if ($is_standalone == 1)
-	Header ("Location: action.php");
-else
-	Header ("Location: index.php");
+
+Header ("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang");
 ?>

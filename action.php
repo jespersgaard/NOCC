@@ -1,12 +1,7 @@
 <?
 require ("conf.php");
 require ("check_lang.php");
-
-if ($is_standalone == true)
-{
-	session_register("user", "passwd");
-	require ("html/standalone_top.php");
-}
+require ("html/header.php");
 require ("functions.php");
 $current_date = $days[date("D")].", ".date("d")." ".$months[date("M")]; 
 
@@ -91,6 +86,5 @@ switch ($action)
 		break;
 }
 
-if ($is_standalone == true)
-	require ("html/standalone_bottom.php");
+require ("html/footer.php");
 ?>

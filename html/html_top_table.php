@@ -5,7 +5,7 @@ $new_sortdir = ($sortdir == 0) ? 1 : 0;
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 <tr><td bgcolor="#cacaca">
 
-<table width="100%" cellpadding="2" cellspacing="1" border="0" bgcolor="<? echo $html_tb_color ?>" bordercolor="#000000">
+<table width="100%" cellpadding="2" cellspacing="1" border="0" bgcolor="<? echo $html_inside_color ?>" bordercolor="#000000">
 	<tr bgcolor="<? echo $html_tr_color ?>">
 		<td colspan="4" class="titlew">
 			<B><? echo $html_inbox ?></B></FONT>
@@ -58,3 +58,4 @@ $new_sortdir = ($sortdir == 0) ? 1 : 0;
 		</td>
 	</tr>
 	<FORM METHOD="POST" ACTION="delete.php" NAME="delete_form">
+	<input type="hidden" name="lang" value="<? echo $lang ?>">
