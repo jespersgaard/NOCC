@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.3 2001/05/01 10:11:54 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.4 2001/05/05 15:39:57 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -78,29 +78,33 @@ $lang_array[15]->label = "Polski";
 
 // Portuguese
 $lang_array[16]->filename = "pt";
-$lang_array[16]->label = "Portug&ecirc;s";
+$lang_array[16]->label = "Portugu&ecirc;s";
+
+// Portuguese Brazil
+$lang_array[17]->filename = "pt-br";
+$lang_array[17]->label = "Portugu&ecirc;s Brasil";
 
 //Russian
-$lang_array[17]->filename = "ru";
-$lang_array[17]->label = "Russian (Win)";
+$lang_array[18]->filename = "ru";
+$lang_array[18]->label = "Russian (Win)";
 
 //Russian
-$lang_array[18]->filename = "ru-koi";
-$lang_array[18]->label = "Russian (Unix)";
+$lang_array[19]->filename = "ru-koi";
+$lang_array[19]->label = "Russian (Unix)";
 
 //Russian
-$lang_array[19]->filename = "ru-iso";
-$lang_array[19]->label = "Russian (ISO)";
+$lang_array[20]->filename = "ru-iso";
+$lang_array[20]->label = "Russian (ISO)";
 
 // Swedish
-$lang_array[20]->filename = "sv";
-$lang_array[20]->label = "Svenska";
+$lang_array[21]->filename = "sv";
+$lang_array[21]->label = "Svenska";
 
 // Slovenian
-$lang_array[21]->filename = "sl";
-$lang_array[21]->label = "Slovensko";
+$lang_array[22]->filename = "sl";
+$lang_array[22]->label = "Slovensko";
 
 // Slovenski
-$lang_array[22]->filename = "sk";
-$lang_array[22]->label = "Slovensky";
+$lang_array[23]->filename = "sk";
+$lang_array[23]->label = "Slovensky";
 ?>
