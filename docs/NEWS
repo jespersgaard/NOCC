@@ -6,8 +6,8 @@ NOCC 0.9.2	February ??, 2001
 	* The 'New' column isn't displayed anymore when accessing a POP3 server. 
 	* New translations (portuguese, dutch, arabic and spanish)
 	  However, as more features came in, some items aren't translated yet.
-	* correct a bug which prevent good parsing of RFC822 message
-	* text/plain attachements can be displayed
+	* Fixed a bug which prevented correct parsing of RFC822 message.
+	* Added displaying of text/plain attachements inline.
 	* Fixed bug where one couldn't log in if the password contained "\".
 	* Improved speed for parsing messages (both for the inbox display
 	  and the message display itself).
