@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.7 2001/10/21 23:15:03 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.8 2001/10/23 15:40:16 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,15 +9,12 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
 
-if (defined('prefs_php'))
-	return;
-define('prefs_php', true);
-
-global $prefs_are_cached, $prefs_cache;
 if (!session_is_registered('prefs_are_cached'))
 {
 	$prefs_are_cached = false;
 	$prefs_cache = array();
+	session_register('prefs_cache');
+	session_register('prefs_are_cached');
 }
 
 function cachePrefValues($data_dir, $username)
@@ -60,12 +57,7 @@ function cachePrefValues($data_dir, $username)
 		fclose($file);
 	}
 
-	session_unregister('prefs_cache');
-	session_register('prefs_cache');
-	   
 	$prefs_are_cached = true;
-	session_unregister('prefs_are_cached');
-	session_register('prefs_are_cached');
 }
    
    

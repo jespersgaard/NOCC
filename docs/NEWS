@@ -1,5 +1,6 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Fixed order of session headers
 	* Added error logging of file opening problems in prefs.php.
 	* Updated prefs.php to use domain in prefs filename (fixes #472923)
 	* Added logic patch for displaying images (from Colin Stephenson #427202).
