@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.40 2001/06/15 15:16:38 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.41 2001/06/16 13:05:37 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -119,14 +119,14 @@ switch ($action)
 				$num_msg = 0;
 				require ('html/menu_inbox.php');
 				require ('html/html_top_table.php');
-				include ('no_mail.php');
+				include ('html/no_mail.php');
 				require ('html/html_bottom_table.php');
 				break;
 			default:
 				$loggedin = 1;
 				session_register('loggedin');
 				// there are messages, we display
-				$num_msg = sizeof($tab_mail);
+				$num_msg = count($tab_mail);
 				require ('html/menu_inbox.php');
 				require ('html/html_top_table.php');
 				while ($tmp = array_shift($tab_mail))
