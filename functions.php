@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.123 2001/11/16 12:07:05 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.124 2001/11/16 13:21:42 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -102,8 +102,8 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang, $theme)
 						'prev' => $prev,
 						*/
 						'attach' => $attach, 
-						'from' => htmlspecialchars($from), 
-						'subject' => htmlspecialchars($subject), 
+						'from' => $from,
+						'subject' => $subject, 
 						'date' => $date,
 						'complete_date' => $complete_date, 
 						'size' => $msg_size,
@@ -149,9 +149,9 @@ function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort
 	if (isset($struct_msg->parts) && (sizeof($struct_msg->parts) > 0))
 		GetPart($struct_msg, NULL, $display_rfc822);
 	else
-		GetSinglePart($struct_msg, htmlspecialchars(imap_fetchheader($pop, $mail)), @imap_body($pop, $mail));
+		GetSinglePart($struct_msg, imap_fetchheader($pop, $mail), @imap_body($pop, $mail));
 	if (($verbose == 1) && ($use_verbose == true))
-		$header = htmlspecialchars(imap_fetchheader($pop, $mail));
+		$header = imap_fetchheader($pop, $mail);
 	else
 		$header = '';
 	$tmp = array_pop($attach_tab);
@@ -202,11 +202,11 @@ function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort
 		$reply_to .= $reply_to_array[$j]->text;
 	list($date, $complete_date) = change_date(chop($ref_contenu_message->udate), $lang);
 	$content = Array(
-		'from' => htmlspecialchars($from),
-		'to' => htmlspecialchars($to),
-		'cc' => htmlspecialchars($cc),
-		'reply_to' => htmlspecialchars($reply_to),
-		'subject' => htmlspecialchars($subject),
+		'from' => $from,
+		'to' => $to,
+		'cc' => $cc,
+		'reply_to' => $reply_to,
+		'subject' => $subject,
 		'date' => $date,
 		'complete_date' => $complete_date,
 		'att' => $link_att,
@@ -444,7 +444,6 @@ function remove_stuff($body, $lang, $mime)
 	}
 	elseif (eregi('plain', $mime))
 	{
-		$body = htmlspecialchars($body);
 		$body = eregi_replace("(http|https|ftp)://([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)","<a href=\"\\1://\\2\" target=\"_blank\">\\1://\\2</a>", $body);
 		$body = eregi_replace("([#a-zA-Z0-9+-._]*)@([#a-zA-Z0-9+-_]*)\.([a-zA-Z0-9+-_.]+[#a-zA-Z0-9+]*)","<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1@\\2.\\3&amp;lang=$lang\">\\1@\\2.\\3</a>", $body);
 		$body = nl2br($body);
