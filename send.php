@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.48 2001/05/24 10:54:58 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.55 2001/05/31 08:04:05 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -61,14 +61,14 @@ else
 			$mail->charset = $charset;
 			$mail->from = cut_address($mail_from, $charset);
 			$mail->from = $mail->from[0];
-			$mail->headers = "X-Originating-Ip: [".$ip."]\r\nX-Mailer: ".$nocc_name." v".$nocc_version;
+			$mail->headers = "X-Originating-Ip: [".$ip."]\nX-Mailer: ".$nocc_name." v".$nocc_version;
 			$mail->to = cut_address($mail_to, $charset);
 			$mail->cc = cut_address($mail_cc, $charset);
 			$mail->bcc = cut_address($mail_bcc, $charset);
 			if ($mail_subject != "")
 				$mail->subject = stripcslashes($mail_subject);
 			if ($mail_body != "")
-				$mail->body = stripcslashes($mail_body)."\r\n\r\n".$ad;
+				$mail->body = stripcslashes($mail_body)."\n\n".$ad;
 			else
 				$mail->body = $ad;
 			// Getting the attachments

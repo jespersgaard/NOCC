@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.25 2001/04/24 19:11:36 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.32 2001/05/31 08:04:44 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -76,10 +76,10 @@ class mime_mail
 		}
 		$val = "Content-Type: ".$part["ctype"].";";
 		$val .= ($part["charset"] ? " charset=".$part["charset"] : "");
-		$val .= ($part["name"] ? "\r\n\tname=\"".$part["name"]."\"" : "");
-		$val .= "\r\nContent-Transfer-Encoding: ".$encoding;
-		$val .= ($part["name"] ? "\r\nContent-Disposition: attachment;\r\n\tfilename=\"".$part["name"]."\"" : "");
-		$val .= "\r\n\r\n".$message."\r\n";
+		$val .= ($part["name"] ? "\n\tname=\"".$part["name"]."\"" : "");
+		$val .= "\nContent-Transfer-Encoding: ".$encoding;
+		$val .= ($part["name"] ? "\nContent-Disposition: attachment;\n\tfilename=\"".$part["name"]."\"" : "");
+		$val .= "\n\n".$message."\n";
 		return($val);
 	}
 
@@ -90,11 +90,11 @@ class mime_mail
 	function build_multipart() 
 	{
 		$boundary =  "NextPart".md5(uniqid(time()));
-		$multipart =  "Content-Type: multipart/mixed;\r\n\tboundary = $boundary\r\n\r\nThis is a MIME encoded message.\r\n\r\n--$boundary";
+		$multipart =  "Content-Type: multipart/mixed;\n\tboundary = $boundary\n\nThis is a MIME encoded message.\n\n--$boundary";
 		
 		for($i = sizeof($this->parts) - 1; $i >= 0; $i--) 
-			$multipart .=  "\r\n".$this->build_message($this->parts[$i]). "--$boundary";
-		return ($multipart.=  "--\r\n");
+			$multipart .=  "\n".$this->build_message($this->parts[$i]). "--$boundary";
+		return ($multipart.=  "--\n");
 	}
 
 /*
@@ -108,7 +108,7 @@ class mime_mail
 			$part = $this->build_message($this->parts[0]);
 		else
 			$part = "";
-		return ($part."\r\n");
+		return ($part."\n");
 	}
 
 /*
@@ -119,23 +119,23 @@ class mime_mail
 	{
 		$mime =  "";
 		if (!empty($this->from))
-			$mime .= "From: ".$this->from."\r\n";
+			$mime .= "From: ".$this->from."\n";
 		if (($this->smtp_server != "" && $this->smtp_port != "") && ($this->to[0] != ""))
-			$mime .= "To: ".join(", ", $this->to)."\r\n"; 
+			$mime .= "To: ".join(", ", $this->to)."\n"; 
 		if ($this->cc[0] != "")
-			$mime .= "Cc: ".join(", ", $this->cc)."\r\n";
+			$mime .= "Cc: ".join(", ", $this->cc)."\n";
 		if ($this->bcc[0] != "")
-			$mime .= "Bcc: ".join(", ", $this->bcc)."\r\n";
+			$mime .= "Bcc: ".join(", ", $this->bcc)."\n";
 		if (!empty($this->from))
-			$mime .= "Reply-To: ".$this->from."\r\nErrors-To: ".$this->from."\r\n";
+			$mime .= "Reply-To: ".$this->from."\nErrors-To: ".$this->from."\n";
 		if (!empty($this->subject))
-			$mime .= "Subject: ".$this->subject."\r\n";
+			$mime .= "Subject: ".$this->subject."\n";
 		if (!empty($this->headers))
-			$mime .= $this->headers."\r\n";
+			$mime .= $this->headers."\n";
 		if (sizeof($this->parts) >= 1)
 		{
 			$this->add_attachment($this->body,  "",  "text/plain", "quoted-printable", $this->charset);
-			$mime .= "MIME-Version: 1.0\r\n".$this->build_multipart();
+			$mime .= "MIME-Version: 1.0\n".$this->build_multipart();
 		}
 		else
 		{
