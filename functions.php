@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: wolruf $
-	$Revision: 1.14 $
-	$Date: 2000/10/26 12:00:09 $
+	$Revision: 1.15 $
+	$Date: 2000/10/26 12:06:54 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
 the function get_part is based on a function from matt@bonneau.net
@@ -21,8 +21,8 @@ $body = "";
 
 function inbox($servr, $user, $passwd, $sort, $sortdir, $lang)
 {
+	require("conf.php");
 	$pop = @imap_open("{".$servr."}INBOX", $user, $passwd);
-	//echo imap_num_recent($pop);
 	if ($pop == false)
 		return (-1);
 	else
@@ -58,9 +58,8 @@ function inbox($servr, $user, $passwd, $sort, $sortdir, $lang)
 				// Check Status Line with UCB POP Server to
 				// see if this is a new message. This is a
 				// non-RFC standard line header.
-				// Change the following line to 1 if you
-				// have such a beast !
-				if ($have_ucb_pop_server = "0")
+				// Set this in conf.php
+				if ($have_ucb_pop_server)
                 {
 					$header_msg = imap_fetchheader($pop, imap_msgno($pop, $msgnum));
 					$header_lines = explode("\r\n", $header_msg);
