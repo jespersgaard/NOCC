@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.39 2004/09/13 19:17:54 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.40 2004/09/14 09:30:04 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -80,8 +80,10 @@ else {
 require ('./lang/'. $lang.'.php');
 
 // Start with default smtp server/port, override later
-$_SESSION['nocc_smtp_server'] = $conf->default_smtp_server;
-$_SESSION['nocc_smtp_port'] = $conf->default_smtp_port;
+if (empty($_SESSION['nocc_smtp_server']))
+    $_SESSION['nocc_smtp_server'] = $conf->default_smtp_server;
+if (empty($_SESSION['nocc_smtp_port']))
+    $_SESSION['nocc_smtp_port'] = $conf->default_smtp_port;
 
 // Default login to just the username
 if(isset($_SESSION['nocc_user']) && !isset($_SESSION['nocc_login']))
@@ -113,8 +115,7 @@ if (isset($_REQUEST['domainnum']))
     }
     $_SESSION['nocc_domain'] = $conf->domains[$domainnum]->domain;
     $_SESSION['nocc_servr'] = $conf->domains[$domainnum]->in;
-    if(!empty($_SESSION['nocc_smtp_server']))
-            $_SESSION['nocc_smtp_server'] = $conf->domains[$domainnum]->smtp;
+    $_SESSION['nocc_smtp_server'] = $conf->domains[$domainnum]->smtp;
     $_SESSION['nocc_smtp_port'] = $conf->domains[$domainnum]->smtp_port;
 
     // Do we provide the domain with the login?

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.29 2003/12/21 15:40:20 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.30 2004/09/14 09:30:04 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -116,7 +116,7 @@ class smtp
 	          return new NoccException($html_smtp_error_unexpected . ' : ' . $line);
               return (true);
               break;
-          default:
+          case '':
               return (true);
       }
       return (true);
