@@ -1,5 +1,6 @@
 NOCC 0.9.4	??   ??, 2001
 
+	* Speed up a bit by using ' instead of " for strings (faster parsing).
 	* Fixed Eudora attachments' name field in lowercase (patch from William
 	  Emmanuel S. Yu).
 	* Fixed a problem with the protocol when connecting to an imap server.
