@@ -1,19 +1,21 @@
 NOCC 0.9.4	??   ??, 2001
 
-	* Added Greek, Czech, Chinese Simplified translations.
-	* Fixed a security issue which allowed people to send critical system files 
-	  (attachments array is now kept in session data and several checks are performed).
-	* Fixed problem with ip address in send.php on Win32 (bug #415180).
-	* Fixed attachments problem when running on Windows (bug #414497).
-	* Fixed a problem with IE and SSL which prevented from downloading
-	  attachments.
+	* Fixed a security issue which allowed people to send critical system
+	  files (attachments array is now kept in session data and several
+	  checks are performed).
+	* Fixed empty IP address in send.php on Win32 (bug #415180).
+	* Fixed sending corrupted attachments when running on Win32
+	  (bug #414497).
+	* Fixed a session problem with IE in HTTPS mode which prevented from
+	  downloading attachments.
 	* Fixed missing '\r' when sending mail (bug #408232).
-	* Added Slovak, Hungarian and (still experimental) Hebrew translations.
+	* Added Slovak, Hungarian, Greek, Czech, Chinese Simplified and (still
+	  experimental) Hebrew translations.
 	* Added an error reporting control. No more 'undefined variable'
 	  warning will appear.
 	* Added a new theme 'newlook' from Anton Jakimov <t0xa@ls2.lv>
-	* Images are now in theme folder.
-	* Added support for multiple domain/server.
+	* Images are now in 'theme/' folder.
+	* Added support for multiple domains/servers.
 	* Messages are now sent with the charset of the chosen language.
 
 
