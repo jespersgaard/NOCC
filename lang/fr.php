@@ -1,9 +1,14 @@
 <?
 /*
+	$Header$
+	
 	$Author: nicocha $
-	$Revision: 1.13 $
-	$Date: 2000/10/23 23:44:42 $
-	$Log$
+	$Revision: 1.14 $
+	$Date: 2000/10/23 23:45:56 $
+	$Log: fr.php,v $
+	Revision 1.14  2000/10/23 23:45:56  nicocha
+	modify colors
+	
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
