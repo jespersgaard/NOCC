@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.31 2001/03/13 09:16:31 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.32 2001/03/13 11:34:37 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -21,6 +21,7 @@ function get_filename($filename)
 	return (array_pop($tab));
 }
 
+$php_session = ini_get("session.name");
 switch ($sendaction)
 {
 	case "add":
@@ -93,7 +94,7 @@ switch ($sendaction)
 		}
 		if ($mail->send() != 0)
 			$error = true; // an error occured while sending the message
-		header ("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang");
+		header ("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang&$php_session."=".$$php_session");
 		break;
 	case "delete":
 		// Rebuilding the attachments array with only the files the user wants to keep
@@ -127,7 +128,7 @@ switch ($sendaction)
 		require ("html/menu_inbox.php");
 		break;
 	default;
-		header("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang");
+		header("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang&$php_session."=".$$php_session");
 		break;
 }
 require ("html/footer.php");
