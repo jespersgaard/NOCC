@@ -19,19 +19,19 @@
 				</tr>
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_to ?> : </td>
-					<td><input type="text" name="mail_to" size="60" maxlength="200" value="<?php echo $mail_to ?>" /></td>
+					<td><input type="text" name="mail_to" size="60" maxlength="200" value="<?php echo (isset($mail_to) ? $mail_to : ''); ?>" /></td>
 				</tr>
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_cc ?> : </td>
-					<td><input type="text" name="mail_cc" size="60" maxlength="200" value="<?php echo $mail_cc ?>" /></td>
+					<td><input type="text" name="mail_cc" size="60" maxlength="200" value="<?php echo (isset($mail_cc) ? $mail_cc : '') ?>" /></td>
 				</tr>
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_bcc ?> : </td>
-					<td><input type="text" name="mail_bcc" size="60" maxlength="200" value="<?php echo $mail_bcc ?>" /></td>
+					<td><input type="text" name="mail_bcc" size="60" maxlength="200" value="<?php echo (isset($mail_bcc) ? $mail_bcc : '') ?>" /></td>
 				</tr>
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_subject ?> : </td>
-					<td><input type="text" name="mail_subject" size="60" maxlength="200" value="<?php echo $mail_subject ?>" /></td>
+					<td><input type="text" name="mail_subject" size="60" maxlength="200" value="<?php echo (isset($mail_subject) ? $mail_subject : '') ?>" /></td>
 				</tr>
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_att ?> : </td>
@@ -44,7 +44,7 @@
 					<td>&nbsp;</td>
 					<td>
 						<?php
-						if ($num_attach > 0)
+						if (isset($num_attach) && ($num_attach > 0))
 						{
 							echo ("<table border=\"0\" cellspacing=\"2\"><tr><td class=\"inbox\">&nbsp;</td><td class=\"inbox\"><b>$html_filename</b></td><td class=\"inbox\"><b>$html_size ($html_bytes)</b></td></tr>");
 							$totalsize = 0;
@@ -62,7 +62,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2" align="center"><textarea name="mail_body" cols="70" rows="20"><?php echo $mail_body ?></textarea></td>
+					<td colspan="2" align="center"><textarea name="mail_body" cols="70" rows="20"><?php echo (isset($mail_body) ? $mail_body : '') ?></textarea></td>
 				</tr>
 				<tr>
 					<td align="center" colspan="2">
