@@ -1,8 +1,8 @@
 <?
 /*
-	$Author$
-	$Revision$
-	$Date$
+	$Author: nicocha $
+	$Revision: 1.5 $
+	$Date: 2000/10/23 23:57:13 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -24,7 +24,8 @@ $file = imap_fetchbody($pop, $mail, $part);
 imap_close($pop);
 if ($transfer == "BASE64")
 	$file = base64_decode($file);
-// We use "Content-Type: unknown" to be sure the file is downloaded and not display
+// We use "Content-Type: unknown" to be sure the file is downloaded
+// and not displayed
 header("Content-Type: unknown");
 header("Content-Disposition: attachment; filename=".$filename);
 echo $file;
