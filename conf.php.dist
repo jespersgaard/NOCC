@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.36 2001/03/13 09:13:21 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.37 2001/03/16 14:04:33 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -109,6 +109,10 @@ $use_theme = false;
 // Default theme
 $default_theme = "standard";
 
+// Error reporting
+// Display error but no notice
+$debug_level = E_ALL & ~E_NOTICE;
+
 // ################### Language Array  ################### //
 // If you had language files to '/lang' folder, please list them here
 
@@ -203,11 +207,11 @@ if (isset($domainnum))
 	$smtp_port = $domains[$domainnum]->smtp_port;
 }
 
-if ($smtp_server == "")
+if (empty($smtp_server))
 	$smtp_server = $default_smtp_server;
-if ($smtp_port == "")
+if (empty($smtp_port))
 	$smtp_port = $default_smtp_port;
-if ($servr == "" && $server != "" && $servtype != "" && $port != "")
+if (empty($servr) && !empty($server) && !empty($servtype) && !empty($port))
 {
 		$servr = $server."/".strtoupper($servtype).":".$port;
 		$domain = $server;
@@ -226,5 +230,6 @@ if ($use_theme == true)
 }
 else
 	$theme = $default_theme;
+error_reporting($debug_level);
 require("themes/".$theme."/colors.php");
 ?>
