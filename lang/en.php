@@ -1,8 +1,8 @@
 <?
 /*
-	$Author$
-	$Revision$
-	$Date$
+	$Author: nicocha $
+	$Revision: 1.3 $
+	$Date: 2000/10/23 23:56:20 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -85,6 +85,7 @@ $html_new = "New";
 $html_mark = "Delete";
 $html_att = "Attachment";
 $html_atts = "Attachments";
+$html_att_unknown = "[unknown]";
 $html_from = "From";
 $html_subject = "Subject";
 $html_date = "Date";

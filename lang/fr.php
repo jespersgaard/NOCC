@@ -1,8 +1,8 @@
 <?
 /*	
 	$Author: nicocha $
-	$Revision: 1.15 $
-	$Date: 2000/10/23 23:47:44 $
+	$Revision: 1.16 $
+	$Date: 2000/10/23 23:48:52 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -86,6 +86,7 @@ $html_new = "Nouveaux";
 $html_mark = "Effacer";
 $html_att = "Pi&egrave;ce jointe";
 $html_atts = "Pi&egrave;ces jointes";
+$html_att_unknown = "[inconnu]";
 $html_from = "De";
 $html_subject = "Sujet";
 $html_date = "Date";
