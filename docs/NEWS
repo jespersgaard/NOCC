@@ -2,8 +2,6 @@ NOCC 0.9.6    June 2?, 2004
 
     * Correct problem where no attachment shown when mail contains only an
       attachment without message (Arnaud Boudou, bug #621260).
-    * Deny access to login screen and diplay an error message if 
-      register_globals is set to On (Arnaud Boudou).
     * Added possibility to mark a message as read or unread - IMAP only
       (Arnaud Boudou, RFE #587725).
     * Added typed domain names option and login suffix option (Leif Gustafson,
