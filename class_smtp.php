@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.21 2001/10/18 23:48:27 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.22 2001/10/19 10:34:24 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -118,7 +118,7 @@ class smtp
 		// Modified by nicocha to use to, cc and bcc field
 		while ($tmp = array_shift($this->to))
 		{
-			if($tmp == '')
+			if($tmp == '' || $tmp == '<>')
 				continue;
 			fputs($smtp, "RCPT TO:$tmp\r\n");
 			error_log("Sent: RCPT TO:$tmp");
@@ -132,7 +132,7 @@ class smtp
 		}
 		while ($tmp = array_shift($this->cc))
 		{
-			if($tmp == '')
+			if($tmp == '' || $tmp == '<>')
 				continue;
 			fputs($smtp, "RCPT TO:$tmp\r\n");
 			error_log("Sent: RCPT TO:$tmp");
@@ -146,7 +146,7 @@ class smtp
 		}
 		while ($tmp = array_shift($this->bcc))
 		{
-			if($tmp == '')
+			if($tmp == '' || $tmp == '<>')
 				continue;
 			fputs($smtp, "RCPT TO:$tmp\r\n"); 
 			error_log("Sent: RCPT TO:$tmp");
