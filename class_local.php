@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.20 2002/04/24 23:16:57 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.21 2002/05/29 19:49:25 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -19,21 +19,22 @@ class nocc_imap
 {
     var $server;
     var $login;
-    var $password;
+    var $passwd;
     var $conn;
     var $folder;
 
     // constructor        
-    function nocc_imap($server, $folder, &$login, &$password, $flags, &$ev)
+    function nocc_imap(&$ev)
     {
         global $lang_could_not_connect;
 
-        $this->server = $server;
-        $this->login = $login;
-        $this->password = $password;
+        $this->server = $_SESSION['nocc_servr'];
+        $this->folder = $_SESSION['nocc_folder'];
+        $this->login = $_SESSION['nocc_login'];
+        $this->passwd = $_SESSION['nocc_passwd'];
 
         // $ev is set if there is a problem with the connection
-        $conn = imap_open('{'.$server.'}'.$folder, $login, $password, $flags);
+        $conn = imap_open('{'.$this->server.'}'.$this->folder, $this->login, $this->passwd, 0);
         if(!$conn) {
             $ev = new Exception($lang_could_not_connect.": ".imap_last_error());
             return;
@@ -43,27 +44,43 @@ class nocc_imap
         return $this;
     }
 
-    function reopen($box, $flags = '') {
-        return imap_reopen($this->conn, $box, $flags);
+    function reopen($box, $flags = '', &$ev) {
+        if(!imap_reopen($this->conn, $box, $flags)) {
+            $ev = new Exception(imap_last_error());
+        }
     }
 
-    function search($crit, $flags = '') {
-        return imap_search($this->conn, $crit, $flags);
+    function search($crit, $flags = '', &$ev) {
+        $messages = imap_search($this->conn, $crit, $flags);
+        if(is_array($messages))
+            return $messages;
+        
+        $error = imap_last_error();
+        if(empty($error))
+            return array();
+        
+        $ev = new Exception("imap_search: ".imap_last_error());
+        return;
     }
 
-    function fetchstructure(&$msgnum) {
-        return imap_fetchstructure($this->conn, $msgnum);
+    function fetchstructure(&$msgnum, &$ev) {
+        $structure = imap_fetchstructure($this->conn, $msgnum);
+        if(!is_object($structure)) {
+            $ev = new Exception("imap_fetchstructure did not return an object: ".imap_last_error());
+            return;
+        }
+        return $structure;
     }
 
-    function fetchheader(&$msgnum) {
+    function fetchheader(&$msgnum, &$ev) {
         return imap_fetchheader($this->conn, $msgnum);
     }
 
-    function fetchbody(&$msgnum, &$partnum) {
+    function fetchbody(&$msgnum, &$partnum, &$ev) {
         return imap_fetchbody($this->conn, $msgnum, $partnum);
     }
 
-    function body(&$msgnum) {
+    function body(&$msgnum, &$ev) {
         return imap_body($this->conn, $msgnum);
     }
 
@@ -75,44 +92,57 @@ class nocc_imap
         return imap_msgno($this->conn, $msgnum);
     }
 
-    function sort(&$sort, &$sortdir) {
+    function sort(&$sort, &$sortdir, &$ev) {
         return imap_sort($this->conn, $sort, $sortdir, SE_UID|SE_NOPREFETCH);
     }
 
-    function headerinfo(&$msgnum) {
-        return imap_headerinfo($this->conn, $msgnum);
+    function headerinfo(&$msgnum, &$ev) {
+        $headers = imap_headerinfo($this->conn, $msgnum, $ev);
+        if(Exception::isException($ev)) return;
+        if(!is_object($headers)) {
+            $ev = new Exception("Could not get header info: ".imap_last_error());
+            return;
+        }
+        return $headers;
     }
 
     // From what I can find, this will not work on Cyrus imap servers.
-    function deletemailbox(&$old_box) {
-        return imap_deletemailbox($this->conn, '{'.$this->server.'}'.$old_box);
+    // [I will test this, I use Cyrus IMAP - Ross]
+    function deletemailbox(&$old_box, &$ev) {
+        if(!imap_deletemailbox($this->conn, '{'.$this->server.'}'.$old_box)) {
+            $ev = new Exception(imap_last_error());
+        }
     }
 
-    function renamemailbox(&$old_box, &$new_box) {
-        return imap_renamemailbox($this->conn, '{'.$this->server.'}'.$old_box, '{'.$this->server.'}'.$new_box);
+    function renamemailbox(&$old_box, &$new_box, &$ev) {
+        if(!imap_renamemailbox($this->conn, '{'.$this->server.'}'.$old_box, '{'.$this->server.'}'.$new_box)) {
+            $ev = new Exception(imap_last_error());
+        }
     }
 
-    function createmailbox(&$new_box) {
-        return imap_createmailbox($this->conn, '{'.$this->server.'}'.$new_box);
+    function createmailbox(&$new_box, &$ev) {
+        if(!imap_createmailbox($this->conn, '{'.$this->server.'}'.$new_box)) {
+            $ev = new Exception(imap_last_error());
+        }
     }
 
-    function mail_copy(&$mail, &$new_box) {
+    function mail_copy(&$mail, &$new_box, &$ev) {
         return imap_mail_copy($this->conn, $mail, $new_box, 0);
     }
 
-    function subscribe(&$new_box) {
+    function subscribe(&$new_box, &$ev) {
         return imap_subscribe($this->conn, '{'.$this->server.'}'.$new_box);
     }
 
-    function unsubscribe(&$old_box) {
+    function unsubscribe(&$old_box, &$ev) {
         return imap_unsubscribe($this->conn, '{'.$this->server.'}'.$old_box);
     }
 
-    function mail_move(&$mail, &$new_box) {
+    function mail_move(&$mail, &$new_box, &$ev) {
         return imap_mail_move($this->conn, $mail, $new_box, 0);
     }
 
-    function delete(&$mail) {
+    function delete(&$mail, &$ev) {
         return imap_delete($this->conn, $mail, 0);
     }
 
@@ -133,12 +163,26 @@ class nocc_imap
         return imap_utf7_encode($thing);
     }
 
-    function getmailboxes() {
-        return imap_getmailboxes($this->conn, '{'.$this->server.'}', '*');
-   }
+    function getmailboxes(&$ev) {
+        $mailboxes = imap_getmailboxes($this->conn, '{'.$this->server.'}', '*');
+        if(!is_array($mailboxes)) {
+            $ev = new Exception("imap_getmailboxes did not return an array: ".imap_last_error());
+            return;
+        }
+        return $mailboxes;
+    }
 
-    function getsubscribed() {
-        return imap_getsubscribed($this->conn, '{'.$this->server.'}', '*');
+    function getsubscribed(&$ev) {
+        $subscribed = imap_getsubscribed($this->conn, '{'.$this->server.'}', '*');
+        if(is_array($subscribed))
+            return $subscribed;
+        
+        $error = imap_last_error();
+        if(empty($error))
+            return array();
+        
+        $ev = new Exception("imap_getsubscribed: ".imap_last_error());
+        return;
     }
 
     /*
@@ -165,25 +209,21 @@ class nocc_imap
      * These are general utility functions that extend the imap interface.
      */
     function html_folder_select($value, $selected = '') {
-        $list = $this->get_nice_subscribed();
-
-        if(is_array($list) && count($list) > 0) {
-            reset($list);
-
-            $html_select = "<SELECT name=\"$value\">\n";
-
-            $select = '';
-            while (list($junk, $name) = each($list)) {
-                if ($name == $selected) {
-                    $select = "selected";
-                } else {
-                    $select = "";
-                }
-                $html_select .= "\t<OPTION $select value=\"$name\">$name</OPTION>\n";
-            }
-            $html_select .= "</select>\n";
-            return $html_select;
+        $folders = $this->get_nice_subscribed($ev);
+        if(Exception::isException($ev)) {
+                return "<p class=\"error\">Error retrieving folder pulldown: ".$ev->getMessage()."</p>";
         }
+        if(!is_array($folders) || count($folders) < 1) {
+                return "<p class=\"error\">Not currently subscribed to any mailboxes</p>";
+        }
+        reset($folders);
+
+        $html_select = "<select name=\"$value\">\n";
+        foreach($folders as $folder) {
+            $html_select .= "\t<option ".($folder == $selected ? "selected" : "")." value=\"$folder\">$folder</option>\n";
+        }
+        $html_select .= "</select>\n";
+        return $html_select;
     }
 
 
@@ -191,50 +231,43 @@ class nocc_imap
         if (($num_messages = $this->num_msg()) == 0) {
             return 0;
         } else {
-            $per_page = (getPref('msg_per_page')) ? getPref('msg_per_page') : (($conf->msg_per_page) ? $conf->msg_per_page : '25');
+            $per_page = (getPref('msg_per_page', $ev)) ? getPref('msg_per_page', $ev) : (($conf->msg_per_page) ? $conf->msg_per_page : '25');
             $pages = ceil($num_messages / $per_page);
             return $pages;
         }
     }
 
-    function get_nice_subscribed() {
-        $ret = array();
-        $s = $this->server;
-
-        $list = $this->getsubscribed();
-        if (is_array($list)) {
-            reset($list);
-            while (list($key,$val) = each($list)) {
-                list($junk,$name) = split("$s}", $this->utf7_decode($val->name));
-                if (!(in_array($name, $ret))) {
-                    array_push($ret, $name);
-                }
+    function get_nice_subscribed(&$ev) {
+        $folders = $this->getsubscribed($ev);
+        if(Exception::isException($ev)) return;
+        reset($folders);
+        $subscribed = array();
+        foreach($folders as $folder) {
+            $folder_name = substr(strstr($folder->name, '}'), 1);
+            if (!(in_array($folder_name, $subscribed))) {
+                array_push($subscribed, $folder_name);
             }
-        } else {
-            return ($ret);
         }
-
-        return ($ret);
+        return $subscribed;
     }
 
     /*
      * Test function
      */
     function test() {
-        $check = imap_mailboxmsginfo($this->conn);
- 
-        if($check) {
-            print "<p>Date: "    . $check->Date    ."</p>\n" ;
-            print "<p>Driver: "  . $check->Driver  ."</p>\n" ;
-            print "<p>Mailbox: " . $check->Mailbox ."</p>\n" ;
-            print "<p>Messages: ". $check->Nmsgs   ."</p>\n" ;
-            print "<p>Recent: "  . $check->Recent  ."</p>\n" ;
-            print "<p>Unread: "  . $check->Unread  ."</p>\n" ;
-            print "<p>Deleted: " . $check->Deleted ."</p>\n" ;
-            print "<p>Size: "    . $check->Size    ."</p>\n" ;
-        } else {
-            print "<p class=\"error\">imap_check() failed: ".imap_last_error(). "</p>\n";
+        imap_mailboxmsginfo($this->conn, $ev);
+        if(Exception::isException($ev)) {
+            print "<p class=\"error\">imap_mailboxmsginfo() failed: ".$ev->getMessage(). "</p>\n";
+            return;
         }
+        print "<p>Date: "    . $check->Date    ."</p>\n" ;
+        print "<p>Driver: "  . $check->Driver  ."</p>\n" ;
+        print "<p>Mailbox: " . $check->Mailbox ."</p>\n" ;
+        print "<p>Messages: ". $check->Nmsgs   ."</p>\n" ;
+        print "<p>Recent: "  . $check->Recent  ."</p>\n" ;
+        print "<p>Unread: "  . $check->Unread  ."</p>\n" ;
+        print "<p>Deleted: " . $check->Deleted ."</p>\n" ;
+        print "<p>Size: "    . $check->Size    ."</p>\n" ;
     }
 }
 

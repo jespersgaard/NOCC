@@ -1,5 +1,8 @@
 NOCC 0.9.6    ??, 2002
 
+    * A whole load of tidying up of the folder-related code.
+    * Changed the way prefs functions return exceptions.
+    * Improved the exception reporting from the nocc_imap class.
     * Added 'seperate_msg_win' configuration option. (#548360)
     * Check for valid e-mail address when changing preferences. (#506379)
     * Use $_SERVER['PHP_SELF'] instead of $PHP_SELF (for register_globals=off)

@@ -1,10 +1,10 @@
-<!-- start of $Id: folders.php,v 1.4 2002/05/15 13:54:52 rossigee Exp $ -->
+<!-- start of $Id: folders.php,v 1.5 2002/06/17 10:49:25 rossigee Exp $ -->
 <?php
 
-$renameoldbox = $pop->html_folder_select('renameoldbox');
-$removeoldbox = $pop->html_folder_select('removeoldbox');
+$renameoldbox = $pop->html_folder_select('renameoldbox', '');
+$removeoldbox = $pop->html_folder_select('removeoldbox', '');
 
-$all_mailboxes = $pop->getmailboxes();
+$all_mailboxes = $pop->getmailboxes($ev);
 
 $big_list = array();
 if (is_array($all_mailboxes)) {
@@ -78,4 +78,4 @@ if (count($big_list) > 1) {
         </td>
     </tr>
 </table>
-<!-- end of $Id: folders.php,v 1.4 2002/05/15 13:54:52 rossigee Exp $ -->
+<!-- end of $Id: folders.php,v 1.5 2002/06/17 10:49:25 rossigee Exp $ -->

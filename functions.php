@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.165 2002/05/30 14:07:21 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.166 2002/06/14 10:46:58 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -14,34 +14,38 @@ require_once 'class_local.php';
 
 /* ----------------------------------------------------- */
 
-function inbox(&$pop, $skip = 0)
+function inbox(&$pop, $skip = 0, &$ev)
 {
     global $conf;
+
+    $msg_list = array();
 
     $lang = $_SESSION['nocc_lang'];
     $sort = $_SESSION['nocc_sort'];
     $sortdir = $_SESSION['nocc_sortdir'];
 
     $num_msg = $pop->num_msg();
-    $per_page = (getPref('msg_per_page')) ? getPref('msg_per_page') : (($conf->msg_per_page) ? $conf->msg_per_page : '25');
+    $per_page = (getPref('msg_per_page', $ev)) ? getPref('msg_per_page', $ev) : (($conf->msg_per_page) ? $conf->msg_per_page : '25');
 
     $start_msg = $skip * $per_page;
     $end_msg = $start_msg + $per_page;
 
-    $sorted = $pop->sort($sort, $sortdir);
+    $sorted = $pop->sort($sort, $sortdir, $ev);
+    if(Exception::isException($ev)) return;
 
     $end_msg = ($num_msg > $end_msg) ? $end_msg : $num_msg;
     if ($start_msg > $num_msg) {
-        $msgs = Array();
-        return ($msgs);
+        return $msg_list;
     }
 
     for ($i = $start_msg; $i < $end_msg; $i++)
     {
         $subject = $from = '';
         $msgnum = $sorted[$i];
-        $ref_contenu_message = $pop->headerinfo($pop->msgno($msgnum));
-        $struct_msg = $pop->fetchstructure($pop->msgno($msgnum));
+        $ref_contenu_message = $pop->headerinfo($pop->msgno($msgnum), $ev);
+        if(Exception::isException($ev)) return;
+        $struct_msg = $pop->fetchstructure($pop->msgno($msgnum), $ev);
+        if(Exception::isException($ev)) return;
         $subject_array = nocc_imap::mime_header_decode($ref_contenu_message->subject);
         for ($j = 0; $j < count($subject_array); $j++)
             $subject .= $subject_array[$j]->text;
@@ -67,7 +71,8 @@ function inbox(&$pop, $skip = 0)
         // Set this in conf.php
         if ($conf->have_ucb_pop_server)
         {
-            $header_msg = $pop->fetchheader($pop->msgno($msgnum));
+            $header_msg = $pop->fetchheader($pop->msgno($msgnum), $ev);
+            if(Exception::isException($ev)) return;
             $header_lines = explode("\r\n", $header_msg);
             while (list($k, $v) = each($header_lines))
             {
@@ -78,10 +83,10 @@ function inbox(&$pop, $skip = 0)
         }
         else
         {
-        if (($ref_contenu_message->Unseen == 'U') || ($ref_contenu_message->Recent == 'N'))
-            $new_mail_from_header = '';
-        else
-            $new_mail_from_header = '&nbsp;';
+            if (($ref_contenu_message->Unseen == 'U') || ($ref_contenu_message->Recent == 'N'))
+                $new_mail_from_header = '';
+            else
+                $new_mail_from_header = '&nbsp;';
         }
         if ($new_mail_from_header == '')
             $newmail = '<img src="themes/' . $_SESSION['nocc_theme'] . '/img/new.gif" alt="" height="17" width="17" />';
@@ -107,7 +112,7 @@ function inbox(&$pop, $skip = 0)
 }
 
 /* ----------------------------------------------------- */
-function aff_mail(&$attach_tab, &$mail, $verbose, &$ev)
+function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
 {
     global $conf;
     global $glob_theme;
@@ -115,10 +120,6 @@ function aff_mail(&$attach_tab, &$mail, $verbose, &$ev)
     global $no_locale_date_format;
     global $html_att, $html_atts;
 
-    $mailhost = $_SESSION['nocc_servr'];
-    $folder = $_SESSION['nocc_folder'];
-    $login = $_SESSION['nocc_login'];
-    $passwd = $_SESSION['nocc_passwd'];
     $sort = $_SESSION['nocc_sort'];
     $sortdir = $_SESSION['nocc_sortdir'];
     $lang = $_SESSION['nocc_lang'];
@@ -126,13 +127,9 @@ function aff_mail(&$attach_tab, &$mail, $verbose, &$ev)
     // Clear variables
     $glob_body = $subject = $from = $to = $cc = $reply_to = '';
 
-    // Connect to server
-    $pop = new nocc_imap($mailhost, $folder, $login, $passwd, 0, $ev);
-    if($ev) 
-        return (-1);
-
     // Finding the next and previous message number
-    $sorted = $pop->sort($sort, $sortdir);
+    $sorted = $pop->sort($sort, $sortdir, $ev);
+    if(Exception::isException($ev)) return;
     $prev_msg = $next_msg = 0;
     for ($i = 0; $i < sizeof($sorted); $i++)
     {
@@ -145,30 +142,41 @@ function aff_mail(&$attach_tab, &$mail, $verbose, &$ev)
     }
     // END finding the next and previous message number
     $num_messages = $pop->num_msg();
-    $ref_contenu_message = $pop->headerinfo($mail);
-    $struct_msg = $pop->fetchstructure($mail);
+    $ref_contenu_message = $pop->headerinfo($mail, $ev);
+    if(Exception::isException($ev)) return;
+    $struct_msg = $pop->fetchstructure($mail, $ev);
+    if(Exception::isException($ev)) return;
     if (isset($struct_msg->parts) && (sizeof($struct_msg->parts) > 0))
         GetPart($attach_tab, $struct_msg, NULL, $conf->display_rfc822);
-    else
-        GetSinglePart($attach_tab, $struct_msg, $pop->fetchheader($mail), $pop->body($mail));
-    if (($verbose == 1) && ($conf->use_verbose == true))
-        $header = $pop->fetchheader($mail);
+    else {
+        GetSinglePart($attach_tab, $struct_msg, $pop->fetchheader($mail, $ev), $pop->body($mail, $ev));
+        if(Exception::isException($ev)) return;
+    }
+    if (($verbose == 1) && ($conf->use_verbose == true)) {
+        $header = $pop->fetchheader($mail, $ev);
+        if(Exception::isException($ev)) return;
+    }
     else
         $header = '';
     $tmp = array_pop($attach_tab);
     if (eregi('text/html', $tmp['mime']) || eregi('text/plain', $tmp['mime']))
     {    
-        if ($tmp['transfer'] == 'QUOTED-PRINTABLE')
-            $glob_body = nocc_imap::qprint($pop->fetchbody($mail, $tmp['number']));
-        elseif ($tmp['transfer'] == 'BASE64')
-            $glob_body = base64_decode($pop->fetchbody($mail, $tmp['number']));
-        else
-            $glob_body = $pop->fetchbody($mail, $tmp['number']);
+        if ($tmp['transfer'] == 'QUOTED-PRINTABLE') {
+            $glob_body = nocc_imap::qprint($pop->fetchbody($mail, $tmp['number'], $ev));
+            if(Exception::isException($ev)) return;
+        }
+        elseif ($tmp['transfer'] == 'BASE64') {
+            $glob_body = base64_decode($pop->fetchbody($mail, $tmp['number'], $ev));
+            if(Exception::isException($ev)) return;
+        }
+        else {
+            $glob_body = $pop->fetchbody($mail, $tmp['number'], $ev);
+            if(Exception::isException($ev)) return;
+        }
         $glob_body = remove_stuff($glob_body, $tmp['mime']);
     }
     else
         array_push($attach_tab, $tmp);
-    $pop->close();
     $link_att = '';
     if ($struct_msg->subtype != 'ALTERNATIVE' && $struct_msg->subtype != 'RELATED')
     {
@@ -625,12 +633,15 @@ function cut_address(&$addr, &$charset)
 
 /* ----------------------------------------------------- */
 
-function view_part(&$mailhost, &$login, &$passwd, &$folder, &$mail, $part_no, &$transfer, &$msg_charset, &$charset)
+function view_part(&$pop, &$mail, $part_no, &$transfer, &$msg_charset, &$charset)
 {
-    $pop = new nocc_imap($mailhost, $folder, $login, $passwd, 0, $ev);
-    if($ev) 
-        return (-1);
-    $text = $pop->fetchbody($mail, $part_no);
+    if(Exception::isException($ev)) {
+        return "<p class=\"error\">".$ev->getMessage."</p>";
+    }
+    $text = $pop->fetchbody($mail, $part_no, $ev);
+    if(Exception::isException($ev)) {
+        return "<p class=\"error\">".$ev->getMessage."</p>";
+    }
     if ($transfer == 'BASE64')
         $str = nl2br(nocc_imap::base64($text));
     elseif($transfer == 'QUOTED-PRINTABLE')
@@ -639,7 +650,6 @@ function view_part(&$mailhost, &$login, &$passwd, &$folder, &$mail, $part_no, &$
         $str = nl2br($text);
     //if (eregi('koi', $transfer) || eregi('windows-1251', $transfer))
     //    $str = @convert_cyr_string($str, $msg_charset, $charset);
-    $pop->close();
     return ($str);
 }
 
@@ -701,7 +711,7 @@ function display_address(&$address)
         return $html_att_unknown;
 
     // Get preference
-    $hide_addresses = getPref('hide_addresses');
+    $hide_addresses = getPref('hide_addresses', $ev);
 
     // If not set, return full address.
     if($hide_addresses != 'on')

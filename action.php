@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.131 2002/05/30 14:07:20 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.132 2002/05/30 14:30:42 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -19,12 +19,8 @@ require_once './prefs.php';
 // Remove any attachments from disk and from our session
 clear_attachments();
 
-// Get connection settings from session in case we need to
-// create a connection
-$servr = $_SESSION['nocc_servr'];
-$folder = $_SESSION['nocc_folder'];
-$login = $_SESSION['nocc_login'];
-$passwd = $_SESSION['nocc_passwd'];
+// Reset exception vector
+$ev = NULL;
 
 // Act on 'action'
 $action = '';
@@ -33,8 +29,16 @@ if(isset($_REQUEST['action']))
 switch($action)
 {
     case 'aff_mail':
+        $pop = new nocc_imap($ev);
+        if (Exception::isException($ev)) {
+            require ('./html/header.php');
+            require ('./html/error.php');
+            require ('./html/footer.php');
+            break;
+        }
+
         $attach_tab = array();
-        $content = aff_mail($attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
+        $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
@@ -52,7 +56,7 @@ switch($action)
             // $attach_tab is the array of attachments
             // If it's a text/plain, display it
             if ((!eregi('ATTACHMENT', $tmp['disposition'])) && $conf->display_text_attach && (eregi('text/plain', $tmp['mime'])))
-                echo '<hr />'.view_part($mail, $tmp['number'], $tmp['transfer'], $tmp['charset'], $charset);
+                echo '<hr />'.view_part($pop, $mail, $tmp['number'], $tmp['transfer'], $tmp['charset'], $charset);
             if ($conf->display_img_attach && (eregi('image', $tmp['mime']) && ($tmp['number'] != '')))
             {
                 // if it's an image, display it
@@ -70,6 +74,8 @@ switch($action)
         require ('./html/html_mail_bottom.php');
         require ('./html/menu_mail.php');
         require ('./html/footer.php');
+
+        $pop->close();
         break;
 
     case 'logout':
@@ -90,9 +96,18 @@ switch($action)
 
     case 'reply':
         $attach_tab = array();
-	if(!isset($_REQUEST['verbose']))
+        if(!isset($_REQUEST['verbose']))
             $_REQUEST['verbose'] = 0;
-        $content = aff_mail($attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
+
+        $pop = new nocc_imap($ev);
+        if (Exception::isException($ev)) {
+            require ('./html/header.php');
+            require ('./html/error.php');
+            require ('./html/footer.php');
+            break;
+        }
+
+        $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
@@ -108,11 +123,11 @@ switch($action)
             $mail_subject = $html_reply_short.': '.$content['subject'];
 
         // Set body
-        $outlook_quoting = getPref('outlook_quoting');
+        $outlook_quoting = getPref('outlook_quoting', $ev);
         if($outlook_quoting)
             $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . strip_tags($content['body'], '');
         else {
-            $prefs_reply_leadin = getPref('leadin');
+            $prefs_reply_leadin = getPref('leadin', $ev);
             if ($prefs_reply_leadin != '')
             {
                 $parsed_leadin = parseLeadin($prefs_reply_leadin, $content);
@@ -131,13 +146,24 @@ switch($action)
         require ('./html/send.php');
         require ('./html/menu_inbox.php');
         require ('./html/footer.php');
+
+        $pop->close();
         break;
 
     case 'reply_all':
         $attach_tab = array();
-	if(!isset($_REQUEST['verbose']))
+        if(!isset($_REQUEST['verbose']))
             $_REQUEST['verbose'] = 0;
-        $content = aff_mail($attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
+
+        $pop = new nocc_imap($ev);
+        if (Exception::isException($ev)) {
+            require ('./html/header.php');
+            require ('./html/error.php');
+            require ('./html/footer.php');
+            break;
+        }
+
+        $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
@@ -151,7 +177,7 @@ switch($action)
         else
             $mail_subject = $html_reply_short.': '.$content['subject'];
         // Set body
-        $outlook_quoting = getPref('outlook_quoting');
+        $outlook_quoting = getPref('outlook_quoting', $ev);
         if($outlook_quoting)
             $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . strip_tags2($content['body'], '');
         else
@@ -166,13 +192,23 @@ switch($action)
         require ('./html/send.php');
         require ('./html/menu_inbox.php');
         require ('./html/footer.php');
+
+        $pop->close();
         break;
 
     case 'forward':
         $attach_tab = array();
-	if(!isset($_REQUEST['verbose']))
+        if(!isset($_REQUEST['verbose']))
             $_REQUEST['verbose'] = 0;
-        $content = aff_mail($attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
+        $pop = new nocc_imap($ev);
+        if (Exception::isException($ev)) {
+            require ('./html/header.php');
+            require ('./html/error.php');
+            require ('./html/footer.php');
+            break;
+        }
+
+        $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
@@ -193,10 +229,12 @@ switch($action)
         require ('./html/send.php');
         require ('./html/menu_inbox.php');
         require ('./html/footer.php');
+
+        $pop->close();
         break;
 
     case 'managefolders':
-        $pop = new nocc_imap($servr, $folder, $login, $passwd, 0, $ev);
+        $pop = new nocc_imap($ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
@@ -204,74 +242,51 @@ switch($action)
             break;
         }
 
-        switch (trim($do)) {
+        switch (trim($_REQUEST['do'])) {
             case 'create_folder':
-                if ($createnewbox) {
-                    if (!($pop->createmailbox($createnewbox))) {
-                        $html_folders_updated = $html_folders_create_failed;
-                        break;
-                    }
-                    if (!($pop->subscribe($createnewbox))) {
-                        $html_folders_updated = $html_folders_sub_failed;
-                        break;
-                    }
+                if ($_REQUEST['createnewbox']) {
+                    $pop->createmailbox($createnewbox, $ev);
+                    if(Exception::isException($ev)) break;
+                    $pop->subscribe($createnewbox, $ev);
+                    if(Exception::isException($ev)) break;
                 }
                 break;
 
             case 'subscribe_folder':
-                if ($subscribenewbox) {
-                    if (!($pop->subscribe($subscribenewbox))) {
-                        $html_folders_updated = $html_folders_sub_failed;
-                        break;
-                    }
+                if ($_REQUEST['subscribenewbox']) {
+                    $pop->subscribe($_REQUEST['subscribenewbox'], $ev);
+                    if(Exception::isException($ev)) break;
                 }
                 break;
 
             case 'remove_folder':
-                if ($removeoldbox) {
+                if ($_REQUEST['removeoldbox']) {
                     // Don't want to remove, just unsubscribe.
-                    //if (!($pop->deletemailbox($removeoldbox))) {
-                    //    $html_folders_updated = $html_folders_unsub_failed;
-                    //    break;
-                    //}
-                    if (!($pop->unsubscribe($removeoldbox))) {
-                        $html_folders_updated = $html_folders_unsub_failed;
-                        break;
-                    }
+                    //$pop->deletemailbox($removeoldbox, $ev);
+                    //if(Exception::isException($ev)) break;
+                    $pop->unsubscribe($_REQUEST['removeoldbox'], $ev);
+                    if(Exception::isException($ev)) break;
                 }
                 break;
 
             case 'rename_folder':
-                if ($renamenewbox && $renameoldbox) {
-                    if (!($pop->renamemailbox($renameoldbox, $renamenewbox))) {
-                        $html_folders_updated = $html_folders_rename_failed;
-                        break;
-                    }
-                    if (!($pop->unsubscribe($renameoldbox))) {
-                        $html_folders_updated = $html_folders_unsub_failed;
-                        break;
-                    }
-                    if (!($pop->subscribe($renamenewbox))) {
-                        $html_folders_updated = $html_folders_sub_failed;
-                        break;
-                    }
+                if ($_REQUEST['renamenewbox'] && $_REQUEST['renameoldbox']) {
+                    $pop->renamemailbox($_REQUEST['renameoldbox'], $_REQUEST['renamenewbox'], $ev);
+                    if(Exception::isException($ev)) break;
+                    $pop->unsubscribe($_REQUEST['renameoldbox'], $ev);
+                    if(Exception::isException($ev)) break;
+                    $pop->subscribe($_REQUEST['renamenewbox'], $ev);
+                    if(Exception::isException($ev)) break;
                 }
                 break;
-        }
-
-        // Handle an errors that occurred
-        if (Exception::isException($lastev)) {
-            $ev = $lastev;
-            require ('./html/header.php');
-            require ('./html/error.php');
-            require ('./html/footer.php');
-            break;
         }
 
         require ('./html/header.php');
         require ('./html/menu_prefs.php');
         require ('./html/prefs.php');
-        require ('./html/folders.php');
+        if ($pop->is_imap()) {
+            require ('./html/folders.php');
+        }
         require ('./html/menu_prefs.php');
         require ('./html/footer.php');
 
@@ -280,7 +295,7 @@ switch($action)
         break;
 
     case 'setprefs':
-        $pop = new nocc_imap($servr, $folder, $login, $passwd, 0, $ev);
+        $pop = new nocc_imap($ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
@@ -294,14 +309,14 @@ switch($action)
 
             // Full name
             if (!$lastev && isset($_REQUEST['full_name'])) {
-                $ev = setPref('full_name', stripslashes($_REQUEST['full_name']));
+                setPref('full_name', stripslashes($_REQUEST['full_name']), $ev);
                 if(Exception::isException($ev))
                     $lastev = $ev;
             }
 
             // Messages per page
             if (!$lastev && isset($_REQUEST['msg_per_page'])) {
-                $ev = setPref('msg_per_page', $_REQUEST['msg_per_page']);
+                setPref('msg_per_page', $_REQUEST['msg_per_page'], $ev);
                 if(Exception::isException($ev))
                     $lastev = $ev;
             }
@@ -309,7 +324,7 @@ switch($action)
             // Email address
             if (!$lastev && isset($_REQUEST['email_address'])) {
                 if(valid_email($_REQUEST['email_address'])) {
-                    $ev = setPref('email_address', $_REQUEST['email_address']);
+                    setPref('email_address', $_REQUEST['email_address'], $ev);
                     if(Exception::isException($ev))
                         $lastev = $ev;
                 }
@@ -320,12 +335,12 @@ switch($action)
             // CC Self
             if (!$lastev)
                 if(isset($_REQUEST['cc_self'])) {
-                    $ev = setPref('cc_self', 'Y');
+                    setPref('cc_self', 'Y', $ev);
                     if(Exception::isException($ev))
                         $lastev = $ev;
                 }
                 else {
-                    $ev = setPref('cc_self', '');
+                    setPref('cc_self', '', $ev);
                     if(Exception::isException($ev))
                         $lastev = $ev;
                 }
@@ -333,12 +348,12 @@ switch($action)
             // Hide Addresses
             if (!$lastev)
                 if(isset($_REQUEST['hide_addresses'])) {
-                    $ev = setPref('hide_addresses', 'Y');
+                    setPref('hide_addresses', 'Y', $ev);
                     if(Exception::isException($ev))
                         $lastev = $ev;
                 }
                 else {
-                    $ev = setPref('hide_addresses', '');
+                    setPref('hide_addresses', '', $ev);
                     if(Exception::isException($ev))
                         $lastev = $ev;
                 }
@@ -346,12 +361,12 @@ switch($action)
             // Outlook-style quoting
             if (!$lastev)
                 if(isset($_REQUEST['outlook_quoting'])) {
-                    $ev = setPref('outlook_quoting', 'Y');
+                    setPref('outlook_quoting', 'Y', $ev);
                     if(Exception::isException($ev))
                         $lastev = $ev;
                 }
                 else {
-                    $ev = setPref('outlook_quoting', '');
+                    setPref('outlook_quoting', '', $ev);
                     if(Exception::isException($ev))
                         $lastev = $ev;
                 }
@@ -359,7 +374,7 @@ switch($action)
             // Reply lead-in
             if (!$lastev)
                 if(isset($_REQUEST['reply_leadin'])) {
-                    $ev = setPref('leadin', $reply_leadin);
+                    setPref('leadin', $reply_leadin, $ev);
                     if(Exception::isException($ev))
                         $lastev = $ev;
                 }
@@ -367,14 +382,14 @@ switch($action)
             // Signature
             if (!$lastev)
                 if(isset($_REQUEST['signature'])) {
-                    $ev = setPref('signature', stripslashes($_REQUEST['signature']));
+                    setPref('signature', stripslashes($_REQUEST['signature']), $ev);
                     if(Exception::isException($ev))
                         $lastev = $ev;
                 }
 
 /*
             if (!$lastev && $signature != "") {
-                $ev = setSig($signature);
+                setSig($signature, $ev);
                 if(Exception::isException($ev))
                     $lastev = $ev;
             }
@@ -399,7 +414,7 @@ switch($action)
         break;
 
     default:
-        $pop = new nocc_imap($servr, $folder, $login, $passwd, 0, $ev);
+        $pop = new nocc_imap($ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
@@ -410,50 +425,79 @@ switch($action)
         // If we get this far, consider ourselves logged in
         $_SESSION['nocc_loggedin'] = 1;
 
-        // Should we present folder options?
-        $is_imap = $pop->is_imap();
-
         // Fetch message list
         $tab_mail = 0;
         $skip = 0;
         if(isset($_REQUEST['skip']))
                 $skip = $_REQUEST['skip'];
         if ($pop->num_msg() > 0)
-            $tab_mail = inbox($pop, $skip);
+            $tab_mail = inbox($pop, $skip, $ev);
 
-        switch ($tab_mail)
-        {
-            case 0:
-                // the mailbox is empty
-                $num_msg = 0;
-                require ('./html/header.php');
-                require ('./html/menu_inbox.php');
-                require ('./html/html_top_table.php');
-                include ('./html/no_mail.php');
-                require ('./html/html_bottom_table.php');
-                require ('./html/menu_inbox.php');
-                require ('./html/footer.php');
-                break;
-            default:
-                // there are messages, we display
-                $num_msg = $pop->num_msg();
-                require ('./html/header.php');
-                require ('./html/menu_inbox.php');
-                require ('./html/html_top_table.php');
-                require ('./html/menu_inbox_opts.php');
-                while ($tmp = array_shift($tab_mail)) {
-                    require ('./html/html_inbox.php');
-                }
-                // If we show it twice, the bottom folder select is sent, and might be wrong.
-                //require ('./html/menu_inbox_opts.php');
-                if ($is_imap && ($conf->status_line == 1)) {
-                    require ('./html/menu_inbox_status.php');
-                }
-                require ('./html/html_bottom_table.php');
-                require ('./html/menu_inbox.php');
-                require ('./html/footer.php');
-                break;
+        if (Exception::isException($ev)) {
+            require ('./html/header.php');
+            require ('./html/error.php');
+            require ('./html/footer.php');
+            break;
         }
+
+        if(count($tab_mail) < 1) {
+            // the mailbox is empty
+            $num_msg = 0;
+            require ('./html/header.php');
+            require ('./html/menu_inbox.php');
+            require ('./html/html_top_table.php');
+            include ('./html/no_mail.php');
+            require ('./html/html_bottom_table.php');
+            require ('./html/menu_inbox.php');
+            require ('./html/footer.php');
+            break;
+        }
+
+        // there are messages, we display
+        $num_msg = $pop->num_msg();
+        require ('./html/header.php');
+        require ('./html/menu_inbox.php');
+        require ('./html/html_top_table.php');
+        require ('./html/menu_inbox_opts.php');
+
+        // Include this once for each line of the message index
+        while ($tmp = array_shift($tab_mail)) {
+            require ('./html/html_inbox.php');
+        }
+
+        // If we show it twice, the bottom folder select is sent, and might be wrong.
+        if (($conf->status_line == 1) && $pop->is_imap()) {
+            // gather list of folders for menu_inbox_status
+            $subscribed = $pop->getsubscribed($ev);
+            if (Exception::isException($ev)) {
+                require ('./html/header.php');
+                require ('./html/error.php');
+                require ('./html/footer.php');
+                break;
+            }
+
+            $list_of_folders = "";
+            foreach($subscribed as $folder) {
+                $folder_name = substr(strstr($folder->name, '}'), 1);
+                $messages = $pop->search('UNSEEN', '', $ev);
+                if (Exception::isException($ev)) {
+                    $list_of_folders = "<p class=\"error\">".$ev->getMessage()."</p>";
+                    $ev = NULL;
+                    continue;
+                }
+                if (count($messages) > 0) {
+                    $list_of_folders .= ' <a href="'.$_SERVER['PHP_SELF'].'?folder='.$folder_name.'"><b>'.$folder_name.'</b></a>';
+                }
+                else {
+                    $list_of_folders .= ' <a href="'.$_SERVER['PHP_SELF'].'?folder='.$folder_name.'">'.$folder_name.'</a>';
+                }
+            }
+            require ('./html/menu_inbox_status.php');
+        }
+
+        require ('./html/html_bottom_table.php');
+        require ('./html/menu_inbox.php');
+        require ('./html/footer.php');
 
         $pop->close();
 
@@ -461,7 +505,7 @@ switch($action)
 }
 
 function add_signature(&$body) {
-    $prefs_signature = getPref('signature');
+    $prefs_signature = getPref('signature', $ev);
     if(!empty($prefs_signature))
         $body .= "\r\n" . $prefs_signature;
 }

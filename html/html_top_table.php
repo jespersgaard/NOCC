@@ -1,10 +1,10 @@
-<!-- start of $Id: html_top_table.php,v 1.64 2002/05/28 12:34:24 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.65 2002/05/30 14:07:22 rossigee Exp $ -->
 <?php
 
 require_once 'class_local.php';
 require_once 'conf.php';
 
-$per_page = (getPref('msg_per_page')) ? getPref('msg_per_page') : (($conf->msg_per_page) ? $conf->msg_per_page : '25');
+$per_page = (getPref('msg_per_page', $ev)) ? getPref('msg_per_page', $ev) : (($conf->msg_per_page) ? $conf->msg_per_page : '25');
 
 $arrow = ($_SESSION['nocc_sortdir'] == 0) ? 'up' : 'down';
 $new_sortdir = ($_SESSION['nocc_sortdir'] == 0) ? 1 : 0;
@@ -31,7 +31,6 @@ if($pages > 1) {
     }
 
     $page_line = "<form method=\"post\" action=\"".$_SERVER['PHP_SELF']."\">";
-    $page_line .= "<input type=\"hidden\" name=\"folder\" value=\"$folder\" />";
     $page_line .= "$html_page <select name=\"skip\">\n";
     $selected = '';
     for ($i = 0; $i < $pages; $i++) { 
@@ -51,7 +50,7 @@ if($pages > 1) {
 $fldr_line = "";
 if ($pop->is_imap()) {
     $fldr_line = "<form method=\"POST\" action=\"".$_SERVER['PHP_SELF']."\">$html_other_folders:  \n";
-    $fldr_line .= $pop->html_folder_select('folder', $folder);
+    $fldr_line .= $pop->html_folder_select('folder', $_SESSION['nocc_folder']);
     $fldr_line .= "<input type=\"submit\" class=\"button\" name=\"submit\" value=\"$html_gotofolder\" />";
     $fldr_line .= "</form>";
 }
@@ -62,15 +61,15 @@ if ($pop->is_imap()) {
 
 <table width="100%" cellpadding="2" cellspacing="1" border="0" bgcolor="<?php echo $glob_theme->inside_color ?>">
     <tr bgcolor="<?php echo $glob_theme->tr_color ?>">
-        <td <?php if (($is_imap) || ($conf->have_ucb_pop_server)) echo 'colspan="5"'; else echo 'colspan="4"'; ?>align="left" class="titlew">
-            <b><?php echo $folder ?></b>
+        <td <?php if ($conf->have_ucb_pop_server || $pop->is_imap()) echo 'colspan="5"'; else echo 'colspan="4"'; ?> align="left" class="titlew">
+            <b><?php echo $_SESSION['nocc_folder'] ?></b>
         </td>
         <td align="right" class="titlew" colspan="2">
             <?php echo $num_msg ?> <?php if ($num_msg == 1) {echo $html_msg;} else {echo $html_msgs;}?>
         </td>
     </tr>
     <tr bgcolor="<?php echo $glob_theme->inside_color ?>">
-        <td <?php if (($is_imap) || ($conf->have_ucb_pop_server)) echo 'colspan="3"'; else echo 'colspan="2"'; ?>align="left" class="inbox">
+        <td <?php if ($conf->have_ucb_pop_server || $pop->is_imap()) echo 'colspan="3"'; else echo 'colspan="2"'; ?>align="left" class="inbox">
             <?php echo $fldr_line ?>
     </td>
     <td colspan="2" align="right" class="inbox">
@@ -85,7 +84,7 @@ if ($pop->is_imap()) {
         <td align="center" class="inbox">
             <?php echo $html_select ?>
         </td>
-        <?php if (($is_imap) || ($conf->have_ucb_pop_server)) { ?>
+        <?php if ($conf->have_ucb_pop_server || $pop->is_imap()) { ?>
         <td align="center" class="inbox">
             <?php echo $html_new ?>
         </td>
@@ -121,4 +120,4 @@ if ($pop->is_imap()) {
             <form method="post" action="delete.php" name="delete_form">
         </td>
     </tr>
-<!-- start of $Id: html_top_table.php,v 1.64 2002/05/28 12:34:24 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.65 2002/05/30 14:07:22 rossigee Exp $ -->

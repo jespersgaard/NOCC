@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.19 2002/04/18 21:38:41 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.20 2002/05/30 14:07:21 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -19,7 +19,7 @@ if (!isset($_SESSION['nocc_prefs_are_cached']))
     $_SESSION['nocc_prefs_are_cached'] = $prefs_are_cached;
 }
 
-function cachePrefValues($username)
+function cachePrefValues($username, $ev)
 {
     global $conf, $prefs_are_cached, $prefs_cache;
     
@@ -34,7 +34,7 @@ function cachePrefValues($username)
         $file = fopen($filename, 'r');
         if(!$file)
         {
-            error_log("Could not open $filename for reading.");
+            $ev = new Exception("Could not open $filename for reading.");
             return;
         }
         
@@ -69,13 +69,13 @@ function cachePrefValues($username)
    
    
 /** returns the value for $string **/
-function getPref($string)
+function getPref($string, &$ev)
 {
     global $conf, $prefs_cache;
     
     $username = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
-    cachePrefValues($username);
-      
+    cachePrefValues($username, $ev);
+    if(Exception::isException($ev)) return;
     if (isset($prefs_cache[$string]))
         return ($prefs_cache[$string]);
     return ('');
@@ -104,11 +104,12 @@ function savePrefValues($username)
 }
 
 
-function removePref($username, $string)
+function removePref($username, $string, &$ev)
 {
     global $prefs_cache;
       
-    cachePrefValues($username);
+    cachePrefValues($username, $ev);
+    if(Exception::isException($ev)) return;
     if (isset($prefs_cache[$string]))
         unset($prefs_cache[$string]);
     return (savePrefValues($username));
@@ -116,12 +117,13 @@ function removePref($username, $string)
    
 
 /** sets the pref, $string, to $set_to **/
-function setPref($string, $set_to)
+function setPref($string, $set_to, &$ev)
 {
     global $conf, $prefs_cache;
 
     $username = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
-    cachePrefValues($username);
+    cachePrefValues($username, $ev);
+    if(Exception::isException($ev)) return;
     if (isset($prefs_cache[$string]) && $prefs_cache[$string] == $set_to)
         return;
     if ($set_to === '')

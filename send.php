@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.110 2002/05/29 19:52:22 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.111 2002/05/30 14:07:21 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -101,7 +101,7 @@ switch($_REQUEST['sendaction'])
         $mail->headers .= 'User-Agent: ' . $conf->nocc_name . ' <' . $conf->nocc_url . '>';
         $mail->to = cut_address(trim($mail_to), $charset);
         $mail->cc = cut_address(trim($mail_cc), $charset);
-        $cc_self = getPref('cc_self');
+        $cc_self = getPref('cc_self', $ev);
         if($cc_self != '') {
             array_unshift($mail->cc, $mail->from);
         }
@@ -145,11 +145,7 @@ switch($_REQUEST['sendaction'])
         if(isset($_REQUEST['forward_msgnum']) && $_REQUEST['forward_msgnum'] != "") {
             $forward_msgnum = $_REQUEST['forward_msgnum'];
             $ev = "";
-            $servr = $_SESSION['nocc_servr'];
-            $folder = $_SESSION['nocc_folder'];
-            $login = $_SESSION['nocc_login'];
-            $passwd = $_SESSION['nocc_passwd'];
-            $pop = new nocc_imap($servr, $folder, $login, $passwd, 0, $ev);
+            $pop = new nocc_imap($ev);
             if (Exception::isException($ev)) {
                 require ('./html/header.php');
                 require ('./html/error.php');
@@ -159,8 +155,20 @@ switch($_REQUEST['sendaction'])
 
             // Rebuild original message from headers and body
             $origmsg = "";
-            $headers = $pop->fetchheader($forward_msgnum);
-            $body = $pop->body($forward_msgnum);
+            $headers = $pop->fetchheader($forward_msgnum, $ev);
+            if (Exception::isException($ev)) {
+                require ('./html/header.php');
+                require ('./html/error.php');
+                require ('./html/footer.php');
+                break;
+            }
+            $body = $pop->body($forward_msgnum, $ev);
+            if (Exception::isException($ev)) {
+                require ('./html/header.php');
+                require ('./html/error.php');
+                require ('./html/footer.php');
+                break;
+            }
             $origmsg .= $headers;
             $origmsg .= "\r\n";
             $origmsg .= $body;
