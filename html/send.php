@@ -6,6 +6,7 @@
 				<input type="hidden" name="sort" value="<? echo $sort ?>">
 				<input type="hidden" name="sortdir" value="<? echo $sortdir ?>">
 				<input type="hidden" name="lang" value="<? echo $lang ?>">
+				<input type="hidden" name="action" value="<? echo $action ?>">
 				<input type="hidden" name="sendaction" value="">
 				<input type="hidden" name="num_attach" value="<? echo $num_attach ?>">
 				<TR>

@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.50 2001/01/30 09:39:27 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.51 2001/01/30 09:45:33 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -99,7 +99,7 @@ function inbox($servr, $user, $passwd, $sort, $sortdir, $lang)
 
 /* ----------------------------------------------------- */
 
-function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
+function aff_mail($servr, $user, $passwd, $mail, $verbose, $lang)
 {
 	$mailhost = $servr;
 	require ("conf.php");
@@ -117,7 +117,7 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 	$ref_contenu_message = @imap_header($pop, $mail);
 	$struct_msg = @imap_fetchstructure($pop, $mail);
 	if (sizeof($struct_msg->parts) > 0)
-		GetPart($struct_msg, NULL, $read, $display_rfc822);
+		GetPart($struct_msg, NULL, $display_rfc822);
 	else
 		GetSinglePart($struct_msg, htmlspecialchars(imap_fetchheader($pop, $mail)), @imap_body($pop, $mail));
 	if ($verbose == 1 && $use_verbose == 1)
@@ -175,7 +175,7 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 /* ----------------------------------------------------- */
 
 // based on a function from matt@bonneau.net
-function GetPart($this_part, $part_no, $read, $display_rfc822)
+function GetPart($this_part, $part_no, $display_rfc822)
 {
 	GLOBAL $attach_tab;
 
@@ -205,10 +205,10 @@ function GetPart($this_part, $part_no, $read, $display_rfc822)
 				for ($i = 0; $i < count($this_part->parts); $i++)
 				{
 					// if it's an alternative, we skip the text part to only keep the HTML part
-					if ($this_part->subtype == ALTERNATIVE && $read == true)
-						GetPart($this_part->parts[++$i], $part_no.($i + 1), $read, $display_rfc822);
+					if ($this_part->subtype == ALTERNATIVE)// && $read == true)
+						GetPart($this_part->parts[++$i], $part_no.($i + 1), $display_rfc822);
 					else 
-						GetPart($this_part->parts[$i], $part_no.($i + 1), $read, $display_rfc822);
+						GetPart($this_part->parts[$i], $part_no.($i + 1), $display_rfc822);
 				}
 			}
 			break;
@@ -216,7 +216,7 @@ function GetPart($this_part, $part_no, $read, $display_rfc822)
 			$mime_type = "message";
 			// well it's a message we have to parse it to find attachments or text message
 			for ($i = 0; $i < count($this_part->parts[0]->parts); $i++)
-				GetPart($this_part->parts[0]->parts[$i], $part_no.".".($i + 1), $read, $display_rfc822);
+				GetPart($this_part->parts[0]->parts[$i], $part_no.".".($i + 1), $display_rfc822);
 			break;
 		// Maybe we can do something with the mime types later ??
 		case TYPEAPPLICATION:
@@ -431,6 +431,37 @@ function get_reply_all($user, $domain, $from, $to, $cc)
 function cut_address($addr) {
   $addr = ereg_replace(",", ";", $addr);
   return (explode(";", $addr));
+}
+
+/* ----------------------------------------------------- */
+
+// Function that save the attachment locally for reply, transfer...
+// This function returns an array of all the attachment
+function save_attachment($servr, $user, $passwd, $mail)
+{
+	GLOBAL $attach_tab;
+	$attach_array = array();
+	$pop = imap_open("{".$servr."}INBOX", $user, $passwd);
+	$i = 0;
+	while ($tmp = array_shift($attach_tab))
+	{
+		$i++;
+		$file = imap_fetchbody($pop, $mail, $tmp["number"]);
+		if ($tmp["transfer"] == "QUOTED-PRINTABLE")
+			$file = imap_qprint($file);
+		elseif ($tmp["transfer"] == "BASE64")
+			$file = base64_decode($file);
+		$filename = ini_get("upload_tmp_dir")."/NOCC_TMP".md5(uniqid(time()));
+		$fp = fopen($filename, "w");
+		fwrite($fp, $file);
+		fclose($fp);
+		$attach_array[$i]->file_name = $tmp["name"];
+		$attach_array[$i]->tmp_file = $filename;
+		$attach_array[$i]->file_size = strlen($file);
+		$attach_array[$i]->file_mime = $tmp["mime"];
+	} 
+	imap_close($pop);
+	return(array($i, $attach_array));
 }
 
 /* ----------------------------------------------------- */

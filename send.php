@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.20 2001/01/29 14:30:41 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.21 2001/01/29 16:54:04 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -76,16 +76,16 @@ switch ($sendaction)
 			$file_tmp = "send_att_tmp".$i;
 			$file_size = "send_att_size".$i;
 			$file_mime = "send_att_mime".$i;
-			// If the temporary file does not exist, ignore it
+			// If the temporary file exists, attach it
 			if (file_exists($$file_tmp))
 			{
 				$fp = fopen($$file_tmp, "r");
 				$file = fread($fp, $$file_size);
 				fclose($fp);
-				// else add it to the message, by default it is encoded in base64
+				// add it to the message, by default it is encoded in base64
 				$mail->add_attachment($file, $$file_name, $$file_mime, "base64");
 				// then we delete the temporary file
-				@unlink($$file_tmp);
+				unlink($$file_tmp);
 			}
 		}
 		if ($mail->send() !=0)
