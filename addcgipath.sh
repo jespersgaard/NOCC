@@ -25,5 +25,5 @@ for i in action.php delete.php download.php index.php logout.php open.php \
   outside.php send.php
   do
   mv $i bak/$i
-  sed -e '1i\' -e '#!'$1'' bak/$i > $i
+  (echo '#!'$1''; cat bak/$i) > $i
   done;
