@@ -1,5 +1,7 @@
 NOCC 0.9.2	December ??, 2000
-
+	
+	* Improved speed for parsing messages (either for the inbox display and the message display itself)
+	* Improved the display of HTML messages
 
 NOCC 0.9.1	December 01, 2000
 
