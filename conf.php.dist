@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.59 2001/06/02 07:52:37 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.60 2001/06/03 22:18:06 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -26,11 +26,15 @@ $default_smtp_port = 25;
 // $domains[0]->domain = 'sourceforge.net';
 //  domain name e.g 'sourceforge.net'. This field is used when sending message
 //
-// $domains[0]->in = 'mail.sourceforge.net/pop3:110';
-//  imap or pop3 server name + protocol (only if not imap) + port
-//  [server_name]/[protocol]:[port number]
+// $domains[0]->in = 'mail.sourceforge.net:110/pop3';
+//  imap or pop3 server name + port + protocol (only if not imap)
+//  [server_name]:[port number]/[protocol]
 //  ex for an imap server : mail.sourceforge.net:143
-//  ex for a pop3 server  : mail.sourceforge.net/pop3:110
+//  ex for an ssl imap server : mail.sourceforge.net:993/ssl
+//  ex for an ssl imap server with a self-signed certificate : mail.sourceforge.net:993/ssl/novalidate-cert
+//  ex for a pop3 server  : mail.sourceforge.net:110/pop3
+//  ex for an ssl pop3 server : mail.sourceforge.net:995/pop3/ssl
+//  ex for an ssl pop3 server with a self-signed certificate : mail.sourceforge.net:995/pop3/ssl/novalidate-cert
 //  protocol can only be pop3
 //
 // $domains[0]->smtp = 'smtp.isp.com';
