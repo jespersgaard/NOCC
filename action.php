@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.93 2002/02/09 20:25:01 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.94 2002/02/09 20:35:37 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -283,7 +283,7 @@ switch (trim($action))
 		}
 		
 		$ev = "";
-		$pop = new nocc_imap('{'.$servr.'}'.$folder, $login, $passwd, &$ev);
+		$pop = new nocc_imap('{'.$servr.'}'.$folder, $login, $passwd, $ev);
 		if($ev) 
 			return (-1);
 

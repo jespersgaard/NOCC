@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.1 2002/02/09 20:25:01 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.2 2002/02/10 14:39:23 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -22,7 +22,7 @@ class nocc_imap
 	var $conn;
 
 	// constructor		
-	function nocc_imap($server, $login, $password, $ev)
+	function nocc_imap($server, $login, $password, &$ev)
 	{
 		global $lang_could_not_connect;
 
