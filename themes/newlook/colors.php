@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/themes/newlook/colors.php,v 1.2 2001/03/22 10:46:37 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/themes/newlook/colors.php,v 1.3 2001/03/28 12:49:20 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -21,7 +21,7 @@ $glob_theme->bgcolor = "#ffffff\" background=\"themes/newlook/img/bg.gif";
 $glob_theme->login_border = "#000000";
 
 // Inside color of the login box
-$glob_theme->login_box_bgcolor = "\"#ffffff\" background=\"themes/newlook/img/shtamp.gif";
+$glob_theme->login_box_bgcolor = "#ffffff\" background=\"themes/newlook/img/shtamp.gif";
 
 // Color of the navigation button (inbox, write, answer, etc.)
 // default is "sky blue"
