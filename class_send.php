@@ -136,10 +136,9 @@ class mime_mail
 			$this->add_attachment($this->body,  "",  "text/plain", "8bit");
 			$mime .= $this->build_body();
 		}
-
 		// Wether or not to use SMTP or sendmail, depends on the config file (conf.php)
 		if ($this->smtp_server == "" || $this->smtp_port == "")
-			return (mail($this->to, $this->subject,  "", $mime));
+			return (mail(join(", ", $this->to), $this->subject,  "", $mime));
 		else
 		{
 			if (($smtp = new smtp()) != 0)
