@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: nicocha $
-	$Revision: 1.5 $
-	$Date: 2000/10/23 23:57:13 $
+	$Revision: 1.6 $
+	$Date: 2000/10/30 00:31:44 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -27,9 +27,9 @@ if (!ISSET($lang))
 			$lang = $tmp[0];
 			break;
 		}
-	else
-		$lang = $default_lang;
 	}
+	if ($lang == "")
+		$lang = $default_lang;
 }
 require ("lang/".$lang.".php");
 ?>
