@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.9 2001/09/02 22:17:04 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.10 2001/09/08 11:12:22 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -76,47 +76,51 @@ $lang_array[14]->label = 'Korean';
 $lang_array[15]->filename = 'hu';
 $lang_array[15]->label = 'Magyar';
 
-// Norvegian
+// Norwegian Bokmal
 $lang_array[16]->filename = 'no';
-$lang_array[16]->label = 'Norwegian';
+$lang_array[16]->label = 'Norsk bokmål';
+
+// Norwegian Nynorsk
+$lang_array[17]->filename = 'nn';
+$lang_array[17]->label = 'Norsk nynorsk';
 
 // Polish
-$lang_array[17]->filename = 'pl';
-$lang_array[17]->label = 'Polski';
+$lang_array[18]->filename = 'pl';
+$lang_array[18]->label = 'Polski';
 
 // Portuguese
-$lang_array[18]->filename = 'pt';
-$lang_array[18]->label = 'Portugu&ecirc;s';
+$lang_array[19]->filename = 'pt';
+$lang_array[19]->label = 'Portugu&ecirc;s';
 
 // Portuguese Brazil
-$lang_array[19]->filename = 'pt-br';
-$lang_array[19]->label = 'Portugu&ecirc;s Brasil';
+$lang_array[20]->filename = 'pt-br';
+$lang_array[20]->label = 'Portugu&ecirc;s Brasil';
 
 //Russian
-$lang_array[20]->filename = 'ru';
-$lang_array[20]->label = 'Russian (Win)';
+$lang_array[21]->filename = 'ru';
+$lang_array[21]->label = 'Russian (Win)';
 
 //Russian
-$lang_array[21]->filename = 'ru-koi';
-$lang_array[21]->label = 'Russian (Unix)';
+$lang_array[22]->filename = 'ru-koi';
+$lang_array[22]->label = 'Russian (Unix)';
 
 //Russian
-$lang_array[22]->filename = 'ru-iso';
-$lang_array[22]->label = 'Russian (ISO)';
+$lang_array[23]->filename = 'ru-iso';
+$lang_array[23]->label = 'Russian (ISO)';
 
 // Swedish
-$lang_array[23]->filename = 'sv';
-$lang_array[23]->label = 'Svenska';
+$lang_array[24]->filename = 'sv';
+$lang_array[24]->label = 'Svenska';
 
 // Slovenian
-$lang_array[24]->filename = 'sl';
-$lang_array[24]->label = 'Slovensko';
+$lang_array[25]->filename = 'sl';
+$lang_array[25]->label = 'Slovensko';
 
 // Slovenski
-$lang_array[25]->filename = 'sk';
-$lang_array[25]->label = 'Slovensky';
+$lang_array[26]->filename = 'sk';
+$lang_array[26]->label = 'Slovensky';
 
 // Turkish
-$lang_array[26]->filename = 'tr';
-$lang_array[26]->filename = 'Turkish';
+$lang_array[27]->filename = 'tr';
+$lang_array[27]->filename = 'Turkish';
 ?>
