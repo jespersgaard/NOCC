@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.125 2004/08/24 10:40:30 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.126 2004/09/11 16:05:13 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -56,7 +56,7 @@ $mail_priority = safestrip($_REQUEST['priority']);
 
 switch($_REQUEST['sendaction'])
 {
-    case 'add':
+    case $html_attach:
         // Counting the attachments number in the array
         if (!isset($_SESSION['nocc_attach_array']))
             $_SESSION['nocc_attach_array'] = array();
@@ -96,7 +96,7 @@ switch($_REQUEST['sendaction'])
         require ('./html/menu_inbox.php');
         require ('./html/footer.php');
         break;
-    case 'send':
+    case $html_send:
         $mail = new mime_mail();
         // According to rfc-822 CRLF is "\r\n"
         // OS independent, this is a MTA problem
@@ -230,7 +230,7 @@ switch($_REQUEST['sendaction'])
             header("Location: ".$conf->base_url."action.php");
         }
         break;
-    case 'delete':
+    case $html_attach_delete:
         // Rebuilding the attachments array with only the files the user wants to keep
         $tmp_array = array();
         $attach_array = $_SESSION['nocc_attach_array'];

@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.68 2004/09/28 16:54:54 goddess_skuld Exp $ -->
+<!-- start of $Id: send.php,v 1.69 2004/10/04 18:23:30 goddess_skuld Exp $ -->
 <?php
 
 // Default e-mail address on send form
@@ -17,7 +17,7 @@ $mail_from = get_default_from_address();
             <table bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%" cellspacing="0" cellpadding="0" border="0">
                 <tr><td colspan="2">&nbsp;</td></tr>
                 <tr>
-                    <td align="right" valign="middle" width="50%"><input type="submit" class="button" value="<?php echo $html_send ?>" />&nbsp;</td>
+                    <td align="right" valign="middle" width="50%"><input type="submit" class="button" onclick="btnClicked=this" name="sendaction" value="<?php echo $html_send ?>" />&nbsp;</td>
                     <td align="left" valign="middle" width="50%">&nbsp;<input type="reset" class="button" value="<?php echo $html_cancel ?>" /></td>
                 </tr>
                 <tr><td colspan="2">&nbsp;</td></tr>
@@ -69,7 +69,7 @@ $mail_from = get_default_from_address();
                                <input type="file" name="mail_att" size="40" value="" />
                            </td>
                            <td>
-                               <input type="button" class="button" onclick="attach()" value="<?php echo $html_attach ?>" />
+                               <input type="submit" class="button" onclick="btnClicked=this" name="sendaction" value="<?php echo $html_attach ?>" />
                            </td>
                         </tr></table> 
                     </td>
@@ -104,7 +104,7 @@ $mail_from = get_default_from_address();
                                 $att_name = nocc_imap::mime_header_decode($attach_array[$i]->file_name);
                                 echo '<tr><td class="inbox"><input type="checkbox" name="file-' . $i . '" /></td><td class="inbox">' . htmlentities($att_name[0]->text) . '</td><td class="inbox">' . $attach_array[$i]->file_size . '</td></tr>';
                             }
-                            echo '<tr><td colspan="2"><input type="button" class="button" onclick="delete_attach()" value="' . $html_attach_delete . '" /></td><td class="inbox"><b>' . $html_totalsize . ' : ' . $totalsize . ' ' . $html_bytes . '</b></td></tr></table>';
+                            echo '<tr><td colspan="2"><input type="submit" class="button" onclick="btnClicked=this" name="sendaction" value="' . $html_attach_delete . '" /></td><td class="inbox"><b>' . $html_totalsize . ' : ' . $totalsize . ' ' . $html_bytes . '</b></td></tr></table>';
                         }
                         else {
                             if ($_GET["action"] == 'forward') {
@@ -124,7 +124,7 @@ $mail_from = get_default_from_address();
                         <table bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%" cellspacing="0" cellpadding="0" border="0">
                             <tr>
                                 <td align="right" valign="middle" width="50%">
-                                    <input type="submit" class="button" value="<?php echo $html_send ?>" />&nbsp;
+                                    <input type="submit" class="button" onclick="btnClicked=this" name="sendaction" value="<?php echo $html_send ?>" />&nbsp;
                                 </td>
                                 <td align="left" valign="middle" width="50%">
                                     &nbsp;<input type="reset" class="button" value="<?php echo $html_cancel ?>" />
@@ -141,43 +141,28 @@ $mail_from = get_default_from_address();
 
 <script type="text/javascript">
 <!--
+var btnClicked;
+
 function validate(f) 
 {
-    if (f.elements['sendaction'].value == "add") {
+    if (btnClicked.value == "<?php echo $html_attach ?>") {
         return(true);
     }
-    if (window.RegExp) 
-    {
+    if (window.RegExp) {
         var reg = new RegExp("[0-9A-Za-z]+","g");
-        if (!reg.test(f.elements['mail_to'].value))
-        {
+        if (!reg.test(f.elements['mail_to'].value)) {
             alert("<?php echo $to_empty ?>");
             f.elements['mail_to'].focus();
             return (false);
         }
     }
-    if (f.elements['mail_att'].value != "")
-    {
+    if (f.elements['mail_att'].value != "") {
         alert("<?php echo $html_attach_forget ?>")
         return (false);
     }
     //f.elements['sendaction'].value = "send";
 }
 
-function attach()
-{
-    if (document.sendform.mail_att.value != "")
-    {
-        document.sendform.sendaction.value = "add";
-        document.sendform.submit();
-    }
-}
-
-function delete_attach()
-{
-    document.sendform.sendaction.value = "delete";
-    document.sendform.submit();
-}
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.68 2004/09/28 16:54:54 goddess_skuld Exp $ -->
+<!-- end of $Id: send.php,v 1.69 2004/10/04 18:23:30 goddess_skuld Exp $ -->

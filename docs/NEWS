@@ -1,5 +1,8 @@
 NOCC 0.9.7    ?? ??, 2004
 
+    * Eliminated the javascript requirement when adding or removing
+      attachments while composing a message, javascript validation is still
+      performed (Leif Gustafson, RFE #602492).
     * Moved (again) <? to <?php, better compatibility when short tags are
       disabled (Arnaud Boudou, bug #1039217).
     * In mail list, clicking on the sender email and/or name now open a new
