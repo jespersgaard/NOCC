@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.58 2002/06/30 15:13:36 rossigee Exp $ -->
+<!-- start of $Id: send.php,v 1.59 2002/12/01 13:07:42 rossigee Exp $ -->
 <?php
 
 // Default e-mail address on send form
@@ -9,7 +9,7 @@ $mail_from = get_default_from_address();
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
             <form name="sendform" enctype="multipart/form-data" method="post" onsubmit="return(validate(this));" action="send.php">
-            <input type="hidden" name="sendaction" value="" />
+            <input type="hidden" name="sendaction" value="send" />
 <?php if(isset($forward_msgnum)) { ?>
             <input type="hidden" name="forward_msgnum" value="<?php echo $forward_msgnum ?>" />
 <?php } ?>
@@ -48,6 +48,8 @@ $mail_from = get_default_from_address();
                     <td align="right" class="inbox"><?php echo $html_subject ?> : </td>
                     <td align="left"><input type="text" name="mail_subject" size="60" maxlength="200" value="<?php echo (isset($mail_subject) ? htmlspecialchars($mail_subject) : '') ?>" /></td>
                 </tr>
+		<!-- If 'file_uploads=Off', we mustn't present the ability to do attachments -->
+                <?php if(ini_get("file_uploads")) { ?>
                 <tr>
                     <td align="right" class="inbox"><?php echo $html_att ?> : </td>
                     <td align="left">
@@ -61,6 +63,7 @@ $mail_from = get_default_from_address();
                         </tr></table> 
                     </td>
                 </tr>
+                <?php } ?>
                 <tr>
                     <td align="right" class="inbox"><?php echo $html_receipt ?> : </td>
                     <td align="left"><input name="receipt" type="checkbox" <?php if(isset($mail_receipt) && $mail_receipt) echo "checked"; ?>/></td>
@@ -139,7 +142,7 @@ function validate(f)
         alert("<?php echo $html_attach_forget ?>")
         return (false);
     }
-    f.elements['sendaction'].value = "send";
+    //f.elements['sendaction'].value = "send";
 }
 
 function attach()
@@ -158,4 +161,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.58 2002/06/30 15:13:36 rossigee Exp $ -->
+<!-- end of $Id: send.php,v 1.59 2002/12/01 13:07:42 rossigee Exp $ -->
