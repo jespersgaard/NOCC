@@ -1,5 +1,6 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Added 'CC self' preference to receive a copy of outgoing emails.
 	* Added Bulgarian translation
 	* Added new Polish and Portuguese translations
 	* Added './' in the path of all require, include and open calls,

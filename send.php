@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.68 2001/10/18 23:46:18 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.69 2001/10/19 10:34:25 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -71,6 +71,10 @@ else
 			$mail->headers = 'X-Originating-Ip: [' . $ip . ']' . $mail->crlf . 'X-Mailer: ' . $nocc_name . ' v' . $nocc_version;
 			$mail->to = cut_address(trim($mail_to), $charset);
 			$mail->cc = cut_address(trim($mail_cc), $charset);
+			$cc_self = getPref($prefs_dir, $user, 'cc_self');
+ 			if($cc_self != '') {
+ 				array_unshift($mail->cc, $mail->from);
+ 			}
 			$mail->bcc = cut_address(trim($mail_bcc), $charset);
 			if ($mail_subject != '')
 				$mail->subject = stripcslashes(trim($mail_subject));

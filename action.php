@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.56 2001/10/19 12:10:00 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.57 2001/10/20 11:36:03 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -150,12 +150,16 @@ switch (trim($action))
 			if (isset($email_address)) {
 				setPref($prefs_dir, $user, 'email_address', $email_address);
 			}
+			if (isset($cc_self)) {
+				setPref($prefs_dir, $user, 'cc_self', $cc_self);
+			}
 			if ($signature != "" ) {
 				setSig($prefs_dir, $user, $signature);
 			}
 		} else {
 			$full_name = $prefs_full_name;
 			$email_address = $prefs_email_address;
+			$cc_self = getPref($prefs_file, $user, 'cc_self');
 			$signature = $prefs_signature;
 		}
 		require ('./html/menu_prefs.php');

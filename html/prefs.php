@@ -18,6 +18,12 @@
 					</td>
 				</tr>
 				<tr>
+					<td align="right" class="prefs" valign="top"><?php echo $html_ccself ?> : </td>
+					<td align="left" class="prefs">
+						<input type="checkbox" name="cc_self" value="on" <?php if($cc_self != '') echo "checked"; ?> />
+					</td>
+				</tr>
+				<tr>
 					<td align="right" class="prefs" valign="top"><?php echo $html_signature ?> : </td>
 					<td align="left" class="prefs">
 						<textarea name="signature" rows="5" cols="40"><?php echo $signature ?></textarea>
