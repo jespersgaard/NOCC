@@ -1,8 +1,8 @@
 <?
 /*
-	$Author$
-	$Revision$
-	$Date$
+	$Author: nicocha $
+	$Revision: 1.11 $
+	$Date: 2000/10/23 23:57:13 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -49,7 +49,7 @@ $default_sortdir = "1";
 // ################### color configuration ################### //
 
 // Color on the pages background - default is "white"
-$bgcolor = "#000000";
+$bgcolor = "#ffffff";
 
 // Color of the login box border - default is "black"
 $login_border = "#000000";
