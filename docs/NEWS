@@ -1,5 +1,6 @@
 NOCC 0.9.6	??
 
+	* Fixed lang returning to default after prefs page.
 	* Added 'allow_address_change' configuration parameter. (patch #490576)
 	* Seperated imap_* functions into a nocc_imap class for extendability.
 	* Added HTTP headers to avoid caching from proxies and browsers.
