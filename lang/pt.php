@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.26 2002/11/29 07:04:58 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.27 2002/12/01 12:57:09 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -54,7 +54,8 @@ $alt_reply_all = 'Responder a todos';
 $alt_forward = 'Reencaminhar';
 $alt_next = 'Pr&oacute;xima';
 $alt_prev = 'Anterior';
-
+$html_on = 'em';
+$html_theme = 'Tema';
 
 // index.php
 
@@ -67,11 +68,10 @@ $html_help = 'Ajuda';
 $html_server = 'Servidor';
 $html_wrong = 'Identificador ou senha incorrectos';
 $html_retry = 'Tentar novamente';
-$html_on = 'em';
-$html_theme = 'Tema';
 
 // prefs.php
 
+$html_msgperpage = 'Mensagens por p&aacute;gina';
 $html_preferences = 'Prefer&ecirc;ncias';
 $html_full_name = 'Nome completo';
 $html_email_address = 'Endere&ccedil;o E-mail';
@@ -81,10 +81,46 @@ $html_outlook_quoting = 'Outlook-style quoting';
 $html_reply_to = 'Responder para';
 $html_use_signature = 'Utilizar assinatura';
 $html_signature = 'Assinatura';
+$html_reply_leadin = 'Responder com prefixo'; 
 $html_prefs_updated = 'Prefer&ecirc;ncias actualizadas';
+$html_manage_folders_link = 'Gerir Pastas IMAP'; 
+$html_manage_filters_link = 'Gerir Filtros de Email';
+
+// folders.php
+$html_folders_create_failed = "Folder could not be created!"; // to translate
+$html_folders_sub_failed = "Could not subscribed to folder!";// to translate 
+$html_folders_unsub_failed = "Could not unsubscribed from folder!";// to translate
+$html_folders_rename_failed = "Folder could not be renamed!";// to translate
+$html_folders_updated = 'Folders updated';// to translate
+$html_folder_subscribe = 'Subscribe to';// to translate
+$html_folder_rename = 'Rename';// to translate
+$html_folder_create = 'Create new folder called';// to translate
+$html_folder_remove = 'Unsubscribe from';// to translate
+
+// filters.php
+$html_filter_remove = 'Apagar';
+$html_filter_body = 'Conte&uacute;do da Mensagem';
+$html_filter_subject = 'Assunto da Mensaagem';
+$html_filter_to = 'Campo \'Para\'';
+$html_filter_cc = 'Campo \'Cc\'';
+$html_filter_from = 'Campo \'De\'';
+$html_filter_change_tip = "Para alterar um filtro grav&aacute;-lo novamente.";// to translate
+$html_reapply_filters = "Reapply all filters";// to translate
 
 // Other pages
-
+$html_select_one = '--Escolha--';
+$html_and = 'E';
+$html_new_msg_in = 'Novas mensagens em';
+$html_or = 'ou';
+$html_move = 'Mover';
+$html_copy = 'Copiar';
+$html_messages_to = 'mensagens seleccionadas para';
+$html_gotopage = 'Ir para P&aacute;gina';
+$html_gotofolder = 'Ir para a Pasta';
+$html_other_folders = 'Lista de Pastas';
+$html_page = 'P&aacute;gina';
+$html_of = 'of';//to translate
+$html_to = 'para';//to translate
 $html_view_header = 'Ver cabe&ccedil;alhos';
 $html_remove_header = 'Esconder cabe&ccedil;alhos';
 $html_inbox = 'Correio';
@@ -129,13 +165,15 @@ $html_priority = 'Prioridade';
 $html_low = 'Baixa';
 $html_normal = 'Normal';
 $html_high = 'Alta';
+$html_receipt = 'Requer confirma&ccedil;&atilde;o';//to translate
+$html_select = 'Seleccionar';
 $html_select_all = 'Seleccionar tudo';
 $html_loading_image = 'Carregando imagem';
 $html_send_confirmed = 'A mensagem foi aceite para envio';
 $html_no_sendaction = 'Ac&ccedil;&atilde;o n&atilde;o indicada. Tente activar o JavaScript.';
 $html_error_occurred = 'Ocorreu um erro';
 $html_prefs_file_error = 'N&atilde;o foi poss&iacute;vel abrir o ficheiro de preferen&ccedil;as para escrita.';
-$html_sig_file_error = 'N&atilde;o foi poss&iacute;vel abrir o ficheiro de assinatura para escrita.';
+//$html_sig_file_error = 'N&atilde;o foi poss&iacute;vel abrir o ficheiro de assinatura para escrita.';
 
 $original_msg = '-- Mensagem Original --';
 $to_empty = 'O campo \'Para\' tem de ser preenchido !';
@@ -143,7 +181,10 @@ $to_empty = 'O campo \'Para\' tem de ser preenchido !';
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'N&atilde;o foi poss&iacute;vel estabelecer ligação ao servidor de SMTP';
 $html_smtp_error_unexpected = 'Resposta inesperada do servidor de SMTP:';
+
+// IMAP messages (class_local.php)
 $lang_could_not_connect = 'N&atilde;o foi poss&iacute;vel estabelecer ligação ao servidor';
+
 $html_file_upload_attack = 'Poss&iacute;vel ataque de \'upload\' de ficheiros';
 $html_invalid_email_address = 'Endereço de e-mail inv&aacute;lido';
 $html_seperate_msg_win = 'Mensagens em janela separada';

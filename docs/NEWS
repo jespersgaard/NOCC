@@ -67,8 +67,8 @@ NOCC 0.9.6    ??, 2002
     * Added a 'timestamp' member to the content array in aff_mail.
     * Fixed message header display bug.
     * Remove date display from INBOX.
-    * Updated Portugese (Jose Carlos), Slovak (Peter Sochna), Greek,
-      Croatian, Icelandic, Finnish and German (Benjamin Brauer),
+    * Updated Portugese (Jose Carlos/Paulo Matos), Slovak (Peter Sochna),
+      Greek, Croatian, Icelandic, Finnish and German (Benjamin Brauer),
       Norwegian (Bjørn Roger Rasmussen), Persian (Mahdi Dalirrooyfard),
       Portuguese (Paulo Matos) and Thai (Anat Trakoonsirisak) translations.
 
