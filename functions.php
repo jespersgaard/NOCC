@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.162 2002/05/15 15:48:24 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.163 2002/05/22 14:23:42 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -110,6 +110,7 @@ function inbox(&$pop, $skip = 0)
 function aff_mail(&$attach_tab, &$mail, $verbose, &$ev)
 {
     global $conf;
+    global $glob_theme;
     global $lang_locale;
     global $no_locale_date_format;
     global $html_att, $html_atts;
