@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.54 2001/10/19 00:01:34 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.55 2001/10/19 10:34:24 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -32,9 +32,9 @@ $prefs_email_address = getPref($prefs_dir, $user, 'email_address');
 $prefs_signature = getSig($prefs_dir, $user);
 
 // Default e-mail address on send form
-$mail_from = $prefs_email_address;
-if($prefs_email_address == "") {
-	$mail_from = $user."@".$domain;
+$mail_from = $user."@".$domain;
+if($prefs_email_address != "") {
+	$mail_from = $prefs_email_address;
 }
 if($prefs_full_name != "") {
 	$mail_from = $prefs_full_name." <".$mail_from.">";
