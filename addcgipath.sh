@@ -21,8 +21,8 @@ else
   mkdir bak
 fi
 
-for i in action.php delete.php download.php index.php logout.php open.php \
-  outside.php send.php
+for i in action.php delete.php download.php index.php logout.php \
+  send.php
   do
   mv $i bak/$i
   (echo '#!'$1''; cat bak/$i) > $i
