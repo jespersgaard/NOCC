@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.11 2002/04/15 10:27:03 mrylander Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.12 2002/04/15 11:22:00 mrylander Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -32,10 +32,15 @@ class nocc_imap
         $this->password = $password;
 
         // $ev is set if there is a problem with the connection
-        $this->conn = @imap_open($server, $login, $password);
+        $this->conn = imap_open($server, $login, $password);
         if(!$this->conn) {
             $errors = imap_errors();
-            $ev = new Exception($lang_could_not_connect.": ".$errors[0]);
+            if(count($errors) > 0) {
+                $ev = new Exception($lang_could_not_connect.": ".$errors[0]);
+            }
+            else {
+                $ev = new Exception($lang_could_not_connect);
+            }
             return;
         }
 
