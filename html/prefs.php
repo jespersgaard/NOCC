@@ -1,25 +1,19 @@
 <?php
 
-$prefs_full_name = getPref('full_name', $ev);
-$prefs_email_address = getPref('email_address', $ev);
+$prefsev = NULL;
+$prefs_full_name = getPref('full_name', $prefsev);
+$prefs_email_address = getPref('email_address', $prefsev);
 if(empty($prefs_email_address))
     $prefs_email_address = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
-$prefs_msg_per_page = getPref('msg_per_page', $ev);
-$prefs_cc_self = getPref('cc_self', $ev);
-$prefs_hide_addresses = getPref('hide_addresses', $ev);
-$prefs_outlook_quoting = getPref('outlook_quoting', $ev);
-$prefs_reply_leadin = getPref('leadin', $ev);
-$prefs_signature = getPref('signature', $ev);
-
-if(Exception::isException($ev)) {
-    require('html/header.php');
-    require('html/error.php');
-    require('html/footer.php');
-    return;
-}
+$prefs_msg_per_page = getPref('msg_per_page', $prefsev);
+$prefs_cc_self = getPref('cc_self', $prefsev);
+$prefs_hide_addresses = getPref('hide_addresses', $prefsev);
+$prefs_outlook_quoting = getPref('outlook_quoting', $prefsev);
+$prefs_reply_leadin = getPref('leadin', $prefsev);
+$prefs_signature = getPref('signature', $prefsev);
 
 ?>
-<!-- start of $Id: prefs.php,v 1.22 2002/05/30 14:07:22 rossigee Exp $ -->
+<!-- start of $Id: prefs.php,v 1.23 2002/06/27 22:17:52 rossigee Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -36,7 +30,7 @@ if(Exception::isException($ev)) {
                 <tr>
                     <td align="right" class="prefs" valign="top"><?php echo $html_email_address ?> : </td>
                     <td align="left" class="prefs">
-                        <?php if ($allow_address_change) { ?>
+                        <?php if ($conf->allow_address_change) { ?>
                             <input type="text" name="email_address" value="<?php echo $prefs_email_address ?>" size="40"/>
                         <?php } else { ?>
                             <input type="hidden" name="email_address" value="<?php echo $prefs_email_address ?>"/><?php echo $prefs_email_address ?>
@@ -83,6 +77,8 @@ if(Exception::isException($ev)) {
                 <tr>
                     <td align="center" colspan="2">
                         <?php
+                            if(Exception::isException($prefsev))
+                                echo '<p class="prefs">'.$html_error_occurred.' : '.$prefsev->getMessage().'</p>';
                             if(Exception::isException($ev))
                                 echo '<p class="prefs">'.$html_error_occurred.' : '.$ev->getMessage().'</p>';
                             else
@@ -106,4 +102,4 @@ if(Exception::isException($ev)) {
         </td>
     </tr>
 </table>
-<!-- end of $Id: prefs.php,v 1.22 2002/05/30 14:07:22 rossigee Exp $ -->
+<!-- end of $Id: prefs.php,v 1.23 2002/06/27 22:17:52 rossigee Exp $ -->
