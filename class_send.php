@@ -105,17 +105,19 @@ class mime_mail
 	{
 		$mime =  "";
 		if (!empty($this->from))
-			$mime .= "From: ".$this->from."\n";
+			$mime .= "From: ".$this->from."\r\n";
 		if (!empty($this->to))
-			$mime .= "To: ".$this->to."\n";
+			$mime .= "To: ".$this->to."\r\n";
 		if (!empty($this->cc))
-			$mime .= "Cc: ".$this->cc."\n";
+			$mime .= "Cc: ".$this->cc."\r\n";
 		if (!empty($this->bcc))
-			$mime .= "Bcc: ".$this->bcc."\n";
+			$mime .= "Bcc: ".$this->bcc."\r\n";
 		if (!empty($this->from))
-			$mime .= "Reply-To: ".$this->from."\nErrors-To: ".$this->from."\n";
+			$mime .= "Reply-To: ".$this->from."\nErrors-To: ".$this->from."\r\n";
+		if (!empty($this->subject))
+			$mime .= "Subject: ".$this->subject."\r\n";
 		if (!empty($this->headers))
-			$mime .= $this->headers. "\n";
+			$mime .= $this->headers. "\r\n";
 		if (sizeof($this->parts) >= 1)
 		{
 			$this->add_attachment($this->body,  "",  "text/plain", "quoted-printable");

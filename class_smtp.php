@@ -109,8 +109,7 @@ class smtp
 
         if ($SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULT"] <>  "3") return 0; 
 
-        //fputs($smtp,  "Mime-Version: 1.0\r\n"); 
-        fputs($smtp,  "Subject: $this->subject\r\n"); 
+        //fputs($smtp,  "Mime-Version: 1.0\r\n");  
         fputs($smtp,  "$this->data\r\n\r\n"); 
         fputs($smtp,  ".\r\n"); 
         $line = fgets($smtp, 1024); 
