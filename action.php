@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.70 2001/10/31 09:26:07 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.71 2001/10/31 09:35:39 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -159,50 +159,32 @@ switch (trim($action))
 		{
 			// Full name
 			if (isset($full_name))
-			{
 				setPref('full_name', $full_name);
-			}
 
 			// Email address
 			if (isset($email_address))
-			{
 				setPref('email_address', $email_address);
-			}
 
 			// CC Self
 			if (isset($cc_self) && $cc_self == 'on')
-			{
 				setPref('cc_self', $cc_self);
-			}
 			else
-			{
 				setPref('cc_self', '');
-			}
 
 			// Hide Addresses
 			if (isset($hide_addresses) && $hide_addresses == 'on')
-			{
 				setPref('hide_addresses', $hide_addresses);
-			}
 			else
-			{
 				setPref('hide_addresses', '');
-			}
 
 			// Outlook-style quoting
 			if (isset($outlook_quoting) && $outlook_quoting == 'on')
-			{
 				setPref('outlook_quoting', $outlook_quoting);
-			}
 			else
-			{
 				setPref('outlook_quoting', '');
-			}
 
 			if ($signature != "")
-			{
 				setSig($signature);
-			}
 		}
 		$full_name = getPref('full_name');
 		$email_address = getPref('email_address');
