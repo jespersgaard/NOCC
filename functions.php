@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.115 2001/11/07 18:53:44 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.116 2001/11/08 12:12:48 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -203,21 +203,22 @@ function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort
 		$reply_to .= $reply_to_array[$j]->text;
 	list($date, $complete_date) = change_date(chop($ref_contenu_message->udate), $lang);
 	$content = Array(
-				'from' => htmlspecialchars($from),
-				'to' => htmlspecialchars($to),
-				'cc' => htmlspecialchars($cc),
-				'reply_to' => htmlspecialchars($reply_to),
-				'subject' => htmlspecialchars($subject),
-				'date' => $date,
-				'complete_date' => $complete_date,
-				'att' => $link_att,
-				'body' => $glob_body,
-				'body_mime' => $tmp['mime'],
-				'body_transfer' => $tmp['transfer'],
-				'header' => $header,
-				'verbose' => $verbose,
-				'prev' => $prev_msg,
-				'next' => $next_msg);
+		'from' => htmlspecialchars($from),
+		'to' => htmlspecialchars($to),
+		'cc' => htmlspecialchars($cc),
+		'reply_to' => htmlspecialchars($reply_to),
+		'subject' => htmlspecialchars($subject),
+		'date' => $date,
+		'complete_date' => $complete_date,
+		'att' => $link_att,
+		'body' => $glob_body,
+		'body_mime' => $tmp['mime'],
+		'body_transfer' => $tmp['transfer'],
+		'header' => $header,
+		'verbose' => $verbose,
+		'prev' => $prev_msg,
+		'next' => $next_msg
+	);
 	return ($content);
 }
 
@@ -335,14 +336,15 @@ function GetPart($this_part, $part_no, $display_rfc822)
 					break;
 				}
 		$tmp = Array(
-				'number' => ($part_no != '' ? $part_no : 1),
-				'id' => $this_part->ifid ? $this_part->id : 0,
-				'name' => $att_name,
-				'mime' => $full_mime_type,
-				'transfer' => $encoding,
-				'disposition' => $this_part->ifdisposition ? $this_part->disposition : '',
-				'charset' => $charset,
-				'size' => ($this_part->bytes > 1000) ? ceil($this_part->bytes / 1000) : 1);
+			'number' => ($part_no != '' ? $part_no : 1),
+			'id' => $this_part->ifid ? $this_part->id : 0,
+			'name' => $att_name,
+			'mime' => $full_mime_type,
+			'transfer' => $encoding,
+			'disposition' => $this_part->ifdisposition ? $this_part->disposition : '',
+			'charset' => $charset,
+			'size' => ($this_part->bytes > 1000) ? ceil($this_part->bytes / 1000) : 1
+		);
 		
 		array_unshift($attach_tab, $tmp);
 	}
@@ -395,16 +397,17 @@ function GetSinglePart($this_part, $header, $body)
 				$charset = $obj->value;
 				break;
 			}
-	$tmp = Array(
-					'number' => 1,
-					'id' => $this_part->ifid ? $this_part->id : 0,
-					'name' => '',
-					'mime' => $full_mime_type,
-					'transfer' => $encoding,
-					'disposition' => $this_part->ifdisposition ? $this_part->disposition : '',
-					'charset' => $charset,
-					'size' => ($this_part->bytes > 1000) ? ceil($this_part->bytes / 1000) : 1);
-	array_unshift($attach_tab, $tmp);
+			$tmp = Array(
+				'number' => 1,
+				'id' => $this_part->ifid ? $this_part->id : 0,
+				'name' => '',
+				'mime' => $full_mime_type,
+				'transfer' => $encoding,
+				'disposition' => $this_part->ifdisposition ? $this_part->disposition : '',
+				'charset' => $charset,
+				'size' => ($this_part->bytes > 1000) ? ceil($this_part->bytes / 1000) : 1
+			);
+			array_unshift($attach_tab, $tmp);
 }
 
 /* ----------------------------------------------------- */
@@ -416,17 +419,18 @@ function remove_stuff($body, $lang, $mime)
 	if (eregi('html', $mime))
 	{
 		$to_removed_array = array (
-						"'<html>'si",
-						"'</html>'si",
-						"'<body[^>]*>'si",
-						"'</body>'si",
-						"'<head[^>]*>.*?</head>'si",
-						"'<style[^>]*>.*?</style>'si",
-						"'<script[^>]*>.*?</script>'si",
-						"'<object[^>]*>.*?</object>'si",
-						"'<embed[^>]*>.*?</embed>'si",
-						"'<applet[^>]*>.*?</applet>'si",
-						"'<mocha[^>]*>.*?</mocha>'si");
+			"'<html>'si",
+			"'</html>'si",
+			"'<body[^>]*>'si",
+			"'</body>'si",
+			"'<head[^>]*>.*?</head>'si",
+			"'<style[^>]*>.*?</style>'si",
+			"'<script[^>]*>.*?</script>'si",
+			"'<object[^>]*>.*?</object>'si",
+			"'<embed[^>]*>.*?</embed>'si",
+			"'<applet[^>]*>.*?</applet>'si",
+			"'<mocha[^>]*>.*?</mocha>'si"
+		);
 		$body = preg_replace($to_removed_array, '', $body);
 		$body = preg_replace("|href=\"(.*)script:|i", 'href="nocc_removed_script:', $body);
 		$body = preg_replace("|<([^>]*)java|i", '<nocc_removed_java_tag', $body);
