@@ -1,28 +1,23 @@
 <?
-/*	
-	$Author: nicocha $
-	$Revision: 1.22 $
-	$Date: 2000/11/06 20:38:28 $
-
-	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
-  
-  You should have received a copy of the GNU Public
-  License along with this package; if not, write to the
-  Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-  Boston, MA 02111-1307, USA.
-*/
-
-
 /*
- Configuration file for the french language (the first made, we're french !!)
-*/
+ * $Header$ 
+ *
+ * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
+ * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
+ *
+ * See the enclosed file COPYING for license information (GPL).  If you
+ * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
+ *
+ * Configuration file for the french language (the first made, we're french !)
+ */
 
 $charset = "ISO-8859-1";
 
 // Configuration for the days and months
 
 
-// What language to use (Here, french FRANCE --> fr_FR) see '/usr/share/locale/' for more information
+// What language to use (Here, french FRANCE --> fr_FR)
+// see '/usr/share/locale/' for more information
 $lang_locale = "fr_FR";
 
 // What format string should we pass to strftime() for messages sent on

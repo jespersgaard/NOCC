@@ -1,27 +1,23 @@
 <?
 /*
-	$Author: nicocha $
-	$Revision: 1.8 $
-	$Date: 2000/11/07 16:36:10 $
-
-	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
-  
-  You should have received a copy of the GNU Public
-  License along with this package; if not, write to the
-  Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-  Boston, MA 02111-1307, USA.
-*/
-
-/*
- Configuration file for the german language translated from english by :
- David Ferch <dferch@tk-online.net>
-*/
+ * $Header$ 
+ *
+ * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
+ * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
+ *
+ * See the enclosed file COPYING for license information (GPL).  If you
+ * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
+ *
+ * Configuration file for the german language translated from english by :
+ * David Ferch <dferch@tk-online.net>
+ */
 
 $charset = "ISO-8859-1";
 
 // Configuration for the days and months
 
-// What language to use (Here, english US --> en_US) see '/usr/share/locale/' for more information
+// What language to use (Here, english US --> en_US)
+// see '/usr/share/locale/' for more information
 $lang_locale = "de";
 
 // What format string should we pass to strftime() for messages sent on
