@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.22 2002/06/27 22:17:52 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.23 2002/06/30 16:27:13 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -140,6 +140,10 @@ class nocc_imap
 
     function mail_move(&$mail, &$new_box, &$ev) {
         return imap_mail_move($this->conn, $mail, $new_box, 0);
+    }
+
+    function expunge(&$ev) {
+        return imap_expunge($this->conn);
     }
 
     function delete(&$mail, &$ev) {

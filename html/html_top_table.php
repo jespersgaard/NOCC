@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.66 2002/06/27 22:17:52 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.67 2002/06/30 16:27:14 rossigee Exp $ -->
 <?php
 
 require_once 'class_local.php';
@@ -48,11 +48,17 @@ if($pages > 1) {
 }
 
 $fldr_line = "";
+$reapply_filters = '';
 if ($pop->is_imap()) {
     $fldr_line = "<form method=\"POST\" action=\"".$_SERVER['PHP_SELF']."\">$html_other_folders:  \n";
     $fldr_line .= $pop->html_folder_select('folder', $_SESSION['nocc_folder']);
     $fldr_line .= "<input type=\"submit\" class=\"button\" name=\"submit\" value=\"$html_gotofolder\" />";
     $fldr_line .= "</form>";
+    if($pop->folder == 'INBOX') {
+        $reapply_filters = '<form method="POST" action="'.$_SERVER['PHP_SELF'].
+            "\">$html_reapply_filters<input type=\"checkbox\" name=\"reapply_filters\" value=\"1\">".
+            '<input class="button" type="submit" value="'.$html_submit.'"></form>';
+    }
 }
 
 ?>
@@ -69,10 +75,13 @@ if ($pop->is_imap()) {
         </td>
     </tr>
     <tr bgcolor="<?php echo $glob_theme->inside_color ?>">
-        <td <?php if ($conf->have_ucb_pop_server || $pop->is_imap()) echo 'colspan="3"'; else echo 'colspan="2"'; ?>align="left" class="inbox">
+        <td colspan="2" align="left" class="inbox">
             <?php echo $fldr_line ?>
-    </td>
-    <td colspan="2" align="right" class="inbox">
+        </td>
+        <td colspan="2" align="center" class="inbox">
+            <?php echo $reapply_filters ?>
+        </td>
+        <td colspan="2" align="right" class="inbox">
             <?php echo $page_line ?>
     </td>
     <td colspan="2" align="right" class="inbox">
@@ -120,4 +129,4 @@ if ($pop->is_imap()) {
             <form method="post" action="delete.php" name="delete_form">
         </td>
     </tr>
-<!-- start of $Id: html_top_table.php,v 1.66 2002/06/27 22:17:52 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.67 2002/06/30 16:27:14 rossigee Exp $ -->

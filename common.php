@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.21 2002/06/30 16:27:13 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.22 2002/07/08 11:48:42 rossigee Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -127,6 +127,21 @@ if(isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
 		}
 	}
 	$user_prefs = $_SESSION['nocc_user_prefs'];
+}
+
+// Cache the user's filters
+if(isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
+	if(!isset($_SESSION['nocc_user_filters'])) {
+		$ev = NULL;
+		$user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
+		$_SESSION['nocc_user_filters'] = NOCCUserFilters::read($user_key, $ev);
+		if(Exception::isException($ev)) {
+			error_log("User filters error ($user_key): ".$ev->getMessage());
+			$_SESSION['nocc_user_filters'] = new NOCCUserFilters($user_key);
+			$ev = NULL;
+		}
+	}
+	$user_filters = $_SESSION['nocc_user_filters'];
 }
 
 require_once ('./conf_lang.php');

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.167 2002/06/27 22:17:52 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.168 2002/06/30 16:27:13 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -772,6 +772,9 @@ function valid_email($email)
 function get_per_page() {
     global $conf;
     $user_prefs = $_SESSION['nocc_user_prefs'];
-    return $user_prefs->msg_per_page ? $user_prefs->msg_per_page : ($conf->msg_per_page ? $conf->msg_per_page : '25');
+    if (!$user_prefs->msg_per_page) {
+        return $conf->msg_per_page;
+    }
+    return $user_prefs->msg_per_page;
 }
 ?>

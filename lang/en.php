@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.57 2002/06/30 16:27:14 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.58 2002/06/30 21:43:46 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -82,6 +82,8 @@ $html_use_signature = 'Use signature';
 $html_signature = 'Signature';
 $html_reply_leadin = 'Reply Leadin';
 $html_prefs_updated = 'Preferences updated';
+$html_manage_folders_link = 'Manage IMAP Folders';
+$html_manage_filters_link = 'Manage Email Filters';
 
 // folders.php
 $html_folders_create_failed = "Folder could not be created!";
@@ -94,7 +96,19 @@ $html_folder_rename = 'Rename';
 $html_folder_create = 'Create new folder called';
 $html_folder_remove = 'Unsubscribe from';
 
+// filters.php
+$html_filter_remove = 'Delete';
+$html_filter_body = 'Message Body';
+$html_filter_subject = 'Message Subject';
+$html_filter_to = 'To Field';
+$html_filter_cc = 'Cc Field';
+$html_filter_from = 'From Field';
+$html_filter_change_tip = "To change a filter simply overwrite it.";
+$html_reapply_filters = "Reapply all filters";
+
 // Other pages
+$html_select_one = '--Select One--';
+$html_and = 'And';
 $html_new_msg_in = 'New messages in';
 $html_or = 'or';
 $html_move = 'Move';

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.135 2002/06/30 16:27:13 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.136 2002/06/30 21:43:45 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -279,10 +279,80 @@ switch($action)
 
         require ('./html/header.php');
         require ('./html/menu_prefs.php');
-        require ('./html/prefs.php');
+        //require ('./html/prefs.php');
         if ($pop->is_imap())
             require ('./html/folders.php');
         require ('./html/menu_prefs.php');
+        require ('./html/footer.php');
+
+        $pop->close();
+
+        break;
+
+    case 'managefilters':
+        $pop = new nocc_imap($ev);
+		$user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
+        $filterset = new NOCCUserFilters($user_key, $ev);
+        $filterset->read($ev);
+
+        if (Exception::isException($ev)) {
+            require ('./html/header.php');
+            require ('./html/error.php');
+            require ('./html/footer.php');
+            break;
+        }
+
+        switch (trim($_REQUEST['do'])) {
+            case 'delete':
+                if ($_REQUEST['filter']) {
+                    unset($filterset->filterset[$_REQUEST['filter']]);
+                    $filterset->dirty_flag = 1;
+                    $filterset->commit();
+                }
+                break;
+
+            case 'create':
+                if (!$_REQUEST['filtername']) {
+                    break;
+                }
+
+                if ($_REQUEST['thing1'] == '-') {
+                    break;
+                } else {
+                    $filterset->filterset[$_REQUEST['filtername']]['SEARCH'] = 
+                        $_REQUEST['thing1'] . ' "'. $_REQUEST['contains1'] . '"';
+                }
+                
+                if ($_REQUEST['thing2'] != '-') {
+                    $filterset->filterset[$_REQUEST['filtername']]['SEARCH'] .= 
+                        ' ' . $_REQUEST['thing2'] . ' "'. $_REQUEST['contains2'] . '"';
+                }
+                
+                if ($_REQUEST['thing3'] != '-') {
+                    $filterset->filterset[$_REQUEST['filtername']]['SEARCH'] .= 
+                        ' ' . $_REQUEST['thing3'] . ' "'. $_REQUEST['contains3'] . '"';
+                }
+                
+                if ($_REQUEST['filter_action'] == 'DELETE') {
+                    $filterset->filterset[$_REQUEST['filtername']]['ACTION'] = 'DELETE';
+                } elseif ($_REQUEST['filter_action'] == 'MOVE') {
+                    $filterset->filterset[$_REQUEST['filtername']]['ACTION'] = 'MOVE:'. $_REQUEST['filter_move_box'];
+                } else {
+                    break;
+                }
+                
+                $filterset->dirty_flag = 1;
+                $filterset->commit();
+                break;
+        }
+
+        $html_filter_select = $filterset->html_filter_select();
+        $filter_move_to = $pop->html_folder_select('filter_move_box','');
+
+        require ('./html/header.php');
+        require ('./html/menu_prefs.php');
+        //require ('./html/prefs.php');
+        require ('./html/filter_prefs.php');
         require ('./html/footer.php');
 
         $pop->close();
@@ -322,8 +392,8 @@ switch($action)
         require ('./html/header.php');
         require ('./html/menu_prefs.php');
         require ('./html/prefs.php');
-        if ($pop->is_imap())
-            require ('./html/folders.php');
+        //if ($pop->is_imap())
+        //    require ('./html/folders.php');
         require ('./html/menu_prefs.php');
         require ('./html/footer.php');
 
@@ -339,6 +409,37 @@ switch($action)
             require ('./html/footer.php');
             break;
         }
+
+        // We may need to apply some filters to the INBOX...  this is still a work in progress.
+        if ($pop->is_imap()) {
+            if ($pop->folder == 'INBOX') {
+                $user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
+                $filters = new NOCCUserFilters($user_key, $ev);
+                $filters->read($ev);
+
+                $small_search = 'unseen ';
+                if ($_REQUEST['reapply_filters'] == 1) {
+                    $small_search = '';
+                }
+
+                
+                foreach($filters->filterset as $name => $filter) {
+                    $filter_messages = $pop->search($small_search . $filter['SEARCH']);
+                    if (is_array($filter_messages)) {
+                        $filter_to_folder = array();
+                        foreach($filter_messages as $filt_msg_no) {
+                            if ($filter['ACTION'] == 'DELETE') {
+                                $pop->delete($filt_msg_no);
+                            } elseif (preg_match("/^MOVE:(.+)$/", $filter['ACTION'], $filter_to_folder)) {
+                                $pop->mail_move($filt_msg_no, $filter_to_folder[1]);
+                            }
+                        }
+                    }
+                }
+                $pop->expunge();
+            }
+        }
+
 
         // If we get this far, consider ourselves logged in
         $_SESSION['nocc_loggedin'] = 1;
@@ -383,6 +484,9 @@ switch($action)
             require ('./html/html_inbox.php');
         }
 
+        $new_folders = array();
+        $list_of_folders = "";
+
         // If we show it twice, the bottom folder select is sent, and might be wrong.
         if (($conf->status_line == 1) && $pop->is_imap()) {
             // gather list of folders for menu_inbox_status
@@ -394,17 +498,20 @@ switch($action)
                 break;
             }
 
-            $list_of_folders = "";
             foreach($subscribed as $folder) {
                 $folder_name = substr(strstr($folder->name, '}'), 1);
-                $messages = $pop->search('UNSEEN', '', $ev);
-                if (Exception::isException($ev)) {
-                    $list_of_folders = "<p class=\"error\">".$ev->getMessage()."</p>";
-                    $ev = NULL;
-                    continue;
-                }
-                if (count($messages) > 0) {
-                    $list_of_folders .= ' <a href="'.$_SERVER['PHP_SELF'].'?folder='.$folder_name.'">'.$folder_name.'</a>';
+                $tmp_pop = imap_open($folder->name, $pop->login, $pop->passwd, 'OP_READONLY');
+		
+                $unseen_messages = imap_search($tmp_pop,'UNSEEN');
+
+                imap_close($tmp_pop);
+                
+                if (!($unseen_messages == false) && count($unseen_messages) > 0) {
+                    if (!in_array($folder_name, $new_folders)) {
+                        $unseen_count = count($unseen_messages);
+                        $list_of_folders .= ' <a href="'.$_SERVER['PHP_SELF'].'?folder='.$folder_name.'">'.$folder_name." ($unseen_count)".'</a>';
+                        array_push($new_folders, $folder_name);
+                    }
                 }
             }
             require ('./html/menu_inbox_status.php');
