@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.70 2004/06/19 12:00:56 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.71 2004/06/19 12:06:48 goddess_skuld Exp $ -->
 <?php
 
 require_once 'class_local.php';
@@ -42,7 +42,7 @@ if($pages > 1) {
         }
         $page_line .= "\t<option $selected value=\"$i\">$current_skip</option>\n";
     }
-    $page_line .= "</select> $html_of $pages";
+    $page_line .= "</select> $html_of $pages ";
     $page_line .= "<input type=\"submit\" class=\"button\" name=\"submit\" value=\"$html_gotopage\" />";
     $page_line .= "</form>";
 }
@@ -81,13 +81,17 @@ if ($pop->is_imap()) {
         <td colspan="2" align="center" class="inbox">
             <?php echo $reapply_filters ?>
         </td>
-        <td colspan="2" align="right" class="inbox">
+        <?php if ($conf->have_ucb_pop_server || $pop->is_imap()) { ?>
+            <td colspan="2" align="right" class="inbox">
+        <?php } else { ?>
+            <td align="right" class="inbox">
+        <?php } ?>
             <?php echo $page_line ?>
-    </td>
-    <td colspan="2" align="right" class="inbox">
+        </td>
+        <td align="right" class="inbox">
             <?php echo $prev ?>
             <?php echo $next ?>
-    </td>
+        </td>
     </tr>
     <tr bgcolor="<?php echo $glob_theme->inbox_text_color ?>">
         <td align="center" class="inbox">
@@ -129,4 +133,4 @@ if ($pop->is_imap()) {
             <form method="post" action="delete.php" name="delete_form">
         </td>
     </tr>
-<!-- start of $Id: html_top_table.php,v 1.70 2004/06/19 12:00:56 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.71 2004/06/19 12:06:48 goddess_skuld Exp $ -->
