@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.125 2002/05/14 18:46:43 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.126 2002/05/15 10:11:20 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -18,22 +18,6 @@ require_once './prefs.php';
 
 // Remove any attachments from disk and from our session
 clear_attachments();
-
-// Get preferences
-$prefs_full_name = getPref('full_name');
-$prefs_email_address = getPref('email_address');
-$prefs_reply_leadin = getPref('leadin');
-$prefs_signature = getPref('signature');
-
-// [Remove in NOCC-1.0] Check for signature file, and convert to
-// signature preference if found.
-if(!$prefs_signature) {
-    $prefs_signature = getSig();
-    if($prefs_signature) {
-        setPref('signature', $prefs_signature);
-        deleteSig();
-    }
-}
 
 // Get connection settings from session in case we need to
 // create a connection
@@ -128,7 +112,7 @@ switch($action)
         else
             if ($prefs_reply_leadin)
             {
-                $parsed_leadin = parseLeadin($prefs_reply_leadin, $content);
+                $parsed_leadin = parseLeadin(getPref('leadin'), $content);
                 $mail_body = mailquote(strip_tags($content['body'], ''), $parsed_leadin, '');
             }
             else
@@ -276,14 +260,6 @@ switch($action)
             break;
         }
 
-        $full_name = getPref('full_name');
-        $msg_per_page = getPref('msg_per_page');
-        $email_address = getPref('email_address');
-        $cc_self = getPref('cc_self');
-        $hide_addresses = getPref('hide_addresses');
-        $outlook_quoting = getPref('outlook_quoting');
-        $reply_leadin = getPref('leadin');
-        $signature = getPref('signature');
         require ('./html/header.php');
         require ('./html/menu_prefs.php');
         require ('./html/prefs.php');
@@ -324,9 +300,13 @@ switch($action)
 
             // Email address
             if (!$lastev && isset($_REQUEST['email_address'])) {
-                $ev = setPref('email_address', $_REQUEST['email_address']);
-                if(Exception::isException($ev))
-                    $lastev = $ev;
+                if(valid_email($_REQUEST['email_address'])) {
+                    $ev = setPref('email_address', $_REQUEST['email_address']);
+                    if(Exception::isException($ev))
+                        $lastev = $ev;
+                }
+                else
+                    $lastev = new Exception("Invalid e-mail address (".$_REQUEST['email_address'].")");
             }
 
             // CC Self
@@ -396,15 +376,13 @@ switch($action)
             if (Exception::isException($lastev)) {
                 $ev = $lastev;
                 require ('./html/header.php');
-                require ('./html/error.php');
+                require ('./html/prefs.php');
                 require ('./html/footer.php');
                 break;
             }
 
         }
-        $full_name = getPref('full_name');
         $msg_per_page = getPref('msg_per_page');
-        $email_address = getPref('email_address');
         $cc_self = getPref('cc_self');
         $hide_addresses = getPref('hide_addresses');
         $outlook_quoting = getPref('outlook_quoting');

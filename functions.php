@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.160 2002/05/15 13:54:51 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.161 2002/05/15 14:54:03 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -743,6 +743,18 @@ function strip_tags2(&$string, $allow)
     $string = strip_tags($string, $allow . '<nocc_less_than_tag><nocc_greater_than_tag>');
     $string = eregi_replace('<nocc_less_than_tag>', '<', $string);
     return eregi_replace('<nocc_greater_than_tag>', '>', $string);
+}
+
+/* ----------------------------------------------------- */
+
+// Check e-mail address and return TRUE if it looks valid.
+function valid_email($email)
+{
+    /* Regex of valid characters */
+    $regexp = "^[A-Za-z0-9\._-]+@([A-Za-z0-9][A-Za-z0-9-]{1,62})(\.[A-Za-z0-9][A-Za-z0-9-]{1,62})+$";
+    if(!ereg($regexp, $email))
+        return FALSE;
+    return TRUE;
 }
 
 ?>

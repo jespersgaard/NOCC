@@ -1,5 +1,6 @@
 NOCC 0.9.6    ??, 2002
 
+    * Check for valid e-mail address when changing preferences. (#506379)
     * Use $_SERVER['PHP_SELF'] instead of $PHP_SELF (for register_globals=off)
     * Return user to INBOX when mail sent successfully.
     * Now works with 'register_globals=off' (i.e. new PHP 4.2 behaviour).

@@ -1,12 +1,12 @@
-<!-- start of $Id: send.php,v 1.49 2002/04/24 22:57:46 rossigee Exp $ -->
+<!-- start of $Id: send.php,v 1.50 2002/05/15 13:54:52 rossigee Exp $ -->
 <?php
 
 // Default e-mail address on send form
-if($prefs_email_address != '')
-    $mail_from = $prefs_email_address;
-else
-    $mail_from = $_SESSION['user']. '@' . $_SESSION['domain'];
-if($prefs_full_name != '')
+$prefs_email_address = getPref('email_address');
+if(empty($prefs_email_address))
+    $prefs_email_address = $_SESSION['user'].'@'.$_SESSION['domain'];
+$prefs_full_name = getPref('full_name');
+if(!empty($prefs_full_name))
     $mail_from = $prefs_full_name . ' <' . $mail_from . '>';
 
 ?>
@@ -31,7 +31,7 @@ if($prefs_full_name != '')
                     <td align="right" class="inbox"><?php echo $html_from ?> : </td>
                     <td align="left" class="inbox">
                         <?php if ($allow_address_change) { ?>
-                        <input type="text" name="mail_from" size="60" value="<?php echo htmlspecialchars($mail_from) ?>" />
+                            <input type="text" name="mail_from" size="60" value="<?php echo htmlspecialchars($mail_from) ?>" />
                         <?php } else { ?>
                             <input type="hidden" name="mail_from" value = "<?php echo htmlspecialchars($mail_from) ?>" /><?php echo htmlspecialchars($mail_from) ?>
                         <?php } ?>
@@ -157,4 +157,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.49 2002/04/24 22:57:46 rossigee Exp $ -->
+<!-- end of $Id: send.php,v 1.50 2002/05/15 13:54:52 rossigee Exp $ -->
