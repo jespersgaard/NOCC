@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.62 2003/12/21 15:40:20 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.63 2003/12/22 22:54:28 ajetam Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -86,10 +86,10 @@ $html_manage_folders_link = 'Manage IMAP Folders';
 $html_manage_filters_link = 'Manage Email Filters';
 
 // folders.php
-$html_folders_create_failed = "Folder could not be created!";
-$html_folders_sub_failed = "Could not subscribed to folder!";
-$html_folders_unsub_failed = "Could not unsubscribed from folder!";
-$html_folders_rename_failed = "Folder could not be renamed!";
+$html_folders_create_failed = 'Folder could not be created!';
+$html_folders_sub_failed = 'Could not subscribed to folder!';
+$html_folders_unsub_failed = 'Could not unsubscribed from folder!';
+$html_folders_rename_failed = 'Folder could not be renamed!';
 $html_folders_updated = 'Folders updated';
 $html_folder_subscribe = 'Subscribe to';
 $html_folder_rename = 'Rename';
@@ -103,8 +103,8 @@ $html_filter_subject = 'Message Subject';
 $html_filter_to = 'To Field';
 $html_filter_cc = 'Cc Field';
 $html_filter_from = 'From Field';
-$html_filter_change_tip = "To change a filter simply overwrite it.";
-$html_reapply_filters = "Reapply all filters";
+$html_filter_change_tip = 'To change a filter simply overwrite it.';
+$html_reapply_filters = 'Reapply all filters';
 $html_filter_contains = 'contains';
 $html_filter_name = 'Filter Name';
 $html_filter_action = 'Filter Action';
@@ -177,7 +177,7 @@ $html_no_sendaction = 'No action specified. Try enabling JavaScript.';
 $html_error_occurred = 'An error occurred';
 $html_prefs_file_error = 'Unable to open preferences file for writing.';
 $html_wrap = 'Wrap outgoing messages to :';
-$html_usenet_separator = 'Usenet separator ("-- \n") Before signature'; // to translate
+$html_usenet_separator = 'Usenet separator ("-- \n") Before signature';
 // Contacts manager
 $html_add = 'Add';
 $html_contacts = 'Contacts';

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/hr.php,v 1.6 2002/11/29 07:04:57 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/hr.php,v 1.7 2003/12/21 15:40:20 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -70,19 +70,60 @@ $html_retry = 'Poku&#353;aj ponovo';
 
 // prefs.php
 
+$html_msgperpage = 'Messages per page';
 $html_preferences = 'Postavke';
 $html_full_name = 'Puno ime';
 $html_email_address = 'E-mail adresa';
 $html_ccself = 'Cc sebi';
 $html_hide_addresses = 'Sakrij adrese';
 $html_outlook_quoting = 'Navodi u stilu Outlooka';
-$html_reply_to = 'Reply to';
+$html_reply_to = 'Reply to';  //to translate
 $html_use_signature = 'Koristi potpis';
 $html_signature = 'Potpis';
+$html_reply_leadin = 'Reply Leadin';  //to translate
 $html_prefs_updated = 'Postavke obnovljene';
+$html_manage_folders_link = 'Manage IMAP Folders';  //to translate
+$html_manage_filters_link = 'Manage Email Filters';  //to translate
+
+// folders.php
+$html_folders_create_failed = 'Folder could not be created!';  //to translate
+$html_folders_sub_failed = 'Could not subscribed to folder!';  //to translate
+$html_folders_unsub_failed = 'Could not unsubscribed from folder!';  //to translate
+$html_folders_rename_failed = 'Folder could not be renamed!';  //to translate
+$html_folders_updated = 'Folders updated';  //to translate
+$html_folder_subscribe = 'Subscribe to';  //to translate
+$html_folder_rename = 'Rename';  //to translate
+$html_folder_create = 'Create new folder called';  //to translate
+$html_folder_remove = 'Unsubscribe from';  //to translate
+
+// filters.php
+$html_filter_remove = 'Delete';  //to translate
+$html_filter_body = 'Message Body';  //to translate
+$html_filter_subject = 'Message Subject';  //to translate
+$html_filter_to = 'To Field';  //to translate
+$html_filter_cc = 'Cc Field';  //to translate
+$html_filter_from = 'From Field';  //to translate
+$html_filter_change_tip = 'To change a filter simply overwrite it.';  //to translate
+$html_reapply_filters = 'Reapply all filters';  //to translate
+$html_filter_contains = 'contains';  //to translate
+$html_filter_name = 'Filter Name';  //to translate
+$html_filter_action = 'Filter Action';  //to translate
+$html_filter_moveto = 'Move to';  //to translate
 
 // Other pages
-
+$html_select_one = '--Select One--';  //to translate
+$html_and = 'And';  //to translate
+$html_new_msg_in = 'New messages in';  //to translate
+$html_or = 'or';  //to translate
+$html_move = 'Move';  //to translate
+$html_copy = 'Copy';  //to translate
+$html_messages_to = 'selected messages to';  //to translate
+$html_gotopage = 'Go to Page';  //to translate
+$html_gotofolder = 'Go to Folder';  //to translate
+$html_other_folders = 'Folder List';  //to translate
+$html_page = 'Page';  //to translate
+$html_of = 'of';  //to translate
+$html_to = 'to';  //to translate
 $html_view_header = 'Vidi zaglavlje';
 $html_remove_header = 'Sakrij zaglavlje';
 $html_inbox = 'Pristigla po&#353;ta';
@@ -106,6 +147,7 @@ $html_from = 'Od';
 $html_subject = 'Naslov';
 $html_date = 'Datum';
 $html_sent = 'Poslano';
+$html_wrote = 'wrote';
 $html_size = 'Veli&#269;ina';
 $html_totalsize = 'Ukupna veli&#269;ina';
 $html_kb = 'Kb';
@@ -126,6 +168,7 @@ $html_priority = 'Prioritet';
 $html_low = 'Nizak';
 $html_normal = 'Normalan';
 $html_high = 'Visok';
+$html_receipt = 'Request a return receipt';
 $html_select = 'Selektiraj';
 $html_select_all = 'Selektiraj sve';
 $html_loading_image = 'Ucitavam sliku';
@@ -133,35 +176,37 @@ $html_send_confirmed = 'Vasa poruka je isporucena';
 $html_no_sendaction = 'Nista nije specificirano - ukljucite JavaScript.';
 $html_error_occurred = 'Dogodila se greska';
 $html_prefs_file_error = 'Ne mogu zapisati postavke.';
-$html_sig_file_error = 'Ne mogu zapisati Vas potpis.';
-$html_wrap = 'Wrap outgoing messages to :'; // to translate
-$html_usenet_separator = 'Usenet separator ("-- \n") Before signature'; // to translate
+$html_wrap = 'Wrap outgoing messages to :';  //to translate
+$html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
 // Contacts manager
 $html_add = 'Add';
-$html_contacts = 'Contacts';
-$html_modify = 'Modify';
-$html_back = 'Back';
-$html_contact_add = 'Add new contact';
-$html_contact_mod = 'Modify a contact';
-$html_contact_first = 'First name';
-$html_contact_last = 'Last Name';
-$html_contact_nick = 'Nick';
-$html_contact_mail = 'Mail';
-$html_contact_list = 'Contact list of ';
-$html_contact_del = 'of de contact list';
+$html_contacts = 'Contacts';  //to translate
+$html_modify = 'Modify';  //to translate
+$html_back = 'Back';  //to translate
+$html_contact_add = 'Add new contact';  //to translate
+$html_contact_mod = 'Modify a contact';  //to translate
+$html_contact_first = 'First name';  //to translate
+$html_contact_last = 'Last Name';  //to translate
+$html_contact_nick = 'Nick';  //to translate
+$html_contact_mail = 'Mail';  //to translate
+$html_contact_list = 'Contact list of ';  //to translate
+$html_contact_del = 'of de contact list';  //to translate
 
 $html_contact_err1 = 'Maximal number of contact is ';
 $html_contact_err2 = 'You can\'t add a new contact';
-$html_del_msg = 'Delete selected messages ?'; // to translate
-$html_down_mail = 'Download'; // to translate
+$html_del_msg = 'Delete selected messages ?';  //to translate
+$html_down_mail = 'Download';  //to translate
 
 $original_msg = '-- Originalna poruka --';
 $to_empty = 'Polje \'Za\' ne moze biti prazno!';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = "Ne mogu se spojiti!";
-$html_smtp_error_unexpected = "Neocekivani odgovor:";
+$html_smtp_error_no_conn = 'Ne mogu se spojiti!';
+$html_smtp_error_unexpected = 'Neocekivani odgovor:';
+
+// IMAP messages (class_local.php)
 $lang_could_not_connect = 'Could not connect to server';  //to translate
+
 $html_file_upload_attack = 'Possible file upload attack';  //to translate
 $html_invalid_email_address = 'Invalid e-mail address';  //to translate
 $html_seperate_msg_win = 'Messages in separate window';  //to translate

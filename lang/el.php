@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/el.php,v 1.10 2002/11/29 07:04:57 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/el.php,v 1.11 2003/12/21 15:40:20 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -53,7 +53,7 @@ $alt_reply_all = 'Απάντηση σε όλους';
 $alt_forward = 'Προώθηση';
 $alt_next = 'Επόμενο μήνυμα';
 $alt_prev = 'Προηγούμενο μήνυμα';
-$html_on = 'on';
+$html_on = 'on';  //to translate
 $html_theme = 'Θέμα';
 
 // index.php
@@ -70,6 +70,7 @@ $html_retry = 'Επανάληψη';
 
 // prefs.php
 
+$html_msgperpage = 'Messages per page';  //to translate
 $html_preferences = 'Προτιμήσεις';
 $html_full_name = 'Ονοματεπώνυμο';
 $html_email_address = 'E-mail διεύθυνση';
@@ -79,10 +80,50 @@ $html_outlook_quoting = 'Στυλ Outlook παραθέσεις';
 $html_reply_to = 'Απάντηση σε';
 $html_use_signature = 'Χρησιμοποίηση υπογραφής';
 $html_signature = 'Υπογραφή';
+$html_reply_leadin = 'Reply Leadin';  //to translate
 $html_prefs_updated = 'Οι Προτιμήσεις σας ανανεώθηκαν';
+$html_manage_folders_link = 'Manage IMAP Folders';  //to translate
+$html_manage_filters_link = 'Manage Email Filters';  //to translate
+
+// folders.php
+$html_folders_create_failed = 'Folder could not be created!';  //to translate
+$html_folders_sub_failed = 'Could not subscribed to folder!';  //to translate
+$html_folders_unsub_failed = 'Could not unsubscribed from folder!';  //to translate
+$html_folders_rename_failed = 'Folder could not be renamed!';  //to translate
+$html_folders_updated = 'Folders updated';  //to translate
+$html_folder_subscribe = 'Subscribe to';  //to translate
+$html_folder_rename = 'Rename';  //to translate
+$html_folder_create = 'Create new folder called';  //to translate
+$html_folder_remove = 'Unsubscribe from';  //to translate
+
+// filters.php
+$html_filter_remove = 'Delete';  //to translate
+$html_filter_body = 'Message Body';  //to translate
+$html_filter_subject = 'Message Subject';  //to translate
+$html_filter_to = 'To Field';  //to translate
+$html_filter_cc = 'Cc Field';  //to translate
+$html_filter_from = 'From Field';  //to translate
+$html_filter_change_tip = 'To change a filter simply overwrite it.';  //to translate
+$html_reapply_filters = 'Reapply all filters';  //to translate
+$html_filter_contains = 'contains';  //to translate
+$html_filter_name = 'Filter Name';  //to translate
+$html_filter_action = 'Filter Action';  //to translate
+$html_filter_moveto = 'Move to';  //to translate
 
 // Other pages
-
+$html_select_one = '--Select One--';  //to translate
+$html_and = 'And';  //to translate
+$html_new_msg_in = 'New messages in';  //to translate
+$html_or = 'or';  //to translate
+$html_move = 'Move';  //to translate
+$html_copy = 'Copy';  //to translate
+$html_messages_to = 'selected messages to';  //to translate
+$html_gotopage = 'Go to Page';  //to translate
+$html_gotofolder = 'Go to Folder';  //to translate
+$html_other_folders = 'Folder List';  //to translate
+$html_page = 'Page';  //to translate
+$html_of = 'of';  //to translate
+$html_to = 'to';  //to translate
 $html_view_header = 'Προβολή λεπτομερειών';
 $html_remove_header = 'Απόκρυψη λεπτομερειών';
 $html_inbox = 'Inbox';
@@ -101,7 +142,7 @@ $html_att_unknown = '[άγνωστο]';
 $html_attach = 'Επισύναψη';
 $html_attach_forget = 'Πρέπει να συννάψετε το αρχείο πρίν στείλετε το μήνυμα !';
 $html_attach_delete = 'Διαγραφή μαρκαρισμένων συνημμένων';
-$html_sort_by = 'Sort by';
+$html_sort_by = 'Sort by';  //to translate
 $html_from = 'Από';
 $html_subject = 'Θέμα';
 $html_date = 'Ημ/νία';
@@ -127,6 +168,7 @@ $html_priority = 'Προταιραιότητα';
 $html_low = 'Χαμηλή';
 $html_normal = 'Κανονική';
 $html_high = 'Υψηλή';
+$html_receipt = 'Request a return receipt';  //to translate
 $html_select = 'Διαλέξτε';
 $html_select_all = 'Επιλογή Ολων';
 $html_loading_image = 'Φορτώνω την εικόνα';
@@ -134,35 +176,37 @@ $html_send_confirmed = 'Το μήνυμα σας θα αποσταλεί.';
 $html_no_sendaction = 'Δεν επιλέχθηκε εντολή. Δοκιμάστε να ενεργοποιήσετε τηνJavaScript.';
 $html_error_occurred = 'Ενα σφάλμα συνέβη';
 $html_prefs_file_error = 'Δεν μπορώ να γράψω στο αρχείο προτιμήσεων.';
-$html_sig_file_error = 'Δεν μπορώ να γράψω στο αρχείο υπογραφής.';
-$html_wrap = 'Wrap outgoing messages to :'; // to translate
-$html_usenet_separator = 'Usenet separator ("-- \n") Before signature'; // to translate
+$html_wrap = 'Wrap outgoing messages to :';  //to translate
+$html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
 // Contacts manager
-$html_add = 'Add';
-$html_contacts = 'Contacts';
-$html_modify = 'Modify';
-$html_back = 'Back';
-$html_contact_add = 'Add new contact';
-$html_contact_mod = 'Modify a contact';
-$html_contact_first = 'First name';
-$html_contact_last = 'Last Name';
-$html_contact_nick = 'Nick';
-$html_contact_mail = 'Mail';
-$html_contact_list = 'Contact list of ';
-$html_contact_del = 'of de contact list';
+$html_add = 'Add';  //to translate
+$html_contacts = 'Contacts';  //to translate
+$html_modify = 'Modify';  //to translate
+$html_back = 'Back';  //to translate
+$html_contact_add = 'Add new contact';  //to translate
+$html_contact_mod = 'Modify a contact';  //to translate
+$html_contact_first = 'First name';  //to translate
+$html_contact_last = 'Last Name';  //to translate
+$html_contact_nick = 'Nick';  //to translate
+$html_contact_mail = 'Mail';  //to translate
+$html_contact_list = 'Contact list of ';  //to translate
+$html_contact_del = 'of de contact list';  //to translate
 
-$html_contact_err1 = 'Maximal number of contact is ';
-$html_contact_err2 = 'You can\'t add a new contact';
-$html_del_msg = 'Delete selected messages ?'; // to translate
-$html_down_mail = 'Download'; // to translate
+$html_contact_err1 = 'Maximal number of contact is ';  //to translate
+$html_contact_err2 = 'You can\'t add a new contact';  //to translate
+$html_del_msg = 'Delete selected messages ?';  //to translate
+$html_down_mail = 'Download';  //to translate
 
 $original_msg = '-- Πρωτότυπο Μήνυμα --';
 $to_empty = 'Το πεδίο \'Πρός\' δεν πρέπει να είναι άδειο !';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = "Δεν μπορώ να ανοίξω σύνδεση";
-$html_smtp_error_unexpected = "Αγνωστη απάντηση:";
+$html_smtp_error_no_conn = 'Δεν μπορώ να ανοίξω σύνδεση';
+$html_smtp_error_unexpected = 'Αγνωστη απάντηση:';
+
+// IMAP messages (class_local.php)
 $lang_could_not_connect = 'Could not connect to server';  //to translate
+
 $html_file_upload_attack = 'Possible file upload attack';  //to translate
 $html_invalid_email_address = 'Invalid e-mail address';  //to translate
 $html_seperate_msg_win = 'Messages in separate window';  //to translate

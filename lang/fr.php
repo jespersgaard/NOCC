@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.63 2002/11/29 07:04:57 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.64 2003/12/21 15:40:20 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -80,10 +80,50 @@ $html_outlook_quoting = 'Citation &agrave; la Outlook';
 $html_reply_to = 'R&eacute;pondre &agrave;';
 $html_use_signature = 'Utiliser la signature';
 $html_signature = 'Signature';
+$html_reply_leadin = 'Reply Leadin';  //to translate
 $html_prefs_updated = 'Pr&eacute;f&eacute;rences mises &agrave; jour';
+$html_manage_folders_link = 'Manage IMAP Folders';  //to translate
+$html_manage_filters_link = 'Manage Email Filters';  //to translate
+
+// folders.php
+$html_folders_create_failed = 'Folder could not be created!';
+$html_folders_sub_failed = 'Could not subscribed to folder!';
+$html_folders_unsub_failed = 'Could not unsubscribed from folder!';
+$html_folders_rename_failed = 'Folder could not be renamed!';
+$html_folders_updated = 'Folders updated';
+$html_folder_subscribe = 'Subscribe to';
+$html_folder_rename = 'Rename';
+$html_folder_create = 'Create new folder called';
+$html_folder_remove = 'Unsubscribe from';
+
+// filters.php
+$html_filter_remove = 'Delete';  //to translate
+$html_filter_body = 'Message Body';  //to translate
+$html_filter_subject = 'Message Subject';  //to translate
+$html_filter_to = 'To Field';  //to translate
+$html_filter_cc = 'Cc Field';  //to translate
+$html_filter_from = 'From Field';  //to translate
+$html_filter_change_tip = 'To change a filter simply overwrite it.';  //to translate
+$html_reapply_filters = 'Reapply all filters';  //to translate
+$html_filter_contains = 'contains';  //to translate
+$html_filter_name = 'Filter Name';  //to translate
+$html_filter_action = 'Filter Action';  //to translate
+$html_filter_moveto = 'Move to';  //to translate
 
 // Other pages
-
+$html_select_one = '--Select One--';  //to translate
+$html_and = 'And';  //to translate
+$html_new_msg_in = 'New messages in';  //to translate
+$html_or = 'or';  //to translate
+$html_move = 'Move';  //to translate
+$html_copy = 'Copy';  //to translate
+$html_messages_to = 'selected messages to';  //to translate
+$html_gotopage = 'Go to Page';  //to translate
+$html_gotofolder = 'Go to Folder';  //to translate
+$html_other_folders = 'Folder List';  //to translate
+$html_page = 'Page';  //to translate
+$html_of = 'of';  //to translate
+$html_to = 'to';  //to translate
 $html_view_header = 'Voir l\'ent&ecirc;te';
 $html_remove_header = 'Masquer l\'ent&ecirc;te';
 $html_inbox = 'Bo&icirc;te de r&eacute;ception';
@@ -136,9 +176,8 @@ $html_send_confirmed = 'Votre message a bien &eacute;t&eacute; envoy&eacute;';
 $html_no_sendaction = 'Aucune action sp&eacute;cifi&eacute;e. Essayer d\'activer JavaScript';
 $html_error_occurred = 'Une erreur est survenue';
 $html_prefs_file_error = 'Impossible d\'ouvrir le fichier de pr&eacute;f&eacute;rences';
-$html_sig_file_error = 'Impossible d\'ouvrir le fichier de signature';
 $html_wrap = 'Tronquer les messages sortant  &agrave;:';
-$html_usenet_separator = 'S&eacute;parateur Usenet ("-- \n") avant la signature'; // to translate
+$html_usenet_separator = 'S&eacute;parateur Usenet ("-- \n") avant la signature';
 // Contacts manager
 $html_add = 'Ajouter';
 $html_contacts = 'Contacts';
@@ -162,9 +201,12 @@ $original_msg = '-- Message Original --';
 $to_empty = 'Le champ \'A\' ne doit pas être vide !';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = "Impossible d'ouvrir la connexion";
-$html_smtp_error_unexpected = "R&eacute;ponse inattendue:";
+$html_smtp_error_no_conn = 'Impossible d\'ouvrir la connexion';
+$html_smtp_error_unexpected = 'R&eacute;ponse inattendue:';
+
+// IMAP messages (class_local.php)
 $lang_could_not_connect = 'Impossible de se connecter au serveur';
+
 $html_file_upload_attack = 'Possibilit&eacute; d\'attaque depuis le fichier upload&eacute;';
 $html_invalid_email_address = 'Adresse e-mail invalide';
 $html_seperate_msg_win = 'Messages dans des fen&ecirc;tres s&eacute;par&eacute;es';

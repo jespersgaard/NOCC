@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.28 2002/12/16 15:33:17 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.29 2003/12/21 15:40:20 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -87,15 +87,15 @@ $html_manage_folders_link = 'Gerir Pastas IMAP';
 $html_manage_filters_link = 'Gerir Filtros de Email';
 
 // folders.php
-$html_folders_create_failed = "Folder could not be created!"; // to translate
-$html_folders_sub_failed = "Could not subscribed to folder!";// to translate 
-$html_folders_unsub_failed = "Could not unsubscribed from folder!";// to translate
-$html_folders_rename_failed = "Folder could not be renamed!";// to translate
-$html_folders_updated = 'Folders updated';// to translate
-$html_folder_subscribe = 'Subscribe to';// to translate
-$html_folder_rename = 'Rename';// to translate
-$html_folder_create = 'Create new folder called';// to translate
-$html_folder_remove = 'Unsubscribe from';// to translate
+$html_folders_create_failed = 'Folder could not be created!';  //to translate
+$html_folders_sub_failed = 'Could not subscribed to folder!';  //to translate 
+$html_folders_unsub_failed = 'Could not unsubscribed from folder!';  //to translate
+$html_folders_rename_failed = 'Folder could not be renamed!';  //to translate
+$html_folders_updated = 'Folders updated';  //to translate
+$html_folder_subscribe = 'Subscribe to';  //to translate
+$html_folder_rename = 'Rename';  //to translate
+$html_folder_create = 'Create new folder called';  //to translate
+$html_folder_remove = 'Unsubscribe from';  //to translate
 
 // filters.php
 $html_filter_remove = 'Apagar';
@@ -104,8 +104,12 @@ $html_filter_subject = 'Assunto da Mensaagem';
 $html_filter_to = 'Campo \'Para\'';
 $html_filter_cc = 'Campo \'Cc\'';
 $html_filter_from = 'Campo \'De\'';
-$html_filter_change_tip = "Para alterar um filtro grav&aacute;-lo novamente.";// to translate
-$html_reapply_filters = "Reapply all filters";// to translate
+$html_filter_change_tip = 'Para alterar um filtro grav&aacute;-lo novamente.';
+$html_reapply_filters = 'Reapply all filters';  //to translate
+$html_filter_contains = 'contains';  //to translate
+$html_filter_name = 'Filter Name';  //to translate
+$html_filter_action = 'Filter Action';  //to translate
+$html_filter_moveto = 'Move to';  //to translate
 
 // Other pages
 $html_select_one = '--Escolha--';
@@ -119,8 +123,8 @@ $html_gotopage = 'Ir para P&aacute;gina';
 $html_gotofolder = 'Ir para a Pasta';
 $html_other_folders = 'Lista de Pastas';
 $html_page = 'P&aacute;gina';
-$html_of = 'of';//to translate
-$html_to = 'para';//to translate
+$html_of = 'of';  //to translate
+$html_to = 'para';
 $html_view_header = 'Ver cabe&ccedil;alhos';
 $html_remove_header = 'Esconder cabe&ccedil;alhos';
 $html_inbox = 'Correio';
@@ -163,9 +167,9 @@ $html_msgs = 'Mensagens';
 $html_configuration = 'Este servidor n&atilde;o est&aacute; correctamente configurado !';
 $html_priority = 'Prioridade';
 $html_low = 'Baixa';
-$html_normal = 'Normal';
+$html_normal = 'Normal';  //to translate
 $html_high = 'Alta';
-$html_receipt = 'Requer confirma&ccedil;&atilde;o';//to translate
+$html_receipt = 'Requer confirma&ccedil;&atilde;o';
 $html_select = 'Seleccionar';
 $html_select_all = 'Seleccionar tudo';
 $html_loading_image = 'Carregando imagem';
@@ -173,27 +177,26 @@ $html_send_confirmed = 'A mensagem foi aceite para envio';
 $html_no_sendaction = 'Ac&ccedil;&atilde;o n&atilde;o indicada. Tente activar o JavaScript.';
 $html_error_occurred = 'Ocorreu um erro';
 $html_prefs_file_error = 'N&atilde;o foi poss&iacute;vel abrir o ficheiro de preferen&ccedil;as para escrita.';
-//$html_sig_file_error = 'N&atilde;o foi poss&iacute;vel abrir o ficheiro de assinatura para escrita.';
-$html_wrap = 'Wrap outgoing messages to :'; // to translate
-$html_usenet_separator = 'Usenet separator ("-- \n") Before signature'; // to translate
+$html_wrap = 'Wrap outgoing messages to :';  //to translate
+$html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
 // Contacts manager
-$html_add = 'Add';
-$html_contacts = 'Contacts';
-$html_modify = 'Modify';
-$html_back = 'Back';
-$html_contact_add = 'Add new contact';
-$html_contact_mod = 'Modify a contact';
-$html_contact_first = 'First name';
-$html_contact_last = 'Last Name';
-$html_contact_nick = 'Nick';
-$html_contact_mail = 'Mail';
-$html_contact_list = 'Contact list of ';
-$html_contact_del = 'of de contact list';
+$html_add = 'Add';  //to translate
+$html_contacts = 'Contacts';  //to translate
+$html_modify = 'Modify';  //to translate
+$html_back = 'Back';  //to translate
+$html_contact_add = 'Add new contact';  //to translate
+$html_contact_mod = 'Modify a contact';  //to translate
+$html_contact_first = 'First name';  //to translate
+$html_contact_last = 'Last Name';  //to translate
+$html_contact_nick = 'Nick';  //to translate
+$html_contact_mail = 'Mail';  //to translate
+$html_contact_list = 'Contact list of ';  //to translate
+$html_contact_del = 'of de contact list';  //to translate
 
-$html_contact_err1 = 'Maximal number of contact is ';
-$html_contact_err2 = 'You can\'t add a new contact';
-$html_del_msg = 'Delete selected messages ?'; // to translate
-$html_down_mail = 'Download'; // to translate
+$html_contact_err1 = 'Maximal number of contact is ';  //to translate
+$html_contact_err2 = 'You can\'t add a new contact';  //to translate
+$html_del_msg = 'Delete selected messages ?';  //to translate
+$html_down_mail = 'Download';  //to translate
 
 $original_msg = '-- Mensagem Original --';
 $to_empty = 'O campo \'Para\' tem de ser preenchido !';

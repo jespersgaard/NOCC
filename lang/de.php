@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.26 2002/07/26 11:02:31 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.27 2003/12/21 15:40:20 goddess_skuld Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -16,7 +16,7 @@ $charset = 'ISO-8859-1';
 
 // Configuration for the days and months
 
-// What language to use (Here, english US --> en_US)
+// What language to use
 // see '/usr/share/locale/' for more information
 $lang_locale = 'de_DE';
 
@@ -80,10 +80,50 @@ $html_outlook_quoting = 'Quoting im Outlook-Stil';
 $html_reply_to = 'Antwort an';
 $html_use_signature = 'Signatur benutzen';
 $html_signature = 'Signatur';
+$html_reply_leadin = 'Reply Leadin';
 $html_prefs_updated = 'Einstellungen gespeichert';
+$html_manage_folders_link = 'Manage IMAP Folders';  //to translate
+$html_manage_filters_link = 'Manage Email Filters';  //to translate
+
+// folders.php
+$html_folders_create_failed = 'Folder could not be created!';  //to translate
+$html_folders_sub_failed = 'Could not subscribed to folder!';  //to translate
+$html_folders_unsub_failed = 'Could not unsubscribed from folder!';  //to translate
+$html_folders_rename_failed = 'Folder could not be renamed!';  //to translate
+$html_folders_updated = 'Folders updated';  //to translate
+$html_folder_subscribe = 'Subscribe to';  //to translate
+$html_folder_rename = 'Rename';  //to translate
+$html_folder_create = 'Create new folder called';  //to translate
+$html_folder_remove = 'Unsubscribe from';  //to translate
+
+// filters.php
+$html_filter_remove = 'Delete';  //to translate
+$html_filter_body = 'Message Body';  //to translate
+$html_filter_subject = 'Message Subject';  //to translate
+$html_filter_to = 'To Field';  //to translate
+$html_filter_cc = 'Cc Field';  //to translate
+$html_filter_from = 'From Field';  //to translate
+$html_filter_change_tip = 'To change a filter simply overwrite it.';  //to translate
+$html_reapply_filters = 'Reapply all filters';  //to translate
+$html_filter_contains = 'contains';  //to translate
+$html_filter_name = 'Filter Name';  //to translate
+$html_filter_action = 'Filter Action';  //to translate
+$html_filter_moveto = 'Move to';  //to translate
 
 // Other pages
-
+$html_select_one = '--Select One--';  //to translate
+$html_and = 'And';  //to translate
+$html_new_msg_in = 'New messages in';  //to translate
+$html_or = 'or';  //to translate
+$html_move = 'Move';  //to translate
+$html_copy = 'Copy';  //to translate
+$html_messages_to = 'selected messages to';  //to translate
+$html_gotopage = 'Go to Page';  //to translate
+$html_gotofolder = 'Go to Folder';  //to translate
+$html_other_folders = 'Folder List';  //to translate
+$html_page = 'Page';  //to translate
+$html_of = 'of';  //to translate
+$html_to = 'to';  //to translate
 $html_view_header = 'Header anzeigen';
 $html_remove_header = 'Header verbergen';
 $html_inbox = 'Inbox';
@@ -105,9 +145,9 @@ $html_attach_delete = 'Ausgew&auml;hlte entfernen';
 $html_sort_by = 'Sortieren nach';
 $html_from = 'Von';
 $html_subject = 'Betreff';
-$html_wrote = 'schrieb';
 $html_date = 'Datum';
 $html_sent = 'Gesendet';
+$html_wrote = 'schrieb';
 $html_size = 'Gr&ouml;sse';
 $html_totalsize = 'Gesamtgr&ouml;sse';
 $html_kb = 'KB';
@@ -136,27 +176,26 @@ $html_send_confirmed = 'Ihre Mail wurde verschickt.';
 $html_no_sendaction = 'Keine Aktion angegeben. Versuchen Sie es mit eingeschaltetem JavaScript.';
 $html_error_occurred = 'Ein Fehler ist aufgetreten';
 $html_prefs_file_error = 'Kann Ihre Einstellungen-Datei nicht zum Schreiben &ouml;ffnen.';
-$html_sig_file_error = 'Kann Ihre Signatur-Datei nicht zum Schreiben &ouml;ffnen.';
-$html_wrap = 'Wrap outgoing messages to :'; // to translate
-$html_usenet_separator = 'Usenet separator ("-- \n") Before signature'; // to translate
+$html_wrap = 'Wrap outgoing messages to :';  //to translate
+$html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
 // Contacts manager
-$html_add = 'Add';
-$html_contacts = 'Contacts';
-$html_modify = 'Modify';
-$html_back = 'Back';
-$html_contact_add = 'Add new contact';
-$html_contact_mod = 'Modify a contact';
-$html_contact_first = 'First name';
-$html_contact_last = 'Last Name';
-$html_contact_nick = 'Nick';
-$html_contact_mail = 'Mail';
-$html_contact_list = 'Contact list of ';
-$html_contact_del = 'of de contact list';
+$html_add = 'Add';  //to translate
+$html_contacts = 'Contacts';  //to translate
+$html_modify = 'Modify';  //to translate
+$html_back = 'Back';  //to translate
+$html_contact_add = 'Add new contact';  //to translate
+$html_contact_mod = 'Modify a contact';  //to translate
+$html_contact_first = 'First name';  //to translate
+$html_contact_last = 'Last Name';  //to translate
+$html_contact_nick = 'Nick';  //to translate
+$html_contact_mail = 'Mail';  //to translate
+$html_contact_list = 'Contact list of ';  //to translate
+$html_contact_del = 'of de contact list';  //to translate
 
-$html_contact_err1 = 'Maximal number of contact is ';
-$html_contact_err2 = 'You can\'t add a new contact';
-$html_del_msg = 'Delete selected messages ?'; // to translate
-$html_down_mail = 'Download'; // to translate
+$html_contact_err1 = 'Maximal number of contact is ';  //to translate
+$html_contact_err2 = 'You can\'t add a new contact';  //to translate
+$html_del_msg = 'Delete selected messages ?';  //to translate
+$html_down_mail = 'Download';  //to translate
 
 $original_msg = '-- Original Nachricht--';
 $to_empty = 'Das \'An\' Feld darf nicht leer sein !';
@@ -164,8 +203,11 @@ $to_empty = 'Das \'An\' Feld darf nicht leer sein !';
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Konnte Verbindung nicht &ouml;ffnen';
 $html_smtp_error_unexpected = 'Unerwartete Antwort:';
-$lang_could_not_connect = 'Verbindung zum Server fehlgeschlagen';  //translated by Benjamin Bräuer - ben1@gmx.de
+
+// IMAP messages (class_local.php)
+$lang_could_not_connect = 'Verbindung zum Server fehlgeschlagen'; //translated by Benjamin Bräuer - ben1@gmx.de
+
 $html_file_upload_attack = 'Possible file upload attack';  //to translate - May be 'M&ouml;gliche Attacke durch hochgelandene Datei'; but it sounds terrible. leave it in english
-$html_invalid_email_address = 'Ung&uuml;ltige E-mail Addresse';  //translated by Benjamin Bräuer - ben1@gmx.de
-$html_seperate_msg_win = 'Nachricht in extra Fenster &ouml;ffnen';  //translated by Benjamin Bräuer - ben1@gmx.de
+$html_invalid_email_address = 'Ung&uuml;ltige E-mail Addresse'; //translated by Benjamin Bräuer - ben1@gmx.de
+$html_seperate_msg_win = 'Nachricht in extra Fenster &ouml;ffnen'; //translated by Benjamin Bräuer - ben1@gmx.de
 ?>

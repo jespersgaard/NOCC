@@ -7,7 +7,6 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
  * Configuration file for the icelandic language
- * 
  * Translation by: Firmanet ehf.
  */
 
@@ -15,7 +14,7 @@ $charset = 'ISO-8859-1';
 
 // Configuration for the days and months
 
-// What language to use (Here, english US --> en_US)
+// What language to use
 // see '/usr/share/locale/' for more information
 $lang_locale = 'is_IS';
 
@@ -69,6 +68,7 @@ $html_retry = 'Reyna aftur';
 
 // prefs.php
 
+$html_msgperpage = 'Messages per page';
 $html_preferences = 'Valmöguleikar';
 $html_full_name = 'Fullt nafn';
 $html_email_address = 'Netfang';
@@ -78,19 +78,59 @@ $html_outlook_quoting = 'Outlook-stíl quoting';
 $html_reply_to = 'Svara til';
 $html_use_signature = 'Nota undirskrift';
 $html_signature = 'Undirskrift';
+$html_reply_leadin = 'Reply Leadin';  //to translate
 $html_prefs_updated = 'Valmöguleikar uppfærðir';
+$html_manage_folders_link = 'Manage IMAP Folders';  //to translate
+$html_manage_filters_link = 'Manage Email Filters';  //to translate
+
+// folders.php
+$html_folders_create_failed = 'Folder could not be created!';  //to translate
+$html_folders_sub_failed = 'Could not subscribed to folder!';  //to translate
+$html_folders_unsub_failed = 'Could not unsubscribed from folder!';  //to translate
+$html_folders_rename_failed = 'Folder could not be renamed!';  //to translate
+$html_folders_updated = 'Folders updated';  //to translate
+$html_folder_subscribe = 'Subscribe to';  //to translate
+$html_folder_rename = 'Rename';  //to translate
+$html_folder_create = 'Create new folder called';  //to translate
+$html_folder_remove = 'Unsubscribe from';  //to translate
+
+// filters.php
+$html_filter_remove = 'Delete';  //to translate
+$html_filter_body = 'Message Body';  //to translate
+$html_filter_subject = 'Message Subject';  //to translate
+$html_filter_to = 'To Field';  //to translate
+$html_filter_cc = 'Cc Field';  //to translate
+$html_filter_from = 'From Field';  //to translate
+$html_filter_change_tip = 'To change a filter simply overwrite it.';  //to translate
+$html_reapply_filters = 'Reapply all filters';  //to translate
+$html_filter_contains = 'contains';  //to translate
+$html_filter_name = 'Filter Name';  //to translate
+$html_filter_action = 'Filter Action';  //to translate
+$html_filter_moveto = 'Move to';  //to translate
 
 // Other pages
-
+$html_select_one = '--Select One--';  //to translate
+$html_and = 'And';  //to translate
+$html_new_msg_in = 'New messages in';  //to translate
+$html_or = 'or';  //to translate
+$html_move = 'Move';  //to translate
+$html_copy = 'Copy';  //to translate
+$html_messages_to = 'selected messages to';  //to translate
+$html_gotopage = 'Go to Page';  //to translate
+$html_gotofolder = 'Go to Folder';  //to translate
+$html_other_folders = 'Folder List';  //to translate
+$html_page = 'Page';  //to translate
+$html_of = 'of';  //to translate
+$html_to = 'to';  //to translate
 $html_view_header = 'Sjá haus';
 $html_remove_header = 'Fela haus';
 $html_inbox = 'Innpóstur';
 $html_new_msg = 'Semja Bréf';
 $html_reply = 'Svara';
-$html_reply_short = 'Re';
+$html_reply_short = 'Re';  //to translate
 $html_reply_all = 'Svara öllum';
 $html_forward = 'Framsenda';
-$html_forward_short = 'Fw';
+$html_forward_short = 'Fw';  //to translate
 $html_delete = 'Eyða';
 $html_new = 'Nýtt';
 $html_mark = 'Eyða';
@@ -108,7 +148,7 @@ $html_sent = 'Senda';
 $html_wrote = 'skrifaði';
 $html_size = 'Stærð';
 $html_totalsize = 'Heildarstærð';
-$html_kb = 'Kb';
+$html_kb = 'Kb';  //to translate
 $html_bytes = 'bæti';
 $html_filename = 'Skráarnafn';
 $html_to = 'Til';
@@ -126,6 +166,7 @@ $html_priority = 'Forgangur';
 $html_low = 'Lár';
 $html_normal = 'Venjulegur';
 $html_high = 'Hár';
+$html_receipt = 'Request a return receipt';
 $html_select = 'Velja';
 $html_select_all = 'Velja allt';
 $html_loading_image = 'Hleð mynd';
@@ -133,34 +174,37 @@ $html_send_confirmed = 'Pósturinn var samþykktur fyrir sendingu';
 $html_no_sendaction = 'Engar aðgerðir mögulegar. Reynið að virkja JavaScript.';
 $html_error_occurred = 'Villa gerðist';
 $html_prefs_file_error = 'Ómögulegt að opna valmöguleika skrá til útskriftar.';
-$html_sig_file_error = 'Ómögulegt að opna undirskriftar skrá til útskriftar.';
-$html_wrap = 'Wrap outgoing messages to :'; // to translate
-$html_usenet_separator = 'Usenet separator ("-- \n") Before signature'; // to translate
+$html_wrap = 'Wrap outgoing messages to :';  //to translate
+$html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
 // Contacts manager
-$html_add = 'Add';
-$html_contacts = 'Contacts';
-$html_modify = 'Modify';
-$html_back = 'Back';
-$html_contact_add = 'Add new contact';
-$html_contact_mod = 'Modify a contact';
-$html_contact_first = 'First name';
-$html_contact_last = 'Last Name';
-$html_contact_nick = 'Nick';
-$html_contact_mail = 'Mail';
-$html_contact_list = 'Contact list of ';
-$html_contact_del = 'of de contact list';
+$html_add = 'Add';  //to translate
+$html_contacts = 'Contacts';  //to translate
+$html_modify = 'Modify';  //to translate
+$html_back = 'Back';  //to translate
+$html_contact_add = 'Add new contact';  //to translate
+$html_contact_mod = 'Modify a contact';  //to translate
+$html_contact_first = 'First name';  //to translate
+$html_contact_last = 'Last Name';  //to translate
+$html_contact_nick = 'Nick';  //to translate
+$html_contact_mail = 'Mail';  //to translate
+$html_contact_list = 'Contact list of ';  //to translate
+$html_contact_del = 'of de contact list';  //to translate
 
-$html_contact_err1 = 'Maximal number of contact is ';
-$html_contact_err2 = 'You can\'t add a new contact';
-$html_del_msg = 'Delete selected messages ?'; // to translate
-$html_down_mail = 'Download'; // to translate
+$html_contact_err1 = 'Maximal number of contact is ';  //to translate
+$html_contact_err2 = 'You can\'t add a new contact';  //to translate
+$html_del_msg = 'Delete selected messages ?';  //to translate
+$html_down_mail = 'Download';  //to translate
 
 $original_msg = '-- Upphaflega bréf --'; 
 $to_empty = '\'Til\' reiturinn má ekki vera auður!';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = "Ómögulegt að opna tengingu";
-$html_smtp_error_unexpected = "Ófyrirsjáanleg viðbrögð:";
+$html_smtp_error_no_conn = 'Ómögulegt að opna tengingu';
+$html_smtp_error_unexpected = 'Ófyrirsjáanleg viðbrögð:';
+
+// IMAP messages (class_local.php)
+$lang_could_not_connect = 'Could not connect to server';
+
 $html_file_upload_attack = 'Possible file upload attack';  //to translate
 $html_invalid_email_address = 'Invalid e-mail address';  //to translate
 $html_seperate_msg_win = 'Messages in seperate window';  //to translate
