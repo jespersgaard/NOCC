@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.96 2002/03/23 10:50:52 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.97 2002/03/24 17:00:36 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -149,13 +149,17 @@ $conf->debug_level = E_ALL & ~E_NOTICE;
 // Display delete button as icon (true) or as an HTML button (false)
 $conf->delete_button_icon = true;
 
-// Base URL where NOCC is hosted (needed for redirections to work)
+// Base URL where NOCC is hosted (only needed for Xitami servers, see #463390)
 // (NOTE: should end in a slash)
-$conf->base_url = 'http://www.yoursite.com/webmail/';
+//$conf->base_url = 'http://www.yoursite.com/webmail/';
 
 // Another tip for Xitami users, whose $PHP_SELF is broken
 // (see http://sourceforge.net/tracker/index.php?func=detail&aid=505194&group_id=12177&atid=112177)
 //$PHP_SELF = 'action.php';
+
+// Use old-style forwarding (quote original message, and attach original attachments).
+// This is discouraged, because it mangles the original message, removing important headers etc.
+$conf->broken_forwarding = false;
 
 // ################### Messages Signature  ################### //
 
