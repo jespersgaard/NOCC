@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.16 2001/01/22 22:40:18 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.17 2001/01/22 23:45:00 nicocha Exp $
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -160,5 +160,5 @@ class mime_mail
 				return (0);
 		}
 	}
-};  // end of class  
+}  // end of class  
 ?>
