@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.116 2003/01/22 05:14:05 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.117 2003/12/21 15:40:20 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -193,7 +193,7 @@ switch($_REQUEST['sendaction'])
             $origmsg .= $body;
 
             // Attach it
-            $mail->add_attachment($origmsg, '',  'message/rfc822', '', '');
+            $mail->add_attachment($origmsg, 'orig_msg.eml',  'message/rfc822', '', '');
         }
 
         //$ev = $mail->send();
