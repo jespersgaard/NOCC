@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.91 2001/06/18 13:42:20 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.92 2001/06/18 13:51:23 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -30,7 +30,6 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang, $theme)
 		}
 		else
 		{
-			//if ($sort != '' && $sortdir != '')
 			$sorted = imap_sort($pop, $sort, $sortdir, SE_UID); 
 			for ($i = 0; $i < $num_messages; $i++)
 			{
@@ -526,7 +525,7 @@ function cut_address($addr, $charset)
 		if (is_int($pos))
 		{
 			if ($pos != 0)
-				$name = '"'.encode_mime(substr($array[$i], 0, $pos - 1), $charset).'"';
+				$name = encode_mime(substr($array[$i], 0, $pos - 1), $charset).' ';
 			$addr = substr($array[$i], $pos);
 			$array[$i] = $name.$addr;
 		}
@@ -589,7 +588,7 @@ function view_part($servr, $user, $passwd, $folder, $mail, $part_no, $transfer, 
 
 function encode_mime($string, $charset)
 { 
-	$text = '=?' . $charset . '?Q?'; 
+	/*$text = '=?' . $charset . '?Q?'; 
 	for($i = 0; $i < strlen($string); $i++ )
 	{ 
 		$val = ord($string[$i]); 
@@ -597,7 +596,12 @@ function encode_mime($string, $charset)
 		$text .= '=' . $val; 
 	} 
 	$text .= '?='; 
-	return ($text); 
+	return ($text);
+	*/
+	$string = rawurlencode($string);
+	$string = str_replace('%', '=', $string);
+	$string = '=?' . $charset . '?Q?' . $string . '?=';
+	return ($string);
 } 
 
 /* ----------------------------------------------------- */
@@ -622,9 +626,9 @@ function go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $l
 // and it returns FALSE otherwise
 function is_Imap($servr)
 {
-	if (stristr($servr, '/pop3:'))
+	if (stristr($servr, '/pop3'))
 		return (false);
-	if (stristr($servr, '/nntp:'))
+	if (stristr($servr, '/nntp'))
 		return (false);
 	return (true);
 }
