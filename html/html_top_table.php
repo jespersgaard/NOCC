@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.57 2002/04/19 14:39:37 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.58 2002/04/23 13:33:27 mrylander Exp $ -->
 <?php
 
 require_once 'class_local.php';
@@ -6,9 +6,9 @@ require_once 'conf.php';
 
 $per_page = (getPref('msg_per_page')) ? getPref('msg_per_page') : (($conf->msg_per_page) ? $conf->msg_per_page : '25');
 
-$arrow = ($sortdir == 0) ? 'up' : 'down';
-$new_sortdir = ($sortdir == 0) ? 1 : 0;
-$skip = ($skip) ? $skip : '0';
+$arrow = ($_SESSION['sortdir'] == 0) ? 'up' : 'down';
+$new_sortdir = ($_SESSION['sortdir'] == 0) ? 1 : 0;
+$skip = ($_REQUEST['skip']) ? $_REQUEST['skip'] : '0';
 
 $pages = $pop->get_page_count($conf);
 
@@ -48,6 +48,7 @@ if($pages > 1) {
     $page_line .= "</form>";
 }
 
+$fldr_line = "";
 if ($pop->is_imap()) {
     $fldr_line = "<form method=\"POST\" action=\"$PHP_SELF\">$html_other_folders:  \n";
     $fldr_line .= $pop->html_folder_select('folder', $folder);
@@ -90,28 +91,28 @@ if ($pop->is_imap()) {
         </td>
         <?php } ?>
         <td align="center" class="inbox">&nbsp;</td>
-        <td align="center" class="inbox" <?php if ($sort == 2) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
+        <td align="center" class="inbox" <?php if ($_SESSION['sort'] == 2) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
             <a href="<?php echo $PHP_SELF ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>">
             <img src="themes/<?php echo $theme ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_from; ?>" /></a>
             &nbsp;
             <a href="<?php echo $PHP_SELF ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>">
             <?php echo $html_from ?></a>
         </td>
-        <td align="center" class="inbox" <?php if ($sort == 3) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
+        <td align="center" class="inbox" <?php if ($_SESSION['sort'] == 3) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
             <a href="<?php echo $PHP_SELF ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>">
             <img src="themes/<?php echo $theme ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_subject; ?>" /></a>
             &nbsp;
             <a href="<?php echo $PHP_SELF ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>">
             <?php echo $html_subject ?></a>
         </td>
-        <td align="center" class="inbox" <?php if ($sort == 1) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
+        <td align="center" class="inbox" <?php if ($_SESSION['sort'] == 1) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
             <a href="<?php echo $PHP_SELF ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>">
             <img src="themes/<?php echo $theme ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_date; ?>" /></a>
             &nbsp;
             <a href="<?php echo $PHP_SELF ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>">
             <?php echo $html_date ?></a>
         </td>
-        <td align="right" class="inbox" <?php if ($sort == 6) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
+        <td align="right" class="inbox" <?php if ($_SESSION['sort'] == 6) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
             <a href="<?php echo $PHP_SELF ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>">
             <img src="themes/<?php echo $theme ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_size; ?>" /></a>
             &nbsp;
@@ -120,4 +121,4 @@ if ($pop->is_imap()) {
             <form method="post" action="delete.php" name="delete_form">
         </td>
     </tr>
-<!-- start of $Id: html_top_table.php,v 1.57 2002/04/19 14:39:37 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.58 2002/04/23 13:33:27 mrylander Exp $ -->
