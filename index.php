@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.89 2002/03/24 17:00:35 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.90 2002/04/15 02:11:12 mrylander Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -14,12 +14,12 @@ $conf->nocc_version = '0.9.6-dev';
 $conf->nocc_url = 'http://nocc.sourceforge.net/';
 
 require_once './conf.php';
-require_once './check_lang.php';
+require_once './common.php';
 require_once './proxy.php';
 Header("Content-type: text/html; Charset=$charset");
 require_once './check.php';
 require ('./html/header.php');
-session_start();
+
 ?>
 <script type="text/javascript">
 <!--
@@ -55,7 +55,7 @@ function updateLang()
 {
     if (document.nocc_webmail_login.user.value == "" && document.nocc_webmail_login.passwd.value == "")
     {
-        var lang_page = "index.php?lang=" + document.nocc_webmail_login.lang[document.nocc_webmail_login.lang.selectedIndex].value + "&amp;theme=<?php echo $theme ?>";
+        var lang_page = "index.php?theme=<?php echo $theme ?>";
         self.location = lang_page;
     }
 }
@@ -64,7 +64,7 @@ function updateTheme()
 {
     if (document.nocc_webmail_login.user.value == "" && document.nocc_webmail_login.passwd.value == "")
     {
-        var lang_page = "index.php?lang=<?php echo $lang ?>&amp;theme=" + document.nocc_webmail_login.theme[document.nocc_webmail_login.theme.selectedIndex].value;
+        var lang_page = "index.php?theme=" + document.nocc_webmail_login.theme[document.nocc_webmail_login.theme.selectedIndex].value;
         self.location = lang_page;
     }
 }

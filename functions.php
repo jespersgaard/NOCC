@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.146 2002/04/16 00:52:24 mrylander Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.147 2002/04/18 13:05:12 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -118,7 +118,6 @@ function inbox(&$conf, &$pop, &$sort, &$sortdir, &$lang, &$theme, $skip = 0)
 
 function aff_mail(&$conf, &$mailhost, &$login, &$passwd, &$folder, &$mail, $verbose, &$lang, &$sort, &$sortdir, &$ev)
 {
-    require ('./check_lang.php');
     GLOBAL $attach_tab;
     GLOBAL $PHP_SELF;
     
@@ -414,10 +413,7 @@ function GetSinglePart(&$this_part, &$header, &$body)
 
 function remove_stuff(&$body, &$lang, &$mime)
 {
-    require ('./conf.php');
     GLOBAL $PHP_SELF;
-    GLOBAL $$php_session;
-    $sessid = $$php_session;
 
     if (eregi('html', $mime))
     {
@@ -439,8 +435,8 @@ function remove_stuff(&$body, &$lang, &$mime)
         $body = preg_replace("|<([^>]*)java|i", '<nocc_removed_java_tag', $body);
         $body = preg_replace("|<([^>]*)&{.*}([^>]*)>|i", "<&{;}\\3>", $body);
         //$body = preg_replace("|<([^>]*)mocha:([^>]*)>|i", "<nocc_removed_mocha:\\2>",$body);
-        $body = eregi_replace("href=\"mailto:([a-zA-Z0-9+-=%&:_.~?@]+[#a-zA-Z0-9+]*)\"","<A HREF=\"$PHP_SELF?action=write&amp;mail_to=\\1&amp;lang=$lang&amp;$php_session=$sessid\"", $body);
-        $body = eregi_replace("href=mailto:([a-zA-Z0-9+-=%&:_.~?@]+[#a-zA-Z0-9+]*)","<A HREF=\"$PHP_SELF?action=write&amp;mail_to=\\1&amp;lang=$lang&amp;$php_session=$sessid\"", $body);
+        $body = eregi_replace("href=\"mailto:([a-zA-Z0-9+-=%&:_.~?@]+[#a-zA-Z0-9+]*)\"","<A HREF=\"$PHP_SELF?action=write&amp;mail_to=\\1\"", $body);
+        $body = eregi_replace("href=mailto:([a-zA-Z0-9+-=%&:_.~?@]+[#a-zA-Z0-9+]*)","<A HREF=\"$PHP_SELF?action=write&amp;mail_to=\\1\"", $body);
         //$body = eregi_replace("target=\"([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)\"", "", $body);
         //$body = eregi_replace("target=([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)", "", $body);
         $body = eregi_replace("href=\"([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)\"","<a href=\"\\1\" target=\"_blank\"", $body);
@@ -451,8 +447,8 @@ function remove_stuff(&$body, &$lang, &$mime)
         $body = eregi_replace("(http|https|ftp)://([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)","<a href=\"\\1://\\2\" target=\"_blank\">\\1://\\2</a>", $body);
         // Bug #511302: Comment out following line if you have the 'Invalid Range End' problem
         // New rewritten preg_replace should fix the problem, bug #522389
-        // $body = eregi_replace("([#a-zA-Z0-9+-._]*)@([#a-zA-Z0-9+-_.]*)\.([a-zA-Z]+)","<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1@\\2.\\3&amp;lang=$lang&amp;$php_session=$sessid\">\\1@\\2.\\3</a>", $body);
-        $body = preg_replace("/([0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,})/", "<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1&amp;lang=$lang&amp;$php_session=$sessid\">\\1</a>", $body); 
+        // $body = eregi_replace("([#a-zA-Z0-9+-._]*)@([#a-zA-Z0-9+-_.]*)\.([a-zA-Z]+)","<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1@\\2.\\3\">\\1@\\2.\\3</a>", $body);
+        $body = preg_replace("/([0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,})/", "<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1\">\\1</a>", $body); 
         $body = nl2br($body);
         if (function_exists('wordwrap'))
             $body = wordwrap($body, 80, "\n");
@@ -485,7 +481,6 @@ function link_att(&$servr, &$mail, &$tab, &$display_part_no)
 
 function change_date(&$date, &$lang)
 {
-    require ('./check_lang.php');
     if (empty($date))
         $msg_date = $complete_date = '';
     else
@@ -520,8 +515,10 @@ function get_mail_size(&$this_part)
 /* ----------------------------------------------------- */
 
 // this function build an array with all the recipients of the message for later reply or reply all 
-function get_reply_all(&$login, &$domain, &$from, &$to, &$cc)
+function get_reply_all(&$from, &$to, &$cc)
 {
+    $login = $_SESSION['login'];
+    $domain = $_SESSION['domain'];
     if (!eregi($login.'@'.$domain, $from))
         $rcpt = $from.'; ';
     $tab = explode(',', $to);
@@ -685,19 +682,17 @@ function encode_mime(&$string, &$charset)
 
 // This function is used when accessing a page without being logged in
 // or accessing send.php via GET method
-function go_back_index(&$attach_array, &$tmpdir, &$php_session, &$sort, &$sortdir, &$lang, $redirect)
+function go_back_index(&$attach_array, &$tmpdir, &$sort, &$sortdir, &$lang, $redirect)
 {
-    GLOBAL $$php_session;
-    
     if (isset($attach_array) && is_array($attach_array))
         while ($tmp = array_shift($attach_array))
             @unlink($tmpdir.'/'.$tmp->tmp_file);
-    session_unregister('num_attach');
-    session_unregister('attach_array');
+    unset($_SESSION['num_attach']);
+    unset($_SESSION['attach_array']);
     if ($redirect)
     {
         require_once './proxy.php';
-        header("Location: ".$base_url."action.php?sort=$sort&amp;sortdir=$sortdir&amp;lang=$lang&amp;$php_session=" . $$php_session);
+        header("Location: ".$base_url."action.php?sort=$sort&amp;sortdir=$sortdir");
     }
 }
 

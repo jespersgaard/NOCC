@@ -1,6 +1,6 @@
 <?php 
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.34 2002/04/17 21:30:08 mrylander Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.35 2002/04/18 10:37:11 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,9 +12,8 @@
  * this file just delete the selected message(s)
  */
 
-session_register ('user', 'passwd');
 require_once './conf.php';
-require_once './functions.php';
+require_once './common.php';
 require_once './class_local.php';
 
 $ev = "";
@@ -85,7 +84,7 @@ $pop->close();
 // Redirect user to index
 // TODO: redirect user to next message
 require_once './proxy.php';
-header('Location: ' . $conf->base_url . "action.php?sort=$sort&sortdir=$sortdir&lang=$lang&folder=$folder&$php_session=" . $$php_session);
+header('Location: ' . $conf->base_url . "action.php?sort=$sort&sortdir=$sortdir&folder=$folder);
 
 // For debuging
 //reset($HTTP_POST_VARS);

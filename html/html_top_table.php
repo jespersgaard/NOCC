@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.53 2002/04/17 21:17:53 mrylander Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.54 2002/04/18 19:10:40 rossigee Exp $ -->
 <?php
 
 require_once 'class_local.php';
@@ -22,15 +22,15 @@ if($pages > 1) {
 	$pskip = $skip - 1;
 	$this_page = $skip + 1;
 	if($pskip > -1 ) {
-		$prev = "<a href=\"$PHP_SELF?sort=$sort&sortdir=$sortdir&lang=$lang&skip=$pskip&folder=$folder\">";
+		$prev = "<a href=\"$PHP_SELF?sort=$sort&sortdir=$sortdir&skip=$pskip&folder=$folder\">";
 		$prev .= "<img src=\"themes/".$theme."/img/left_arrow.gif\" border=\"0\" /></a>\n";
 	}
 	if($nskip < $pages) {
-		$next = "<a href=\"$PHP_SELF?sort=$sort&sortdir=$sortdir&lang=$lang&skip=$nskip&folder=$folder\">";
+		$next = "<a href=\"$PHP_SELF?sort=$sort&sortdir=$sortdir&skip=$nskip&folder=$folder\">";
 		$next .= "<img src=\"themes/".$theme."/img/right_arrow.gif\" border=\"0\" /></a>\n";
 	}
 
-	$page_line = "<form method=\"POST\" action=\"$PHP_SELF?sort=1&sortdir=1&lang=$lang&folder=$folder\">";
+	$page_line = "<form method=\"POST\" action=\"$PHP_SELF?sort=1&sortdir=1&folder=$folder\">";
 	$page_line .= "$html_page <select name=\"skip\">\n";
 	$selected = '';
 	for ($i = 0; $i < $pages; $i++) { 
@@ -48,7 +48,7 @@ if($pages > 1) {
 }
 
 if ($pop->is_imap()) {
-    $fldr_line = "<form method=\"POST\" action=\"$PHP_SElF?sort=1&sortdir=1&lang=$lang\">$html_other_folders:  \n";
+    $fldr_line = "<form method=\"POST\" action=\"$PHP_SElF?sort=1&sortdir=1\">$html_other_folders:  \n";
     $fldr_line .= $pop->html_folder_select('folder', $folder);
     $fldr_line .= "<input type=\"submit\" class=\"button\" name=\"submit\" value=\"$html_gotofolder\"></form>";
 }
@@ -89,35 +89,35 @@ if ($pop->is_imap()) {
         <?php } ?>
         <td align="center" class="inbox">&nbsp;</td>
         <td align="center" class="inbox" <?php if ($sort == 2) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
-            <a href="<?php echo $PHP_SELF ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>&amp;folder=<?php echo $folder ?>">
+            <a href="<?php echo $PHP_SELF ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>&amp;folder=<?php echo $folder ?>">
             <img src="themes/<?php echo $theme ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_from; ?>" /></a>
             &nbsp;
-            <a href="<?php echo $PHP_SELF ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>&amp;folder=<?php echo $folder ?>">
+            <a href="<?php echo $PHP_SELF ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>&amp;folder=<?php echo $folder ?>">
             <?php echo $html_from ?></a>
         </td>
         <td align="center" class="inbox" <?php if ($sort == 3) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
-            <a href="<?php echo $PHP_SELF ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>&amp;folder=<?php echo $folder ?>">
+            <a href="<?php echo $PHP_SELF ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>&amp;folder=<?php echo $folder ?>">
             <img src="themes/<?php echo $theme ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_subject; ?>" /></a>
             &nbsp;
-            <a href="<?php echo $PHP_SELF ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>&amp;folder=<?php echo $folder ?>">
+            <a href="<?php echo $PHP_SELF ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>&amp;folder=<?php echo $folder ?>">
             <?php echo $html_subject ?></a>
         </td>
         <td align="center" class="inbox" <?php if ($sort == 1) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
-            <a href="<?php echo $PHP_SELF ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>&amp;folder=<?php echo $folder ?>">
+            <a href="<?php echo $PHP_SELF ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>&amp;folder=<?php echo $folder ?>">
             <img src="themes/<?php echo $theme ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_date; ?>" /></a>
             &nbsp;
-            <a href="<?php echo $PHP_SELF ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>&amp;folder=<?php echo $folder ?>">
+            <a href="<?php echo $PHP_SELF ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>&amp;folder=<?php echo $folder ?>">
             <?php echo $html_date ?></a>
         </td>
         <td align="right" class="inbox" <?php if ($sort == 6) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
-            <a href="<?php echo $PHP_SELF ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>&amp;folder=<?php echo $folder ?>">
+            <a href="<?php echo $PHP_SELF ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>&amp;folder=<?php echo $folder ?>">
             <img src="themes/<?php echo $theme ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_size; ?>" /></a>
             &nbsp;
-            <a href="<?php echo $PHP_SELF ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>&amp;folder=<?php echo $folder ?>">
+            <a href="<?php echo $PHP_SELF ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>&amp;folder=<?php echo $folder ?>">
             <?php echo $html_size ?></a>
             <form method="post" action="delete.php" name="delete_form">
             <input type="hidden" name="lang" value="<?php echo $lang ?>" />
             <input type="hidden" name="folder" value="<?php echo $folder ?>" />
         </td>
     </tr>
-<!-- start of $Id: html_top_table.php,v 1.53 2002/04/17 21:17:53 mrylander Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.54 2002/04/18 19:10:40 rossigee Exp $ -->

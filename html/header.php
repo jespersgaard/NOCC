@@ -34,9 +34,9 @@ else {
                     { ?>
                         &nbsp;&nbsp;<font class="login"><b><?php echo $pref_email_address ?></b></font>
                     <?php }
-                    else if (!empty($domain) && !empty($user)) 
+                    else if (!empty($_SESSION['domain']) && !empty($_SESSION['user'])) 
                     { ?>
-                        &nbsp;&nbsp;<font class="login"><b><?php echo $user.'@'.$domain ?></b></font>
+                        &nbsp;&nbsp;<font class="login"><b><?php echo $_SESSION['user'].'@'.$_SESSION['domain'] ?></b></font>
                     <?php } ?>
                 </td>
             </tr>

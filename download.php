@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.29 2002/04/16 00:51:55 mrylander Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.30 2002/04/18 10:37:12 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,9 +13,9 @@
 
 if (eregi('MSIE', $HTTP_USER_AGENT) || eregi('Internet Explorer', $HTTP_USER_AGENT))
     session_cache_limiter('public');
-session_start();
+
 require_once './conf.php';
-require_once './functions.php';
+require_once './common.php';
 require_once './class_local.php';
 
 $passwd = safestrip($passwd);

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/wrong.php,v 1.18 2002/03/24 16:45:25 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/wrong.php,v 1.19 2002/03/24 17:00:35 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -10,8 +10,7 @@
  */
 
 require_once './conf.php';
-require_once './check_lang.php';
-session_start();
+require_once './common.php';
 session_destroy();
 ?>
 <table border="0" width="100%">
@@ -25,7 +24,7 @@ session_destroy();
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
-                                <td align="center" class="f"><?php echo $html_wrong ?><br /><br /><a href="index.php?lang=<?php echo $lang ?>&amp;theme=<?php echo $theme ?>"><?php echo $html_retry ?></a></td>
+                                <td align="center" class="f"><?php echo $html_wrong ?><br /><br /><a href="index.php"><?php echo $html_retry ?></a></td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>

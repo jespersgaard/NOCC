@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.98 2002/03/25 14:36:28 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.99 2002/04/15 02:08:09 mrylander Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -173,63 +173,15 @@ $conf->msg_per_page = '25';
 $conf->ad = "___________________________________\r\nNOCC, http://nocc.sourceforge.net";
 
 
-/*
-###################     End of Configuration     ####################
-*********************************************************************
-################### Do not modify below this line ###################
-*/
-
-session_register('domainnum', 'user', 'passwd', 'server', 'servtype', 'port', 'theme');
-
-// Default login to just the username
-$login = isset($user) ? $user : '';
-
-if (isset($domainnum))
-{
-    $domain = $conf->domains[$domainnum]->domain;
-    $servr = $conf->domains[$domainnum]->in;
-    $smtp_server = $conf->domains[$domainnum]->smtp;
-    $smtp_port = $conf->domains[$domainnum]->smtp_port;
-
-    // Do we provide the domain with the login?
-    if(isset($conf->domains[$domainnum]->login_with_domain))
-        $login .= "@" . $domain;
-}
-
-if (empty($smtp_server))
-    $smtp_server = $conf->default_smtp_server;
-if (empty($smtp_port))
-    $smtp_port = $conf->default_smtp_port;
-if (empty($servr) && !empty($server) && !empty($servtype) && !empty($port))
-{
-    $servtype = strtolower($servtype);
-    if ($servtype != 'imap')
-        $servr = $server.'/'.$servtype.':'.$port;
-    else
-        $servr = $server.':'.$port;
-    $domain = $server;
-}
-
-if (!isset($folder))
-    $folder = $conf->default_folder;
-if (!isset($sort))
-    $sort = $conf->default_sort;
-if (!isset($sortdir))
-    $sortdir = $conf->default_sortdir;
-if ($conf->use_theme == true)
-{
-    if (!isset($theme))
-        $theme = $conf->default_theme;
-}
-else
-    $theme = $conf->default_theme;
-$php_session = ini_get('session.name');
-$action = isset($action) ? $action : ''; 
+// PHP error reporting for this application
 error_reporting($conf->debug_level);
 
 // Prevent mangling of uploaded attachments
 set_magic_quotes_runtime(0);
 
-require_once ('./conf_lang.php');
-require ('./themes/'.$theme.'/colors.php');
+
+/*
+###################     End of Configuration     ####################
+*/
+
 ?>

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.105 2002/04/16 00:50:28 mrylander Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.106 2002/04/17 21:21:40 mrylander Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,16 +13,12 @@
  */
 
 require_once './conf.php';
+require_once './common.php';
 require_once './check_lang.php';
-require_once './functions.php';
 require_once './prefs.php';
-session_start();
 
-if (!session_is_registered('loggedin'))
+if(!isset($_SESSION['loggedin']))
     $action = '';
-
-$user = safestrip($user);
-$passwd = safestrip($passwd);
 
 if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
     $default_date_format = $no_locale_date_format;
@@ -48,7 +44,7 @@ if(!$prefs_signature) {
 if($prefs_email_address != '')
     $mail_from = $prefs_email_address;
 else
-    $mail_from = $user. '@' . $domain;
+    $mail_from = $_SESSION['user']. '@' . $_SESSION['domain'];
 if($prefs_full_name != '')
     $mail_from = $prefs_full_name . ' <' . $mail_from . '>';
 
@@ -86,7 +82,7 @@ switch (trim($action))
                     echo '<hr />';
                     echo '<center>';
                     echo '<p>' . $html_loading_image . ' ' . $tmp['name'] . '...</p>';
-                    echo '<img src="get_img.php?' . $php_session . '=' . $$php_session . '&amp;mail=' . $mail.'&amp;folder=' . $folder . '&amp;num=' . $tmp['number'] . '&amp;mime=' . $img_type . '&amp;transfer=' . $tmp['transfer'] . '" />';
+                    echo '<img src="get_img.php?mail=' . $mail.'&amp;folder=' . $folder . '&amp;num=' . $tmp['number'] . '&amp;mime=' . $img_type . '&amp;transfer=' . $tmp['transfer'] . '" />';
                     echo '</center>';
                 }
             }
@@ -98,7 +94,7 @@ switch (trim($action))
 
     case 'logout':
         require_once './proxy.php';
-        header("Location: ".$conf->base_url."logout.php?lang=$lang&amp;$php_session=".$$php_session);
+        header("Location: ".$conf->base_url."logout.php);
         break;
 
     case 'write':
@@ -147,8 +143,6 @@ switch (trim($action))
 
         // We add the attachments of the original message
         //list($num_attach, $attach_array) = save_attachment($servr, $login, $passwd, $folder, $mail, $tmpdir);
-        // Registering the attachments array into the session
-        //session_register('num_attach', 'attach_array');
         require ('./html/header.php');
         require ('./html/menu_inbox.php');
         require ('./html/send.php');
@@ -165,7 +159,7 @@ switch (trim($action))
             break;
         }
 
-        $mail_to = get_reply_all($login, $domain, $content['from'], $content['to'], $content['cc']);
+        $mail_to = get_reply_all($content['from'], $content['to'], $content['cc']);
         if (!strcasecmp(substr($content['subject'], 0, 2), $html_reply_short))
             $mail_subject = $content['subject'];
         else
@@ -182,8 +176,6 @@ switch (trim($action))
 
         // We add the attachments of the original message
         //list($num_attach, $attach_array) = save_attachment($servr, $login, $passwd, $folder, $mail, $tmpdir);
-        // Registering the attachments array into the session
-        //session_register('num_attach', 'attach_array');
         require ('./html/header.php');
         require ('./html/menu_inbox.php');
         require ('./html/send.php');
@@ -211,7 +203,9 @@ switch (trim($action))
         // We add the attachments of the original message
         list($num_attach, $attach_array) = save_attachment($servr, $login, $passwd, $folder, $mail, $tmpdir);
         // Registering the attachments array into the session
-        session_register('num_attach', 'attach_array');
+        //session_register('num_attach', 'attach_array');
+	$_SESSION['num_attach'] = $_REQUEST['num_attach'];
+	$_SESSION['attach_array'] = $_REQUEST['attach_array'];
         require ('./html/header.php');
         require ('./html/menu_inbox.php');
         require ('./html/send.php');
@@ -220,6 +214,8 @@ switch (trim($action))
         break;
 
     case 'managefolders':
+	$user = $_SESSION['user'];
+	$passwd = $_SESSION['passwd'];
         $pop = new nocc_imap($servr, $folder, $user, $passwd, $ev);
         if ($ev) {
             $do = '';
@@ -309,6 +305,8 @@ switch (trim($action))
         break;
 
     case 'setprefs':
+	$user = $_SESSION['user'];
+	$passwd = $_SESSION['passwd'];
         $pop = new nocc_imap($servr, $folder, $user, $passwd, $lastev);
         if ($ev) {
             // I'll decide what to do with this later.
@@ -463,8 +461,7 @@ switch (trim($action))
                 require ('./html/footer.php');
                 break;
             case 0:
-                $loggedin = 1;
-                session_register('loggedin');
+                $_SESSION['loggedin'] = 1;
                 // the mailbox is empty
                 $num_msg = 0;
                 require ('./html/header.php');
@@ -478,7 +475,7 @@ switch (trim($action))
             default:
                 if (!isset($attach_array))
                     $attach_array = null;
-                go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $lang, false);
+                go_back_index($attach_array, $tmpdir, $sort, $sortdir, $lang, false);
                 $loggedin = 1;
                 session_register('loggedin');
                 // there are messages, we display

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.96 2002/03/25 18:33:57 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.97 2002/04/16 00:53:19 mrylander Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -10,14 +10,13 @@
  */
 
 require_once './conf.php';
-require_once './check_lang.php';
-require_once './functions.php';
+require_once './common.php';
 require_once './prefs.php';
 
-if (!session_is_registered('loggedin') && $loggedin)
+if (!isset($_SESSION['loggedin']))
 {
     require_once './proxy.php';
-    header('Location: ' . $conf->base_url . 'logout.php?lang=' . $lang . '&amp;' . $php_session . '='  . $$php_session);
+    header('Location: ' . $conf->base_url . 'logout.php');
     return;
 }
 
@@ -25,7 +24,7 @@ if (!function_exists('is_uploaded_file'))
     include_once ('./is_uploaded_file.php');
 
 if ($HTTP_SERVER_VARS['REQUEST_METHOD'] != 'POST')
-    go_back_index($attach_array, $conf->tmpdir, $php_session, $sort, $sortdir, $lang, true);
+    go_back_index($attach_array, $conf->tmpdir, $sort, $sortdir, $lang, true);
 else
 {
     require_once './class_send.php';
@@ -63,8 +62,8 @@ else
                 $attach_array[$num_attach]->file_mime = $mail_att_type;
             }
             // Registering the attachments array into the session
-            session_unregister('attach_array');
-            session_register('num_attach', 'attach_array');
+            unset($_SESSION['num_attach']);
+            unset($_SESSION['attach_array']);
             // Displaying the sending form with the new attachments array
             header("Content-type: text/html; Charset=$charset");
             require ('./html/header.php');
@@ -150,8 +149,8 @@ else
             }
 
             // We need to unregister the attachments array and num_attach
-            session_unregister('num_attach');
-            session_unregister('attach_array');
+            unset($_SESSION['num_attach']);
+            unset($_SESSION['attach_array']);
 
             $ev = $mail->send();
             header("Content-type: text/html; Charset=$charset");
@@ -193,11 +192,12 @@ else
             }
             $num_attach = ($j > 1 ? $j - 1 : 0);
             // Removing the attachments array from the current session
-            session_unregister('num_attach');
-            session_unregister('attach_array');
+            unset($_SESSION['num_attach']);
+            unset($_SESSION['attach_array']);
             $attach_array = $tmp_array;
             // Registering the attachments array into the session
-            session_register('num_attach', 'attach_array');
+            $_SESSION['num_arrach'] = $num_attach;
+            $_SESSION['attach_array'] = $attach_array;
             // Displaying the sending form with the new attachment array
             header("Content-type: text/html; Charset=$charset");
             require ('./html/header.php');
