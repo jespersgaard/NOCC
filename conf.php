@@ -1,8 +1,8 @@
 <?
 /*
-	$Author: wolruf $
-	$Revision: 1.18 $
-	$Date: 2000/10/26 12:34:42 $
+	$Author: nicocha $
+	$Revision: 1.19 $
+	$Date: 2000/10/29 23:56:51 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -12,7 +12,9 @@
   Boston, MA 02111-1307, USA.
 */
 
-// ################### This is the main configuration for NOCC ################### //
+// ################### This is the main configuration for NOCC ########## //
+
+// ==> Required parameters
 
 // IMAP or POP3 server name + protocol + port
 // [server_name]/[PROTOCOL]:[port number]
@@ -32,8 +34,12 @@ $smtp_server = "";
 // port number to connect to smtp (usually 25)
 $smtp_port = "25";
 
+// ===> End of required parameters
+// The following parameters can be changed but it's not necessary to
+// get a working version of nocc
+
 // if browser has no preferred language, we use the default language
-$default_lang = "fr";
+$default_lang = "en";
 
 // let user see the header of a message
 $use_verbose = true;
@@ -58,7 +64,8 @@ $default_sortdir = "1";
 
 // For old UCB POP server, change this setting to 1 to enable
 // new mail detection. Recommended: leave it to 0 for any other POP or
-// IMAP server
+// IMAP server.
+// See FAQ for more details.
 $have_ucb_pop_server = "0";
 
 
