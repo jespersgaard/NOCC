@@ -1,39 +1,42 @@
-NOCC 0.9 (?? November 2000)
+NOCC 0.9	November ??, 2000
 
- - Multi language help system for end user
+	* First release version.
+	* Multi language help system for end user.
 
-NOCC 0.8 (October 2000, never released)
+NOCC 0.8	October 14, 2000 (never released)
 
- - Moved to sourceforge.
+	* Moved to sourceforge.
+	* Ability to send messages via SMTP.
+	* English translation.
 
-NOCC 0.7 (November 1999, never released)
+NOCC 0.7	November 1999 (never released)
 
- - First PHP version.
- - Rewritten from scrath.
- - Changed name from Epimail to NOCC.
+	* First PHP version.
+	* Rewritten from scrath.
+	* Changed name from Epimail to NOCC.
 
-Epimail 0.6a (September 2000, never released because of lack of documentation)
+Epimail 0.6a	September 2000 (never released because of lack of documentation)
 
- - HTML clean-up.
- - Apop (MD5) desactivated.
- - bugfixes.
+	* HTML clean-up.
+	* Apop (MD5) desactivated.
+	* bugfixes.
 
-Epimail 0.6 (November 1999, never released)
+Epimail 0.6	November 1999 (never released)
 
- - MIME decoding for headers and file attachments. Thanks to Anthony Pinagot.
+	* MIME decoding for headers and file attachments. Thanks to Anthony Pinagot.
 
-Epimail 0.5 (October 1999, never released)
+Epimail 0.5	October 1999 (never released)
 
- - Quoted-Printable characters bug fixed (thanks Outlook Express ! :).
+	* Quoted-Printable characters bug fixed (thanks Outlook Express ! :).
 
-Epimail 0.4 (September 1999, never released)
+Epimail 0.4	September 1999 (never released)
 
- - Icons modified.
- - Speed optimization.
- - Code clean-up.
+	* Icons modified.
+	* Speed optimization.
+	* Code clean-up.
 
-Epimail 0.3 (July 1999, never released)
+Epimail 0.3	July 1999 (never released)
 
- - First workable version.
- - Now handles HTML'ed mails.
- - Handles attachements both when receiving and sending.
+	* First workable version.
+	* Now handles HTML'ed mails.
+	* Handles attachements both when receiving and sending.
