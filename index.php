@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.100 2004/08/06 14:56:56 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.101 2004/09/03 15:00:45 ajetam Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -79,6 +79,7 @@ function updatePage()
 
             <form action="action.php" method="post" name="nocc_webmail_login" target="_top">
             <input type="hidden" name="folder" value="INBOX" />
+	    <input type="hidden" name="action" value="login" />
             <table bgcolor="<?php echo $glob_theme->login_border ?>" border="0" cellpadding="1" cellspacing="0" width="428" align="center">
                 <tr> 
                     <td valign="bottom"> 
@@ -230,5 +231,6 @@ function updatePage()
 <?php
 require ('./html/footer.php');
 session_name("NOCCSESSID");
+session_unset();
 session_destroy();
 ?>

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.156 2004/06/28 15:28:03 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.157 2004/09/27 19:43:55 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -457,6 +457,12 @@ switch($action)
     default:
         $pop = new nocc_imap($ev);
         if (NoccException::isException($ev)) {
+	    if ($action == 'login') {
+	        session_name("NOCCSESSID");
+	        $_SESSION["nocc_login"] = "";
+	        $_SESSION["nocc_user_prefs"] = "";
+	        session_destroy();
+	    }
             require ('./html/header.php');
             require ('./html/error.php');
             require ('./html/footer.php');
