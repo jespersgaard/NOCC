@@ -108,9 +108,10 @@ Installing NOCC
           setup NOCC.  
        
        4) Change into the 'nocc' directory, make changes to the 
-          config file (conf.php)
+          config file (conf.php.dist) and save the new one to conf.php
+	  (remove .dist in the file name)
 
-           'conf.php' contains a large number of default values
+           'conf.php.dist' contains a large number of default values
            that you'll need to configure for your system, such as
            the default IMAP/POP3 server, whether or not users can pick a
            different server, etc...
