@@ -1,8 +1,8 @@
 <?
 /*	
 	$Author: nicocha $
-	$Revision: 1.20 $
-	$Date: 2000/10/30 11:59:11 $
+	$Revision: 1.21 $
+	$Date: 2000/10/30 22:34:53 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -20,28 +20,19 @@
 $charset = "ISO-8859-1";
 
 // Configuration for the days and months
-$days = Array(
-	Mon => "Lundi",
-	Tue => "Mardi",
-	Wed => "Mercredi",
-	Thu => "Jeudi",
-	Fri => "Vendredi",
-	Sat => "Samedi",
-	Sun => "Dimanche");
 
-$months = Array(
-	Jan => "Janvier",
-	Feb => "F&eacute;vrier",
-	Mar => "Mars",
-	Apr => "Avril",
-	May => "Mai",
-	Jun => "Juin",
-	Jul => "Juillet",
-	Aug => "Ao&ucirc;t",
-	Sep => "Septembre",
-	Oct => "Octobre",
-	Nov => "Novembre",
-	Dec => "D&eacute;cembre");
+
+// What language to use (Here, french FRANCE --> fr_FR) see '/usr/share/locale/' for more information
+$lang_locale = "fr_FR";
+
+// What format string should we pass to strftime() for messages sent on
+// days other than today?
+$default_date_format = "%A %d %B %Y"; 
+
+// What format string should we pass to strftime() for messages sent
+// today?
+$default_time_format = "%H:%M";
+
 
 // Here is the configuration for the HTML
 

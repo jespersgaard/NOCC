@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: nicocha $
-	$Revision: 1.26 $
-	$Date: 2000/11/06 18:45:11 $
+	$Revision: 1.27 $
+	$Date: 2000/11/06 19:22:08 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
 the function get_part is based on a function from matt@bonneau.net
@@ -91,7 +91,7 @@ function inbox($servr, $user, $passwd, $sort, $sortdir, $lang)
 						"attach" => $attach, 
 						"from" => htmlspecialchars($from[0]->text), 
 						"subject" => htmlspecialchars($subject[0]->text), 
-						"date" => change_date(chop($ref_contenu_message->date), $lang),
+						"date" => change_date(chop($ref_contenu_message->udate), $lang),
 						"size" => $msg_size,
 						"sort" => $sort,
 						"sortdir" => $sortdir);
@@ -171,7 +171,7 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 				"to" => htmlspecialchars($ref_contenu_message->toaddress),
 				"cc" => htmlspecialchars($ref_contenu_message->ccaddress),
 				"subject" => htmlspecialchars($subject[0]->text),
-				"date" => change_date(chop($ref_contenu_message->date), $lang),
+				"date" => change_date(chop($ref_contenu_message->udate), $lang),
 				"att" => $link_att,
 				"body" => $glob_body,
 				"body_mime" => $glob_body_mime,
@@ -332,11 +332,19 @@ function link_att($servr, $mail, $tab, $display_part_no)
 function change_date($date, $lang)
 {
 	require ("check_lang.php");
-	$date = eregi_replace("  ", " ", $date);
-	$tab = explode(" ", $date);
-	$tab[0] = eregi_replace(",", "", $tab[0]);
-	//$tab[1] = eregi_replace(" ", "", $tab[1]);
-	return ($days[$tab[0]].", ".$tab[1]." ".$months[$tab[2]]." ".$tab[3]);
+	if (empty($date))
+		$msg_date = "";
+	else
+	{
+		setlocale ("LC_TIME", $lang_locale);
+		if ((date('Y', $date) != date('Y')) || (date('M') != date('M', $date)) || (date('d') != date('d', $date)))
+			// not today, use the date
+			$msg_date = strftime($default_date_format, $date);
+		else
+			// else it's today, use the time
+			$msg_date = strftime($default_time_format, $date);
+	}
+	return $msg_date;
 }
 
 
