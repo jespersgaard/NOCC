@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>OhMyMail !</title>
+<title>NOCC Webmail</title>
 <META HTTP-EQUIV="refresh" content="1";URL="action.php">
 </head>
 <body bgcolor="#ffffff">

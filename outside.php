@@ -8,7 +8,8 @@ require ("check_lang.php");
 <title></title>
 <LINK href="style.css" rel="stylesheet">
 </head>
+
 <body bgcolor="<? echo $html_tr_color ?>">
 <div align="center"><font class="titlew"><? echo $html_outside ?></font></div>
-</boby>
+</body>
 </html>
