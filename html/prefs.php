@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.7 2001/10/28 22:49:57 rossigee Exp $ -->
+<!-- start of $Id: prefs.php,v 1.8 2001/11/03 22:21:48 rossigee Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
 		<td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -36,6 +36,13 @@
 						<input type="checkbox" name="outlook_quoting" id="outlook_quoting" value="on" <?php if($outlook_quoting != '') echo "checked"; ?> /><label for="outlook_quoting"><?php echo $html_outlook_quoting ?></label>
 					</td>
 				</tr>
+				<?php if($enable_reply_leadin) { ?>
+				<tr>
+					<td align="right" class="prefs" valign="top"><?php echo $html_reply_leadin ?> : </td>
+					<td align="left" class="prefs">
+						<input type="text" name="reply_leadin" value="<?php echo $reply_leadin ?>" size="40"/>
+				</tr>
+				<?php } ?>
 				<tr>
 					<td align="right" class="prefs" valign="top"><?php echo $html_signature ?> : </td>
 					<td align="left" class="prefs">
@@ -65,4 +72,4 @@
 		</td>
 	</tr>
 </table>
-<!-- end of $Id: prefs.php,v 1.7 2001/10/28 22:49:57 rossigee Exp $ -->
+<!-- end of $Id: prefs.php,v 1.8 2001/11/03 22:21:48 rossigee Exp $ -->

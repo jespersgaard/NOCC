@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.82 2001/11/28 14:54:51 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.83 2001/11/28 19:01:43 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -98,6 +98,9 @@ $use_verbose = true;
 // the user can logout or not (if nocc is used within your website
 // enter 'false' here else leave 'true')
 $enable_logout = true;
+
+// the user can change their 'reply leadin' string
+$enable_reply_leadin = false;
 
 // Whether or not to display attachment part number
 $display_part_no = true;

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.12 2001/11/19 13:50:38 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.13 2001/11/28 14:54:51 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -53,6 +53,10 @@ function cachePrefValues($username)
 					$Key = 'highlight' . $highlight_num;
 					$highlight_num ++;
 				}
+				if ((substr($Key, 0, 6) == 'leadin') ||
+				    (substr($Key, 0, 9) == 'signature'))
+				$Value = base64_decode($Value);
+
 				if ($Value != '')
 					$prefs_cache[$Key] = $Value;
 			}
@@ -89,8 +93,13 @@ function savePrefValues($username)
 	if(!$file)
 		return (new Exception($html_prefs_file_error));
 	foreach ($prefs_cache as $Key => $Value)
-		if (isset($Value))
+	{
+		if (isset($Value)) {
+			if (($Key == 'leadin') || ($Key == 'signature'))
+				$Value = base64_encode($Value);
 			fwrite($file, $Key . '=' . $Value . "\n");
+		}
+	}
 	fclose($file);
 }
 
@@ -121,10 +130,10 @@ function setPref($string, $set_to)
 		return;
 	}
 	$prefs_cache[$string] = $set_to;
-	return (savePrefValues($username));
+	return savePrefValues($username);
 }
 
-/** Writes the Signature **/
+/** [Remove in NOCC-1.0] Writes the Signature **/
 function setSig($string)
 {
 	global $prefs_dir, $user, $domain, $html_sig_file_error;
@@ -140,13 +149,10 @@ function setSig($string)
 	fclose($file);
 }
 
-
-
-/** Gets the signature **/
+/** [Remove in NOCC-1.0] Gets the signature **/
 function getSig()
 {
 	global $prefs_dir, $user, $domain;
-
 	$username = $user.'@'.$domain;
 	$filename = $prefs_dir . $username . '.sig';
 	$sig = '';
@@ -163,5 +169,27 @@ function getSig()
 		fclose($file);
 	}
 	return ($sig);
+}
+
+/** [Remove in NOCC-1.0] Deletes the signature **/
+function deleteSig()
+{
+	global $prefs_dir, $user, $domain;
+	$username = $user.'@'.$domain;
+	$filename = $prefs_dir . $username . '.sig';
+	if (file_exists($filename))
+		unlink($filename);
+}
+
+/** Format Reply Leadin **/
+function parseLeadin ($string, $content)
+{
+        $col_time = strtotime($content['complete_date']);
+        $converted_date = date("D, j M Y", $col_time);
+        $string = str_replace('_DATE_', $converted_date, $string);
+        $string = str_replace("_FROM_", $content['from'], $string);
+        $string = str_replace("_TO_", $content['to'], $string);
+        $string = str_replace("_SUBJECT_", $content['subject'], $string);
+        return ($string."\n");
 }
 ?>

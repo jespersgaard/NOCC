@@ -1,5 +1,9 @@
 NOCC 0.9.6	??
 
+	* Gets signature/leadin string from a base64-encoded preference.
+	* Added code to convert signature file to signature preference, if
+	  found.
+	* Added reply leadin code (Colin Stephenson).
 	* Added a 'timestamp' member to the content array in aff_mail.
 	* Fixed message header display bug.
 	* Remove date display from INBOX.

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.82.2.1 2001/11/19 20:07:20 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.83 2001/11/28 14:54:50 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -30,7 +30,18 @@ $current_date = strftime($default_date_format, time());
 // Get preferences
 $prefs_full_name = getPref('full_name');
 $prefs_email_address = getPref('email_address');
-$prefs_signature = getSig();
+$prefs_reply_leadin = getPref('leadin');
+$prefs_signature = getPref('signature');
+
+// [Remove in NOCC-1.0] Check for signature file, and convert to
+// signature preference if found.
+if(!$prefs_signature) {
+	$prefs_signature = getSig();
+	if($prefs_signature) {
+		setPref('signature', $prefs_signature);
+		deleteSig();
+	}
+}
 
 // Default e-mail address on send form
 if($prefs_email_address != "")
@@ -103,7 +114,11 @@ switch (trim($action))
 		if($outlook_quoting)
 			$mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . strip_tags($content['body'], '');
 		else
-			$mail_body = mailquote(strip_tags($content['body'], ''), $content['from'], $html_wrote);
+			if ($prefs_reply_leadin) {
+				$parsed_leadin = parseLeadin($prefs_reply_leadin, $content);
+				$mail_body = mailquote(strip_tags($content['body'], ''), $parsed_leadin, "");
+			} else
+				$mail_body = mailquote(strip_tags($content['body'], ''), $content['from'], $html_wrote);
 
 		// Add signature
 		$mail_body .= "\r\n\r\n" . $prefs_signature;
@@ -218,11 +233,24 @@ switch (trim($action))
 						$lastev = $ev;
 				}
 
+			if (!$lastev && isset($reply_leadin)) {
+				$ev = setPref('leadin', $reply_leadin);
+				if(Exception::isException($ev))
+					$lastev = $ev;
+			}
+
+			if (!$lastev && isset($signature)) {
+				$ev = setPref('signature', $signature);
+				if(Exception::isException($ev))
+					$lastev = $ev;
+			}
+/*
 			if (!$lastev && $signature != "") {
 				$ev = setSig($signature);
 				if(Exception::isException($ev))
 					$lastev = $ev;
 			}
+*/
 
 			// Handle an errors that occurred
 			if (Exception::isException($lastev)) {
@@ -237,7 +265,8 @@ switch (trim($action))
 		$cc_self = getPref('cc_self');
 		$hide_addresses = getPref('hide_addresses');
 		$outlook_quoting = getPref('outlook_quoting');
-		$signature = getSig();
+		$reply_leadin = getPref('leadin');
+		$signature = getPref('signature');
 		require ('./html/menu_prefs.php');
 		require_once ('./html/prefs.php');
 		require ('./html/menu_prefs.php');

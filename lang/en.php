@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.45 2001/11/18 17:53:32 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.46 2001/11/28 14:28:42 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -79,6 +79,7 @@ $html_outlook_quoting = 'Outlook-style quoting';
 $html_reply_to = 'Reply to';
 $html_use_signature = 'Use signature';
 $html_signature = 'Signature';
+$html_reply_leadin = 'Reply Leadin';
 $html_prefs_updated = 'Preferences updated';
 
 // Other pages
@@ -134,7 +135,6 @@ $html_send_confirmed = 'Your mail was accepted for delivery';
 $html_no_sendaction = 'No action specified. Try enabling JavaScript.';
 $html_error_occurred = 'An error occurred';
 $html_prefs_file_error = 'Unable to open preferences file for writing.';
-$html_sig_file_error = 'Unable to open signature file for writing.';
 
 $original_msg = '-- Original Message --';
 $to_empty = 'The \'To\' field must not be empty !';
