@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.41 2004/09/14 10:52:26 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.42 2004/10/15 08:30:53 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -96,6 +96,19 @@ if (empty($_SESSION['nocc_smtp_port']))
 if(isset($_SESSION['nocc_user']) && !isset($_SESSION['nocc_login']))
     $_SESSION['nocc_login'] = $_SESSION['nocc_user'];
 
+// Check allowed chars for login
+if ($_SESSION['nocc_login'] != '' && isset($conf->allowed_char) && $conf->allowed_char != '' && !ereg($conf->allowed_char, $_SESSION['nocc_login'])) {
+    $ev = new NoccException($html_wrong);
+    if(isset($_REQUEST['theme'])) {
+        $_SESSION['nocc_theme'] = safestrip($_REQUEST['theme']);
+        require ('./themes/' . $_SESSION['nocc_theme'] . '/colors.php');
+    }
+    require ('./html/header.php');
+    require ('./html/error.php');
+    require ('./html/footer.php');
+    exit;
+}
+
 // Were we provided with a fillindomain to use?
 if ( isset($_REQUEST['fillindomain']) && isset( $conf->typed_domain_login ) )
 {
@@ -185,19 +198,6 @@ if(isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
         }
         $user_filters = $_SESSION['nocc_user_filters'];
     }
-}
-
-// Check allowed chars for login
-if ($_SESSION['nocc_login'] != '' && isset($conf->allowed_char) && $conf->allowed_char != '' && !ereg($conf->allowed_char, $_SESSION['nocc_login'])) {
-    $ev = new NoccException($html_wrong);
-       if(isset($_REQUEST['theme'])) {
-         $_SESSION['nocc_theme'] = safestrip($_REQUEST['theme']);
-         require ('./themes/' . $_SESSION['nocc_theme'] . '/colors.php');
-       }
-       require ('./html/header.php');
-       require ('./html/error.php');
-       require ('./html/footer.php');
-       exit;
 }
 
 require_once ('./conf_lang.php');
