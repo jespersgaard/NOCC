@@ -2,14 +2,15 @@ NOCC readme documentation                                              README
 =--------------------------------------------------------------------------=
 
 $Author: wolruf $
-$Revision: 1.3 $
-$Date: 2000/10/30 11:14:17 $
+$Revision: 1.1 $
+$Date: 2000/10/31 07:54:09 $
 
+Project Home Page: http://nocc.sourceforge.net/
 
 Release Documentation
 ~~~~~~~~~~~~~~~~~~~~~
 COPYING       - Copyright license
-docs/CHANGES  - A list of changes by release
+docs/NEWS     - A list of changes by release
 docs/HELP     - How you can help
 docs/INSTALL  - Installation instructions and notes
 docs/CREDITS  - Who developed this 
@@ -28,7 +29,7 @@ in this order:
 
     1)  The documentation distributed with NOCC (found in the docs/
         subdirectory).
-    2)  The online, user-editable FAQ, available at http://nocc.sourceforge.net.
+    2)  The online, user-editable FAQ, available at http://nocc.sourceforge.net/
 
 Failing to read the documentation before asking a simple question answered
 therein will no doubt result in a less-than-welcome response from the mailing
