@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.155 2004/06/23 09:45:56 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.156 2004/06/28 15:28:03 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -83,6 +83,9 @@ switch($action)
         break;
 
     case 'write':
+    	if (isset($_REQUEST['mail_to']) && $_REQUEST['mail_to'] != "") {
+	  $mail_to = $_REQUEST['mail_to'];
+	}
         $pop = new nocc_imap($ev);
         if (NoccException::isException($ev)) {
 	    require ('./html/header.php');

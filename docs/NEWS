@@ -1,5 +1,7 @@
 NOCC 0.9.7    ?? ??, 2004
 
+    * Fix issue where an email address from a mailto: link into a message
+      was not used when clicked on (Arnaud Boudou, bug #1034907)
     * Fix issue where Nocc use imap functions to open message which does not
       exists anymore, and cause IMAP toolkit crash (Leif Gustafson, patch
       #133169).
