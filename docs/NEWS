@@ -1,5 +1,6 @@
 NOCC 0.9.6	??
 
+	* Added Croatian translation
 	* Updated Slovak translation (Peter Sochna)
 	* Added 'session_start' to top of action.php, as per advice from
 	  Karma Dorji.
