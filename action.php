@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.47 2001/06/24 13:10:23 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.48 2001/07/12 10:33:21 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -15,7 +15,7 @@ require ('conf.php');
 require ('check_lang.php');
 require ('functions.php');
 if (!session_is_registered('loggedin'))
-	$action = 0;
+	$action = '';
 header ("Content-type: text/html; Charset=$charset");
 require ('html/header.php');
 
