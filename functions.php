@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.188 2004/06/25 18:59:26 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.189 2004/06/30 17:52:43 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -237,18 +237,18 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
     $date = format_date($timestamp, $lang);
     $time = format_time($timestamp, $lang);
     $content = Array(
-        'from' => $from,
-        'to' => $to,
-        'cc' => $cc,
-        'reply_to' => $reply_to,
-        'subject' => $subject,
-        'date' => $date,
-        'time' => $time,
-        'complete_date' => $date,
+        'from' => htmlentities($from),
+        'to' => htmlentities($to),
+        'cc' => htmlentities($cc),
+        'reply_to' => htmlentities($reply_to),
+        'subject' => htmlentities($subject),
+        'date' => htmlentities($date),
+        'time' => htmlentities($time),
+        'complete_date' => htmlentities($date),
         'att' => $link_att,
         'body' => $pop->graphicalsmilies($body),
-        'body_mime' => $tmp['mime'],
-        'body_transfer' => $tmp['transfer'],
+        'body_mime' => htmlentities($tmp['mime']),
+        'body_transfer' => htmlentities($tmp['transfer']),
         'header' => $header,
         'verbose' => $verbose,
         'prev' => $prev_msg,
