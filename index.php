@@ -57,9 +57,9 @@ cellspacing="0" width="428">
 								<td> 
 									<INPUT type="text" name="user"></span>
 									<?
-									if ($servr != "" && $provider != "")
+									if ($servr != "" && $domain != "")
 									{ ?>
-										@<select name="provider"><option value=""><? echo $provider 
+										@<select name="domain"><option value=""><? echo $domain 
 ?></option></select>
 									<?
 									}
