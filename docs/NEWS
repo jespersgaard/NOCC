@@ -1,4 +1,4 @@
-NOCC 0.9.4	??   ??, 2001
+NOCC 0.9.4	June 02, 2001
 
 	* Improved mailto: parsing with text/plain messages.
 	* Speed up a bit by using ' instead of " for strings (faster parsing).
