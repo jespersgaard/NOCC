@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.63 2001/02/23 09:31:57 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.64 2001/02/23 11:32:29 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -10,7 +10,6 @@
  */
 
 $attach_tab = Array();
-$glob_body = "";
 
 /* ----------------------------------------------------- */
 
@@ -34,11 +33,16 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang)
 			$sorted = imap_sort($pop, $sort, $sortdir, SE_UID); 
 			for ($i = 0; $i < $num_messages; $i++)
 			{
+				$subject = $from = "";
 				$msgnum = $sorted[$i];
 				$ref_contenu_message = imap_header($pop, imap_msgno($pop, $msgnum));
 				$struct_msg = imap_fetchstructure($pop, imap_msgno($pop, $msgnum));
-				$subject = imap_mime_header_decode($ref_contenu_message->subject);
-				$from = imap_mime_header_decode($ref_contenu_message->fromaddress);
+				$subject_array = imap_mime_header_decode($ref_contenu_message->subject);
+				for ($j = 0; $j < count($subject_array); $j++)
+					$subject .= $subject_array[$j]->text;
+				$from_array = imap_mime_header_decode($ref_contenu_message->fromaddress);
+				for ($j = 0; $j < count($from_array); $j++)
+					$from .= $from_array[$j]->text;
 				if (ereg("IMAP", $mailhost))
 					$msg_size = get_mail_size($struct_msg);
 				else
@@ -57,7 +61,7 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang)
 				// non-RFC standard line header.
 				// Set this in conf.php
 				if ($have_ucb_pop_server)
-                		{
+                {
 					$header_msg = imap_fetchheader($pop, imap_msgno($pop, $msgnum));
 					$header_lines = explode("\r\n", $header_msg);
 					while (list($k, $v) = each($header_lines))
@@ -84,8 +88,8 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang)
 						"next" => imap_msgno($pop, $sorted[$i + 1]),
 						"prev" => imap_msgno($pop, $sorted[$i - 1]),
 						"attach" => $attach, 
-						"from" => htmlspecialchars($from[0]->text), 
-						"subject" => htmlspecialchars($subject[0]->text), 
+						"from" => htmlspecialchars($from), 
+						"subject" => htmlspecialchars($subject), 
 						"date" => change_date(chop($ref_contenu_message->udate), $lang),
 						"size" => $msg_size,
 						"sort" => $sort,
@@ -105,9 +109,9 @@ function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort
 	require ("conf.php");
 	require ("check_lang.php");
 	GLOBAL $attach_tab;
-	GLOBAL $glob_body;
 	GLOBAL $PHP_SELF;
 	$glob_body = "";
+	$subject = $from = $to = $cc = "";
 
 	if (setlocale ("LC_TIME", $lang_locale) != $lang_locale)
 		$default_date_format = $no_locale_date_format;
@@ -165,15 +169,23 @@ function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort
 				break;
 		}
 	}
-	$subject = imap_mime_header_decode($ref_contenu_message->subject);
-	$from = imap_mime_header_decode($ref_contenu_message->fromaddress);
-	$to = imap_mime_header_decode($ref_contenu_message->toaddress);
-	$cc = imap_mime_header_decode($ref_contenu_message->ccaddress);
+	$subject_array = imap_mime_header_decode($ref_contenu_message->subject);
+	for ($j = 0; $j < count($subject_array); $j++)
+		$subject .= $subject_array[$j]->text;
+	$from_array = imap_mime_header_decode($ref_contenu_message->fromaddress);
+	for ($j = 0; $j < count($from_array); $j++)
+		$from .= $from_array[$j]->text;
+	$to_array = imap_mime_header_decode($ref_contenu_message->toaddress);
+	for ($j = 0; $j < count($to_array); $j++)
+		$to .= $to_array[$j]->text;
+	$cc_array = imap_mime_header_decode($ref_contenu_message->ccaddress);
+	for ($j = 0; $j < count($cc_array); $j++)
+		$cc .= $cc_array[$j]->text;
 	$content = Array(
-				"from" => htmlspecialchars($from[0]->text),
-				"to" => htmlspecialchars($to[0]->text),
-				"cc" => htmlspecialchars($cc[0]->text),
-				"subject" => htmlspecialchars($subject[0]->text),
+				"from" => htmlspecialchars($from),
+				"to" => htmlspecialchars($to),
+				"cc" => htmlspecialchars($cc),
+				"subject" => htmlspecialchars($subject),
 				"date" => change_date(chop($ref_contenu_message->udate), $lang),
 				"att" => $link_att,
 				"body" => $glob_body,
@@ -362,8 +374,9 @@ function remove_stuff($body, $lang, $mime)
 	}
 	elseif (eregi("plain", $mime))
 	{
+		$body = htmlspecialchars($body);
 		$body = eregi_replace("(http|https|ftp)://([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)","<a href=\"\\1://\\2\" target=\"_blank\">\\1://\\2</a>", $body);
-		$body = eregi_replace("([[:alnum:]+-_.]+[#[:alnum:]+]*)@([[:alnum:]+-_.]+[#[:alnum:]+]*)\.([[:alnum:]+-_.]+[#[:alnum:]+]*)","<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1@\\2.\\3&amp;lang=$lang\">\\1@\\2.\\3</a>", $body);
+		$body = eregi_replace("([#[:alnum:]+]*)@([#[:alnum:]+]*)\.([[:alnum:]+-_.]+[#[:alnum:]+]*)","<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1@\\2.\\3&amp;lang=$lang\">\\1@\\2.\\3</a>", $body);
 		$body = nl2br($body);
 		if (function_exists("wordwrap"))
 			$body = wordwrap($body, 80, "\n");
@@ -446,9 +459,18 @@ function get_reply_all($user, $domain, $from, $to, $cc)
 /* ----------------------------------------------------- */
 
 // We need that to build a correct list of all the recipient when we send a message
-function cut_address($addr) {
-  $addr = ereg_replace(",", ";", $addr);
-  return (explode(";", $addr));
+function cut_address($addr, $charset)
+{
+	$addr = str_replace(",", ";", $addr);
+	$array = explode(";", $addr);
+	for ($i = 0; $i < sizeof($array); $i++)
+		if (($pos = strrpos($array[$i], '<')) != false)
+		{
+			$name = "\"".encode_mime(substr($array[$i], 0, $pos - 1), $charset)."\"";
+			$addr = substr($array[$i], $pos);
+			$array[$i] = $name.$addr;		
+		}
+	return ($array);
 }
 
 /* ----------------------------------------------------- */
@@ -496,6 +518,21 @@ function view_part($servr, $user, $passwd, $folder, $mail, $part_no, $transfer)
 	else
 		return (nl2br($text));
 }
+
+/* ----------------------------------------------------- */
+
+function encode_mime($string, $charset)
+{ 
+	$text = "=?".$charset."?Q?"; 
+	for($i = 0; $i < strlen($string); $i++ )
+	{ 
+		$val = ord($string[$i]); 
+		$val = dechex($val); 
+		$text .= '='.$val; 
+	} 
+	$text .= "?="; 
+	return ($text); 
+} 
 
 /* ----------------------------------------------------- */
 ?>
