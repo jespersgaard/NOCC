@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.84 2002/02/03 16:14:32 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.85 2002/03/21 08:58:45 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -8,6 +8,10 @@
  * See the enclosed file COPYING for license information (GPL).  If you
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
+
+$conf->nocc_name = 'NOCC';
+$conf->nocc_version = '0.9.6-dev';
+$conf->nocc_url = 'http://nocc.sourceforge.net/';
 
 require_once ('./conf.php');
 require_once ('./check_lang.php');

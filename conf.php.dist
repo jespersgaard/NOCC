@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.93 2002/02/09 20:42:36 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.94 2002/02/09 22:30:51 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -170,10 +170,6 @@ $conf->ad = "___________________________________\r\nNOCC, http://nocc.sourceforg
 *********************************************************************
 ################### Do not modify below this line ###################
 */
-
-$conf->nocc_name = 'NOCC';
-$conf->nocc_version = '0.9.6-dev';
-$conf->nocc_url = 'http://nocc.sourceforge.net/';
 
 session_register('domainnum', 'user', 'passwd', 'server', 'servtype', 'port', 'theme');
 
