@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.141 2002/03/24 16:45:26 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.142 2002/03/24 17:00:36 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -103,7 +103,7 @@ function inbox(&$conf, &$pop, &$sort, &$sortdir, &$lang, &$theme)
 
 /* ----------------------------------------------------- */
 
-function aff_mail(&$conf, &$mailhost, &$login, &$passwd, &$folder, &$mail, $verbose, &$lang, &$sort, &$sortdir)
+function aff_mail(&$conf, &$mailhost, &$login, &$passwd, &$folder, &$mail, $verbose, &$lang, &$sort, &$sortdir, &$ev)
 {
     require ('./check_lang.php');
     GLOBAL $attach_tab;
