@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.94 2001/06/20 16:27:38 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.95 2001/06/21 12:17:23 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -614,16 +614,17 @@ function encode_mime($string, $charset)
 
 // This function is used when accessing a page without being logged in
 // or accessing send.php via GET method
-function go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $lang)
+function go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $lang, $redirect)
 {
 	GLOBAL $$php_session;
 	
 	if (isset($attach_array) && is_array($attach_array))
 		while ($tmp = array_shift($attach_array))
-			unlink($tmpdir.'/'.$tmp->tmp_file);
+			@unlink($tmpdir.'/'.$tmp->tmp_file);
 	session_unregister('num_attach');
 	session_unregister('attach_array');
-	header("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang&$php_session=" . $$php_session);
+	if ($redirect)
+		header("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang&$php_session=" . $$php_session);
 }
 
 /* ----------------------------------------------------- */

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.63 2001/06/19 09:16:06 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.64 2001/06/21 10:48:34 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -20,7 +20,7 @@ if (!function_exists('is_uploaded_file'))
 	include ('is_uploaded_file.php');
 
 if ($HTTP_SERVER_VARS['REQUEST_METHOD'] != 'POST')
-	go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $lang);
+	go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $lang, true);
 else
 {
 	require ('class_send.php');
@@ -134,7 +134,7 @@ else
 			require ('html/menu_inbox.php');
 			break;
 		default:
-			go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $lang);
+			go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $lang, true);
 			break;
 	}
 	require ('html/footer.php');

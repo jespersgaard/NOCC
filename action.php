@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.44 2001/06/21 10:48:34 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.45 2001/06/21 12:17:23 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -123,6 +123,9 @@ switch (trim($action))
 				require ('html/html_bottom_table.php');
 				break;
 			default:
+				if (!isset($attach_array))
+					$attach_array = null;
+				go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $lang, false);
 				$loggedin = 1;
 				session_register('loggedin');
 				// there are messages, we display
