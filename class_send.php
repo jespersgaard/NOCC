@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.50 2002/03/25 15:34:21 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.51 2002/03/25 18:31:48 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -101,7 +101,7 @@ class mime_mail
     function build_multipart() 
     {
         $boundary = 'NextPart'.md5(uniqid(time()));
-        $multipart = 'Content-Type: multipart/mixed;' . $this->crlf . "\tboundary = $boundary" . $this->crlf . $this->crlf . 'This is a MIME encoded message.' . $this->crlf . $this->crlf . '--' . $boundary;
+        $multipart = 'Content-Type: multipart/mixed;' . $this->crlf . "\tboundary=\"$boundary\"" . $this->crlf . $this->crlf . 'This is a MIME encoded message.' . $this->crlf . $this->crlf . '--' . $boundary;
         
         for($i = sizeof($this->parts) - 1; $i >= 0; $i--) 
             $multipart .= $this->crlf . $this->build_message($this->parts[$i]) . '--'.$boundary;
