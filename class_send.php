@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.45 2001/12/03 09:58:42 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.46 2002/01/29 11:24:52 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -80,7 +80,7 @@ class mime_mail
 				$message = chunk_split(base64_encode($message));
 				break;
 			case 'quoted-printable':
-				$message = imap_8bit($message);
+				$message = nocc_imap::i8bit($message);
 				break;
 			default:
 				break;

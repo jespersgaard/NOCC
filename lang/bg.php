@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/bg.php,v 1.4 2001/11/18 17:53:32 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/bg.php,v 1.5 2001/11/18 21:08:06 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -142,4 +142,5 @@ $to_empty = 'Полето \'За\' не трябва да е празно !';
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = "Грешка! Не може да бъда осъществена връзка със сървъра ";
 $html_smtp_error_unexpected = "Грешка! Непознат отговор от сървъра:";
+$lang_could_not_connect = 'Could not connect to server';  //to translate
 ?>

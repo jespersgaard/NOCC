@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.24 2001/11/16 12:08:50 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.25 2001/12/19 23:06:25 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -16,6 +16,8 @@ if (eregi('MSIE', $HTTP_USER_AGENT) || eregi('Internet Explorer', $HTTP_USER_AGE
 session_start();
 require_once ('./conf.php');
 require_once ('./functions.php');
+require_once ('./class_local.php');
+
 $passwd = safestrip($passwd);
 
 header('Content-Type: application/x-unknown-' . $mime);
@@ -25,13 +27,20 @@ if (eregi('MSIE', $HTTP_USER_AGENT) && eregi('5.5', $HTTP_USER_AGENT))
 else
 	header('Content-Disposition: attachment; filename=' . urldecode($filename));
 
-$pop = imap_open('{'.$servr.'}'.$folder, $login, $passwd);
-$file = imap_fetchbody($pop, $mail, $part);
-imap_close($pop);
+$pop = new nocc_imap('{'.$servr.'}'.$folder, $login, $passwd, &$ev);
+if($ev) {
+	echo "<p class=\"error\">".$ev->getMessage()."</p>";
+	return;
+}
+
+$file = $pop->fetchbody($mail, $part);
+
 if ($transfer == 'BASE64')
-	$file = imap_base64($file);
+	$file = nocc_imap::base64($file);
 elseif($transfer == 'QUOTED-PRINTABLE')
-	$file = imap_qprint($file);
+	$file = nocc_imap::qprint($file);
+
+$pop->close();
 
 header('Content-Length: ' . strlen($file));
 echo ($file);

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nn.php,v 1.1 2001/09/08 11:20:44 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/nn.php,v 1.2 2001/11/18 18:17:34 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -142,4 +142,5 @@ $to_empty = 'Feltet \'Mottakar\' må væra fyllt ut!' ;
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = "Unable to open connection";
 $html_smtp_error_unexpected = "Unexpected response:";
+$lang_could_not_connect = 'Could not connect to server';  //to translate
 ?>

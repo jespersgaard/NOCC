@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.87 2002/02/03 16:14:32 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.88 2002/02/09 18:50:45 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -114,7 +114,7 @@ else
 						$file = fread($fp, $attach_array[$i]->file_size);
 						fclose($fp);
 						// add it to the message, by default it is encoded in base64
-						$mail->add_attachment($file, imap_qprint($attach_array[$i]->file_name), $attach_array[$i]->file_mime, 'base64', '');
+						$mail->add_attachment($file, nocc_imap::qprint($attach_array[$i]->file_name), $attach_array[$i]->file_mime, 'base64', '');
 						// then we delete the temporary file
 						unlink($conf->tmpdir . '/' . $attach_array[$i]->tmp_file);
 					}

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/es.php,v 1.18.2.1 2001/11/25 10:04:05 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/es.php,v 1.19 2001/11/28 14:54:51 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -142,4 +142,5 @@ $to_empty = 'El campo \'A\' no debe estar vacio !';
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Imposible abrir conexi&oacute;n';
 $html_smtp_error_unexpected = 'Respuesta inesperada:';
+$lang_could_not_connect = 'Could not connect to server';  //to translate
 ?>

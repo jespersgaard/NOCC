@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.39 2001/12/13 10:39:09 nicocha Exp $ -->
+<!-- start of $Id: send.php,v 1.40 2002/01/29 11:24:52 nicocha Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
 		<td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -72,7 +72,7 @@
 							for ($i = 1; $i <= $num_attach; $i++)
 							{	
 								$totalsize += $attach_array[$i]->file_size;
-								$att_name = imap_mime_header_decode($attach_array[$i]->file_name);
+								$att_name = nocc_imap::mime_header_decode($attach_array[$i]->file_name);
 								echo '<tr><td class="inbox"><input type="checkbox" name="file' . $i . '" /></td><td class="inbox">' . htmlentities($att_name[0]->text) . '</td><td class="inbox">' . $attach_array[$i]->file_size . '</td></tr>';
 							}
 							echo '<tr><td colspan="2"><input type="button" class="button" onclick="delete_attach()" value="' . $html_attach_delete . '" /></td><td class="inbox"><b>' . $html_totalsize . ' : ' . $totalsize . ' ' . $html_bytes . '</b></td></tr></table>';
@@ -143,4 +143,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.39 2001/12/13 10:39:09 nicocha Exp $ -->
+<!-- end of $Id: send.php,v 1.40 2002/01/29 11:24:52 nicocha Exp $ -->

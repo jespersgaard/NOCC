@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/no.php,v 1.2 2001/11/18 18:17:34 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/no.php,v 1.3 2001/11/18 21:08:06 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -142,4 +142,5 @@ $to_empty = 'Feltet \'Til\' kan ikke være tomt !';
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = "Unable to open connection";
 $html_smtp_error_unexpected = "Unexpected response:";
+$lang_could_not_connect = 'Could not connect to server';  //to translate
 ?>

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ar-win.php,v 1.45 2001/11/18 17:53:32 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ar-win.php,v 1.1 2001/11/29 12:29:37 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -142,4 +142,5 @@ $to_empty = 'ÇáÎÇäå \'Åáì\' íÌÈ Ãä Êßæä ÛíÑ ÝÇÑÛå !';
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = "áÇíÓÊØíÚ ÝÊÍ ÅÊÕÇá";
 $html_smtp_error_unexpected = "ÑÏ ÛíÑ ãÊæÞÚ:";
+$lang_could_not_connect = 'Could not connect to server';  //to translate
 ?>

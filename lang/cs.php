@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/cs.php,v 1.1 2001/04/25 18:17:32 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/cs.php,v 1.2 2001/05/27 15:02:33 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -110,4 +110,5 @@ $html_msgs = 'Zprávy';
 
 $original_msg = '-- Pùvodní zpráva --';
 $to_empty = 'Musíte vyplnit polo¾ku Komu:';
+$lang_could_not_connect = 'Could not connect to server';  //to translate
 ?>

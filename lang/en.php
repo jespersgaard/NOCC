@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.47 2001/11/30 18:39:14 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.48 2002/01/29 11:24:52 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -143,4 +143,8 @@ $to_empty = 'The \'To\' field must not be empty !';
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = "Unable to open SMTP connection";
 $html_smtp_error_unexpected = "Unexpected SMTP response:";
+
+// IMAP messages (class_local.php)
+$lang_could_not_connect = 'Could not connect to server';  //to translate
+
 ?>

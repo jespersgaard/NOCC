@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/sk.php,v 1.7 2001/11/18 21:08:06 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sk.php,v 1.8 2001/12/10 13:40:33 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -142,4 +142,5 @@ $to_empty = 'Políèko \'Adresát\' nesmie by» prázdne !';
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = "Nemo¾no urobi» spojenie";
 $html_smtp_error_unexpected = "Neoèakávaná odpoved:";
+$lang_could_not_connect = 'Could not connect to server';  //to translate
 ?>

@@ -1,5 +1,6 @@
 NOCC 0.9.6	??
 
+	* Seperated imap_* functions into a nocc_imap class for extendability.
 	* Added HTTP headers to avoid caching from proxies and browsers.
 	* Added request receipt feature.
 	* Removed insecure 'X-Originating-Ip', and fixed 'X-Mailer' headers.

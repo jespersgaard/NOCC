@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.131 2001/12/30 18:20:20 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.132 2002/02/03 16:14:32 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,108 +9,96 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
 
+require_once('class_local.php');
+
 $attach_tab = Array();
 
 /* ----------------------------------------------------- */
 
-function inbox($conf, $mailhost, $login, $passwd, $folder, $sort, $sortdir, $lang, $theme)
+function inbox($conf, $pop, $sort, $sortdir, $lang, $theme)
 {
-	$pop = @imap_open('{' . $mailhost . '}' . $folder, $login, $passwd);
-	if ($pop == false)
-		return (-1);
-	else
-	{ 
-		if (($num_messages = @imap_num_msg($pop)) == 0)
+	$num_msg = $pop->num_msg();
+	$sorted = $pop->sort($sort, $sortdir);
+	for ($i = 0; $i < $num_msg; $i++)
+	{
+		$subject = $from = '';
+		$msgnum = $sorted[$i];
+		$ref_contenu_message = $pop->headerinfo($pop->msgno($msgnum));
+		$struct_msg = $pop->fetchstructure($pop->msgno($msgnum));
+		$subject_array = nocc_imap::mime_header_decode($ref_contenu_message->subject);
+		for ($j = 0; $j < count($subject_array); $j++)
+			$subject .= $subject_array[$j]->text;
+		$from_array = nocc_imap::mime_header_decode($ref_contenu_message->fromaddress);
+		for ($j = 0; $j < count($from_array); $j++)
+			$from .= $from_array[$j]->text;
+		if ($pop->is_imap)
+			$msg_size = get_mail_size($struct_msg);
+		else
+			$msg_size = ($struct_msg->bytes > 1000) ? ceil($struct_msg->bytes / 1000) : 1;
+		if (isset($struct_msg->type) && $struct_msg->type == 1)
 		{
-			imap_close($pop);
-			return (0);
+			if ($struct_msg->subtype == 'ALTERNATIVE' || $struct_msg->subtype == 'RELATED')
+				$attach = '&nbsp;';
+			else
+				$attach = '<img src="themes/' . $theme . '/img/attach.gif" alt="" />';
+		}
+		else
+			$attach = '&nbsp;';
+		// Check Status Line with UCB POP Server to
+		// see if this is a new message. This is a
+		// non-RFC standard line header.
+		// Set this in conf.php
+		if ($conf->have_ucb_pop_server)
+		{
+			$header_msg = $pop->fetchheader($pop->msgno($msgnum));
+			$header_lines = explode("\r\n", $header_msg);
+			while (list($k, $v) = each($header_lines))
+			{
+				list ($header_field, $header_value) = explode(':', $v);
+				if ($header_field == 'Status') 
+					$new_mail_from_header = $header_value;
+			}
 		}
 		else
 		{
-			$sorted = imap_sort($pop, $sort, $sortdir, SE_UID); 
-			for ($i = 0; $i < $num_messages; $i++)
-			{
-				$subject = $from = '';
-				$msgnum = $sorted[$i];
-				$ref_contenu_message = imap_header($pop, imap_msgno($pop, $msgnum));
-				$struct_msg = imap_fetchstructure($pop, imap_msgno($pop, $msgnum));
-				$subject_array = imap_mime_header_decode($ref_contenu_message->subject);
-				for ($j = 0; $j < count($subject_array); $j++)
-					$subject .= $subject_array[$j]->text;
-				$from_array = imap_mime_header_decode($ref_contenu_message->fromaddress);
-				for ($j = 0; $j < count($from_array); $j++)
-					$from .= $from_array[$j]->text;
-				if (is_Imap($mailhost))
-					$msg_size = get_mail_size($struct_msg);
-				else
-					$msg_size = ($struct_msg->bytes > 1000) ? ceil($struct_msg->bytes / 1000) : 1;
-				if (isset($struct_msg->type) && $struct_msg->type == 1)
-				{
-					if ($struct_msg->subtype == 'ALTERNATIVE' || $struct_msg->subtype == 'RELATED')
-						$attach = '&nbsp;';
-					else
-						$attach = '<img src="themes/' . $theme . '/img/attach.gif" alt="" />';
-				}
-				else
-					$attach = '&nbsp;';
-				// Check Status Line with UCB POP Server to
-				// see if this is a new message. This is a
-				// non-RFC standard line header.
-				// Set this in conf.php
-				if ($conf->have_ucb_pop_server)
-				{
-					$header_msg = imap_fetchheader($pop, imap_msgno($pop, $msgnum));
-					$header_lines = explode("\r\n", $header_msg);
-					while (list($k, $v) = each($header_lines))
-					{
-						list ($header_field, $header_value) = explode(':', $v);
-						if ($header_field == 'Status') 
-							$new_mail_from_header = $header_value;
-					}
-				}
-				else
-				{
-				if (($ref_contenu_message->Unseen == 'U') || ($ref_contenu_message->Recent == 'N'))
-					$new_mail_from_header = '';
-				else
-					$new_mail_from_header = '&nbsp;';
-				}
-				if ($new_mail_from_header == '')
-					$newmail = '<img src="themes/' . $theme . '/img/new.gif" alt="" height="17" width="17" />';
-				else
-					$newmail = '&nbsp;';
-				/*
-				if ($num_messages > 1)
-				{
-					$next = ($i + 1 < $num_messages) ? imap_msgno($pop, $sorted[$i + 1]) : 0;
-					$prev = ($i - 1 > 0) ? imap_msgno($pop, $sorted[$i - 1]) : 0;
-				}
-				else
-				{
-					$next = $prev = 0;
-				}
-				*/
-				list($date, $complete_date) = change_date(chop($ref_contenu_message->udate), $lang);
-				$msg_list[$i] =  Array(
-						'new' => $newmail, 
-						'number' => imap_msgno($pop, $msgnum),
-						/*
-						'next' => $next,
-						'prev' => $prev,
-						*/
-						'attach' => $attach, 
-						'from' => $from,
-						'subject' => $subject, 
-						'date' => $date,
-						'complete_date' => $complete_date, 
-						'size' => $msg_size,
-						'sort' => $sort,
-						'sortdir' => $sortdir);
-			}
-			imap_close($pop);
-			return ($msg_list);
+		if (($ref_contenu_message->Unseen == 'U') || ($ref_contenu_message->Recent == 'N'))
+			$new_mail_from_header = '';
+		else
+			$new_mail_from_header = '&nbsp;';
 		}
+		if ($new_mail_from_header == '')
+			$newmail = '<img src="themes/' . $theme . '/img/new.gif" alt="" height="17" width="17" />';
+		else
+			$newmail = '&nbsp;';
+		/*
+		if ($num_messages > 1)
+		{
+			$next = ($i + 1 < $num_messages) ? $pop->msgno($sorted[$i + 1]) : 0;
+			$prev = ($i - 1 > 0) ? $pop->msgno($sorted[$i - 1]) : 0;
+		}
+		else
+		{
+			$next = $prev = 0;
+		}
+		*/
+		list($date, $complete_date) = change_date(chop($ref_contenu_message->udate), $lang);
+		$msg_list[$i] =  Array(
+				'new' => $newmail, 
+				'number' => $pop->msgno($msgnum),
+				/*
+				'next' => $next,
+				'prev' => $prev,
+				*/
+				'attach' => $attach, 
+				'from' => $from,
+				'subject' => $subject, 
+				'date' => $date,
+				'complete_date' => $complete_date, 
+				'size' => $msg_size,
+				'sort' => $sort,
+				'sortdir' => $sortdir);
 	}
+	return ($msg_list);
 }
 
 /* ----------------------------------------------------- */
@@ -125,9 +113,12 @@ function aff_mail($conf, $mailhost, $login, $passwd, $folder, $mail, $verbose, $
 
 	if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
 		$default_date_format = $no_locale_date_format;
-	$pop = @imap_open('{' . $mailhost . '}' . $folder, $login, $passwd);
+	$pop = new nocc_imap('{'.$mailhost.'}'.$folder, $login, $passwd, &$ev);
+	if($ev) 
+		return (-1);
+
 	// Finding the next and previous message number
-	$sorted = imap_sort($pop, $sort, $sortdir);
+	$sorted = $pop->sort($sort, $sortdir);
 	$prev_msg = $next_msg = 0;
 	for ($i = 0; $i < sizeof($sorted); $i++)
 	{
@@ -139,31 +130,31 @@ function aff_mail($conf, $mailhost, $login, $passwd, $folder, $mail, $verbose, $
 		}
 	}
 	// END finding the next and previous message number
-	$num_messages = @imap_num_msg($pop);
-	$ref_contenu_message = @imap_headerinfo($pop, $mail);
-	$struct_msg = @imap_fetchstructure($pop, $mail);
+	$num_messages = $pop->num_msg();
+	$ref_contenu_message = $pop->headerinfo($mail);
+	$struct_msg = $pop->fetchstructure($mail);
 	if (isset($struct_msg->parts) && (sizeof($struct_msg->parts) > 0))
 		GetPart($struct_msg, NULL, $conf->display_rfc822);
 	else
-		GetSinglePart($struct_msg, imap_fetchheader($pop, $mail), @imap_body($pop, $mail));
+		GetSinglePart($struct_msg, $pop->fetchheader($mail), $pop->body($mail));
 	if (($verbose == 1) && ($conf->use_verbose == true))
-		$header = imap_fetchheader($pop, $mail);
+		$header = $pop->fetchheader($mail);
 	else
 		$header = '';
 	$tmp = array_pop($attach_tab);
 	if (eregi('text/html', $tmp['mime']) || eregi('text/plain', $tmp['mime']))
 	{	
 		if ($tmp['transfer'] == 'QUOTED-PRINTABLE')
-			$glob_body = imap_qprint(imap_fetchbody($pop, $mail, $tmp['number']));
+			$glob_body = nocc_imap::qprint($pop->fetchbody($mail, $tmp['number']));
 		elseif ($tmp['transfer'] == 'BASE64')
-			$glob_body = base64_decode(imap_fetchbody($pop, $mail, $tmp['number']));
+			$glob_body = base64_decode($pop->fetchbody($mail, $tmp['number']));
 		else
-			$glob_body = imap_fetchbody($pop, $mail, $tmp['number']);
+			$glob_body = $pop->fetchbody($mail, $tmp['number']);
 		$glob_body = remove_stuff($glob_body, $lang, $tmp['mime']);
 	}
 	else
 		array_push($attach_tab, $tmp);
-	@imap_close($pop);
+	$pop->close();
 	if ($struct_msg->subtype != 'ALTERNATIVE' && $struct_msg->subtype != 'RELATED')
 	{
 		switch (sizeof($attach_tab))
@@ -179,21 +170,21 @@ function aff_mail($conf, $mailhost, $login, $passwd, $folder, $mail, $verbose, $
 				break;
 		}
 	}
-	$subject_array = imap_mime_header_decode($ref_contenu_message->subject);
+	$subject_array = nocc_imap::mime_header_decode($ref_contenu_message->subject);
 	for ($j = 0; $j < count($subject_array); $j++)
 		$subject .= $subject_array[$j]->text;
-	$from_array = imap_mime_header_decode($ref_contenu_message->fromaddress);
+	$from_array = nocc_imap::mime_header_decode($ref_contenu_message->fromaddress);
 	for ($j = 0; $j < count($from_array); $j++)
 		$from .= $from_array[$j]->text;
-	$to_array = imap_mime_header_decode($ref_contenu_message->toaddress);
+	$to_array = nocc_imap::mime_header_decode($ref_contenu_message->toaddress);
 	for ($j = 0; $j < count($to_array); $j++)
 		$to .= $to_array[$j]->text;
 	$to = str_replace(',', ', ', $to);
-	$cc_array = isset($ref_contenu_message->ccaddress) ? imap_mime_header_decode($ref_contenu_message->ccaddress) : 0;
+	$cc_array = isset($ref_contenu_message->ccaddress) ? nocc_imap::mime_header_decode($ref_contenu_message->ccaddress) : 0;
 	for ($j = 0; $j < count($cc_array); $j++)
 		$cc .= $cc_array[$j]->text;
 	$cc = str_replace(',', ', ', $cc);
-	$reply_to_array = isset($ref_contenu_message->reply_toaddress) ? imap_mime_header_decode($ref_contenu_message->reply_toaddress) : 0;
+	$reply_to_array = isset($ref_contenu_message->reply_toaddress) ? nocc_imap::mime_header_decode($ref_contenu_message->reply_toaddress) : 0;
 	for ($j = 0; $j < count($reply_to_array); $j++)
 		$reply_to .= $reply_to_array[$j]->text;
 	$timestamp = chop($ref_contenu_message->udate);
@@ -465,7 +456,7 @@ function link_att($servr, $mail, $tab, $display_part_no)
 			$link .= '<tr>';
 			if ($display_part_no == true)
 				$link .= '<td class="inbox">' . $tmp['number'] . '</td>';
-			$att_name = imap_mime_header_decode($tmp['name']);
+			$att_name = nocc_imap::mime_header_decode($tmp['name']);
 			$link .= '<td class="inbox"><a href="download.php?mail=' . $mail . '&amp;part=' . $tmp['number'] . '&amp;transfer=' . $tmp['transfer'] . '&amp;filename=' . urlencode($att_name[0]->text) . '&amp;mime=' . $mime . '">' . htmlentities($att_name[0]->text) . '</a></td><td class="inbox">' . $tmp['mime'] . '</td><td class="inbox">' . $tmp['size'] . ' kb</td></tr>';
 		}
 	$link .= '</table>';
@@ -608,13 +599,15 @@ function save_attachment($servr, $login, $passwd, $folder, $mail, $tmpdir)
 	$i = 0;
 	$attach_array = array();
 
-	$pop = @imap_open('{'.$servr.'}'.$folder, $login, $passwd);
+	$pop = new nocc_imap('{'.$mailhost.'}'.$folder, $login, $passwd, &$ev);
+	if($ev) 
+		return (-1);
 	while ($tmp = array_shift($attach_tab))
 	{
 		$i++;
-		$file = imap_fetchbody($pop, $mail, $tmp['number']);
+		$file = $pop->fetchbody($mail, $tmp['number']);
 		if ($tmp['transfer'] == 'QUOTED-PRINTABLE')
-			$file = imap_qprint($file);
+			$file = nocc_imap::qprint($file);
 		elseif ($tmp['transfer'] == 'BASE64')
 			$file = base64_decode($file);
 		$filename = 'NOCC_TMP'.md5(uniqid(time()));
@@ -626,7 +619,7 @@ function save_attachment($servr, $login, $passwd, $folder, $mail, $tmpdir)
 		$attach_array[$i]->file_size = strlen($file);
 		$attach_array[$i]->file_mime = $tmp['mime'];
 	} 
-	imap_close($pop);
+	$pop->close();
 	return(array($i, $attach_array));
 }
 
@@ -634,10 +627,12 @@ function save_attachment($servr, $login, $passwd, $folder, $mail, $tmpdir)
 
 function view_part($servr, $login, $passwd, $folder, $mail, $part_no, $transfer, $msg_charset, $charset)
 {
-	$pop = @imap_open('{' . $servr . '}' . $folder, $login, $passwd);
-	$text = imap_fetchbody($pop, $mail, $part_no);
+	$pop = new nocc_imap('{'.$mailhost.'}'.$folder, $login, $passwd, &$ev);
+	if($ev) 
+		return (-1);
+	$text = $pop->fetchbody($mail, $part_no);
 	if ($transfer == 'BASE64')
-		$str = nl2br(imap_base64($text));
+		$str = nl2br(nocc_imap::base64($text));
 	elseif($transfer == 'QUOTED-PRINTABLE')
 		$str = nl2br(quoted_printable_decode($text));
 	else
@@ -685,19 +680,6 @@ function go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $l
 		require_once ('./proxy.php');
 		header("Location: ".$base_url."action.php?sort=$sort&sortdir=$sortdir&lang=$lang&$php_session=" . $$php_session);
 	}
-}
-
-/* ----------------------------------------------------- */
-
-// This function returns TRUE if the mail server is an IMAP one
-// and it returns FALSE otherwise
-function is_Imap($servr)
-{
-	if (stristr($servr, '/pop3'))
-		return (false);
-	if (stristr($servr, '/nntp'))
-		return (false);
-	return (true);
 }
 
 /* ----------------------------------------------------- */

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fi.php,v 1.4.2.1 2001/11/19 21:05:20 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fi.php,v 1.5 2001/11/28 14:54:51 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -142,4 +142,5 @@ $to_empty = '\'Kenelle\' kentt&auml; ei saa olla tyhj&auml;';
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = "Unable to open connection";
 $html_smtp_error_unexpected = "Unexpected response:";
+$lang_could_not_connect = 'Could not connect to server';  //to translate
 ?>

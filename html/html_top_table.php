@@ -1,8 +1,7 @@
-<!-- start of $Id: html_top_table.php,v 1.41 2001/11/28 15:10:36 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.42 2001/12/13 10:39:09 nicocha Exp $ -->
 <?php
 $arrow = ($sortdir == 0) ? 'up' : 'down';
 $new_sortdir = ($sortdir == 0) ? 1 : 0;
-$is_Imap = is_Imap($servr);
 ?>
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 <tr><td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -11,7 +10,7 @@ $is_Imap = is_Imap($servr);
 
 <table width="100%" cellpadding="2" cellspacing="1" border="0" bgcolor="<?php echo $glob_theme->inside_color ?>">
 	<tr bgcolor="<?php echo $glob_theme->tr_color ?>">
-		<td <?php if (($is_Imap) || ($conf->have_ucb_pop_server)) echo 'colspan="5"'; else echo 'colspan="4"'; ?>align="left" class="titlew">
+		<td <?php if (($is_imap) || ($conf->have_ucb_pop_server)) echo 'colspan="5"'; else echo 'colspan="4"'; ?>align="left" class="titlew">
 			<b><?php echo $folder ?></b>
 		</td>
 		<td align="right" class="titlew" colspan="2">
@@ -22,7 +21,7 @@ $is_Imap = is_Imap($servr);
 		<td align="center" class="inbox" colspan="2">
 			<?php echo $html_select ?>
 		</td>
-		<?php if (($is_Imap) || ($conf->have_ucb_pop_server)) { ?>
+		<?php if (($is_imap) || ($conf->have_ucb_pop_server)) { ?>
 		<td align="center" class="inbox">
 			<?php echo $html_new ?>
 		</td>
@@ -56,4 +55,4 @@ $is_Imap = is_Imap($servr);
 			<?php echo $html_size ?></a>
 		</td>
 	</tr>
-<!-- start of $Id: html_top_table.php,v 1.41 2001/11/28 15:10:36 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.42 2001/12/13 10:39:09 nicocha Exp $ -->

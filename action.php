@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.91 2002/01/23 13:17:38 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.92 2002/02/03 16:14:32 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -281,7 +281,19 @@ switch (trim($action))
 			require ('./wrong.php');
 			break;
 		}
-		$tab_mail = inbox($conf, $servr, $login, $passwd, $folder, $sort, $sortdir, $lang, $theme);
+		
+		$ev = "";
+		$pop = new nocc_imap('{'.$servr.'}'.$folder, $login, $passwd, &$ev);
+		if($ev) 
+			return (-1);
+
+		$is_imap = $pop->is_imap();
+		$tab_mail = 0;
+		if ($pop->num_msg() > 0)
+			$tab_mail = inbox($conf, $pop, $sort, $sortdir, $lang, $theme);
+
+		$pop->close();
+
 		switch ($tab_mail)
 		{
 			case -1:

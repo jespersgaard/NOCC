@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/get_img.php,v 1.15 2001/11/16 13:21:42 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/get_img.php,v 1.16 2001/12/19 23:06:25 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -14,13 +14,19 @@ require_once ('./conf.php');
 require_once ('./functions.php');
 $passwd = safestrip($passwd);
 
-$pop = @imap_open('{'.$servr.'}INBOX', $login, $passwd);
-$img = imap_fetchbody($pop, $mail, $num);
-imap_close($pop);
+$ev = "";
+$pop = new nocc_imap('{' . $servr . '}INBOX', $login, safestrip($passwd), &$ev);
+if($ev) {
+	echo "<p class=\"error\">".$ev->getMessage()."</p>";
+	return;
+}
+
+$img = $pop->fetchbody($mail, $num);
 if ($transfer == 'BASE64')
 	$img = base64_decode($img);
 elseif ($transfer == 'QUOTED-PRINTABLE')
-	$img = imap_qprint($img);
+	$img = nocc_imap::qprint($img);
+$pop->close();
 
 header('Content-type: image/'.$mime);
 echo $img;
