@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.65 2001/04/25 14:16:32 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.66 2001/05/23 21:07:44 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,25 +9,25 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
 
-require ("conf.php");
-require ("check_lang.php");
+require ('conf.php');
+require ('check_lang.php');
 session_start();
 session_destroy();
 Header("Content-type: text/html; Charset=$charset");
 
 if (floor(phpversion()) != 4)
 {
-	echo "<font color=\"red\"><b>You don't seem to be running PHP 4, you need at least PHP 4 to run NOCC.</b></font><br /><br /><div align=\"center\"><img src=\"themes/standard/img/button.png\" width=\"88\" height=\"31\" alt=\"Powered by NOCC\" /></div>";
+	echo '<font color="red"><b>You don\'t seem to be running PHP 4, you need at least PHP 4 to run NOCC.</b></font><br /><br /><div align="center"><img src="themes/standard/img/button.png" width="88" height="31" alt="Powered by NOCC" /></div>';
 	exit;
 }
 if (!extension_loaded('imap'))
 {
-	echo "<font color=\"red\"><b>The IMAP module does not seem to be installed on this PHP setup, please see NOCC's documentation.</b></font><br /><br /><div align=\"center\"><img src=\"themes/standard/img/button.png\" width=\"88\" height=\"31\" alt=\"Powered by NOCC\" /></div>";
+	echo '<font color="red"><b>The IMAP module does not seem to be installed on this PHP setup, please see NOCC\'s documentation.</b></font><br /><br /><div align="center"><img src="themes/standard/img/button.png" width="88" height="31" alt="Powered by NOCC" /></div>';
 	exit;
 }
 if (empty($tmpdir))
 {
-	echo "<font color=\"red\"><b>'\$tmpdir' is not set in 'conf.php'. NOCC cannot run.</b></font><br /><br /><div align=\"center\"><img src=\"themes/standard/img/button.png\" width=\"88\" height=\"31\" alt=\"Powered by NOCC\" /></div>";
+	echo '<font color="red"><b>"$tmpdir" is not set in "conf.php". NOCC cannot run.</b></font><br /><br /><div align="center"><img src="themes/standard/img/button.png" width="88" height="31" alt="Powered by NOCC" /></div>';
 	exit;
 }
 ?>
@@ -86,7 +86,7 @@ function updateTheme()
 								<td colspan="3" height="18"><font size="-3">&nbsp;</font></td>
 							</tr>
 							<tr valign="top"> 
-				               <td align="center" colspan="3" class="f"><b><?php echo $html_welcome." ".$nocc_name." v".$nocc_version; ?></b></td>
+				               <td align="center" colspan="3" class="f"><b><?php echo $html_welcome.' '.$nocc_name.' v'.$nocc_version; ?></b></td>
 							</tr>
 							<tr> 
 								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
@@ -97,16 +97,16 @@ function updateTheme()
 								<td class="f"> 
 									<input type="text" name="user" size="15" />
 									<?php
-									if ($domains[0]->in != "")
+									if ($domains[0]->in != '')
 									{
-										echo "@ <select name=\"domainnum\">";
+										echo '@ <select name="domainnum">';
 										$i = 0; 
-										while ($domains[$i]->in != "" )
+										while ($domains[$i]->in != '')
 										{
-											echo "<option value=\"$i\">".$domains[$i]->domain."</option>";
+											echo "<option value=\"$i\">".$domains[$i]->domain.'</option>';
 											$i++;
 										}
-										echo "</select>";
+										echo '</select>';
 									}
 									?>
 								</td>
@@ -125,12 +125,12 @@ function updateTheme()
 								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
 							</tr>
 							<?php
-							if ($domains[0]->in == "")
+							if ($domains[0]->in == '')
 							{
-								echo "<tr><td align=\"right\" class=\"f\">".$html_server."</td>";
-								echo "<td><font size=\"-3\">&nbsp;</font></td>";
-								echo "<td class=\"f\"><input type=\"text\" name=\"server\" value=\"mail.example.com\" size=\"15\" /><br /><input type=\"text\" size=\"4\" name=\"port\" value=\"143\" /><select name=\"servtype\" onchange=\"updatePort()\"><option value=\"imap\">IMAP</option><option value=\"pop3\">POP3</option></select></td>";
-								echo "</tr><tr><td colspan=\"3\" height=\"12\"><font size=\"-3\">&nbsp;</font></td></tr>";
+								echo '<tr><td align="right" class="f">'.$html_server.'</td>';
+								echo '<td><font size="-3">&nbsp;</font></td>';
+								echo '<td class="f"><input type="text" name="server" value="mail.example.com" size="15" /><br /><input type="text" size="4" name="port" value="143" /><select name="servtype" onchange="updatePort()"><option value="imap">IMAP</option><option value="pop3">POP3</option></select></td>';
+								echo '</tr><tr><td colspan="3" height="12"><font size="-3">&nbsp;</font></td></tr>';
 							}
 							?>
 							<tr>
@@ -138,16 +138,16 @@ function updateTheme()
 								<td><font size="-3">&nbsp;</font></td>
 								<td class="f">
 									<?php
-										echo "<select name=\"lang\" onchange=\"updateLang()\">";
+										echo '<select name="lang" onchange="updateLang()">';
 										for ($i = 0; $i < sizeof($lang_array); $i++)
-											if (file_exists("lang/".$lang_array[$i]->filename.".php"))
+											if (file_exists('lang/'.$lang_array[$i]->filename.'.php'))
 											{
-												echo "<option value=\"".$lang_array[$i]->filename."\"";
+												echo '<option value="'.$lang_array[$i]->filename.'"';
 												if ($lang == $lang_array[$i]->filename)
-													echo " selected=\"selected\"";
-												echo ">".$lang_array[$i]->label."</option>";
+													echo ' selected="selected"';
+												echo '>'.$lang_array[$i]->label.'</option>';
 											}
-										echo "</select>";
+										echo '</select>';
 									?>
 								</td>
 							</tr>
@@ -156,21 +156,21 @@ function updateTheme()
 							</tr>
 							<?php if ($use_theme == true) 
 							{
-								echo "<tr><td align=\"right\" class=\"f\">".$html_theme."</td><td><font size=\"-3\">&nbsp;</font></td><td class=\"f\">";
-								echo "<select name=\"theme\" onchange=\"updateTheme()\">";
-								$handle = opendir("./themes");
+								echo '<tr><td align="right" class="f">".$html_theme."</td><td><font size="-3">&nbsp;</font></td><td class="f">';
+								echo '<select name="theme" onchange="updateTheme()">';
+								$handle = opendir('./themes');
 								while (($file = readdir($handle)) != false) 
 								{
-									if (($file != ".") && ($file != ".."))
+									if (($file != '.') && ($file != '..'))
 									{
-										echo "<option value=\"".$file."\"";
+										echo '<option value="'.$file.'"';
 										if ($file == $theme)
-												echo " selected=\"selected\"";
-										echo ">".$file."</option>";
+												echo ' selected="selected"';
+										echo '>'.$file.'</option>';
 									}
 								}
 								closedir($handle); 
-								echo "</select></td></tr><tr><td colspan=\"3\">&nbsp;</td></tr>";
+								echo '</select></td></tr><tr><td colspan="3">&nbsp;</td></tr>';
 							}
 							?>
 							<tr>
@@ -192,4 +192,4 @@ function updateTheme()
 				document.nocc_webmail_login.passwd.value='';
 			// -->
 			</script>
-<?php require ("html/footer.php"); ?>
+<?php require ('html/footer.php'); ?>
