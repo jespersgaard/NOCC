@@ -18,7 +18,7 @@ echo $text_color ?>" vlink="<? echo $vlink_color ?>">
 				<td align="left" valign="absmiddle" colspan="2">
 					<img src="img/logo.png" alt="Logo">
 					<?
-					if ($domain != "" && $login != "")
+					if ($domain != "" && $user != "")
 					{ ?>
 						&nbsp;&nbsp;<font class="login"><b><? echo $user."@".$domain ?></b></font>
 					<? } ?>
