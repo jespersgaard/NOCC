@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/bg.php,v 1.2 2001/11/06 21:36:39 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/bg.php,v 1.3 2001/11/07 18:51:51 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -123,8 +123,6 @@ $html_logout = 'Изход';
 $html_msg = 'Писмо';
 $html_msgs = 'Писма';
 $html_configuration = 'Сървърът не е конфигуриран!';
-
-
 $html_priority = 'Приоритет';
 $html_low = 'Нисък';
 $html_normal = 'Нормален';
@@ -134,6 +132,9 @@ $html_select_all = 'Маркирай всички';
 $html_loading_image = 'Зареждане на картинка';
 $html_send_confirmed = 'Писмото е прието';
 $html_no_sendaction = 'Не е посочено действие. Опитай да разрешиш Javascript в браузера.';
+$html_error_occurred = 'An error occurred';
+$html_prefs_file_error = 'Unable to open preferences file for writing.';
+$html_sig_file_error = 'Unable to open signature file for writing.';
 
 $original_msg = '-- Оригинално писмо --';
 $to_empty = 'Полето \'За\' не трябва да е празно !';

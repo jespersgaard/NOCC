@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.50 2001/11/16 19:11:04 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.51 2001/11/17 14:45:02 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,6 +9,7 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
  * Configuration file for the french language (the first made, we're french !)
+ *
  */
 
 $charset = 'ISO-8859-1';

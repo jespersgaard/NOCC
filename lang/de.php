@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.17 2001/05/27 14:50:05 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.18 2001/09/08 11:12:23 wolruf Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -53,7 +53,8 @@ $alt_reply_all = 'Antwort an alle';
 $alt_forward = 'Weiterleitung';
 $alt_next = 'N&auml;chste';
 $alt_prev = 'Vorige';
-
+$html_on = 'on';
+$html_theme = 'Theme';
 
 // index.php
 
@@ -68,6 +69,19 @@ $html_wrong = 'Der Nutzername oder das Passwort sind falsch';
 $html_retry = 'Nochmal';
 $html_on = 'on';
 $html_theme = 'Theme';
+
+// prefs.php
+
+$html_preferences = 'Preferences';
+$html_full_name = 'Full name';
+$html_email_address = 'E-mail Address';
+$html_ccself = 'Cc self';
+$html_hide_addresses = 'Hide addresses';
+$html_outlook_quoting = 'Outlook-style quoting';
+$html_reply_to = 'Reply to';
+$html_use_signature = 'Use signature';
+$html_signature = 'Signature';
+$html_prefs_updated = 'Preferences updated';
 
 // Other pages
 
@@ -89,6 +103,7 @@ $html_att_unknown = '[unbekannt]';
 $html_attach = 'Attach';
 $html_attach_forget = 'You must attach your file before sending your message !';
 $html_attach_delete = 'Remove selected';
+$html_sort_by = 'Sort by';
 $html_from = 'Von';
 $html_subject = 'Betreff';
 $html_date = 'Datum';
@@ -113,7 +128,19 @@ $html_priority = 'Wichtigkeit';
 $html_low = 'Niedrig';
 $html_normal = 'Normal';
 $html_high = 'Hoch';
+$html_select = 'Select';
+$html_select_all = 'Select All';
+$html_loading_image = 'Loading image';
+$html_send_confirmed = 'Your mail was accepted for delivery';
+$html_no_sendaction = 'No action specified. Try enabling JavaScript.';
+$html_error_occurred = 'An error occurred';
+$html_prefs_file_error = 'Unable to open preferences file for writing.';
+$html_sig_file_error = 'Unable to open signature file for writing.';
 
 $original_msg = '-- Original Nachricht--';
 $to_empty = 'Das \'An\' Feld darf nicht leer sein !';
+
+// SMTP problems (class_smtp.php)
+$html_smtp_error_no_conn = "Unable to open connection";
+$html_smtp_error_unexpected = "Unexpected response:";
 ?>
