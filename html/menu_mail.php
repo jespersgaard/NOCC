@@ -1,26 +1,26 @@
-<!-- start of $Id: menu_mail.php,v 1.17 2002/03/21 08:58:45 rossigee Exp $ -->
+<!-- start of $Id: menu_mail.php,v 1.18 2002/03/24 17:08:02 wolruf Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
             <table border="0" cellpadding="2" cellspacing="1" bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%">
                 <tr>
                     <td class="menu" align="center" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="<?php echo $PHP_SELF ?>?lang=<?php echo $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>" class="menu"><?php echo $html_inbox ?></a>
+                        <a href="<?php echo $PHP_SELF ?>?lang=<?php echo $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>&amp;folder=<?php echo $folder ?>" class="menu"><?php echo $folder ?></a>
                     </td>
                     <td class="menu" align="center" bgcolor="<?php echo $glob_theme->menu_color ?>">
                         <a href="<?php echo $PHP_SELF ?>?action=write&amp;lang=<?php echo $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>" class="menu"><?php echo $html_new_msg ?></a>
                     </td>
                     <td class="menu" align="center" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="<?php echo $PHP_SELF ?>?action=reply&amp;mail=<?php echo $mail ?>&amp;lang=<?php echo $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>" class="menu"><?php echo $html_reply ?></a>
+                        <a href="<?php echo $PHP_SELF ?>?action=reply&amp;mail=<?php echo $mail ?>&amp;lang=<?php echo $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>&amp;folder=<?php echo $folder ?>" class="menu"><?php echo $html_reply ?></a>
                     </td>
                     <td class="menu" align="center" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="<?php echo $PHP_SELF ?>?action=reply_all&amp;mail=<?php echo $mail ?>&amp;lang=<?php echo $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>" class="menu"><?php echo $html_reply_all ?></a>
+                        <a href="<?php echo $PHP_SELF ?>?action=reply_all&amp;mail=<?php echo $mail ?>&amp;lang=<?php echo $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>&amp;folder=<?php echo $folder ?>" class="menu"><?php echo $html_reply_all ?></a>
                     </td>
                     <td class="menu" align="center" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="<?php echo $PHP_SELF ?>?action=forward&amp;mail=<?php echo $mail ?>&amp;lang=<?php echo $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>" class="menu"><?php echo $html_forward ?></a>
+                        <a href="<?php echo $PHP_SELF ?>?action=forward&amp;mail=<?php echo $mail ?>&amp;lang=<?php echo $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>&amp;folder=<?php echo $folder ?>" class="menu"><?php echo $html_forward ?></a>
                     </td>
                     <td class="menu" align="center" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="delete.php?mail=<?php echo $mail ?>&amp;only_one=1&amp;lang=<?php echo $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>" class="menu"><?php echo $html_delete ?></a>
+                        <a href="delete.php?mail=<?php echo $mail ?>&amp;only_one=1&amp;lang=<?php echo $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>&amp;folder=<?php echo $folder ?>" class="menu"><?php echo $html_delete ?></a>
                     </td>
                     <?php if ($conf->enable_logout) { ?>
                     <td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
@@ -35,4 +35,4 @@
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_mail.php,v 1.17 2002/03/21 08:58:45 rossigee Exp $ -->
+<!-- end of $Id: menu_mail.php,v 1.18 2002/03/24 17:08:02 wolruf Exp $ -->

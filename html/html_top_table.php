@@ -1,12 +1,75 @@
-<!-- start of $Id: html_top_table.php,v 1.46 2002/03/21 08:58:45 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.47 2002/03/24 17:08:02 wolruf Exp $ -->
 <?php
+
+require_once 'class_local.php';
+require_once 'conf.php';
+
 $arrow = ($sortdir == 0) ? 'up' : 'down';
 $new_sortdir = ($sortdir == 0) ? 1 : 0;
+$skip = ($skip) ? $skip : '0';
+
+$pop = new nocc_imap('{' . $servr . '}' . $folder, $user, $passwd, $ev);
+
+
+$pages = $pop->get_page_count($conf);
+
+$page_line = '';
+$pages_lines = array();
+$this_page = '';
+
+if($pages > 1) {	
+	$prev = '';
+	$next = '';
+	for ($i = 0; $i < $pages; $i++) { 
+		$current_skip = $i + 1;
+		if($i == $skip) {
+                	$this_page = $current_skip;
+			array_push($pages_lines, $current_skip);
+		} else {
+			array_push($pages_lines, "<a href=\"$PHP_SELF?sort=$sort&sortdir=$sortdir&lang=$lang&skip=$i&folder=$folder\">$current_skip</a>\n");
+		}
+	}
+
+	$nskip = $skip + 1;
+	$pskip = $skip - 1;
+	if($pskip > -1 ) {
+		$prev = "<a href=\"$PHP_SELF?sort=$sort&sortdir=$sortdir&lang=$lang&skip=$pskip&folder=$folder\">".
+			"<img src=\"themes/".$theme."/img/left_arrow.gif\" border=\"0\" /></a>\n";
+	}
+
+	if($nskip < $pages) {
+		$next = "<a href=\"$PHP_SELF?sort=$sort&sortdir=$sortdir&lang=$lang&skip=$nskip&folder=$folder\">".
+			"<img src=\"themes/".$theme."/img/right_arrow.gif\" border=\"0\" /></a>\n";
+	}
+	$page_line = "<small>$html_page $this_page $html_of $pages &nbsp;  ($prev" . join("&nbsp; \n", $pages_lines) . "$next)</small>";
+}
+
+$list = $pop->get_nice_subscribed();
+
+$lines = array();
+
+$fldr_line = '';
+if(is_array($list) && count($list) > 0) {
+	reset($list);
+
+	for ($i = 0; $i < count($list); $i++) 
+	{
+		$val = $list[$i];
+		if(!preg_match("#^$folder$#",$val)) {
+			array_push($lines, "<a href=\"$PHP_SELF?sort=1&sortdir=1&lang=$lang&skip=$skip&folder=$val\">$val</a>\n");
+		}
+	}
+	$fldr_line = "$html_other_folders:  <small>\n" . join("  |  ", $lines) . "</small>\n<br><br>";
+}
+
+$pop->close();
+
 ?>
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 <tr><td bgcolor="<?php echo $glob_theme->inside_color ?>">
 <form method="post" action="delete.php" name="delete_form">
 <input type="hidden" name="lang" value="<?php echo $lang ?>" />
+<input type="hidden" name="folder" value="<?php echo $folder ?>" />
 
 <table width="100%" cellpadding="2" cellspacing="1" border="0" bgcolor="<?php echo $glob_theme->inside_color ?>">
     <tr bgcolor="<?php echo $glob_theme->tr_color ?>">
@@ -16,6 +79,13 @@ $new_sortdir = ($sortdir == 0) ? 1 : 0;
         <td align="right" class="titlew" colspan="2">
             <?php echo $num_msg ?> <?php if ($num_msg == 1) {echo $html_msg;} else {echo $html_msgs;}?>
         </td>
+    </tr>
+    <tr bgcolor="<?php echo $glob_theme->inbox_text_color ?>">
+	<td colspan="7" align="left">
+		<?php echo $fldr_line ?>
+		<?php echo $page_line ?>
+
+	</td>
     </tr>
     <tr bgcolor="<?php echo $glob_theme->inbox_text_color ?>">
         <td align="center" class="inbox">
@@ -56,4 +126,4 @@ $new_sortdir = ($sortdir == 0) ? 1 : 0;
             <?php echo $html_size ?></a>
         </td>
     </tr>
-<!-- start of $Id: html_top_table.php,v 1.46 2002/03/21 08:58:45 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.47 2002/03/24 17:08:02 wolruf Exp $ -->

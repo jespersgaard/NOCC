@@ -1,11 +1,11 @@
-<!-- start of $Id: menu_prefs.php,v 1.7 2002/03/21 08:58:45 rossigee Exp $ -->
+<!-- start of $Id: menu_prefs.php,v 1.8 2002/03/24 17:08:02 wolruf Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
             <table border="0" cellpadding="2" cellspacing="1" bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%">
                 <tr>
                     <td class="menu" align="center" width="120" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="<?php echo $PHP_SELF ?>?lang=<?php echo $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>" class="menu"><?php echo $html_inbox ?></a>
+                        <a href="<?php echo $PHP_SELF ?>?lang=<?php echo $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>" class="menu"><?php echo $folder ?></a>
                     </td>
                     <td class="menu" align="center" width="120" bgcolor="<?php echo $glob_theme->menu_color ?>">
                         <a href="<? echo $PHP_SELF ?>?action=write&amp;lang=<?php echo $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>" class="menu"><?php echo $html_new_msg ?></a>
@@ -29,4 +29,4 @@
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_prefs.php,v 1.7 2002/03/21 08:58:45 rossigee Exp $ -->
+<!-- end of $Id: menu_prefs.php,v 1.8 2002/03/24 17:08:02 wolruf Exp $ -->

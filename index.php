@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.88 2002/03/24 16:45:25 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.89 2002/03/24 17:00:35 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -72,6 +72,7 @@ function updateTheme()
 </script>
 
             <form action="action.php" method="post" name="nocc_webmail_login" target="_top">
+	    <input type="hidden" name="folder" value="INBOX">
             <table bgcolor="<?php echo $glob_theme->login_border ?>" border="0" cellpadding="1" cellspacing="0" width="428" align="center">
                 <tr> 
                     <td valign="bottom"> 

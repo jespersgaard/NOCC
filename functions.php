@@ -1,9 +1,10 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.142 2002/03/24 17:00:36 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.143 2002/03/25 13:57:05 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
+ * Copyright 2002 Mike Rylander <mrylander@mail.com>
  *
  * See the enclosed file COPYING for license information (GPL).  If you
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
@@ -15,11 +16,23 @@ $attach_tab = Array();
 
 /* ----------------------------------------------------- */
 
-function inbox(&$conf, &$pop, &$sort, &$sortdir, &$lang, &$theme)
+function inbox(&$conf, &$pop, &$sort, &$sortdir, &$lang, &$theme, $skip = 0)
 {
     $num_msg = $pop->num_msg();
+    $per_page = ($conf->msg_per_page) ? $conf->msg_per_page : '25';
+
+    $start_msg = $skip * $conf->msg_per_page;
+    $end_msg = $start_msg + $conf->msg_per_page;
+
     $sorted = $pop->sort($sort, $sortdir);
-    for ($i = 0; $i < $num_msg; $i++)
+
+    $end_msg = ($num_msg > $end_msg) ? $end_msg : $num_msg;
+    if ($start_msg > $num_msg) {
+	$msgs = Array();
+	return ($msgs);
+    }
+
+    for ($i = $start_msg; $i < $end_msg; $i++)
     {
         $subject = $from = '';
         $msgnum = $sorted[$i];

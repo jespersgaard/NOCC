@@ -1,9 +1,10 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.7 2002/03/24 17:00:36 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.8 2002/03/25 15:16:44 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
+ * Copyright 2002 Mike Rylander <mrylander@mail.com>
  *
  * See the enclosed file COPYING for license information (GPL).  If you
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
@@ -86,6 +87,14 @@ class nocc_imap
         return ($check->{'Driver'} == 'imap');
     }
 
+    function utf7_decode($thing) {
+	return imap_utf7_decode($thing);
+    }
+
+    function getsubscribed() {
+	return imap_getsubscribed($this->conn, '{'.$this->server.'}', '*');
+    }
+
     /*
      * These functions are static, but if we could re-implement them without
      * requiring PHP IMAP support, more people can use NOCC.
@@ -105,6 +114,38 @@ class nocc_imap
     function mime_header_decode(&$header) {
         return imap_mime_header_decode($header);
     }
+
+    /*
+     * These are general utility functions that extend the imap interface.
+     */
+	function get_page_count(&$conf) {
+
+	        if (($num_messages = @imap_num_msg($this->conn)) == 0) {
+                	return (0);
+	        }else{
+			$per_page = ($conf->msg_per_page) ? $conf->msg_per_page : '25';
+        	        $pages = ceil($num_messages / $per_page);
+	                return($pages);
+        	}
+	}
+
+	function get_nice_subscribed() {
+
+ 	       $ret = array();
+
+               	$list = $this->getsubscribed();
+               	if (is_array($list)) {
+                       	reset($list);
+                       	while (list($key,$val) = each($list)) {
+                               	list($junk,$name) = split("$servr}", $this->utf7_decode($val->name));
+	                        array_push($ret, $name);
+                        }
+               	} else {
+                       	return ($ret);
+	        }
+
+       	        return ($ret);
+	}
 
     /*
      * Test function

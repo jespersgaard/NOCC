@@ -1,10 +1,10 @@
-<!-- start of $Id: menu_inbox.php,v 1.30 2002/03/21 08:58:45 rossigee Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.31 2002/03/24 17:08:02 wolruf Exp $ -->
 <?php
 $color_inbox = $color = $glob_theme->menu_color;
 if ($action == '') 
 {
     $color_inbox = $glob_theme->menu_color_on; 
-    $line = '<a href="'.$PHP_SELF.'?action=write&amp;lang='.$lang.'&amp;sort='.$sort.'&amp;sortdir='.$sortdir.'" class="menu">'.$html_new_msg.'</a>';
+    $line = '<a href="'.$PHP_SELF.'?action=write&amp;lang='.$lang.'&amp;sort='.$sort.'&amp;sortdir='.$sortdir.'&amp;folder='.$folder.' class="menu">'.$html_new_msg.'</a>';
 }
 else
     $color =  $glob_theme->menu_color_on;
@@ -23,7 +23,7 @@ if ($action == 'forward')
             <table border="0" cellpadding="2" cellspacing="1" bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%">
                 <tr>
                     <td class="menu" align="center" width="120" bgcolor="<?php echo $color_inbox ?>">
-                        <a href="<?php echo $PHP_SELF ?>?lang=<?php echo $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>" class="menu"><?php echo $html_inbox ?></a>
+                        <a href="<?php echo $PHP_SELF ?>?lang=<?php echo $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>&amp;folder=<?php echo $folder ?>" class="menu"><?php echo $folder ?></a>
                     </td>
                     <td class="menu" align="center" width="120" bgcolor="<?php echo $color ?>">
                         <?php echo $line ?>
@@ -33,7 +33,7 @@ if ($action == 'forward')
                     </td>
                     <td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
                         <?php if($conf->prefs_dir) { ?>
-                            <a href="action.php?lang=<?php echo $lang ?>&amp;action=setprefs" class="menu"><?php echo $html_preferences ?></a>
+                            <a href="action.php?lang=<?php echo $lang ?>&amp;action=setprefs&amp;folder=<?php echo $folder ?>" class="menu"><?php echo $html_preferences ?></a>
                         <?php } ?>
                     </td>
                     <?php if ($conf->enable_logout) { ?>
@@ -49,4 +49,4 @@ if ($action == 'forward')
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_inbox.php,v 1.30 2002/03/21 08:58:45 rossigee Exp $ -->
+<!-- end of $Id: menu_inbox.php,v 1.31 2002/03/24 17:08:02 wolruf Exp $ -->
