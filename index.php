@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.96 2002/05/30 14:07:21 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.97 2003/03/03 07:34:53 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -104,14 +104,20 @@ function updateTheme()
                                     <?php
                                     if (count($conf->domains) > 1)
                                     {
-                                        echo '@ <select name="domainnum">';
-                                        $i = 0; 
-                                        while (!empty($conf->domains[$i]->in))
+                                        //Add fill-in domain
+                                        if( isset($conf->typed_domain_login) )
+                                            echo '@ <input type="text" name="fillindomain">';
+                                        else
                                         {
-                                            echo "<option value=\"$i\">".$conf->domains[$i]->domain.'</option>';
-                                            $i++;
+                                            echo '@ <select name="domainnum">';
+                                            $i = 0;
+                                            while (!empty($conf->domains[$i]->in))
+                                            {
+                                                echo "<option value=\"$i\">".$conf->domains[$i]->domain.'</option>';
+                                                $i++;
+                                            }
+                                            echo '</select>';
                                         }
-                                        echo '</select>';
                                     }
                                     else
                                     {

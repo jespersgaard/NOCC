@@ -1,5 +1,6 @@
-NOCC 0.9.6    ??, 2002
+NOCC 0.9.6    ??, 2004
 
+    * Add typed domain names option and login suffix option (Leif Gustafson, patch #975016)
     * Add graphical smilies support (Arnaud Boudou)
     * Add IMAP folder delete (Arnaud Boudou)
     * Correct multiple bugs on IMAP folder management (Arnaud Boudou)

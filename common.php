@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.28 2003/03/03 07:45:08 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.29 2003/12/21 15:40:20 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -84,6 +84,15 @@ $_SESSION['nocc_smtp_port'] = $conf->default_smtp_port;
 if(isset($_SESSION['nocc_user']) && !isset($_SESSION['nocc_login']))
     $_SESSION['nocc_login'] = $_SESSION['nocc_user'];
 
+// Were we provided with a fillindomain to use?
+if ( isset($_REQUEST['fillindomain']) && isset( $conf->typed_domain_login ) )
+{
+    for($count=0; $count < count($conf->domains); $count++) {
+        if($_REQUEST['fillindomain'] == $conf->domains[$count]->domain)
+            $_REQUEST['domainnum']=$count;
+    }
+}
+
 // Were we provided with a domainnum to use
 if (isset($_REQUEST['domainnum']))
 {
@@ -97,6 +106,10 @@ if (isset($_REQUEST['domainnum']))
     // Do we provide the domain with the login?
     if(isset($conf->domains[$domainnum]->login_with_domain))
         $_SESSION['nocc_login'] .= "@" . $_SESSION['nocc_domain'];
+
+    //append suffix to login
+    if(isset($conf->domains[$domainnum]->login_suffix))
+        $_SESSION['nocc_login'] .= $conf->domains[$domainnum]->login_suffix;
 }
 
 // Or did the user provide the details themselves
