@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: nicocha $
-	$Revision: 1.19 $
-	$Date: 2000/10/30 11:55:57 $
+	$Revision: 1.20 $
+	$Date: 2000/11/01 17:16:40 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
 the function get_part is based on a function from matt@bonneau.net
@@ -15,7 +15,7 @@ the function get_part is based on a function from matt@bonneau.net
 
 
 $attach_tab = Array();
-$body = "";
+$glob_body = "";
 
 /* ----------------------------------------------------- */
 
@@ -109,7 +109,7 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 	require ("conf.php");
 	require ("check_lang.php");
 	GLOBAL $attach_tab;
-	GLOBAL $body;
+	GLOBAL $glob_body;
 	GLOBAL $PHP_SELF;
 
 	$current_date = date("D, d M");
@@ -120,19 +120,19 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 
 	if (sizeof($struct_msg->parts) > 0)
 	{
-			$body = "";
+			$glob_body = "";
 			GetPart($struct_msg, "", $read, $display_rfc822);
 	}
 	else
-		$body = @imap_body($pop, $mail);
+		$glob_body = @imap_body($pop, $mail);
 	if ($verbose == 1 && $use_verbose == 1)
 		$header = htmlspecialchars(imap_fetchheader($pop, $mail));
 	else
 		$header = "";
-	if ($body != "")
+	if ($glob_body != "")
 	{
-		$body = stripcslashes(htmlspecialchars($body));
-		$body = remove_stuff($body, $lang, "");
+		$glob_body = stripcslashes(htmlspecialchars($glob_body));
+		$glob_body = remove_stuff($glob_body, $lang, "");
 	}
 	else
 	{
@@ -140,10 +140,10 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 		if (eregi("text/html", $tmp["mime"]) || eregi("text/plain", $tmp["mime"]))
 		{	
 			if (eregi("QUOTED-PRINTABLE", $tmp["transfer"]))
-				$body = imap_qprint(imap_fetchbody($pop, $mail, $tmp["number"]));
+				$glob_body = imap_qprint(imap_fetchbody($pop, $mail, $tmp["number"]));
 			else
-				$body = imap_fetchbody($pop, $mail, $tmp["number"]);
-			$body = remove_stuff($body, $lang, $tmp["mime"]);			
+				$glob_body = imap_fetchbody($pop, $mail, $tmp["number"]);
+			$glob_body = remove_stuff($glob_body, $lang, $tmp["mime"]);			
 		}
 	}
 	@imap_close($pop);
@@ -169,7 +169,7 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 				"subject" => htmlspecialchars($subject[0]->text),
 				"date" => change_date(chop($ref_contenu_message->date), $lang),
 				"att" => $link_att,
-				"body" => $body,
+				"body" => $glob_body,
 				"header" => $header,
 				"verbose" => $verbose);
 	
