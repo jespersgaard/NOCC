@@ -1,7 +1,9 @@
 NOCC 0.9.7    ?? ??, 2004
 
+    * Force 'MIME-Version: 1.0' header for all outgoing mails. (Arnaud Boudou,
+      bug #1090264)
     * Fix issue with Javascript and non ASCII language file. (Arnaud Boudou,
-      bug #1089729).
+      bug #1089729)
     * Add configuration for IMAP Namespace. (Arnaud Boudou)
     * Add configuration for line feed behavior, could be useful with some
       MTA. (Arnaud Boudou)

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.61 2004/10/21 11:27:36 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.62 2004/11/08 16:22:52 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -165,7 +165,7 @@ class mime_mail
         else
         {
             $this->add_attachment($this->body,  '',  'text/plain', '8bit', $this->charset);
-            $mime .= $this->build_body();
+            $mime .= 'MIME-Version: 1.0' . $this->crlf . $this->build_body();
         }
         // Whether or not to use SMTP or sendmail
         // depends on the config file (conf.php)
