@@ -1,5 +1,6 @@
 NOCC 0.9.1	November ??, 2000
 
+	* Added PHP and IMAP lib version initial checking
 	* Fixed language problem with Amaya
 	* Added German translation (thanks to David Ferch)
 	* messages are now wrapped to 80 cols when in text/plain
