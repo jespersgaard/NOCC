@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: nicocha $
-	$Revision: 1.28 $
-	$Date: 2000/11/06 20:38:03 $
+	$Revision: 1.29 $
+	$Date: 2000/11/07 16:35:51 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
 the function get_part is based on a function from matt@bonneau.net
@@ -23,7 +23,7 @@ function inbox($servr, $user, $passwd, $sort, $sortdir, $lang)
 {
 	$mailhost = $servr;
 	require("conf.php");
-	$pop = imap_open("{".$mailhost."}INBOX", $user, $passwd);
+	$pop = @imap_open("{".$mailhost."}INBOX", $user, $passwd);
 	if ($pop == false)
 		return (-1);
 	else
