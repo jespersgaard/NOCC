@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.158 2004/10/15 08:30:52 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.159 2004/10/21 11:27:36 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -477,6 +477,8 @@ switch($action)
                 $pop->subscribe($conf->sent_folder, $ev, true);
                 //if(NoccException::isException($ev)) {}
             }
+            // Subscribe to INBOX, usefull if it's not already done.
+            $pop->subscribe($pop->folder, $ev, false);
         }
 
         // We may need to apply some filters to the INBOX...  this is still a work in progress.
