@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.71 2001/10/31 09:35:39 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.72 2001/10/31 11:06:02 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -15,6 +15,9 @@ require_once ('./conf.php');
 require_once ('./check_lang.php');
 require_once ('./functions.php');
 require_once ('./prefs.php');
+
+$user = stripslashes($user);
+
 if(isset($user)) {
 	checkForPrefs($prefs_dir, $user);
 }
