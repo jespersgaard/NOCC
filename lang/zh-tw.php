@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-tw.php,v 1.2 2001/03/12 18:17:05 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-tw.php,v 1.3 2001/03/18 15:40:39 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,7 +12,7 @@
  * Translation by Cary Leung <cary@cary.net>
  */
 
-$charset = "big5";
+$charset = "Big5";
 
 // Configuration for the days and months
 
