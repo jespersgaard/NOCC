@@ -14,6 +14,7 @@ This file contains the following sections:
 	* Requirements for NOCC
 	* Installing NOCC
 	* Additional notes for NOCC
+	  - History
 
 Overview of Nocc
 ****************
@@ -46,6 +47,7 @@ Overview of Nocc
   ----------------------------------------------------
 
    We welcome bug reports or suggestions for Nocc (both program or documentation). Please email them to <nocc-discuss@lists.sourceforge.net>.
+
    You can also use the Web-based bug tracker from SourceForge available at 'http://sourceforge.net/bugs/?group_id=12177'.
 
 Requirements
@@ -70,7 +72,8 @@ Requirements
   ------------
 
    * PHP needs to be compiled with IMAP support. (--with-imap at the configure
-     stage)
+     stage).
+     You'll find information on IMAP support for PHP at 'http://www.php.net/manual/ref.imap.php'.
 
 Installing NOCC
 ***************
@@ -138,25 +141,25 @@ Additional notes
   Brief history
   -------------
 
-NOCC started as Epimail, a Webmail for our school as a free project.
-The first version was written in Perl because it was powerful, object features, adapted to the Web and available in our school. It also didn't require any superuser privileges.
+   NOCC started as Epimail, a Webmail for our school as a free project.
+   The first version was written in Perl because it was powerful, object features, adapted to the Web and available in our school. It also didn't require any superuser privileges.
 
-Webmail clients we found either required database support, superuser privileges or an IMAP server. We had neither of these and we wanted to have something quite simple to access a POP server and an SMTP server.
+   Webmail clients we found either required database support, superuser privileges or an IMAP server. We had neither of these and we wanted to have something quite simple to access a POP server and an SMTP server.
 
-The Perl version was nice and is now released for your pleasure in GPL (some people already actually committed patches) but it won't work out-of-the-box, we don't have time to write doc neither maintain it anymore).
+   The Perl version was nice and is now released for your pleasure in GPL (some people already actually committed patches) but it won't work out-of-the-box, we don't have time to write doc neither maintain it anymore).
 
-We started working on Epimail in May 1999 and had it working in July 1999, it's been working for more than 1 year with approx. 150 unique users per day.
+   We started working on Epimail in May 1999 and had it working in July 1999, it's been working for more than 1 year with approx. 150 unique users per day.
 The projects has also been used by two companies through some friends who came to know it.
 
-The problem was that it was our first big software written in Perl, and we didn't write it very well, mixing code and HTML, so it was hardly maintainable.
+   The problem was that it was our first big software written in Perl, and we didn't write it very well, mixing code and HTML, so it was hardly maintainable.
 Meanwhile, I discovered PHP and started rewritting it with PHP but lacked SMTP support so sendmail was required. Then submitted my work to Nicolas Chalanset who made a working version by adding proper session feature, etc. and actually used it for a company.
 
-We decided to make a maintainable and public version under GPL so that it can be simple to setup, have POP and SMTP features, MIME decoding, etc. features.
+   We decided to make a maintainable and public version under GPL so that it can be simple to setup, have POP and SMTP features, MIME decoding, etc. features.
 
 
 ----------------------------------------------------------------------
 We hope you find NOCC useful and easy to use.  We thank you for taking
-the time to try it and if you ever have any questions, just post to
+the time to try it and if you ever have any questions, just drop a note on
 <nocc-discuss@lists.sourceforge.net>
 
 Enjoy,
