@@ -1,15 +1,18 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.37 2004/06/24 17:32:50 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.38 2004/06/28 15:28:04 goddess_skuld Exp $ 
  *
- * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
- * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
+ * Copyright 2000 Nicolas Chalanset <nicocha AT free DOT fr>
+ * Copyright 2000 Olivier Cahagne <wolruf AT free DOT fr>
  *
  * See the enclosed file COPYING for license information (GPL).  If you
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
  * Configuration file for the german language
- * Translation by David Ferch <dferch@tk-online.net>
+ * Translation by
+ * 	David Ferch <dferch AT tk-online DOT net>
+ *	Benjamin Bräuer <ben1 AT gmx DOT de>
+ *	Alexander Schremmer <alex AT alexanderweb DOT de>
  */
 
 $charset = 'ISO-8859-1';
@@ -72,9 +75,9 @@ $html_retry = 'Nochmal';
 
 $html_msgperpage = 'Nachrichten pro Seite';
 $html_preferences = 'Einstellungen';
-$html_full_name = 'Voller Name';
-$html_email_address = 'E-mail Addresse';
-$html_ccself = 'Cc self';
+$html_full_name = 'Vollst&auml;ndiger Name';
+$html_email_address = 'E-Mail Adresse';
+$html_ccself = 'Kopie der gesendeten Nachrichten an die eigene Adresse schicken';
 $html_hide_addresses = 'Adressen verstecken';
 $html_outlook_quoting = 'Quoting im Outlook-Stil';
 $html_reply_to = 'Antwort an';
@@ -82,50 +85,50 @@ $html_use_signature = 'Signatur benutzen';
 $html_signature = 'Signatur';
 $html_reply_leadin = 'Reply Leadin';
 $html_prefs_updated = 'Einstellungen gespeichert';
-$html_manage_folders_link = 'Manage IMAP Folders';  //to translate
-$html_manage_filters_link = 'Manage Email Filters';  //to translate
-$html_use_graphical_smilies = 'Use graphical smilies'; //to translate
+$html_manage_folders_link = 'IMAP Ordner verwalten';
+$html_manage_filters_link = 'E-Mail Filter verwalten';
+$html_use_graphical_smilies = 'Benutze graphische Emoticons';
 
 // folders.php
-$html_folders_create_failed = 'Folder could not be created!';  //to translate
-$html_folders_sub_failed = 'Could not subscribed to folder!';  //to translate
-$html_folders_unsub_failed = 'Could not unsubscribed from folder!';  //to translate
-$html_folders_rename_failed = 'Folder could not be renamed!';  //to translate
-$html_folders_updated = 'Folders updated';  //to translate
-$html_folder_subscribe = 'Subscribe to';  //to translate
-$html_folder_rename = 'Rename';  //to translate
-$html_folder_create = 'Create new folder called';  //to translate
-$html_folder_remove = 'Unsubscribe from';  //to translate
-$html_folder_delete = 'Delete';  //to translate
+$html_folders_create_failed = 'Der Ordner konnte nicht angelegt werden!';
+$html_folders_sub_failed = 'Der Ordner konnte nicht abonniert werden!';
+$html_folders_unsub_failed = 'Der Ordner konnte nicht abbestellt werden!';
+$html_folders_rename_failed = 'Der Ordner konnte nicht umbenannt werden!';
+$html_folders_updated = 'Die Ordner wurden aktualisiert';
+$html_folder_subscribe = 'Abonniere';
+$html_folder_rename = 'Umbenennen:';
+$html_folder_create = 'Erstelle neuen Ordner';
+$html_folder_remove = 'Abbestellen:';
+$html_folder_delete = 'L&ouml;sche';
 
 // filters.php
-$html_filter_remove = 'Delete';  //to translate
-$html_filter_body = 'Message Body';  //to translate
-$html_filter_subject = 'Message Subject';  //to translate
-$html_filter_to = 'To Field';  //to translate
-$html_filter_cc = 'Cc Field';  //to translate
-$html_filter_from = 'From Field';  //to translate
-$html_filter_change_tip = 'To change a filter simply overwrite it.';  //to translate
-$html_reapply_filters = 'Reapply all filters';  //to translate
-$html_filter_contains = 'contains';  //to translate
-$html_filter_name = 'Filter Name';  //to translate
-$html_filter_action = 'Filter Action';  //to translate
-$html_filter_moveto = 'Move to';  //to translate
+$html_filter_remove = 'L&ouml;schen';
+$html_filter_body = 'Body';
+$html_filter_subject = 'Betreff';
+$html_filter_to = 'Empf&auml;ngerfeld (To)';
+$html_filter_cc = 'Cc-Feld';
+$html_filter_from = 'Absenderfeld (From)';
+$html_filter_change_tip = 'Um einen Filter zu &auml;ndern, k&ouml;nnen Sie diesen einfach &uuml;berschreiben.';
+$html_reapply_filters = 'Alle Filter erneut anwenden';
+$html_filter_contains = 'enth&auml;lt';
+$html_filter_name = 'Filter Name';
+$html_filter_action = 'Filter Aktion';
+$html_filter_moveto = 'Verschiebe nach';
 
 // Other pages
-$html_select_one = '--Select One--';  //to translate
-$html_and = 'And';  //to translate
-$html_new_msg_in = 'New messages in';  //to translate
-$html_or = 'or';  //to translate
-$html_move = 'Move';  //to translate
-$html_copy = 'Copy';  //to translate
-$html_messages_to = 'selected messages to';  //to translate
-$html_gotopage = 'Go to Page';  //to translate
-$html_gotofolder = 'Go to Folder';  //to translate
-$html_other_folders = 'Folder List';  //to translate
-$html_page = 'Page';  //to translate
-$html_of = 'of';  //to translate
-$html_to = 'to';  //to translate
+$html_select_one = '--Ausw&auml;hlen--';
+$html_and = 'Und';
+$html_new_msg_in = 'Neue Nachrichten in';
+$html_or = 'oder';
+$html_move = 'Verschiebe';
+$html_copy = 'Kopiere';
+$html_messages_to = 'die markierten Nachrichten nach';
+$html_gotopage = 'Gehe zu Seite';
+$html_gotofolder = 'Gehe zu Ordner';
+$html_other_folders = 'Ordner Liste';
+$html_page = 'Seite';
+$html_of = 'von';
+$html_to = 'to';  // damn, this is used in two completly different places/meanings
 $html_view_header = 'Header anzeigen';
 $html_remove_header = 'Header verbergen';
 $html_inbox = 'Inbox';
@@ -172,37 +175,37 @@ $html_normal = 'Normal';
 $html_high = 'Hoch';
 $html_receipt = 'Lesebest&auml;tigung anfordern';
 $html_select = 'Auswahl';
-$html_select_all = 'Invert Selection';  //to translate
+$html_select_all = 'Invertiere Auswahl';
 $html_loading_image = 'Lade Bild';
 $html_send_confirmed = 'Ihre Mail wurde verschickt.';
 $html_no_sendaction = 'Keine Aktion angegeben. Versuchen Sie es mit eingeschaltetem JavaScript.';
 $html_error_occurred = 'Ein Fehler ist aufgetreten';
 $html_prefs_file_error = 'Kann Ihre Einstellungen-Datei nicht zum Schreiben &ouml;ffnen.';
-$html_wrap = 'Wrap outgoing messages to :';  //to translate
-$html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
-$html_mark_as = 'Mark as'; //to translate
-$html_read = 'read'; //to translate
-$html_unread = 'unread'; //to translate
+$html_wrap = 'Umbrechen der ausgehenden Nachrichten nach x Zeichen:';
+$html_usenet_separator = 'Usenet-Signaturtrenner ("-- \n") benutzen';
+$html_mark_as = 'Markiere als';
+$html_read = 'gelesen';
+$html_unread = 'ungelesen';
 
 // Contacts manager
-$html_add = 'Add';  //to translate
-$html_contacts = 'Contacts';  //to translate
-$html_modify = 'Modify';  //to translate
-$html_back = 'Back';  //to translate
-$html_contact_add = 'Add new contact';  //to translate
-$html_contact_mod = 'Modify a contact';  //to translate
-$html_contact_first = 'First name';  //to translate
-$html_contact_last = 'Last Name';  //to translate
-$html_contact_nick = 'Nick';  //to translate
-$html_contact_mail = 'Mail';  //to translate
-$html_contact_list = 'Contact list of ';  //to translate
-$html_contact_del = 'from the contact list';  //to translate
+$html_add = 'Hinzuf&uuml;gen';
+$html_contacts = 'Kontakte';
+$html_modify = '&Auml;ndere';
+$html_back = 'Zur&uuml;ck';
+$html_contact_add = 'F&uuml;ge neuen Kontakt hinzu';
+$html_contact_mod = '&Auml;ndere einen Kontakt';
+$html_contact_first = 'Vorname';
+$html_contact_last = 'Nachname';
+$html_contact_nick = 'Spitzname';
+$html_contact_mail = 'E-Mail-Adresse';
+$html_contact_list = 'Kontaktliste von ';
+$html_contact_del = 'von der Kontaktliste';
 
-$html_contact_err1 = 'Maximal number of contact is ';  //to translate
-$html_contact_err2 = 'You can\'t add a new contact';  //to translate
-$html_contact_err3 = 'You don\'t have access rights to contact list'; //to translate
-$html_del_msg = 'Delete selected messages ?';  //to translate
-$html_down_mail = 'Download';  //to translate
+$html_contact_err1 = 'Die Maximalanzahl der Kontakte ist ';
+$html_contact_err2 = 'Sie k&ouml;nnen keinen neuen Kontakt hinzuf&uuml;gen';
+$html_contact_err3 = 'Sie haben keine Rechte, um auf die Kontaktliste zuzugreifen';
+$html_del_msg = 'Sollen die markierten Nachrichten gel&ouml;scht werden?';
+$html_down_mail = 'Download';
 
 $original_msg = '-- Original Nachricht--';
 $to_empty = 'Das \'An\' Feld darf nicht leer sein !';
@@ -212,14 +215,14 @@ $html_smtp_error_no_conn = 'Konnte Verbindung nicht &ouml;ffnen';
 $html_smtp_error_unexpected = 'Unerwartete Antwort:';
 
 // IMAP messages (class_local.php)
-$lang_could_not_connect = 'Verbindung zum Server fehlgeschlagen'; //translated by Benjamin Bräuer - ben1@gmx.de
+$lang_could_not_connect = 'Verbindung zum Server fehlgeschlagen';
 
-$html_file_upload_attack = 'Possible file upload attack';  //to translate - May be 'M&ouml;gliche Attacke durch hochgelandene Datei'; but it sounds terrible. leave it in english
-$html_invalid_email_address = 'Ung&uuml;ltige E-mail Addresse'; //translated by Benjamin Bräuer - ben1@gmx.de
-$html_invalid_msg_per_page = 'Invalid number of messages per page';  //to translate
-$html_invalid_wrap_msg = 'Invalid message wrap width';  //to translate
-$html_seperate_msg_win = 'Nachricht in extra Fenster &ouml;ffnen'; //translated by Benjamin Bräuer - ben1@gmx.de
+$html_file_upload_attack = 'Die hochgeladene Datei konnte nicht gefunden werden.';
+$html_invalid_email_address = 'Ung&uuml;ltige E-mail Addresse';
+$html_invalid_msg_per_page = 'Ung&uuml;tige Anzahl von Nachrichten pro Seite.';
+$html_invalid_wrap_msg = 'Ung&uuml;tiger Nachrichtenumbruch';
+$html_seperate_msg_win = 'Nachricht in neuem Fenster &ouml;ffnen';
 
 // Exceptions
-$html_err_file_contacts = 'Unable to open contacts file for writing.'; //to translate
+$html_err_file_contacts = 'Kann die Kontaktdatei nicht zum Schreiben &ouml;ffnen.';
 ?>
