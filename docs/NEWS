@@ -1,5 +1,6 @@
 NOCC 0.9.4	??   ??, 2001
 
+	* Fixed a problem with the protocol when connecting to an imap server.
 	* Fixed a security issue which allowed people to send critical system
 	  files (attachments array is now kept in session data and several
 	  checks are performed).
