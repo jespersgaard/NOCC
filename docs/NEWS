@@ -1,5 +1,6 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Removed restriction on the size of left/right arrow images.
 	* Added start/end identifier comments to html templates.
 	* Fixed several potential 'uninitialised variable' warnings
 	* Fixed order of session headers
