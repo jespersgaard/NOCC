@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.76 2001/11/04 23:32:35 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.77 2001/11/07 18:51:51 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -18,9 +18,6 @@ require_once ('./prefs.php');
 
 $user = stripslashes($user);
 
-if(isset($user)) {
-	checkForPrefs($prefs_dir, $user);
-}
 if (!session_is_registered('loggedin'))
 	$action = '';
 require_once ('./html/header.php');
@@ -159,34 +156,74 @@ switch (trim($action))
 	case 'setprefs':
 		if(isset($submit_prefs))
 		{
+			$lastev = '';
+
 			// Full name
-			if (isset($full_name))
-				setPref('full_name', $full_name);
+			if (!$lastev && isset($full_name)) {
+				$ev = setPref('full_name', $full_name);
+				if(Exception::isException($ev))
+					$lastev = $ev;
+			}
 
 			// Email address
-			if (isset($email_address))
-				setPref('email_address', $email_address);
+			if (!$lastev && isset($email_address)) {
+				$ev = setPref('email_address', $email_address);
+				if(Exception::isException($ev))
+					$lastev = $ev;
+			}
 
 			// CC Self
-			if (isset($cc_self) && $cc_self == 'on')
-				setPref('cc_self', $cc_self);
-			else
-				setPref('cc_self', '');
+			if (!$lastev)
+				if(isset($cc_self) && $cc_self == 'on') {
+					$ev = setPref('cc_self', $cc_self);
+					if(Exception::isException($ev))
+						$lastev = $ev;
+				}
+				else {
+					$ev = setPref('cc_self', '');
+					if(Exception::isException($ev))
+						$lastev = $ev;
+				}
 
 			// Hide Addresses
-			if (isset($hide_addresses) && $hide_addresses == 'on')
-				setPref('hide_addresses', $hide_addresses);
-			else
-				setPref('hide_addresses', '');
+			if (!$lastev)
+				if(isset($hide_addresses) && $hide_addresses == 'on') {
+					$ev = setPref('hide_addresses', $hide_addresses);
+					if(Exception::isException($ev))
+						$lastev = $ev;
+				}
+				else {
+					$ev = setPref('hide_addresses', '');
+					if(Exception::isException($ev))
+						$lastev = $ev;
+				}
 
 			// Outlook-style quoting
-			if (isset($outlook_quoting) && $outlook_quoting == 'on')
-				setPref('outlook_quoting', $outlook_quoting);
-			else
-				setPref('outlook_quoting', '');
+			if (!$lastev)
+				if(isset($outlook_quoting) && $outlook_quoting == 'on') {
+					$ev = setPref('outlook_quoting', $outlook_quoting);
+					if(Exception::isException($ev))
+						$lastev = $ev;
+				}
+				else {
+					$ev = setPref('outlook_quoting', '');
+					if(Exception::isException($ev))
+						$lastev = $ev;
+				}
 
-			if ($signature != "")
-				setSig($signature);
+			if (!$lastev && $signature != "") {
+				$ev = setSig($signature);
+				if(Exception::isException($ev))
+					$lastev = $ev;
+			}
+
+			// Handle an errors that occurred
+			if (Exception::isException($lastev)) {
+				$ev = $lastev;
+				require ('./html/prefs_error.php');
+				break;
+			}
+
 		}
 		$full_name = getPref('full_name');
 		$email_address = getPref('email_address');

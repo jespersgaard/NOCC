@@ -1,5 +1,8 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Prevented preferences from creating prefs/sig until user is
+	  properly logged in.
+	* Added error handling for prefs/sig file writing errors
 	* Fixed cut_addresses to handle addresses with quoted commas.
 	* Fixed various XHTML incompliances.
 	* Added the srpski jezik language.

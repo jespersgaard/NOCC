@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.8 2001/10/23 15:40:16 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.9 2001/10/25 12:45:30 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -8,6 +8,8 @@
  * See the enclosed file COPYING for license information (GPL).  If you
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
+
+require_once ('exception.php');
 
 if (!session_is_registered('prefs_are_cached'))
 {
@@ -25,7 +27,6 @@ function cachePrefValues($data_dir, $username)
 		return;
 	
 	$filename = $data_dir . $username . '.pref';
-	   
 	if (file_exists($filename))
 	{
 		$file = fopen($filename, 'r');
@@ -78,13 +79,16 @@ function getPref($string)
 function savePrefValues($data_dir, $username)
 {
 	global $prefs_cache;
-	  
+	global $html_prefs_file_error;
+
 	$filename = $data_dir . $username . '.pref';
+	if(file_exists($filename) && !is_writable($filename)) {
+		return new Exception($html_prefs_file_error);
+	}
 	$file = fopen($filename, 'w');
 	if(!$file)
 	{
-		error_log("Could not open $filename for writing.");
-		return;
+		return new Exception($html_prefs_file_error);
 	}
 	foreach ($prefs_cache as $Key => $Value)
 	{
@@ -104,9 +108,10 @@ function removePref($data_dir, $username, $string)
 	if (isset($prefs_cache[$string]))
 		unset($prefs_cache[$string]);
 		  
-	savePrefValues($data_dir, $username);
+	return savePrefValues($data_dir, $username);
 }
    
+
 /** sets the pref, $string, to $set_to **/
 function setPref($string, $set_to)
 {
@@ -122,52 +127,24 @@ function setPref($string, $set_to)
 		return;
 	}
 	$prefs_cache[$string] = $set_to;
-	savePrefValues($prefs_dir, $username);
+	return savePrefValues($prefs_dir, $username);
 }
-
-
-/** This checks if there is a pref file, if there isn't, it will create it. **/
-function checkForPrefs($data_dir, $username)
-{
-	$default_pref = $data_dir . 'default_pref';
-	$filename = $data_dir . $username . '.pref';
-	if (file_exists($filename))
-		return;
-
-	// If preferences file doesn't exist, create it
-	if (file_exists($default_pref))
-	{
-		if (copy($default_pref, $filename))
-			error_log("Copied default_pref to $filename");
-		else
-			error_log("Failed to copy default_pref to $filename");
-		return;
-	}
-
-	// Default preferences doesn't exist, create empty user preferences
-	$file = fopen($filename, 'w');
-	if($file)
-	{
-		fclose($file);
-		error_log("Created empty $filename.");
-	}
-	else
-		error_log("Could not open $filename for writing.");
-}
-
 
 /** Writes the Signature **/
 function setSig($string)
 {
 	global $prefs_dir, $user, $domain;
+	global $html_sig_file_error;
 
 	$username = $user . '@' . $domain;
 	$filename = $prefs_dir . $username . '.sig';
+	if(file_exists($filename) && !is_writable($filename)) {
+		return new Exception($html_sig_file_error);
+	}
 	$file = fopen($filename, 'w');
 	if(!$file)
 	{
-		error_log("Could not open $file for writing.");
-		return;
+		return new Exception($html_sig_file_error);
 	}
 	fwrite($file, $string);
 	fclose($file);
