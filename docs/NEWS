@@ -1,5 +1,7 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Removed nowrap table attributes, as they cause problems for
+	  800x600 users.
 	* New paperclip icon to indicate attachments.
 	* If user is logged in using HTTP auth, default username on
 	  login page.
