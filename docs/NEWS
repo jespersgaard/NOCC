@@ -1,5 +1,6 @@
 NOCC 0.9.6	??
 
+	* Fixed a wrong url for prefs after sending a message (bug #493072)
 	* Configuration parameters are now in an array ($conf).
 	* Speed up a bit by using ' instead of " for strings.
 	* Added Croatian translation.

@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox.php,v 1.25 2001/11/17 15:33:32 rossigee Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.26 2001/12/13 10:39:09 nicocha Exp $ -->
 <?php
 $color_inbox = $color = $glob_theme->menu_color;
 if ($action == '') 
@@ -33,7 +33,7 @@ if ($action == 'forward')
 					</td>
 					<td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
 						<?php if($conf->prefs_dir) { ?>
-							<a href="<?php echo $PHP_SELF ?>?lang=<?php echo $lang ?>&amp;action=setprefs" class="menu"><?php echo $html_preferences ?></a>
+							<a href="action.php?lang=<?php echo $lang ?>&amp;action=setprefs" class="menu"><?php echo $html_preferences ?></a>
 						<?php } ?>
 					</td>
 					<?php if ($conf->enable_logout) { ?>
@@ -49,4 +49,4 @@ if ($action == 'forward')
 		</td>
 	</tr>
 </table>
-<!-- end of $Id: menu_inbox.php,v 1.25 2001/11/17 15:33:32 rossigee Exp $ -->
+<!-- end of $Id: menu_inbox.php,v 1.26 2001/12/13 10:39:09 nicocha Exp $ -->
