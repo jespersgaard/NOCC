@@ -2,20 +2,24 @@ NOCC 0.9 (?? November 2000)
 
  - 
 
-NOCC 0.8 (never released)
+NOCC 0.8 (October 2000, never released)
 
-NOCC 0.7 (never released)
+ - Moved to sourceforge.
+
+NOCC 0.7 (November 1999, never released)
 
  - First PHP version.
  - Rewritten from scrath.
  - Changed name from Epimail to NOCC.
 
-Epimail 0.6a (never released because of lack of documentation)
+Epimail 0.6a (September 2000, never released because of lack of documentation)
 
  - HTML clean-up.
  - Apop (MD5) desactivated.
  - bugfixes.
 
-Epimail 0.6 (never released)
+Epimail 0.6 (November 1999, never released)
 
- -  
+ - MIME decoding for headers and file attachments. Thanks to Anthony Pinagot.
+
+Epimail 0.5 ( 
