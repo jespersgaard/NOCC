@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.85 2001/12/13 10:40:22 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.86 2001/12/19 22:46:43 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -48,7 +48,8 @@ $conf->domains[0]->domain = '';
 $conf->domains[0]->in = '';
 $conf->domains[0]->smtp = '';
 $conf->domains[0]->smtp_port = 25;
-
+// Uncomment for 'user@domain.com' style logins
+//$conf->domains[0]->login_with_domain = 1;
 // If you want to add more domainis, uncomment the following
 // lines and fill them in
 
@@ -167,12 +168,19 @@ $conf->nocc_name = 'NOCC';
 
 session_register('domainnum', 'user', 'passwd', 'server', 'servtype', 'port', 'theme');
 
+// Default login to just the username
+$login = $user;
+
 if (isset($domainnum))
 {
-    $domain	= $conf->domains[$domainnum]->domain;
-    $servr = $conf->domains[$domainnum]->in;
-    $smtp_server = $conf->domains[$domainnum]->smtp;
+	$domain = $conf->domains[$domainnum]->domain;
+	$servr = $conf->domains[$domainnum]->in;
+	$smtp_server = $conf->domains[$domainnum]->smtp;
 	$smtp_port = $conf->domains[$domainnum]->smtp_port;
+
+	// Do we provide the domain with the login?
+	$if(isset(conf->domains[$domainnum]->login_with_domain))
+		$login .= "@" . $domain;
 }
 
 if (empty($smtp_server))
@@ -181,12 +189,12 @@ if (empty($smtp_port))
 	$smtp_port = $conf->default_smtp_port;
 if (empty($servr) && !empty($server) && !empty($servtype) && !empty($port))
 {
-		$servtype = strtolower($servtype);
-		if ($servtype != 'imap')
-			$servr = $server.'/'.$servtype.':'.$port;
-		else
-			$servr = $server.':'.$port;
-		$domain = $server;
+	$servtype = strtolower($servtype);
+	if ($servtype != 'imap')
+		$servr = $server.'/'.$servtype.':'.$port;
+	else
+		$servr = $server.':'.$port;
+	$domain = $server;
 }
 
 if (!isset($folder))
