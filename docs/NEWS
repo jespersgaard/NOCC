@@ -9,7 +9,7 @@ NOCC 0.9.3	?? ??, 2001
 	* Added support for themes.
 	* Added navigation between messages.
 	* If sender is empty, NOCC displays '[unknown]'.
-	* Added Russian, Slovenian, Swedish and Danish translations.
+	* Added Russian, Slovenian, Swedish, Danish, Polish and Taiwan Chinese translations.
 	* Fix for flawed PHP install bundled with RedHat 7 (RH bug #24933).
 	* Images with transparency are now in GIF. Fixes Netscape problems
 	  with transparent PNG.
