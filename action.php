@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.120 2002/04/24 21:58:06 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.121 2002/04/24 23:32:24 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -436,8 +436,11 @@ switch($action)
 
         // Fetch message list
         $tab_mail = 0;
+        $skip = 0;
+        if(isset($_REQUEST['skip']))
+                $skip = $_REQUEST['skip'];
         if ($pop->num_msg() > 0)
-            $tab_mail = inbox($pop, $_REQUEST['skip']);
+            $tab_mail = inbox($pop, $skip);
 
         switch ($tab_mail)
         {

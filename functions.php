@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.156 2002/04/24 19:58:01 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.157 2002/04/24 23:00:54 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -113,6 +113,7 @@ function aff_mail(&$attach_tab, &$mail, $verbose, &$ev)
     global $conf;
     global $lang_locale;
     global $no_locale_date_format;
+    global $html_att, $html_atts;
 
     $mailhost = $_SESSION['servr'];
     $folder = $_SESSION['folder'];

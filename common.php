@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.10 2002/04/24 23:01:16 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.11 2002/04/29 09:06:55 rossigee Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -52,30 +52,30 @@ if(isset($_REQUEST['sortdir']))
     $_SESSION['sortdir'] = safestrip($_REQUEST['sortdir']);
 
 // Need to wait on the language before checking it
-if (!isset($_SESSION['lang']))
-{
-    $ar_lang = explode(',', $HTTP_ACCEPT_LANGUAGE);
-    while ($accept_lang = array_shift($ar_lang))
-    {
-        $tmp = explode(';', $accept_lang);
-        $tmp[0] = strtolower($tmp[0]);
-        if (file_exists('./lang/' . $tmp[0] . '.php'))
-        {
-            $_SESSION['lang'] = $tmp[0];
-            break;
-        }
-    }
-    if (empty($_SESSION['lang']))
-        $_SESSION['lang'] = $conf->default_lang;
-}
-require ('./lang/' . $_SESSION['lang'] . '.php');
-
-// Unpack session variables into global namespace. This shouldn't be long-term, as I'm
-// trying to clear up use of the global namespace.
-if(isset($_SESSION['theme']))
-    $theme = $_SESSION['theme'];
+$lang = $conf->default_lang;
 if(isset($_SESSION['lang']))
     $lang = $_SESSION['lang'];
+else {
+    if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+        $ar_lang = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
+        while ($accept_lang = array_shift($ar_lang))
+        {
+            $tmp = explode(';', $accept_lang);
+            $tmp[0] = strtolower($tmp[0]);
+            if (file_exists('./lang/' . $tmp[0] . '.php'))
+            {
+                $lang = $tmp[0];
+                break;
+            }
+        }
+    }
+    $_SESSION['lang'] = $lang;
+}
+
+// Import language translation variables
+require ('./lang/'. $lang.'.php');
+
+// What theme should we use?
 
 // Start with default smtp server/port, override later
 $_SESSION['smtp_server'] = $conf->default_smtp_server;
@@ -112,7 +112,9 @@ if (isset($_REQUEST['server'])) {
 }
 
 // If we are forced to use a particular theme...
-if (!$conf->use_theme || empty($theme))
+if(isset($_SESSION['theme']))
+    $theme = $_SESSION['theme'];
+if(!$conf->use_theme || empty($theme))
     $theme = $conf->default_theme;
 
 require_once ('./conf_lang.php');

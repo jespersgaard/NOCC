@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.59 2002/04/24 22:55:39 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.60 2002/04/28 21:28:12 wolruf Exp $ -->
 <?php
 
 require_once 'class_local.php';
@@ -8,16 +8,16 @@ $per_page = (getPref('msg_per_page')) ? getPref('msg_per_page') : (($conf->msg_p
 
 $arrow = ($_SESSION['sortdir'] == 0) ? 'up' : 'down';
 $new_sortdir = ($_SESSION['sortdir'] == 0) ? 1 : 0;
-$skip = ($_REQUEST['skip']) ? $_REQUEST['skip'] : '0';
+$skip = (isset($_REQUEST['skip'])) ? $_REQUEST['skip'] : '0';
 
 $pages = $pop->get_page_count($conf);
 
 $page_line = '';
 $this_page = '';
+$prev = '';
+$next = '';
 
 if($pages > 1) {
-    $prev = '';
-    $next = '';
     $nskip = $skip + 1;
     $pskip = $skip - 1;
     $this_page = $skip + 1;
@@ -121,4 +121,4 @@ if ($pop->is_imap()) {
             <form method="post" action="delete.php" name="delete_form">
         </td>
     </tr>
-<!-- start of $Id: html_top_table.php,v 1.59 2002/04/24 22:55:39 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.60 2002/04/28 21:28:12 wolruf Exp $ -->
