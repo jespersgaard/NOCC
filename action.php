@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.144 2003/03/03 07:34:52 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.145 2003/12/21 15:40:20 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -546,9 +546,9 @@ function add_signature(&$body) {
     {
 		// Add signature with separation if needed
 		if(isset($user_prefs->sig_sep) && $user_prefs->sig_sep)
-			$body = "\r\n\r\n"."-- \r\n".$user_prefs->signature;
+			$body .= "\r\n\r\n"."-- \r\n".$user_prefs->signature;
 		else
-			$body = "\r\n\r\n".$user_prefs->signature;
+			$body .= "\r\n\r\n".$user_prefs->signature;
     }
 
 }
