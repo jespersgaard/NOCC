@@ -1,8 +1,9 @@
 NOCC 0.9.5	??   ??, 2001
 
-	* Added a Theme tips section to the README. Ross Golder <ross@golder.org>
-	* Made page header/footer theme-customisable. Ross Golder <ross@golder.org>
-	* Added 'Select All' (patch #471732). Ross Golder <ross@golder.org>
+	* Added tooltips to the sort column icons in the messageview.
+	* Added a Theme tips section to the README.
+	* Made page header/footer theme-customisable.
+	* Added 'Select All' (patch #471732).
 	* Added some elements in the portuguese (pt.php) translation
 	  from  Jorge Silva <jorge.silva@ciberlink.pt>
 	* Fixed a problem with IE 6 (everything was centered)
