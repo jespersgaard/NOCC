@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.19 2002/06/30 21:43:46 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.20 2002/11/29 07:04:57 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,6 +12,7 @@
  * Translation by Sander Schroevers and Pieterjan Goppel
  *  <lp_leeki@euronet.nl>
  *  Some adding by Mathijs Kolenberg <mack@solcon.nl>
+ *  Some adding/modification by Silvan Jongerius <sjongerius@duxy.nl>
  */
 
 $charset = 'ISO-8859-1';
@@ -63,7 +64,7 @@ $html_lang = 'Taal';
 $html_welcome = 'Welkom op';
 $html_login = 'Login';
 $html_passwd = 'Wachtwoord';
-$html_submit = 'Login';
+$html_submit = 'Verzenden';
 $html_help = 'Help';
 $html_server = 'Server';
 $html_wrong = 'De login-naam of het wachtwoord is onjuist';
@@ -73,27 +74,28 @@ $html_theme = 'Schema';
 
 // prefs.php
 
-$html_preferences = 'Preferences';
-$html_full_name = 'Full name';
-$html_email_address = 'E-mail Address';
-$html_ccself = 'Cc self';
-$html_hide_addresses = 'Hide addresses';
-$html_outlook_quoting = 'Outlook-style quoting';
-$html_reply_to = 'Reply to';
-$html_use_signature = 'Use signature';
-$html_signature = 'Signature';
-$html_prefs_updated = 'Preferences updated';
+$html_preferences = 'Instellingen';
+$html_full_name = 'Volledige Naam';
+$html_email_address = 'E-mail Adres';
+$html_ccself = 'Copie naar zelf';
+$html_hide_addresses = 'Adressen verbergen';
+$html_outlook_quoting = 'Outlook-quoting';
+$html_reply_to = 'Antwoord naar';
+$html_use_signature = 'Gebruik handtekening';
+$html_signature = 'Handtekening';
+$html_prefs_updated = 'Instellingen opgeslagen';
+$html_msgperpage = 'Berichten per pagina';
 
 // Other pages
 
-$html_view_header = 'Broncode inzien';
-$html_remove_header = 'Verberg broncode';
+$html_view_header = 'Headers inzien';
+$html_remove_header = 'Headers verbergen';
 $html_inbox = 'Postvak In';
 $html_new_msg = 'Schrijven';
 $html_reply = 'Antwoorden';
 $html_reply_short = 'Betr.:';
 $html_reply_all = 'Antwoord allen';
-$html_forward = 'Doorzenden';
+$html_forward = 'Doorsturen';
 $html_forward_short = 'Fw';
 $html_delete = 'Verwijder';
 $html_new = 'Nieuw';
@@ -102,7 +104,7 @@ $html_att = 'Bijlage';
 $html_atts = 'Bijlagen';
 $html_att_unknown = '[onbekend]';
 $html_attach = 'Voeg toe';
-$html_attach_forget = 'You must attach your file before sending your message !';
+$html_attach_forget = 'Er moet een bestand als bijlage opgegeven worden voor verzending !';
 $html_attach_delete = 'Verwijder selectie';
 $html_sort_by = 'Sort by';
 $html_from = 'Van';
@@ -110,7 +112,7 @@ $html_subject = 'Onderwerp';
 $html_date = 'Datum';
 $html_sent = 'Verzenden';
 $html_size = 'Grootte';
-$html_totalsize = 'Totale groote';
+$html_totalsize = 'Totale grootte';
 $html_kb = 'Kb';
 $html_bytes = 'bytes';
 $html_filename = 'Bestandsnaam';
@@ -124,28 +126,29 @@ $html_no_mail = 'Geen nieuwe berichten';
 $html_logout = 'Uitloggen';
 $html_msg = 'Bericht';
 $html_msgs = 'Berichten';
-$html_configuration = 'This server is not well set up !';
-$html_priority = 'Priority';
+$html_configuration = 'Deze server is niet correct ingesteld';
+$html_priority = 'Prioriteit';
 $html_low = 'Low';
 $html_normal = 'Normal';
-$html_high = 'High';
-$html_select = 'Select';
-$html_select_all = 'Select All';
-$html_loading_image = 'Loading image';
-$html_send_confirmed = 'Your mail was accepted for delivery';
-$html_no_sendaction = 'No action specified. Try enabling JavaScript.';
-$html_error_occurred = 'An error occurred';
-$html_prefs_file_error = 'Unable to open preferences file for writing.';
-$html_sig_file_error = 'Unable to open signature file for writing.';
+$html_high = 'Hoog';
+$html_select = 'Selecteer';
+$html_select_all = 'Selecteer Alles';
+$html_loading_image = 'Plaatje laden';
+$html_send_confirmed = 'Het bericht is verzonden';
+$html_no_sendaction = 'Geen actie gespecificeerd. Evt. JavaScript aanzetten.';
+$html_error_occurred = 'Er is een fout opgetreden';
+$html_prefs_file_error = 'Het instellingenbestand kan niet worden geopend.';
+$html_sig_file_error = 'Het handtekeningbestand kan niet worden geopend.';
 
 $original_msg = '--Oorspronkelijk Bericht--';
 $to_empty = 'Het \'Aan\'-veld kan niet leeg zijn !';
+$html_receipt = 'Ontvangstbevestiging';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = "Unable to open connection";
-$html_smtp_error_unexpected = "Unexpected response:";
-$lang_could_not_connect = 'Could not connect to server';  //to translate
-$html_file_upload_attack = 'Possible file upload attack';  //to translate
-$html_invalid_email_address = 'Invalid e-mail address';  //to translate
-$html_seperate_msg_win = 'Messages in separate window';  //to translate
+$html_smtp_error_no_conn = "Verbinding kan niet worden geopend";
+$html_smtp_error_unexpected = "Onverwacht antwoord:";
+$lang_could_not_connect = 'Verbinding met de server kan niet worden geinitialiseerd';  //to translate
+$html_file_upload_attack = 'Mogelijk bestandsupload aanval';  //to translate
+$html_invalid_email_address = 'Ongeldig e-mail adres';  //to translate
+$html_seperate_msg_win = 'Berichten in apart venster';  //to translate
 ?>
