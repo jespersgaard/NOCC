@@ -1,5 +1,9 @@
 NOCC 0.9.6    ??, 2002
 
+    * Added support for displaying RFC2045-encoded words, used in headers.
+      (Alexander Sabournekov)
+    * Preferences can be disabled by unsetting/clearing $conf->prefs_dir.
+      (Alexander Sabournekov)
     * Added fix for 'file_uploads=0' (RH default).
     * Applied patch intended to fix XSS vulnerability (Ulf Harnhammar)
     * Fixed some warnings when not using user_prefs or user_filters.

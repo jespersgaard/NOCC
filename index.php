@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.95 2002/05/22 14:23:43 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.96 2002/05/30 14:07:21 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -85,9 +85,21 @@ function updateTheme()
                                 <td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
                             </tr>
                             <tr>
-                                <td align="right" class="f"><?php echo $html_login ?></td>
+<!-- abcdefghijklmnopqrstuvwxyz 01234567890 -->
+<!-- abcdefghijklmnopqrstuvwxyz 01234567890 -->
+<!-- abcdefghijklmnopqrstuvwxyz 01234567890 -->
+<!-- abcdefghijklmnopqrstuvwxyz 01234567890 -->
+<!-- abcdefghijklmnopqrstuvwxyz 01234567890 -->
+<!-- abcdefghijklmnopqrstuvwxyz 01234567890 -->
+<!-- abcdefghijklmnopqrstuvwxyz 01234567890 -->
+<!-- abcdefghijklmnopqrstuvwxyz 01234567890 -->
+<!-- abcdefghijklmnopqrstuvwxyz 01234567890 -->
+<!-- abcdefghijklmnopqrstuvwxyz 01234567890 -->
+<!-- abcdefghijklmnopqrstuvwxyz 01234567890 -->
+<!-- abcdefghijklmnopqrstuvwxyz 01234567890 -->
+                                <?php print "<td class='f' align='right' >$html_login</td>\n"; ?>
                                 <td><font size="-3">&nbsp;</font></td>
-                                <td class="f" align="left"> 
+                                <td class="f" align="left" >
                                     <input type="text" name="user" size="15" value="<?php if(isset($REMOTE_USER)) echo $REMOTE_USER; ?>"/>
                                     <?php
                                     if (count($conf->domains) > 1)

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.2 2002/06/30 21:43:45 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.3 2003/01/22 05:31:39 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -44,6 +44,12 @@ class NOCCUserPrefs {
 		global $conf;
 
 		$prefs = new NOCCUserPrefs($key);
+
+        if (empty($conf->prefs_dir)) {
+			//$ev = new Exception("User preferences are disabled");
+            $prefs->dirty_flag = 0;
+			return $prefs;
+        }
 
 		/* Open the preferences file */
 		$filename = $conf->prefs_dir . '/' . $key . '.pref';

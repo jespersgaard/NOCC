@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/user_filters.php,v 1.2 2002/12/03 06:37:07 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/user_filters.php,v 1.3 2003/02/06 07:30:01 rossigee Exp $
  *
  * Copyright 2002 Mike Rylander <mrylander@mail.com>
  *
@@ -24,6 +24,11 @@ class NOCCUserFilters {
                 $this->key = $key;
                 $this->filterset = array();
                 $this->dirty_flag = 1;
+                if (empty($conf->prefs_dir)) {
+                        $ev = new Exception("User preferences are turned off but tried to create object.");
+                        return;
+                }
+
         }
 
         /*

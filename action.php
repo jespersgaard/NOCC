@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.142 2003/01/22 05:31:08 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.143 2003/02/08 06:17:45 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -416,33 +416,33 @@ switch($action)
         if ($pop->is_imap()) {
             if ($pop->folder == 'INBOX') {
                 $user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
-                $filters = NOCCUserFilters::read($user_key, $ev);
-                if(Exception::isException($ev)) {
+                if (!empty($conf->prefs)) {
+                    $filters = NOCCUserFilters::read($user_key, $ev);
+                    if(Exception::isException($ev)) {
                         error_log("Error reading filters for user '$user_key': ".$ev->getMessage());
                         $filters = NULL;
                         $ev = NULL;
-                }
+                    }
 
-                $small_search = 'unseen ';
-                if (isset($_REQUEST['reapply_filters']) && $_REQUEST['reapply_filters'] == 1) {
-                    $small_search = '';
-                }
+                    $small_search = 'unseen ';
+                    if (isset($_REQUEST['reapply_filters']) && $_REQUEST['reapply_filters'] == 1) {
+                        $small_search = '';
+                    }
 
-                
-                foreach($filters->filterset as $name => $filter) {
-                    $filter_messages = $pop->search($small_search . $filter['SEARCH']);
-                    if (is_array($filter_messages)) {
-                        $filter_to_folder = array();
-                        foreach($filter_messages as $filt_msg_no) {
-                            if ($filter['ACTION'] == 'DELETE') {
-                                $pop->delete($filt_msg_no);
-                            } elseif (preg_match("/^MOVE:(.+)$/", $filter['ACTION'], $filter_to_folder)) {
-                                $pop->mail_move($filt_msg_no, $filter_to_folder[1]);
+                    foreach($filters->filterset as $name => $filter) {
+                        $filter_messages = $pop->search($small_search . $filter['SEARCH']);
+                        if (is_array($filter_messages)) {
+                            $filter_to_folder = array();
+                            foreach($filter_messages as $filt_msg_no) {
+                                if ($filter['ACTION'] == 'DELETE') {
+                                    $pop->delete($filt_msg_no);
+                                } elseif (preg_match("/^MOVE:(.+)$/", $filter['ACTION'], $filter_to_folder)) {
+                                    $pop->mail_move($filt_msg_no, $filter_to_folder[1]);
+                                }
                             }
                         }
                     }
                 }
-
                 $pop->expunge($ev);
                 if(Exception::isException($ev)) {
                         error_log("Error expunging mail for user '$user_key': ".$ev->getMessage());

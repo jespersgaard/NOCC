@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.23 2002/06/30 16:27:13 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.24 2002/09/10 23:27:01 mrylander Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -14,6 +14,7 @@
  */
 
 require_once 'exception.php';
+require_once 'detect_cyr_charset.php';
 
 class nocc_imap
 {
@@ -206,7 +207,16 @@ class nocc_imap
     }
 
     function mime_header_decode(&$header) {
-        return imap_mime_header_decode($header);
+        $output_charset = $GLOBALS['charset'];
+        $source = imap_mime_header_decode($header);
+        $result[0]->text=''; $result[0]->charset='US-ASCII';
+        for ($j = 0; $j < count($source); $j++ ) {
+            $element_charset =  ($source[$j]->charset == "default") ? detect_charset($source[$j]->text) : $source[$j]->charset;
+            $element_converted = @iconv( $element_charset, $output_charset, $source[$j]->text);
+            $result[$j]->text = ($element_converted===FALSE) ? $source[$j]->text : $element_converted;
+            $result[$j]->charset = ($element_converted===FALSE) ? $output_charset : $source[$j]->charset;
+        }
+        return $result;
     }
 
     /*

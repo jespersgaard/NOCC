@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.177 2003/02/06 07:28:45 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.178 2003/02/08 06:17:07 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -186,6 +186,11 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
         if ($tmp['transfer'] == 'BASE64')
             $body = base64_decode($body);
         $body = remove_stuff($body, $tmp['mime']);
+
+        $body_charset =  ($tmp['charset'] == "default") ? detect_charset($body) : $tmp['charset'];
+        $body_converted = iconv( $body_charset, $GLOBALS['charset'], $body);
+        $body = ($body_converted===FALSE) ? $body : $body_converted;
+        $tmp['charset'] = ($body_converted===FALSE) ? $GLOBALS['charset'] : $tmp['charset'];
     }
     else
         array_push($attach_tab, $tmp);
@@ -665,6 +670,7 @@ function view_part(&$pop, &$mail, $part_no, &$transfer, &$msg_charset, &$charset
         $str = nl2br(quoted_printable_decode($text));
     else
         $str = nl2br($text);
+print "<h2>view_part() : \$trasfer = '$transfer'</h2>";
     //if (eregi('koi', $transfer) || eregi('windows-1251', $transfer))
     //    $str = @convert_cyr_string($str, $msg_charset, $charset);
     return ($str);
@@ -710,6 +716,7 @@ function clear_attachments()
 // depending on the 'hide_addresses' preference.
 function display_address(&$address)
 {
+    global $html_att_unknown;
     // Check for null
     if($address == '')
         return $html_att_unknown;

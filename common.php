@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.25 2002/12/03 06:37:07 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.26 2003/02/06 07:57:52 rossigee Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -89,7 +89,7 @@ if (isset($_REQUEST['domainnum']))
     $_SESSION['nocc_domain'] = $conf->domains[$domainnum]->domain;
     $_SESSION['nocc_servr'] = $conf->domains[$domainnum]->in;
     if(!empty($_SESSION['nocc_smtp_server']))
-	    $_SESSION['nocc_smtp_server'] = $conf->domains[$domainnum]->smtp;
+            $_SESSION['nocc_smtp_server'] = $conf->domains[$domainnum]->smtp;
     $_SESSION['nocc_smtp_port'] = $conf->domains[$domainnum]->smtp_port;
 
     // Do we provide the domain with the login?
@@ -119,28 +119,30 @@ if(!$conf->use_theme || !isset($_SESSION['nocc_theme']))
 
 // Cache the user's preferences/filters
 if(isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
-	$ev = NULL;
-	$user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
+    $ev = NULL;
+    $user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
 
-	// Preferences
-	if(!isset($_SESSION['nocc_user_prefs'])) {
-		$_SESSION['nocc_user_prefs'] = NOCCUserPrefs::read($user_key, $ev);
-		if(Exception::isException($ev)) {
-			echo "<p>User prefs error ($user_key): ".$ev->getMessage()."</p>";
-			exit(1);
-		}
-	}
-	$user_prefs = $_SESSION['nocc_user_prefs'];
+    // Preferences
+    if(!isset($_SESSION['nocc_user_prefs'])) {
+        $_SESSION['nocc_user_prefs'] = NOCCUserPrefs::read($user_key, $ev);
+        if(Exception::isException($ev)) {
+                echo "<p>User prefs error ($user_key): ".$ev->getMessage()."</p>";
+                exit(1);
+        }
+    }
+    $user_prefs = $_SESSION['nocc_user_prefs'];
 
-	// Filters
-	if(!isset($_SESSION['nocc_user_filters'])) {
-		$_SESSION['nocc_user_filters'] = NOCCUserFilters::read($user_key, $ev);
-		if(Exception::isException($ev)) {
-			echo "<p>User filters error ($user_key): ".$ev->getMessage()."</p>";
-			exit(1);
-		}
-	}
-	$user_filters = $_SESSION['nocc_user_filters'];
+    // Filters
+    if (!empty($conf->prefs)) {
+        if(!isset($_SESSION['nocc_user_filters'])) {
+            $_SESSION['nocc_user_filters'] = NOCCUserFilters::read($user_key, $ev);
+            if(Exception::isException($ev)) {
+                    echo "<p>User filters error ($user_key): ".$ev->getMessage()."</p>";
+                    exit(1);
+            }
+        }
+        $user_filters = $_SESSION['nocc_user_filters'];
+    }
 }
 
 require_once ('./conf_lang.php');
