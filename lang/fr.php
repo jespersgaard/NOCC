@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.43 2001/05/27 12:59:28 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.44 2001/06/19 09:16:32 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -109,7 +109,7 @@ $html_logout = 'D&eacute;connexion';
 $html_msg = 'Message';
 $html_msgs = 'Messages';
 $html_configuration = 'Le serveur n\'est pas correctement configur&eacute;';
-$html_priority = "Priorit&eacute;";
+zsh: command not found: q
 $html_low = 'Basse';
 $html_normal = 'Normale';
 $html_high = 'Haute';

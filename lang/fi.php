@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.28 2001/05/27 14:48:09 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fi.php,v 1.1 2001/09/02 21:59:37 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -71,9 +71,9 @@ $html_retry = 'Uudestaan';
 
 $html_view_header = 'N&auml;yt&auml; otsikot';
 $html_remove_header = 'Piilota otsikot';
-$html_inbox = 'Inbox';
+$html_inbox = 'Postilaatikko';
 $html_new_msg = 'Uusi viesti';
-$html_reply = 'Reply';
+$html_reply = 'Vastaa';
 $html_reply_short = 'Re';
 $html_reply_all = 'Vastaa kaikille';
 $html_forward = 'Edelleenl&auml;het&auml;';

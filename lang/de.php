@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.16 2001/04/17 21:55:37 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.17 2001/05/27 14:50:05 wolruf Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -109,6 +109,10 @@ $html_logout = 'Abmelden';
 $html_msg = 'Nachricht';
 $html_msgs = 'Nachrichten';
 $html_configuration = 'This server is not well set up !';
+$html_priority = 'Wichtigkeit';
+$html_low = 'Niedrig';
+$html_normal = 'Normal';
+$html_high = 'Hoch';
 
 $original_msg = '-- Original Nachricht--';
 $to_empty = 'Das \'An\' Feld darf nicht leer sein !';

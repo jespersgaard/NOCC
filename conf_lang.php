@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.8 2001/07/16 11:24:55 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.9 2001/09/02 22:17:04 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -50,7 +50,7 @@ $lang_array[8]->label = 'Espa&ntilde;ol';
 
 // Finnish
 $lang_array[9]->filename = 'fi';
-$lang_array[9]->label = 'Finnish';
+$lang_array[9]->label = 'Suomi';
 
 // French
 $lang_array[10]->filename = 'fr';
