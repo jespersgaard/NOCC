@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.79 2001/11/15 17:47:42 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.80 2001/11/16 12:05:09 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -21,7 +21,7 @@ if (!session_is_registered('loggedin'))
 require_once ('./html/header.php');
 
 $user = safestrip($user);
-$passwd = safestrip($user);
+$passwd = safestrip($passwd);
 
 if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
 	$default_date_format = $no_locale_date_format;
