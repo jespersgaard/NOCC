@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.4 2000/12/23 13:02:20 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.7 2001/02/04 18:01:06 wolruf Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -8,8 +8,8 @@
  * See the enclosed file COPYING for license information (GPL).  If you
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
- * Configuration file for the german language translated from english by :
- * David Ferch <dferch@tk-online.net>
+ * Configuration file for the german language
+ * Translation by David Ferch <dferch@tk-online.net>
  */
 
 $charset = "ISO-8859-1";
@@ -104,9 +104,4 @@ $html_msgs = "Nachrichten";
 
 $original_msg = "-- Original Nachricht--";
 $to_empty = "Das 'An' Feld darf nicht leer sein !";
-
-$html_outside = "Sie betrachten diese Seite ausserhalb von <b>".$nocc_name."</b>. Um zur&uuml;ck zu kehren, schliessen Sie dieses Fenster.";
-
-// This message is added to every message, the user cannot delete it
-$ad = "\n\n________________________________________________________________________\nNOCC, Your e-mails everywhere : http://nocc.sourceforge.net";
 ?>
