@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.24 2002/06/30 16:27:14 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.25 2002/06/30 21:43:46 rossigee Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -70,6 +70,7 @@ $html_retry = 'Nochmal';
 
 // prefs.php
 
+$html_msgperpage = 'Nachrichten pro Seite';
 $html_preferences = 'Einstellungen';
 $html_full_name = 'Voller Name';
 $html_email_address = 'E-mail Addresse';
@@ -127,6 +128,7 @@ $html_priority = 'Priorit&auml;t';
 $html_low = 'Niedrig';
 $html_normal = 'Normal';
 $html_high = 'Hoch';
+$html_receipt = 'Lesebest&auml;tigung anfordern';
 $html_select = 'Auswahl';
 $html_select_all = 'Alle';
 $html_loading_image = 'Lade Bild';
@@ -142,8 +144,8 @@ $to_empty = 'Das \'An\' Feld darf nicht leer sein !';
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Konnte Verbindung nicht &ouml;ffnen';
 $html_smtp_error_unexpected = 'Unerwartete Antwort:';
-$lang_could_not_connect = 'Could not connect to server';  //to translate
-$html_file_upload_attack = 'Possible file upload attack';  //to translate
-$html_invalid_email_address = 'Invalid e-mail address';  //to translate
-$html_seperate_msg_win = 'Messages in seperate window';  //to translate
+$lang_could_not_connect = 'Verbindung zum Server fehlgeschlagen';  //translated by Benjamin Bräuer - ben1@gmx.de
+$html_file_upload_attack = 'Possible file upload attack';  //to translate - May be 'M&ouml;gliche Attacke durch hochgelandene Datei'; but it sounds terrible. leave it in english
+$html_invalid_email_address = 'Ung&uuml;ltige E-mail Addresse';  //translated by Benjamin Bräuer - ben1@gmx.de
+$html_seperate_msg_win = 'Nachricht in extra Fenster &ouml;ffnen';  //translated by Benjamin Bräuer - ben1@gmx.de
 ?>
