@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.1 2002/04/18 22:31:10 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.2 2002/04/19 14:39:30 rossigee Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -75,7 +75,7 @@ if(isset($_SESSION['smtp_port']))
 // Have we specified a server/type/port to connect to?
 if (isset($_REQUEST['server'])) {
 	$server = safestrip($_REQUEST['server']);
-	$servtype = strlower($_REQUEST['servtype']);
+	$servtype = strtolower($_REQUEST['servtype']);
 	$port = safestrip($_REQUEST['port']);
 	if ($servtype != 'imap')
 		$servr = $server.'/'.$servtype.':'.$port;
