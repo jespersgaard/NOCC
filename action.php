@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.41 2001/06/16 13:05:37 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.42 2001/06/19 10:09:24 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -33,9 +33,9 @@ switch ($action)
 		{
 			// $attach_tab is the array of attachments
 			// If it's a text/plain, display it
-			if (($tmp['disposition'] != 'ATTACHMENT') && $display_text_attach && (eregi ('text/plain', $tmp['mime'])))
+			if ((!eregi('ATTACHMENT', $tmp['disposition'])) && $display_text_attach && (eregi('text/plain', $tmp['mime'])))
 				echo '<hr />'.view_part($servr, $user, stripslashes($passwd), $folder, $mail, $tmp['number'], $tmp['transfer'], $tmp['charset'], $charset);
-			if ($display_img_attach && (eregi ('image', $tmp['mime']) && ($tmp['id'] == '')))
+			if ($display_img_attach && (eregi('image', $tmp['mime']) && ($tmp['id'] == '')))
 			{
 				// if it's an image, display it
 				$img_type = array_pop(explode('/', $tmp['mime']));

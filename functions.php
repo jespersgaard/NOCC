@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.92 2001/06/18 13:51:23 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.93 2001/06/19 10:10:45 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -224,7 +224,7 @@ function GetPart($this_part, $part_no, $display_rfc822)
 	for ($i = 0; $i < count($this_part->parameters); $i++)
 	{ 
 		$param = $this_part->parameters[$i];
-		if (($param->attribute == 'NAME') || ($param->attribute == 'name'))
+		if ((($param->attribute == 'NAME') || ($param->attribute == 'name')) && ($param->value != ''))
 		{
 			$att_name = $param->value;
 	       	break;
@@ -443,7 +443,8 @@ function link_att($servr, $mail, $tab, $display_part_no)
 	sort($tab);
 	$link = '<table border="0">';
 	while ($tmp = array_shift($tab))
-		if ($tmp['id'] == '')
+		//if ($tmp['id'] == '')
+		if (!empty($tmp['name']))
 		{
 			$mime = str_replace('/', '-', $tmp['mime']);
 			$link .= '<tr>';
