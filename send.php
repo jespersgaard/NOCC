@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.94 2002/03/24 17:00:35 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.95 2002/03/25 14:00:42 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -124,6 +124,29 @@ else
                         unlink($conf->tmpdir . '/' . $attach_array[$i]->tmp_file);
                     }
                 }
+            }
+
+            // Add original message as attachment?
+            if($forward_msgnum != "") {
+                $ev = "";
+                $pop = new nocc_imap('{'.$servr.'}'.$folder, $login, $passwd, $ev);
+                if (Exception::isException($ev)) {
+                    require ('./html/header.php');
+                    require ('./html/error.php');
+                    require ('./html/footer.php');
+                    break;
+                }
+
+		// Rebuild original message from headers and body
+		$origmsg = "";
+                $headers = $pop->fetchheader($forward_msgnum);
+                $body = $pop->body($forward_msgnum);
+		$origmsg .= $headers;
+		$origmsg .= "\r\n";
+		$origmsg .= $body;
+
+		// Attach it
+		$mail->add_attachment($origmsg, '',  'message/rfc822', '', '');
             }
 
             // We need to unregister the attachments array and num_attach

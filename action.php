@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.100 2002/03/25 13:52:53 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.101 2002/03/25 13:56:38 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -200,9 +200,12 @@ switch (trim($action))
         }
 
         $mail_subject = $html_forward_short.': '.$content['subject'];
-        $mail_body = $original_msg."\n".$html_from.': '.$content['from']."\n".$html_to.': '.$content['to']."\n".$html_sent.': '.$content['complete_date']."\n".$html_subject.': '.$content['subject']."\n\n".strip_tags2($content['body'],'');
+	
         // Add signature
         $mail_body .= "\r\n".$prefs_signature;
+
+	// Let send.php know to attach the original message
+	$forward_msgnum = $mail;
 
         // We add the attachments of the original message
         list($num_attach, $attach_array) = save_attachment($servr, $login, $passwd, $folder, $mail, $tmpdir);

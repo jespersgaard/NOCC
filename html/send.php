@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.43 2002/02/18 10:42:05 nicocha Exp $ -->
+<!-- start of $Id: send.php,v 1.44 2002/03/24 17:08:02 wolruf Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -9,6 +9,7 @@
             <input type="hidden" name="action" value="<?php echo $action ?>" />
             <input type="hidden" name="sendaction" value="" />
             <input type="hidden" name="num_attach" value="<?php echo $num_attach ?>" />
+            <input type="hidden" name="forward_msgnum" value="<?php echo $forward_msgnum ?>" />
             <table bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%" cellspacing="0" cellpadding="0" border="0">
                 <tr><td colspan="2">&nbsp;</td></tr>
                 <tr>
@@ -147,4 +148,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.43 2002/02/18 10:42:05 nicocha Exp $ -->
+<!-- end of $Id: send.php,v 1.44 2002/03/24 17:08:02 wolruf Exp $ -->

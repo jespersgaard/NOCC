@@ -1,5 +1,7 @@
 NOCC 0.9.6    ??
 
+    * Fixed forwarding behaviour, so that original message is forwarded
+      as a MIME attachment.
     * Exception from nocc_imap now returns useful error information.
     * Badly placed return statement was preventing connection
       exception from being reported to the user.
