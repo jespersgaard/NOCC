@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.5 2002/04/19 18:32:36 mrylander Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.6 2002/04/19 23:51:14 mrylander Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -55,7 +55,23 @@ if(isset($_SESSION['lang']))
 	$lang = $_SESSION['lang'];
 
 // Need to wait on the language before checking it
-require_once './check_lang.php';
+if (!isset($_SESSION['lang']))
+{
+    $ar_lang = explode(',', $HTTP_ACCEPT_LANGUAGE);
+    while ($accept_lang = array_shift($ar_lang))
+    {
+        $tmp = explode(';', $accept_lang);
+        $tmp[0] = strtolower($tmp[0]);
+        if (file_exists('./lang/' . $tmp[0] . '.php'))
+        {
+            $_SESSION['lang'] = $tmp[0];
+            break;
+        }
+    }
+    if (empty($_SESSION['lang']))
+        $_SESSION['lang'] = $conf->default_lang;
+}
+require ('./lang/' . $_SESSION['lang'] . '.php');
 
 // Default login to just the username
 if(isset($_SESSION['user']))
