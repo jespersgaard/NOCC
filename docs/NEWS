@@ -6,8 +6,6 @@ NOCC 0.9.5	??   ??, 2001
 	* Added 'Loading image ...' message.
 	* Header displays email address from preferences, if available.
 	* Added 'CC self' preference to receive a copy of outgoing emails.
-	* Added Bulgarian translation
-	* Added new Polish and Portuguese translations
 	* Added './' in the path of all require, include and open calls,
 	  As we now use PEAR in php.ini include_path directive.
 	* Replace require() and include() with require_once() and include_once()
@@ -17,7 +15,7 @@ NOCC 0.9.5	??   ??, 2001
 	* Used PEAR::Error for passing SMTP exceptions back to caller.
 	* Disabled encode_mime in cut_addresses until it can be checked.
 	* Strip comments from e-mail addresses before using on RCPT in
-	  SMTP transactions (fixes bug #430367)
+	  SMTP transactions (fixes bug #430367).
 	* Added rudimentary user preferences (name, email and signature).
 	* Made textarea in send.php narrower, to accomodate 800x600 users.
 	* Removed nowrap table attributes, as they cause problems for
@@ -31,15 +29,15 @@ NOCC 0.9.5	??   ??, 2001
 	* Added a Theme tips section to the README.
 	* Made page header/footer theme-customisable.
 	* Added 'Select All' (patch #471732).
-	* Added some elements in the portuguese (pt.php) translation
-	  from  Jorge Silva <jorge.silva@ciberlink.pt>
-	* Fixed a problem with IE 6 (everything was centered)
+	* Update Polish and Portuguese (pt.php) translations
+	  (from Jorge Silva).
+	* Fixed a problem with IE 6 (everything was centered).
 	* Fixed a bug which prevented to send email on RH7 with RPM version
 	  of PHP (bug #430069).
 	* Fixed long list of addresses not wrapped (bug #440905).
 	* In the send form, the user can now change his email address.
-	* Added Norwegian (Bokmal and Nynorsk), Turkish and Finnish
-	  translations.
+	* Added Norwegian (Bokmal and Nynorsk), Turkish, Finnish,
+	  Bulgarian, translations.
 	* Fixed a problem with some Linux installation which displayed
 	  an 'invalid range' error message (bug #432724).
 	* Fixed a problem which allowed people to send an e-mail without
