@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.46 2000/12/28 14:55:37 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.47 2000/12/28 15:17:41 nicocha Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -279,10 +279,10 @@ function GetSinglePart($this_part, $header, $body)
 {
 	GLOBAL $attach_tab;
 
-	if (eregi("text/plain", $header))
-		$full_mime_type = "text/plain";
-	elseif (eregi("text/html", $header))
+	if (eregi("text/html", $header))
 		$full_mime_type = "text/html";
+	else
+		$full_mime_type = "text/plain";
 	switch ($this_part->encoding)
 	{
 		case ENC7BIT:
