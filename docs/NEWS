@@ -1,5 +1,6 @@
 NOCC 0.9.7    ?? ??, 2004
 
+    * Add configuration for IMAP Namespace. (Arnaud Boudou)
     * Add configuration for line feed behavior, could be useful with some
       MTA. (Arnaud Boudou)
     * Add possibility to copy sent mails into a dedicated folder - IMAP only

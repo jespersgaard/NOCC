@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.128 2004/10/21 11:27:36 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.129 2004/11/08 16:33:32 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -61,6 +61,8 @@ $conf->domains[$i]->login_suffix = '';
 // 'PLAIN' : AUTH PLAIN method
 // 'LOGIN' : AUTH LOGIN method
 $conf->domains[$i]->smtp_auth_method = '';
+// Select IMAP Namespace
+$conf->domains[$i]->imap_namespace = "INBOX.";
 
 // If you want to add more domains, uncomment the following
 // lines and fill them in
@@ -73,6 +75,7 @@ $conf->domains[$i]->smtp_auth_method = '';
 //$conf->domains[$i]->login_with_domain = 1;
 //$conf->domains[$i]->login_suffix = '';
 //$conf->domains[$i]->smtp_auth_method = '';
+//$conf->domains[$i]->imap_namespace = "INBOX.";
 
 //$i++;
 //$conf->domains[$i]->domain = '';
@@ -82,6 +85,7 @@ $conf->domains[$i]->smtp_auth_method = '';
 //$conf->domains[$i]->login_with_domain = 1;
 //$conf->domains[$i]->login_suffix = '';
 //$conf->domains[$i]->smtp_auth_method = '';
+//$conf->domains[$i]->imap_namespace = "INBOX.";
 
 // Is the user allowed to change his "From:" address? (true/false)
 $conf->allow_address_change = true;

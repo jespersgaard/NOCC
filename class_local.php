@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.34 2004/06/22 10:36:00 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.35 2004/10/21 11:27:36 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -29,6 +29,7 @@ class nocc_imap
     var $passwd;
     var $conn;
     var $folder;
+    var $namespace;
 
     // constructor        
     function nocc_imap(&$ev)
@@ -43,6 +44,7 @@ class nocc_imap
         $this->folder = $_SESSION['nocc_folder'];
         $this->login = $_SESSION['nocc_login'];
         $this->passwd = $_SESSION['nocc_passwd'];
+        $this->namespace = $_SESSION['imap_namespace'];
 
         // $ev is set if there is a problem with the connection
         $conn = @imap_open('{'.$this->server.'}'.$this->folder, $this->login, $this->passwd, 0);
@@ -130,13 +132,13 @@ class nocc_imap
     }
 
     function renamemailbox(&$old_box, &$new_box, &$ev) {
-        if(!imap_renamemailbox($this->conn, '{'.$this->server.'}'.$old_box, '{'.$this->server.'}INBOX.'.$new_box)) {
+        if(!imap_renamemailbox($this->conn, '{'.$this->server.'}'.$old_box, '{'.$this->server.'}'.$this->namespace.$new_box)) {
             $ev = new NoccException(imap_last_error());
         }
     }
 
     function createmailbox(&$new_box, &$ev) {
-        if(!imap_createmailbox($this->conn, '{'.$this->server.'}INBOX.'.$new_box)) {
+        if(!imap_createmailbox($this->conn, '{'.$this->server.'}'.$this->namespace.$new_box)) {
             $ev = new NoccException(imap_last_error());
         }
     }
@@ -147,7 +149,7 @@ class nocc_imap
 
     function subscribe(&$new_box, &$ev, $isnewbox) {
         if ($isnewbox) {
-            return imap_subscribe($this->conn, '{'.$this->server.'}INBOX.'.$new_box);
+            return imap_subscribe($this->conn, '{'.$this->server.'}'.$this->namespace.$new_box);
         } else {
             return imap_subscribe($this->conn, '{'.$this->server.'}'.$new_box);
         }
@@ -221,7 +223,7 @@ class nocc_imap
         if(is_array($list)) {
            reset($list);
            while (list($key, $val) = each($list)) {
-               if (imap_utf7_decode($val) == 'INBOX.'.$mailbox) {
+               if (imap_utf7_decode($val) == $this->namespace.$mailbox) {
                    $exists = true;
                }
            }
@@ -230,7 +232,7 @@ class nocc_imap
     }
 
     function copytosentfolder(&$maildata, &$ev, &$conf) {
-        if (!(imap_append($this->conn, '{'.$this->server.'}INBOX.'.$conf->sent_folder, $maildata, "\\Seen"))) {
+        if (!(imap_append($this->conn, '{'.$this->server.'}'.$this->namespace.$conf->sent_folder, $maildata, "\\Seen"))) {
             $ev = new NoccException("could not copy mail into $conf->sent_folder folder: ".imap_last_error());
             return false;
         }
