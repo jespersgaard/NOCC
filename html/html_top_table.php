@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.36 2001/11/16 18:48:43 nicocha Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.37 2001/11/17 12:37:58 nicocha Exp $ -->
 <?php
 $arrow = ($sortdir == 0) ? 'up' : 'down';
 $new_sortdir = ($sortdir == 0) ? 1 : 0;
@@ -9,20 +9,17 @@ $is_Imap = is_Imap($servr);
 <form method="post" action="delete.php" name="delete_form">
 <input type="hidden" name="lang" value="<?php echo $lang ?>" />
 
-<table width="100%" cellpadding="2" cellspacing="1" border="0" bgcolor="<?php echo $glob_theme->inside_color ?>">
+<table width="100%" cellpadding="2" cellspacing="1" border="2" bgcolor="<?php echo $glob_theme->inside_color ?>">
 	<tr bgcolor="<?php echo $glob_theme->tr_color ?>">
 		<td <?php if (($is_Imap) || ($have_ucb_pop_server)) echo 'colspan="5"'; else echo 'colspan="4"'; ?>align="left" class="titlew">
 			<b><?php echo $folder ?></b>
 		</td>
-		<td class="titlew">
-			<?php echo $current_date ?>
-		</td>
-		<td align="right" class="titlew">
+		<td align="right" class="titlew" colspan="2">
 			<?php echo $num_msg ?> <?php if ($num_msg == 1) {echo $html_msg;} else {echo $html_msgs;}?>
 		</td>
 	</tr>
 	<tr bgcolor="<?php echo $glob_theme->inbox_text_color ?>">
-		<td align="center" class="inbox" width="40">
+		<td align="center" class="inbox" colspan="2">
 			<?php echo $html_select ?>
 		</td>
 		<?php if (($is_Imap) || ($have_ucb_pop_server)) { ?>
@@ -30,9 +27,6 @@ $is_Imap = is_Imap($servr);
 			<?php echo $html_new ?>
 		</td>
 		<?php } ?>
-		<td align="center" class="inbox">
-			&nbsp; <? // echo $html_att ?>
-		</td>
 		<td align="center" class="inbox" <?php if ($sort == 2) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
 			<a href="<?php echo $PHP_SELF ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>">
 			<img src="themes/<?php echo $theme ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_from; ?>" /></a>
@@ -62,4 +56,4 @@ $is_Imap = is_Imap($servr);
 			<?php echo $html_size ?></a>
 		</td>
 	</tr>
-<!-- start of $Id: html_top_table.php,v 1.36 2001/11/16 18:48:43 nicocha Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.37 2001/11/17 12:37:58 nicocha Exp $ -->

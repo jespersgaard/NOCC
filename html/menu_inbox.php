@@ -1,4 +1,4 @@
-<!-- start of $Id$ -->
+<!-- start of $Id: menu_inbox.php,v 1.24 2001/10/25 15:22:34 rossigee Exp $ -->
 <?php
 $color_inbox = $color = $glob_theme->menu_color;
 if ($action == '') 
@@ -32,7 +32,9 @@ if ($action == 'forward')
 						<img src="themes/<?php echo $theme ?>/img/spacer.gif" height="1" width="1" alt="" />
 					</td>
 					<td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
-						<a href="<?php echo $PHP_SELF ?>?lang=<?php echo $lang ?>&amp;action=setprefs" class="menu"><?php echo $html_preferences ?></a>
+						<?php if($prefs_dir) { ?>
+							<a href="<?php echo $PHP_SELF ?>?lang=<?php echo $lang ?>&amp;action=setprefs" class="menu"><?php echo $html_preferences ?></a>
+						<?php } ?>
 					</td>
 					<?php if ($enable_logout) { ?>
 					<td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
@@ -47,4 +49,4 @@ if ($action == 'forward')
 		</td>
 	</tr>
 </table>
-<!-- end of $Id$ -->
+<!-- end of $Id: menu_inbox.php,v 1.24 2001/10/25 15:22:34 rossigee Exp $ -->
