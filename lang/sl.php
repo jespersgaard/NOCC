@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/sl.php,v 1.3 2001/02/22 16:33:28 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sl.php,v 1.4 2001/02/23 09:31:58 nicocha Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -19,6 +19,11 @@ $charset = "ISO-8859-2";
 // What language to use (Here, english US --> en_US)
 // see '/usr/share/locale/' for more information
 $lang_locale = "sl_SI";
+
+// Text Alignment
+// Can be right-to-left (rtl) which is needed for proper Arabic, Hebrew
+// Or left-to-right (ltr) which is default for most languages
+$lang_dir = "ltr";
 
 // What format string should we pass to strftime() for messages sent on
 // days other than today?
