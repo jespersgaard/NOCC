@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.109 2002/06/30 15:12:26 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.110 2002/06/30 16:27:13 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -206,6 +206,9 @@ require_once './functions.php';
 
 // This function allows you to customise the default e-mail address
 function get_default_from_address() {
+    if(!isset($_SESSION['nocc_user_prefs']))
+	return '';
+
     $user_prefs = $_SESSION['nocc_user_prefs'];
     $from_address = "";
 
