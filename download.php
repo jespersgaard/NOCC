@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.32 2002/04/24 15:17:51 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.33 2002/05/29 19:27:04 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,7 +13,6 @@
 
 if(!isset($HTTP_USER_AGENT))
     $HTTP_USER_AGENT = $_SERVER['HTTP_USER_AGENT'];
-error_log("User agent: $HTTP_USER_AGENT");
 if (eregi('MSIE', $HTTP_USER_AGENT) || eregi('Internet Explorer', $HTTP_USER_AGENT))
     session_cache_limiter('public');
 
