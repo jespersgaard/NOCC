@@ -1,9 +1,3 @@
-<?php
-if(isset($submit_prefs)) {
-	echo "<p>$html_prefs_updated</p>";
-}
-
-?>
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
 		<td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -31,6 +25,10 @@ if(isset($submit_prefs)) {
 				</tr>
 				<tr>
 					<td align="center" colspan="2">
+						<?php
+							if(isset($submit_prefs))
+								echo '<p class="prefs">'.$html_prefs_updated.'</p>';
+						?>
 						<table bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%" cellspacing="0" cellpadding="0" border="0">
 							<tr>
 								<td align="right" valign="top" width="50%">
