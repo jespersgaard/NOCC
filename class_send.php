@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.54 2003/04/27 20:47:23 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.55 2003/12/21 15:40:20 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -153,7 +153,8 @@ class mime_mail
         if (!empty($this->headers))
             $mime .= $this->headers . $this->crlf;
 
-        if (sizeof($this->parts) >= 1)
+        echo sizeof($this->parts);
+	if (sizeof($this->parts) >= 1)
         {
             $this->add_attachment($this->body,  '',  'text/plain', 'quoted-printable', $this->charset);
             $mime .= 'MIME-Version: 1.0' . $this->crlf . $this->build_multipart();

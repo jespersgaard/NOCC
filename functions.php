@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.186 2004/06/22 10:36:00 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.187 2004/06/22 17:52:17 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -268,12 +268,17 @@ function GetPart(&$attach_tab, &$this_part, $part_no, &$display_rfc822)
         $att_name = $this_part->description;
     for ($i = 0; $i < count($this_part->parameters); $i++)
     {
-        $param = $this_part->parameters[$i];
-        if ((($param->attribute == 'NAME') || ($param->attribute == 'name')) && ($param->value != ''))
-        {
-            $att_name = $param->value;
-            break;
-        }
+        // PHP 5.x doesn't allow to convert a stdClass object to an array
+	// We sometimes have this issue with Mailer daemon reports
+	if (!(get_class($this_part->parameters) == "stdClass") &&
+	    !(get_class($this_part->parameters) == "stdclass")) { 
+            $param = $this_part->parameters[$i];
+            if ((($param->attribute == 'NAME') || ($param->attribute == 'name')) && ($param->value != ''))
+            {
+                $att_name = $param->value;
+                break;
+            }
+	}
     }
     if (isset($this_part->type))
     {
