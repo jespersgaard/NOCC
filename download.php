@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.10 2001/01/15 19:28:37 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.11 2001/01/22 22:41:23 nicocha Exp $
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -21,7 +21,7 @@ if ($transfer == "BASE64")
 	$file = imap_base64($file);
 // We use "Content-Type: unknown" to be sure the file is downloaded and not displayed
 header("Content-Type: application/x-unknown-$mime");
-header("Content-Disposition: attachment; filename=\"".urldecode($filename)."\"");
+header("Content-Disposition: filename=\"".urldecode($filename)."\"");
 header("Content-Length: ".strlen($file));
 echo $file;
 ?>
