@@ -1,6 +1,6 @@
 Frequently Asked Questions for Nocc
 -----------------------------------
-Last updated: $Date: 2002/02/10 19:55:47 $
+Last updated: $Date: 2002/03/24 17:16:16 $
 
  Q. Nocc keeps me asking for a correct login/password.
 
@@ -74,6 +74,10 @@ Last updated: $Date: 2002/02/10 19:55:47 $
  A. This is a known issue, Netscape 4.x doesn't support transparent PNG
     images whereas it's ok with GIF. We might switch to GIF again but we
     were wondering about license issues...
+    You can switch to a form button using this pref (conf.php):
+
+    // Display delete button as icon (true) or as an HTML button (false)
+    $conf->delete_button_icon = true;
 
 -----------------------------------
 
@@ -136,6 +140,9 @@ Last updated: $Date: 2002/02/10 19:55:47 $
  Q. I get this error when reading e-mails, randomly:
     'Invalid Range End at line 450 in functions.php'
 
+ A. New: This is fixed in 0.9.6, was replaced by its Perl-equivalent.
+
+ Old answer (leaving it for history and might help 0.9.5 users):
  A. This bug seems to occur mainly on Linux systems when PHP was compiled
     using '--with-regex=system'. And perhaps Windows systems but we
     couldn't isolate one.
@@ -158,7 +165,7 @@ Last updated: $Date: 2002/02/10 19:55:47 $
     the following comment in the code:
     // Bug #511302: Comment out if you have the 'Invalid Range End' problem
 
-    This is used to create NOCC links when it recnognizes an e-mail address
+    This is used to create NOCC links when it recognizes an e-mail address
     so that clicking on the link gives you the NOCC send form.
 
     We need help to identify more platforms where this bug occurs, you can
