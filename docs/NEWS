@@ -1,5 +1,6 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Changed all imap_open to @imap_open to suppress warnings (#477574)
 	* Ensure that magic_quotes_runtime is off to prevent attachment
 	  mangling.
 	* Add htmlspecialchars to pre-filled fields in send.php

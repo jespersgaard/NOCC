@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.122 2001/11/16 11:59:32 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.123 2001/11/16 12:07:05 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -611,7 +611,7 @@ function save_attachment($servr, $user, $passwd, $folder, $mail, $tmpdir)
 	$i = 0;
 	$attach_array = array();
 
-	$pop = imap_open('{'.$servr.'}'.$folder, $user, $passwd);
+	$pop = @imap_open('{'.$servr.'}'.$folder, $user, $passwd);
 	while ($tmp = array_shift($attach_tab))
 	{
 		$i++;
@@ -637,7 +637,7 @@ function save_attachment($servr, $user, $passwd, $folder, $mail, $tmpdir)
 
 function view_part($servr, $user, $passwd, $folder, $mail, $part_no, $transfer, $msg_charset, $charset)
 {
-	$pop = imap_open('{' . $servr . '}' . $folder, $user, $passwd);
+	$pop = @imap_open('{' . $servr . '}' . $folder, $user, $passwd);
 	$text = imap_fetchbody($pop, $mail, $part_no);
 	if ($transfer == 'BASE64')
 		$str = nl2br(imap_base64($text));

@@ -1,6 +1,6 @@
 <?php 
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.20 2001/11/04 21:34:19 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.21 2001/11/16 08:41:25 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -15,7 +15,7 @@ session_register ('user', 'passwd');
 require_once ('./conf.php');
 require_once ('./functions.php');
 
-$pop = imap_open('{'.$servr.'}INBOX', $user, safestrip($passwd));
+$pop = @imap_open('{'.$servr.'}INBOX', $user, safestrip($passwd));
 $num_messages = imap_num_msg($pop);
 
 if (isset($only_one) && ($only_one == 1))
