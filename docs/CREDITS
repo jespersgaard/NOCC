@@ -5,13 +5,14 @@ NOCC Version 1.0 Development Team
 Core Developers
 ===============
 
-Nicolas Chalanset <nicocha@free.fr>
+* Nicolas Chalanset <nicocha@free.fr>
 
-* SMTP and MIME functions
-* INBOX functions
-* Display messages functions
+	SMTP and MIME functions
+	INBOX functions
+	Display messages functions
 
-Olivier Cahagne <cahagn_o@epita.fr>
+* Olivier Cahagne <cahagn_o@epita.fr>
+  http://www.epita.fr/~cahagn_o/
 
-* First version of NOCC
-* A lot of debugging
+	Rewrote Epimail/Perl in PHP
+	A lot of debugging
