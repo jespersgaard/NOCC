@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.30 2004/06/19 11:03:18 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.31 2004/06/22 12:56:44 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -97,6 +97,17 @@ if ( isset($_REQUEST['fillindomain']) && isset( $conf->typed_domain_login ) )
 if (isset($_REQUEST['domainnum']))
 {
     $domainnum = $_REQUEST['domainnum'];
+    if (!isset($conf->domains[$domainnum])) {
+       $ev = new NoccException($lang_could_not_connect);
+       if(isset($_REQUEST['theme'])) {
+         $_SESSION['nocc_theme'] = safestrip($_REQUEST['theme']);
+         require ('./themes/' . $_SESSION['nocc_theme'] . '/colors.php');
+       }
+       require ('./html/header.php');
+       require ('./html/error.php');
+       require ('./html/footer.php');
+       exit;
+    }
     $_SESSION['nocc_domain'] = $conf->domains[$domainnum]->domain;
     $_SESSION['nocc_servr'] = $conf->domains[$domainnum]->in;
     if(!empty($_SESSION['nocc_smtp_server']))
