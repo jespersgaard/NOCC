@@ -5,13 +5,14 @@ echo $user;
 echo $passwd;
 session_unset();
 ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <HEAD>
 <TITLE>NOCC Desktop - Webmail</TITLE>
 <META http-equiv="pragma" content="no-cache">
-<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
+<META content="text/html; charset=iso-8859-1" http-equiv=Content-Type>
 <LINK href="style.css" rel="stylesheet">
-<script language="Javascript">
+<script type="text/javascript">
 function updatePort () {
   if (document.nocc_webmail_login.servtype.options[document.nocc_webmail_login.servtype.selectedIndex].value == 'imap') {
     document.nocc_webmail_login.port.value = 143;
@@ -81,10 +82,10 @@ function updatePort () {
 		</TR>
 	</TABLE>
 </FORM>
-<SCRIPT language="JavaScript">
+<script type="text/javascript">
 <!--
 	document.nocc_webmail_login.user.focus();
 	document.nocc_webmail_login.passwd.value='';
 // -->
-</SCRIPT>
+</script>
 </BODY></HTML>
