@@ -1,6 +1,6 @@
 NOCC 0.9.3	?? ??, 2001
 
-	* Fixed a bug with Postfix when "strict_rfc821_envelopes = yes"
+	* Fixed a bug with Postfix when "strict_rfc821_envelopes = yes".
 	* Fixed replying to someone with a name containing accent (bug #133573).
 	* Better display of text/plain messages.
 	* Fixed bug with Netscape 4.x which prevented to send attachement.
@@ -13,7 +13,7 @@ NOCC 0.9.3	?? ??, 2001
 	* Fix for flawed PHP install bundled with RedHat 7 (RH bug #24933).
 	* Images with transparency are now in GIF. Fixes Netscape problems
 	  with transparent PNG.
-	* Changed <? to <?php, better compatibility when short tags are disabled. 
+	* Moved <? to <?php, better compatibility when short tags are disabled. 
 
 
 NOCC 0.9.2	February 08, 2001
