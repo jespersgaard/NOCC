@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.147 2004/06/13 16:53:31 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.148 2004/06/13 16:56:05 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -304,50 +304,63 @@ switch($action)
             break;
         }
 
-        switch (trim($_REQUEST['do'])) {
-            case 'delete':
-                if ($_REQUEST['filter']) {
-                    unset($filterset->filterset[$_REQUEST['filter']]);
+        if (isset($_REQUEST['do'])) {
+            switch (trim($_REQUEST['do'])) {
+                case 'delete':
+                    if ($_REQUEST['filter']) {
+                        unset($filterset->filterset[$_REQUEST['filter']]);
+                        $filterset->dirty_flag = 1;
+                        $filterset->commit($ev);
+                        if (NoccException::isException($ev)) {
+                            require ('./html/header.php');
+                            require ('./html/error.php');
+                            require ('./html/footer.php');
+                            break;
+                        }
+                    }
+                    break;
+    
+                case 'create':
+                    if (!$_REQUEST['filtername']) {
+                        break;
+                    }
+
+                    if ($_REQUEST['thing1'] == '-') {
+                        break;
+                    } else {
+                        $filterset->filterset[$_REQUEST['filtername']]['SEARCH'] = 
+                            $_REQUEST['thing1'] . ' "'. $_REQUEST['contains1'] . '"';
+                    }
+            
+                    if ($_REQUEST['thing2'] != '-') {
+                        $filterset->filterset[$_REQUEST['filtername']]['SEARCH'] .= 
+                            ' ' . $_REQUEST['thing2'] . ' "'. $_REQUEST['contains2'] . '"';
+                    }
+
+                    if ($_REQUEST['thing3'] != '-') {
+                        $filterset->filterset[$_REQUEST['filtername']]['SEARCH'] .= 
+                            ' ' . $_REQUEST['thing3'] . ' "'. $_REQUEST['contains3'] . '"';
+                    }
+                
+                    if ($_REQUEST['filter_action'] == 'DELETE') {
+                        $filterset->filterset[$_REQUEST['filtername']]['ACTION'] = 'DELETE';
+                    } elseif ($_REQUEST['filter_action'] == 'MOVE') {
+                        $filterset->filterset[$_REQUEST['filtername']]['ACTION'] = 'MOVE:'. $_REQUEST['filter_move_box'];
+                    } else {
+                        break;
+                    }
+                
                     $filterset->dirty_flag = 1;
-                    $filterset->commit();
-                }
-                break;
-
-            case 'create':
-                if (!$_REQUEST['filtername']) {
+                    $filterset->commit($ev);
+                    if (NoccException::isException($ev)) {
+                        require ('./html/header.php');
+                        require ('./html/error.php');
+                        require ('./html/footer.php');
+                        break;
+                    }
                     break;
-                }
-
-                if ($_REQUEST['thing1'] == '-') {
-                    break;
-                } else {
-                    $filterset->filterset[$_REQUEST['filtername']]['SEARCH'] = 
-                        $_REQUEST['thing1'] . ' "'. $_REQUEST['contains1'] . '"';
-                }
-                
-                if ($_REQUEST['thing2'] != '-') {
-                    $filterset->filterset[$_REQUEST['filtername']]['SEARCH'] .= 
-                        ' ' . $_REQUEST['thing2'] . ' "'. $_REQUEST['contains2'] . '"';
-                }
-                
-                if ($_REQUEST['thing3'] != '-') {
-                    $filterset->filterset[$_REQUEST['filtername']]['SEARCH'] .= 
-                        ' ' . $_REQUEST['thing3'] . ' "'. $_REQUEST['contains3'] . '"';
-                }
-                
-                if ($_REQUEST['filter_action'] == 'DELETE') {
-                    $filterset->filterset[$_REQUEST['filtername']]['ACTION'] = 'DELETE';
-                } elseif ($_REQUEST['filter_action'] == 'MOVE') {
-                    $filterset->filterset[$_REQUEST['filtername']]['ACTION'] = 'MOVE:'. $_REQUEST['filter_move_box'];
-                } else {
-                    break;
-                }
-                
-                $filterset->dirty_flag = 1;
-                $filterset->commit();
-                break;
+            }
         }
-
         $html_filter_select = $filterset->html_filter_select();
         $filter_move_to = $pop->html_folder_select('filter_move_box','');
 
