@@ -1,8 +1,8 @@
 <?
 /*
-	$Author: nicocha $
-	$Revision: 1.11 $
-	$Date: 2000/10/24 00:58:36 $
+	$Author: wolruf $
+	$Revision: 1.12 $
+	$Date: 2000/10/25 20:33:14 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
 the function get_part is based on a function from matt@bonneau.net
@@ -19,7 +19,7 @@ $body = "";
 
 /* ----------------------------------------------------- */
 
-function inbox($servr, $user, $passwd, $sort, $sortdir)
+function inbox($servr, $user, $passwd, $sort, $sortdir, $lang)
 {
 	$pop = @imap_open("{".$servr."}INBOX", $user, $passwd);
 	//echo imap_num_recent($pop);
@@ -90,7 +90,7 @@ function inbox($servr, $user, $passwd, $sort, $sortdir)
 						"attach" => $attach, 
 						"from" => htmlspecialchars($from[0]->text), 
 						"subject" => htmlspecialchars($subject[0]->text), 
-						"date" => change_date(chop($ref_contenu_message->date)),  
+						"date" => change_date(chop($ref_contenu_message->date), $lang),
 						"size" => $msg_size,
 						"sort" => $sort,
 						"sortdir" => $sortdir);
@@ -167,7 +167,7 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read)
 				"to" => htmlspecialchars($ref_contenu_message->toaddress),
 				"cc" => htmlspecialchars($ref_contenu_message->ccaddress),
 				"subject" => htmlspecialchars($subject[0]->text),
-				"date" => change_date(chop($ref_contenu_message->date)),
+				"date" => change_date(chop($ref_contenu_message->date), $lang),
 				"att" => $link_att,
 				"body" => $body,
 				"header" => $header,
@@ -316,11 +316,9 @@ function link_att($servr, $mail, $tab, $display_part_no)
 
 /* ----------------------------------------------------- */
 
-function change_date($date)
+function change_date($date, $lang)
 {
-	GLOBAL $days;
-	GLOBAL $months;
-
+	require ("check_lang.php");
 	$tab = split(" ", $date);
 	$tab[0] = eregi_replace(",", "", $tab[0]);
 	return ($days[$tab[0]].", ".$tab[1]." ".$months[$tab[2]]." ".$tab[3]);
