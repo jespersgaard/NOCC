@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.26 2003/02/06 07:57:52 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.27 2003/03/03 07:34:53 rossigee Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -79,7 +79,7 @@ $_SESSION['nocc_smtp_server'] = $conf->default_smtp_server;
 $_SESSION['nocc_smtp_port'] = $conf->default_smtp_port;
 
 // Default login to just the username
-if(isset($_SESSION['nocc_user']))
+if(isset($_SESSION['nocc_user']) && !isset($_SESSION['nocc_login']))
     $_SESSION['nocc_login'] = $_SESSION['nocc_user'];
 
 // Were we provided with a domainnum to use
