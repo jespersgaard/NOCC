@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.30 2001/02/26 11:33:13 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.31 2001/03/13 09:16:31 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -64,6 +64,7 @@ switch ($sendaction)
 		$mail->to = cut_address($mail_to, $charset);
 		$mail->cc = cut_address($mail_cc, $charset);
 		$mail->bcc = cut_address($mail_bcc, $charset);
+		$mail->charset = $charset;
 		if ($mail_subject != "")
 			$mail->subject = stripcslashes($mail_subject);
 		if ($mail_body != "")
@@ -85,12 +86,12 @@ switch ($sendaction)
 				$file = fread($fp, $$file_size);
 				fclose($fp);
 				// add it to the message, by default it is encoded in base64
-				$mail->add_attachment($file, imap_qprint($$file_name), $$file_mime, "base64");
+				$mail->add_attachment($file, imap_qprint($$file_name), $$file_mime, "base64", "");
 				// then we delete the temporary file
 				unlink($$file_tmp);
 			}
 		}
-		if ($mail->send() !=0)
+		if ($mail->send() != 0)
 			$error = true; // an error occured while sending the message
 		header ("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang");
 		break;

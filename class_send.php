@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.21 2001/01/31 11:15:07 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.22 2001/02/23 09:31:57 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -22,7 +22,6 @@ class mime_mail
 	var $smtp_server;
 	var $smtp_port;
 	var $charset;
-	// It would be a good idea to add the charset line (charset="$charset") into the header of the message //
 
   /*
   *     void mime_mail()
@@ -41,17 +40,18 @@ class mime_mail
 	}
 
   /*
-  *     void add_attachment(string message, [string name], [string ctype], [string encoding])
+  *     void add_attachment(string message, [string name], [string ctype], [string encoding], [string charset])
   *     Add an attachment to the mail object
   */ 
-	function add_attachment($message, $name, $ctype, $encoding)
+	function add_attachment($message, $name, $ctype, $encoding, $charset)
 	{
 	$this->parts[] = array	(
-                           "ctype" => $ctype,
-                           "message" => $message,
-                           "encoding" => $encoding,
-                           "name" => $name
-							);
+					"ctype" => $ctype,
+                    "message" => $message,
+                    "encoding" => $encoding,
+					"charset" => $charset,
+                    "name" => $name
+					);
 	}
 
 /*
@@ -62,6 +62,7 @@ class mime_mail
 	{
 		$message = $part["message"];
 		$encoding = $part["encoding"];
+		$charset = $part["charset"];
 		switch($encoding)
 		{
 			case "base64":
@@ -74,6 +75,7 @@ class mime_mail
 				break;
 		}
 		$val = "Content-Type: ".$part["ctype"].";";
+		$val .= ($part["charset"] ? " charset=".$part["charset"] : "");
 		$val .= ($part["name"] ? "\r\n\tname=\"".$part["name"]."\"" : "");
 		$val .= "\r\nContent-Transfer-Encoding: ".$encoding;
 		$val .= ($part["name"] ? "\r\nContent-Disposition: attachment;\r\n\tfilename=\"".$part["name"]."\"" : "");
@@ -132,12 +134,12 @@ class mime_mail
 			$mime .= $this->headers."\r\n";
 		if (sizeof($this->parts) >= 1)
 		{
-			$this->add_attachment($this->body,  "",  "text/plain", "quoted-printable");
+			$this->add_attachment($this->body,  "",  "text/plain", "quoted-printable", $this->charset);
 			$mime .= "MIME-Version: 1.0\r\n".$this->build_multipart();
 		}
 		else
 		{
-			$this->add_attachment($this->body,  "",  "text/plain", "8bit");
+			$this->add_attachment($this->body,  "",  "text/plain", "8bit", $this->charset);
 			$mime .= $this->build_body();
 		}
 		// Whether or not to use SMTP or sendmail
