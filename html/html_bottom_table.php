@@ -1,8 +1,19 @@
-<!-- start of $Id: html_bottom_table.php,v 1.28 2001/11/28 14:54:51 rossigee Exp $ -->
+<!-- start of $Id: html_bottom_table.php,v 1.29 2002/01/23 13:17:38 nicocha Exp $ -->
 </table>
 </td></tr>
 <input type="hidden" name="nothing" value="looks_good" />
 </form>
+</table>
+<table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
+    <tr bgcolor="<?php echo $glob_theme->inside_color ?>">
+        <td align="right" class="inbox">
+	    <?php echo $page_line ?>
+        </td>
+        <td align="right" class="inbox">
+            <?php echo $prev ?>
+            <?php echo $next ?>
+        </td>
+    </tr>
 </table>
 
 <script type="text/javascript">
@@ -17,4 +28,4 @@ function SelectAll() {
 }
 //-->
 </script>
-<!-- end of $Id: html_bottom_table.php,v 1.28 2001/11/28 14:54:51 rossigee Exp $ -->
+<!-- end of $Id: html_bottom_table.php,v 1.29 2002/01/23 13:17:38 nicocha Exp $ -->
