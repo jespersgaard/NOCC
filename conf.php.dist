@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.48 2001/04/24 19:18:33 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.49 2001/04/25 18:13:26 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -18,47 +18,49 @@
 $default_smtp_server = "";
 $default_smtp_port = 25;
 
-// List of domain people can log in
-// You can have as much domain as you need
+// List of domains people can log in
+// You can have as many domaind as you need
 
-// domain name e.g "sourceforge.net". This field is used when sending message
-
-// IMAP or pop3 server name + protocol + port
-// [server_name]/[PROTOCOL]:[port number]
-// ex : mail.sourceforge.net/IMAP:143
-// ex : mail.sourceforge.net/pop3:110
-// PROTOCOL can be pop3 or IMAP
-
-// Optional: smtp server name or ip
-// Leave empty to send mail via sendmail
-// ex: smtp.isp.com
-
-// port number to connect to smtp (usually 25)
+// $domains[0]->domain = "sourceforge.net";
+//  domain name e.g "sourceforge.net". This field is used when sending message
+//
+// $domains[0]->in = "mail.sourceforge.net/pop3:110";
+//  IMAP or pop3 server name + protocol + port
+//  [server_name]/[PROTOCOL]:[port number]
+//  ex : mail.sourceforge.net/IMAP:143
+//  ex : mail.sourceforge.net/pop3:110
+//  PROTOCOL can be pop3 or IMAP
+//
+// $domains[0]->smtp = "smtp.isp.com";
+//  Optional: smtp server name or IP address
+//  Leave empty to send mail via sendmail
+//
+// $domains[0]->smtp_port = 25;
+//  Port number to connect to smtp server (usually 25)
 
 $domains[0]->domain = "";
 $domains[0]->in = "";
 $domains[0]->smtp = "";
 $domains[0]->smtp_port = 25;
 
-// If you want to add more domain, uncomment the following lines and fill them in
-/*
-$domains[1]->domain = "";
-$domains[1]->in = "";
-$domains[1]->smtp = "";
-$domains[1]->smtp_port = 25;
+// If you want to add more domainis, uncomment the following
+// lines and fill them in
 
-$domains[2]->domain = "";
-$domains[2]->in = "";
-$domains[2]->smtp = "";
-$domains[2]->smtp_port = 25;
-*/
+//$domains[1]->domain = "";
+//$domains[1]->in = "";
+//$domains[1]->smtp = "";
+//$domains[1]->smtp_port = 25;
+
+//$domains[2]->domain = "";
+//$domains[2]->in = "";
+//$domains[2]->smtp = "";
+//$domains[2]->smtp_port = 25;
 
 // Default tmp directory (where to store temporary uploaded files)
 // Can be empty if 'upload_tmp_dir' is set in php.ini
 // This should be something like '/tmp' on Unix System
 // And 'c:/tmp' on Win32
 $tmpdir = "";
-
 
 // Default folder to go first
 $default_folder = "INBOX";
