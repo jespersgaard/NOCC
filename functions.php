@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.183 2004/06/20 15:44:18 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.184 2004/06/20 19:09:35 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -32,7 +32,7 @@ function inbox(&$pop, $skip = 0, &$ev)
     $start_msg = $skip * $per_page;
     $end_msg = $start_msg + $per_page;
 
-    $sorted = $pop->sort($sort, $sortdir, $ev);
+    $sorted = $pop->sort($sort, $sortdir, $ev, true);
     if(NoccException::isException($ev)) return;
 
     $end_msg = ($num_msg > $end_msg) ? $end_msg : $num_msg;
@@ -132,7 +132,8 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
     $body = $subject = $from = $to = $cc = $reply_to = '';
 
     // Get message numbers in sorted order
-    $sorted = $pop->sort($sort, $sortdir, $ev);
+    // Do not use message UID, in order to get correct messages number with IMAP connexion
+    $sorted = $pop->sort($sort, $sortdir, $ev, false);
     if(NoccException::isException($ev)) return;
 
     // Finding the next and previous message number

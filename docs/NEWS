@@ -1,5 +1,7 @@
 NOCC 0.9.6    June 2?, 2004
 
+    * Correct issue with IMAP connection which prevents "previous message" and
+      "next message" links display (Arnaud Boudou).
     * Strip META flags outside the HEAD block within HTML mails (Arnaud Boudou,
       RFE #489443).
     * Correct problem where no attachment shown when mail contains only an
