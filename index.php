@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.51 2001/02/26 14:04:58 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.52 2001/02/27 09:21:50 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -46,11 +46,20 @@ function updatePort ()
 	}
 }
 
-function updatePage() 
+function updateLang() 
 {
 	if (document.nocc_webmail_login.user.value == "" && document.nocc_webmail_login.passwd.value == "")
 	{
-		var lang_page = "<?php echo $PHP_SELF?>?lang=" + document.nocc_webmail_login.lang[document.nocc_webmail_login.lang.selectedIndex].value + "&theme=" + document.nocc_webmail_login.theme[document.nocc_webmail_login.theme.selectedIndex].value;
+		var lang_page = "index.php?lang=" + document.nocc_webmail_login.lang[document.nocc_webmail_login.lang.selectedIndex].value + "&theme=<? echo $theme ?>";
+		self.location = lang_page;
+	}
+}
+
+function updateTheme() 
+{
+	if (document.nocc_webmail_login.user.value == "" && document.nocc_webmail_login.passwd.value == "")
+	{
+		var lang_page = "index.php?lang=<? echo $lang ?>&theme=" + document.nocc_webmail_login.theme[document.nocc_webmail_login.theme.selectedIndex].value;
 		self.location = lang_page;
 	}
 }
@@ -129,13 +138,11 @@ function updatePage()
 							}
 							?>
 							<tr>
-								<td align="right" class="f">
-									<?php echo $html_lang ?>
-								</td>
+								<td align="right" class="f"><?php echo $html_lang ?></td>
 								<td><font size="-3">&nbsp;</font></td>
 								<td class="f">
 									<?php
-										echo ("<select name=\"lang\" onchange=\"updatePage()\">");
+										echo ("<select name=\"lang\" onchange=\"updateLang()\">");
 										for ($i = 0; $i < sizeof($lang_array); $i++)
 											if (file_exists("lang/".$lang_array[$i]->filename.".php"))
 											{
@@ -159,7 +166,7 @@ function updatePage()
 								<td><font size="-3">&nbsp;</font></td>
 								<td class="f">
 									<?php
-										echo ("<select name=\"theme\" onchange=\"updatePage()\">");
+										echo ("<select name=\"theme\" onchange=\"updateTheme()\">");
 										$handle = opendir("./themes");
 										while (($file = readdir($handle)) != false) 
 										{
