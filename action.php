@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.133 2002/06/27 22:17:52 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.134 2002/06/30 11:02:58 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -14,7 +14,6 @@
 
 require_once './conf.php';
 require_once './common.php';
-require_once './prefs.php';
 
 // Remove any attachments from disk and from our session
 clear_attachments();
@@ -123,14 +122,12 @@ switch($action)
             $mail_subject = $html_reply_short.': '.$content['subject'];
 
         // Set body
-        $outlook_quoting = getPref('outlook_quoting', $ev);
-        if($outlook_quoting)
+        if($user_prefs->outlook_quoting)
             $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . strip_tags($content['body'], '');
         else {
-            $prefs_reply_leadin = getPref('leadin', $ev);
-            if ($prefs_reply_leadin != '')
+            if ($user_prefs->reply_leadin != '')
             {
-                $parsed_leadin = parseLeadin($prefs_reply_leadin, $content);
+                $parsed_leadin = NOCCUserPrefs::parseLeadin($user_prefs->reply_leadin, $content);
                 $mail_body = mailquote(strip_tags($content['body'], ''), $parsed_leadin, '');
             }
             else
@@ -177,8 +174,7 @@ switch($action)
         else
             $mail_subject = $html_reply_short.': '.$content['subject'];
         // Set body
-        $outlook_quoting = getPref('outlook_quoting', $ev);
-        if($outlook_quoting)
+        if($user_prefs->outlook_quoting)
             $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . strip_tags2($content['body'], '');
         else
             $mail_body = mailquote(strip_tags2($content['body'], ''), $content['from'], $html_wrote);
@@ -284,9 +280,8 @@ switch($action)
         require ('./html/header.php');
         require ('./html/menu_prefs.php');
         require ('./html/prefs.php');
-        if ($pop->is_imap()) {
+        if ($pop->is_imap())
             require ('./html/folders.php');
-        }
         require ('./html/menu_prefs.php');
         require ('./html/footer.php');
 
@@ -303,109 +298,30 @@ switch($action)
             break;
         }
 
-        if(isset($_REQUEST['submit_prefs']))
-        {
-            $lastev = '';
+        if(isset($_REQUEST['submit_prefs'])) {
+            if (isset($_REQUEST['full_name']))
+                $user_prefs->full_name = stripslashes($_REQUEST['full_name']);
+            if (isset($_REQUEST['msg_per_page']))
+                $user_prefs->msg_per_page = $_REQUEST['msg_per_page'];
+            if (isset($_REQUEST['email_address']))
+                $user_prefs->email_address = $_REQUEST['email_address'];
+            $user_prefs->cc_self = isset($_REQUEST['cc_self']);
+            $user_prefs->hide_addresses = isset($_REQUEST['hide_addresses']);
+            $user_prefs->outlook_quoting = isset($_REQUEST['outlook_quoting']);
+            if (isset($_REQUEST['reply_leadin']))
+                $user_prefs->reply_leadin = stripslashes($_REQUEST['reply_leadin']);
+            if (isset($_REQUEST['signature']))
+                $user_prefs->signature = stripslashes($_REQUEST['signature']);
 
-            // Full name
-            if (!$lastev && isset($_REQUEST['full_name'])) {
-                setPref('full_name', stripslashes($_REQUEST['full_name']), $ev);
-                if(Exception::isException($ev))
-                    $lastev = $ev;
-            }
-
-            // Messages per page
-            if (!$lastev && isset($_REQUEST['msg_per_page'])) {
-                setPref('msg_per_page', $_REQUEST['msg_per_page'], $ev);
-                if(Exception::isException($ev))
-                    $lastev = $ev;
-            }
-
-            // Email address
-            if (!$lastev && isset($_REQUEST['email_address'])) {
-                if(valid_email($_REQUEST['email_address'])) {
-                    setPref('email_address', $_REQUEST['email_address'], $ev);
-                    if(Exception::isException($ev))
-                        $lastev = $ev;
-                }
-                else
-                    $lastev = new Exception("Invalid e-mail address (".$_REQUEST['email_address'].")");
-            }
-
-            // CC Self
-            if (!$lastev)
-                if(isset($_REQUEST['cc_self'])) {
-                    setPref('cc_self', 'Y', $ev);
-                    if(Exception::isException($ev))
-                        $lastev = $ev;
-                }
-                else {
-                    setPref('cc_self', '', $ev);
-                    if(Exception::isException($ev))
-                        $lastev = $ev;
-                }
-
-            // Hide Addresses
-            if (!$lastev)
-                if(isset($_REQUEST['hide_addresses'])) {
-                    setPref('hide_addresses', 'Y', $ev);
-                    if(Exception::isException($ev))
-                        $lastev = $ev;
-                }
-                else {
-                    setPref('hide_addresses', '', $ev);
-                    if(Exception::isException($ev))
-                        $lastev = $ev;
-                }
-
-            // Outlook-style quoting
-            if (!$lastev)
-                if(isset($_REQUEST['outlook_quoting'])) {
-                    setPref('outlook_quoting', 'Y', $ev);
-                    if(Exception::isException($ev))
-                        $lastev = $ev;
-                }
-                else {
-                    setPref('outlook_quoting', '', $ev);
-                    if(Exception::isException($ev))
-                        $lastev = $ev;
-                }
-
-            // Reply lead-in
-            if (!$lastev)
-                if(isset($_REQUEST['reply_leadin'])) {
-                    setPref('leadin', $reply_leadin, $ev);
-                    if(Exception::isException($ev))
-                        $lastev = $ev;
-                }
-
-            // Signature
-            if (!$lastev)
-                if(isset($_REQUEST['signature'])) {
-                    setPref('signature', stripslashes($_REQUEST['signature']), $ev);
-                    if(Exception::isException($ev))
-                        $lastev = $ev;
-                }
-
-/*
-            if (!$lastev && $signature != "") {
-                setSig($signature, $ev);
-                if(Exception::isException($ev))
-                    $lastev = $ev;
-            }
-*/
-
-            // Handle an errors that occurred
-            if (Exception::isException($lastev))
-                $ev = $lastev;
+            // Commit preferences
+            $user_prefs->commit($ev);
         }
 
         require ('./html/header.php');
         require ('./html/menu_prefs.php');
         require ('./html/prefs.php');
-        if ($pop->is_imap()) {
+        if ($pop->is_imap())
             require ('./html/folders.php');
-        }
         require ('./html/menu_prefs.php');
         require ('./html/footer.php');
 
@@ -502,9 +418,9 @@ switch($action)
 }
 
 function add_signature(&$body) {
-    $prefs_signature = getPref('signature', $ev);
-    if(!empty($prefs_signature))
-        $body .= "\r\n" . $prefs_signature;
+    $user_prefs = $_SESSION['nocc_user_prefs'];
+    if($user_prefs->signature)
+        $body .= "\r\n" . $user_prefs->signature;
 }
 
 ?>

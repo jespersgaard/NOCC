@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.166 2002/06/14 10:46:58 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.167 2002/06/27 22:17:52 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -18,6 +18,8 @@ function inbox(&$pop, $skip = 0, &$ev)
 {
     global $conf;
 
+    $user_prefs = $_SESSION['nocc_user_prefs'];
+
     $msg_list = array();
 
     $lang = $_SESSION['nocc_lang'];
@@ -25,7 +27,7 @@ function inbox(&$pop, $skip = 0, &$ev)
     $sortdir = $_SESSION['nocc_sortdir'];
 
     $num_msg = $pop->num_msg();
-    $per_page = (getPref('msg_per_page', $ev)) ? getPref('msg_per_page', $ev) : (($conf->msg_per_page) ? $conf->msg_per_page : '25');
+    $per_page = get_per_page();
 
     $start_msg = $skip * $per_page;
     $end_msg = $start_msg + $per_page;
@@ -711,10 +713,10 @@ function display_address(&$address)
         return $html_att_unknown;
 
     // Get preference
-    $hide_addresses = getPref('hide_addresses', $ev);
+    $user_prefs = $_SESSION['nocc_user_prefs'];
 
     // If not set, return full address.
-    if($hide_addresses != 'on')
+    if(!$user_prefs->hide_addresses)
         return $address;
 
     // If no '<', return full address.
@@ -767,4 +769,9 @@ function valid_email($email)
     return TRUE;
 }
 
+function get_per_page() {
+    global $conf;
+    $user_prefs = $_SESSION['nocc_user_prefs'];
+    return $user_prefs->msg_per_page ? $user_prefs->msg_per_page : ($conf->msg_per_page ? $conf->msg_per_page : '25');
+}
 ?>

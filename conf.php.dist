@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.108 2002/06/28 17:45:17 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.109 2002/06/30 15:12:26 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -201,25 +201,29 @@ set_magic_quotes_runtime(0);
 ###################     End of Configuration     ####################
 */
 
+require_once './user_prefs.php';
 require_once './functions.php';
 
 // This function allows you to customise the default e-mail address
 function get_default_from_address() {
-    // Set in preferences?
-    $prefs_email_address = getPref('email_address', $ev);
-    $prefs_full_name = getPref('full_name', $ev);
+    $user_prefs = $_SESSION['nocc_user_prefs'];
+    $from_address = "";
 
-    // If not set, for now, default to login@domain
-    if(empty($prefs_email_address))
-        $prefs_email_address = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
-
-    $mail_from = "";
-    if(!empty($prefs_email_address)) {
-        $mail_from = $prefs_email_address;
-        if(!empty($prefs_full_name))
-            $mail_from = $prefs_full_name . ' <' . $mail_from . '>';
+    // Determine e-mail address
+    if(!empty($user_prefs->email_address))
+        $from_address = $user_prefs->email_address;
+    else {
+        $from_address = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
+        if($from_address == '@') {
+            return '';
+        }
     }
-    return $mail_from;
+    
+    // Append name if known
+    if(!empty($users_prefs->full_name))
+        $from_address = $prefs_full_name . ' <' . $from_address . '>';
+
+    return $from_address;
 }
 
 ?>

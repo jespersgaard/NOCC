@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.21 2002/05/29 19:49:25 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.22 2002/06/27 22:17:52 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -231,7 +231,7 @@ class nocc_imap
         if (($num_messages = $this->num_msg()) == 0) {
             return 0;
         } else {
-            $per_page = (getPref('msg_per_page', $ev)) ? getPref('msg_per_page', $ev) : (($conf->msg_per_page) ? $conf->msg_per_page : '25');
+            $per_page = get_per_page();
             $pages = ceil($num_messages / $per_page);
             return $pages;
         }

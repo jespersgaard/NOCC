@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.111 2002/05/30 14:07:21 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.112 2002/06/27 22:17:52 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -11,7 +11,6 @@
 
 require_once './conf.php';
 require_once './common.php';
-require_once './prefs.php';
 
 if (!isset($_SESSION['nocc_loggedin']))
 {
@@ -101,8 +100,8 @@ switch($_REQUEST['sendaction'])
         $mail->headers .= 'User-Agent: ' . $conf->nocc_name . ' <' . $conf->nocc_url . '>';
         $mail->to = cut_address(trim($mail_to), $charset);
         $mail->cc = cut_address(trim($mail_cc), $charset);
-        $cc_self = getPref('cc_self', $ev);
-        if($cc_self != '') {
+	$user_prefs = $_SESSION['nocc_user_prefs'];
+        if($user_prefs->cc_self) {
             array_unshift($mail->cc, $mail->from);
         }
         $mail->bcc = cut_address(trim($mail_bcc), $charset);

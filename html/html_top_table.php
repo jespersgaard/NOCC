@@ -1,10 +1,10 @@
-<!-- start of $Id: html_top_table.php,v 1.65 2002/05/30 14:07:22 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.66 2002/06/27 22:17:52 rossigee Exp $ -->
 <?php
 
 require_once 'class_local.php';
 require_once 'conf.php';
 
-$per_page = (getPref('msg_per_page', $ev)) ? getPref('msg_per_page', $ev) : (($conf->msg_per_page) ? $conf->msg_per_page : '25');
+$per_page = get_per_page();
 
 $arrow = ($_SESSION['nocc_sortdir'] == 0) ? 'up' : 'down';
 $new_sortdir = ($_SESSION['nocc_sortdir'] == 0) ? 1 : 0;
@@ -120,4 +120,4 @@ if ($pop->is_imap()) {
             <form method="post" action="delete.php" name="delete_form">
         </td>
     </tr>
-<!-- start of $Id: html_top_table.php,v 1.65 2002/05/30 14:07:22 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.66 2002/06/27 22:17:52 rossigee Exp $ -->

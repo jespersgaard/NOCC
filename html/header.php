@@ -1,14 +1,14 @@
 <?php
 
 require_once 'proxy.php';
-//header ("Content-type: text/html; Charset=$charset");
-require_once './prefs.php';
+if(isset($charset))
+    header ("Content-type: text/html; Charset=$charset");
+else
+    header ("Content-type: text/html");
 
 // Don't call getPref unless session has been initialised enough for
 // prefs.php to find it's prefs file.
-$pref_email_address = "";
-if(isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain']))
-    $pref_email_address = getPref('email_address', $ev);
+$header_display_address = get_default_from_address();
 
 $custom_header = './themes/' . $_SESSION['nocc_theme'] . '/header.php';
 if(file_exists($custom_header)) {
@@ -33,7 +33,7 @@ else {
             <tr>
                 <td align="left" valign="middle" colspan="2">
                     <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/logo.gif" width="153" height="47" alt="Logo" />
-                    &nbsp;&nbsp;<font class="login"><b><?php echo $pref_email_address ?></b></font>
+                    &nbsp;&nbsp;<font class="login"><b><?php echo $header_display_address ?></b></font>
                 </td>
             </tr>
             <tr>

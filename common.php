@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.19 2002/06/27 22:17:52 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.20 2002/06/28 17:45:17 rossigee Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -113,6 +113,21 @@ if(isset($_REQUEST['theme']))
 // If we haven't chosen, or are forced to use a particular theme...
 if(!$conf->use_theme || !isset($_SESSION['nocc_theme']))
     $_SESSION['nocc_theme'] = $conf->default_theme;
+
+// Cache the user's preferences
+if(isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
+	if(!isset($_SESSION['nocc_user_prefs'])) {
+		$ev = NULL;
+		$user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
+		$_SESSION['nocc_user_prefs'] = NOCCUserPrefs::read($user_key, $ev);
+		if(Exception::isException($ev)) {
+			error_log("User prefs error ($user_key): ".$ev->getMessage());
+			$_SESSION['nocc_user_prefs'] = new NOCCUserPrefs($user_key);
+			$ev = NULL;
+		}
+	}
+	$user_prefs = $_SESSION['nocc_user_prefs'];
+}
 
 require_once ('./conf_lang.php');
 require_once ('./themes/'.$_SESSION['nocc_theme'].'/colors.php');

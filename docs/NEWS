@@ -1,5 +1,6 @@
 NOCC 0.9.6    ??, 2002
 
+    * Rewrote 'prefs.php' as 'user_prefs.php'.
     * Added a function 'get_default_from_address' to allow admins to
       customise the default address in their conf.php. (#563396)
     * A whole load of tidying up of the folder-related code.

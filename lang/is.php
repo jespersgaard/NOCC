@@ -142,4 +142,5 @@ $to_empty = '\'Til\' reiturinn má ekki vera auður!';
 $html_smtp_error_no_conn = "Ómögulegt að opna tengingu";
 $html_smtp_error_unexpected = "Ófyrirsjáanleg viðbrögð:";
 $html_file_upload_attack = 'Possible file upload attack';  //to translate
+$html_invalid_email_address = 'Invalid e-mail address';  //to translate
 ?>
