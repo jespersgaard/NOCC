@@ -1,5 +1,7 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Correct a problem which allowed people to send message without
+	  log in a valid mail account (bug #440319)
 	* Correct a problem with range when trying to get messages 
 	  charset (bug #432724)
 	* Correct a problem which prevented to add attachments when
