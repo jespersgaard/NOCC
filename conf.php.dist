@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.123 2004/07/21 06:18:58 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.124 2004/08/24 10:40:30 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -105,6 +105,9 @@ $conf->default_folder = 'INBOX';
 // This is only needed for browsers that don't send any preferred
 // language such as W3 Amaya
 $conf->default_lang = 'en';
+
+// force default language to be set, rather than browser prefered language
+$conf->force_default_lang = false;
 
 // How many messages to display in the inbox (devel only)
 $conf->max_msg_num = 1;

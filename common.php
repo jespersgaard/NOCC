@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.35 2004/08/24 10:40:30 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.36 2004/08/24 10:46:54 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -58,7 +58,7 @@ $lang = $conf->default_lang;
 if(isset($_SESSION['nocc_lang']))
     $lang = $_SESSION['nocc_lang'];
 else {
-    if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+    if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) && !$conf->force_default_lang) {
         $ar_lang = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
         while ($accept_lang = array_shift($ar_lang))
         {
@@ -70,6 +70,8 @@ else {
                 break;
             }
         }
+    } else {
+      $lang = $conf->default_lang;
     }
     $_SESSION['nocc_lang'] = $lang;
 }
