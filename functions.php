@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.154 2002/04/24 15:01:37 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.155 2002/04/24 19:32:30 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -177,10 +177,10 @@ function aff_mail(&$attach_tab, &$mail, $verbose, &$ev)
                 $link_att = '';
                 break;
             case 1:
-                $link_att = '<tr><td align="right" valign="top" class="mail">' . $html_att . '</td><td bgcolor="' . $glob_theme->mail_properties . '" class="mail">' . link_att($mailhost, $mail, $attach_tab, $conf->display_part_no) . '</td></tr>';
+                $link_att = '<tr><td align="right" valign="top" class="mail">' . $html_att . '</td><td bgcolor="' . $glob_theme->mail_properties . '" class="mail">' . link_att($mail, $attach_tab, $conf->display_part_no) . '</td></tr>';
                 break;
             default:
-                $link_att = '<tr><td align="right" valign="top" class="mail">' . $html_atts . '</td><td bgcolor="' . $glob_theme->mail_properties . '" class="mail">' . link_att($mailhost, $mail, $attach_tab, $conf->display_part_no) . '</td></tr>';
+                $link_att = '<tr><td align="right" valign="top" class="mail">' . $html_atts . '</td><td bgcolor="' . $glob_theme->mail_properties . '" class="mail">' . link_att($mail, $attach_tab, $conf->display_part_no) . '</td></tr>';
                 break;
         }
     }
@@ -460,11 +460,11 @@ function remove_stuff(&$body, &$mime)
 
 /* ----------------------------------------------------- */
 
-function link_att(&$servr, &$mail, &$tab, &$display_part_no)
+function link_att(&$mail, &$attach_tab, &$display_part_no)
 {
-    sort($tab);
+    sort($attach_tab);
     $link = '<table border="0">';
-    while ($tmp = array_shift($tab))
+    while ($tmp = array_shift($attach_tab))
         //if ($tmp['id'] == '')
         if (!empty($tmp['name']))
         {
@@ -624,7 +624,7 @@ function cut_address(&$addr, &$charset)
 
 /* ----------------------------------------------------- */
 
-function view_part(&$servr, &$login, &$passwd, &$folder, &$mail, $part_no, &$transfer, &$msg_charset, &$charset)
+function view_part(&$mailhost, &$login, &$passwd, &$folder, &$mail, $part_no, &$transfer, &$msg_charset, &$charset)
 {
     $pop = new nocc_imap($mailhost, $folder, $login, $passwd, 0, $ev);
     if($ev) 
