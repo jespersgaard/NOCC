@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.1 2002/06/30 16:27:14 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.2 2002/06/30 21:43:45 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -98,6 +98,7 @@ class NOCCUserPrefs {
 	 */
 	function commit(&$ev) {
 		global $conf;
+		global $html_prefs_file_error;
 
 		// Check it passes validation
 		$this->validate($ev);

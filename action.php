@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.140 2002/12/16 15:22:39 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.141 2003/01/22 05:04:25 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -238,7 +238,10 @@ switch($action)
             break;
         }
 
-        switch (trim($_REQUEST['do'])) {
+	$do = "";
+	if(isset($_REQUEST['do']))
+		$do = trim(safestrip($_REQUEST['do']));
+        switch ($do) {
             case 'create_folder':
                 if ($_REQUEST['createnewbox']) {
                     $pop->createmailbox($createnewbox, $ev);
