@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.117 2003/12/21 15:40:20 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.118 2004/05/28 21:01:20 ajetam Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -132,7 +132,7 @@ switch($_REQUEST['sendaction'])
 			 	$mail->body = $mail_body;
 		}
 
-        if (isset($ad))
+        if (isset($conf->ad))
             if ($mail_body != '')
                 $mail->body = $mail->body . $mail->crlf . $mail->crlf . $conf->ad;
             else
