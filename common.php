@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.20 2002/06/28 17:45:17 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.21 2002/06/30 16:27:13 rossigee Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -91,7 +91,7 @@ if (isset($_REQUEST['domainnum']))
 
     // Do we provide the domain with the login?
     if(isset($conf->domains[$domainnum]->login_with_domain))
-        $_SESSION['nocc_login'] .= "@" . $domain;
+        $_SESSION['nocc_login'] .= "@" . $_SESSION['nocc_domain'];
 }
 
 // Or did the user provide the details themselves
