@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.82 2001/05/27 17:35:22 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.83 2001/05/29 08:51:53 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -572,6 +572,19 @@ function go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $l
 	session_unregister('num_attach');
 	session_unregister('attach_array');
 	header("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang&$php_session=".$$php_session);
+}
+
+/* ----------------------------------------------------- */
+
+// This function returns TRUE if the mail server is an IMAP one
+// and it returns FALSE otherwise
+function is_Imap($servr)
+{
+	if (stristr($servr, '/pop3:'))
+		return (false);
+	if (stristr($servr, '/nntp:'))
+		return (false);
+	return (true);
 }
 
 /* ----------------------------------------------------- */
