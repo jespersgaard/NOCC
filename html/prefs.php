@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.11 2002/02/09 20:42:36 rossigee Exp $ -->
+<!-- start of $Id: prefs.php,v 1.12 2002/03/24 17:08:02 wolruf Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -6,6 +6,7 @@
             <input type="hidden" name="action" value="setprefs" />
             <input type="hidden" name="submit_prefs" value="set" />
             <input type="hidden" name="lang" value="<?php echo $lang; ?>" />
+            <input type="hidden" name="folder" value="<?php echo $folder; ?>" />
             <table border="0" cellpadding="2" cellspacing="1" bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%">
                 <tr>
                     <td align="right" class="prefs" valign="top"><?php echo $html_full_name ?> : </td>
@@ -21,6 +22,12 @@
                         <?php } else { ?>
                             <input type="hidden" name="email_address" value="<?php echo $email_address != "" ? $email_address : $user.'@'.$domain ?>"/><?php echo $email_address != "" ? $email_address : $user.'@'.$domain ?>
                         <?php } ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" class="prefs" valign="top"><?php echo $html_msgperpage ?></td>
+                    <td align="left" class="prefs">
+                        <input type="text" name="msg_per_page" value="<?php echo $msg_per_page ?>" size="3" maxlength="3"/>
                     </td>
                 </tr>
                 <tr>
@@ -77,4 +84,4 @@
         </td>
     </tr>
 </table>
-<!-- end of $Id: prefs.php,v 1.11 2002/02/09 20:42:36 rossigee Exp $ -->
+<!-- end of $Id: prefs.php,v 1.12 2002/03/24 17:08:02 wolruf Exp $ -->

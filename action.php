@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.102 2002/03/25 18:33:57 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.103 2002/04/15 01:58:26 mrylander Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -232,6 +232,13 @@ switch (trim($action))
                     $lastev = $ev;
             }
 
+            // Messages per page
+            if (!$lastev && isset($msg_per_page)) {
+                $ev = setPref('msg_per_page', $msg_per_page);
+                if(Exception::isException($ev))
+                    $lastev = $ev;
+            }
+
             // Email address
             if (!$lastev && isset($email_address)) {
                 $ev = setPref('email_address', $email_address);
@@ -308,6 +315,7 @@ switch (trim($action))
 
         }
         $full_name = getPref('full_name');
+        $msg_per_page = getPref('msg_per_page');
         $email_address = getPref('email_address');
         $cc_self = getPref('cc_self');
         $hide_addresses = getPref('hide_addresses');

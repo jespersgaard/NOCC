@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.49 2002/02/09 20:25:04 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.50 2002/04/15 02:19:55 mrylander Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -70,6 +70,7 @@ $html_retry = 'Retry';
 
 // prefs.php
 
+$html_msgperpage = 'Messages per page';
 $html_preferences = 'Preferences';
 $html_full_name = 'Full name';
 $html_email_address = 'E-mail Address';
@@ -84,7 +85,9 @@ $html_prefs_updated = 'Preferences updated';
 
 // Other pages
 
-$html_other_folders = 'Other Folders';
+$html_gotopage = 'Go to Page';
+$html_gotofolder = 'Go to Folder';
+$html_other_folders = 'Folder List';
 $html_page = 'Page';
 $html_of = 'of';
 $html_view_header = 'View header';

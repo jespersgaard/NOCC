@@ -1,8 +1,10 @@
-<!-- start of $Id: html_top_table.php,v 1.48 2002/04/15 02:13:32 mrylander Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.49 2002/04/15 06:48:43 mrylander Exp $ -->
 <?php
 
 require_once 'class_local.php';
 require_once 'conf.php';
+
+$per_page = (getPref('msg_per_page')) ? getPref('msg_per_page') : (($conf->msg_per_page) ? $conf->msg_per_page : '25');
 
 $arrow = ($sortdir == 0) ? 'up' : 'down';
 $new_sortdir = ($sortdir == 0) ? 1 : 0;
@@ -14,24 +16,14 @@ $pop = new nocc_imap('{' . $servr . '}' . $folder, $user, $passwd, $ev);
 $pages = $pop->get_page_count($conf);
 
 $page_line = '';
-$pages_lines = array();
 $this_page = '';
 
 if($pages > 1) {	
 	$prev = '';
 	$next = '';
-	for ($i = 0; $i < $pages; $i++) { 
-		$current_skip = $i + 1;
-		if($i == $skip) {
-                	$this_page = $current_skip;
-			array_push($pages_lines, $current_skip);
-		} else {
-			array_push($pages_lines, "<a href=\"$PHP_SELF?sort=$sort&sortdir=$sortdir&lang=$lang&skip=$i&folder=$folder\">$current_skip</a>\n");
-		}
-	}
-
 	$nskip = $skip + 1;
 	$pskip = $skip - 1;
+	$this_page = $skip + 1;
 	if($pskip > -1 ) {
 		$prev = "<a href=\"$PHP_SELF?sort=$sort&sortdir=$sortdir&lang=$lang&skip=$pskip&folder=$folder\">".
 			"<img src=\"themes/".$theme."/img/left_arrow.gif\" border=\"0\" /></a>\n";
@@ -41,28 +33,43 @@ if($pages > 1) {
 		$next = "<a href=\"$PHP_SELF?sort=$sort&sortdir=$sortdir&lang=$lang&skip=$nskip&folder=$folder\">".
 			"<img src=\"themes/".$theme."/img/right_arrow.gif\" border=\"0\" /></a>\n";
 	}
-	$page_line = "<small>$html_page $this_page $html_of $pages &nbsp;  ($prev" . join("&nbsp; \n", $pages_lines) . "$next)</small>";
+	$page_line = "<form method=\"POST\" action=\"$PHP_SElF?sort=1&sortdir=1&lang=$lang&folder=$folder\">";
+	$page_line .= "$html_page $this_page $html_of $pages; $per_page $html_msgperpage &nbsp;  ($prev \n<SELECT name=\"skip\">\n";
+
+	$selected = '';
+	for ($i = 0; $i < $pages; $i++) { 
+		$current_skip = $i + 1;
+		if ($i == $skip) {
+			$selected = "selected";
+		} else {
+			$selected = "";
+		}
+		$page_line .= "\t<OPTION $selected value=\"$i\">$current_skip</OPTION>\n";
+	}
+
+	$page_line .= "</select>$next)<input type=\"submit\" name=\"submit\" value=\"$html_gotopage\"></form>";
 }
 
 $list = $pop->get_nice_subscribed();
-
-$lines = array();
 
 $fldr_line = '';
 if(is_array($list) && count($list) > 0) {
 	reset($list);
 
-	for ($i = 0; $i < count($list); $i++) 
-	{
-		$val = $list[$i];
-		if(!preg_match("#^$folder$#",$val)) {
-			array_push($lines, "<a href=\"$PHP_SELF?sort=1&sortdir=1&lang=$lang&skip=$skip&folder=$val\">$val</a>\n");
+	$fldr_line = "<form method=\"POST\" action=\"$PHP_SElF?sort=1&sortdir=1&lang=$lang\">$html_other_folders:  \n<SELECT name=\"folder\">\n";
+
+	$selected = '';
+	while (list($junk, $name) = each($list)) {
+		if ($name == $folder) {
+			$selected = "selected";
+		} else {
+			$selected = "";
 		}
+		$fldr_line .= "\t<OPTION $selected value=\"$name\">$name</OPTION>\n";
 	}
-	$fldr_line = "$html_other_folders:  <small>\n" . join("  |  ", $lines) . "</small>\n<br><br>";
+	$fldr_line .= "</select>\n<input type=\"submit\" name=\"submit\" value=\"$html_gotofolder\"></form>";
 }
 
-$pop->close();
 
 ?>
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
@@ -82,9 +89,11 @@ $pop->close();
     </tr>
     <tr bgcolor="<?php echo $glob_theme->inbox_text_color ?>">
 	<td colspan="7" align="left">
-		<?php echo $fldr_line ?>
-		<?php echo $page_line ?>
-
+		<table border=0 width="100%">
+				<tr><td valign="top" align="center"><?php echo $fldr_line ?></td>
+				    <td valign="top" align="center"><?php echo $page_line ?></td>
+				</tr>
+		</table>
 	</td>
     </tr>
     <tr bgcolor="<?php echo $glob_theme->inbox_text_color ?>">
@@ -126,4 +135,4 @@ $pop->close();
             <?php echo $html_size ?></a>
         </td>
     </tr>
-<!-- start of $Id: html_top_table.php,v 1.48 2002/04/15 02:13:32 mrylander Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.49 2002/04/15 06:48:43 mrylander Exp $ -->

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.143 2002/03/25 13:57:05 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.144 2002/04/15 02:10:01 mrylander Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -19,10 +19,10 @@ $attach_tab = Array();
 function inbox(&$conf, &$pop, &$sort, &$sortdir, &$lang, &$theme, $skip = 0)
 {
     $num_msg = $pop->num_msg();
-    $per_page = ($conf->msg_per_page) ? $conf->msg_per_page : '25';
+    $per_page = (getPref('msg_per_page')) ? getPref('msg_per_page') : (($conf->msg_per_page) ? $conf->msg_per_page : '25');
 
-    $start_msg = $skip * $conf->msg_per_page;
-    $end_msg = $start_msg + $conf->msg_per_page;
+    $start_msg = $skip * $per_page;
+    $end_msg = $start_msg + $per_page;
 
     $sorted = $pop->sort($sort, $sortdir);
 

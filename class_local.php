@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.9 2002/04/15 02:06:31 mrylander Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.10 2002/04/15 06:52:33 mrylander Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -91,6 +91,10 @@ class nocc_imap
 	return imap_utf7_decode($thing);
     }
 
+    function utf7_encode($thing) {
+	return imap_utf7_encode($thing);
+    }
+
     function getsubscribed() {
 	return imap_getsubscribed($this->conn, '{'.$this->server.'}', '*');
     }
@@ -123,7 +127,7 @@ class nocc_imap
 	        if (($num_messages = @imap_num_msg($this->conn)) == 0) {
                 	return (0);
 	        }else{
-			$per_page = ($conf->msg_per_page) ? $conf->msg_per_page : '25';
+	 	        $per_page = (getPref('msg_per_page')) ? getPref('msg_per_page') : (($conf->msg_per_page) ? $conf->msg_per_page : '25');
         	        $pages = ceil($num_messages / $per_page);
 	                return($pages);
         	}
