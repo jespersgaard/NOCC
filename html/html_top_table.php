@@ -17,7 +17,7 @@ $is_Imap = (ereg("IMAP", $servr)) ? 1 : 0;
 			<?php echo $current_date ?>
 		</td>
 		<td colspan="2" align="right" class="titlew" nowrap="nowrap">
-			<?php echo $num_msg ?> <?php if ($num_msg > 1) {echo $html_msgs;} else {echo $html_msg;}?>
+			<?php echo $num_msg ?> <?php if ($num_msg == 1) {echo $html_msgs;} else {echo $html_msg;}?>
 		</td>
 	</tr>
 	<tr bgcolor="<?php echo $glob_theme->inbox_text_color ?>">
