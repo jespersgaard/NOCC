@@ -5,26 +5,30 @@ Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
 Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
 
 This code is licensed under the GNU Public License.
-See the file COPYING in this directory.
+See the file COPYING in the parent directory.
 
 $Author: wolruf $
-$Revision: 1.3 $
-$Date: 2000/10/30 23:28:26 $
+$Revision: 1.4 $
+$Date: 2000/10/30 23:38:52 $
 
-+++++++++
-Overview:
-+++++++++
+Summary
+*******
 
 This file contains the following sections:
-	  + Overview
-          + Requirements for IMP
-          + Installing IMP
-          + Additional Notes for IMP
-          
+	* Overview
+	* Requirements for NOCC
+	* Installing NOCC
+	* Additional Notes for NOCC
 
-+++++++++++++
-Requirements:
-+++++++++++++
+Overview of Nocc
+****************
+
+   Nocc is a Web-based e-mail reader. It uses PHP and a Web server to access a mail server (POP3, IMAP) and send e-mail (SMTP or plain sendmail).
+
+   Nocc can be used as an e-mail reader when...
+
+Requirements
+************
 
   ----------------
   Mandatory Items:
