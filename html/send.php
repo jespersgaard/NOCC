@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.35 2001/11/07 18:51:51 rossigee Exp $ -->
+<!-- start of $Id: send.php,v 1.36 2001/11/16 11:56:41 rossigee Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
 		<td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -18,15 +18,15 @@
 				</tr>
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_to ?> : </td>
-					<td align="left"><input type="text" name="mail_to" size="60" maxlength="200" value="<?php echo (isset($mail_to) ? htmlspecialchars($mail_to) : ''); ?>" /></td>
+					<td align="left"><input type="text" name="mail_to" size="60" value="<?php echo (isset($mail_to) ? htmlspecialchars($mail_to) : ''); ?>" /></td>
 				</tr>
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_cc ?> : </td>
-					<td align="left"><input type="text" name="mail_cc" size="60" maxlength="200" value="<?php echo (isset($mail_cc) ? htmlspecialchars($mail_cc) : '') ?>" /></td>
+					<td align="left"><input type="text" name="mail_cc" size="60" value="<?php echo (isset($mail_cc) ? htmlspecialchars($mail_cc) : '') ?>" /></td>
 				</tr>
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_bcc ?> : </td>
-					<td align="left"><input type="text" name="mail_bcc" size="60" maxlength="200" value="<?php echo (isset($mail_bcc) ? htmlspecialchars($mail_bcc) : '') ?>" /></td>
+					<td align="left"><input type="text" name="mail_bcc" size="60" value="<?php echo (isset($mail_bcc) ? htmlspecialchars($mail_bcc) : '') ?>" /></td>
 				</tr>
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_subject ?> : </td>
@@ -35,7 +35,7 @@
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_att ?> : </td>
 					<td align="left">
-						<input type="file" name="mail_att" size="40" maxlength="200" value="" />
+						<input type="file" name="mail_att" size="40" value="" />
 						<input type="button" class="button" onclick="attach()" value="<?php echo $html_attach ?>" />
 					</td>
 				</tr>
@@ -131,4 +131,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.35 2001/11/07 18:51:51 rossigee Exp $ -->
+<!-- end of $Id: send.php,v 1.36 2001/11/16 11:56:41 rossigee Exp $ -->
