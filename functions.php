@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.192 2004/07/15 21:10:51 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.193 2004/08/04 19:16:42 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -193,6 +193,10 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
         $body = remove_stuff($body, $tmp['mime']);
 
         $body_charset =  ($tmp['charset'] == "default") ? detect_charset($body) : $tmp['charset'];
+        // Convert US-ASCII to ISO-8859-1 for systems which have difficulties with.
+        if ($body_charset == "US-ASCII" || $body_charset == "") {
+           $body_charset = "ISO-8859-1";
+         }
         $body_converted = ( function_exists('iconv') ) ? @iconv( $body_charset, $GLOBALS['charset'], $body) : FALSE;
         $body = ($body_converted===FALSE) ? $body : $body_converted;
         $tmp['charset'] = ($body_converted===FALSE) ? $body_charset : $GLOBALS['charset'];
