@@ -1,8 +1,8 @@
 <?
 /*
-	$Author: nicocha $
-	$Revision: 1.32 $
-	$Date: 2000/11/23 15:39:18 $
+	$Author: wolruf $
+	$Revision: 1.33 $
+	$Date: 2000/11/24 19:32:29 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
 the function get_part is based on a function from matt@bonneau.net
@@ -307,7 +307,7 @@ function remove_stuff($body, $lang, $mime)
 	else
 	{
 		$body = eregi_replace("(http|https|ftp)://([[:alnum:]/\n+-=%&:_.~?]+[#[:alnum:]+]*)","<A HREF=\"open.php?f=\\1://\\2&lang=$lang\" TARGET=_blank>\\1://\\2</a>", $body);
-		if function_exists('wordwrap')
+		if (function_exists('wordwrap'))
 			$body = wordwrap($body, 80, "\n");
 		$body = "<PRE>".$body."</PRE>"; 
 	}	
