@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.1 2003/12/21 16:35:48 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.2 2004/01/03 12:10:09 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -17,7 +17,7 @@ require_once ('./common.php');
 
 
 // Load the contact list
-$path = $conf->prefs_dir . "/" . $_SESSION["nocc_user"] . ".contacts";
+$path = $conf->prefs_dir . "/" . $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'].".contacts";
 $contacts = load_list ($path);
 
 $query_str = session_name() . "=" . session_id();
