@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.42 2001/04/18 09:02:13 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.43 2001/04/19 19:32:06 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -11,6 +11,7 @@
 
 require ("conf.php");
 require ("check_lang.php");
+require ("functions.php");
 
 if (!session_is_registered("loggedin"))
 	header("Location: logout.php?lang=$lang");
@@ -24,7 +25,6 @@ else
 {
 	require ("class_send.php");
 	require ("class_smtp.php");
-	require ("functions.php");
 
 	switch ($sendaction)
 	{

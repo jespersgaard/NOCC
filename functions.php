@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.76 2001/04/17 20:54:05 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.77 2001/04/19 19:32:06 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -571,7 +571,7 @@ function go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $l
 			unlink($tmpdir."/".$tmp->tmp_file);
 	session_unregister("num_attach");
 	session_unregister("attach_array");
-	header("Location: index.php?sort=$sort&sortdir=$sortdir&lang=$lang&$php_session=".$$php_session);
+	header("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang&$php_session=".$$php_session);
 }
 
 /* ----------------------------------------------------- */
