@@ -157,6 +157,11 @@ these have been tested and work)
 	  - MS Exchange 5.5 Build 2650-24 Service Pack 3.
 	  - Default RedHat 6.1 IMAP daemon v.12.250 (perhaps Cyrus IMAPd ?).
 
+        * MTA: (Nocc should work with any MTA, however, these have been tested
+and work)
+	 - Sendmail.
+	 - Postfix.
+
    NOCC has been used for many months at:
 
 	* a company with approx. 150 unique users/day,
