@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.66 2001/07/18 11:32:55 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.67 2001/10/18 12:37:58 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -99,8 +99,14 @@ else
 			// We need to unregister the attachments array and num_attach
 			session_unregister('num_attach');
 			session_unregister('attach_array');
-			if (($error = $mail->send()) != true);
-				//echo $error; // an error occured while sending the message, I have to work on this NicoCha
+			$ev = $mail->send();
+			if (PEAR::isError($ev)) {
+				require ('html/header.php');
+				require ('html/menu_inbox.php');
+				require ('html/send_error.php');
+				require ('html/menu_inbox.php');
+				exit;
+			}
 			header ("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang&$php_session=".$$php_session);
 			break;
 		case 'delete':

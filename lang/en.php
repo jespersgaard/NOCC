@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.31 2001/10/17 20:30:31 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.32 2001/10/17 22:51:44 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -126,4 +126,9 @@ $html_select_all = 'Select All';
 
 $original_msg = '-- Original Message --';
 $to_empty = 'The \'To\' field must not be empty !';
+
+// SMTP problems (class_smtp.php)
+$html_smtp_error_no_conn = "Unable to open connection";
+$html_smtp_error_unexpected = "Unexpected response:";
+
 ?>

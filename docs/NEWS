@@ -1,5 +1,8 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Added logging of SMTP transactions, until all bugs fixed.
+	* Added send_error output page, to report SMTP problems to user.
+	* Used PEAR::Error for passing SMTP exceptions back to caller.
 	* Disabled encode_mime in cut_addresses until it can be checked.
 	* Strip comments from e-mail addresses before using on RCPT in
 	  SMTP transactions (fixes bug #430367)
