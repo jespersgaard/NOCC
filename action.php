@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.64 2001/10/25 12:57:29 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.65 2001/10/25 15:44:44 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -153,14 +153,19 @@ switch (trim($action))
 	case 'setprefs':
 		if(isset($submit_prefs))
 		{
+			// Full name
 			if (isset($full_name))
 			{
 				setPref('full_name', $full_name);
 			}
+
+			// Email address
 			if (isset($email_address))
 			{
 				setPref('email_address', $email_address);
 			}
+
+			// CC Self
 			if (isset($cc_self) && $cc_self == 'on')
 			{
 				setPref('cc_self', $cc_self);
@@ -169,6 +174,17 @@ switch (trim($action))
 			{
 				setPref('cc_self', '');
 			}
+
+			// Hide Addresses
+			if (isset($hide_addresses) && $hide_addresses == 'on')
+			{
+				setPref('hide_addresses', $hide_addresses);
+			}
+			else
+			{
+				setPref('hide_addresses', '');
+			}
+
 			if ($signature != "")
 			{
 				setSig($signature);
@@ -177,6 +193,7 @@ switch (trim($action))
 		$full_name = getPref('full_name');
 		$email_address = getPref('email_address');
 		$cc_self = getPref('cc_self');
+		$hide_addresses = getPref('hide_addresses');
 		$signature = getSig();
 		require ('./html/menu_prefs.php');
 		require_once ('./html/prefs.php');
@@ -205,6 +222,7 @@ switch (trim($action))
 				require_once ('./html/html_top_table.php');
 				include_once ('./html/no_mail.php');
 				require_once ('./html/html_bottom_table.php');
+				require ('./html/menu_inbox.php');
 				break;
 			default:
 				if (!isset($attach_array))
@@ -214,14 +232,14 @@ switch (trim($action))
 				session_register('loggedin');
 				// there are messages, we display
 				$num_msg = count($tab_mail);
-				require_once ('./html/menu_inbox.php');
+				require ('./html/menu_inbox.php');
 				require_once ('./html/html_top_table.php');
 				while ($tmp = array_shift($tab_mail))
 					require ('./html/html_inbox.php');
 				require_once ('./html/html_bottom_table.php');
+				require ('./html/menu_inbox.php');
 				break;
 		}
-		require ('./html/menu_inbox.php');
 		break;
 }
 

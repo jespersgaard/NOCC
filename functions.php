@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.108 2001/10/25 13:17:47 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.109 2001/10/25 14:14:59 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -666,6 +666,33 @@ function get_crlf($smtp)
 	$crlf = stristr($OS, 'Windows') ? "\r\n" : "\n";
 	$crlf = $smtp ? "\r\n" : $crlf;
 	return ($crlf);
+}
+
+/* ----------------------------------------------------- */
+
+// This function chops the <mail@domain.com> bit from a 
+// full 'Blah Blah <mail@domain.com>' address, or not
+// depending on the 'hide_addresses' preference.
+function display_address($address)
+{
+	// Check for null
+	if($address == '')
+		return $html_att_unknown;
+
+	// Get preference
+	$hide_addresses = getPref('hide_addresses');
+
+	// If not set, return full address.
+	if($hide_addresses != 'on')
+		return $address;
+
+	// If no '<', return full address.
+	$bracketpos = strpos($address, "&lt;");
+	if($bracketpos === false)
+		return $address;
+
+	// Return up to the first '<', or end of string if not found
+	return substr($address, 0, $bracketpos - 1);
 }
 
 /* ----------------------------------------------------- */

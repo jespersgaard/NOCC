@@ -1,5 +1,8 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Added 'hide addresses' preference (#471806).
+	* Moved inclusion of 'menu_inbox' so when the wrong password is
+	  supplied, it doesn't present options for 'Inbox', 'Preferences' etc
 	* Removed restriction on the size of left/right arrow images.
 	* Added start/end identifier comments to html templates.
 	* Fixed several potential 'uninitialised variable' warnings
