@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: nicocha $
-	$Revision: 1.17 $
-	$Date: 2000/10/28 11:07:56 $
+	$Revision: 1.18 $
+	$Date: 2000/10/29 23:56:51 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
 the function get_part is based on a function from matt@bonneau.net
@@ -43,7 +43,7 @@ function inbox($servr, $user, $passwd, $sort, $sortdir, $lang)
 				$struct_msg = imap_fetchstructure($pop, imap_msgno($pop, $msgnum));
 				$subject = imap_mime_header_decode($ref_contenu_message->subject);
 				$from = imap_mime_header_decode($ref_contenu_message->fromaddress);
-				if (ereg("IMAP", $mail_server))
+				if (ereg("IMAP", $mailhost))
 					$msg_size = get_mail_size($struct_msg);
 				else
 					$msg_size = ($struct_msg->bytes > 1024) ? round($struct_msg->bytes / 1024) : 1;
