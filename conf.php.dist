@@ -122,9 +122,13 @@ $lang_array[6]->label = "Dutch";
 $lang_array[7]->filename = "ar";
 $lang_array[7]->label = "Arabic";
 
+//Russian
+$lang_array[8]->filename = "ru";
+$lang_array[8]->label = "Russian";
+
 // Slovensko
-$lang_array[8]->filename = "sl";
-$lang_array[8]->label = "Slovensko";
+$lang_array[9]->filename = "sl";
+$lang_array[9]->label = "Slovensko";
 
 // ################### Messages Signature  ################### //
 
