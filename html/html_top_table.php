@@ -23,7 +23,7 @@ $new_sortdir = ($sortdir == 0) ? 1 : 0;
 		</TD>
 		<TD align="center" class="inbox">
 			<!--<A HREF="<? echo $PHP_SELF ?>?sort=&lang=<? echo $lang ?>">-->
-			<? echo $html_new ?></A>
+			<? echo $html_new ?><!--</A>-->
 		</TD>
 		<TD align="center" class="inbox">
 			<? echo $html_att ?>
