@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.72 2001/06/21 12:07:22 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.73 2001/06/21 15:26:56 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -95,7 +95,7 @@ function updateTheme()
 							<tr>
 								<td align="right" class="f"><?php echo $html_login ?></td>
 								<td><font size="-3">&nbsp;</font></td>
-								<td class="f"> 
+								<td class="f" align="left"> 
 									<input type="text" name="user" size="15" />
 									<?php
 									if ($domains[0]->in != '')
@@ -118,7 +118,7 @@ function updateTheme()
 							<tr> 
 								<td align="right" class="f"><?php echo $html_passwd ?></td>
 								<td><font size="-3">&nbsp;</font></td>
-								<td class="f"> 
+								<td class="f" align="left"> 
 									<input type="password" name="passwd" size="15" />
 								</td>
 							</tr>
@@ -130,7 +130,7 @@ function updateTheme()
 							{
 								echo '<tr><td align="right" class="f">'.$html_server.'</td>';
 								echo '<td><font size="-3">&nbsp;</font></td>';
-								echo '<td class="f">';
+								echo '<td class="f" align="left">';
 								echo '<input type="text" name="server" value="mail.example.com" size="15" /><br /><input type="text" size="4" name="port" value="143" />';
 								echo '<select name="servtype" onchange="updatePort()">';
 								echo '<option value="imap">IMAP</option>';
@@ -146,7 +146,7 @@ function updateTheme()
 							<tr>
 								<td align="right" class="f"><?php echo $html_lang ?></td>
 								<td><font size="-3">&nbsp;</font></td>
-								<td class="f">
+								<td class="f" align="left">
 									<?php
 										echo '<select name="lang" onchange="updateLang()">';
 										for ($i = 0; $i < sizeof($lang_array); $i++)
@@ -166,7 +166,7 @@ function updateTheme()
 							</tr>
 							<?php if ($use_theme == true) 
 							{
-								echo '<tr><td align="right" class="f">'.$html_theme.'</td><td><font size="-3">&nbsp;</font></td><td class="f">';
+								echo '<tr><td align="right" class="f">'.$html_theme.'</td><td><font size="-3">&nbsp;</font></td><td class="f" align="left">';
 								echo '<select name="theme" onchange="updateTheme()">';
 								$handle = opendir('./themes');
 								while (($file = readdir($handle)) != false) 

@@ -11,7 +11,7 @@
 			<table width="100%" cellspacing="2" cellpadding="1" border="0" bgcolor="<?php echo $glob_theme->inside_color ?>">
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_from ?> : </td>
-					<td>
+					<td align="left">
 						<input type="text" name="mail_from" value="<?php echo $user."@".$domain ?>"> 
 						<!--<select name="mail_from">
 							<option value="<?php echo $user."@".$domain ?>"><?php echo $user."@".$domain ?></option>
@@ -21,30 +21,30 @@
 				</tr>
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_to ?> : </td>
-					<td><input type="text" name="mail_to" size="60" maxlength="200" value="<?php echo (isset($mail_to) ? $mail_to : ''); ?>" /></td>
+					<td align="left"><input type="text" name="mail_to" size="60" maxlength="200" value="<?php echo (isset($mail_to) ? $mail_to : ''); ?>" /></td>
 				</tr>
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_cc ?> : </td>
-					<td><input type="text" name="mail_cc" size="60" maxlength="200" value="<?php echo (isset($mail_cc) ? $mail_cc : '') ?>" /></td>
+					<td align="left"><input type="text" name="mail_cc" size="60" maxlength="200" value="<?php echo (isset($mail_cc) ? $mail_cc : '') ?>" /></td>
 				</tr>
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_bcc ?> : </td>
-					<td><input type="text" name="mail_bcc" size="60" maxlength="200" value="<?php echo (isset($mail_bcc) ? $mail_bcc : '') ?>" /></td>
+					<td align="left"><input type="text" name="mail_bcc" size="60" maxlength="200" value="<?php echo (isset($mail_bcc) ? $mail_bcc : '') ?>" /></td>
 				</tr>
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_subject ?> : </td>
-					<td><input type="text" name="mail_subject" size="60" maxlength="200" value="<?php echo (isset($mail_subject) ? $mail_subject : '') ?>" /></td>
+					<td align="left"><input type="text" name="mail_subject" size="60" maxlength="200" value="<?php echo (isset($mail_subject) ? $mail_subject : '') ?>" /></td>
 				</tr>
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_att ?> : </td>
-					<td>
+					<td align="left">
 						<input type="file" name="mail_att" size="40" maxlength="200" value="" />
 						<input type="button" class="button" onclick="attach()" value="<?php echo $html_attach ?>" />
 					</td>
 				</tr>
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_priority ?> : </td>
-					<td>
+					<td align="left">
 						<select name="priority">
 							<option value="2 (High)"><?php echo $html_high ?></option>
 							<option value="3 (Normal)" selected="selected"><?php echo $html_normal ?></option>
@@ -54,7 +54,7 @@
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
-					<td>
+					<td align="left">
 						<?php
 						if (isset($num_attach) && ($num_attach > 0))
 						{
