@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox_opts.php,v 1.13 2002/07/02 08:13:40 rossigee Exp $ -->
+<!-- start of $Id: menu_inbox_opts.php,v 1.14 2004/06/19 12:00:57 goddess_skuld Exp $ -->
 <tr>
  <td colspan="7">
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
@@ -18,9 +18,11 @@
         <td align="right">
             <?php
                 if ($pop->is_imap()) {
-                    echo '<input type="submit" name="mark_read_mode" class="button" value="' . $html_mark_read . '" />';
-                    echo '&nbsp;';
-                    echo '<input type="submit" name="mark_unread_mode" class="button" value="' . $html_mark_unread . '" />';
+                    echo '<input type="submit" name="mark_read_mode" class="button" value="' . $html_mark_as . '" />';
+                    echo '<select name="mark_mode">';
+                    echo '<option value="read">' . $html_read . '</option>';
+                    echo '<option value="unread">' . $html_unread . '</select>';
+                    echo '</select>';
                 }
             ?>
             <?php
@@ -31,4 +33,4 @@
 </table>
  </td>
 </tr>
-<!-- end of $Id: menu_inbox_opts.php,v 1.13 2002/07/02 08:13:40 rossigee Exp $ -->
+<!-- end of $Id: menu_inbox_opts.php,v 1.14 2004/06/19 12:00:57 goddess_skuld Exp $ -->

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.69 2004/06/15 10:37:09 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.70 2004/06/19 12:00:58 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -180,8 +180,9 @@ $html_error_occurred = 'Une erreur est survenue';
 $html_prefs_file_error = 'Impossible d\'ouvrir le fichier de pr&eacute;f&eacute;rences';
 $html_wrap = 'Tronquer les messages sortant  &agrave;:';
 $html_usenet_separator = 'S&eacute;parateur Usenet ("-- \n") avant la signature';
-$html_mark_read = 'Marquer comme lu';
-$html_mark_unread = 'Marquer comme non lu';
+$html_mark_as = 'Marquer comme';
+$html_read = 'lu';
+$html_unread = 'non lu';
 
 // Contacts manager
 $html_add = 'Ajouter';

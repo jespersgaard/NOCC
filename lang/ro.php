@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ro.php,v 1.10 2004/06/15 10:37:09 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ro.php,v 1.11 2004/06/19 12:00:58 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -181,8 +181,9 @@ $html_error_occurred = 'Eroare';
 $html_prefs_file_error = 'Nu se poate accesa fisierul de preferinte pentru scriere.';
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
 $html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
-$html_mark_read = 'Mark as read'; //to translate
-$html_mark_unread = 'Mark as unread'; //to translate
+$html_mark_as = 'Mark as'; //to translate
+$html_read = 'read'; //to translate
+$html_unread = 'unread'; //to translate
 
 // Contacts manager
 $html_add = 'Add';  //to translate

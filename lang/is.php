@@ -178,8 +178,9 @@ $html_error_occurred = 'Villa gerðist';
 $html_prefs_file_error = 'Ómögulegt að opna valmöguleika skrá til útskriftar.';
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
 $html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
-$html_mark_read = 'Mark as read'; //to translate
-$html_mark_unread = 'Mark as unread'; //to translate
+$html_mark_as = 'Mark as'; //to translate
+$html_read = 'read'; //to translate
+$html_unread = 'unread'; //to translate
 
 // Contacts manager
 $html_add = 'Add';  //to translate
