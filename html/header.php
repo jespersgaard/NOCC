@@ -1,5 +1,8 @@
 <?php
 
+require_once ('./prefs.php');
+$pref_email_address = getPref($prefs_dir, $user, 'email_address');
+
 $custom_header = "./themes/$theme/header.php";
 if(file_exists($custom_header)) {
 	include($custom_header);
@@ -23,7 +26,6 @@ else {
 				<td align="left" valign="middle" colspan="2">
 					<img src="themes/<?php echo $theme ?>/img/logo.gif" width="153" height="47" alt="Logo" />
 					<?php
-					$pref_email_address = getPref($prefs_dir, $user, 'email_address');
 					if ($pref_email_address != '')
 					{ ?>
 						&nbsp;&nbsp;<font class="login"><b><?php echo $pref_email_address ?></b></font>
