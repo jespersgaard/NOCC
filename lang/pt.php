@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.16 2001/06/22 15:36:18 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.xx 2001/10/19 22:40:18 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,8 +9,7 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
  * Configuration file for the portuguese language
- * Translation by sena <sena@smux.net>
- * and Jorge Silva <jorge.silva@ciberlink.pt>
+ * Translation by sena <sena@smux.net> and JS <jorge.silva@ciberlink.pt>
  */
 
 $charset = 'ISO-8859-1';
@@ -35,7 +34,8 @@ $no_locale_date_format = '%d/%m/%Y';
 
 // What format string should we pass to strftime() for messages sent
 // today?
-$default_time_format = '%I:%M %p';
+//$default_time_format = '%I:%M %p';
+$default_time_format = '%H:%M %p';
 
 // Here is the configuration for the HTML
 
@@ -58,7 +58,7 @@ $alt_prev = 'Anterior';
 // index.php
 
 $html_lang = 'L&iacute;ngua';
-$html_welcome = 'Benvindo ao servi&ccedil;o';
+$html_welcome = 'Benvindo ao';
 $html_login = 'Login';
 $html_passwd = 'Password';
 $html_submit = 'Entrar';
@@ -68,6 +68,18 @@ $html_wrong = 'Login ou password incorrecto';
 $html_retry = 'Tentar de novo';
 $html_on = 'em';
 $html_theme = 'Tema';
+
+// prefs.php
+
+$html_preferences = 'Prefer&ecirc;ncias';
+$html_full_name = 'Nome completo';
+$html_email_address = 'Endere&ccedil;o E-mail';
+$html_reply_to = 'Responder para';
+$html_use_signature = 'Utilizar assinatura';
+$html_signature = 'Assinatura';
+$html_submit = 'Aceitar';
+$html_prefs_updated = 'Prefer&ecirc;ncias actualizadas';
+
 
 // Other pages
 
@@ -113,7 +125,12 @@ $html_priority = 'Prioridade';
 $html_low = 'Baixa';
 $html_normal = 'Normal';
 $html_high = 'Alta';
+$html_select_all = 'Seleccionar tudo';
 
 $original_msg = '-- Mensagem Original --';
 $to_empty = 'O campo \'Para\' tem de ser preenchido !';
+
+// SMTP problems (class_smtp.php)
+$html_smtp_error_no_conn = "N&atilde;o foi poss&iacute;vel ligar ao servidor";
+$html_smtp_error_unexpected = "Resposta inesperada:";
 ?>

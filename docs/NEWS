@@ -1,5 +1,6 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Added new Polish and Portuguese translations
 	* Added './' in the path of all require, include and open calls,
 	  As we now use PEAR in php.ini include_path directive.
 	* Replace require() and include() with require_once() and include_once()
