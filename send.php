@@ -38,7 +38,7 @@ if (file_exists($mail_att))
 	$mail->add_attachment($file, get_filename($att_name), $mail_att_type, "base64");
 }
 if ($mail->send() !=0)
-	$error = true; // There has been an error while sending the message
+	$error = true; // an error occured while sending the message
 Header ("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang");
 
 function get_filename($filename)
