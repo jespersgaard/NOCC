@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.112 2002/06/27 22:17:52 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.113 2002/06/30 16:27:13 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -86,7 +86,10 @@ switch($_REQUEST['sendaction'])
         break;
     case 'send':
         $mail = new mime_mail();
-        $mail->crlf = get_crlf($smtp_server);
+        // According to rfc-822 CRLF is "\r\n"
+        // OS independent, this is a MTA problem
+        // not ours.
+        $mail->crlf = "\r\n";
         $mail->smtp_server = $_SESSION['nocc_smtp_server'];
         $mail->smtp_port = $_SESSION['nocc_smtp_port'];
         $mail->charset = $charset;

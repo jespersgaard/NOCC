@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.168 2002/06/30 16:27:13 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.169 2002/09/10 23:27:01 mrylander Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -686,19 +686,6 @@ function clear_attachments()
         while ($tmp = array_shift($_SESSION['nocc_attach_array']))
             @unlink($conf->tmpdir.'/'.$tmp->tmp_file);
     unset($_SESSION['nocc_attach_array']);
-}
-
-/* ----------------------------------------------------- */
-
-// This function returns the CRLF depending on the OS and
-// the way to send messages
-function get_crlf(&$smtp)
-{
-    global $OS;
-
-    $crlf = stristr($OS, 'Windows') ? "\r\n" : "\n";
-    $crlf = $smtp ? "\r\n" : $crlf;
-    return ($crlf);
 }
 
 /* ----------------------------------------------------- */
