@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.39 2004/07/07 21:18:22 ajetam Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.40 2004/09/13 18:40:37 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -214,6 +214,7 @@ $html_smtp_error_unexpected = 'Nieoczekiwana odpowied¼ SMTP';
 
 // IMAP messages (class_local.php)
 $lang_could_not_connect = 'Nie mo¿na po³aczyæ siê z serwerem';
+$lang_invalid_msg_num = 'Bad Message Number';  //to translate
 
 $html_file_upload_attack = 'Mo¿liwy atak poprzez upload plików';
 $html_invalid_email_address = 'Niew³a¶ciwy adres e-mail';

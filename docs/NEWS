@@ -1,5 +1,8 @@
 NOCC 0.9.7    ?? ??, 2004
 
+    * Fix issue where Nocc use imap functions to open message which does not
+      exists anymore, and cause IMAP toolkit crash (Leif Gustafson, patch
+      #133169).
     * Add support for SMTP AUTH PLAIN and SMTP AUTH LOGIN (Arnaud Boudou, RFE 
       #569828).
     * Add possibility to allow a limited set of characters for login (Arnaud

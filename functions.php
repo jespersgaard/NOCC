@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.193 2004/08/04 19:16:42 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.194 2004/08/12 10:29:24 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -123,6 +123,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
     global $lang_locale;
     global $no_locale_date_format;
     global $html_att, $html_atts;
+    global $lang_invalid_msg_num;
 
     $sort = $_SESSION['nocc_sort'];
     $sortdir = $_SESSION['nocc_sortdir'];
@@ -130,6 +131,9 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
 
     // Clear variables
     $body = $subject = $from = $to = $cc = $reply_to = '';
+
+    // Message Found boolean
+    $msg_found = 0;
 
     // Get message numbers in sorted order
     // Do not use message UID, in order to get correct messages number with IMAP connexion
@@ -144,9 +148,16 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
         {
             $prev_msg = ($i - 1 >= 0) ? $sorted[$i - 1] : 0;
             $next_msg = ($i + 1 < sizeof($sorted)) ? $sorted[$i + 1] : 0;
+	    $msg_found = 1;
             break;
         }
     }
+
+    if(!$msg_found)
+      {
+	$ev = new NoccException($lang_invalid_msg_num);
+	return;
+      }
 
     // Get number of messages (why?)
     $num_messages = $pop->num_msg();

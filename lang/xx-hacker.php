@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.2 2004/08/23 18:33:00 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.3 2004/09/13 18:40:37 goddess_skuld Exp $ 
  *
  * Copyright 2004 Nicolas Chalanset <nicocha at free.fr>
  * Copyright 2004 Olivier Cahagne <wolruf at free.fr>
@@ -216,6 +216,7 @@ $html_smtp_error_unexpected = 'Un3xp3ct3d SMTP r3sp0ns3:';
 
 // IMAP messages (class_local.php)
 $lang_could_not_connect = 'C0uld n0t c0nn3ct t0 s3rv3r';
+$lang_invalid_msg_num = 'B4d m3ss4g3 numb3r';
 
 $html_file_upload_attack = 'P0ss!bl3 f!l3 upl04d 4tt4ck';
 $html_invalid_email_address = 'Inv4l!d 3-m4!l 4ddr3ss';

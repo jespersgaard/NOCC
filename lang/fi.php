@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fi.php,v 1.23 2004/06/28 15:28:04 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fi.php,v 1.24 2004/09/13 18:40:37 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -214,6 +214,7 @@ $html_smtp_error_unexpected = 'Odottamaton vastine:';
 
 // IMAP messages (class_local.php)
 $lang_could_not_connect = 'Ei saa yhteytt&auml; palvelimeen.';
+$lang_invalid_msg_num = 'Bad Message Number';  //to translate
 
 $html_file_upload_attack = 'Mahdollinen upload-hy&ouml;kk&auml;ys palvelimelle';
 $html_invalid_email_address = 'Invalid e-mail address';  //to translate

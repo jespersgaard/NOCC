@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.13 2004/06/28 15:28:04 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.14 2004/09/13 18:40:37 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -214,6 +214,7 @@ $html_smtp_error_unexpected = '&#1580;&#1608;&#1575;&#1576; &#1594;&#1610;&#1585
 
 // IMAP messages (class_local.php)
 $lang_could_not_connect = '&#1606;&#1605;&#1609;&#1578;&#1608;&#1575;&#1606;&#1605; &#1576;&#1607; &#1587;&#1585;&#1608;&#1585; &#1605;&#1578;&#1589;&#1604; &#1588;&#1608;&#1605;';
+$lang_invalid_msg_num = 'Bad Message Number';  //to translate
 $html_file_upload_attack = 'Possible file upload attack';  //to translate
 $html_invalid_email_address = 'Invalid e-mail address';  //to translate
 $html_invalid_msg_per_page = 'Invalid number of messages per page';  //to translate

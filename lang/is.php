@@ -212,6 +212,7 @@ $html_smtp_error_unexpected = 'Ófyrirsjáanleg viðbrögð:';
 
 // IMAP messages (class_local.php)
 $lang_could_not_connect = 'Could not connect to server';
+$lang_invalid_msg_num = 'Bad Message Number';  //to translate
 
 $html_file_upload_attack = 'Possible file upload attack';  //to translate
 $html_invalid_email_address = 'Invalid e-mail address';  //to translate
