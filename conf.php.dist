@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.40 2001/03/31 09:12:27 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.41 2001/04/01 08:12:29 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -104,7 +104,7 @@ $have_ucb_pop_server = "0";
 // set $use_theme to false and fill in the $default_theme to the theme name
 // you want to use
 // Theme handling: allows users to choose a theme on the login page
-$use_theme = false;
+$use_theme = true;
 
 // Default theme
 $default_theme = "standard";
