@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.135 2002/02/10 19:55:47 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.136 2002/02/18 09:52:19 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -15,7 +15,7 @@ $attach_tab = Array();
 
 /* ----------------------------------------------------- */
 
-function inbox($conf, $pop, $sort, $sortdir, $lang, $theme)
+function inbox(&$conf, &$pop, &$sort, &$sortdir, &$lang, &$theme)
 {
 	$num_msg = $pop->num_msg();
 	$sorted = $pop->sort($sort, $sortdir);
@@ -103,7 +103,7 @@ function inbox($conf, $pop, $sort, $sortdir, $lang, $theme)
 
 /* ----------------------------------------------------- */
 
-function aff_mail($conf, $mailhost, $login, $passwd, $folder, $mail, $verbose, $lang, $sort, $sortdir)
+function aff_mail(&$conf, &$mailhost, &$login, &$passwd, &$folder, &$mail, $verbose, &$lang, &$sort, &$sortdir)
 {
 	require ('./check_lang.php');
 	GLOBAL $attach_tab;
@@ -212,7 +212,7 @@ function aff_mail($conf, $mailhost, $login, $passwd, $folder, $mail, $verbose, $
 /* ----------------------------------------------------- */
 
 // based on a function from matt@bonneau.net
-function GetPart($this_part, $part_no, $display_rfc822)
+function GetPart(&$this_part, $part_no, &$display_rfc822)
 {
 	GLOBAL $attach_tab;
 
@@ -339,7 +339,7 @@ function GetPart($this_part, $part_no, $display_rfc822)
 
 /* ----------------------------------------------------- */
 
-function GetSinglePart($this_part, $header, $body)
+function GetSinglePart(&$this_part, &$header, &$body)
 {
 	GLOBAL $attach_tab;
 
@@ -399,12 +399,12 @@ function GetSinglePart($this_part, $header, $body)
 
 /* ----------------------------------------------------- */
 
-function remove_stuff($body, $lang, $mime)
+function remove_stuff(&$body, &$lang, &$mime)
 {
 	require ('./conf.php');
 	GLOBAL $PHP_SELF;
 	GLOBAL $$php_session;
-	$sessid=$$php_session;
+	$sessid = $$php_session;
 
 	if (eregi('html', $mime))
 	{
@@ -447,7 +447,7 @@ function remove_stuff($body, $lang, $mime)
 
 /* ----------------------------------------------------- */
 
-function link_att($servr, $mail, $tab, $display_part_no)
+function link_att(&$servr, &$mail, &$tab, &$display_part_no)
 {
 	sort($tab);
 	$link = '<table border="0">';
@@ -468,7 +468,7 @@ function link_att($servr, $mail, $tab, $display_part_no)
 
 /* ----------------------------------------------------- */
 
-function change_date($date, $lang)
+function change_date(&$date, &$lang)
 {
 	require ('./check_lang.php');
 	if (empty($date))
@@ -492,7 +492,7 @@ function change_date($date, $lang)
 /* ----------------------------------------------------- */
 
 // We have to figure out the entire mail size
-function get_mail_size($this_part)
+function get_mail_size(&$this_part)
 {
 	$size = (isset($this_part->bytes) ? $this_part->bytes : 0);
 	if (isset($this_part->parts))
@@ -505,7 +505,7 @@ function get_mail_size($this_part)
 /* ----------------------------------------------------- */
 
 // this function build an array with all the recipients of the message for later reply or reply all 
-function get_reply_all($login, $domain, $from, $to, $cc)
+function get_reply_all(&$login, &$domain, &$from, &$to, &$cc)
 {
 	if (!eregi($login.'@'.$domain, $from))
 		$rcpt = $from.'; ';
@@ -524,7 +524,7 @@ function get_reply_all($login, $domain, $from, $to, $cc)
 /* ----------------------------------------------------- */
 
 // We need that to build a correct list of all the recipient when we send a message
-function cut_address($addr, $charset)
+function cut_address(&$addr, &$charset)
 {
 	// Strip slashes from input
 	$addr = safestrip($addr);
@@ -596,7 +596,7 @@ function cut_address($addr, $charset)
 
 // Function that save the attachment locally for reply, transfer...
 // This function returns an array of all the attachment
-function save_attachment($servr, $login, $passwd, $folder, $mail, $tmpdir)
+function save_attachment(&$servr, &$login, &$passwd, &$folder, &$mail, &$tmpdir)
 {
 	GLOBAL $attach_tab;
 	$i = 0;
@@ -628,7 +628,7 @@ function save_attachment($servr, $login, $passwd, $folder, $mail, $tmpdir)
 
 /* ----------------------------------------------------- */
 
-function view_part($servr, $login, $passwd, $folder, $mail, $part_no, $transfer, $msg_charset, $charset)
+function view_part(&$servr, &$login, &$passwd, &$folder, &$mail, $part_no, &$transfer, &$msg_charset, &$charset)
 {
 	$pop = new nocc_imap('{'.$mailhost.'}'.$folder, $login, $passwd, $ev);
 	if($ev) 
@@ -647,7 +647,7 @@ function view_part($servr, $login, $passwd, $folder, $mail, $part_no, $transfer,
 
 /* ----------------------------------------------------- */
 
-function encode_mime($string, $charset)
+function encode_mime(&$string, &$charset)
 { 
 	/*$text = '=?' . $charset . '?Q?'; 
 	for($i = 0; $i < strlen($string); $i++ )
@@ -669,7 +669,7 @@ function encode_mime($string, $charset)
 
 // This function is used when accessing a page without being logged in
 // or accessing send.php via GET method
-function go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $lang, $redirect)
+function go_back_index(&$attach_array, &$tmpdir, &$php_session, &$sort, &$sortdir, &$lang, $redirect)
 {
 	GLOBAL $$php_session;
 	
@@ -689,7 +689,7 @@ function go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $l
 
 // This function returns the CRLF depending on the OS and
 // the way to send messages
-function get_crlf($smtp)
+function get_crlf(&$smtp)
 {
 	GLOBAL $OS;
 
@@ -703,7 +703,7 @@ function get_crlf($smtp)
 // This function chops the <mail@domain.com> bit from a 
 // full 'Blah Blah <mail@domain.com>' address, or not
 // depending on the 'hide_addresses' preference.
-function display_address($address)
+function display_address(&$address)
 {
 	// Check for null
 	if($address == '')
@@ -727,7 +727,7 @@ function display_address($address)
 
 /* ----------------------------------------------------- */
 
-function mailquote($body, $from, $html_wrote)
+function mailquote(&$body, &$from, &$html_wrote)
 {
 	$from = ucwords(trim(ereg_replace("&lt;.*&gt;", "", str_replace("\"", "", $from))));
 	$body = "> " . ereg_replace("\n", "\n> ", trim($body));
@@ -738,20 +738,20 @@ function mailquote($body, $from, $html_wrote)
 // If running with magic_quotes_gpc (get/post/cookie) set
 // in php.ini, we will need to strip slashes from every
 // field we receive from a get/post operation.
-function safestrip($string)
+function safestrip(&$string)
 {
 	if(get_magic_quotes_gpc())
 		$string = stripslashes($string);
 	return $string;
 }
 
-function strip_tags2($string, $allow)
+function strip_tags2(&$string, &$allow)
 {
-	$string = eregi_replace('<<','<nocc_less_than_tag><',$string);
-	$string = eregi_replace('>>','><nocc_greater_than_tag>;',$string);
-	$string = strip_tags($string, $allow.'<nocc_less_than_tag><nocc_greater_than_tag>');
-	$string = eregi_replace('<nocc_less_than_tag>','<',$string);
-	return eregi_replace('<nocc_greater_than_tag>','>',$string);
+	$string = eregi_replace('<<', '<nocc_less_than_tag><', $string);
+	$string = eregi_replace('>>', '><nocc_greater_than_tag>;', $string);
+	$string = strip_tags($string, $allow . '<nocc_less_than_tag><nocc_greater_than_tag>');
+	$string = eregi_replace('<nocc_less_than_tag>', '<', $string);
+	return eregi_replace('<nocc_greater_than_tag>', '>', $string);
 }
 
 ?>
