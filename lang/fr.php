@@ -1,8 +1,8 @@
 <?
 /*	
 	$Author: nicocha $
-	$Revision: 1.21 $
-	$Date: 2000/10/30 22:34:53 $
+	$Revision: 1.22 $
+	$Date: 2000/11/06 20:38:28 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -28,6 +28,9 @@ $lang_locale = "fr_FR";
 // What format string should we pass to strftime() for messages sent on
 // days other than today?
 $default_date_format = "%A %d %B %Y"; 
+
+// If the local is not implemented on the host, how we display the date
+$no_locale_date_format = "%d-%m-%Y";
 
 // What format string should we pass to strftime() for messages sent
 // today?

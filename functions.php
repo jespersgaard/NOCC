@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: nicocha $
-	$Revision: 1.27 $
-	$Date: 2000/11/06 19:22:08 $
+	$Revision: 1.28 $
+	$Date: 2000/11/06 20:38:03 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
 the function get_part is based on a function from matt@bonneau.net
@@ -113,7 +113,9 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 	GLOBAL $glob_body;
 	GLOBAL $PHP_SELF;
 
-	$current_date = date("D, d M");
+	if (setlocale ("LC_TIME", $lang_locale) != $lang_locale)
+		$default_date_format = $no_locale_date_format;
+	$current_date = strftime($default_date_format, time());
 	$pop = @imap_open("{".$mailhost."}INBOX", $user, $passwd);
 	$num_messages = @imap_num_msg($pop);
 	$ref_contenu_message = @imap_header($pop, $mail);
@@ -336,7 +338,8 @@ function change_date($date, $lang)
 		$msg_date = "";
 	else
 	{
-		setlocale ("LC_TIME", $lang_locale);
+		if (setlocale ("LC_TIME", $lang_locale) != $lang_locale)
+			$default_date_format = $no_locale_date_format;
 		if ((date('Y', $date) != date('Y')) || (date('M') != date('M', $date)) || (date('d') != date('d', $date)))
 			// not today, use the date
 			$msg_date = strftime($default_date_format, $date);

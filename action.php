@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: nicocha $
-	$Revision: 1.12 $
-	$Date: 2000/10/29 23:56:51 $
+	$Revision: 1.13 $
+	$Date: 2000/11/06 18:41:27 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -21,7 +21,10 @@ require ("conf.php");
 require ("check_lang.php");
 require ("html/header.php");
 require ("functions.php");
-$current_date = $days[date("D")].", ".date("d")." ".$months[date("M")]; 
+
+if (setlocale ("LC_TIME", $lang_locale) != $lang_locale)
+	$default_date_format = $no_locale_date_format;
+$current_date = strftime($default_date_format, time());
 
 switch ($action)
 {
