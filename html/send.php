@@ -1,14 +1,8 @@
-<!-- start of $Id: send.php,v 1.55 2002/05/30 14:35:47 rossigee Exp $ -->
+<!-- start of $Id: send.php,v 1.56 2002/06/27 22:17:52 rossigee Exp $ -->
 <?php
 
 // Default e-mail address on send form
-$prefs_email_address = getPref('email_address', $ev);
-if(empty($prefs_email_address))
-    $prefs_email_address = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
-$prefs_full_name = getPref('full_name', $ev);
-$mail_from = $prefs_email_address;
-if(!empty($prefs_full_name))
-    $mail_from = $prefs_full_name . ' <' . $mail_from . '>';
+$mail_from = get_default_from_address();
 
 ?>
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
@@ -158,4 +152,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.55 2002/05/30 14:35:47 rossigee Exp $ -->
+<!-- end of $Id: send.php,v 1.56 2002/06/27 22:17:52 rossigee Exp $ -->

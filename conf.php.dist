@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.106 2002/05/02 12:20:29 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.107 2002/05/31 13:49:26 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -200,5 +200,26 @@ set_magic_quotes_runtime(0);
 /*
 ###################     End of Configuration     ####################
 */
+
+require_once './functions.php';
+
+// This function allows you to customise the default e-mail address
+function get_default_from_address() {
+    // Set in preferences?
+    $prefs_email_address = getPref('email_address', $ev);
+    $prefs_full_name = getPref('full_name', $ev);
+
+    // If not set, for now, default to login@domain
+    if(empty($prefs_email_address))
+        $prefs_email_address = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
+
+    $mail_from = "";
+    if(!empty($prefs_email_address)) {
+        $mail_from = $prefs_email_address;
+        if(!empty($prefs_full_name))
+            $mail_from = $prefs_full_name . ' <' . $mail_from . '>';
+    }
+    return $mail_from;
+}
 
 ?>
