@@ -1,5 +1,6 @@
 NOCC 0.9.4	??   ??, 2001
 
+	* Added an error reporting control. No more 'undefined variable' warning will appear
 	* Added a new theme 'newlook'
 	* Images are now in theme folder
 	* Added support for multiple domain/server
