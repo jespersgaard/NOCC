@@ -1,6 +1,6 @@
 Frequently Asked Questions for Nocc
 -----------------------------------
-Last updated: $Date: 2000/11/01 19:28:43 $
+Last updated: $Date: 2000/11/01 19:57:42 $
 
  *) Nocc keeps me asking for a correct login/password.
 
@@ -38,3 +38,12 @@ Last updated: $Date: 2000/11/01 19:28:43 $
   +OK UCB Pop server (version 1.6) at myhost starting.
   quit
   Connection closed by foreign host.
+
+ *) I get session_destroy() errors when logging out of Nocc with PHP 4.0.3
+    on Win32.
+    Warning: Session object destruction failed...
+
+  -> There's a know session_destroy() bug on PHP for Win32 < 4.0.4
+  If not out yet, try PHP 4.0.4-dev snapshot at http://www.php4win.de/
+  The problem only affects PHP Win32, not Unix.
+  See the bug: http://bugs.php.net/?id=5231
