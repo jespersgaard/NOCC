@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.124 2002/05/14 18:40:14 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.125 2002/05/14 18:46:43 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -106,7 +106,7 @@ switch($action)
 
     case 'reply':
         $attach_tab = array();
-        $content = aff_mail($attach_tab, $_REQUEST['mail'], 0, $ev);
+        $content = aff_mail($attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
@@ -147,7 +147,7 @@ switch($action)
 
     case 'reply_all':
         $attach_tab = array();
-        $content = aff_mail($attach_tab, $_REQUEST['mail'], 0, $ev);
+        $content = aff_mail($attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
@@ -180,7 +180,7 @@ switch($action)
 
     case 'forward':
         $attach_tab = array();
-        $content = aff_mail($attach_tab, $_REQUEST['mail'], 0, $ev);
+        $content = aff_mail($attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');

@@ -1,9 +1,9 @@
-<!-- start of $Id: html_mail_header.php,v 1.27 2002/04/19 14:39:37 rossigee Exp $ -->
+<!-- start of $Id: html_mail_header.php,v 1.28 2002/05/14 18:46:43 rossigee Exp $ -->
 <?php
-if ($verbose == 1 && $conf->use_verbose == true)
-    echo '<tr><td class="mail"><a href="' . $PHP_SELF . '?action=aff_mail&amp;mail=' . $content['msgnum'] . '&amp;verbose=0" class="mail">' . $html_remove_header . '</a></td>';
-elseif ($conf->use_verbose == true)
-    echo '<tr><td class="mail"><a href="' . $PHP_SELF . '?action=aff_mail&amp;mail=' . $content['msgnum'] . '&amp;verbose=1" class="mail">' . $html_view_header . '</a></td>';
+// Show/hide header
+$verbose = (isset($_REQUEST['verbose']) && $_REQUEST['verbose'] == 1) ? '1' : '0';
+if ($conf->use_verbose)
+    echo '<tr><td class="mail"><a href="' . $PHP_SELF . '?action=aff_mail&amp;mail=' . $content['msgnum'] . '&amp;verbose=' . $verbose . '" class="mail">' . $html_remove_header . '</a></td>';
 else
     echo '<tr><td>&nbsp;</td>';
 
@@ -37,4 +37,4 @@ if ($content['subject'] == '')
 <tr><td colspan="2" bgcolor="<?php echo $glob_theme->mail_color ?>" class="mail"><pre><?php echo $content['header'] ?></pre><br />
 <?php //echo @convert_cyr_string($content['body'], $content['charset'], $charset); ?>
 <?php echo $content['body'] ?>
-<!-- end of $Id: html_mail_header.php,v 1.27 2002/04/19 14:39:37 rossigee Exp $ -->
+<!-- end of $Id: html_mail_header.php,v 1.28 2002/05/14 18:46:43 rossigee Exp $ -->
