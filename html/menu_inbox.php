@@ -32,7 +32,7 @@ if ($action == "forward")
 					</td>
 					<? if ($enable_logout) { ?>
 					<td class="menu" align="center" width="80" bgcolor="<? echo $html_menu_color ?>">
-						<a href="logout.php" class="menu"><? echo $html_logout ?></a>
+						<a href="logout.php?lang=<? echo $lang ?>" class="menu"><? echo $html_logout ?></a>
 					</td>
 					<? } ?>
 					<!--<td class="menu" align="center" width="80" bgcolor="<? echo $html_menu_color ?>">
