@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/sl.php,v 1.1 2001/02/20 13:11:50 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sl.php,v 1.2 2001/02/20 16:46:48 wolruf Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -61,6 +61,8 @@ $html_help = "Pomoè";
 $html_server = "Stre¾nik";
 $html_wrong = "Uporabni¹ko ime ali geslo napaèno";
 $html_retry = "Ponovi";
+$html_on = "on";
+$html_theme = "Theme";
 
 // Other pages
 
