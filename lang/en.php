@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.30 2001/10/17 18:32:56 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.31 2001/10/17 20:30:31 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -61,11 +61,21 @@ $html_lang = 'Language';
 $html_welcome = 'Welcome to';
 $html_login = 'Login';
 $html_passwd = 'Password';
-$html_submit = 'Login';
 $html_help = 'Help';
 $html_server = 'Server';
 $html_wrong = 'The login or the password are incorrect';
 $html_retry = 'Retry';
+
+// prefs.php
+
+$html_preferences = 'Preferences';
+$html_full_name = 'Full name';
+$html_email_address = 'E-mail Address';
+$html_reply_to = 'Reply to';
+$html_use_signature = 'Use signature';
+$html_signature = 'Signature';
+$html_submit = 'Submit';
+$html_prefs_updated = 'Preferences updated';
 
 // Other pages
 

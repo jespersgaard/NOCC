@@ -1,3 +1,26 @@
+<?php
+
+// Get preferences
+$full_name = getPref($prefs_dir, $user, 'full_name');
+$email_address = getPref($prefs_dir, $user, 'email_address');
+$signature = getSig($prefs_dir, $user);
+
+// Default address and reply-to fields, if available
+if($email_address == "") {
+	$email_address = $user."@".$domain;
+}
+if($full_name != "") {
+	$mail_from = $full_name." <".$email_address.">";
+}
+else {
+	$mail_from = $email_address;
+}
+
+// Add signature
+$mail_body .= "\n".$signature;
+
+?>
+
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
 		<td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -12,11 +35,7 @@
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_from ?> : </td>
 					<td align="left">
-						<input type="text" name="mail_from" value="<?php echo $user."@".$domain ?>"> 
-						<!--<select name="mail_from">
-							<option value="<?php echo $user."@".$domain ?>"><?php echo $user."@".$domain ?></option>
-						</select>
-						-->
+						<input type="text" name="mail_from" size="60" value="<?php echo $mail_from ?>"> 
 					</td>
 				</tr>
 				<tr>

@@ -56,6 +56,8 @@ Installing NOCC
            different server, etc...
 	   The file is fairly well documented, so you should be able to pick
 	   out what you need to change fairly easily.
+	   Be sure to check the '$prefs_dir' is writable by the user the
+	   webserver is running as.
 
        4) (Optional step)
 	  if you run with suEXEC, you'll need to run './addcgipath path' to add
@@ -64,5 +66,6 @@ Installing NOCC
        5) Remove ./addcgipath.sh. For security reasons, it might be run by
           external users although "sh" files are never interpreted by Web
           servers with default configuration.
+
 
 See README for more complete information.

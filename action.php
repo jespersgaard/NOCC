@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.48 2001/07/12 10:33:21 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.49 2001/07/12 17:25:34 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -14,6 +14,9 @@
 require ('conf.php');
 require ('check_lang.php');
 require ('functions.php');
+require ('prefs.php');
+checkForPrefs($prefs_dir, $user);
+
 if (!session_is_registered('loggedin'))
 	$action = '';
 header ("Content-type: text/html; Charset=$charset");
@@ -104,6 +107,26 @@ switch (trim($action))
 		require ('html/menu_inbox.php');
 		require ('html/send.php');
 		require ('html/menu_inbox.php');
+		break;
+	case 'setprefs':
+		if(isset($submit_prefs)) {
+			if (isset($full_name)) {
+				setPref($prefs_dir, $user, 'full_name', $full_name);
+			}
+			if (isset($email_address)) {
+				setPref($prefs_dir, $user, 'email_address', $email_address);
+			}
+			if ($signature != "" ) {
+				setSig($prefs_dir, $user, $signature);
+			}
+		} else {
+			$full_name = getPref($prefs_dir, $user, 'full_name');
+			$email_address = getPref($prefs_dir, $user, 'email_address');
+			$signature = getSig($prefs_dir, $user);
+		}
+		require ('html/menu_prefs.php');
+		require ('html/prefs.php');
+		require ('html/menu_prefs.php');
 		break;
 	default:
 		// Default we display the mailbox

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.65 2001/06/21 15:38:44 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.66 2001/06/21 17:38:48 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,6 +12,12 @@
 // ################### This is the main configuration for NOCC ########## //
 
 // ==> Required parameters
+
+// Preferences data directory
+// IMPORTANT: This directory must exist and be writable by the user
+// the webserver is running as (e.g. 'apache', or 'nobody'). For
+// Apache, see the User directive in the httpd.conf file.
+$prefs_dir = "/tmp";
 
 // Default smtp server and smtp_port (default is 25)
 // If a domain has no smtp server, this one will be used
@@ -113,6 +119,9 @@ $default_sortdir = '1';
 // IMAP server.
 // See FAQ for more details.
 $have_ucb_pop_server = false;
+
+// Whether to offer pull-down of domain extensions on login
+$display_domains_at_login = true;
 
 // If you wanna make your own theme and force people to use that one, 
 // set $use_theme to false and fill in the $default_theme to the theme name
