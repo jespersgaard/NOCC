@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.32 2004/06/22 18:58:58 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.33 2004/06/24 05:50:34 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -200,7 +200,7 @@ $html_contact_del = 'z listy kontaktów';
 
 $html_contact_err1 = 'Maksymalna liczba kontaktów to ';
 $html_contact_err2 = 'Nie mo¿esz dodaæ nowego kontaktu';
-$html_contact_err3 = 'Nie posiadasz uprawnie&#324;; do listy kontaktów.';
+$html_contact_err3 = 'Nie posiadasz uprawnie&#324; do listy kontaktów.';
 $html_del_msg = 'Usun±æ zaznaczone wiadomo¶ci ?';
 $html_down_mail = 'Pobierz';
 
