@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.61 2003/03/03 07:34:53 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.62 2003/12/21 15:40:20 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -105,6 +105,10 @@ $html_filter_cc = 'Cc Field';
 $html_filter_from = 'From Field';
 $html_filter_change_tip = "To change a filter simply overwrite it.";
 $html_reapply_filters = "Reapply all filters";
+$html_filter_contains = 'contains';
+$html_filter_name = 'Filter Name';
+$html_filter_action = 'Filter Action';
+$html_filter_moveto = 'Move to';
 
 // Other pages
 $html_select_one = '--Select One--';
@@ -201,9 +205,9 @@ $html_smtp_error_no_conn = 'Unable to open SMTP connection';
 $html_smtp_error_unexpected = 'Unexpected SMTP response:';
 
 // IMAP messages (class_local.php)
-$lang_could_not_connect = 'Could not connect to server';  //to translate
+$lang_could_not_connect = 'Could not connect to server';
 
-$html_file_upload_attack = 'Possible file upload attack';  //to translate
-$html_invalid_email_address = 'Invalid e-mail address';  //to translate
-$html_seperate_msg_win = 'Messages in separate window';  //to translate
+$html_file_upload_attack = 'Possible file upload attack';
+$html_invalid_email_address = 'Invalid e-mail address';
+$html_seperate_msg_win = 'Messages in separate window';
 ?>
