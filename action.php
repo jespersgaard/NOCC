@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: nicocha $
-	$Revision: 1.13 $
-	$Date: 2000/11/06 18:41:27 $
+	$Revision: 1.14 $
+	$Date: 2000/11/07 16:35:51 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -64,7 +64,11 @@ switch ($action)
 		require ("html/menu_inbox.php");
 		$content = aff_mail($servr, $user, $passwd, $mail, $verbose, false, $lang);
 		$mail_to = $content["from"];
-		$mail_subject = $html_reply_short.": ".$content["subject"];
+		// Test for Re: in subject, should not be added twice ! 
+		if (!strcasecmp(substr($content["subject"], 0, 2), $html_reply_short))
+			$mail_subject = $content["subject"];
+		else
+			$mail_subject = $html_reply_short.": ".$content["subject"];
 		$mail_body = $original_msg."\n".$html_from.": ".$content["from"]."\n".$html_to.": ".$content["to"]."\n".$html_sent.": ".$content["date"]."\n".$html_subject.": ".$content["subject"]."\n\n".strip_tags($content["body"], "");
 		require("html/send.php");
 		require ("html/menu_inbox.php");
@@ -73,7 +77,10 @@ switch ($action)
 		require ("html/menu_inbox.php");
 		$content = aff_mail($servr, $user, $passwd, $mail, $verbose, false, $lang);
 		$mail_to = get_reply_all($user, $domain, $content["from"], $content["to"], $content["cc"]);
-		$mail_subject = $html_reply_short.": ".$content["subject"];
+		if (!strcasecmp(substr($content["subject"], 0, 2), $html_reply_short))
+			$mail_subject = $content["subject"];
+		else
+			$mail_subject = $html_reply_short.": ".$content["subject"];
 		$mail_body = $original_msg."\n".$html_from.": ".$content["from"]."\n".$html_to.": ".$content["to"]."\n".$html_sent.": ".$content["date"]."\n".$html_subject.": ".$content["subject"]."\n\n".strip_tags($content["body"], "");
 		require("html/send.php");
 		require ("html/menu_inbox.php");
