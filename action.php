@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: wolruf $
-	$Revision: 1.9 $
-	$Date: 2000/10/26 10:52:32 $
+	$Revision: 1.10 $
+	$Date: 2000/10/26 14:08:33 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -38,7 +38,7 @@ switch ($action)
 			{
 				// if it's an image, we display it
 				$img_type = array_pop(explode("/", $tmp["mime"]));
-				if (eregi ("JPEG", $img_type) || eregi("JPG", $img_type) || eregi("GIF", $img_type))
+				if (eregi ("JPEG", $img_type) || eregi("JPG", $img_type) || eregi("GIF", $img_type) || eregi ("PNG", $img_type))
 				{
 					echo "<hr>";
 					echo "<center><img src=\"get_img.php?mail=".$mail."&num=".$tmp["number"]."&mime=".$img_type."&transfer=".$tmp["transfer"]."\"></center>";
