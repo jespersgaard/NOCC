@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.22 2001/02/23 09:31:57 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.23 2001/03/13 11:34:37 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -56,7 +56,7 @@ class mime_mail
 
 /*
  *      void build_message(array part)
- *      Build message parts of an multipart mail
+ *      Build message parts of a multipart mail
  */ 
 	function build_message($part)
 	{
