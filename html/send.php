@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.41 2002/02/09 20:25:04 rossigee Exp $ -->
+<!-- start of $Id: send.php,v 1.42 2002/02/09 20:42:36 rossigee Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
 		<td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -20,7 +20,7 @@
 			<table width="100%" cellspacing="2" cellpadding="1" border="0" bgcolor="<?php echo $glob_theme->inside_color ?>">
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_from ?> : </td>
-					<td align="left">
+					<td align="left" class="inbox">
 						<?php if ($allow_address_change) { ?>
 						<input type="text" name="mail_from" size="60" value="<?php echo htmlspecialchars($mail_from) ?>" />
 						<?php } else { ?>
@@ -147,4 +147,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.41 2002/02/09 20:25:04 rossigee Exp $ -->
+<!-- end of $Id: send.php,v 1.42 2002/02/09 20:42:36 rossigee Exp $ -->
