@@ -62,5 +62,5 @@ A.menu:hover {
 }
 
 label {
-    cursor: hand;
+    cursor: pointer;
 }
