@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.189 2004/06/30 17:52:43 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.190 2004/07/07 19:43:27 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -237,11 +237,11 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
     $date = format_date($timestamp, $lang);
     $time = format_time($timestamp, $lang);
     $content = Array(
-        'from' => htmlentities($from),
-        'to' => htmlentities($to),
-        'cc' => htmlentities($cc),
-        'reply_to' => htmlentities($reply_to),
-        'subject' => htmlentities($subject),
+        'from' => $from,
+        'to' => $to,
+        'cc' => $cc,
+        'reply_to' => $reply_to,
+        'subject' => $subject,
         'date' => htmlentities($date),
         'time' => htmlentities($time),
         'complete_date' => htmlentities($date),
