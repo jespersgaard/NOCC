@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ar.php,v 1.10 2001/02/23 11:41:11 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ar.php,v 1.11 2001/02/28 20:45:42 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -64,9 +64,11 @@ $html_login = "المستخدم";
 $html_passwd = "كلمة السر";
 $html_submit = "ءارسال";
 $html_help = "مساعدة";
-$html_server = "Serveur";
+$html_server = "Server";
 $html_wrong = "ءأسم المستخدم أو كلمة السر غير صحيحة ";
 $html_retry = "أعد المحاولة";
+$html_on = "on";
+$html_theme = "Theme";
 
 // Other pages
 
