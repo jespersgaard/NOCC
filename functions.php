@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.136 2002/02/18 09:52:19 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.137 2002/02/18 10:09:49 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -745,7 +745,7 @@ function safestrip(&$string)
 	return $string;
 }
 
-function strip_tags2(&$string, &$allow)
+function strip_tags2(&$string, $allow)
 {
 	$string = eregi_replace('<<', '<nocc_less_than_tag><', $string);
 	$string = eregi_replace('>>', '><nocc_greater_than_tag>;', $string);
