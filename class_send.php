@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.58 2004/06/26 18:26:40 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.59 2004/08/16 17:09:10 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -142,7 +142,7 @@ class mime_mail
             $mime .= 'Cc: ' . join(', ', $this->cc) . $this->crlf;
         if (count($this->bcc) > 0 && $this->bcc[0] != '')
             $mime .= 'Bcc: ' . join(', ', $this->bcc) . $this->crlf;
-        if (ereg("[4-9]\.[0-9]\.[4-9].*", phpversion()))
+        if (ereg("[4-9]\.[0-9]\.[4-9].*", phpversion()) || ereg("[5-9]\.[0-9]\.[0-9].*", phpversion()))
             $mime .= 'Date: ' . date("r") . $this->crlf;
         else
             $mime .= 'Date: ' . date("D, j M Y H:i:s T") . $this->crlf;
