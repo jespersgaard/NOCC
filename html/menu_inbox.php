@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox.php,v 1.26 2001/12/13 10:39:09 nicocha Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.27 2001/12/16 12:44:25 nicocha Exp $ -->
 <?php
 $color_inbox = $color = $glob_theme->menu_color;
 if ($action == '') 
@@ -49,4 +49,4 @@ if ($action == 'forward')
 		</td>
 	</tr>
 </table>
-<!-- end of $Id: menu_inbox.php,v 1.26 2001/12/13 10:39:09 nicocha Exp $ -->
+<!-- end of $Id: menu_inbox.php,v 1.27 2001/12/16 12:44:25 nicocha Exp $ -->
