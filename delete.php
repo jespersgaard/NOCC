@@ -1,6 +1,6 @@
 <?php 
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.12 2001/02/16 15:47:40 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.13 2001/02/23 09:31:57 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -17,7 +17,7 @@ require ("conf.php");
 $pop = imap_open("{".$servr."}INBOX", $user, stripslashes($passwd));
 $num_messages = imap_num_msg($pop);
 
-if ($only_one == 1)
+if (isset($only_one) && ($only_one == 1))
 	imap_delete($pop, $mail, 0);
 else
 {
