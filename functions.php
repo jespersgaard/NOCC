@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: wolruf $
-	$Revision: 1.13 $
-	$Date: 2000/10/26 10:51:32 $
+	$Revision: 1.14 $
+	$Date: 2000/10/26 12:00:09 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
 the function get_part is based on a function from matt@bonneau.net
@@ -319,7 +319,7 @@ function link_att($servr, $mail, $tab, $display_part_no)
 function change_date($date, $lang)
 {
 	require ("check_lang.php");
-	$tab = split(" ", $date);
+	$tab = explode(" ", $date);
 	$tab[0] = eregi_replace(",", "", $tab[0]);
 	return ($days[$tab[0]].", ".$tab[1]." ".$months[$tab[2]]." ".$tab[3]);
 }
