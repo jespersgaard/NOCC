@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.3 2004/01/04 21:31:07 ajetam Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.4 2004/01/09 22:16:52 ajetam Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -49,7 +49,7 @@ switch($action){
 	case "add_prompt":
       if (isset($_GET['id']))
       {
-	    $tab = explode ("|",$contacts[$_GET['id']]);
+	    $tab = explode ("\t",$contacts[$_GET['id']]);
       }
 	?>
 <form name="form2" method="post" action="<? echo $_SERVER['PHP_SELF'] . "?" . $query_str ?>&amp;action=add">
@@ -107,13 +107,13 @@ switch($action){
 	{
 		if (count ($contacts) < $conf->contact_number_max && empty ($_POST['modif']))
 		{
-	    	$line = $_POST['first'] . "|" . $_POST['last'] . "|" . $_POST['nick'] . "|" . $_POST['email'];
+	    	$line = $_POST['first'] . "\t" . $_POST['last'] . "\t" . $_POST['nick'] . "\t" . $_POST['email'];
 			array_push ($contacts, $line);
 			save_list ($path, $contacts);
 		}
 		if (!empty ($_POST['modif']))
 		{
-	    	$line = $_POST['first'] . "|" . $_POST['last'] . "|" . $_POST['nick'] . "|" . $_POST['email'];
+	    	$line = $_POST['first'] . "\t" . $_POST['last'] . "\t" . $_POST['nick'] . "\t" . $_POST['email'];
 			$contacts[$_POST['id']] = $line;
 			save_list ($path, $contacts);
 		}
@@ -152,7 +152,7 @@ switch($action){
   <?
 	for ($i = 0; $i < count ($contacts); ++$i)
 	{
-		$tab = explode ("|",$contacts[$i]);
+		$tab = explode ("\t",$contacts[$i]);
 ?>
   <tr class="inbox" bgcolor="<?php echo ($i % 2) ? "#ffffff" : $glob_theme->inside_color ?>">
     <td><?php echo ($tab[0]) ? $tab[0] : "&nbsp;"; ?></td>
