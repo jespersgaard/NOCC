@@ -1,6 +1,6 @@
 NOCC 0.9.4	??   ??, 2001
 
-	* Correct a problem with IE and SSL which prevented download attachments.
+	* Correct a problem with IE and SSL which prevented downloading attachments.
 	* Correct a little bug when sending mail.
 	* Added Slovak translation.
 	* Added an error reporting control. No more 'undefined variable'
