@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.9 2001/05/24 15:45:19 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.10 2001/05/27 15:02:33 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -70,6 +70,19 @@ $html_retry = 'Вернуться';
 $html_on = 'Вкл.';
 $html_theme = 'Дизайн';
 
+// prefs.php
+
+$html_preferences = 'Preferences';
+$html_full_name = 'Full name';
+$html_email_address = 'E-mail Address';
+$html_ccself = 'Cc self';
+$html_hide_addresses = 'Hide addresses';
+$html_outlook_quoting = 'Outlook-style quoting';
+$html_reply_to = 'Reply to';
+$html_use_signature = 'Use signature';
+$html_signature = 'Signature';
+$html_prefs_updated = 'Preferences updated';
+
 // Other pages
 
 $html_view_header = 'Просмотреть заголовок письма';
@@ -90,6 +103,7 @@ $html_att_unknown = '[неизвестно]';
 $html_attach = 'Прикрепить файл';
 $html_attach_forget = 'Вы должны прикрепить файл до отправки сообщения!';
 $html_attach_delete = 'Удалить выбранные';
+$html_sort_by = 'Sort by';
 $html_from = 'От';
 $html_subject = 'Тема';
 $html_date = 'Время';
@@ -110,7 +124,23 @@ $html_logout = 'Выйти';
 $html_msg = 'Сообщение';
 $html_msgs = 'Сообщения';
 $html_configuration = 'This server is not well set up !';
+$html_priority = 'Priority';
+$html_low = 'Low';
+$html_normal = 'Normal';
+$html_high = 'High';
+$html_select = 'Select';
+$html_select_all = 'Select All';
+$html_loading_image = 'Loading image';
+$html_send_confirmed = 'Your mail was accepted for delivery';
+$html_no_sendaction = 'No action specified. Try enabling JavaScript.';
+$html_error_occurred = 'An error occurred';
+$html_prefs_file_error = 'Unable to open preferences file for writing.';
+$html_sig_file_error = 'Unable to open signature file for writing.';
 
 $original_msg = '-- Original Message --';
 $to_empty = 'Поле \'Кому\' не должно быть пустым !';
+
+// SMTP problems (class_smtp.php)
+$html_smtp_error_no_conn = "Unable to open connection";
+$html_smtp_error_unexpected = "Unexpected response:";
 ?>

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-tw.php,v 1.5 2001/04/17 21:55:37 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-tw.php,v 1.6 2001/05/27 15:02:33 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -68,6 +68,19 @@ $html_server = '¦øªA¾¹';
 $html_wrong = 'µn¤J¦W¦r©Î±K½X¤£¥¿½T';
 $html_retry = '¦A¹Á¸Õ';
 
+// prefs.php
+
+$html_preferences = 'Preferences';
+$html_full_name = 'Full name';
+$html_email_address = 'E-mail Address';
+$html_ccself = 'Cc self';
+$html_hide_addresses = 'Hide addresses';
+$html_outlook_quoting = 'Outlook-style quoting';
+$html_reply_to = 'Reply to';
+$html_use_signature = 'Use signature';
+$html_signature = 'Signature';
+$html_prefs_updated = 'Preferences updated';
+
 // Other pages
 
 $html_view_header = 'Åã¥Ü¼ÐÃD';
@@ -88,6 +101,7 @@ $html_att_unknown = '[¤£©ú]';
 $html_attach = 'ªþ¥ó';
 $html_attach_forget = '§A§Ñ°O¥[¤Jªþ¥ó !';
 $html_attach_delete = ' ç°£¤w¿ï¾Üªº';
+$html_sort_by = 'Sort by';
 $html_from = '¥Ñ';
 $html_subject = 'ÃD¥Ø';
 $html_date = '¤é´Á';
@@ -108,7 +122,23 @@ $html_logout = 'µn¥X';
 $html_msg = '«H¥ó';
 $html_msgs = '«H¥ó';
 $html_configuration = 'This server is not well set up !';
+$html_priority = 'Priority';
+$html_low = 'Low';
+$html_normal = 'Normal';
+$html_high = 'High';
+$html_select = 'Select';
+$html_select_all = 'Select All';
+$html_loading_image = 'Loading image';
+$html_send_confirmed = 'Your mail was accepted for delivery';
+$html_no_sendaction = 'No action specified. Try enabling JavaScript.';
+$html_error_occurred = 'An error occurred';
+$html_prefs_file_error = 'Unable to open preferences file for writing.';
+$html_sig_file_error = 'Unable to open signature file for writing.';
 
 $original_msg = '-- ­ì©l¤º®e --';
 $to_empty = '¦¹ \'¦¬¥ó¤H\' ¤§¦ì¸m¤£¯à¨S¦³ !';
+
+// SMTP problems (class_smtp.php)
+$html_smtp_error_no_conn = "Unable to open connection";
+$html_smtp_error_unexpected = "Unexpected response:";
 ?>

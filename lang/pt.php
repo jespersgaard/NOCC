@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.xx 2001/10/19 22:40:18 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.18 2001/10/20 01:28:57 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -8,7 +8,7 @@
  * See the enclosed file COPYING for license information (GPL).  If you
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
- * Configuration file for the portuguese language
+ * Configuration file for the Portuguese language
  * Translation by sena <sena@smux.net> and JS <jorge.silva@ciberlink.pt>
  */
 
@@ -74,12 +74,13 @@ $html_theme = 'Tema';
 $html_preferences = 'Prefer&ecirc;ncias';
 $html_full_name = 'Nome completo';
 $html_email_address = 'Endere&ccedil;o E-mail';
+$html_ccself = 'Cc self';
+$html_hide_addresses = 'Hide addresses';
+$html_outlook_quoting = 'Outlook-style quoting';
 $html_reply_to = 'Responder para';
 $html_use_signature = 'Utilizar assinatura';
 $html_signature = 'Assinatura';
-$html_submit = 'Aceitar';
 $html_prefs_updated = 'Prefer&ecirc;ncias actualizadas';
-
 
 // Other pages
 
@@ -101,6 +102,7 @@ $html_att_unknown = '[desconhecido]';
 $html_attach = 'Anexar';
 $html_attach_forget = 'Tem de premir \`Anexar\` antes de enviar a mensagem !';
 $html_attach_delete = 'Retirar Ficheiros Seleccionados';
+$html_sort_by = 'Sort by';
 $html_from = 'De';
 $html_subject = 'Assunto';
 $html_date = 'Data';
@@ -126,6 +128,12 @@ $html_low = 'Baixa';
 $html_normal = 'Normal';
 $html_high = 'Alta';
 $html_select_all = 'Seleccionar tudo';
+$html_loading_image = 'Loading image';
+$html_send_confirmed = 'Your mail was accepted for delivery';
+$html_no_sendaction = 'No action specified. Try enabling JavaScript.';
+$html_error_occurred = 'An error occurred';
+$html_prefs_file_error = 'Unable to open preferences file for writing.';
+$html_sig_file_error = 'Unable to open signature file for writing.';
 
 $original_msg = '-- Mensagem Original --';
 $to_empty = 'O campo \'Para\' tem de ser preenchido !';

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/sl.php,v 1.6 2001/04/17 21:55:37 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sl.php,v 1.7 2001/05/27 15:02:33 wolruf Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -69,6 +69,19 @@ $html_retry = 'Ponovi';
 $html_on = 'on';
 $html_theme = 'Theme';
 
+// prefs.php
+
+$html_preferences = 'Preferences';
+$html_full_name = 'Full name';
+$html_email_address = 'E-mail Address';
+$html_ccself = 'Cc self';
+$html_hide_addresses = 'Hide addresses';
+$html_outlook_quoting = 'Outlook-style quoting';
+$html_reply_to = 'Reply to';
+$html_use_signature = 'Use signature';
+$html_signature = 'Signature';
+$html_prefs_updated = 'Preferences updated';
+
 // Other pages
 
 $html_view_header = 'Poka¾i glavo';
@@ -89,6 +102,7 @@ $html_att_unknown = '[neznan]';
 $html_attach = 'Pripni';
 $html_attach_forget = 'Datoteko morate pripeti pred poi¹iljanjem sporoèila!';
 $html_attach_delete = 'Odstrani izbrane';
+$html_sort_by = 'Sort by';
 $html_from = 'Od';
 $html_subject = 'Zadeva';
 $html_date = 'Datum';
@@ -109,7 +123,23 @@ $html_logout = 'Odjava';
 $html_msg = 'Sporoèil';
 $html_msgs = 'Sporoèil';
 $html_configuration = 'This server is not well set up !';
+$html_priority = 'Priority';
+$html_low = 'Low';
+$html_normal = 'Normal';
+$html_high = 'High';
+$html_select = 'Select';
+$html_select_all = 'Select All';
+$html_loading_image = 'Loading image';
+$html_send_confirmed = 'Your mail was accepted for delivery';
+$html_no_sendaction = 'No action specified. Try enabling JavaScript.';
+$html_error_occurred = 'An error occurred';
+$html_prefs_file_error = 'Unable to open preferences file for writing.';
+$html_sig_file_error = 'Unable to open signature file for writing.';
 
 $original_msg = '-- Izvorno sporoèilo --';
 $to_empty = 'Polje \'Za:\' ne sme biti prazno!';
+
+// SMTP problems (class_smtp.php)
+$html_smtp_error_no_conn = "Unable to open connection";
+$html_smtp_error_unexpected = "Unexpected response:";
 ?>

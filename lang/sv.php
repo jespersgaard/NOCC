@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/sv.php,v 1.2 2001/04/17 21:55:37 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sv.php,v 1.3 2001/05/27 15:02:33 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -69,6 +69,19 @@ $html_retry = 'Försök igen';
 $html_on = 'På';
 $html_theme = 'Tema';
 
+// prefs.php
+
+$html_preferences = 'Preferences';
+$html_full_name = 'Full name';
+$html_email_address = 'E-mail Address';
+$html_ccself = 'Cc self';
+$html_hide_addresses = 'Hide addresses';
+$html_outlook_quoting = 'Outlook-style quoting';
+$html_reply_to = 'Reply to';
+$html_use_signature = 'Use signature';
+$html_signature = 'Signature';
+$html_prefs_updated = 'Preferences updated';
+
 // Other pages
 
 $html_view_header = 'Visa huvud';
@@ -89,6 +102,7 @@ $html_att_unknown = '[okänd]';
 $html_attach = 'Bifoga';
 $html_attach_forget = 'Du måste bifoga din fil innan du skickar meddelandet !';
 $html_attach_delete = 'Ta bort vald';
+$html_sort_by = 'Sort by';
 $html_from = 'Från';
 $html_subject = 'Ämne';
 $html_date = 'Datum';
@@ -109,7 +123,23 @@ $html_logout = 'Logga ut';
 $html_msg = 'Meddelande';
 $html_msgs = 'Meddelanden';
 $html_configuration = 'This server is not well set up !';
+$html_priority = 'Priority';
+$html_low = 'Low';
+$html_normal = 'Normal';
+$html_high = 'High';
+$html_select = 'Select';
+$html_select_all = 'Select All';
+$html_loading_image = 'Loading image';
+$html_send_confirmed = 'Your mail was accepted for delivery';
+$html_no_sendaction = 'No action specified. Try enabling JavaScript.';
+$html_error_occurred = 'An error occurred';
+$html_prefs_file_error = 'Unable to open preferences file for writing.';
+$html_sig_file_error = 'Unable to open signature file for writing.';
 
 $original_msg = '-- Original Meddelande --';
 $to_empty = 'Mottagar fältet kan inte vara tomt !';
+
+// SMTP problems (class_smtp.php)
+$html_smtp_error_no_conn = "Unable to open connection";
+$html_smtp_error_unexpected = "Unexpected response:";
 ?>

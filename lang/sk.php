@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/sk.php,v 1.4 2001/04/17 21:55:37 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sk.php,v 1.5 2001/05/27 15:02:33 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -68,6 +68,19 @@ $html_server = 'Server';
 $html_wrong = 'Bolo zadané zlé prihlasovacie meno alebo heslo';
 $html_retry = 'Zopakova»';
 
+// prefs.php
+
+$html_preferences = 'Preferences';
+$html_full_name = 'Full name';
+$html_email_address = 'E-mail Address';
+$html_ccself = 'Cc self';
+$html_hide_addresses = 'Hide addresses';
+$html_outlook_quoting = 'Outlook-style quoting';
+$html_reply_to = 'Reply to';
+$html_use_signature = 'Use signature';
+$html_signature = 'Signature';
+$html_prefs_updated = 'Preferences updated';
+
 // Other pages
 
 $html_view_header = 'Zobrazi» hlavièku';
@@ -88,6 +101,7 @@ $html_att_unknown = '[neznámy]';
 $html_attach = 'Pripoji» attachment';
 $html_attach_forget = 'Pred odoslaním správy musíte pripoji» vá¹ attachment !';
 $html_attach_delete = 'Odstráò oznaèené';
+$html_sort_by = 'Sort by';
 $html_from = 'Odosielateµ';
 $html_subject = 'Nadpis';
 $html_date = 'Dátum';
@@ -108,7 +122,23 @@ $html_logout = 'Odhlásenie';
 $html_msg = 'Správa';
 $html_msgs = 'Správy';
 $html_configuration = 'This server is not well set up !';
+$html_priority = 'Priority';
+$html_low = 'Low';
+$html_normal = 'Normal';
+$html_high = 'High';
+$html_select = 'Select';
+$html_select_all = 'Select All';
+$html_loading_image = 'Loading image';
+$html_send_confirmed = 'Your mail was accepted for delivery';
+$html_no_sendaction = 'No action specified. Try enabling JavaScript.';
+$html_error_occurred = 'An error occurred';
+$html_prefs_file_error = 'Unable to open preferences file for writing.';
+$html_sig_file_error = 'Unable to open signature file for writing.';
 
 $original_msg = '-- Original Message --';
 $to_empty = 'Políèko \'Adresát\' nesmie by» prázdne !';
+
+// SMTP problems (class_smtp.php)
+$html_smtp_error_no_conn = "Unable to open connection";
+$html_smtp_error_unexpected = "Unexpected response:";
 ?>

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-gb.php,v 1.1 2001/04/25 18:17:32 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-gb.php,v 1.2 2001/05/27 15:02:33 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -68,6 +68,19 @@ $html_server = '服务器';
 $html_wrong = '用户名或则密码不正确';
 $html_retry = '重试';
 
+// prefs.php
+
+$html_preferences = 'Preferences';
+$html_full_name = 'Full name';
+$html_email_address = 'E-mail Address';
+$html_ccself = 'Cc self';
+$html_hide_addresses = 'Hide addresses';
+$html_outlook_quoting = 'Outlook-style quoting';
+$html_reply_to = 'Reply to';
+$html_use_signature = 'Use signature';
+$html_signature = 'Signature';
+$html_prefs_updated = 'Preferences updated';
+
 // Other pages
 
 $html_view_header = '浏览邮件头';
@@ -88,6 +101,7 @@ $html_att_unknown = '[unknown]';
 $html_attach = '附件';
 $html_attach_forget = '在发送邮件之前，你必须选一个文件!';
 $html_attach_delete = '删除选择';
+$html_sort_by = 'Sort by';
 $html_from = '发件人';
 $html_subject = '主题';
 $html_date = '日期';
@@ -108,7 +122,23 @@ $html_logout = '退出';
 $html_msg = '邮件';
 $html_msgs = '邮件';
 $html_configuration = 'This server is not well set up !';
+$html_priority = 'Priority';
+$html_low = 'Low';
+$html_normal = 'Normal';
+$html_high = 'High';
+$html_select = 'Select';
+$html_select_all = 'Select All';
+$html_loading_image = 'Loading image';
+$html_send_confirmed = 'Your mail was accepted for delivery';
+$html_no_sendaction = 'No action specified. Try enabling JavaScript.';
+$html_error_occurred = 'An error occurred';
+$html_prefs_file_error = 'Unable to open preferences file for writing.';
+$html_sig_file_error = 'Unable to open signature file for writing.';
 
 $original_msg = '-- Original Message --';
 $to_empty = ' \'To\' 域不能为空 !';
+
+// SMTP problems (class_smtp.php)
+$html_smtp_error_no_conn = "Unable to open connection";
+$html_smtp_error_unexpected = "Unexpected response:";
 ?>

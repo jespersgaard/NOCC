@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/sh.php,v 1.28 2001/05/27 14:48:09 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sr.php,v 1.1 2001/11/06 21:37:55 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,6 +9,7 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
  * Configuration file for the srpski jezik
+ * Translation author information missing
  */
 
 $charset = 'ISO-8859-2';
@@ -67,6 +68,19 @@ $html_server = 'Server';
 $html_wrong = 'Korisni&#269;ko ime ili &#353;ifra su neispravni';
 $html_retry = 'Poku&#353;aj ponovo';
 
+// prefs.php
+
+$html_preferences = 'Preferences';
+$html_full_name = 'Full name';
+$html_email_address = 'E-mail Address';
+$html_ccself = 'Cc self';
+$html_hide_addresses = 'Hide addresses';
+$html_outlook_quoting = 'Outlook-style quoting';
+$html_reply_to = 'Reply to';
+$html_use_signature = 'Use signature';
+$html_signature = 'Signature';
+$html_prefs_updated = 'Preferences updated';
+
 // Other pages
 
 $html_view_header = 'Vidi zaglavlje';
@@ -87,6 +101,7 @@ $html_att_unknown = '[nepoznat]';
 $html_attach = 'Prilo&#382;i';
 $html_attach_forget = 'Morate prilo&#382;iti datoteku prije slanja poruke !';
 $html_attach_delete = 'Ukloni odabrane datoteke';
+$html_sort_by = 'Sort by';
 $html_from = 'Od';
 $html_subject = 'Naslov';
 $html_date = 'Datum';
@@ -107,7 +122,23 @@ $html_logout = 'Izlaz';
 $html_msg = 'poruka';
 $html_msgs = 'poruka';
 $html_configuration = 'Ovaj server nije dobro podesen !';
+$html_priority = 'Priority';
+$html_low = 'Low';
+$html_normal = 'Normal';
+$html_high = 'High';
+$html_select = 'Select';
+$html_select_all = 'Select All';
+$html_loading_image = 'Loading image';
+$html_send_confirmed = 'Your mail was accepted for delivery';
+$html_no_sendaction = 'No action specified. Try enabling JavaScript.';
+$html_error_occurred = 'An error occurred';
+$html_prefs_file_error = 'Unable to open preferences file for writing.';
+$html_sig_file_error = 'Unable to open signature file for writing.';
 
 $original_msg = '-- Originalna poruka --';
 $to_empty = 'Polje \'Za\' ne moze biti prazno!';
+
+// SMTP problems (class_smtp.php)
+$html_smtp_error_no_conn = "Unable to open connection";
+$html_smtp_error_unexpected = "Unexpected response:";
 ?>
