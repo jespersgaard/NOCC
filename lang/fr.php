@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.47 2001/10/19 12:27:27 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.48 2001/10/21 18:18:40 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -73,6 +73,8 @@ $html_preferences = 'Pr&eacute;f&eacute;rences';
 $html_full_name = 'Nom complet';
 $html_email_address = 'Adresse e-mail';
 $html_ccself = 'Recevoir une copie';
+$html_hide_addresses = 'Cacher mon adresse e-mail';
+$html_outlook_quoting = 'Outlook-style quoting';
 $html_reply_to = 'R&eacute;pondre &agrave;';
 $html_use_signature = 'Utiliser la signature';
 $html_signature = 'Signature';
@@ -103,6 +105,7 @@ $html_from = 'De';
 $html_subject = 'Sujet';
 $html_date = 'Date';
 $html_sent = 'Envoy&eacute; le';
+$html_wrote = 'a &eacute;crit';
 $html_size = 'Taille';
 $html_totalsize = 'Taille Totale';
 $html_kb = 'Ko';
@@ -124,6 +127,7 @@ $html_low = 'Basse';
 $html_normal = 'Normale';
 $html_high = 'Haute';
 $html_select_all = 'Tout selectionner';
+$html_loading_image = 'Chargement de l\'image';
 
 $original_msg = '-- Message Original --';
 $to_empty = 'Le champ \'A\' ne doit pas être vide !';
