@@ -1,8 +1,6 @@
 <?
 require ("conf.php");
 require ("check_lang.php");
-echo $user;
-echo $passwd;
 session_unset();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
@@ -10,7 +8,7 @@ session_unset();
 <HEAD>
 <TITLE>NOCC Desktop - Webmail</TITLE>
 <META http-equiv="pragma" content="no-cache">
-<META content="text/html; charset=iso-8859-1" http-equiv=Content-Type>
+<META content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
 <LINK href="style.css" rel="stylesheet">
 <script type="text/javascript">
 function updatePort () {
