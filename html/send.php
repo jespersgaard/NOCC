@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.70 2004/10/08 06:14:15 jdeluise Exp $ -->
+<!-- start of $Id: send.php,v 1.71 2004/10/08 09:54:47 jdeluise Exp $ -->
 <?php
 
 // Default e-mail address on send form
@@ -10,7 +10,6 @@ $mail_from = get_default_from_address();
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
 	<!-- If 'file_uploads=Off', we must set formtype to "normal" otherwise it won't work -->
             <form name="sendform" enctype="<?php echo (ini_get("file_uploads")) ? "multipart/form-data" : "normal" ?>" method="post" onsubmit="return(validate(this));" action="send.php">
-            <input type="hidden" name="sendaction" value="send" />
 <?php if(isset($forward_msgnum)) { ?>
             <input type="hidden" name="forward_msgnum" value="<?php echo $forward_msgnum ?>" />
 <?php } ?>
@@ -174,4 +173,4 @@ function validate(f)
 
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.70 2004/10/08 06:14:15 jdeluise Exp $ -->
+<!-- end of $Id: send.php,v 1.71 2004/10/08 09:54:47 jdeluise Exp $ -->
