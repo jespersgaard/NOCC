@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.172 2003/01/15 05:52:19 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.173 2003/01/22 05:12:34 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -129,9 +129,11 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
     // Clear variables
     $glob_body = $subject = $from = $to = $cc = $reply_to = '';
 
-    // Finding the next and previous message number
+    // Get message numbers in sorted order
     $sorted = $pop->sort($sort, $sortdir, $ev);
     if(Exception::isException($ev)) return;
+
+    // Finding the next and previous message number
     $prev_msg = $next_msg = 0;
     for ($i = 0; $i < sizeof($sorted); $i++)
     {
