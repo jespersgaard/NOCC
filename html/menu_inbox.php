@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox.php,v 1.40 2002/05/20 14:37:33 rossigee Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.41 2002/05/22 14:23:43 rossigee Exp $ -->
 <?php
 $color_inbox = $color = $glob_theme->menu_color;
 $action = "";
@@ -32,13 +32,13 @@ elseif ($action == 'forward')
             <table border="0" cellpadding="2" cellspacing="1" bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%">
                 <tr>
                     <td class="menu" align="center" width="120" bgcolor="<?php echo $color_inbox ?>">
-                        <a href="<?php echo $_SERVER['PHP_SELF'] ?>" class="menu"><?php echo $_SESSION['folder'] ?></a>
+                        <a href="<?php echo $_SERVER['PHP_SELF'] ?>" class="menu"><?php echo $_SESSION['nocc_folder'] ?></a>
                     </td>
                     <td class="menu" align="center" width="120" bgcolor="<?php echo $color ?>">
                         <?php echo $line ?>
                     </td>
                     <td width="*" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <img src="themes/<?php echo $_SESSION['theme'] ?>/img/spacer.gif" height="1" width="1" alt="" />
+                        <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/spacer.gif" height="1" width="1" alt="" />
                     </td>
                     <td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
                         <?php if($conf->prefs_dir) { ?>
@@ -55,4 +55,4 @@ elseif ($action == 'forward')
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_inbox.php,v 1.40 2002/05/20 14:37:33 rossigee Exp $ -->
+<!-- end of $Id: menu_inbox.php,v 1.41 2002/05/22 14:23:43 rossigee Exp $ -->

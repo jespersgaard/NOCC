@@ -3,7 +3,7 @@
 $prefs_full_name = getPref('full_name');
 $prefs_email_address = getPref('email_address');
 if(empty($prefs_email_address))
-    $prefs_email_address = $_SESSION['user'].'@'.$_SESSION['domain'];
+    $prefs_email_address = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
 $prefs_msg_per_page = getPref('msg_per_page');
 $prefs_cc_self = getPref('cc_self');
 $prefs_hide_addresses = getPref('hide_addresses');
@@ -12,7 +12,7 @@ $prefs_reply_leadin = getPref('leadin');
 $prefs_signature = getPref('signature');
 
 ?>
-<!-- start of $Id: prefs.php,v 1.20 2002/05/15 16:36:16 rossigee Exp $ -->
+<!-- start of $Id: prefs.php,v 1.21 2002/05/30 12:46:31 rossigee Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -99,4 +99,4 @@ $prefs_signature = getPref('signature');
         </td>
     </tr>
 </table>
-<!-- end of $Id: prefs.php,v 1.20 2002/05/15 16:36:16 rossigee Exp $ -->
+<!-- end of $Id: prefs.php,v 1.21 2002/05/30 12:46:31 rossigee Exp $ -->

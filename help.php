@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/help.php,v 1.12 2002/04/19 14:39:30 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/help.php,v 1.13 2002/05/22 14:23:43 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -11,14 +11,14 @@
 
 require_once './conf.php';
 require_once './common.php';
-$lang = $_SESSION['lang'];
+$lang = $_SESSION['nocc_lang'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang ?>" lang="<?php echo $lang ?>">
 <head>
 <title>NOCC - <?php echo $html_help ?></title>
 <meta content="text/html; charset=<?php echo $charset ?>" http-equiv="Content-Type" />
-<link href="themes/<?php echo $_SESSION['theme'] ?>/style.css" rel="stylesheet" type="text/css" />
+<link href="themes/<?php echo $_SESSION['nocc_theme'] ?>/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body alink="<?php echo $glob_theme->alink_color?>" bgcolor="<?php echo $glob_theme->bgcolor ?>" link="<?php echo $glob_theme->link_color ?>" text="<?php echo $glob_theme->text_color ?>" vlink="<?php echo $glob_theme->vlink_color ?>">
 

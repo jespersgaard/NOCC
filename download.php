@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.33 2002/05/29 19:27:04 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.34 2002/05/29 20:00:00 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -34,10 +34,10 @@ else
     header('Content-Disposition: attachment; filename=' . urldecode($filename));
 
 $ev = "";
-$servr = $_SESSION['servr'];
-$folder = $_SESSION['folder'];
-$login = $_SESSION['login'];
-$passwd = $_SESSION['passwd'];
+$servr = $_SESSION['nocc_servr'];
+$folder = $_SESSION['nocc_folder'];
+$login = $_SESSION['nocc_login'];
+$passwd = $_SESSION['nocc_passwd'];
 $pop = new nocc_imap($servr, $folder, $login, $passwd, 0, $ev);
 if (Exception::isException($ev)) {
     require ('./html/header.php');

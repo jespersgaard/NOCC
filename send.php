@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.109 2002/05/20 16:46:14 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.110 2002/05/29 19:52:22 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,7 +13,7 @@ require_once './conf.php';
 require_once './common.php';
 require_once './prefs.php';
 
-if (!isset($_SESSION['loggedin']))
+if (!isset($_SESSION['nocc_loggedin']))
 {
     require_once './proxy.php';
     header('Location: ' . $conf->base_url . 'logout.php');
@@ -48,9 +48,9 @@ switch($_REQUEST['sendaction'])
 {
     case 'add':
         // Counting the attachments number in the array
-        if (!isset($_SESSION['attach_array']))
-            $_SESSION['attach_array'] = array();
-        $attach_array = $_SESSION['attach_array'];
+        if (!isset($_SESSION['nocc_attach_array']))
+            $_SESSION['nocc_attach_array'] = array();
+        $attach_array = $_SESSION['nocc_attach_array'];
 
         $num_attach = count($attach_array);
         $tmp_name = $conf->tmpdir.'/'.basename($mail_att['tmp_name'] . '.att');
@@ -75,7 +75,7 @@ switch($_REQUEST['sendaction'])
         }
 
         // Registering the attachments array into the session
-        $_SESSION['attach_array'] = $attach_array;
+        $_SESSION['nocc_attach_array'] = $attach_array;
 
         // Displaying the sending form with the new attachments array
         header("Content-type: text/html; Charset=$charset");
@@ -88,8 +88,8 @@ switch($_REQUEST['sendaction'])
     case 'send':
         $mail = new mime_mail();
         $mail->crlf = get_crlf($smtp_server);
-        $mail->smtp_server = $_SESSION['smtp_server'];
-        $mail->smtp_port = $_SESSION['smtp_port'];
+        $mail->smtp_server = $_SESSION['nocc_smtp_server'];
+        $mail->smtp_port = $_SESSION['nocc_smtp_port'];
         $mail->charset = $charset;
         $mail->from = cut_address(trim($mail_from), $charset);
         $mail->from = $mail->from[0];
@@ -120,9 +120,9 @@ switch($_REQUEST['sendaction'])
                 $mail->body = $conf->ad;
 
         // Getting the attachments
-        if (isset($_SESSION['attach_array']))
+        if (isset($_SESSION['nocc_attach_array']))
         {
-            $attach_array = $_SESSION['attach_array'];
+            $attach_array = $_SESSION['nocc_attach_array'];
             for ($i = 0; $i < count($attach_array); $i++)
             {
                 // If the temporary file exists, attach it
@@ -138,17 +138,17 @@ switch($_REQUEST['sendaction'])
                 }
             }
             // Finished with attachments array now.
-            unset($_SESSION['attach_array']);
+            unset($_SESSION['nocc_attach_array']);
         }
 
         // Add original message as attachment?
         if(isset($_REQUEST['forward_msgnum']) && $_REQUEST['forward_msgnum'] != "") {
             $forward_msgnum = $_REQUEST['forward_msgnum'];
             $ev = "";
-            $servr = $_SESSION['servr'];
-            $folder = $_SESSION['folder'];
-            $login = $_SESSION['login'];
-            $passwd = $_SESSION['passwd'];
+            $servr = $_SESSION['nocc_servr'];
+            $folder = $_SESSION['nocc_folder'];
+            $login = $_SESSION['nocc_login'];
+            $passwd = $_SESSION['nocc_passwd'];
             $pop = new nocc_imap($servr, $folder, $login, $passwd, 0, $ev);
             if (Exception::isException($ev)) {
                 require ('./html/header.php');
@@ -190,7 +190,7 @@ switch($_REQUEST['sendaction'])
     case 'delete':
         // Rebuilding the attachments array with only the files the user wants to keep
         $tmp_array = array();
-        $attach_array = $_SESSION['attach_array'];
+        $attach_array = $_SESSION['nocc_attach_array'];
         for ($i = $j = 0; $i < count($attach_array); $i++)
         {
             if (!isset($_REQUEST['file-'.$i]))
@@ -206,7 +206,7 @@ switch($_REQUEST['sendaction'])
         }
 
         // Registering the new attachments array into the session
-        $_SESSION['attach_array'] = $tmp_array;
+        $_SESSION['nocc_attach_array'] = $tmp_array;
 
         // Displaying the sending form with the new attachment array
         header("Content-type: text/html; Charset=$charset");

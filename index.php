@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.94 2002/04/28 21:20:49 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.95 2002/05/22 14:23:43 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -149,7 +149,7 @@ function updateTheme()
                                             if (file_exists('lang/'.$lang_array[$i]->filename.'.php'))
                                             {
                                                 echo '<option value="'.$lang_array[$i]->filename.'"';
-                                                if ($_SESSION['lang'] == $lang_array[$i]->filename)
+                                                if ($_SESSION['nocc_lang'] == $lang_array[$i]->filename)
                                                     echo ' selected="selected"';
                                                 echo '>'.$lang_array[$i]->label.'</option>';
                                             }
@@ -170,7 +170,7 @@ function updateTheme()
                                     if (($file != '.') && ($file != '..'))
                                     {
                                         echo '<option value="'.$file.'"';
-                                        if ($file == $_SESSION['theme'])
+                                        if ($file == $_SESSION['nocc_theme'])
                                                 echo ' selected="selected"';
                                         echo '>'.$file.'</option>';
                                     }

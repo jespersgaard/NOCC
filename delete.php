@@ -1,6 +1,6 @@
 <?php 
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.41 2002/04/24 15:17:51 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.42 2002/05/15 10:07:18 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -17,10 +17,10 @@ require_once('./common.php');
 require_once('./class_local.php');
 
 $ev = "";
-$servr = $_SESSION['servr'];
-$folder = $_SESSION['folder'];
-$login = $_SESSION['login'];
-$passwd = $_SESSION['passwd'];
+$servr = $_SESSION['nocc_servr'];
+$folder = $_SESSION['nocc_folder'];
+$login = $_SESSION['nocc_login'];
+$passwd = $_SESSION['nocc_passwd'];
 $pop = new nocc_imap($servr, $folder, $login, $passwd, 0, $ev);
 if (Exception::isException($ev)) {
     require ('./html/header.php');

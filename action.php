@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.129 2002/05/15 16:36:16 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.130 2002/05/30 12:48:44 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -21,10 +21,10 @@ clear_attachments();
 
 // Get connection settings from session in case we need to
 // create a connection
-$servr = $_SESSION['servr'];
-$folder = $_SESSION['folder'];
-$login = $_SESSION['login'];
-$passwd = $_SESSION['passwd'];
+$servr = $_SESSION['nocc_servr'];
+$folder = $_SESSION['nocc_folder'];
+$login = $_SESSION['nocc_login'];
+$passwd = $_SESSION['nocc_passwd'];
 
 // Act on 'action'
 $action = '';
@@ -408,7 +408,7 @@ switch($action)
         }
 
         // If we get this far, consider ourselves logged in
-        $_SESSION['loggedin'] = 1;
+        $_SESSION['nocc_loggedin'] = 1;
 
         // Should we present folder options?
         $is_imap = $pop->is_imap();

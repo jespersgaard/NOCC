@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.18 2002/04/15 10:28:02 mrylander Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.19 2002/04/18 21:38:41 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -11,12 +11,12 @@
 
 require_once 'exception.php';
 
-if (!isset($_SESSION['prefs_are_cached']))
+if (!isset($_SESSION['nocc_prefs_are_cached']))
 {
     $prefs_are_cached = false;
     $prefs_cache = array();
-    $_SESSION['prefs_cache'] = $prefs_are_cached;
-    $_SESSION['prefs_are_cached'] = $prefs_are_cached;
+    $_SESSION['nocc_prefs_cache'] = $prefs_are_cached;
+    $_SESSION['nocc_prefs_are_cached'] = $prefs_are_cached;
 }
 
 function cachePrefValues($username)
@@ -73,7 +73,7 @@ function getPref($string)
 {
     global $conf, $prefs_cache;
     
-    $username = $_SESSION['user'].'@'.$_SESSION['domain'];
+    $username = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
     cachePrefValues($username);
       
     if (isset($prefs_cache[$string]))
@@ -120,7 +120,7 @@ function setPref($string, $set_to)
 {
     global $conf, $prefs_cache;
 
-    $username = $_SESSION['user'].'@'.$_SESSION['domain'];
+    $username = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
     cachePrefValues($username);
     if (isset($prefs_cache[$string]) && $prefs_cache[$string] == $set_to)
         return;
@@ -138,7 +138,7 @@ function setSig($string)
 {
     global $conf, $html_sig_file_error;
 
-    $username = $_SESSION['user'].'@'.$_SESSION['domain'];
+    $username = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
     $filename = $conf->prefs_dir . $username . '.sig';
     if(file_exists($filename) && !is_writable($filename))
         return new Exception($html_sig_file_error);
@@ -153,7 +153,7 @@ function setSig($string)
 function getSig()
 {
     global $conf;
-    $username = $_SESSION['user'].'@'.$_SESSION['domain'];
+    $username = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
     $filename = $conf->prefs_dir . $username . '.sig';
     $sig = '';
     if (file_exists($filename))
@@ -175,7 +175,7 @@ function getSig()
 function deleteSig()
 {
     global $conf;
-    $username = $_SESSION['user'].'@'.$_SESSION['domain'];
+    $username = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
     $filename = $conf->prefs_dir . $username . '.sig';
     if (file_exists($filename))
         unlink($filename);

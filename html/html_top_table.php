@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.63 2002/05/22 14:23:43 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.64 2002/05/28 12:34:24 rossigee Exp $ -->
 <?php
 
 require_once 'class_local.php';
@@ -6,8 +6,8 @@ require_once 'conf.php';
 
 $per_page = (getPref('msg_per_page')) ? getPref('msg_per_page') : (($conf->msg_per_page) ? $conf->msg_per_page : '25');
 
-$arrow = ($_SESSION['sortdir'] == 0) ? 'up' : 'down';
-$new_sortdir = ($_SESSION['sortdir'] == 0) ? 1 : 0;
+$arrow = ($_SESSION['nocc_sortdir'] == 0) ? 'up' : 'down';
+$new_sortdir = ($_SESSION['nocc_sortdir'] == 0) ? 1 : 0;
 $skip = (isset($_REQUEST['skip'])) ? $_REQUEST['skip'] : '0';
 
 $pages = $pop->get_page_count($conf);
@@ -23,11 +23,11 @@ if($pages > 1) {
     $this_page = $skip + 1;
     if($pskip > -1 ) {
         $prev = "<a href=\"".$_SERVER['PHP_SELF']."?skip=$pskip\">";
-        $prev .= "<img src=\"themes/".$_SESSION['theme']."/img/left_arrow.gif\" border=\"0\" /></a>\n";
+        $prev .= "<img src=\"themes/".$_SESSION['nocc_theme']."/img/left_arrow.gif\" border=\"0\" /></a>\n";
     }
     if($nskip < $pages) {
         $next = "<a href=\"".$_SERVER['PHP_SELF']."?skip=$nskip\">";
-        $next .= "<img src=\"themes/".$_SESSION['theme']."/img/right_arrow.gif\" border=\"0\" /></a>\n";
+        $next .= "<img src=\"themes/".$_SESSION['nocc_theme']."/img/right_arrow.gif\" border=\"0\" /></a>\n";
     }
 
     $page_line = "<form method=\"post\" action=\"".$_SERVER['PHP_SELF']."\">";
@@ -91,34 +91,34 @@ if ($pop->is_imap()) {
         </td>
         <?php } ?>
         <td align="center" class="inbox">&nbsp;</td>
-        <td align="center" class="inbox" <?php if ($_SESSION['sort'] == 2) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
+        <td align="center" class="inbox" <?php if ($_SESSION['nocc_sort'] == 2) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>">
-            <img src="themes/<?php echo $_SESSION['theme'] ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_from; ?>" /></a>
+            <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_from; ?>" /></a>
             &nbsp;
             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>">
             <?php echo $html_from ?></a>
         </td>
-        <td align="center" class="inbox" <?php if ($_SESSION['sort'] == 3) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
+        <td align="center" class="inbox" <?php if ($_SESSION['nocc_sort'] == 3) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>">
-            <img src="themes/<?php echo $_SESSION['theme'] ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_subject; ?>" /></a>
+            <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_subject; ?>" /></a>
             &nbsp;
             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>">
             <?php echo $html_subject ?></a>
         </td>
-        <td align="center" class="inbox" <?php if ($_SESSION['sort'] == 1) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
+        <td align="center" class="inbox" <?php if ($_SESSION['nocc_sort'] == 1) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>">
-            <img src="themes/<?php echo $_SESSION['theme'] ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_date; ?>" /></a>
+            <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_date; ?>" /></a>
             &nbsp;
             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>">
             <?php echo $html_date ?></a>
         </td>
-        <td align="right" class="inbox" <?php if ($_SESSION['sort'] == 6) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
+        <td align="right" class="inbox" <?php if ($_SESSION['nocc_sort'] == 6) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>">
-            <img src="themes/<?php echo $_SESSION['theme'] ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_size; ?>" /></a>
+            <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_size; ?>" /></a>
             &nbsp;
             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>">
             <?php echo $html_size ?></a>
             <form method="post" action="delete.php" name="delete_form">
         </td>
     </tr>
-<!-- start of $Id: html_top_table.php,v 1.63 2002/05/22 14:23:43 rossigee Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.64 2002/05/28 12:34:24 rossigee Exp $ -->

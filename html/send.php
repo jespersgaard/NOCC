@@ -1,10 +1,10 @@
-<!-- start of $Id: send.php,v 1.52 2002/05/15 16:34:03 rossigee Exp $ -->
+<!-- start of $Id: send.php,v 1.53 2002/05/29 19:53:57 rossigee Exp $ -->
 <?php
 
 // Default e-mail address on send form
 $prefs_email_address = getPref('email_address');
 if(empty($prefs_email_address))
-    $prefs_email_address = $_SESSION['user'].'@'.$_SESSION['domain'];
+    $prefs_email_address = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
 $prefs_full_name = getPref('full_name');
 $mail_from = $prefs_email_address;
 if(!empty($prefs_full_name))
@@ -79,9 +79,9 @@ if(!empty($prefs_full_name))
                     <td>&nbsp;</td>
                     <td align="left">
                         <?php
-                        if (isset($_SESSION['attach_array']) && count($_SESSION['attach_array']) > 0)
+                        if (isset($_SESSION['nocc_attach_array']) && count($_SESSION['nocc_attach_array']) > 0)
                         {
-                            $attach_array = $_SESSION['attach_array'];
+                            $attach_array = $_SESSION['nocc_attach_array'];
                             echo '<table border="0" cellspacing="2"><tr><td class="inbox">&nbsp;</td><td class="inbox"><b>' . $html_filename . '</b></td><td class="inbox"><b>' . $html_size . '(' . $html_bytes . ')</b></td></tr>';
                             $totalsize = 0;
                             for ($i = 0; $i < count($attach_array); $i++)
@@ -158,4 +158,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.52 2002/05/15 16:34:03 rossigee Exp $ -->
+<!-- end of $Id: send.php,v 1.53 2002/05/29 19:53:57 rossigee Exp $ -->

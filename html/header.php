@@ -8,10 +8,10 @@ require_once './prefs.php';
 // Don't call getPref unless session has been initialised enough for
 // prefs.php to find it's prefs file.
 $pref_email_address = "";
-if(isset($_SESSION['user']) && isset($_SESSION['domain']))
+if(isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain']))
     $pref_email_address = getPref('email_address');
 
-$custom_header = './themes/' . $_SESSION['theme'] . '/header.php';
+$custom_header = './themes/' . $_SESSION['nocc_theme'] . '/header.php';
 if(file_exists($custom_header)) {
     include($custom_header);
 }
@@ -21,7 +21,7 @@ else {
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang ?>" lang="<?php echo $lang ?>">
     <head><title>NOCC - Webmail</title>
         <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
-        <link href="themes/<?php echo $_SESSION['theme'] ?>/style.css" rel="stylesheet" type="text/css" />
+        <link href="themes/<?php echo $_SESSION['nocc_theme'] ?>/style.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript">
             function OpenHelpWindow(theURL,winName,features)
             {
@@ -33,7 +33,7 @@ else {
         <table border="0" width="100%">
             <tr>
                 <td align="left" valign="middle" colspan="2">
-                    <img src="themes/<?php echo $_SESSION['theme'] ?>/img/logo.gif" width="153" height="47" alt="Logo" />
+                    <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/logo.gif" width="153" height="47" alt="Logo" />
                     &nbsp;&nbsp;<font class="login"><b><?php echo $pref_email_address ?></b></font>
                 </td>
             </tr>

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.163 2002/05/22 14:23:42 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.164 2002/05/29 19:54:22 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -18,9 +18,9 @@ function inbox(&$pop, $skip = 0)
 {
     global $conf;
 
-    $lang = $_SESSION['lang'];
-    $sort = $_SESSION['sort'];
-    $sortdir = $_SESSION['sortdir'];
+    $lang = $_SESSION['nocc_lang'];
+    $sort = $_SESSION['nocc_sort'];
+    $sortdir = $_SESSION['nocc_sortdir'];
 
     $num_msg = $pop->num_msg();
     $per_page = (getPref('msg_per_page')) ? getPref('msg_per_page') : (($conf->msg_per_page) ? $conf->msg_per_page : '25');
@@ -57,7 +57,7 @@ function inbox(&$pop, $skip = 0)
             if ($struct_msg->subtype == 'ALTERNATIVE' || $struct_msg->subtype == 'RELATED')
                 $attach = '&nbsp;';
             else
-                $attach = '<img src="themes/' . $_SESSION['theme'] . '/img/attach.gif" alt="" />';
+                $attach = '<img src="themes/' . $_SESSION['nocc_theme'] . '/img/attach.gif" alt="" />';
         }
         else
             $attach = '&nbsp;';
@@ -84,7 +84,7 @@ function inbox(&$pop, $skip = 0)
             $new_mail_from_header = '&nbsp;';
         }
         if ($new_mail_from_header == '')
-            $newmail = '<img src="themes/' . $_SESSION['theme'] . '/img/new.gif" alt="" height="17" width="17" />';
+            $newmail = '<img src="themes/' . $_SESSION['nocc_theme'] . '/img/new.gif" alt="" height="17" width="17" />';
         else
             $newmail = '&nbsp;';
         $timestamp = chop($ref_contenu_message->udate);
@@ -115,13 +115,13 @@ function aff_mail(&$attach_tab, &$mail, $verbose, &$ev)
     global $no_locale_date_format;
     global $html_att, $html_atts;
 
-    $mailhost = $_SESSION['servr'];
-    $folder = $_SESSION['folder'];
-    $login = $_SESSION['login'];
-    $passwd = $_SESSION['passwd'];
-    $sort = $_SESSION['sort'];
-    $sortdir = $_SESSION['sortdir'];
-    $lang = $_SESSION['lang'];
+    $mailhost = $_SESSION['nocc_servr'];
+    $folder = $_SESSION['nocc_folder'];
+    $login = $_SESSION['nocc_login'];
+    $passwd = $_SESSION['nocc_passwd'];
+    $sort = $_SESSION['nocc_sort'];
+    $sortdir = $_SESSION['nocc_sortdir'];
+    $lang = $_SESSION['nocc_lang'];
 
     // Clear variables
     $glob_body = $subject = $from = $to = $cc = $reply_to = '';
@@ -416,7 +416,7 @@ function remove_stuff(&$body, &$mime)
 {
     $PHP_SELF = $_SERVER['PHP_SELF'];
 
-    $lang = $_SESSION['lang'];
+    $lang = $_SESSION['nocc_lang'];
 
     if (eregi('html', $mime))
     {
@@ -536,8 +536,8 @@ function get_mail_size(&$this_part)
 // this function build an array with all the recipients of the message for later reply or reply all 
 function get_reply_all(&$from, &$to, &$cc)
 {
-    $login = $_SESSION['login'];
-    $domain = $_SESSION['domain'];
+    $login = $_SESSION['nocc_login'];
+    $domain = $_SESSION['nocc_domain'];
     if (!eregi($login.'@'.$domain, $from))
         $rcpt = $from.'; ';
     $tab = explode(',', $to);
@@ -670,10 +670,10 @@ function encode_mime(&$string, &$charset)
 function clear_attachments()
 {
     global $conf;
-    if (isset($_SESSION['attach_array']) && is_array($_SESSION['attach_array']))
-        while ($tmp = array_shift($_SESSION['attach_array']))
+    if (isset($_SESSION['nocc_attach_array']) && is_array($_SESSION['attach_array']))
+        while ($tmp = array_shift($_SESSION['nocc_attach_array']))
             @unlink($conf->tmpdir.'/'.$tmp->tmp_file);
-    unset($_SESSION['attach_array']);
+    unset($_SESSION['nocc_attach_array']);
 }
 
 /* ----------------------------------------------------- */
