@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.48 2001/01/08 18:10:39 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.49 2001/01/29 14:30:41 nicocha Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -345,7 +345,7 @@ function remove_stuff($body, $lang, $mime)
 	elseif (eregi("plain", $mime))
 	{
 		$body = eregi_replace("(http|https|ftp)://([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)","<A HREF=\"\\1://\\2\" TARGET=\"_blank\">\\1://\\2</a>", $body);
-		$body = eregi_replace("([[:alnum:]+-_.]+[#[:alnum:]+]*)@([[:alnum:]+-_.]+[#[:alnum:]+]*)\.([[:alnum:]]+[#[:alnum:]+]*)","<A HREF=\"$PHP_SELF?action=write&mail_to=\\1@\\2.\\3&lang=$lang\">\\1@\\2.\\3</a>", $body);
+		$body = eregi_replace("([[:alnum:]+-_.]+[#[:alnum:]+]*)@([[:alnum:]+-_.]+[#[:alnum:]+]*)\.([[:alnum:]+-_.]+[#[:alnum:]+]*)","<A HREF=\"$PHP_SELF?action=write&mail_to=\\1@\\2.\\3&lang=$lang\">\\1@\\2.\\3</a>", $body);
 		$body = nl2br($body);
 		if (function_exists('wordwrap'))
 			$body = wordwrap($body, 80, "\n");
