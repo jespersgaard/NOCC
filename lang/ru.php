@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.31 2004/10/08 09:54:47 jdeluise Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.28 2004/06/28 15:28:04 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -71,63 +71,62 @@ $html_retry = 'Вернуться';
 
 // prefs.php
 
-$html_msgperpage = 'Messages per page';  //to translate
-$html_preferences = 'Preferences';  //to translate
-$html_full_name = 'Full name';  //to translate
-$html_email_address = 'E-mail Address';  //to translate
-$html_ccself = 'Cc self';  //to translate
-$html_hide_addresses = 'Hide addresses';  //to translate
-$html_outlook_quoting = 'Outlook-style quoting';  //to translate
-$html_reply_to = 'Reply to';  //to translate
-$html_use_signature = 'Use signature';  //to translate
-$html_signature = 'Signature';  //to translate
-$html_reply_leadin = 'Reply Leadin';  //to translate
-$html_prefs_updated = 'Preferences updated';  //to translate
-$html_manage_folders_link = 'Manage IMAP Folders';  //to translate
-$html_manage_filters_link = 'Manage Email Filters';  //to translate
-$html_use_graphical_smilies = 'Use graphical smilies'; //to translate
-$html_sent_folder = 'Copy sent mails into a dedicated folder'; //to translate
+$html_msgperpage = 'Писем на странице';
+$html_preferences = 'Настройки';
+$html_full_name = 'Имя';
+$html_email_address = 'Адрес электронной почты';
+$html_ccself = 'Копию себе';
+$html_hide_addresses = 'Спрятать адрес';
+$html_outlook_quoting = 'Цитирование в стиле Outlook';
+$html_reply_to = 'Ответить';
+$html_use_signature = 'Использовать подпись';
+$html_signature = 'Подпись';
+$html_reply_leadin = 'Reply Leadin';
+$html_prefs_updated = 'Настройки сохранены';
+$html_manage_folders_link = 'Управление папками IMAP';
+$html_manage_filters_link = 'Управление почтовыми фильтрами';
+$html_use_graphical_smilies = 'Использовать графические смайлики';
 
 // folders.php
-$html_folders_create_failed = 'Folder could not be created!';  //to translate
-$html_folders_sub_failed = 'Could not subscribed to folder!';  //to translate
-$html_folders_unsub_failed = 'Could not unsubscribed from folder!';  //to translate
-$html_folders_rename_failed = 'Folder could not be renamed!';  //to translate
-$html_folders_updated = 'Folders updated';  //to translate
-$html_folder_subscribe = 'Subscribe to';  //to translate
-$html_folder_rename = 'Rename';  //to translate
-$html_folder_create = 'Create new folder called';  //to translate
-$html_folder_remove = 'Unsubscribe from';  //to translate
-$html_folder_delete = 'Delete';  //to translate
+$html_folders_create_failed = 'Папка не может быть создана!';
+$html_folders_sub_failed = 'Невозможно подписаться на папку!';
+$html_folders_unsub_failed = 'Невозможно отписаться от папки!';
+$html_folders_rename_failed = 'Папка не может быть переименована!';
+$html_folders_updated = 'Папки сохранены';
+$html_folder_subscribe = 'Подписаться на';
+$html_folder_rename = 'Переименовать';
+$html_folder_create = 'Создать новую папку с именем';
+$html_folder_remove = 'Отписаться от';
+$html_folder_delete = 'Удалить';
 
 // filters.php
-$html_filter_remove = 'Delete';  //to translate
-$html_filter_body = 'Message Body';  //to translate
-$html_filter_subject = 'Message Subject';  //to translate
-$html_filter_to = 'To Field';  //to translate
-$html_filter_cc = 'Cc Field';  //to translate
-$html_filter_from = 'From Field';  //to translate
-$html_filter_change_tip = 'To change a filter simply overwrite it.';  //to translate
-$html_reapply_filters = 'Reapply all filters';  //to translate
-$html_filter_contains = 'contains';  //to translate
-$html_filter_name = 'Filter Name';  //to translate
-$html_filter_action = 'Filter Action';  //to translate
-$html_filter_moveto = 'Move to';  //to translate
+$html_filter_remove = 'Удалить';
+$html_filter_body = 'Тело письма';
+$html_filter_subject = 'Тема';
+$html_filter_to = 'Поле Кому';
+$html_filter_cc = 'Поле Копия';
+$html_filter_from = 'Поле От';
+$html_filter_change_tip = 'Для замены, просто перезапешите фильтр.';
+$html_reapply_filters = 'Переприменить все фильтры';
+$html_filter_contains = 'содержит';
+$html_filter_name = 'Название фильтра';
+$html_filter_action = 'Действие фильтра';
+$html_filter_moveto = 'Переместить в';
 
 // Other pages
-$html_select_one = '--Select One--';  //to translate
-$html_and = 'And';  //to translate
-$html_new_msg_in = 'New messages in';  //to translate
-$html_or = 'or';  //to translate
-$html_move = 'Move';  //to translate
-$html_copy = 'Copy';  //to translate
-$html_messages_to = 'selected messages to';  //to translate
-$html_gotopage = 'Go to Page';  //to translate
-$html_gotofolder = 'Go to Folder';  //to translate
-$html_other_folders = 'Folder List';  //to translate
-$html_page = 'Page';  //to translate
-$html_of = 'of';  //to translate
-$html_to = 'to';  //to translate
+$html_select_one = '--выберите одно--';
+$html_and = 'и';
+$html_new_msg_in = 'Новые сообщения в';
+$html_or = 'или';
+$html_move = 'Переместить';
+$html_copy = 'Копировать';
+$html_messages_to = 'выбранные письма в';
+$html_gotopage = 'Перейти на страницу';
+$html_gotofolder = 'Перейти в папку';
+$html_other_folders = 'Список папок';
+$html_page = 'Страница';
+$html_of = 'из';
+$html_to = 'до';
 $html_view_header = 'Просмотреть заголовок письма';
 $html_remove_header = 'Убрать заголовок письма';
 $html_inbox = 'Входящие';
@@ -137,7 +136,6 @@ $html_reply_short = 'Re';  //to translate
 $html_reply_all = 'Ответить всем';
 $html_forward = 'Переслать';
 $html_forward_short = 'Fw';  //to translate
-$html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
 $html_delete = 'Удалить';
 $html_new = 'Новое';
 $html_mark = 'Удалить';
@@ -147,84 +145,82 @@ $html_att_unknown = '[неизвестно]';
 $html_attach = 'Прикрепить файл';
 $html_attach_forget = 'Вы должны прикрепить файл до отправки сообщения!';
 $html_attach_delete = 'Удалить выбранные';
-$html_attach_none = 'You must select a file to attach!';  //to translate
-$html_sort_by = 'Sort by';  //to translate
+$html_sort_by = 'Сортировать по';
 $html_from = 'От';
 $html_subject = 'Тема';
 $html_date = 'Время';
 $html_sent = 'Отправить';
-$html_wrote = 'wrote';  //to translate
+$html_wrote = 'Написал(а)';
 $html_size = 'Размер';
 $html_totalsize = 'Общий размер';
-$html_kb = 'Kb';  //to translate
-$html_bytes = 'bytes';  //to translate
+$html_kb = 'КБ';
+$html_bytes = 'Б';
 $html_filename = 'Имя файла';
 $html_to = 'Кому';
 $html_cc = 'Копия';
 $html_bcc = 'Bcc';  //to translate
-$html_nosubject = 'no subject';  //to translate
+$html_nosubject = 'Нет темы';
 $html_send = 'Отправить';
 $html_cancel = 'Отменить';
 $html_no_mail = 'Сообщений нет';
 $html_logout = 'Выйти';
 $html_msg = 'Сообщение';
-$html_msgs = 'Сообщения';
-$html_configuration = 'This server is not well set up !';  //to translate
-$html_priority = 'Priority';  //to translate
-$html_low = 'Low';  //to translate
-$html_normal = 'Normal';  //to translate
-$html_high = 'High';  //to translate
-$html_receipt = 'Request a return receipt';  //to translate
-$html_select = 'Select';  //to translate
-$html_select_all = 'Invert Selection';  //to translate
-$html_loading_image = 'Loading image';  //to translate
-$html_send_confirmed = 'Your mail was accepted for delivery';  //to translate
-$html_no_sendaction = 'No action specified. Try enabling JavaScript.';  //to translate
-$html_error_occurred = 'An error occurred';  //to translate
-$html_prefs_file_error = 'Unable to open preferences file for writing.';  //to translate
-$html_wrap = 'Wrap outgoing messages to :';  //to translate
-$html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
-$html_mark_as = 'Mark as'; //to translate
-$html_read = 'read'; //to translate
-$html_unread = 'unread'; //to translate
+$html_msgs = 'Сообщений';
+$html_configuration = 'Этот сервер некоррекно установлен!';
+$html_priority = 'Приоритет';
+$html_low = 'Низкий';
+$html_normal = 'Нормальный';
+$html_high = 'Высокий';
+$html_receipt = 'Запросить уведомление о прочтении';
+$html_select = 'Выбрать';
+$html_select_all = 'Инвертировать выбор';
+$html_loading_image = 'Загрузка изображения';
+$html_send_confirmed = 'Ваша почта принята к отправлению';
+$html_no_sendaction = 'Не указано действие. Попробуйте включить JavaScript.';
+$html_error_occurred = 'Произошла ошибка';
+$html_prefs_file_error = 'Файл настроек не может быть открыт для записи.';
+$html_wrap = 'Ширина строки (в символах):';
+$html_usenet_separator = 'Разделитель в стиле Usenet ("-- \n") перед подписью';
+$html_mark_as = 'Пометить как';
+$html_read = 'прочитанное';
+$html_unread = 'непрочитанное';
 
 // Contacts manager
 $html_add = 'Add';
-$html_contacts = 'Contacts';  //to translate
-$html_modify = 'Modify';  //to translate
-$html_back = 'Back';  //to translate
-$html_contact_add = 'Add new contact';  //to translate
-$html_contact_mod = 'Modify a contact';  //to translate
-$html_contact_first = 'First name';  //to translate
-$html_contact_last = 'Last Name';  //to translate
-$html_contact_nick = 'Nick';  //to translate
-$html_contact_mail = 'Mail';  //to translate
-$html_contact_list = 'Contact list of ';  //to translate
-$html_contact_del = 'from the contact list';  //to translate
+$html_contacts = 'Контакты';
+$html_modify = 'Изменить';
+$html_back = 'Назад';
+$html_contact_add = 'Добавить контакт';
+$html_contact_mod = 'Изменить контакт';
+$html_contact_first = 'Имя';
+$html_contact_last = 'Фамилия';
+$html_contact_nick = 'Псевдоним';
+$html_contact_mail = 'Адрес электронной почты';
+$html_contact_list = 'Список контактов ';
+$html_contact_del = 'из контактного листа';
 
-$html_contact_err1 = 'Maximal number of contact is ';  //to translate
-$html_contact_err2 = 'You can\'t add a new contact';  //to translate
-$html_contact_err3 = 'You don\'t have access rights to contact list'; //to translate
-$html_del_msg = 'Delete selected messages ?';  //to translate
-$html_down_mail = 'Download';  //to translate
+$html_contact_err1 = 'Максимальное число контактов ';
+$html_contact_err2 = 'Вы не можете добавить новый контакт';
+$html_contact_err3 = 'У вас нет прав доступа к контактному листу';
+$html_del_msg = 'Стереть выбранные письма?';
+$html_down_mail = 'Загрузить';
 
-$original_msg = '-- Original Message --';  //to translate
+$original_msg = '-- Исходное письмо --';
 $to_empty = 'Поле \'Кому\' не должно быть пустым !';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = 'Unable to open SMTP connection';  //to translate
-$html_smtp_error_unexpected = 'Unexpected SMTP response:';  //to translate
+$html_smtp_error_no_conn = 'Не возможно установить SMTP соединение';
+$html_smtp_error_unexpected = 'Неожиданный ответ SMTP:';
 
 // IMAP messages (class_local.php)
-$lang_could_not_connect = 'Could not connect to server';  //to translate
-$lang_invalid_msg_num = 'Bad Message Number';  //to translate
+$lang_could_not_connect = 'Невозможно подключиться к серверу';
 
-$html_file_upload_attack = 'Possible file upload attack';  //to translate
-$html_invalid_email_address = 'Invalid e-mail address';  //to translate
-$html_invalid_msg_per_page = 'Invalid number of messages per page';  //to translate
-$html_invalid_wrap_msg = 'Invalid message wrap width';  //to translate
-$html_seperate_msg_win = 'Messages in separate window';  //to translate
+$html_file_upload_attack = 'Возможная аттака с помощью загрузки файла';
+$html_invalid_email_address = 'Неверный адрес электронной почты';
+$html_invalid_msg_per_page = 'Неверное количество писем на странице';
+$html_invalid_wrap_msg = 'Неверная ширина строки строки (в символах)';
+$html_seperate_msg_win = 'Сообщение в отдельном окне';
 
 // Exceptions
-$html_err_file_contacts = 'Unable to open contacts file for writing.'; //to translate
+$html_err_file_contacts = 'Файл контактов не может быть открыт для записи.';
 ?>
