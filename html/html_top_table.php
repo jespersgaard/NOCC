@@ -28,28 +28,28 @@ $new_sortdir = ($sortdir == 0) ? 1 : 0;
 		<TD align=center class="inbox">
 			<? echo $html_att ?>
 		</TD>
-		<td align=center class="inbox" <? if ($sort == 2) echo "bgcolor='$html_sort_color'" ?>>
+		<td nowrap align=center class="inbox" <? if ($sort == 2) echo "bgcolor='$html_sort_color'" ?>>
 			<A HREF="<? echo $PHP_SELF ?>?sort=2&sortdir=<? echo $new_sortdir ?>&lang=<? echo $lang ?>">
 			<img src="img/<? echo $arrow ?>.gif" border="0" width="12" height="12"></A>
 			&nbsp;
 			<A HREF="<? echo $PHP_SELF ?>?sort=2&sortdir=<? echo $new_sortdir ?>&lang=<? echo $lang ?>">
 			<? echo $html_from ?></A>
 		</td>
-		<td align=center class="inbox" <? if ($sort == 3) echo "bgcolor='$html_sort_color'" ?>>
+		<td nowrap align=center class="inbox" <? if ($sort == 3) echo "bgcolor='$html_sort_color'" ?>>
 			<A HREF="<? echo $PHP_SELF ?>?sort=3&sortdir=<? echo $new_sortdir ?>&lang=<? echo $lang ?>">
 			<img src="img/<? echo $arrow ?>.gif" border="0" width="12" height="12"></A>
 			&nbsp;
 			<A HREF="<? echo $PHP_SELF ?>?sort=3&sortdir=<? echo $new_sortdir ?>&lang=<? echo $lang ?>">
 			<? echo $html_subject ?></A>
 		</td>
-		<td align=center class="inbox" <? if ($sort == 1) echo "bgcolor='$html_sort_color'" ?>>
+		<td nowrap align=center class="inbox" <? if ($sort == 1) echo "bgcolor='$html_sort_color'" ?>>
 			<A HREF="<? echo $PHP_SELF ?>?sort=1&sortdir=<? echo $new_sortdir ?>&lang=<? echo $lang ?>">
 			<img src="img/<? echo $arrow ?>.gif" border="0" width="12" height="12"></A>
 			&nbsp;
 			<A HREF="<? echo $PHP_SELF ?>?sort=1&sortdir=<? echo $new_sortdir ?>&lang=<? echo $lang ?>">
 			<? echo $html_date ?></A>
 		</td>
-		<td align=right class="inbox" <? if ($sort == 6) echo "bgcolor='$html_sort_color'" ?>>
+		<td nowrap align=right class="inbox" <? if ($sort == 6) echo "bgcolor='$html_sort_color'" ?>>
 			<A HREF="<? echo $PHP_SELF ?>?sort=6&sortdir=<? echo $new_sortdir ?>&lang=<? echo $lang ?>">
 			<img src="img/<? echo $arrow ?>.gif" border="0" width="12" height="12"></A>
 			&nbsp;

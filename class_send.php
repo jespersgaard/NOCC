@@ -104,10 +104,10 @@ class mime_mail
 	function send() 
 	{
 		$mime =  "";
-		if ($smtp_server != "" && !empty($this->from)) 
-			$mime .= "Reply-To: ".$this->from."\nErrors-To: ".$this->from."\n";
-		elseif (!empty($this->from))
-				$mime .= "From: ".$this->from. "\nReply-To: ".$this->from."\nErrors-To: ".$this->from."\n";
+		if (!empty($this->from))
+			$mime .= "From: ".$this->from. "\nReply-To: ".$this->from."\nErrors-To: ".$this->from."\n";
+		if (!empty($this->to))
+			$mime .= "To: ".$this->to."\n";
 		if (!empty($this->cc))
 			$mime .= "Cc: ".$this->cc."\n";
 		if (!empty($this->bcc))

@@ -28,10 +28,10 @@ if (file_exists($mail_att))
 	$mail->send();
 
 
-//if ($is_standalone == 1)
+if ($is_standalone == 1)
 	Header ("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang");
-//else
-//	Header ("Location: index.php");
+else
+	Header ("Location: index.php?sort=$sort&sortdir=$sortdir&lang=$lang");
 
 function get_filename($filename)
 {

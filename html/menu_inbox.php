@@ -30,9 +30,11 @@ if ($action == "forward")
 					<td width="*" bgcolor="<? echo $html_menu_color ?>">
 						<img src="img/spacer.gif">
 					</td>
+					<? if ($is_standalone) { ?>
 					<td class="menu" align="center" width="80" bgcolor="<? echo $html_menu_color ?>">
 						<a href="logout.php" class="menu"><? echo $html_logout ?></a>
 					</td>
+					<? } ?>
 					<td class="menu" align="center" width="80" bgcolor="<? echo $html_menu_color ?>">
 						<a href="help.php?lang=<? echo $lang ?>" class="menu"><? echo $html_help ?></a>
 					</td>
