@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.79 2001/11/04 21:34:19 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.80 2001/11/08 14:36:08 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -26,6 +26,13 @@ else
 {
 	require_once ('./class_send.php');
 	require_once ('./class_smtp.php');
+
+	$mail_from = safestrip($mail_from);
+	$mail_to = safestrip($mail_to);
+	$mail_cc = safestrip($mail_cc);
+	$mail_bcc = safestrip($mail_bcc);
+	$mail_subject = safestrip($mail_subject);
+	$mail_body = safestrip($mail_body);
 
 	switch (trim($sendaction))
 	{
@@ -77,11 +84,11 @@ else
  			}
 			$mail->bcc = cut_address(trim($mail_bcc), $charset);
 			if ($mail_subject != '')
-				$mail->subject = stripcslashes(trim($mail_subject));
+				$mail->subject = trim($mail_subject);
 
 			// Append advertisement tag, if set
 			if ($mail_body != '')
-				$mail->body = stripcslashes($mail_body);
+				$mail->body = $mail_body;
 
 			if (isset($ad))
 				if ($mail_body != '')

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.120 2001/11/15 18:27:18 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.121 2001/11/16 10:53:31 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -537,7 +537,7 @@ function get_reply_all($user, $domain, $from, $to, $cc)
 function cut_address($addr, $charset)
 {
 	// Strip slashes from input
-	$addr = stripslashes($addr);
+	$addr = safestrip($addr);
 
 	// Break address line into individual addresses, taking
 	// quoted addresses into account
@@ -748,6 +748,18 @@ function mailquote($body, $from, $html_wrote)
 	$from = ucwords(trim(ereg_replace("&lt;.*&gt;", "", str_replace("\"", "", $from))));
 	$body = "> " . ereg_replace("\n", "\n> ", trim($body));
 	return($from . ' ' . $html_wrote . " :\n\n" . $body);
+}
+/* ----------------------------------------------------- */
+
+// If running with magic_quotes_gpc (get/post/cookie) set
+// in php.ini, we will need to strip slashes from every
+// field we receive from a get/post operation.
+function safestrip($string)
+{
+	if(get_magic_quotes_gpc()) {
+		$string = stripslashes($string);
+	}
+	return $string;
 }
 
 ?>
