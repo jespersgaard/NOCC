@@ -1,8 +1,8 @@
 <?
 /*
-	$Author: wolruf $
-	$Revision: 1.25 $
-	$Date: 2000/11/01 11:34:39 $
+	$Author: nicocha $
+	$Revision: 1.26 $
+	$Date: 2000/11/01 17:18:07 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -56,6 +56,8 @@ echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 								<a href="<? echo $PHP_SELF ?>?lang=fr"><img src="img/fr.png" border="0" height="12" width="12" ALT="<? echo $alt_fr ?>"></a>
 								&nbsp;
 								<a href="<? echo $PHP_SELF ?>?lang=en"><img src="img/uk.png" border="0" height="12" width="12" ALT="<? echo $alt_en ?>"></a>
+								&nbsp;
+								<a href="<? echo $PHP_SELF ?>?lang=de"><img src="img/de.png" border="0" height="12" width="12" ALT="<? echo $alt_de ?>"></a>
 								</td>
 							</tr>
 							<tr> 
