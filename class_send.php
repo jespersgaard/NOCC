@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.34 2001/05/31 09:04:55 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.35 2001/05/31 09:54:37 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -123,15 +123,15 @@ class mime_mail
 		if (!empty($this->from))
 			$mime .= 'From: ' . $this->from . $this->crlf;
 		if (($this->smtp_server != '' && $this->smtp_port != '') && ($this->to[0] != ''))
-			$mime .= 'To: '.join(', ', $this->to) . $this->crlf;
+			$mime .= 'To: ' . join(', ', $this->to) . $this->crlf;
 		if ($this->cc[0] != '')
-			$mime .= 'Cc: '.join(', ', $this->cc) . $this->crlf;
+			$mime .= 'Cc: ' . join(', ', $this->cc) . $this->crlf;
 		if ($this->bcc[0] != '')
-			$mime .= 'Bcc: '.join(', ', $this->bcc) . $this->crlf;
+			$mime .= 'Bcc: ' . join(', ', $this->bcc) . $this->crlf;
 		if (!empty($this->from))
-			$mime .= 'Reply-To: '.$this->from . $this->crlf . 'Errors-To: '.$this->from . $this->crlf;
+			$mime .= 'Reply-To: ' . $this->from . $this->crlf . 'Errors-To: '.$this->from . $this->crlf;
 		if (!empty($this->subject))
-			$mime .= 'Subject: '.$this->subject . $this->crlf;
+			$mime .= 'Subject: ' . $this->subject . $this->crlf;
 		if (!empty($this->headers))
 			$mime .= $this->headers . $this->crlf;
 		if (sizeof($this->parts) >= 1)
