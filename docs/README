@@ -1,8 +1,8 @@
 NOCC Documentation
 ------------------
 
-Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
-Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
+Copyright 2003 Nicolas Chalanset <nicocha at free.fr>
+Copyright 2003 Olivier Cahagne <wolruf at free.fr>
 
 Summary
 *******
@@ -60,7 +60,7 @@ the Open Source community. The Web page of Nocc is http://nocc.sourceforge.net/
   ----------------------------------------------------
 
    We welcome bug reports or suggestions for Nocc (both program or
-documentation). Please email them to <nocc-discuss@lists.sourceforge.net>.
+documentation). Please email them to <nocc-discuss at lists.sourceforge.net>.
 
    You can also use the Web-based bug tracker from SourceForge available at
 'http://sourceforge.net/bugs/?group_id=12177'.
@@ -252,7 +252,7 @@ can be simple to setup, have POP and SMTP features, MIME decoding features.
 ----------------------------------------------------------------------
 We hope you find NOCC useful and easy to use.  We thank you for taking
 the time to try it and if you ever have any questions, just drop a note on
-<nocc-discuss@lists.sourceforge.net>
+<nocc-discuss at lists.sourceforge.net>
 
 Enjoy,
 

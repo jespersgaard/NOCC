@@ -188,7 +188,7 @@ NOCC 0.9.4    June 02, 2001
       Portuguese Brazil and (still experimental) Hebrew translations.
     * Added an error reporting control. No more 'undefined variable'
       warning will appear.
-    * Added a new theme 'newlook' from Anton Jakimov <t0xa@ls2.lv>
+    * Added a new theme 'newlook' from Anton Jakimov <t0xa at ls2.lv>
     * Images are now in 'theme/' folder.
     * Added support for multiple domains/servers.
     * Messages are now sent with the charset of the chosen language.
