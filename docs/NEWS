@@ -1,5 +1,6 @@
 NOCC 0.9.6	??
 
+	* Updated Slovak translation (Peter Sochna)
 	* Added 'session_start' to top of action.php, as per advice from
 	  Karma Dorji.
 	* Fixed some potential bugs on Win32 when sending message via

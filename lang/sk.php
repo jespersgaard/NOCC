@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/sk.php,v 1.6 2001/11/18 18:43:12 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sk.php,v 1.7 2001/11/18 21:08:06 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -27,7 +27,7 @@ $lang_dir = 'ltr';
 
 // What format string should we pass to strftime() for messages sent on
 // days other than today?
-$default_date_format = '%d.%m.%Y'; 
+$default_date_format = '%d.%m.%Y';
 
 // If the local is not implemented on the host, how we display the date
 $no_locale_date_format = '%d.%m.%Y';
@@ -54,7 +54,7 @@ $alt_forward = 'Preposla»';
 $alt_next = 'Ïal¹ia správa';
 $alt_prev = 'Predo¹lá správa';
 $html_on = 'on';
-$html_theme = 'Theme';
+$html_theme = 'Téma';
 
 // index.php
 
@@ -70,16 +70,16 @@ $html_retry = 'Zopakova»';
 
 // prefs.php
 
-$html_preferences = 'Preferences';
-$html_full_name = 'Full name';
-$html_email_address = 'E-mail Address';
-$html_ccself = 'Cc self';
-$html_hide_addresses = 'Hide addresses';
-$html_outlook_quoting = 'Outlook-style quoting';
-$html_reply_to = 'Reply to';
-$html_use_signature = 'Use signature';
-$html_signature = 'Signature';
-$html_prefs_updated = 'Preferences updated';
+$html_preferences = 'Nastavenia';
+$html_full_name = 'Celé meno';
+$html_email_address = 'E-mailová Adresa';
+$html_ccself = 'Automaticky si posla» kópiu';
+$html_hide_addresses = 'Skry» adresy';
+$html_outlook_quoting = 'Formátovanie v ¹týle Outlook';
+$html_reply_to = 'Odpoveda»';
+$html_use_signature = 'Pou¾i» podpis';
+$html_signature = 'Podpis';
+$html_prefs_updated = 'Nastavenia ulo¾ené';
 
 // Other pages
 
@@ -101,12 +101,12 @@ $html_att_unknown = '[neznámy]';
 $html_attach = 'Pripoji» attachment';
 $html_attach_forget = 'Pred odoslaním správy musíte pripoji» vá¹ attachment !';
 $html_attach_delete = 'Odstráò oznaèené';
-$html_sort_by = 'Sort by';
+$html_sort_by = 'Zorad podµa';
 $html_from = 'Odosielateµ';
 $html_subject = 'Nadpis';
 $html_date = 'Dátum';
 $html_sent = 'Poslané';
-$html_wrote = 'wrote';
+$html_wrote = 'napísal';
 $html_size = 'Velkos»';
 $html_totalsize = 'Celková velkos»';
 $html_kb = 'Kb';
@@ -122,24 +122,24 @@ $html_no_mail = '®iadne správy.';
 $html_logout = 'Odhlásenie';
 $html_msg = 'Správa';
 $html_msgs = 'Správy';
-$html_configuration = 'This server is not well set up !';
-$html_priority = 'Priority';
-$html_low = 'Low';
-$html_normal = 'Normal';
-$html_high = 'High';
-$html_select = 'Select';
-$html_select_all = 'Select All';
-$html_loading_image = 'Loading image';
-$html_send_confirmed = 'Your mail was accepted for delivery';
-$html_no_sendaction = 'No action specified. Try enabling JavaScript.';
-$html_error_occurred = 'An error occurred';
-$html_prefs_file_error = 'Unable to open preferences file for writing.';
-$html_sig_file_error = 'Unable to open signature file for writing.';
+$html_configuration = 'Tento server nie je správne nakonfigurovaný !';
+$html_priority = 'Priorita';
+$html_low = 'Nízka';
+$html_normal = 'Normálna';
+$html_high = 'Vysoká';
+$html_select = 'Oznaè';
+$html_select_all = 'Oznaè v¹etko';
+$html_loading_image = 'Nahrávam obrázok';
+$html_send_confirmed = 'Správa bola akceptovaná na odoslanie.';
+$html_no_sendaction = 'Nemo¾no vykona». Skúste zapnút podporu Javaskript vo va¹om prehliadaèi.';
+$html_error_occurred = 'Nastala chyba';
+$html_prefs_file_error = 'Nemo¾no otvori» súbor nastavení pre zápis.';
+$html_sig_file_error = 'Nemo¾no otvori» podpisový súbor pre zápis.';
 
 $original_msg = '-- Original Message --';
 $to_empty = 'Políèko \'Adresát\' nesmie by» prázdne !';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = "Unable to open connection";
-$html_smtp_error_unexpected = "Unexpected response:";
+$html_smtp_error_no_conn = "Nemo¾no urobi» spojenie";
+$html_smtp_error_unexpected = "Neoèakávaná odpoved:";
 ?>
