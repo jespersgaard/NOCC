@@ -1,12 +1,12 @@
-<!-- start of $Id: html_bottom_table.php,v 1.29 2002/01/23 13:17:38 nicocha Exp $ -->
-</table>
-</td></tr>
-<input type="hidden" name="nothing" value="looks_good" />
-</form>
-</table>
-<table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
+<!-- start of $Id: html_bottom_table.php,v 1.30 2004/07/06 18:43:08 goddess_skuld Exp $ -->
     <tr bgcolor="<?php echo $glob_theme->inside_color ?>">
-        <td align="right" class="inbox">
+        <td colspan="2" align="left" class="inbox">&nbsp;</td>
+        <td colspan="2" align="center" class="inbox">&nbsp;</td>
+        <?php if ($conf->have_ucb_pop_server || $pop->is_imap()) { ?>
+            <td colspan="2" align="right" class="inbox">
+        <?php } else { ?>
+            <td align="right" class="inbox">
+        <?php } ?>
 	    <?php echo $page_line ?>
         </td>
         <td align="right" class="inbox">
@@ -14,6 +14,9 @@
             <?php echo $next ?>
         </td>
     </tr>
+</table>
+</td></tr>
+</form>
 </table>
 
 <script type="text/javascript">
@@ -28,4 +31,4 @@ function SelectAll() {
 }
 //-->
 </script>
-<!-- end of $Id: html_bottom_table.php,v 1.29 2002/01/23 13:17:38 nicocha Exp $ -->
+<!-- end of $Id: html_bottom_table.php,v 1.30 2004/07/06 18:43:08 goddess_skuld Exp $ -->
