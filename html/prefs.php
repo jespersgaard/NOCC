@@ -4,7 +4,7 @@ $user = $_SESSION['user'];
 $domain = $_SESSION['domain'];
 
 ?>
-<!-- start of $Id: prefs.php,v 1.15 2002/04/18 21:38:41 rossigee Exp $ -->
+<!-- start of $Id: prefs.php,v 1.16 2002/04/19 14:39:37 rossigee Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -68,7 +68,7 @@ $domain = $_SESSION['domain'];
                 <tr>
                     <td align="center" colspan="2">
                         <?php
-                            if(isset($submit_prefs))
+                            if(isset($_REQUEST['submit_prefs']))
                                 echo '<p class="prefs">'.$html_prefs_updated.'</p>';
                         ?>
                         <table bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%" cellspacing="0" cellpadding="0" border="0">
@@ -88,4 +88,4 @@ $domain = $_SESSION['domain'];
         </td>
     </tr>
 </table>
-<!-- end of $Id: prefs.php,v 1.15 2002/04/18 21:38:41 rossigee Exp $ -->
+<!-- end of $Id: prefs.php,v 1.16 2002/04/19 14:39:37 rossigee Exp $ -->

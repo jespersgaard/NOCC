@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.121 2002/04/24 23:32:24 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.122 2002/05/02 12:21:19 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -304,36 +304,35 @@ switch($action)
             break;
         }
 
-        if(isset($submit_prefs))
+        if(isset($_REQUEST['submit_prefs']))
         {
             $lastev = '';
 
             // Full name
-            if (!$lastev && isset($full_name))
-            {
-                $ev = setPref('full_name', stripslashes($full_name));
+            if (!$lastev && isset($_REQUEST['full_name'])) {
+                $ev = setPref('full_name', stripslashes($_REQUEST['full_name']));
                 if(Exception::isException($ev))
                     $lastev = $ev;
             }
 
             // Messages per page
-            if (!$lastev && isset($msg_per_page)) {
-                $ev = setPref('msg_per_page', $msg_per_page);
+            if (!$lastev && isset($_REQUEST['msg_per_page'])) {
+                $ev = setPref('msg_per_page', $_REQUEST['msg_per_page']);
                 if(Exception::isException($ev))
                     $lastev = $ev;
             }
 
             // Email address
-            if (!$lastev && isset($email_address)) {
-                $ev = setPref('email_address', $email_address);
+            if (!$lastev && isset($_REQUEST['email_address'])) {
+                $ev = setPref('email_address', $_REQUEST['email_address']);
                 if(Exception::isException($ev))
                     $lastev = $ev;
             }
 
             // CC Self
             if (!$lastev)
-                if(isset($cc_self) && $cc_self == 'on') {
-                    $ev = setPref('cc_self', $cc_self);
+                if(isset($_REQUEST['cc_self'])) {
+                    $ev = setPref('cc_self', 'Y');
                     if(Exception::isException($ev))
                         $lastev = $ev;
                 }
@@ -345,8 +344,8 @@ switch($action)
 
             // Hide Addresses
             if (!$lastev)
-                if(isset($hide_addresses) && $hide_addresses == 'on') {
-                    $ev = setPref('hide_addresses', $hide_addresses);
+                if(isset($_REQUEST['hide_addresses'])) {
+                    $ev = setPref('hide_addresses', 'Y');
                     if(Exception::isException($ev))
                         $lastev = $ev;
                 }
@@ -358,8 +357,8 @@ switch($action)
 
             // Outlook-style quoting
             if (!$lastev)
-                if(isset($outlook_quoting) && $outlook_quoting == 'on') {
-                    $ev = setPref('outlook_quoting', $outlook_quoting);
+                if(isset($_REQUEST['outlook_quoting'])) {
+                    $ev = setPref('outlook_quoting', 'Y');
                     if(Exception::isException($ev))
                         $lastev = $ev;
                 }
@@ -369,17 +368,22 @@ switch($action)
                         $lastev = $ev;
                 }
 
-            if (!$lastev && isset($reply_leadin)) {
-                $ev = setPref('leadin', $reply_leadin);
-                if(Exception::isException($ev))
-                    $lastev = $ev;
-            }
+            // Reply lead-in
+            if (!$lastev)
+                if(isset($_REQUEST['reply_leadin'])) {
+                    $ev = setPref('leadin', $reply_leadin);
+                    if(Exception::isException($ev))
+                        $lastev = $ev;
+                }
 
-            if (!$lastev && isset($signature)) {
-                $ev = setPref('signature', stripslashes($signature));
-                if(Exception::isException($ev))
-                    $lastev = $ev;
-            }
+            // Signature
+            if (!$lastev)
+                if(isset($_REQUEST['signature'])) {
+                    $ev = setPref('signature', stripslashes($_REQUEST['signature']));
+                    if(Exception::isException($ev))
+                        $lastev = $ev;
+                }
+
 /*
             if (!$lastev && $signature != "") {
                 $ev = setSig($signature);
