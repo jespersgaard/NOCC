@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.38 2001/06/07 12:34:46 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.39 2001/06/15 14:02:27 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -23,6 +23,7 @@ class mime_mail
 	var $smtp_port;
 	var $charset;
 	var $crlf;
+	var $priority;
 
   /*
   *     void mime_mail()
@@ -34,11 +35,15 @@ class mime_mail
 		$this->to =  Array();
 		$this->cc = Array();
 		$this->bcc = Array();
-		$this->from =  '';
-		$this->subject =  '';
-		$this->body =  '';
-		$this->headers =  '';
-		$this->crlf = '';
+		$this->from =  null;
+		$this->headers = null;
+		$this->subject =  null;
+		$this->body =  null;
+		$this->smtp_server =  'localhost';
+		$this->smtp_port = 25;
+		$this->charset = 'iso-8859-1';
+		$this->crlf = null;
+		$this->priority = '3 (Normal)';
 	}
 
   /*
@@ -133,8 +138,13 @@ class mime_mail
 			$mime .= 'Cc: ' . join(', ', $this->cc) . $this->crlf;
 		if ($this->bcc[0] != '')
 			$mime .= 'Bcc: ' . join(', ', $this->bcc) . $this->crlf;
+		if (ereg("[4-9]\.[0-9]\.[4-9].*", phpversion()))
+			$mime .= 'Date: ' . date("r") . $this->crlf;
+		else
+			$mime .= 'Date: ' . date("D, j M Y H:i:s T") . $this->crlf;
 		if (!empty($this->from))
 			$mime .= 'Reply-To: ' . $this->from . $this->crlf . 'Errors-To: '.$this->from . $this->crlf;
+		$mime .= 'X-Priority: ' . $this->priority . $this->crlf;
 		if (!empty($this->headers))
 			$mime .= $this->headers . $this->crlf;
 		if (sizeof($this->parts) >= 1)
@@ -150,7 +160,12 @@ class mime_mail
 		// Whether or not to use SMTP or sendmail
 		// depends on the config file (conf.php)
 		if ($this->smtp_server == '' || $this->smtp_port == '')
-			return (mail(join(', ', $this->to), $this->subject,  '', $mime));
+		{
+			if (ereg("[4-9]\.[0-9]\.[5-9].*", phpversion()))
+				return (mail(join(', ', $this->to), $this->subject,  '', $mime, '-f' . $this->from));
+			else
+				return (mail(join(', ', $this->to), $this->subject,  '', $mime));
+		}
 		else
 		{
 			if (($smtp = new smtp()) != 0)
