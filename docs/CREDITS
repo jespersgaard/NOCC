@@ -4,8 +4,8 @@ NOCC Development Team
 
 If you feel someone is missing, mail nocc-discuss@lists.sourceforge.net
 
-Core Developers
-===============
+Initial Developers
+==================
 
  * Nicolas Chalanset <nicocha@free.fr>
 
@@ -19,15 +19,21 @@ Core Developers
 	Rewrote Epimail/Perl in PHP
 	A lot of debugging
 	
- * Ross Golder <rossigee@users.sourceforge.net>
- 
- 	Added Preferences code, hardened SMTP code
- 	Bug report triaging
-
 Additional Developers
 =====================
 
- * Blabla
+ Ross Golder <rossigee@users.sourceforge.net>
+
+	Added preferences code, hardened SMTP code
+	Bug report triaging
+
+ * Colin Stephenson <colin@atlanticisle.com>
+
+	Various patches
+
+ * Arno Bean <bean_ae@users.sf.net>
+
+	Various patches
 
 Translations
 ============
