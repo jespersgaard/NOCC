@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.101 2002/04/19 18:33:01 mrylander Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.102 2002/04/24 21:58:06 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -51,18 +51,21 @@ $conf->domains[0]->smtp = '';
 $conf->domains[0]->smtp_port = 25;
 // Uncomment for 'user@domain.com' style logins
 //$conf->domains[0]->login_with_domain = 1;
-// If you want to add more domainis, uncomment the following
+
+// If you want to add more domains, uncomment the following
 // lines and fill them in
 
 //$conf->domains[1]->domain = '';
 //$conf->domains[1]->in = '';
 //$conf->domains[1]->smtp = '';
 //$conf->domains[1]->smtp_port = 25;
+//$conf->domains[1]->login_with_domain = 1;
 
 //$conf->domains[2]->domain = '';
 //$conf->domains[2]->in = '';
 //$conf->domains[2]->smtp = '';
 //$conf->domains[2]->smtp_port = 25;
+//$conf->domains[2]->login_with_domain = 1;
 
 // Is the user allowed to change his "From:" address? (true/false)
 $allow_address_change = true;
@@ -86,6 +89,7 @@ $conf->prefs_dir = '';
 $conf->default_folder = 'INBOX';
 
 // ===> End of required parameters
+
 // The following parameters can be changed but it's not necessary to
 // get a working version of nocc
 
