@@ -1,5 +1,7 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Added the srpski jezik language.
+	* Updated Bulgarian translation.
 	* Added optional 'base_uri' configuration parameter (#463390)
 	* Added patch from Arno Bean to make checkbox labels clickable
 	  in prefs.
