@@ -1,5 +1,7 @@
 NOCC 0.9.6	??
 
+	* Added 'session_start' to top of action.php, as per advice from
+	  Karma Dorji.
 	* Fixed some potential bugs on Win32 when sending message via
 	  SMTP (class_smtp.php)
 	* Added exception handling when sending mail via PHP internal
