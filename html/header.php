@@ -20,7 +20,7 @@ else {
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang ?>" lang="<?php echo $lang ?>">
     <head><title>NOCC - Webmail</title>
         <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
-        <link href="themes/<?php echo $_SESSION['nocc_theme'] ?>/style.css" rel="stylesheet" type="text/css" />
+        <link href="themes/<?php echo $_SESSION['nocc_theme']?>/style.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript">
             function OpenHelpWindow(theURL,winName,features)
             {
