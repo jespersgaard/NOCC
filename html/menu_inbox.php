@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox.php,v 1.38 2002/04/28 21:34:25 wolruf Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.39 2002/05/15 13:54:52 rossigee Exp $ -->
 <?php
 $color_inbox = $color = $glob_theme->menu_color;
 $action = "";
@@ -50,12 +50,9 @@ elseif ($action == 'forward')
                         <a href="logout.php" class="menu"><?php echo $html_logout ?></a>
                     </td>
                     <?php } ?>
-                    <!-- <td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="javascript:void(null)" onMouseUp="OpenHelpWindow('help.php?action=<?php echo $action ?>','image','scrollbars=yes,resizable=yes,width=400,height=300')" class="menu"><?php echo $html_help ?></a>
-                    </td> -->
                 </tr>
             </table>
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_inbox.php,v 1.38 2002/04/28 21:34:25 wolruf Exp $ -->
+<!-- end of $Id: menu_inbox.php,v 1.39 2002/05/15 13:54:52 rossigee Exp $ -->

@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_prefs.php,v 1.15 2002/05/14 17:13:28 rossigee Exp $ -->
+<!-- start of $Id: menu_prefs.php,v 1.16 2002/05/15 13:54:52 rossigee Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -21,12 +21,9 @@
                         <a href="logout.php" class="menu"><?php echo $html_logout ?></a>
                     </td>
                     <?php } ?>
-                    <!-- <td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="javascript:void(null)" onMouseUp="OpenHelpWindow('help.php?action=<?php echo $action ?>','image','scrollbars=yes,resizable=yes,width=400,height=300')" class="menu"><?php echo $html_help ?></a>
-                    </td> -->
                 </tr>
             </table>
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_prefs.php,v 1.15 2002/05/14 17:13:28 rossigee Exp $ -->
+<!-- end of $Id: menu_prefs.php,v 1.16 2002/05/15 13:54:52 rossigee Exp $ -->
