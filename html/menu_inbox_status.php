@@ -1,3 +1,4 @@
+<?php if($list_of_folders != "") { ?>
 <tr>
  <td colspan="7">
 <table border="0" align="center" cellpadding="5" cellspacing="0" width="100%">
@@ -12,3 +13,4 @@
 </table>
  </td>
 </tr>
+<?php } ?>

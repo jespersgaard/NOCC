@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.132 2002/05/30 14:30:42 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.133 2002/06/27 22:17:52 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -486,9 +486,6 @@ switch($action)
                     continue;
                 }
                 if (count($messages) > 0) {
-                    $list_of_folders .= ' <a href="'.$_SERVER['PHP_SELF'].'?folder='.$folder_name.'"><b>'.$folder_name.'</b></a>';
-                }
-                else {
                     $list_of_folders .= ' <a href="'.$_SERVER['PHP_SELF'].'?folder='.$folder_name.'">'.$folder_name.'</a>';
                 }
             }
