@@ -1,6 +1,6 @@
 <tr bgcolor="<?php echo $glob_theme->inbox_color ?>">
 	<td align="center">
-		<input type="checkbox" name="<?php echo $tmp['number'] ?>" value="<?php echo $tmp['number'] ?>" />
+		<input type="checkbox" name="msg-<?php echo $tmp['number'] ?>" value="Y" />
 	</td>
 	<?php if (($is_Imap) || ($have_ucb_pop_server)) { ?>
 	<td align="center">

@@ -1,5 +1,6 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Added 'Select All' (patch #471732). Ross Golder <ross@golder.org>
 	* Added some elements in the portuguese (pt.php) translation
 	  from  Jorge Silva <jorge.silva@ciberlink.pt>
 	* Fixed a problem with IE 6 (everything was centered)

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.28 2001/05/27 14:48:09 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.29 2001/06/19 09:16:32 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -111,6 +111,7 @@ $html_priority = 'Priority';
 $html_low = 'Low';
 $html_normal = 'Normal';
 $html_high = 'High';
+$html_select_all = 'Select All';
 
 $original_msg = '-- Original Message --';
 $to_empty = 'The \'To\' field must not be empty !';
