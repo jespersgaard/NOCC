@@ -133,7 +133,7 @@ Additional notes
 	* servers: (Nocc should work with any server, however, these have been
 specifically tested and are known to work)
 	  - Apache with PHP compiled as module or CGI.
-	  - Apache 1.3.12, 1.3.14, 1.3.17, 2.0.14 (Win32).
+	  - Apache 1.3.12, 1.3.14, 1.3.17, 1.3.19, 2.0.14 (Win32).
 	  - Microsoft IIS 4.
 	  - PHP 4.0.0, 4.0.1, 4.0.1pl1, 4.0.2, 4.0.3pl1, 4.0.4, 4.0.4pl1.
 	  - PHP running through a wrapper: suEXEC.
