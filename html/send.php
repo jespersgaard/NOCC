@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.33 2001/10/25 15:22:34 rossigee Exp $ -->
+<!-- start of $Id: send.php,v 1.34 2001/10/30 23:19:20 rossigee Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
 		<td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -13,7 +13,7 @@
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_from ?> : </td>
 					<td align="left">
-						<input type="text" name="mail_from" size="60" value="<?php echo $mail_from ?>"> 
+						<input type="text" name="mail_from" size="60" value="<?php echo $mail_from ?>" />
 					</td>
 				</tr>
 				<tr>
@@ -131,4 +131,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.33 2001/10/25 15:22:34 rossigee Exp $ -->
+<!-- end of $Id: send.php,v 1.34 2001/10/30 23:19:20 rossigee Exp $ -->

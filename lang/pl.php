@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.32 2001/10/17 22:51:44 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.8 2001/10/20 01:28:57 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -90,7 +90,7 @@ $html_reply_all = 'Odpowiedz wszystkim';
 $html_forward = 'Prze¶lij dalej';
 $html_forward_short = 'PD';
 $html_delete = 'Skasuj';
-$html_new = 'Nowa<br>wiadomo¶æ';
+$html_new = 'Nowa<br/>wiadomo¶æ';
 $html_mark = 'Zaznacz';
 $html_att = 'Za³±cznik';
 $html_atts = 'Za³±czniki';

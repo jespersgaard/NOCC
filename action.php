@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.75 2001/11/04 21:34:19 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.76 2001/11/04 23:32:35 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -23,7 +23,6 @@ if(isset($user)) {
 }
 if (!session_is_registered('loggedin'))
 	$action = '';
-header ("Content-type: text/html; Charset=$charset");
 require_once ('./html/header.php');
 
 if (setlocale (LC_TIME, $lang_locale) != $lang_locale)

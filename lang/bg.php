@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/bg.php,v 1.1 2001/10/21 13:33:30 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/bg.php,v 1.2 2001/11/06 21:36:39 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -59,7 +59,7 @@ $html_theme = 'Дизайн';
 // index.php
 
 $html_lang = "Език";
-$html_welcome = "Добре дошли!<br>";
+$html_welcome = "Добре дошли!<br/>";
 $html_login = "Име";
 $html_passwd = "Парола";
 $html_submit = "Потвърждение";
