@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.46 2001/09/16 17:08:52 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.47 2001/10/19 12:27:27 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -14,7 +14,6 @@
 $charset = 'ISO-8859-1';
 
 // Configuration for the days and months
-
 
 // What language to use (Here, french FRANCE --> fr_FR)
 // see '/usr/share/locale/' for more information
@@ -53,7 +52,8 @@ $alt_reply_all = 'R&eacute;pondre &agrave; tous';
 $alt_forward = 'Transf&eacute;rer';
 $alt_next = 'Message suivant';
 $alt_prev = 'Message pr&eacute;c&eacute;dent';
-
+$html_on = 'sur';
+$html_theme = 'Th&egrave;me';
 
 // index.php
 
@@ -61,23 +61,21 @@ $html_lang = 'Langue';
 $html_welcome = 'Bienvenue &agrave;';
 $html_login = 'Login';
 $html_passwd = 'Mot de passe';
-$html_submit = 'Entrer';
+$html_submit = 'Valider';
 $html_help = 'Aide';
 $html_server = 'Serveur';
 $html_wrong = 'Le login ou le mot de passe ne sont pas valides';
 $html_retry = 'R&eacute;essayer';
-$html_on = 'sur';
-$html_theme = 'Th&egrave;me';
 
 // prefs.php
 
 $html_preferences = 'Pr&eacute;f&eacute;rences';
 $html_full_name = 'Nom complet';
 $html_email_address = 'Adresse e-mail';
+$html_ccself = 'Recevoir une copie';
 $html_reply_to = 'R&eacute;pondre &agrave;';
 $html_use_signature = 'Utiliser la signature';
 $html_signature = 'Signature';
-$html_submit = 'Valider';
 $html_prefs_updated = 'Pr&eacute;f&eacute;rences mises &agrave; jour';
 
 // Other pages
@@ -100,6 +98,7 @@ $html_att_unknown = '[inconnu]';
 $html_attach = 'Attacher';
 $html_attach_forget = 'Vous devez attacher votre fichier avant d\'envoyer votre message !'; 
 $html_attach_delete = 'Supprimer les fichiers s&eacute;lectionn&eacute;s';
+$html_sort_by = 'Trier par';
 $html_from = 'De';
 $html_subject = 'Sujet';
 $html_date = 'Date';
