@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.39 2001/06/15 14:11:07 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.40 2001/06/15 15:16:38 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -53,6 +53,7 @@ switch ($action)
 		header("Location: logout.php?lang=$lang&$php_session=".$$php_session);
 		break;
 	case 'write':
+		$num_attach = 0;
 		require ('html/menu_inbox.php');
 		require ('html/send.php');
 		require ('html/menu_inbox.php');
