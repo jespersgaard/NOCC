@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.49 2002/03/24 17:00:36 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.50 2002/03/25 15:34:21 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -56,13 +56,13 @@ class mime_mail
      */ 
     function add_attachment($message, $name, $ctype, $encoding, $charset)
     {
-    $this->parts[] = array    (
-                    'ctype' => $ctype,
-                    'message' => $message,
-                    'encoding' => $encoding,
-                    'charset' => $charset,
-                    'name' => $name
-                    );
+        $this->parts[] = array (
+            'ctype' => $ctype,
+            'message' => $message,
+            'encoding' => $encoding,
+            'charset' => $charset,
+            'name' => $name
+        );
     }
 
     /*
