@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/se.php,v 1.7 2001/02/23 21:35:50 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/se.php,v 1.8 2001/02/28 21:49:19 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -18,7 +18,7 @@ $charset = "ISO-8859-1";
 
 // What language to use
 // see '/usr/share/locale/' for more information
-$lang_locale = "en_SE";
+$lang_locale = "sv_SE";
 
 // Text Alignment
 // Can be right-to-left (rtl) which is needed for proper Arabic, Hebrew
