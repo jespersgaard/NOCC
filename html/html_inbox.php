@@ -19,7 +19,7 @@
 	<td class="inbox" align="left">
 		<?php echo $tmp['date'] ?>
 	</td>
-	<td nowrap="nowrap" class="inbox">
+	<td class="inbox">
 		<?php echo $tmp['size'] ?> <?php echo $html_kb ?>
 	</td>
 </tr>

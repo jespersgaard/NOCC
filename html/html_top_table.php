@@ -13,10 +13,10 @@ $is_Imap = is_Imap($servr);
 		<td <?php if (($is_Imap) || ($have_ucb_pop_server)) echo 'colspan="4"'; else echo 'colspan="3"'; ?>align="left" class="titlew">
 			<b><?php echo $folder ?></b>
 		</td>
-		<td nowrap="nowrap" class="titlew">
+		<td class="titlew">
 			<?php echo $current_date ?>
 		</td>
-		<td align="right" class="titlew" nowrap="nowrap">
+		<td align="right" class="titlew">
 			<?php echo $num_msg ?> <?php if ($num_msg == 1) {echo $html_msg;} else {echo $html_msgs;}?>
 		</td>
 	</tr>
