@@ -1,8 +1,8 @@
 <?
 /*
-	$Author: nicocha $
-	$Revision: 1.8 $
-	$Date: 2000/10/23 23:57:13 $
+	$Author: wolruf $
+	$Revision: 1.9 $
+	$Date: 2000/10/26 10:52:32 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -53,7 +53,7 @@ switch ($action)
 		break;
 	case "write":
 		require ("html/menu_inbox.php");
-		require("html/send.php");
+		require ("html/send.php");
 		require ("html/menu_inbox.php");
 		break;
 	case "reply":
