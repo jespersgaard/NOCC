@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/sr.php,v 1.1 2001/11/06 21:37:55 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sr.php,v 1.2 2001/11/18 18:43:12 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -8,8 +8,8 @@
  * See the enclosed file COPYING for license information (GPL).  If you
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
- * Configuration file for the srpski jezik
- * Translation author information missing
+ * Configuration file for the Srpski jezik
+ * Translation by Igor Smitran http://www.poen.net/
  */
 
 $charset = 'ISO-8859-2';
