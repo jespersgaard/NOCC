@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/user_filters.php,v 1.0 2002/08/30 21:43:45 mrylander Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/user_filters.php,v 1.1 2002/09/10 23:33:57 mrylander Exp $
  *
  * Copyright 2002 Mike Rylander <mrylander@mail.com>
  *
@@ -22,7 +22,7 @@ class NOCCUserFilters {
 	 */
 	function NOCCUserFilters($key) {
 		$this->key = $key;
-        $this->filterset = array();
+		$this->filterset = array();
 		$this->dirty_flag = 1;
 	}
 
@@ -32,14 +32,16 @@ class NOCCUserFilters {
 	 * returns a default profile. If it can be found, but not
 	 * read, it returns an exception.
 	 */
-	function read(&$ev) {
+	function read($key, &$ev) {
 		global $conf;
 
+		$filters = new NOCCUserFilters($key);
+
 		/* Open the preferences file */
-		$filename = $conf->prefs_dir . '/' . $this->key . '.filter';
+		$filename = $conf->prefs_dir . '/' . $key . '.filter';
 		if (!file_exists($filename)) {
 			error_log("$filename does not exist");
-			return $this;
+			return $filters;
 		}
 		$file = fopen($filename, 'r');
 		if(!$file) {
@@ -60,13 +62,13 @@ class NOCCUserFilters {
 			$value = substr($line, $pipeAt + 8);
 
 			if(strlen($name) > 0) {
-				$this->filterset[$name][$type] = $value;
-            }
+				$filters->filterset[$name][$type] = $value;
+			}
 		}
 		fclose($file);
  
-		$this->dirty_flag = 0;
-		return $this;
+		$filters->dirty_flag = 0;
+		return $filters;
 	}
 
 	/*
@@ -86,41 +88,41 @@ class NOCCUserFilters {
 		if(!$file)
 			return (new Exception($html_prefs_file_error));
 
-        fwrite($file,"super happy filter file\n");
-        foreach($this->filterset as $name => $filter) {
-            foreach($filter as $type => $thing) {
-                if ($type && $thing) {
-                    fwrite($file, $name.'|'.$type.'='.$thing."\n");
-                }
-            }
-        }
+		fwrite($file,"super happy filter file\n");
+		foreach($this->filterset as $name => $filter) {
+			foreach($filter as $type => $thing) {
+				if ($type && $thing) {
+					fwrite($file, $name.'|'.$type.'='.$thing."\n");
+				}
+			}
+		}
 
-        fclose($file);
+		fclose($file);
 
-        $this->dirty_flag = 0;
+		$this->dirty_flag = 0;
 	}
     
-    /*
-     * Create the filter select box for the prefs page
-     */
-    function html_filter_select() {
+	/*
+	 * Create the filter select box for the prefs page
+	 */
+	function html_filter_select() {
         
-        $output = '';
-        $pre = '<select name="filter" width="80" size="5">'."\n";
-        $post = '</select>'."\n";
+		$output = '';
+		$pre = '<select name="filter" width="80" size="5">'."\n";
+		$post = '</select>'."\n";
         
-        foreach($this->filterset as $name => $filter) {
-            $search = $filter['SEARCH'];
-            $action = $filter['ACTION'];
-            $output .= "\t<option value=\"$name\"><b>$name</b> : &lt;$search -> $action&gt; </option>\n";
-        }
+		foreach($this->filterset as $name => $filter) {
+			$search = $filter['SEARCH'];
+			$action = $filter['ACTION'];
+			$output .= "\t<option value=\"$name\"><b>$name</b> : &lt;$search -> $action&gt; </option>\n";
+		}
 
-        if ($output) {
-            return $pre.$output.$post;
-        } else {
-            return '';
-        }
-    }
+		if ($output) {
+			return $pre.$output.$post;
+		} else {
+			return '';
+		}
+	}
 
 }
 

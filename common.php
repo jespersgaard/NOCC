@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.23 2002/09/10 23:27:01 mrylander Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.24 2002/09/22 20:29:27 rossigee Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -116,31 +116,27 @@ if(isset($_REQUEST['theme']))
 if(!$conf->use_theme || !isset($_SESSION['nocc_theme']))
     $_SESSION['nocc_theme'] = $conf->default_theme;
 
-// Cache the user's preferences
+// Cache the user's preferences/filters
 if(isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
+	$ev = NULL;
+	$user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
+
+	// Preferences
 	if(!isset($_SESSION['nocc_user_prefs'])) {
-		$ev = NULL;
-		$user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
 		$_SESSION['nocc_user_prefs'] = NOCCUserPrefs::read($user_key, $ev);
 		if(Exception::isException($ev)) {
-			error_log("User prefs error ($user_key): ".$ev->getMessage());
-			$_SESSION['nocc_user_prefs'] = new NOCCUserPrefs($user_key);
-			$ev = NULL;
+			echo "<p>User prefs error ($user_key): ".$ev->getMessage()."</p>";
+			exit(1);
 		}
 	}
 	$user_prefs = $_SESSION['nocc_user_prefs'];
-}
 
-// Cache the user's filters
-if(isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
+	// Filters
 	if(!isset($_SESSION['nocc_user_filters'])) {
-		$ev = NULL;
-		$user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
 		$_SESSION['nocc_user_filters'] = NOCCUserFilters::read($user_key, $ev);
 		if(Exception::isException($ev)) {
-			error_log("User filters error ($user_key): ".$ev->getMessage());
-			$_SESSION['nocc_user_filters'] = new NOCCUserFilters($user_key);
-			$ev = NULL;
+			echo "<p>User filters error ($user_key): ".$ev->getMessage()."</p>";
+			exit(1);
 		}
 	}
 	$user_filters = $_SESSION['nocc_user_filters'];

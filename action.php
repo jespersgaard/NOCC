@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.137 2002/09/10 23:27:01 mrylander Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.138 2002/12/01 13:05:54 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -292,8 +292,7 @@ switch($action)
     case 'managefilters':
         $pop = new nocc_imap($ev);
 		$user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
-        $filterset = new NOCCUserFilters($user_key, $ev);
-        $filterset->read($ev);
+        $filterset = NOCCUserFilters::read($user_key, $ev);
 
         if (Exception::isException($ev)) {
             require ('./html/header.php');
@@ -414,8 +413,7 @@ switch($action)
         if ($pop->is_imap()) {
             if ($pop->folder == 'INBOX') {
                 $user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
-                $filters = new NOCCUserFilters($user_key, $ev);
-                $filters->read($ev);
+                $filters = NOCCUserFilters::read($user_key, $ev);
 
                 $small_search = 'unseen ';
                 if ($_REQUEST['reapply_filters'] == 1) {
