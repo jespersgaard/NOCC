@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: nicocha $
-	$Revision: 1.18 $
-	$Date: 2000/10/29 23:56:51 $
+	$Revision: 1.19 $
+	$Date: 2000/10/30 11:55:57 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
 the function get_part is based on a function from matt@bonneau.net
@@ -52,7 +52,7 @@ function inbox($servr, $user, $passwd, $sort, $sortdir, $lang)
 					if ($struct_msg->subtype == "ALTERNATIVE")
 						$attach = "&nbsp;";
 					else
-						$attach = "<img src=\"img/attach.gif\" alt=\"A\" height\"28\" width=\"27\">";
+						$attach = "<img src=\"img/attach.png\" alt=\"A\" height\"28\" width=\"27\">";
 				}
 				else
 					$attach = "&nbsp;";
@@ -79,7 +79,7 @@ function inbox($servr, $user, $passwd, $sort, $sortdir, $lang)
 						$new_mail_from_header = "&nbsp;";
 				}
 				if ($new_mail_from_header == "")
-					$newmail = "<img src=\"img/new.gif\" alr=\"N\" height=\"17\" width=\"17\">";
+					$newmail = "<img src=\"img/new.png\" alr=\"N\" height=\"17\" width=\"17\">";
 				else
 					$newmail = "&nbsp;";
 				$msg_list[$i] =  Array(

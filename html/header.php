@@ -15,7 +15,7 @@
 		<table border="0" width="100%">
 			<tr>
 				<td align="left" valign="absmiddle" colspan="2">
-					<img src="img/logo.gif" alt="Logo">
+					<img src="img/logo.png" alt="Logo">
 					<?
 					if ($domain != "")
 					{ ?>
