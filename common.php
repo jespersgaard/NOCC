@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.22 2002/07/08 11:48:42 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.23 2002/09/10 23:27:01 mrylander Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -9,6 +9,8 @@
  *
  * Stuff that is always checked or run or initialised for every hit.
  */
+
+require_once("user_filters.php");
 
 $conf->nocc_name = 'NOCC';
 $conf->nocc_version = '0.9.6-dev';
