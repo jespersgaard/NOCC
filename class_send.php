@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.27 2001/05/30 08:25:44 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.28 2001/05/30 08:40:12 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -76,9 +76,9 @@ class mime_mail
 		}
 		$val = 'Content-Type: '.$part['ctype'].';';
 		$val .= ($part['charset'] ? ' charset='.$part['charset'] : '');
-		$val .= ($part['name'] ? "\r\n\tname=\"".$part['name'].'"' : '');
+		$val .= ($part['name'] ? "\r\n\tname=\"".$part['name'].'\"' : '');
 		$val .= "\r\nContent-Transfer-Encoding: ".$encoding;
-		$val .= ($part['name'] ? "\r\nContent-Disposition: attachment;\r\n\tfilename=\"".$part['name'].'"' : '');
+		$val .= ($part['name'] ? "\r\nContent-Disposition: attachment;\r\n\tfilename=\"".$part['name'].'\"' : '');
 		$val .= "\r\n\r\n".$message."\r\n";
 		return($val);
 	}
@@ -89,12 +89,12 @@ class mime_mail
  */ 
 	function build_multipart() 
 	{
-		$boundary =  'NextPart'.md5(uniqid(time()));
-		$multipart =  "Content-Type: multipart/mixed;\r\n\tboundary = $boundary\r\n\r\nThis is a MIME encoded message.\r\n\r\n--$boundary";
+		$boundary = 'NextPart'.md5(uniqid(time()));
+		$multipart = "Content-Type: multipart/mixed;\r\n\tboundary = $boundary\r\n\r\nThis is a MIME encoded message.\r\n\r\n--".$boundary;
 		
 		for($i = sizeof($this->parts) - 1; $i >= 0; $i--) 
-			$multipart .=  "\r\n".$this->build_message($this->parts[$i]). "--$boundary";
-		return ($multipart.=  "--\r\n");
+			$multipart .= "\r\n".$this->build_message($this->parts[$i]).'--'.$boundary;
+		return ($multipart .= "--\r\n");
 	}
 
 /*
@@ -117,19 +117,19 @@ class mime_mail
  */ 
 	function send() 
 	{
-		$mime =  "";
+		$mime = '';
 		if (!empty($this->from))
-			$mime .= "From: ".$this->from."\r\n";
+			$mime .= 'From: '.$this->from."\r\n";
 		if (($this->smtp_server != '' && $this->smtp_port != '') && ($this->to[0] != ''))
-			$mime .= "To: ".join(", ", $this->to)."\r\n"; 
+			$mime .= 'To: '.join(', ', $this->to)."\r\n"; 
 		if ($this->cc[0] != '')
-			$mime .= "Cc: ".join(", ", $this->cc)."\r\n";
+			$mime .= 'Cc: '.join(', ', $this->cc)."\r\n";
 		if ($this->bcc[0] != '')
-			$mime .= "Bcc: ".join(", ", $this->bcc)."\r\n";
+			$mime .= 'Bcc: '.join(', ', $this->bcc)."\r\n";
 		if (!empty($this->from))
-			$mime .= "Reply-To: ".$this->from."\r\nErrors-To: ".$this->from."\r\n";
+			$mime .= 'Reply-To: '.$this->from."\r\nErrors-To: ".$this->from."\r\n";
 		if (!empty($this->subject))
-			$mime .= "Subject: ".$this->subject."\r\n";
+			$mime .= 'Subject: '.$this->subject."\r\n";
 		if (!empty($this->headers))
 			$mime .= $this->headers."\r\n";
 		if (sizeof($this->parts) >= 1)
@@ -144,6 +144,9 @@ class mime_mail
 		}
 		// Whether or not to use SMTP or sendmail
 		// depends on the config file (conf.php)
+		header ('Content-Type: text/plain');
+		echo $mime;
+		exit;
 		if ($this->smtp_server == '' || $this->smtp_port == '')
 			return (mail(join(', ', $this->to), $this->subject,  '', $mime));
 		else
