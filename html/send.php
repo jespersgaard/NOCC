@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.57 2002/06/28 17:45:17 rossigee Exp $ -->
+<!-- start of $Id: send.php,v 1.58 2002/06/30 15:13:36 rossigee Exp $ -->
 <?php
 
 // Default e-mail address on send form
@@ -16,8 +16,8 @@ $mail_from = get_default_from_address();
             <table bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%" cellspacing="0" cellpadding="0" border="0">
                 <tr><td colspan="2">&nbsp;</td></tr>
                 <tr>
-                    <td align="right" valign="top" width="50%"><input type="submit" class="button" value="<?php echo $html_send ?>" />&nbsp;</td>
-                    <td align="left" valign="top" width="50%">&nbsp;<input type="reset" class="button" value="<?php echo $html_cancel ?>" /></td>
+                    <td align="right" valign="middle" width="50%"><input type="submit" class="button" value="<?php echo $html_send ?>" />&nbsp;</td>
+                    <td align="left" valign="middle" width="50%">&nbsp;<input type="reset" class="button" value="<?php echo $html_cancel ?>" /></td>
                 </tr>
                 <tr><td colspan="2">&nbsp;</td></tr>
             </table>
@@ -51,8 +51,14 @@ $mail_from = get_default_from_address();
                 <tr>
                     <td align="right" class="inbox"><?php echo $html_att ?> : </td>
                     <td align="left">
-                        <input type="file" name="mail_att" size="40" value="" />
-                        <input type="button" class="button" onclick="attach()" value="<?php echo $html_attach ?>" />
+                        <table><tr valign="middle">
+                           <td>
+                               <input type="file" name="mail_att" size="40" value="" />
+                           </td>
+                           <td>
+                               <input type="button" class="button" onclick="attach()" value="<?php echo $html_attach ?>" />
+                           </td>
+                        </tr></table> 
                     </td>
                 </tr>
                 <tr>
@@ -98,10 +104,10 @@ $mail_from = get_default_from_address();
                     <td align="center" colspan="2">
                         <table bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%" cellspacing="0" cellpadding="0" border="0">
                             <tr>
-                                <td align="right" valign="top" width="50%">
+                                <td align="right" valign="middle" width="50%">
                                     <input type="submit" class="button" value="<?php echo $html_send ?>" />&nbsp;
                                 </td>
-                                <td align="left" valign="top" width="50%">
+                                <td align="left" valign="middle" width="50%">
                                     &nbsp;<input type="reset" class="button" value="<?php echo $html_cancel ?>" />
                                 </td>
                             </tr>
@@ -152,4 +158,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.57 2002/06/28 17:45:17 rossigee Exp $ -->
+<!-- end of $Id: send.php,v 1.58 2002/06/30 15:13:36 rossigee Exp $ -->

@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox.php,v 1.41 2002/05/22 14:23:43 rossigee Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.42 2002/05/30 14:07:22 rossigee Exp $ -->
 <?php
 $color_inbox = $color = $glob_theme->menu_color;
 $action = "";
@@ -40,11 +40,11 @@ elseif ($action == 'forward')
                     <td width="*" bgcolor="<?php echo $glob_theme->menu_color ?>">
                         <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/spacer.gif" height="1" width="1" alt="" />
                     </td>
+                    <?php if($conf->prefs_dir) { ?>
                     <td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <?php if($conf->prefs_dir) { ?>
-                            <a href="action.php?action=setprefs" class="menu"><?php echo $html_preferences ?></a>
-                        <?php } ?>
+                        <a href="action.php?action=setprefs" class="menu"><?php echo $html_preferences ?></a>
                     </td>
+                    <?php } ?>
                     <?php if ($conf->enable_logout) { ?>
                     <td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
                         <a href="logout.php" class="menu"><?php echo $html_logout ?></a>
@@ -55,4 +55,4 @@ elseif ($action == 'forward')
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_inbox.php,v 1.41 2002/05/22 14:23:43 rossigee Exp $ -->
+<!-- end of $Id: menu_inbox.php,v 1.42 2002/05/30 14:07:22 rossigee Exp $ -->
