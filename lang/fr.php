@@ -103,5 +103,5 @@ $to_empty = "Le champ 'A' ne doit pas &ecirc;tre vide !";
 $html_outside = "Vous voyez cette page en dehors de <b>".$name."</b>. Pour y retourner, fermez cette fen&ecirc;tre.";
 
 // This message is added to every message, the user cannot delete it
-$ad = "\n\n________________________________________________________________________\nNOCC, vos e-mail n'importe où : http://nocc.sourceforge.net";
+$ad = "\n\n________________________________________________________________________\nNOCC, vos e-mails n'importe où : http://nocc.sourceforge.net";
 ?>
