@@ -10,7 +10,7 @@
 </td></tr>
 </table>
 
-<script language="JavaScript">
+<script type="text/javascript">
 <!--
 function SelectAll() {
   for (var i = 0; i < document.delete_form.elements.length; i++) {
