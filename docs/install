@@ -5,9 +5,9 @@ Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
 This code is licensed under the GNU Public License.
 See the file COPYING in this directory.
 
-$Author: nicocha $
-$Revision: 1.1 $
-$Date: 2000/10/29 22:55:01 $
+$Author: wolruf $
+$Revision: 1.2 $
+$Date: 2000/10/30 11:11:43 $
 
 +++++++++
 Overview:
@@ -59,7 +59,8 @@ Installing NOCC:
   Installation of NOCC
   ====================
        
-       1) Obtain nocc*.tar.gz
+       1) Obtain nocc-x.y.tar.gz (where x and y are version numbers)
+	  (or nocc-x.y.zip for Windows' users).
 
        2) untar/gzip nocc into the directory you want.
        
@@ -75,6 +76,10 @@ Installing NOCC:
            different server, etc... The file is fairly well documented, so
            you should be able to pick out what you need to change fairly
            easily.
+
+       5) (Optional step)
+	  if you run with suEXEC, you'll need to run addcgipath path to add
+	  the parser line.
 
 
 +++++++++++++++++
