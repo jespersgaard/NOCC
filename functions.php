@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.137 2002/02/18 10:09:49 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.138 2002/02/18 10:17:00 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -437,7 +437,9 @@ function remove_stuff(&$body, &$lang, &$mime)
 	{
 		$body = eregi_replace("(http|https|ftp)://([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)","<a href=\"\\1://\\2\" target=\"_blank\">\\1://\\2</a>", $body);
 		// Bug #511302: Comment out following line if you have the 'Invalid Range End' problem
-		$body = eregi_replace("([#a-zA-Z0-9+-._]*)@([#a-zA-Z0-9+-_.]*)\.([a-zA-Z]+)","<a href=\"$PHP_SELF?action=write&mail_to=\\1@\\2.\\3&lang=$lang&$php_session=$sessid\">\\1@\\2.\\3</a>", $body);
+		// New rewritten preg_replace should fix the problem, bug #522389
+		// $body = eregi_replace("([#a-zA-Z0-9+-._]*)@([#a-zA-Z0-9+-_.]*)\.([a-zA-Z]+)","<a href=\"$PHP_SELF?action=write&mail_to=\\1@\\2.\\3&lang=$lang&$php_session=$sessid\">\\1@\\2.\\3</a>", $body);
+		$body = preg_replace("/([0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,})/", "<a href=\"$PHP_SELF?action=write&mail_to=\\1&lang=$lang&$php_session=$sessid\">\\1</a>", $body); 
 		$body = nl2br($body);
 		if (function_exists('wordwrap'))
 			$body = wordwrap($body, 80, "\n");
