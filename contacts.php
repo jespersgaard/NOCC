@@ -1,0 +1,93 @@
+<?php
+/*
+ * $Header: /cvsroot/nocc/nocc/webmail/wrong.php,v 1.15 2001/10/19 10:34:25 nicocha Exp $
+ *
+ * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
+ * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
+ * Copyright 2003 Olivier Jourdat <jourda_v@epita.fr>
+ *
+ * See the enclosed file COPYING for license information (GPL).  If you
+ * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
+ */
+
+require_once ('proxy.php');
+require_once ('./conf.php');
+require_once ('./functions.php');
+require_once ('./common.php');
+$_SESSION['nocc_loggedin'] = 1;
+?>
+<html>
+<head>
+<link href="themes/<?php echo $theme ?>/style.css" rel="stylesheet" type="text/css" />
+<title>NOCC - Webmail - <?php echo $html_contact_list . " " . $_SESSION["nocc_user"]; ?></title>
+<script language="JavaScript">
+
+
+function action (bt, email)
+{
+var field = window.opener.document.sendform.<?php echo $_GET["field"]; ?>.value;
+
+if (bt.value == '<?php echo $html_add ?>')
+	{
+		if (field == '')
+			window.opener.document.sendform.<?php echo $_GET["field"]; ?>.value = email;
+		else
+			window.opener.document.sendform.<?php echo $_GET["field"]; ?>.value = field + "," + email;
+	}
+	else
+	{
+		var f = '';
+		tbl = field.split(",");
+		for (i = 0; i < tbl.length; ++i)
+		{
+			if (f != '' && tbl[i] != email)
+				f += ',';
+			if (tbl[i] != email)
+				f += tbl[i];
+		}
+		window.opener.document.sendform.<?php echo $_GET["field"]; ?>.value = f;
+	}
+}
+
+function toggle (bt)
+{
+	if (bt.value == '<?php echo $html_add ?>')
+		bt.value = '<?php echo $html_delete ?>';
+	else
+		bt.value = '<?php echo $html_add ?>';
+}
+
+</script>
+</head>
+<body>
+<p align="center"><font color="#0033CC" size="2" face="Verdana, Arial, Helvetica, sans-serif"><b><?php echo $html_contact_list . " " . $_SESSION["nocc_user"]; ?></b></font> </p>
+
+<table width="300" border="0" align="center" cellpadding="4" cellspacing="0">
+  <tr align="center" bgcolor="<?php echo $glob_theme->menu_color ?>" class="menu">
+    <td nowrap><b><?php echo $html_contact_first ?></b></td>
+    <td nowrap><b><?php echo $html_contact_last ?></b></td>
+    <td nowrap><b><?php echo $html_contact_nick ?></b></td>
+    <td nowrap><b><?php echo $html_contact_mail ?></b></td>
+    <td nowrap>&nbsp;</td>
+  </tr>
+<?
+ 	$path = $conf->contact_dir . "/" . $_SESSION["nocc_user"] . ".contacts";
+	$contacts = load_list ($path);
+
+	for ($i = 0; $i < count ($contacts); ++$i)
+	{
+		$tab = explode ("|",$contacts[$i]);
+?>
+  <tr class="inbox" bgcolor="<?php echo ($i % 2) ? "#ffffff" : $glob_theme->inside_color ?>">
+    <td><?php echo ($tab[0]) ? $tab[0] : "&nbsp;"; ?></td>
+    <td><?php echo ($tab[1]) ? $tab[1] : "&nbsp;"; ?></td>
+    <td><?php echo ($tab[2]) ? $tab[2] : "&nbsp;"; ?></td>
+    <td><?php echo $tab[3]; ?></td>
+    <td align="right"><input type="button" name="Submit" value="<?php echo $html_add ?>" class="button" onClick="action (this, '<?php echo trim($tab[3]); ?>');toggle (this);"></td>
+  </tr>
+<?
+	}
+?>
+</table>
+</body>
+</html>
