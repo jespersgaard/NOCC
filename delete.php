@@ -1,6 +1,6 @@
 <?php 
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.44 2002/05/31 09:37:01 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.45 2002/06/27 22:17:52 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -28,9 +28,7 @@ if (Exception::isException($ev)) {
 $num_messages = $pop->num_msg();
 
 // Work out folder and target_folder
-$folder = "";
-if (isset($_REQUEST['folder']))
-    $folder = $_REQUEST['folder'];
+$folder = $_SESSION['nocc_folder'];
 $target_folder = "";
 if (isset($_REQUEST['target_folder']))
     $target_folder = $_REQUEST['target_folder'];
@@ -83,6 +81,7 @@ if (Exception::isException($ev)) {
 // Redirect user to index
 // TODO: redirect user to next message
 require_once('./proxy.php');
-header('Location: ' . $conf->base_url . "action.php?folder=$folder");
+header('Location: ' . $conf->base_url . "action.php");
 
 ?>
+
