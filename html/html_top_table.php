@@ -34,28 +34,28 @@ $is_Imap = (ereg("IMAP", $servr)) ? 1 : 0;
 		</td>
 		<td nowrap="nowrap" align="center" class="inbox" <? if ($sort == 2) echo "bgcolor=\"".$glob_theme->sort_color."\"" ?>>
 			<a href="<? echo $PHP_SELF ?>?sort=2&amp;sortdir=<? echo $new_sortdir ?>&amp;lang=<? echo $lang ?>">
-			<img src="img/<? echo $arrow ?>.png" border="0" width="12" height="12" alt="" /></a>
+			<img src="img/<? echo $arrow ?>.gif" border="0" width="12" height="12" alt="" /></a>
 			&nbsp;
 			<a href="<? echo $PHP_SELF ?>?sort=2&amp;sortdir=<? echo $new_sortdir ?>&amp;lang=<? echo $lang ?>">
 			<? echo $html_from ?></a>
 		</td>
 		<td nowrap="nowrap" align="center" class="inbox" <? if ($sort == 3) echo "bgcolor=\"".$glob_theme->sort_color."\"" ?>>
 			<a href="<? echo $PHP_SELF ?>?sort=3&amp;sortdir=<? echo $new_sortdir ?>&amp;lang=<? echo $lang ?>">
-			<img src="img/<? echo $arrow ?>.png" border="0" width="12" height="12" alt="" /></a>
+			<img src="img/<? echo $arrow ?>.gif" border="0" width="12" height="12" alt="" /></a>
 			&nbsp;
 			<a href="<? echo $PHP_SELF ?>?sort=3&amp;sortdir=<? echo $new_sortdir ?>&amp;lang=<? echo $lang ?>">
 			<? echo $html_subject ?></a>
 		</td>
 		<td nowrap="nowrap" align="center" class="inbox" <? if ($sort == 1) echo "bgcolor=\"".$glob_theme->sort_color."\"" ?>>
 			<a href="<? echo $PHP_SELF ?>?sort=1&amp;sortdir=<? echo $new_sortdir ?>&amp;lang=<? echo $lang ?>">
-			<img src="img/<? echo $arrow ?>.png" border="0" width="12" height="12" alt="" /></a>
+			<img src="img/<? echo $arrow ?>.gif" border="0" width="12" height="12" alt="" /></a>
 			&nbsp;
 			<a href="<? echo $PHP_SELF ?>?sort=1&amp;sortdir=<? echo $new_sortdir ?>&amp;lang=<? echo $lang ?>">
 			<? echo $html_date ?></a>
 		</td>
 		<td nowrap="nowrap" align="right" class="inbox" <? if ($sort == 6) echo "bgcolor=\"".$glob_theme->sort_color."\"" ?>>
 			<a href="<? echo $PHP_SELF ?>?sort=6&amp;sortdir=<? echo $new_sortdir ?>&amp;lang=<? echo $lang ?>">
-			<img src="img/<? echo $arrow ?>.png" border="0" width="12" height="12" alt="" /></a>
+			<img src="img/<? echo $arrow ?>.gif" border="0" width="12" height="12" alt="" /></a>
 			&nbsp;
 			<a href="<? echo $PHP_SELF ?>?sort=6&amp;sortdir=<? echo $new_sortdir ?>&amp;lang=<? echo $lang ?>">
 			<? echo $html_size ?></a>

@@ -28,7 +28,7 @@ if ($action == "forward")
 						<? echo $line ?>
 					</td>
 					<td width="*" bgcolor="<? echo $glob_theme->menu_color ?>">
-						<img src="img/spacer.png" height="1" width="1" alt="" />
+						<img src="img/spacer.gif" height="1" width="1" alt="" />
 					</td>
 					<? if ($enable_logout) { ?>
 					<td class="menu" align="center" width="80" bgcolor="<? echo $glob_theme->menu_color ?>">

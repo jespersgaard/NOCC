@@ -15,7 +15,7 @@ echo $glob_theme->text_color ?>" vlink="<? echo $glob_theme->vlink_color ?>">
 		<table border="0" width="100%">
 			<tr>
 				<td align="left" valign="middle" colspan="2">
-					<img src="img/logo.png" width="153" height="47" alt="Logo" />
+					<img src="img/logo.gif" width="153" height="47" alt="Logo" />
 					<?
 					if ($domain != "" && $user != "")
 					{ ?>

@@ -1,6 +1,6 @@
 <tr bgcolor="<? echo $glob_theme->tr_color ?>">
 	<td align="center" valign="middle">
-		<input type="image" src="img/delete.png" alt="<? echo $alt_delete ?>" />
+		<input type="image" src="img/delete.gif" alt="<? echo $alt_delete ?>" />
 	</td>
 	<td colspan="6">&nbsp;</td>
 </tr>
