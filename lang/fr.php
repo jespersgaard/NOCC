@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.45 2001/09/08 11:12:23 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.46 2001/09/16 17:08:52 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -69,6 +69,17 @@ $html_retry = 'R&eacute;essayer';
 $html_on = 'sur';
 $html_theme = 'Th&egrave;me';
 
+// prefs.php
+
+$html_preferences = 'Pr&eacute;f&eacute;rences';
+$html_full_name = 'Nom complet';
+$html_email_address = 'Adresse e-mail';
+$html_reply_to = 'R&eacute;pondre &agrave;';
+$html_use_signature = 'Utiliser la signature';
+$html_signature = 'Signature';
+$html_submit = 'Valider';
+$html_prefs_updated = 'Pr&eacute;f&eacute;rences mises &agrave; jour';
+
 // Other pages
 
 $html_view_header = 'Voir l\'ent&ecirc;te';
@@ -113,7 +124,12 @@ $html_priority = 'Priorit&eacute;';
 $html_low = 'Basse';
 $html_normal = 'Normale';
 $html_high = 'Haute';
+$html_select_all = 'Tout selectionner';
 
 $original_msg = '-- Message Original --';
 $to_empty = 'Le champ \'A\' ne doit pas être vide !';
+
+// SMTP problems (class_smtp.php)
+$html_smtp_error_no_conn = "Impossible d'ouvrir la connexion";
+$html_smtp_error_unexpected = "R&eacute;ponse inattentue:";
 ?>
