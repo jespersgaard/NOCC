@@ -20,7 +20,7 @@ echo $text_color ?>" vlink="<? echo $vlink_color ?>">
 					<?
 					if ($domain != "")
 					{ ?>
-						&nbsp;&nbsp;<font class="login"><b><i><? echo $user."@".$domain ?></i></b></font>
+						&nbsp;&nbsp;<font class="login"><b><? echo $user."@".$domain ?></b></font>
 					<? } ?>
 				</td>
 			</tr>
