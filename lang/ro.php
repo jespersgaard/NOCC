@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ro.php,v 1.3 2002/06/30 16:27:14 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ro.php,v 1.4 2002/06/30 21:43:46 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -145,5 +145,5 @@ $html_smtp_error_no_conn = "Nu se poate deschide conexiunea";
 $html_smtp_error_unexpected = "Raspuns neasteptate:";
 $html_file_upload_attack = 'Possible file upload attack';  //to translate
 $html_invalid_email_address = 'Invalid e-mail address';  //to translate
-$html_seperate_msg_win = 'Messages in seperate window';  //to translate
+$html_seperate_msg_win = 'Messages in separate window';  //to translate
 ?>
