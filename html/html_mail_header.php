@@ -33,4 +33,6 @@ if ($content["subject"] == "")
 
 <?php echo $content["att"] ?>
 
-<tr><td colspan="2" bgcolor="<?php echo $glob_theme->mail_color ?>" class="mail"><pre><?php echo $content["header"] ?></pre><br /><?php echo @convert_cyr_string($content["body"], $content["charset"], $charset); ?>
+<tr><td colspan="2" bgcolor="<?php echo $glob_theme->mail_color ?>" class="mail"><pre><?php echo $content["header"] ?></pre><br />
+<?php //echo @convert_cyr_string($content["body"], $content["charset"], $charset); ?>
+<?php echo $content["body"] ?>
