@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.118 2001/11/14 12:11:32 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.119 2001/11/14 20:08:12 colinstephenson Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -541,7 +541,7 @@ function cut_address($addr, $charset)
 
 	// Break address line into individual addresses, taking
 	// quoted addresses into account
-	$array = array();
+	$addresses = array();
 	$token = '';
 	$quot_esc = false;
 	for ($i = 0; $i < strlen($addr); $i++) {
@@ -555,19 +555,21 @@ function cut_address($addr, $charset)
 		// Is this an address seperator (comma/semicolon)
 		if($c == ',' || $c == ';') {
 			if(!$quote_esc) {
-				if(trim($token) != '') {
-					$array[] = $token;
+				$token = trim($token);
+				if($token != '') {
+					$addresses[] = $token;
 				}
 				$token = '';
-				next;
+				continue;
 			}
 		}
 
 		$token .= $c;
 	}
 	if(!$quote_esc) {
-		if(trim($token) != '') {
-			$array[] = $token;
+		$token = trim($token);
+		if($token != '') {
+			$addresses[] = $token;
 		}
 	}
 
@@ -576,36 +578,28 @@ function cut_address($addr, $charset)
 	$addr = str_replace(',', ';', $addr);
 
 	// Break address line into individual addresses
-	$array = explode(';', $addr);
+	$addresses = explode(';', $addr);
 	*/
 
 	// Loop through addresses
-	for ($i = 0; $i < sizeof($array); $i++)
+	for ($i = 0; $i < sizeof($addresses); $i++)
 	{
-
-		// Remove leading/trailling spame
-		$array[$i] = trim($array[$i]);
-
-		// Discard empty addresses
-		if($array[$i] == '')
-			continue;
-
 		// Wrap address in brackets, if not already
-		$pos = strrpos($array[$i], '<');
+		$pos = strrpos($addresses[$i], '<');
 		if (!is_int($pos))
-			$array[$i] = '<'.$array[$i].'>';
+			$addresses[$i] = '<'.$addresses[$i].'>';
 
 		/* FIXME: encode_mime mangles addresses badly */
 		/*else
 		{
 			$name = '';
 			if ($pos != 0)
-				$name = encode_mime(substr($array[$i], 0, $pos - 1), $charset).' ';
-			$addr = substr($array[$i], $pos);
-			$array[$i] = '"'.$name.' '.$addr.'"';
+				$name = encode_mime(substr($addresses[$i], 0, $pos - 1), $charset).' ';
+			$addr = substr($addresses[$i], $pos);
+			$addresses[$i] = '"'.$name.' '.$addr.'"';
 		} */
 	}
-	return ($array);
+	return ($addresses);
 }
 
 /* ----------------------------------------------------- */
