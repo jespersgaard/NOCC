@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.53 2001/11/18 19:36:23 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.54 2001/11/18 21:08:06 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -105,14 +105,14 @@ $html_sort_by = 'Trier par';
 $html_from = 'De';
 $html_subject = 'Sujet';
 $html_date = 'Date';
-$html_sent = 'Envoy&eacute; le';
+$html_sent = 'Envoyé le';
 $html_wrote = 'a écrit';
 $html_size = 'Taille';
 $html_totalsize = 'Taille Totale';
 $html_kb = 'Ko';
 $html_bytes = 'octets';
 $html_filename = 'Fichier';
-$html_to = '&Agrave;';
+$html_to = 'A';
 $html_cc = 'Copie';
 $html_bcc = 'Copie cach&eacute;e';
 $html_nosubject = 'Aucun sujet';
@@ -131,7 +131,7 @@ $html_select = 'S&eacute;lectionner';
 $html_select_all = 'Tout s&eacute;lectionner';
 $html_loading_image = 'Chargement de l\'image';
 $html_send_confirmed = 'Votre mail a bien &eacute;t&eacute; envoy&eacute;';
-$html_no_sendaction = 'No action specified. Try enabling JavaScript';
+$html_no_sendaction = 'Aucune action sp&eacute;cifi&eacute;e. Essayer d\'activer JavaScript';
 $html_error_occurred = 'Une erreur est survenue';
 $html_prefs_file_error = 'Impossible d\'ouvrir le fichier de pr&eacute;f&eacute;rences';
 $html_sig_file_error = 'Impossible d\'ouvrir le fichier de signature';
