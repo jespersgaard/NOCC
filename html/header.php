@@ -1,6 +1,6 @@
 <?php
 
-require_once ('../proxy.php');
+require_once ('proxy.php');
 header ("Content-type: text/html; Charset=$charset");
 
 require_once ('./prefs.php');
