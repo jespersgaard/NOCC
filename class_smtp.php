@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.24 2001/11/03 16:51:28 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.25 2001/12/03 10:54:42 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -46,7 +46,7 @@ class smtp
 		$line = fgets($smtp, 1024);
 
 		if (substr($line, 0, 1) != '2')
-			return new Exception($html_smtp_error_unexpected . ' ' . $line); 
+			return new Exception($html_smtp_error_unexpected . ' : ' . $line); 
 		
 		return $smtp;
 	} 
@@ -60,7 +60,7 @@ class smtp
 		$this->sessionlog .= "Rcvd: $line";
 
 		if (substr($line, 0, 1) != '2')
-			return new Exception($html_smtp_error_unexpected . ' ' . $line); 
+			return new Exception($html_smtp_error_unexpected . ' : ' . $line); 
 		
 		return (true);
 	} 
@@ -76,7 +76,7 @@ class smtp
 		$this->sessionlog .= "Rcvd: $line";
 
 		if (substr($line, 0, 1) <> '2')
-			return new Exception($html_smtp_error_unexpected . ' ' . $line); 
+			return new Exception($html_smtp_error_unexpected . ' : ' . $line); 
 
 		return (true);
 	} 
@@ -90,7 +90,7 @@ class smtp
 		$this->sessionlog .= "Rcvd: $line";
 
 		if (substr($line, 0, 1) <> '2')
-			return new Exception($html_smtp_error_unexpected . ' ' . $line); 
+			return new Exception($html_smtp_error_unexpected . ' : ' . $line); 
 		
 		return (true);
 	} 
@@ -108,7 +108,7 @@ class smtp
 			$this->sessionlog .= "Rcvd: $line";
  
 			if (substr($line, 0, 1) <> '2')
-				return new Exception($html_smtp_error_unexpected . ' ' . $line); 
+				return new Exception($html_smtp_error_unexpected . ' : ' . $line); 
 		}
 		while ($tmp = array_shift($this->cc))
 		{
@@ -120,7 +120,7 @@ class smtp
 			$this->sessionlog .= "Rcvd: $line";
 
 			if (substr($line, 0, 1) <> '2')
-				return new Exception($html_smtp_error_unexpected . ' ' . $line); 
+				return new Exception($html_smtp_error_unexpected . ' : ' . $line); 
 		}
 		while ($tmp = array_shift($this->bcc))
 		{
@@ -132,7 +132,7 @@ class smtp
 			$this->sessionlog .= "Rcvd: $line";
 
 			if (substr($line, 0, 1) <> '2')
-				return new Exception($html_smtp_error_unexpected . ' ' . $line); 
+				return new Exception($html_smtp_error_unexpected . ' : ' . $line); 
 		}
 		return (true);
 	} 
@@ -145,14 +145,14 @@ class smtp
 		$this->sessionlog .= "Rcvd: $line";
 
 		if (substr($line, 0, 1) != '3')
-			return new Exception($html_smtp_error_unexpected . ' ' . $line); 
+			return new Exception($html_smtp_error_unexpected . ' : ' . $line); 
 		
 		fputs($smtp, "$this->data"); 
 		fputs($smtp, "\r\n.\r\n"); 
 		$line = fgets($smtp, 1024); 
 		$this->sessionlog .= "Rcvd: $line";
 		if (substr($line, 0, 1) !=  '2')
-			return new Exception($html_smtp_error_unexpected . ' ' . $line); 
+			return new Exception($html_smtp_error_unexpected . ' : ' . $line); 
 
 		return (true);
 	}
@@ -165,7 +165,7 @@ class smtp
 		$this->sessionlog .= "Rcvd: $line";
 
 		if (substr($line, 0, 1) !=  '2')
-			return new Exception($html_smtp_error_unexpected . ' ' . $line); 
+			return new Exception($html_smtp_error_unexpected . ' : ' . $line); 
 
 		return (true);
 	}
