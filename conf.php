@@ -1,8 +1,8 @@
 <?
 /*
-	$Author: nicocha $
-	$Revision: 1.14 $
-	$Date: 2000/10/24 01:16:08 $
+	$Author: wolruf $
+	$Revision: 1.15 $
+	$Date: 2000/10/25 12:39:48 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -99,9 +99,6 @@ $mail_color = "#ffffff";
 $vlink_color ="#0033cc";
 
 $alink_color = "#0033cc";
-
-$html_tb_msg_color = "#red";
-
 
 
 
