@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.39 2001/02/04 22:23:53 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.40 2001/02/05 16:55:12 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -171,6 +171,5 @@ echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 </tr>
 </table>
 </form>
-</script>
 </body>
 </html>
