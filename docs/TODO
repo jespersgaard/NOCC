@@ -10,6 +10,9 @@ Short term
  - Translate the charset in the mail headers to the charset chosen at login. 
  - Trim Subject when too long (55 chars ?).
  - Colored quotes.
+ - Better error handling.
+ - Should warn when smtp relaying is forbidden instead of silently pretending
+   it succeeded in sending mail.
 
 Long term
 ---------
