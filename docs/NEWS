@@ -8,7 +8,8 @@ NOCC 0.9.3	?? ??, 2001
 	* If sender is empty NOCC displays '[unknown]'.
 	* Added Russian, Slovenian translations.
 	* Fix for flawed PHP install bundled with RedHat 7 (bug #24933).
-	* Images with transparency are now in GIF.
+	* Images with transparency are now in GIF. Fixes Netscape problems
+	  with transparent PNG.
 
 
 NOCC 0.9.2	February 08, 2001
