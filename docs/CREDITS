@@ -46,7 +46,11 @@ Additional Developers
 
  * Sergey Frolovithev <serg@spylog.ru>
 
-	Russian translation
+	Russian translation (Windows encoding)
+
+ * Anton Jamikov <t0xa@ls2.lv>
+
+	Russian translation (Unix and ISO encodings)
 
  * Borut Mrak <borut.mrak@ijs.si>
 
