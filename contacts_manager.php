@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.5 2004/01/10 08:07:48 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.6 2004/01/10 08:47:17 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -49,7 +49,7 @@ switch($action){
 	case "add_prompt":
       if (isset($_GET['id']))
       {
-	    $tab = explode ("\t",$contacts[$_GET['id']]);
+	    $tab = array_pad(explode ("\t",$contacts[$_GET['id']]), -4, "");
       }
 	?>
 <form name="form2" method="post" action="<? echo $_SERVER['PHP_SELF'] . "?" . $query_str ?>&amp;action=add">
@@ -105,6 +105,16 @@ switch($action){
 	case "add":
 	if (!empty($_POST['email']))
 	{
+            //The following foreach block performs some sanity checking and cleanup
+	    foreach( array('first','last','nick','email') as $contact_element )
+	    {
+	        //We should strip slashes here
+	        if( get_magic_quotes_gpc() )
+		    $_POST[$contact_element] = stripslashes( $_POST[$contact_element] );
+		//Strip tabs that COULD be inserted into fields(causing corrupted DB)
+		$_POST[$contact_element] = str_replace( '\t','',$_POST[$contact_element] );
+		//Maybe more sanity checking needs to be done???
+	    }
 		if (count ($contacts) < $conf->contact_number_max && empty ($_POST['modif']))
 		{
 	    	$line = $_POST['first'] . "\t" . $_POST['last'] . "\t" . $_POST['nick'] . "\t" . $_POST['email'];
@@ -152,7 +162,7 @@ switch($action){
   <?
 	for ($i = 0; $i < count ($contacts); ++$i)
 	{
-		$tab = explode ("\t",$contacts[$i]);
+		$tab = array_pad(explode ("\t",$contacts[$i]), -4, "");
 ?>
   <tr class="inbox" bgcolor="<?php echo ($i % 2) ? $glob_theme->tr_color : $glob_theme->inside_color ?>">
     <td><span style="color:<?php echo ($i % 2) ? "#ffffff" : "#000000" ?>"><?php echo ($tab[0]) ? $tab[0] : "&nbsp;"; ?></span></td>
