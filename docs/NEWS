@@ -1,5 +1,9 @@
 NOCC 0.9.4	??   ??, 2001
 
+	* Messages are now translated  from the charset in the mail headers to 
+	  the charset choosen at login time. 
+
+
 NOCC 0.9.3	March 12, 2001
 
 	* Fixed a bug with Postfix when "strict_rfc821_envelopes = yes".

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.26 2001/02/17 14:06:51 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.27 2001/02/23 09:31:57 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -34,7 +34,7 @@ switch ($action)
 			// $attach_tab is the array of attachments
 			// If it's a text/plain, display it
 			if ($display_text_attach && eregi ("text/plain", $tmp["mime"]))
-				echo "<hr />".view_part($servr, $user, stripslashes($passwd), $folder, $mail, $tmp["number"], $tmp["transfer"]);
+				echo "<hr />".view_part($servr, $user, stripslashes($passwd), $folder, $mail, $tmp["number"], $tmp["transfer"], $tmp["charset"], $charset);
 			if ($display_img_attach && (eregi ("image", $tmp["mime"]) && ($tmp["id"] == "")))
 			{
 				// if it's an image, display it

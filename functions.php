@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.69 2001/03/05 16:25:49 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.70 2001/03/11 15:52:40 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -191,6 +191,7 @@ function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort
 				"att" => $link_att,
 				"body" => $glob_body,
 				"body_mime" => $tmp["mime"],
+				"body_transfer" => $tmp["transfer"],
 				"header" => $header,
 				"verbose" => $verbose,
 				"prev" => $prev_msg,
@@ -240,7 +241,6 @@ function GetPart($this_part, $part_no, $display_rfc822)
 			break;
 		case TYPEMESSAGE:
 			$mime_type = "message";
-			//echo count($this_part->parts[0]->parts);
 			// well it's a message we have to parse it to find attachments or text message
 			$num_parts = count($this_part->parts[0]->parts);
 			if ($num_parts > 0)
@@ -291,17 +291,22 @@ function GetPart($this_part, $part_no, $display_rfc822)
 			break;
 	}
 	if (($full_mime_type == "message/RFC822" && $display_rfc822 == true) || ($mime_type != "multipart" && $full_mime_type != "message/RFC822"))
-		{
-			$tmp = Array(
-					"number" => ($part_no != "" ? $part_no : 1),
-					"id" => $this_part->id,
-					"name" => $att_name,
-					"mime" => $full_mime_type,
-					"transfer" => $encoding,
-					"size" => ($this_part->bytes > 1000) ? ceil($this_part->bytes / 1000) : 1);
+	{
+		if ($this_part->ifparameters)
+			while ($obj = array_pop($this_part->parameters))
+				if ($obj->attribute == "CHARSET")
+					$charset = $obj->value;
+		$tmp = Array(
+				"number" => ($part_no != "" ? $part_no : 1),
+				"id" => $this_part->id,
+				"name" => $att_name,
+				"mime" => $full_mime_type,
+				"transfer" => $encoding,
+				"charset" => $this_part->charset,
+				"size" => ($this_part->bytes > 1000) ? ceil($this_part->bytes / 1000) : 1);
 		
-			array_unshift($attach_tab, $tmp);
-		}
+		array_unshift($attach_tab, $tmp);
+	}
 }
 
 /* ----------------------------------------------------- */
@@ -335,12 +340,17 @@ function GetSinglePart($this_part, $header, $body)
 			$encoding = "none";
 			break;
 	}
+	if ($this_part->ifparameters)
+		while ($obj = array_pop($this_part->parameters))
+			if ($obj->attribute == "CHARSET")
+				$charset = $obj->value;
 	$tmp = Array(
 					"number" => 1,
 					"id" => $this_part->id,
 					"name" => "",
 					"mime" => $full_mime_type,
 					"transfer" => $encoding,
+					"charset" => $this_part->charset,
 					"size" => ($this_part->bytes > 1000) ? ceil($this_part->bytes / 1000) : 1);
 	array_unshift($attach_tab, $tmp);
 }
@@ -517,16 +527,19 @@ function save_attachment($servr, $user, $passwd, $folder, $mail)
 
 /* ----------------------------------------------------- */
 
-function view_part($servr, $user, $passwd, $folder, $mail, $part_no, $transfer)
+function view_part($servr, $user, $passwd, $folder, $mail, $part_no, $transfer, $msg_charset, $charset)
 {
 	$pop = imap_open("{".$servr."}".$folder, $user, $passwd);
 	$text = imap_fetchbody($pop, $mail, $part_no);
 	if ($transfer == "BASE64")
-		return (nl2br(imap_base64($text)));
+		$str = nl2br(imap_base64($text));
 	elseif($transfer == "QUOTED-PRINTABLE")
-		return (nl2br(quoted_printable_decode($text)));
+		$str = nl2br(quoted_printable_decode($text));
 	else
-		return (nl2br($text));
+		$str = nl2br($text);
+	//if (eregi("koi", $transfer) || eregi("windows-1251", $transfer))
+		$str = @convert_cyr_string($str, $msg_charset, $charset);
+	return ($str);
 }
 
 /* ----------------------------------------------------- */
