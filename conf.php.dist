@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.46 2001/04/19 19:32:06 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.47 2001/04/24 18:57:06 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -232,7 +232,7 @@ if (empty($smtp_port))
 	$smtp_port = $default_smtp_port;
 if (empty($servr) && !empty($server) && !empty($servtype) && !empty($port))
 {
-		$servr = $server."/".strtoupper($servtype).":".$port;
+		$servr = $server."/".strtolower($servtype).":".$port;
 		$domain = $server;
 }
 
