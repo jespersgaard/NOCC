@@ -22,16 +22,21 @@ Initial Developers
 Additional Developers
 =====================
 
- Ross Golder <rossigee@users.sourceforge.net>
+ * Ross Golder <rossigee@users.sourceforge.net>
 
     Added preferences code, hardened SMTP code
     Bug report triaging
+
+ * Mike Rylander <mrylander@users.sourceforge.net>
+
+    Folder patch
+    Various patches
 
  * Colin Stephenson <colin@atlanticisle.com>
 
     Various patches
 
- * Arno Bean <bean_ae@users.sf.net>
+ * Arno Bean <bean_ae@users.sourceforge.net>
 
     Various patches
 
