@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.53 2001/02/28 21:30:54 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.54 2001/02/28 21:44:46 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -30,7 +30,6 @@ if (!(extension_loaded('imap')))
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang ?>" lang="<?php echo $lang ?>">
 <head>
 <title>NOCC - Webmail</title>
-
 <link href="themes/<?php echo $theme ?>/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 <!--
