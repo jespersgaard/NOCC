@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.42 2000/12/21 17:03:05 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.43 2000/12/28 13:18:01 nicocha Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -45,7 +45,7 @@ function inbox($servr, $user, $passwd, $sort, $sortdir, $lang)
 					$msg_size = ($struct_msg->bytes > 1024) ? round($struct_msg->bytes / 1024) : 1;
 				if ($struct_msg->type == 1)
 				{
-					if ($struct_msg->subtype == "ALTERNATIVE")
+					if ($struct_msg->subtype == "ALTERNATIVE" || $struct_msg->subtype == "RELATED")
 						$attach = "&nbsp;";
 					else
 						$attach = "<img src=\"img/attach.png\" alt=\"A\" height\"28\" width=\"27\">";
@@ -136,17 +136,20 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 	else
 		array_push($attach_tab, $tmp);
 	@imap_close($pop);
-	switch (sizeof($attach_tab))
+	if ($struct_msg->subtype != "ALTERNATIVE" && $struct_msg->subtype != "RELATED")
 	{
-		case 0:
-			$link_att = "";
-			break;
-		case 1:
-			$link_att = "<tr><td align=\"right\" valign=\"top\" class=\"mail\">".$html_att."</td><td bgcolor=\"".$html_mail_properties."\" class=\"mail\">".link_att($mailhost, $mail, $attach_tab, $display_part_no)."</td></tr>";
-			break;
-		default:
-			$link_att = "<tr><td align=\"right\" valign=\"top\" class=\"mail\">".$html_atts."</td><td bgcolor=\"".$html_mail_properties."\" class=\"mail\">".link_att($mailhost, $mail, $attach_tab, $display_part_no)."</td></tr>";
-			break;
+		switch (sizeof($attach_tab))
+		{
+			case 0:
+				$link_att = "";
+				break;
+			case 1:
+				$link_att = "<tr><td align=\"right\" valign=\"top\" class=\"mail\">".$html_att."</td><td bgcolor=\"".$html_mail_properties."\" class=\"mail\">".link_att($mailhost, $mail, $attach_tab, $display_part_no)."</td></tr>";
+				break;
+			default:
+				$link_att = "<tr><td align=\"right\" valign=\"top\" class=\"mail\">".$html_atts."</td><td bgcolor=\"".$html_mail_properties."\" class=\"mail\">".link_att($mailhost, $mail, $attach_tab, $display_part_no)."</td></tr>";
+				break;
+		}
 	}
 	$subject = imap_mime_header_decode($ref_contenu_message->subject);
 	$from = imap_mime_header_decode($ref_contenu_message->fromaddress);
