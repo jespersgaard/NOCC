@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.171 2002/12/16 15:22:48 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.172 2003/01/15 05:52:19 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -142,32 +142,45 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
             break;
         }
     }
-    // END finding the next and previous message number
+
+    // Get number of messages (why?)
     $num_messages = $pop->num_msg();
-    $ref_contenu_message = $pop->headerinfo($mail, $ev);
+
+    // Get message header information (parsed)
+    $ref_contenu_message = $pop->headerinfo($mail, $ev); 
     if(Exception::isException($ev)) return;
+
+    // Get the MIME message structure
     $struct_msg = $pop->fetchstructure($mail, $ev);
-    if(Exception::isException($ev)) return;
+    if(Exception::isException($ev)) return; 
+
+    // If there are attachments, populate the attachment array, otherwise
+    // just get the main body as a single-element array
     if (isset($struct_msg->parts) && (sizeof($struct_msg->parts) > 0))
         GetPart($attach_tab, $struct_msg, NULL, $conf->display_rfc822);
     else {
         GetSinglePart($attach_tab, $struct_msg, $pop->fetchheader($mail, $ev), $pop->body($mail, $ev));
         if(Exception::isException($ev)) return;
     }
+
+    // If we are showing all headers, gather them into a header array
+    $header = "";
     if (($verbose == 1) && ($conf->use_verbose == true)) {
         $header = $pop->fetchheader($mail, $ev);
         if(Exception::isException($ev)) return;
     }
-    else
-        $header = '';
+
+    // Get the first part
     $tmp = array_pop($attach_tab);
     if (eregi('text/html', $tmp['mime']) || eregi('text/plain', $tmp['mime']))
     {    
-        if ($tmp['transfer'] == 'QUOTED-PRINTABLE') {
+        // QUOTED-PRINTABLE
+        if ($tmp['transfer'] == 4) {
             $glob_body = nocc_imap::qprint($pop->fetchbody($mail, $tmp['number'], $ev));
             if(Exception::isException($ev)) return;
         }
-        elseif ($tmp['transfer'] == 'BASE64') {
+	// BASE64
+        elseif ($tmp['transfer'] == 3) {
             $glob_body = base64_decode($pop->fetchbody($mail, $tmp['number'], $ev));
             if(Exception::isException($ev)) return;
         }
@@ -227,7 +240,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
         'body' => $glob_body,
         'body_mime' => $tmp['mime'],
         'body_transfer' => $tmp['transfer'],
-        'header' => htmlspecialchars($header),
+        'header' => $header,
         'verbose' => $verbose,
         'prev' => $prev_msg,
         'next' => $next_msg,
@@ -364,6 +377,8 @@ function GetPart(&$attach_tab, &$this_part, $part_no, &$display_rfc822)
 
 /* ----------------------------------------------------- */
 
+// BUG: returns text/plain when Content-Type: application/x-zip (e.g.)
+
 function GetSinglePart(&$attach_tab, &$this_part, &$header, &$body)
 {
     if (eregi('text/html', $header))
@@ -373,7 +388,7 @@ function GetSinglePart(&$attach_tab, &$this_part, &$header, &$body)
     if (isset($this_part->encoding))
     {
         switch ($this_part->encoding)
-    {
+	{
             case 0:
                 $encoding = '7BIT';
                 break;
@@ -760,9 +775,15 @@ function valid_email($email)
 function get_per_page() {
     global $conf;
     $user_prefs = $_SESSION['nocc_user_prefs'];
-    if (!isset($user_prefs->msg_per_page)) {
-        return $conf->msg_per_page;
-    }
-    return $user_prefs->msg_per_page;
+    $msg_per_page = 0;
+    if (isset($conf->msg_per_page))
+	    $msg_per_page = $conf->msg_per_page;
+    if (isset($user_prefs->msg_per_page))
+	    $msg_per_page = $user_prefs->msg_per_page;
+    // Failsafe
+    if($msg_per_page < 1)
+	    $msg_per_page = 25;
+    return $msg_per_page;
 }
+
 ?>
