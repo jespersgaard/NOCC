@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.6 2001/02/06 20:47:46 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.7 2001/02/19 11:11:30 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -52,7 +52,7 @@ $alt_prev = "Anterior";
 
 // index.php
 
-$html_lang = "L&iacute;ngua;
+$html_lang = "L&iacute;ngua";
 $html_welcome = "Benvindo ao";
 $html_login = "Login";
 $html_passwd = "Password";
