@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.6 2001/10/21 22:10:56 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.7 2001/10/21 23:15:03 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -153,7 +153,7 @@ function checkForPrefs($data_dir, $username)
 	}
 
 	// Default preferences doesn't exist, create empty user preferences
-	$file = fopen(filename, 'w');
+	$file = fopen($filename, 'w');
 	if($file)
 	{
 		fclose($file);
