@@ -2,7 +2,7 @@
 	<td align="center" valign="middle">
 		<input type="image" src="themes/<?php echo $theme ?>/img/delete.gif" alt="<?php echo $alt_delete ?>" />
 	</td>
-	<td colspan="6"><a href="" class="button" onClick="SelectAll();"><?php echo $html_select_all ?></a></td>
+	<td colspan="6"><a href="javascript:void(null)" class="button" onclick="SelectAll();"><?php echo $html_select_all ?></a></td>
 </tr>
 </table>
 <input type="hidden" name="nothing" value="looks_good" />
