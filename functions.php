@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.181 2003/12/21 15:40:20 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.182 2004/06/15 10:37:08 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -60,15 +60,15 @@ function inbox(&$pop, $skip = 0, &$ev)
         else
             if(isset($struct_msg->bytes))
                 $msg_size = ($struct_msg->bytes > 1000) ? ceil($struct_msg->bytes / 1000) : 1;
-        if (isset($struct_msg->type) && $struct_msg->type == 1)
+        if (isset($struct_msg->type) && ( $struct_msg->type == 1 || $struct_msg->type == 3))
         {
             if ($struct_msg->subtype == 'ALTERNATIVE' || $struct_msg->subtype == 'RELATED')
-                $attach = '&nbsp;';
+                $attach = '&nbsp';
             else
                 $attach = '<img src="themes/' . $_SESSION['nocc_theme'] . '/img/attach.gif" alt="" />';
         }
         else
-            $attach = '&nbsp;';
+            $attach = '&nbsp';
         // Check Status Line with UCB POP Server to
         // see if this is a new message. This is a
         // non-RFC standard line header.
@@ -160,7 +160,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
 
     // If there are attachments, populate the attachment array, otherwise
     // just get the main body as a single-element array
-    if (isset($struct_msg->parts) && (sizeof($struct_msg->parts) > 0))
+    if ($struct_msg->type == 3 || (isset($struct_msg->parts) && (sizeof($struct_msg->parts) > 0)))
         GetPart($attach_tab, $struct_msg, NULL, $conf->display_rfc822);
     else {
         GetSinglePart($attach_tab, $struct_msg, $pop->fetchheader($mail, $ev), $pop->body($mail, $ev));
@@ -176,7 +176,11 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
 
     // Get the first part
     $tmp = array_pop($attach_tab);
-    $body = $pop->fetchbody($mail, $tmp['number'], $ev);
+    if ($struct_msg->type == 3) {
+        $body = '';
+    } else {
+        $body = $pop->fetchbody($mail, $tmp['number'], $ev);
+    }
     if(NoccException::isException($ev)) return;
 
     if (eregi('text/html', $tmp['mime']) || eregi('text/plain', $tmp['mime']))
