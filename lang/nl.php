@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.32 2004/06/24 17:32:50 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.33 2004/06/28 15:28:04 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -30,7 +30,7 @@ $lang_dir = 'ltr';
 
 // What format string should we pass to strftime() for messages sent on
 // days other than today?
-$default_date_format = '%d-%m-%Y'; 
+$default_date_format = '%d-%m-%Y';
 
 // If the local is not implemented on the host, how we display the date
 $no_locale_date_format = '%d-%m-%Y';
@@ -56,7 +56,7 @@ $alt_reply_all = 'Antwoord allemaal';
 $alt_forward = 'Doorzenden';
 $alt_next = 'Volgende';
 $alt_prev = 'Vorige';
-$html_on = 'on';  //to translate
+$html_on = 'aan';
 $html_theme = 'Schema';
 
 // index.php
@@ -66,8 +66,8 @@ $html_welcome = 'Welkom op';
 $html_login = 'Login';
 $html_passwd = 'Wachtwoord';
 $html_submit = 'Verzenden';
-$html_help = 'Help';  //to translate
-$html_server = 'Server';  //to translate
+$html_help = 'Help';
+$html_server = 'Server';
 $html_wrong = 'De login-naam of het wachtwoord is onjuist';
 $html_retry = 'Probeer opnieuw';
 
@@ -83,52 +83,52 @@ $html_outlook_quoting = 'Outlook-quoting';
 $html_reply_to = 'Antwoord naar';
 $html_use_signature = 'Gebruik handtekening';
 $html_signature = 'Handtekening';
-$html_reply_leadin = 'Reply Leadin';  //to translate
+$html_reply_leadin = 'Antwoord op inleiding';
 $html_prefs_updated = 'Instellingen opgeslagen';
-$html_manage_folders_link = 'Manage IMAP Folders';  //to translate
-$html_manage_filters_link = 'Manage Email Filters';  //to translate
-$html_use_graphical_smilies = 'Use graphical smilies'; //to translate
+$html_manage_folders_link = 'Beheer IMAP mappen';
+$html_manage_filters_link = 'Beheer Email Filters';
+$html_use_graphical_smilies = 'Gebruik grafische smilies';
 
 // folders.php
-$html_folders_create_failed = 'Folder could not be created!';  //to translate
-$html_folders_sub_failed = 'Could not subscribed to folder!';  //to translate
-$html_folders_unsub_failed = 'Could not unsubscribed from folder!';  //to translate
-$html_folders_rename_failed = 'Folder could not be renamed!';  //to translate
-$html_folders_updated = 'Folders updated';  //to translate
-$html_folder_subscribe = 'Subscribe to';  //to translate
-$html_folder_rename = 'Rename';  //to translate
-$html_folder_create = 'Create new folder called';  //to translate
-$html_folder_remove = 'Unsubscribe from';  //to translate
-$html_folder_delete = 'Delete';  //to translate
+$html_folders_create_failed = 'Map kon niet worden gemaakt!';
+$html_folders_sub_failed = 'Kan niet inschrijven naar map!';
+$html_folders_unsub_failed = 'Kan niet uitschrijven van map!';
+$html_folders_rename_failed = 'Map kan niet worden hernoemd!';
+$html_folders_updated = 'Mappen geupdate';
+$html_folder_subscribe = 'Inschrijven voor';
+$html_folder_rename = 'Hernoem';
+$html_folder_create = 'Creeer nieuwe map genaamd';
+$html_folder_remove = 'Uitschrijven van';
+$html_folder_delete = 'Verwijder';
 
 // filters.php
-$html_filter_remove = 'Delete';  //to translate
-$html_filter_body = 'Message Body';  //to translate
-$html_filter_subject = 'Message Subject';  //to translate
-$html_filter_to = 'To Field';  //to translate
-$html_filter_cc = 'Cc Field';  //to translate
-$html_filter_from = 'From Field';  //to translate
-$html_filter_change_tip = 'To change a filter simply overwrite it.';  //to translate
-$html_reapply_filters = 'Reapply all filters';  //to translate
-$html_filter_contains = 'contains';  //to translate
-$html_filter_name = 'Filter Name';  //to translate
-$html_filter_action = 'Filter Action';  //to translate
-$html_filter_moveto = 'Move to';  //to translate
+$html_filter_remove = 'Verwijder';
+$html_filter_body = 'Berichten Body';
+$html_filter_subject = 'Berichten onderwerp';
+$html_filter_to = 'Naar veld';
+$html_filter_cc = 'Cc veld';
+$html_filter_from = 'Van veld';
+$html_filter_change_tip = 'Om een filter te veranderen simpel overschrijf.';
+$html_reapply_filters = 'Reapply alle filters';
+$html_filter_contains = 'Bevat';
+$html_filter_name = 'Filter Naam';
+$html_filter_action = 'Filter Actie';
+$html_filter_moveto = 'Verplaats naar';
 
 // Other pages
-$html_select_one = '--Select One--';  //to translate
-$html_and = 'And';  //to translate
-$html_new_msg_in = 'New messages in';  //to translate
-$html_or = 'or';  //to translate
-$html_move = 'Move';  //to translate
-$html_copy = 'Copy';  //to translate
-$html_messages_to = 'selected messages to';  //to translate
-$html_gotopage = 'Go to Page';  //to translate
-$html_gotofolder = 'Go to Folder';  //to translate
-$html_other_folders = 'Folder List';  //to translate
-$html_page = 'Page';  //to translate
-$html_of = 'of';  //to translate
-$html_to = 'to';  //to translate
+$html_select_one = '--Selecteer een--';
+$html_and = 'En';
+$html_new_msg_in = 'Nieuwe bericht in';
+$html_or = 'of';
+$html_move = 'Verplaats';
+$html_copy = 'Copieer';
+$html_messages_to = 'selecteer berichten naar';
+$html_gotopage = 'Ga naar pagina';
+$html_gotofolder = 'Ga naar map';
+$html_other_folders = 'Mappen lijst';
+$html_page = 'Pagina';
+$html_of = 'of';
+$html_to = 'naar';
 $html_view_header = 'Headers inzien';
 $html_remove_header = 'Headers verbergen';
 $html_inbox = 'Postvak In';
@@ -137,7 +137,7 @@ $html_reply = 'Antwoorden';
 $html_reply_short = 'Betr.:';
 $html_reply_all = 'Antwoord allen';
 $html_forward = 'Doorsturen';
-$html_forward_short = 'Fw';  //to translate
+$html_forward_short = 'Fw';
 $html_delete = 'Verwijder';
 $html_new = 'Nieuw';
 $html_mark = 'Verwijder';
@@ -147,20 +147,20 @@ $html_att_unknown = '[onbekend]';
 $html_attach = 'Voeg toe';
 $html_attach_forget = 'Er moet een bestand als bijlage opgegeven worden voor verzending !';
 $html_attach_delete = 'Verwijder selectie';
-$html_sort_by = 'Sort by';  //to translate
+$html_sort_by = 'Sorteer op';
 $html_from = 'Van';
 $html_subject = 'Onderwerp';
 $html_date = 'Datum';
 $html_sent = 'Verzenden';
-$html_wrote = 'wrote';  //to translate
+$html_wrote = 'Schreef';
 $html_size = 'Grootte';
 $html_totalsize = 'Totale grootte';
-$html_kb = 'Kb';  //to translate
-$html_bytes = 'bytes';  //to translate
+$html_kb = 'Kb';
+$html_bytes = 'bytes';
 $html_filename = 'Bestandsnaam';
 $html_to = 'Aan';
-$html_cc = 'Cc';  //to translate
-$html_bcc = 'Bcc';  //to translate
+$html_cc = 'Cc';
+$html_bcc = 'Bcc';
 $html_nosubject = 'Geen onderwerp';
 $html_send = 'Verzenden';
 $html_cancel = 'Annuleren';
@@ -170,42 +170,42 @@ $html_msg = 'Bericht';
 $html_msgs = 'Berichten';
 $html_configuration = 'Deze server is niet correct ingesteld';
 $html_priority = 'Prioriteit';
-$html_low = 'Low';  //to translate
-$html_normal = 'Normal';  //to translate
+$html_low = 'Laag';
+$html_normal = 'Normaal';
 $html_high = 'Hoog';
 $html_receipt = 'Ontvangstbevestiging';
 $html_select = 'Selecteer';
-$html_select_all = 'Invert Selection';  //to translate
+$html_select_all = 'Voeg selectie toe';
 $html_loading_image = 'Plaatje laden';
 $html_send_confirmed = 'Het bericht is verzonden';
 $html_no_sendaction = 'Geen actie gespecificeerd. Evt. JavaScript aanzetten.';
 $html_error_occurred = 'Er is een fout opgetreden';
 $html_prefs_file_error = 'Het instellingenbestand kan niet worden geopend.';
-$html_wrap = 'Wrap outgoing messages to :';  //to translate
-$html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
-$html_mark_as = 'Mark as'; //to translate
-$html_read = 'read'; //to translate
-$html_unread = 'unread'; //to translate
+$html_wrap = 'Wrap uitgaande berichten naar :';
+$html_usenet_separator = 'Gebruik separator ("-- \n") voor de handtekening';
+$html_mark_as = 'Markeer als';
+$html_read = 'Lees';
+$html_unread = 'niet gelezen';
 
 // Contacts manager
-$html_add = 'Add';  //to translate
-$html_contacts = 'Contacts';  //to translate
-$html_modify = 'Modify';  //to translate
-$html_back = 'Back';  //to translate
-$html_contact_add = 'Add new contact';  //to translate
-$html_contact_mod = 'Modify a contact';  //to translate
-$html_contact_first = 'First name';  //to translate
-$html_contact_last = 'Last Name';  //to translate
-$html_contact_nick = 'Nick';  //to translate
-$html_contact_mail = 'Mail';  //to translate
-$html_contact_list = 'Contact list of ';  //to translate
-$html_contact_del = 'from the contact list';  //to translate
+$html_add = 'Voeg toe';
+$html_contacts = 'Contacten';
+$html_modify = 'Verander';
+$html_back = 'Terug';
+$html_contact_add = 'Voeg nieuw contact toe';
+$html_contact_mod = 'Verander een contact';
+$html_contact_first = 'Voornaam';
+$html_contact_last = 'Achternaam';
+$html_contact_nick = 'Nick';
+$html_contact_mail = 'email';
+$html_contact_list = 'Contact lijst van ';
+$html_contact_del = 'van de contact lijst';
 
-$html_contact_err1 = 'Maximal number of contact is ';  //to translate
-$html_contact_err2 = 'You can\'t add a new contact';  //to translate
-$html_contact_err3 = 'You don\'t have access rights to contact list'; //to translate
-$html_del_msg = 'Delete selected messages ?';  //to translate
-$html_down_mail = 'Download';  //to translate
+$html_contact_err1 = 'Maximale nummer van contact is ';
+$html_contact_err2 = 'Je kan niet een nieuw contact toevoegen';
+$html_contact_err3 = 'Je hebt geen toegang  tot de contact lijst';
+$html_del_msg = 'Verwijder geselecteerde berichten ?';
+$html_down_mail = 'Download';
 
 $original_msg = '--Oorspronkelijk Bericht--';
 $to_empty = 'Het \'Aan\'-veld kan niet leeg zijn !';
@@ -219,10 +219,10 @@ $lang_could_not_connect = 'Verbinding met de server kan niet worden geinitialise
 
 $html_file_upload_attack = 'Mogelijk bestandsupload aanval';
 $html_invalid_email_address = 'Ongeldig e-mail adres';
-$html_invalid_msg_per_page = 'Invalid number of messages per page';  //to translate
-$html_invalid_wrap_msg = 'Invalid message wrap width';  //to translate
+$html_invalid_msg_per_page = 'Ongeldig nummer van de berichten per pagina';  
+$html_invalid_wrap_msg = 'Ongeldig bericht wrap breedte';
 $html_seperate_msg_win = 'Berichten in apart venster';
 
 // Exceptions
-$html_err_file_contacts = 'Unable to open contacts file for writing.'; //to translate
+$html_err_file_contacts = 'Niet mogelijk om de contactlijst te openen om naar te schrijven.';
 ?>
