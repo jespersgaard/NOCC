@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.14 2000/11/24 22:01:52 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.15 2001/01/22 20:33:59 nicocha Exp $
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -21,6 +21,8 @@ class mime_mail
 	var $body;
 	var $smtp_server;
 	var $smtp_port;
+	var $charset;
+	// It would be a good idea to add the charset line (charset="$charset") into the header of the message //
 
   /*
   *     void mime_mail()
@@ -74,9 +76,10 @@ class mime_mail
 			default:
 				break;
 		}
-		return  "Content-Type: ".$part[ "ctype"].
-                        ($part[ "name"]? "; name = \"".$part[ "name"]. "\"" :  
-"")."\nContent-Transfer-Encoding: $encoding\n\n$message\n";
+		return  ("Content-Type: ".$part["ctype"].";".($part["name"]? 
+"\n\tname=\"".imap_8bit($part["name"])."\"" : "")."\nContent-Transfer-Encoding: 
+$encoding\nContent-Disposition: attachment;".($part["name"]? 
+"\n\tfilename=\"".imap_8bit($part["name"])."\"" : "")."\n".$message."\n");
 	}
 
 /*
@@ -158,7 +161,7 @@ message.\n\n--$boundary";
 				return ($smtp->send());
 			}
 			else
-				return 0;
+				return (0);
 		}
 	}
 };  // end of class  
