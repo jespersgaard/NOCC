@@ -1,5 +1,6 @@
 NOCC 0.9.6	??
 
+	* Added request receipt feature
 	* Update Greek language file
 	* Removed insecure 'X-Originating-Ip', and fixed 'X-Mailer' headers.
 	* Conf is now passed as argument. It is no more included in functions.

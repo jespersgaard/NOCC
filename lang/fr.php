@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.55 2001/12/13 10:35:56 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.56 2001/12/13 10:47:33 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -127,6 +127,7 @@ $html_priority = 'Priorit&eacute;';
 $html_low = 'Basse';
 $html_normal = 'Normale';
 $html_high = 'Haute';
+$html_receipt = 'Accus&eacute; de r&eacute;ception';
 $html_select = 'S&eacute;lectionner';
 $html_select_all = 'Tout s&eacute;lectionner';
 $html_loading_image = 'Chargement de l\'image';
@@ -141,5 +142,5 @@ $to_empty = 'Le champ \'A\' ne doit pas être vide !';
 
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = "Impossible d'ouvrir la connexion";
-$html_smtp_error_unexpected = "R&eacute;ponse inattentue:";
+$html_smtp_error_unexpected = "R&eacute;ponse inattendue:";
 ?>

@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.38 2001/12/03 10:05:30 nicocha Exp $ -->
+<!-- start of $Id: send.php,v 1.39 2001/12/13 10:39:09 nicocha Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
 		<td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -46,6 +46,10 @@
 						<input type="file" name="mail_att" size="40" value="" />
 						<input type="button" class="button" onclick="attach()" value="<?php echo $html_attach ?>" />
 					</td>
+				</tr>
+                <tr>
+					<td align="right" class="inbox"><?php echo $html_receipt ?> : </td>
+					<td align="left"><input name="receipt" type="checkbox" /></td>
 				</tr>
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_priority ?> : </td>
@@ -139,4 +143,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.38 2001/12/03 10:05:30 nicocha Exp $ -->
+<!-- end of $Id: send.php,v 1.39 2001/12/13 10:39:09 nicocha Exp $ -->

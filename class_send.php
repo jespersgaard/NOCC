@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.44 2001/11/16 12:06:21 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.45 2001/12/03 09:58:42 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -26,6 +26,7 @@ class mime_mail
 	var $charset;
 	var $crlf;
 	var $priority;
+    var $receipt;
 
   /*
   *     void mime_mail()
@@ -46,6 +47,7 @@ class mime_mail
 		$this->charset = 'iso-8859-1';
 		$this->crlf = null;
 		$this->priority = '3 (Normal)';
+        $this->receipt = false;
 	}
 
   /*
@@ -146,6 +148,8 @@ class mime_mail
 			$mime .= 'Date: ' . date("D, j M Y H:i:s T") . $this->crlf;
 		if (!empty($this->from))
 			$mime .= 'Reply-To: ' . $this->from . $this->crlf . 'Errors-To: '.$this->from . $this->crlf;
+        if ($this->receipt != false)
+            $mime .= 'Disposition-Notification-To: ' . $this->from . $this->crlf;
 		$mime .= 'X-Priority: ' . $this->priority . $this->crlf;
 		if (!empty($this->headers))
 			$mime .= $this->headers . $this->crlf;

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.46 2001/11/28 14:28:42 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.47 2001/11/30 18:39:14 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -128,6 +128,7 @@ $html_priority = 'Priority';
 $html_low = 'Low';
 $html_normal = 'Normal';
 $html_high = 'High';
+$html_receipt = 'Request a return receipt';
 $html_select = 'Select';
 $html_select_all = 'Select All';
 $html_loading_image = 'Loading image';
