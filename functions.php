@@ -293,7 +293,6 @@ function remove_stuff($body, $lang, $mime)
 		$body = preg_replace("|<([^>]*)object|i", "<nocc_removed_object_tag", $body);
 		$body = preg_replace("|<([^>]*)&{.*}([^>]*)>|i", "<&{;}\\3>", $body);
 		$body = preg_replace("|<([^>]*)mocha:([^>]*)>|i", "<nocc_removed_mocha:\\2>",$body);
-
 		//$body = eregi_replace("<SCRIPT", "<NOCC REMOVED", $body);
 		//$body = eregi_replace("SCRIPT>", "SCRIPT> !>", $body);
 		$body = eregi_replace("href=\"mailto:([[:alnum:]/\n+-=%&:_.~?@]+[#[:alnum:]+]*)\"","<A HREF=\"$PHP_SELF?action=write&mail_to=\\1&lang=$lang\"", $body);
