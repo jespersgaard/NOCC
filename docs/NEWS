@@ -1,5 +1,7 @@
 NOCC 0.9.7    ?? ??, 2004
 
+    * Fix issue with attachment deletion and non ASCII language file. (Arnaud
+      Boudou)
     * Add configuration for IMAP Namespace. (Arnaud Boudou)
     * Add configuration for line feed behavior, could be useful with some
       MTA. (Arnaud Boudou)

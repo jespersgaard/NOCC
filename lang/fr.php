@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.79 2004/10/08 09:54:47 jdeluise Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.80 2004/10/21 11:27:38 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -146,7 +146,7 @@ $html_att_unknown = '[inconnu]';
 $html_attach = 'Attacher';
 $html_attach_forget = 'Vous devez attacher votre fichier avant d\'envoyer votre message !'; 
 $html_attach_delete = 'Supprimer les fichiers s&eacute;lectionn&eacute;s';
-$html_attach_none = 'You must select a file to attach!';  //to translate
+$html_attach_none = 'Vous devez s&eacute;lectionner un fichier &agrave; attacher!';
 $html_sort_by = 'Trier par';
 $html_from = 'De';
 $html_subject = 'Sujet';

@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.71 2004/10/08 09:54:47 jdeluise Exp $ -->
+<!-- start of $Id: send.php,v 1.72 2004/10/10 08:20:21 jdeluise Exp $ -->
 <?php
 
 // Default e-mail address on send form
@@ -144,17 +144,17 @@ var btnClicked;
 
 function validate(f) 
 {
-    if (btnClicked.value == "<?php echo $html_attach ?>") {
-	if(f.elements['mail_att'].value == "") {
-	     alert("<?php echo $html_attach_none ?>");
-	     return (false);
-	}	
+    if (btnClicked.value == "<?php echo unhtmlentities($html_attach) ?>") {
+        if(f.elements['mail_att'].value == "") {
+            alert('<?php echo unhtmlentities($html_attach_none) ?>');
+            return (false);
+        }
         else {
-	     return(true);
-	}
+            return(true);
+        }
     }
-    if (btnClicked.value == "<?php echo $html_attach_delete ?>") {
-	return (true);
+    if (btnClicked.value == "<?php echo unhtmlentities($html_attach_delete) ?>") {
+        return (true);
     }
     if (window.RegExp) {
         var reg = new RegExp("[0-9A-Za-z]+","g");
@@ -165,7 +165,7 @@ function validate(f)
         }
     }
     if (f.elements['mail_att'].value != "") {
-        alert("<?php echo $html_attach_forget ?>")
+        alert("<?php echo unhtmlentities($html_attach_forget) ?>")
         return (false);
     }
     //f.elements['sendaction'].value = "send";
@@ -173,4 +173,4 @@ function validate(f)
 
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.71 2004/10/08 09:54:47 jdeluise Exp $ -->
+<!-- end of $Id: send.php,v 1.72 2004/10/10 08:20:21 jdeluise Exp $ -->

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.194 2004/08/12 10:29:24 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.195 2004/09/23 19:14:32 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -948,4 +948,13 @@ function save_list ($path, $contacts, $conf, &$ev)
 
   fclose($fp);
 }
+
+// Convert html entities to normal characters
+function unhtmlentities ($string)
+{
+   $trans_tbl = get_html_translation_table (HTML_ENTITIES);
+   $trans_tbl = array_flip ($trans_tbl);
+   return strtr ($string, $trans_tbl);
+}
+
 ?>

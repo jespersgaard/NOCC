@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.128 2004/10/21 11:27:36 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.129 2004/11/08 16:33:32 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -226,7 +226,7 @@ switch($_REQUEST['sendaction'])
             header("Location: ".$conf->base_url."action.php");
         }
         break;
-    case $html_attach_delete:
+    case unhtmlentities($html_attach_delete):
         // Rebuilding the attachments array with only the files the user wants to keep
         $tmp_array = array();
         $attach_array = $_SESSION['nocc_attach_array'];
