@@ -1,9 +1,9 @@
 <?
 /*
-	$File$
-	$Author$
-	$Revision$
-	$Date$
+	$Author: nicocha $
+	$Revision: 1.13 $
+	$Date: 2000/10/23 23:44:42 $
+	$Log$
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
