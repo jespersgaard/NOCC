@@ -16,7 +16,7 @@ $is_Imap = (ereg("IMAP", $servr)) ? 1 : 0;
 		<td align="right" nowrap="nowrap" class="titlew">
 			<?php echo $current_date ?>
 		</td>
-		<td colspan="3" align="right" class="titlew" nowrap="nowrap">
+		<td colspan="2" align="right" class="titlew" nowrap="nowrap">
 			<?php echo $num_msg ?> <?php if ($num_msg > 1) {echo $html_msgs;} else {echo $html_msg;}?>
 		</td>
 	</tr>
