@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.39 2001/02/22 16:23:46 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.40 2001/02/23 09:31:58 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -19,6 +19,11 @@ $charset = "ISO-8859-1";
 // What language to use (Here, french FRANCE --> fr_FR)
 // see '/usr/share/locale/' for more information
 $lang_locale = "fr_FR";
+
+// Text Alignment
+// Can be right-to-left (rtl) which is needed for proper Arabic, Hebrew
+// Or left-to-right (ltr) which is default for most languages
+$lang_dir = "ltr";
 
 // What format string should we pass to strftime() for messages sent on
 // days other than today?
