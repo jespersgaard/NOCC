@@ -1,15 +1,19 @@
 Frequently Asked Questions for Nocc
 -----------------------------------
-Last updated: $Date: 2001/04/17 21:55:36 $
+Last updated: $Date: 2001/04/24 19:14:54 $
 
  Q. Nocc keeps me asking for a correct login/password.
 
  A. Check that you correctly configured your POP/IMAP server in conf.php
     ex:
 
-    $servr = "pop.isp.com/pop3:110";
+    $servr = "mail.isp.com/pop3:110"; for a pop3 server
 
-    NOT $servr = "pop.isp.com";
+    and
+
+    $servr = "mail.isp.com:143"; for an imap server
+
+    NOT $servr = "mail.isp.com";
 
     -> Check that you're allowed to connect to the POP/IMAP server manually.
     Your ISP may not allow people based on the IP.
