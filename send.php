@@ -1,6 +1,7 @@
 <?
 require ("conf.php");
 require ("class_send.php");
+require("class_smtp.php");
 require ("check_lang.php");
 
 $ip = getenv("REMOTE_ADDR");

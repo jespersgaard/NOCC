@@ -128,7 +128,6 @@ class mime_mail
 			mail($this->to, $this->subject,  "", $mime);
 		else
 		{
-			require("class_smtp.php");
 			if (($smtp = new smtp()) != 0)
 			{
 				$smtp->smtp_server = $this->smtp_server;
