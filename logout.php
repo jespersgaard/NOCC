@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/logout.php,v 1.12 2001/04/17 20:53:51 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/logout.php,v 1.13 2001/04/17 21:55:36 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,9 +9,12 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
 
+require ("conf.php");
+
 session_start();
 $old_theme = $theme;
-$tmpdir = (!empty($upload_tmp_dir) ? $upload_tmp_dir : $tmpdir);
+$ini_tmpdir = ini_get($upload_tmp_dir);
+$tmpdir = (!empty($ini_tmpdir)) ? $ini_tmpdir : $tmpdir;
 if (is_array($attach_array))
 	while ($tmp = array_shift($attach_array))
 		@unlink($tmpdir."/".$tmp->tmp_file);
