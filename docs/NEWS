@@ -4,9 +4,9 @@ NOCC 0.9.2	February ??, 2001
 	  deleting attachments is now possible).
 	* Attachments are preserved when replying to, transfering a message.
 	* The 'New' column isn't displayed anymore when accessing a POP3 server. 
-	* language files are now out of the release except for French and English files
-	  (We cannot maintain these files as we do not speak other language than English and French).
-	  These files will be available for download on NOCC website at http://nocc.sourceforge.net
+	* New translations (portuguese, dutch, arabic and spanish)
+	  However, as more features came in, some items aren't translated yet.
+	* Fixed bug where one couldn't log in if the password contained "\".
 	* Improved speed for parsing messages (both for the inbox display
 	  and the message display itself).
 	* Improved the display of HTML and TEXT messages.
