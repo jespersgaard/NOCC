@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.53 2001/01/30 22:38:09 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.54 2001/01/31 00:14:20 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -14,11 +14,11 @@ $glob_body = "";
 
 /* ----------------------------------------------------- */
 
-function inbox($servr, $user, $passwd, $sort, $sortdir, $lang)
+function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang)
 {
 	$mailhost = $servr;
 	require("conf.php");
-	$pop = @imap_open("{".$mailhost."}INBOX", $user, $passwd);
+	$pop = @imap_open("{".$mailhost."}".$folder, $user, $passwd);
 	if ($pop == false)
 		return (-1);
 	else
@@ -31,7 +31,7 @@ function inbox($servr, $user, $passwd, $sort, $sortdir, $lang)
 		else
 		{
 			//if ($sort != "" && $sortdir != "")
-				$sorted = imap_sort($pop, $sort, $sortdir, SE_UID); 
+			$sorted = imap_sort($pop, $sort, $sortdir, SE_UID); 
 			for ($i = 0; $i < $num_messages; $i++)
 			{
 				$msgnum = $sorted[$i];
@@ -52,11 +52,12 @@ function inbox($servr, $user, $passwd, $sort, $sortdir, $lang)
 				}
 				else
 					$attach = "&nbsp;";
+				// Following removed by NicoCha, the new column is no longer display for POP3 Account
 				// Check Status Line with UCB POP Server to
 				// see if this is a new message. This is a
 				// non-RFC standard line header.
 				// Set this in conf.php
-				if ($have_ucb_pop_server)
+				/*if ($have_ucb_pop_server)
                 {
 					$header_msg = imap_fetchheader($pop, imap_msgno($pop, $msgnum));
 					$header_lines = explode("\r\n", $header_msg);
@@ -69,20 +70,25 @@ function inbox($servr, $user, $passwd, $sort, $sortdir, $lang)
 				}
 				else
 				{
-					if (($ref_contenu_message->Unseen == 'U') || ($ref_contenu_message->Recent == 'N'))
-						$new_mail_from_header = "";
-					else
-						$new_mail_from_header = "&nbsp;";
+				if (($ref_contenu_message->Unseen == 'U') || ($ref_contenu_message->Recent == 'N'))
+					$new_mail_from_header = "";
+				else
+					$new_mail_from_header = "&nbsp;";
 				}
 				if ($new_mail_from_header == "")
+					$newmail = "<img src=\"img/new.png\" alt=\"N\" height=\"17\" width=\"17\">";
+				else
+					$newmail = "&nbsp;";
+				*/
+				if (($ref_contenu_message->Unseen == 'U') || ($ref_contenu_message->Recent == 'N'))
 					$newmail = "<img src=\"img/new.png\" alt=\"N\" height=\"17\" width=\"17\">";
 				else
 					$newmail = "&nbsp;";
 				$msg_list[$i] =  Array(
 						"new" => $newmail, 
 						"number" => imap_msgno($pop, $msgnum),
-						"next" => imap_msgno($pop, $sorted[$i+1]),
-						"prev" => imap_msgno($pop, $sorted[$i-1]),
+						//"next" => imap_msgno($pop, $sorted[$i + 1]),
+						//"prev" => imap_msgno($pop, $sorted[$i - 1]),
 						"attach" => $attach, 
 						"from" => htmlspecialchars($from[0]->text), 
 						"subject" => htmlspecialchars($subject[0]->text), 
@@ -99,7 +105,7 @@ function inbox($servr, $user, $passwd, $sort, $sortdir, $lang)
 
 /* ----------------------------------------------------- */
 
-function aff_mail($servr, $user, $passwd, $mail, $verbose, $lang)
+function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort, $sortdir)
 {
 	$mailhost = $servr;
 	require ("conf.php");
@@ -112,7 +118,7 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $lang)
 	if (setlocale ("LC_TIME", $lang_locale) != $lang_locale)
 		$default_date_format = $no_locale_date_format;
 	$current_date = strftime($default_date_format, time());
-	$pop = @imap_open("{".$mailhost."}INBOX", $user, $passwd);
+	$pop = @imap_open("{".$mailhost."}".$folder, $user, $passwd);
 	$num_messages = @imap_num_msg($pop);
 	$ref_contenu_message = @imap_header($pop, $mail);
 	$struct_msg = @imap_fetchstructure($pop, $mail);
@@ -167,7 +173,9 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $lang)
 				"body" => $glob_body,
 				"body_mime" => $tmp["mime"],
 				"header" => $header,
-				"verbose" => $verbose);
+				"verbose" => $verbose/*,
+				"next" => $next_msg,
+				"prev" => $prev_msg*/);
 	
 	return ($content);
 }
@@ -214,9 +222,14 @@ function GetPart($this_part, $part_no, $display_rfc822)
 			break;
 		case TYPEMESSAGE:
 			$mime_type = "message";
+			//echo count($this_part->parts[0]->parts);
 			// well it's a message we have to parse it to find attachments or text message
-			for ($i = 0; $i < count($this_part->parts[0]->parts); $i++)
-				GetPart($this_part->parts[0]->parts[$i], $part_no.".".($i + 1), $display_rfc822);
+			$num_parts = count($this_part->parts[0]->parts);
+			if ($num_parts > 0)
+				for ($i = 0; $i < $num_parts; $i++)
+					GetPart($this_part->parts[0]->parts[$i], $part_no.".".($i + 1), $display_rfc822);
+			else
+				GetPart($this_part->parts[0], $part_no.".1", $display_rfc822);
 			break;
 		// Maybe we can do something with the mime types later ??
 		case TYPEAPPLICATION:
@@ -437,11 +450,11 @@ function cut_address($addr) {
 
 // Function that save the attachment locally for reply, transfer...
 // This function returns an array of all the attachment
-function save_attachment($servr, $user, $passwd, $mail)
+function save_attachment($servr, $user, $passwd, $folder, $mail)
 {
 	GLOBAL $attach_tab;
 	$attach_array = array();
-	$pop = imap_open("{".$servr."}INBOX", $user, $passwd);
+	$pop = imap_open("{".$servr."}".$folder, $user, $passwd);
 	$i = 0;
 	while ($tmp = array_shift($attach_tab))
 	{
@@ -463,6 +476,20 @@ function save_attachment($servr, $user, $passwd, $mail)
 	} 
 	imap_close($pop);
 	return(array($i, $attach_array));
+}
+
+/* ----------------------------------------------------- */
+
+function view_part($servr, $user, $passwd, $folder, $mail, $part_no, $transfer)
+{
+	$pop = imap_open("{".$servr."}".$folder, $user, $passwd);
+	$text = imap_fetchbody($pop, $mail, $part_no);
+	if ($transfer == "BASE64")
+		return (nl2br(imap_base64($text)));
+	elseif($transfer == "QUOTED-PRINTABLE")
+		return (nl2br(quoted_printable_decode($text)));
+	else
+		return (nl2br($text));
 }
 
 /* ----------------------------------------------------- */
