@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.84 2001/11/30 18:39:13 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.85 2001/12/13 10:40:22 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -23,10 +23,10 @@ $conf->default_smtp_port = 25;
 // List of domains people can log in
 // You can have as many domains as you need
 
-// $domains[0]->domain = 'sourceforge.net';
+// $conf->domains[0]->domain = 'sourceforge.net';
 //  domain name e.g 'sourceforge.net'. This field is used when sending message
 //
-// $domains[0]->in = 'mail.sourceforge.net:110/pop3';
+// $conf->domains[0]->in = 'mail.sourceforge.net:110/pop3';
 //  imap or pop3 server name + port + protocol (only if not imap)
 //  [server_name]:[port number]/[protocol]
 //  ex for an imap server : mail.sourceforge.net:143
@@ -37,11 +37,11 @@ $conf->default_smtp_port = 25;
 //  ex for an ssl pop3 server with a self-signed certificate : mail.sourceforge.net:995/pop3/ssl/novalidate-cert
 //  protocol can only be pop3
 //
-// $domains[0]->smtp = 'smtp.isp.com';
+// $conf->domains[0]->smtp = 'smtp.isp.com';
 //  Optional: smtp server name or IP address
 //  Leave empty to send mail via sendmail
 //
-// $domains[0]->smtp_port = 25;
+// $conf->domains[0]->smtp_port = 25;
 //  Port number to connect to smtp server (usually 25)
 
 $conf->domains[0]->domain = '';
@@ -130,8 +130,8 @@ $conf->default_sortdir = '1';
 $conf->have_ucb_pop_server = false;
 
 // If you wanna make your own theme and force people to use that one, 
-// set $use_theme to false and fill in the $default_theme to the theme name
-// you want to use
+// set $conf->use_theme to false and fill in the $conf->default_theme to 
+// the theme name you want to use
 // Theme handling: allows users to choose a theme on the login page
 $conf->use_theme = true;
 
