@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.57 2001/02/06 18:34:05 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.58 2001/02/16 15:17:46 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -353,7 +353,7 @@ function remove_stuff($body, $lang, $mime)
 	{
 		$body = eregi_replace("(http|https|ftp)://([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)","<a href=\"\\1://\\2\" target=\"_blank\">\\1://\\2</a>", $body);
 		$body = eregi_replace("([[:alnum:]+-_.]+[#[:alnum:]+]*)@([[:alnum:]+-_.]+[#[:alnum:]+]*)\.([[:alnum:]+-_.]+[#[:alnum:]+]*)","<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1@\\2.\\3&amp;lang=$lang\">\\1@\\2.\\3</a>", $body);
-		$body = str_replace("<br>", "<br />", nl2br($body));
+		$body = nl2br($body);
 		if (function_exists("wordwrap"))
 			$body = wordwrap($body, 80, "\n");
 	}	
@@ -479,11 +479,11 @@ function view_part($servr, $user, $passwd, $folder, $mail, $part_no, $transfer)
 	$pop = imap_open("{".$servr."}".$folder, $user, $passwd);
 	$text = imap_fetchbody($pop, $mail, $part_no);
 	if ($transfer == "BASE64")
-		return (str_replace("<br>", "<br />", nl2br(imap_base64($text))));
+		return (imap_base64($text)));
 	elseif($transfer == "QUOTED-PRINTABLE")
-		return (str_replace("<br>", "<br />", nl2br(quoted_printable_decode($text))));
+		return (nl2br(quoted_printable_decode($text)));
 	else
-		return (str_replace("<br>", "<br />", nl2br($text)));
+		return (nl2br($text));
 }
 
 /* ----------------------------------------------------- */

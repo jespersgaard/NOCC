@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.24 2001/02/12 15:35:25 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.25 2001/02/16 15:17:46 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -90,7 +90,7 @@ switch ($sendaction)
 		}
 		if ($mail->send() !=0)
 			$error = true; // an error occured while sending the message
-		header ("Location: action.php?sort=$sort&amp;sortdir=$sortdir&amp;lang=$lang");
+		header ("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang");
 		break;
 	case "delete":
 		// Rebuilding the attachments array with only the files the user wants to keep
@@ -123,7 +123,7 @@ switch ($sendaction)
 		require ("html/menu_inbox.php");
 		break;
 	default;
-		header("Location: action.php?sort=$sort&amp;sortdir=$sortdir&amp;lang=$lang");
+		header("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang");
 		break;
 }
 require ("html/footer.php");
