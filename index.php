@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.48 2001/02/23 09:31:57 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.49 2001/02/23 09:40:31 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -11,6 +11,7 @@
 
 require ("conf.php");
 require ("check_lang.php");
+session_start();
 session_destroy();
 Header("Content-type: text/html; Charset=$charset");
 
