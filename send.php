@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.71 2001/10/21 22:10:56 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.72 2001/10/25 13:06:40 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -80,9 +80,12 @@ else
 				$mail->subject = stripcslashes(trim($mail_subject));
 
 			// Append advertisement tag, if set
+			if ($mail_body != '')
+				$mail->body = stripcslashes($mail_body);
+
 			if (isset($ad))
 				if ($mail_body != '')
-					$mail->body = stripcslashes($mail_body) . $mail->crlf . $mail->crlf . $ad;
+					$mail->body = $mail_body . $mail->crlf . $mail->crlf . $ad;
 				else
 					$mail->body = $ad;
 
