@@ -20,7 +20,8 @@ Overview of Nocc
 ****************
 
    Nocc is a Web-based e-mail reader. It uses PHP and a Web server to access
-a mail server (POP3, IMAP) and send e-mail (SMTP or plain sendmail).
+a mail server (POP3, IMAP) and send e-mail (SMTP or plain sendmail). Nocc
+support ESMTP AUTH via LOGIN and PLAIN methods.
 
    Nocc can be used as an e-mail reader and allows you to view, send messages,
 manage your mail account. It can view and send MIME attachments (files, HTML,

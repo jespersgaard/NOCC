@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.125 2004/08/26 20:12:32 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.126 2004/09/13 19:17:54 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -55,6 +55,12 @@ $conf->domains[$i]->smtp_port = 25;
 //$conf->domains[$i]->login_with_domain = 1;
 // Fill in if you require login suffixes for your mail server
 $conf->domains[$i]->login_suffix = '';
+// Select SMTP AUTH method.
+// Supported AUTH methods are :
+// '' : no authentification method
+// 'PLAIN' : AUTH PLAIN method
+// 'LOGIN' : AUTH LOGIN method
+$conf->domains[$i]->smtp_auth_method = '';
 
 // If you want to add more domains, uncomment the following
 // lines and fill them in
@@ -66,6 +72,7 @@ $conf->domains[$i]->login_suffix = '';
 //$conf->domains[$i]->smtp_port = 25;
 //$conf->domains[$i]->login_with_domain = 1;
 //$conf->domains[$i]->login_suffix = '';
+//$conf->domains[$i]->smtp_auth_method = '';
 
 //$i++;
 //$conf->domains[$i]->domain = '';
@@ -74,6 +81,7 @@ $conf->domains[$i]->login_suffix = '';
 //$conf->domains[$i]->smtp_port = 25;
 //$conf->domains[$i]->login_with_domain = 1;
 //$conf->domains[$i]->login_suffix = '';
+//$conf->domains[$i]->smtp_auth_method = '';
 
 // Is the user allowed to change his "From:" address? (true/false)
 $conf->allow_address_change = true;

@@ -1,11 +1,13 @@
 NOCC 0.9.7    ?? ??, 2004
 
+    * Add support for SMTP AUTH PLAIN and SMTP AUTH LOGIN (Arnaud Boudou, RFE 
+      #569828).
     * Add possibility to allow a limited set of characters for login (Arnaud
-      Boudou, RFE #979305)
+      Boudou, RFE #979305).
     * Add compatibility with PHP5's register_long_arrays=On, but break
-      compatibility with PHP version prior than 4.1.0 (Arnaud Boudou)
+      compatibility with PHP version prior than 4.1.0 (Arnaud Boudou).
     * Add possibility for force default language rather than browser preference
-      ("zverj", patch #1016925)
+      ("zverj", patch #1016925).
 
 NOCC 0.9.6    August 23, 2004
 

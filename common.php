@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.38 2004/08/27 10:55:45 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.39 2004/09/13 19:17:54 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -126,6 +126,9 @@ if (isset($_REQUEST['domainnum']))
     //append suffix to login
     if(isset($conf->domains[$domainnum]->login_suffix))
         $_SESSION['nocc_login'] .= $conf->domains[$domainnum]->login_suffix;
+
+    //smtp auth
+    $_SESSION['smtp_auth'] = $conf->domains[$domainnum]->smtp_auth_method;
 }
 
 // Or did the user provide the details themselves

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.28 2002/03/24 17:00:36 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.29 2003/12/21 15:40:20 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -75,12 +75,52 @@ class smtp
         $line = fgets($smtp, 1024);
         $this->sessionlog .= "Rcvd: $line";
 
-        if (substr($line, 0, 1) <> '2')
+        if (substr($line, 0, 1) != '2')
             return new NoccException($html_smtp_error_unexpected . ' : ' . $line); 
 
         return (true);
     } 
-
+    
+    function smtp_auth($smtp)
+    {
+      switch ($_SESSION['smtp_auth']) {
+          case 'LOGIN':
+              fputs($smtp, "auth login\r\n"); 
+              $this->sessionlog .= "Sent: auth login";
+              $line = fgets($smtp, 1024);
+              $this->sessionlog .= "Rcvd: $line";
+              if (substr($line, 0, 1) != '3')
+                  return new NoccException($html_smtp_error_unexpected . ' : ' . $line);
+                  
+              fputs($smtp, base64_encode($_SESSION['nocc_login']) . "\r\n"); 
+              $this->sessionlog .= "Sent: encoded login";
+              $line = fgets($smtp, 1024);
+              $this->sessionlog .= "Rcvd: $line";
+              if (substr($line, 0, 1) != '3')
+                  return new NoccException($html_smtp_error_unexpected . ' : ' . $line);
+                  
+              fputs($smtp, base64_encode($_SESSION['nocc_passwd']) . "\r\n"); 
+              $this->sessionlog .= "Sent: encoded password";
+              $line = fgets($smtp, 1024);
+              $this->sessionlog .= "Rcvd: $line";
+              if (substr($line, 0, 1) != '2')
+                  return new NoccException($html_smtp_error_unexpected . ' : ' . $line);
+              return (true);
+              break;
+          case 'PLAIN':
+              fputs($smtp, "auth plain " . base64_encode($_SESSION['nocc_login'] . chr(0) . $_SESSION['nocc_login'] . chr(0) . $_SESSION['nocc_passwd']) . "\r\n");
+              $this->sessionlog .= "Sent: encoded auth";
+              $line = fgets($smtp, 1024);
+              $this->sessionlog .= "Rcvd: $line";
+              if (substr($line, 0, 1) != '2')
+	          return new NoccException($html_smtp_error_unexpected . ' : ' . $line);
+              return (true);
+              break;
+          default:
+              return (true);
+      }
+      return (true);
+    }
 
     function smtp_mail_from($smtp) 
     {
@@ -177,6 +217,9 @@ class smtp
         if(NoccException::isException($smtp))
             return $smtp;
         $ev = $this->smtp_helo($smtp);
+        if(NoccException::isException($ev))
+            return $ev;
+        $ev = $this->smtp_auth($smtp);
         if(NoccException::isException($ev))
             return $ev;
         $ev = $this->smtp_mail_from($smtp);
