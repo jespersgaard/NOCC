@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.61 2001/10/21 23:16:14 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.63 2001/10/22 00:06:51 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -82,7 +82,7 @@ switch (trim($action))
 
 	case 'write':
 		// Add signature
-		$mail_body .= "\r\n".$prefs_signature;
+		$mail_body = "\r\n".$prefs_signature;
 
 		$num_attach = 0;
 		require ('./html/menu_inbox.php');
