@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.86 2001/12/08 17:58:55 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.87 2001/12/13 10:39:08 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -183,7 +183,7 @@ switch (trim($action))
 			// Full name
 			if (!$lastev && isset($full_name))
 			{
-				$ev = setPref('full_name', $full_name);
+				$ev = setPref('full_name', stripslashes($full_name));
 				if(Exception::isException($ev))
 					$lastev = $ev;
 			}
@@ -241,7 +241,7 @@ switch (trim($action))
 			}
 
 			if (!$lastev && isset($signature)) {
-				$ev = setPref('signature', $signature);
+				$ev = setPref('signature', stripslashes($signature));
 				if(Exception::isException($ev))
 					$lastev = $ev;
 			}
