@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.21 2002/06/27 22:17:52 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.1 2002/06/30 16:27:14 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -19,6 +19,7 @@ class NOCCUserPrefs {
 	var $cc_self;
 	var $hide_addresses;
 	var $outlook_quoting;
+	var $seperate_msg_win;
 	var $reply_leadin;
 	var $signature;
 
@@ -79,6 +80,8 @@ class NOCCUserPrefs {
 				$prefs->hide_addresses = ($value == 1 || $value == 'on');
 			if($key == 'outlook_quoting')
 				$prefs->outlook_quoting = ($value == 1 || $value == 'on');
+			if($key == 'seperate_msg_win')
+				$prefs->seperate_msg_win = ($value == 1 || $value == 'on');
 			if($key == 'signature')
 				$prefs->signature = base64_decode($value);
 			if($key == 'reply_leadin')
@@ -117,6 +120,7 @@ class NOCCUserPrefs {
 		fwrite($file, "cc_self=".$this->cc_self."\n");
 		fwrite($file, "hide_addresses=".$this->hide_addresses."\n");
 		fwrite($file, "outlook_quoting=".$this->outlook_quoting."\n");
+		fwrite($file, "seperate_msg_win=".$this->seperate_msg_win."\n");
 		fwrite($file, "reply_leadin=".base64_encode($this->reply_leadin)."\n");
 		fwrite($file, "signature=".base64_encode($this->signature)."\n");
 		fclose($file);

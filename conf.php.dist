@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.112 2002/06/30 19:58:34 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.113 2002/06/30 21:26:53 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -178,9 +178,6 @@ $conf->msg_per_page = '25';
 // Set this to '1' to enable the status line for folders at the bottom of the inbox page.
 // If you get slow page loads, set it to '0' to disable this (rather slow) function.
 $conf->status_line = '1';
-
-// Set this to true to open messages in a seperate window
-$conf->seperate_msg_win = false;
 
 // ################### Messages Signature  ################### //
 

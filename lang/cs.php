@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/cs.php,v 1.5 2002/04/24 23:32:25 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/cs.php,v 1.6 2002/06/30 16:27:14 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -150,4 +150,5 @@ $html_smtp_error_unexpected = "Neoèekávaná odezva SMTP:";
 $lang_could_not_connect = 'Chyba pøi pøipojování k serveru';
 $html_file_upload_attack = 'Possible file upload attack';  //to translate
 $html_invalid_email_address = 'Invalid e-mail address';  //to translate
+$html_seperate_msg_win = 'Messages in seperate window';  //to translate
 ?>

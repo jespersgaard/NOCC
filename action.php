@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.134 2002/06/30 11:02:58 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.135 2002/06/30 16:27:13 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -308,6 +308,7 @@ switch($action)
             $user_prefs->cc_self = isset($_REQUEST['cc_self']);
             $user_prefs->hide_addresses = isset($_REQUEST['hide_addresses']);
             $user_prefs->outlook_quoting = isset($_REQUEST['outlook_quoting']);
+            $user_prefs->seperate_msg_win = isset($_REQUEST['seperate_msg_win']);
             if (isset($_REQUEST['reply_leadin']))
                 $user_prefs->reply_leadin = stripslashes($_REQUEST['reply_leadin']);
             if (isset($_REQUEST['signature']))
@@ -315,6 +316,7 @@ switch($action)
 
             // Commit preferences
             $user_prefs->commit($ev);
+            $_SESSION['nocc_user_prefs'] = $user_prefs;
         }
 
         require ('./html/header.php');

@@ -143,4 +143,5 @@ $html_smtp_error_no_conn = "Ómögulegt að opna tengingu";
 $html_smtp_error_unexpected = "Ófyrirsjáanleg viðbrögð:";
 $html_file_upload_attack = 'Possible file upload attack';  //to translate
 $html_invalid_email_address = 'Invalid e-mail address';  //to translate
+$html_seperate_msg_win = 'Messages in seperate window';  //to translate
 ?>

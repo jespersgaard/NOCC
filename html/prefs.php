@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.24 2002/06/30 15:11:19 rossigee Exp $ -->
+<!-- start of $Id: prefs.php,v 1.25 2002/06/30 16:27:14 rossigee Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -44,6 +44,12 @@
                         <input type="checkbox" name="outlook_quoting" id="outlook_quoting" value="on" <?php if($user_prefs->outlook_quoting) echo "checked"; ?> /><label for="outlook_quoting"><?php echo $html_outlook_quoting ?></label>
                     </td>
                 </tr>
+                <tr>
+                    <td align="right" class="prefs" valign="top">&nbsp;</td>
+                    <td align="left" class="prefs">
+                        <input type="checkbox" name="seperate_msg_win" id="seperate_msg_win" value="on" <?php if($user_prefs->seperate_msg_win) echo "checked"; ?> /><label for="seperate_msg_win"><?php echo $html_seperate_msg_win ?></label>
+                    </td>
+                </tr>
                 <?php if($conf->enable_reply_leadin) { ?>
                 <tr>
                     <td align="right" class="prefs" valign="top"><?php echo $html_reply_leadin ?> : </td>
@@ -83,4 +89,4 @@
         </td>
     </tr>
 </table>
-<!-- end of $Id: prefs.php,v 1.24 2002/06/30 15:11:19 rossigee Exp $ -->
+<!-- end of $Id: prefs.php,v 1.25 2002/06/30 16:27:14 rossigee Exp $ -->
