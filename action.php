@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.88 2001/12/16 12:49:03 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.89 2001/12/19 23:06:25 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -61,7 +61,7 @@ switch (trim($action))
 		// Here we display the message
 		require ('./html/menu_mail.php');
 		require_once ('./html/html_mail_top.php');
-		$content = aff_mail($servr, $login, $passwd, $folder, $mail, $verbose, $lang, $sort, $sortdir);
+		$content = aff_mail($conf, $servr, $login, $passwd, $folder, $mail, $verbose, $lang, $sort, $sortdir);
 		require_once ('./html/html_mail_header.php'); 
 		while ($tmp = array_shift($attach_tab))
 		{
@@ -102,7 +102,7 @@ switch (trim($action))
 		break;
 
 	case 'reply':	
-		$content = aff_mail($servr, $login, $passwd, $folder, $mail, 0, $lang, $sort, $sortdir);
+		$content = aff_mail($conf, $servr, $login, $passwd, $folder, $mail, 0, $lang, $sort, $sortdir);
 		$mail_to = !empty($content['reply_to']) ? $content['reply_to'] : $content['from'];
 		// Test for Re: in subject, should not be added twice ! 
 		if (!strcasecmp(substr($content['subject'], 0, 2), $html_reply_short))
@@ -134,7 +134,7 @@ switch (trim($action))
 		break;
 
 	case 'reply_all':
-		$content = aff_mail($servr, $login, $passwd, $folder, $mail, 0, $lang, $sort, $sortdir);
+		$content = aff_mail($conf, $servr, $login, $passwd, $folder, $mail, 0, $lang, $sort, $sortdir);
 		$mail_to = get_reply_all($login, $domain, $content['from'], $content['to'], $content['cc']);
 		if (!strcasecmp(substr($content['subject'], 0, 2), $html_reply_short))
 			$mail_subject = $content['subject'];
@@ -160,7 +160,7 @@ switch (trim($action))
 		break;
 
 	case 'forward':
-		$content = aff_mail($servr, $login, $passwd, $folder, $mail, 0, $lang, $sort, $sortdir);
+		$content = aff_mail($conf, $servr, $login, $passwd, $folder, $mail, 0, $lang, $sort, $sortdir);
 		$mail_subject = $html_forward_short.': '.$content['subject'];
 		$mail_body = $original_msg."\n".$html_from.': '.$content['from']."\n".$html_to.': '.$content['to']."\n".$html_sent.': '.$content['complete_date']."\n".$html_subject.': '.$content['subject']."\n\n".strip_tags($content['body'], '');
 		// Add signature
@@ -280,7 +280,7 @@ switch (trim($action))
 			require_once ('./wrong.php');
 			break;
 		}
-		$tab_mail = inbox($servr, $login, $passwd, $folder, $sort, $sortdir, $lang, $theme);
+		$tab_mail = inbox($conf, $servr, $login, $passwd, $folder, $sort, $sortdir, $lang, $theme);
 		switch ($tab_mail)
 		{
 			case -1:

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.129 2001/12/13 10:39:09 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.130 2001/12/19 23:06:25 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,11 +13,8 @@ $attach_tab = Array();
 
 /* ----------------------------------------------------- */
 
-function inbox($servr, $login, $passwd, $folder, $sort, $sortdir, $lang, $theme)
+function inbox($conf, $mailhost, $login, $passwd, $folder, $sort, $sortdir, $lang, $theme)
 {
-	$mailhost = $servr;
-	require ('./conf.php');
-
 	$pop = @imap_open('{' . $mailhost . '}' . $folder, $login, $passwd);
 	if ($pop == false)
 		return (-1);
@@ -118,13 +115,12 @@ function inbox($servr, $login, $passwd, $folder, $sort, $sortdir, $lang, $theme)
 
 /* ----------------------------------------------------- */
 
-function aff_mail($servr, $login, $passwd, $folder, $mail, $verbose, $lang, $sort, $sortdir)
+function aff_mail($conf, $mailhost, $login, $passwd, $folder, $mail, $verbose, $lang, $sort, $sortdir)
 {
-	$mailhost = $servr;
-	require ('./conf.php');
 	require ('./check_lang.php');
 	GLOBAL $attach_tab;
 	GLOBAL $PHP_SELF;
+	
 	$glob_body = $subject = $from = $to = $cc = $reply_to = '';
 
 	if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
@@ -756,9 +752,8 @@ function mailquote($body, $from, $html_wrote)
 // field we receive from a get/post operation.
 function safestrip($string)
 {
-	if(get_magic_quotes_gpc()) {
+	if(get_magic_quotes_gpc())
 		$string = stripslashes($string);
-	}
 	return $string;
 }
 
