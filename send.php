@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.122 2004/06/25 16:43:59 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.123 2004/06/26 18:26:40 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -39,7 +39,8 @@ if ($HTTP_SERVER_VARS['REQUEST_METHOD'] != 'POST') {
 require_once './class_send.php';
 require_once './class_smtp.php';
 
-$mail_from = safestrip($_REQUEST['mail_from']);
+if( isset($conf->allow_address_change) && $conf->allow_address_change ) $mail_from = safestrip($_REQUEST['mail_from']);
+else $mail_from = get_default_from_address();
 $mail_to = safestrip($_REQUEST['mail_to']);
 $mail_cc = safestrip($_REQUEST['mail_cc']);
 $mail_bcc = safestrip($_REQUEST['mail_bcc']);
