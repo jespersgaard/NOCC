@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.149 2002/04/18 22:28:26 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.150 2002/04/19 14:39:30 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -633,11 +633,16 @@ function cut_address(&$addr, &$charset)
 
 // Function that save the attachment locally for reply, transfer...
 // This function returns an array of all the attachment
-function save_attachment(&$servr, &$login, &$passwd, &$folder, &$mail, &$tmpdir)
+function save_attachment(&$mail, &$tmpdir)
 {
     GLOBAL $attach_tab;
     $i = 0;
     $attach_array = array();
+
+    $mailhost = $_SESSION['servr'];
+    $login = $_SESSION['login'];
+    $passwd = $_SESSION['passwd'];
+    $folder = $_SESSION['folder'];
 
     $pop = new nocc_imap($mailhost, $folder, $login, $passwd, $ev);
     if($ev) 
