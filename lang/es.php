@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/es.php,v 1.9 2001/02/22 16:27:23 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/es.php,v 1.10 2001/02/23 09:31:58 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -16,7 +16,7 @@ $charset = "ISO-8859-1";
 
 // Configuration for the days and months
 
-// What language to use (Here, english US --> en_US)
+// What language to use
 // see '/usr/share/locale/' for more information
 $lang_locale = "es_ES";
 
@@ -52,7 +52,7 @@ $alt_prev = "Anterior";
 
 // index.php
 
-$html_lang = "Language";
+$html_lang = "Lenguaje";
 $html_welcome = "Bienvenido a";
 $html_login = "Usuario";
 $html_passwd = "Clave";
@@ -61,8 +61,8 @@ $html_help = "Ayuda";
 $html_server = "Servidor";
 $html_wrong = "El usuario o la clave son incorrectos";
 $html_retry = "Reintentar";
-$html_on = "on";
-$html_theme = "Theme";
+$html_on = "en";
+$html_theme = "Tema";
 
 // Other pages
 
@@ -81,18 +81,18 @@ $html_mark = "Borrar";
 $html_att = "Archivo asociado";
 $html_atts = "Archivos asociados";
 $html_att_unknown = "[desconocido]";
-$html_attach = "Attach";
-$html_attach_forget = "You must attach your file before sending your message !";
-$html_attach_delete = "Remove Selected";
+$html_attach = "Asociar";
+$html_attach_forget = "Debe asociar su archivo anes de enviar su mensaje !";
+$html_attach_delete = "Borrar elegidos";
 $html_from = "De";
 $html_subject = "Tema";
 $html_date = "Fecha";
 $html_sent = "Enviar";
 $html_size = "Tama&ntilde;o";
-$html_totalsize = "Total Size";
+$html_totalsize = "Tama&ntilde;o total";
 $html_kb = "Kb";
 $html_bytes = "bytes";
-$html_filename = "Filename";
+$html_filename = "Archivo";
 $html_to = "A";
 $html_cc = "Cc";
 $html_bcc = "Bcc";
