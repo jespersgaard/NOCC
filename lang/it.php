@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.10 2001/02/23 09:31:58 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.11 2001/02/23 10:04:44 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -89,7 +89,7 @@ $html_subject = "Oggetto";
 $html_date = "Data";
 $html_sent = "Invia";
 $html_size = "Dimensione";
-$html_totalsize = "Total Dimensione";
+$html_totalsize = "Dimensione Totale";
 $html_kb = "Kb";
 $html_bytes = "bytes";
 $html_filename = "File";
