@@ -1,8 +1,8 @@
-<!-- start of $Id$ -->
+<!-- start of $Id: send.php,v 1.33 2001/10/25 15:22:34 rossigee Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
 		<td bgcolor="<?php echo $glob_theme->inside_color ?>">
-			<form name="sendform" enctype="multipart/form-data" method="post" onsubmit="return(check_form(this));" action="send.php">
+			<form name="sendform" enctype="multipart/form-data" method="post" onsubmit="return(validate(this));" action="send.php">
 			<input type="hidden" name="sort" value="<?php echo $sort ?>" />
 			<input type="hidden" name="sortdir" value="<?php echo $sortdir ?>" />
 			<input type="hidden" name="lang" value="<?php echo $lang ?>" />
@@ -95,12 +95,6 @@
 
 <script type="text/javascript">
 <!--
-function check_form(form)
-{
-	if (validate(form) == false)
-		return (false);
-}
-
 function validate(f) 
 {
 	if (window.RegExp) 
@@ -137,4 +131,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id$ -->
+<!-- end of $Id: send.php,v 1.33 2001/10/25 15:22:34 rossigee Exp $ -->

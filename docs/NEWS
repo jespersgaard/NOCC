@@ -1,5 +1,6 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Bypassed redundant 'check_form' javascript method.
 	* Added 'outlook-style quoting' preference (#459461)
 	* Added config option to present delete icon as a button.
 	* Added 'hide addresses' preference (#471806).
