@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.69 2001/05/29 08:51:53 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.70 2001/06/03 22:16:52 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -44,9 +44,25 @@ function updatePort ()
 	{
 		document.nocc_webmail_login.port.value = 143;
 	}
+	else if (document.nocc_webmail_login.servtype.options[document.nocc_webmail_login.servtype.selectedIndex].value == 'ssl') 
+	{
+		document.nocc_webmail_login.port.value = 993;
+	}
+	else if (document.nocc_webmail_login.servtype.options[document.nocc_webmail_login.servtype.selectedIndex].value == 'ssl/novalidate-cert') 
+	{
+		document.nocc_webmail_login.port.value = 993;
+	}
 	else if (document.nocc_webmail_login.servtype.options[document.nocc_webmail_login.servtype.selectedIndex].value == 'pop3')
 	{
 		document.nocc_webmail_login.port.value = 110;
+	}
+	else if (document.nocc_webmail_login.servtype.options[document.nocc_webmail_login.servtype.selectedIndex].value == 'pop3/ssl')
+	{
+		document.nocc_webmail_login.port.value = 995;
+	}
+	else if (document.nocc_webmail_login.servtype.options[document.nocc_webmail_login.servtype.selectedIndex].value == 'pop3/ssl/novalidate-cert')
+	{
+		document.nocc_webmail_login.port.value = 995;
 	}
 }
 
@@ -129,7 +145,16 @@ function updateTheme()
 							{
 								echo '<tr><td align="right" class="f">'.$html_server.'</td>';
 								echo '<td><font size="-3">&nbsp;</font></td>';
-								echo '<td class="f"><input type="text" name="server" value="mail.example.com" size="15" /><br /><input type="text" size="4" name="port" value="143" /><select name="servtype" onchange="updatePort()"><option value="imap">IMAP</option><option value="pop3">POP3</option></select></td>';
+								echo '<td class="f">';
+								echo '<input type="text" name="server" value="mail.example.com" size="15" /><br /><input type="text" size="4" name="port" value="143" />';
+								echo '<select name="servtype" onchange="updatePort()">';
+								echo '<option value="imap">IMAP</option>';
+								//echo '<option value="ssl">IMAP SSL</option>';
+								//echo '<option value="ssl/novalidate-cert">IMAP SSL (self signed)</option>';
+								echo '<option value="pop3">POP3</option>';
+								//echo '<option value="pop3/ssl">POP3 SSL</option>';
+								//echo '<option value="pop3/ssl/novalidate-cert">POP3 SSL (self signed)</option>';
+								echo '</select></td>';
 								echo '</tr><tr><td colspan="3" height="12"><font size="-3">&nbsp;</font></td></tr>';
 							}
 							?>
