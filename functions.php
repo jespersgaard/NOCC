@@ -444,7 +444,7 @@ function remove_stuff($body, $lang, $mime)
 		$body = htmlspecialchars($body);
 		$body = eregi_replace("(http|https|ftp)://([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)","<a href=\"\\1://\\2\" target=\"_blank\">\\1://\\2</a>", $body);
 		$body = eregi_replace("([#a-zA-Z0-9+-._]*)@([#a-zA-Z0-9+-_]*)\.([a-zA-Z0-9+-_.]+[#a-zA-Z0-9+]*)","<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1@\\2.\\3&amp;lang=$lang\">\\1@\\2.\\3</a>", $body);
-		$body = nocc_nl2br($body);
+		$body = nl2br($body);
 		if (function_exists('wordwrap'))
 			$body = wordwrap($body, 80, "\n");
 	}	
@@ -595,11 +595,11 @@ function view_part($servr, $user, $passwd, $folder, $mail, $part_no, $transfer, 
 	$pop = imap_open('{' . $servr . '}' . $folder, $user, $passwd);
 	$text = imap_fetchbody($pop, $mail, $part_no);
 	if ($transfer == 'BASE64')
-		$str = nocc_nl2br(imap_base64($text));
+		$str = nl2br(imap_base64($text));
 	elseif($transfer == 'QUOTED-PRINTABLE')
-		$str = nocc_nl2br(quoted_printable_decode($text));
+		$str = nl2br(quoted_printable_decode($text));
 	else
-		$str = nocc_nl2br($text);
+		$str = nl2br($text);
 	//if (eregi('koi', $transfer) || eregi('windows-1251', $transfer))
 	//	$str = @convert_cyr_string($str, $msg_charset, $charset);
 	return ($str);
@@ -702,13 +702,6 @@ function mailquote($body, $from, $html_wrote)
 	$from = ucwords(trim(ereg_replace("&lt;.*&gt;", "", str_replace("\"", "", $from))));
 	$body = "> " . ereg_replace("\n", "\n> ", trim($body));
 	return($from . ' ' . $html_wrote . " :\n\n" . $body);
-}
-
-/* ----------------------------------------------------- */
-
-function nocc_nl2br($string)
-{
-	return ereg_replace("\n", "<br/>", $string);
 }
 
 ?>
