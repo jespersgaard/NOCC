@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.14 2001/11/06 21:51:02 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.15 2001/11/07 17:49:48 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,9 +12,13 @@
 // ################### Language Array  ################### //
 // If you add language files in 'lang/' folder, please list them here
 
-// Arabic
+// Arabic (UTF-8)
 $lang_array[0]->filename = 'ar';
 $lang_array[0]->label = 'Arabic';
+
+// Arabic (Windows-1256)
+$lang_array[0]->filename = 'ar-win';
+$lang_array[0]->label = 'Arabic (Windows-1256)';
 
 // Bulgarian
 $lang_array[1]->filename = 'bg';
