@@ -21,7 +21,7 @@ $is_Imap = is_Imap($servr);
 		</td>
 	</tr>
 	<tr bgcolor="<?php echo $glob_theme->inbox_text_color ?>">
-		<td align="center" class="inbox">
+		<td align="center" class="inbox" width="40">
 			<?php echo $html_mark ?>
 		</td>
 		<?php if (($is_Imap) || ($have_ucb_pop_server)) { ?>
