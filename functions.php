@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.89 2001/06/15 15:16:38 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.90 2001/06/16 12:39:28 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -48,7 +48,7 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang, $theme)
 					$msg_size = get_mail_size($struct_msg);
 				else
 					$msg_size = ($struct_msg->bytes > 1000) ? ceil($struct_msg->bytes / 1000) : 1;
-				if ($struct_msg->type == 1)
+				if (isset($struct_msg->type) && $struct_msg->type == 1)
 				{
 					if ($struct_msg->subtype == 'ALTERNATIVE' || $struct_msg->subtype == 'RELATED')
 						$attach = '&nbsp;';
@@ -124,8 +124,7 @@ function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort
 	require ('check_lang.php');
 	GLOBAL $attach_tab;
 	GLOBAL $PHP_SELF;
-	$glob_body = '';
-	$subject = $from = $to = $cc = '';
+	$glob_body = $subject = $from = $to = $cc = '';
 
 	if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
 		$default_date_format = $no_locale_date_format;
@@ -221,89 +220,102 @@ function GetPart($this_part, $part_no, $display_rfc822)
 	GLOBAL $attach_tab;
 
 	$att_name = '[unknown]';
-	if ($this_part->ifdescription == TRUE)
+	if ($this_part->ifdescription == true)
 		$att_name = $this_part->description;
-	for ($lcv = 0; $lcv < count($this_part->parameters); $lcv++)
+	for ($i = 0; $i < count($this_part->parameters); $i++)
 	{ 
-		$param = $this_part->parameters[$lcv];
-			if (($param->attribute == 'NAME') || ($param->attribute == 'name'))
-			{
-				$att_name = $param->value;
-	        	break;
-	    		}
+		$param = $this_part->parameters[$i];
+		if (($param->attribute == 'NAME') || ($param->attribute == 'name'))
+		{
+			$att_name = $param->value;
+	       	break;
+	   	}
 	}
-	switch ($this_part->type)
+	if (isset($this_part->type))
 	{
-		case TYPETEXT:
-			$mime_type = 'text';
-			break;
-		case TYPEMULTIPART:
-			$mime_type = 'multipart';
-			for ($i = 0; $i < count($this_part->parts); $i++)
-			{
-				if ($part_no != '')
-					$part_no = $part_no . '.';
+		switch ($this_part->type)
+		{
+			case 0:
+				$mime_type = 'text';
+				break;
+			case 1:
+				$mime_type = 'multipart';
 				for ($i = 0; $i < count($this_part->parts); $i++)
 				{
-					// if it's an alternative, we skip the text part to only keep the HTML part
-					if ($this_part->subtype == 'ALTERNATIVE')// && $read == true)
-						GetPart($this_part->parts[++$i], $part_no . ($i + 1), $display_rfc822);
-					else 
-						GetPart($this_part->parts[$i], $part_no . ($i + 1), $display_rfc822);
+					if ($part_no != '')
+						$part_no = $part_no . '.';
+					for ($i = 0; $i < count($this_part->parts); $i++)
+					{
+						// if it's an alternative, we skip the text part to only keep the HTML part
+						if ($this_part->subtype == 'ALTERNATIVE')// && $read == true)
+							GetPart($this_part->parts[++$i], $part_no . ($i + 1), $display_rfc822);
+						else 
+							GetPart($this_part->parts[$i], $part_no . ($i + 1), $display_rfc822);
+					}
 				}
-			}
-			break;
-		case TYPEMESSAGE:
-			$mime_type = 'message';
-			// well it's a message we have to parse it to find attachments or text message
-			$num_parts = count($this_part->parts[0]->parts);
-			if ($num_parts > 0)
-				for ($i = 0; $i < $num_parts; $i++)
-					GetPart($this_part->parts[0]->parts[$i], $part_no . '.' . ($i + 1), $display_rfc822);
-			else
-				GetPart($this_part->parts[0], $part_no . '.1', $display_rfc822);
-			break;
-		// Maybe we can do something with the mime types later ??
-		case TYPEAPPLICATION:
-			$mime_type = 'application';
-			break;
-		case TYPEAUDIO:
-			$mime_type = 'audio';
-			break;
-		case TYPEIMAGE:
-			$mime_type = 'image';
-			break;
-		case TYPEVIDEO:
-			$mime_type = 'video';
-			break;
-		case TYPEMODEL:
-			$mime_type = 'model';
-			break;
-		default:
-			$mime_type = 'unknown';
+				break;
+			case 2:
+				$mime_type = 'message';
+				// well it's a message we have to parse it to find attachments or text message
+				$num_parts = count($this_part->parts[0]->parts);
+				if ($num_parts > 0)
+					for ($i = 0; $i < $num_parts; $i++)
+						GetPart($this_part->parts[0]->parts[$i], $part_no . '.' . ($i + 1), $display_rfc822);
+				else
+					GetPart($this_part->parts[0], $part_no . '.1', $display_rfc822);
+				break;
+			// Maybe we can do something with the mime types later ??
+			case 3:
+				$mime_type = 'application';
+				break;
+			case 4:
+				$mime_type = 'audio';
+				break;
+			case 5:
+				$mime_type = 'image';
+				break;
+			case 6:
+				$mime_type = 'video';
+				break;
+			case 7:
+				$mime_type = 'other';
+				break;
+			default:
+				$mime_type = 'unknown';
+		}
 	}
+	else
+		$mime_type = 'text';
 	$full_mime_type = $mime_type . '/' . $this_part->subtype;
-	switch ($this_part->encoding)
+	if (isset($this_part->encoding))
 	{
-		case ENC7BIT:
-			$encoding = '7BIT';
-			break;
-		case ENC8BIT:
-			$encoding = '8BIT';
-			break;
-		case ENCBINARY:
-			$encoding = 'BINARY';
-			break;
-		case ENCBASE64:
-			$encoding = 'BASE64';
-			break;
-		case ENCQUOTEDPRINTABLE:
-			$encoding = 'QUOTED-PRINTABLE';
-			break;
-		default:
-			$encoding = 'none';
-			break;
+		switch ($this_part->encoding)
+		{
+			case 0:
+				$encoding = '7BIT';
+				break;
+			case 1:
+				$encoding = '8BIT';
+				break;
+			case 2:
+				$encoding = 'BINARY';
+				break;
+			case 3:
+				$encoding = 'BASE64';
+				break;
+			case 4:
+				$encoding = 'QUOTED-PRINTABLE';
+				break;
+			case 5:
+				$encoding = 'OTHER';
+				break;
+			default:
+				$encoding = 'none';
+				break;
+		}
 	}
+	else
+		$encoding = '7BIT';
 	if (($full_mime_type == 'message/RFC822' && $display_rfc822 == true) || ($mime_type != 'multipart' && $full_mime_type != 'message/RFC822'))
 	{
 		$charset = '';
@@ -467,7 +479,7 @@ function get_mail_size($this_part)
 	$size = (isset($this_part->bytes) ? $this_part->bytes : 0);
 	if (isset($this_part->parts))
 		for ($i = 0; $i < count($this_part->parts); $i++)
-			$size += $this_part->parts[$i]->bytes;
+			$size += (isset($this_part->parts[$i]->bytes) ? $this_part->parts[$i]->bytes : 0);
 	$size = ($size > 1000) ? ceil($size / 1000) : 1;
 	return ($size);
 }
