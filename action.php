@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.38 2001/05/29 08:51:53 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.39 2001/06/15 14:11:07 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -58,7 +58,7 @@ switch ($action)
 		require ('html/menu_inbox.php');
 		break;
 	case 'reply':
-		$content = aff_mail($servr, $user, stripslashes($passwd), $folder, $mail, $verbose, $lang, $sort, $sortdir);
+		$content = aff_mail($servr, $user, stripslashes($passwd), $folder, $mail, 0, $lang, $sort, $sortdir);
 		$mail_to = $content['from'];
 		// Test for Re: in subject, should not be added twice ! 
 		if (!strcasecmp(substr($content['subject'], 0, 2), $html_reply_short))
@@ -75,7 +75,7 @@ switch ($action)
 		require ('html/menu_inbox.php');
 		break;
 	case 'reply_all':
-		$content = aff_mail($servr, $user, stripslashes($passwd), $folder, $mail, $verbose, $lang, $sort, $sortdir);
+		$content = aff_mail($servr, $user, stripslashes($passwd), $folder, $mail, 0, $lang, $sort, $sortdir);
 		$mail_to = get_reply_all($user, $domain, $content['from'], $content['to'], $content['cc']);
 		if (!strcasecmp(substr($content['subject'], 0, 2), $html_reply_short))
 			$mail_subject = $content['subject'];
@@ -91,7 +91,7 @@ switch ($action)
 		require ('html/menu_inbox.php');
 		break;
 	case 'forward':
-		$content = aff_mail($servr, $user, stripslashes($passwd), $folder, $mail, $verbose, $lang, $sort, $sortdir);
+		$content = aff_mail($servr, $user, stripslashes($passwd), $folder, $mail, 0, $lang, $sort, $sortdir);
 		$mail_subject = $html_forward_short.': '.$content['subject'];
 		$mail_body = $original_msg."\n".$html_from.': '.$content['from']."\n".$html_to.': '.$content['to']."\n".$html_sent.': '.$content['date']."\n".$html_subject.': '.$content['subject']."\n\n".strip_tags($content['body'], '');
 		// We add the attachments of the original message

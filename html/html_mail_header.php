@@ -11,7 +11,7 @@ if (($content['prev'] != '') && ($content['prev'] != 0))
 if (($content['next'] != '') && ($content['next'] != 0))
 	$next =  "<a href=\"$PHP_SELF?action=aff_mail&amp;mail=".$content["next"]."&amp;verbose=".$verbose."&amp;lang=".$lang."&amp;sort=".$sort."&amp;sortdir=".$sortdir."\"><img src=\"themes/".$theme."/img/right_arrow.gif\" alt=\"$alt_next\" width=\"12\" height=\"12\" border=\"0\"></a>";
 ?>	
-<td	align="right"><?php echo $prev."&nbsp;".$next; ?></td></tr>
+<td	align="right"><?php if (isset($prev)) echo $prev; ?>&nbsp;<?php if (isset($next)) echo $next; ?></td></tr>
 <tr><td align="right" class="mail"><?php echo $html_from ?></td><td bgcolor="<?php echo $glob_theme->mail_properties ?>" class="mail"><b><?php echo $content["from"] ?></b></td></tr>
 
 <tr><td align="right" class="mail"><?php echo $html_to ?></td><td bgcolor="<?php echo $glob_theme->mail_properties ?>" class="mail"><?php echo $content["to"] ?></td></tr>

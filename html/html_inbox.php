@@ -11,10 +11,10 @@
 		<?php echo $tmp['attach'] ?>
 	</td>
 	<td nowrap="nowrap" class="inbox">
-		<a href="<?php echo $PHP_SELF ?>?action=aff_mail&amp;mail=<?php echo $tmp['number'] ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir?>&amp;lang=<?php echo $lang ?>"><?php echo ($tmp['from']? $tmp['from'] : $html_att_unknown) ?></a>
+		<a href="<?php echo $PHP_SELF ?>?action=aff_mail&amp;mail=<?php echo $tmp['number'] ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir?>&amp;verbose=0&amp;lang=<?php echo $lang ?>"><?php echo ($tmp['from']? $tmp['from'] : $html_att_unknown) ?></a>
 	</td>
 	<td class="inbox">
-		<a href="<?php echo $PHP_SELF ?>?action=aff_mail&amp;mail=<?php echo $tmp['number'] ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir?>&amp;lang=<?php echo $lang ?>"><?php echo $tmp['subject']? $tmp['subject'] : $html_nosubject; ?></a>
+		<a href="<?php echo $PHP_SELF ?>?action=aff_mail&amp;mail=<?php echo $tmp['number'] ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir?>&amp;verbose=0&amp;lang=<?php echo $lang ?>"><?php echo $tmp['subject']? $tmp['subject'] : $html_nosubject; ?></a>
 	</td>
 	<td class="inbox">
 		<?php echo $tmp['date'] ?>

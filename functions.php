@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.87 2001/06/01 20:40:04 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.88 2001/06/15 14:11:07 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -83,11 +83,24 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang, $theme)
 					$newmail = '<img src="themes/' . $theme . '/img/new.gif" alt="" height="17" width="17" />';
 				else
 					$newmail = '&nbsp;';
+				/*
+				if ($num_messages > 1)
+				{
+					$next = ($i + 1 < $num_messages) ? imap_msgno($pop, $sorted[$i + 1]) : 0;
+					$prev = ($i - 1 > 0) ? imap_msgno($pop, $sorted[$i - 1]) : 0;
+				}
+				else
+				{
+					$next = $prev = 0;
+				}
+				*/
 				$msg_list[$i] =  Array(
 						'new' => $newmail, 
 						'number' => imap_msgno($pop, $msgnum),
-						'next' => imap_msgno($pop, $sorted[$i + 1]),
-						'prev' => imap_msgno($pop, $sorted[$i - 1]),
+						/*
+						'next' => $next,
+						'prev' => $prev,
+						*/
 						'attach' => $attach, 
 						'from' => htmlspecialchars($from), 
 						'subject' => htmlspecialchars($subject), 
@@ -120,12 +133,13 @@ function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort
 	$pop = @imap_open('{' . $mailhost . '}' . $folder, $user, $passwd);
 	// Finding the next and previous message number
 	$sorted = imap_sort($pop, $sort, $sortdir);
+	$prev_msg = $next_msg = 0;
 	for ($i = 0; $i < sizeof($sorted); $i++)
 	{
 		if ($mail == $sorted[$i])
 		{
-			$prev_msg = $sorted[$i - 1];
-			$next_msg = $sorted[$i + 1];
+			$prev_msg = ($i - 1 >= 0) ? $sorted[$i - 1] : 0;
+			$next_msg = ($i + 1 < sizeof($sorted)) ? $sorted[$i + 1] : 0;
 			break;
 		}
 	}
@@ -133,7 +147,7 @@ function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort
 	$num_messages = @imap_num_msg($pop);
 	$ref_contenu_message = @imap_header($pop, $mail);
 	$struct_msg = @imap_fetchstructure($pop, $mail);
-	if (sizeof($struct_msg->parts) > 0)
+	if (isset($struct_msg->parts) && (sizeof($struct_msg->parts) > 0))
 		GetPart($struct_msg, NULL, $display_rfc822);
 	else
 		GetSinglePart($struct_msg, htmlspecialchars(imap_fetchheader($pop, $mail)), @imap_body($pop, $mail));
@@ -179,7 +193,7 @@ function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort
 	$to_array = imap_mime_header_decode($ref_contenu_message->toaddress);
 	for ($j = 0; $j < count($to_array); $j++)
 		$to .= $to_array[$j]->text;
-	$cc_array = imap_mime_header_decode($ref_contenu_message->ccaddress);
+	$cc_array = isset($ref_contenu_message->ccaddress) ? imap_mime_header_decode($ref_contenu_message->ccaddress) : 0;
 	for ($j = 0; $j < count($cc_array); $j++)
 		$cc .= $cc_array[$j]->text;
 	$content = Array(
@@ -232,7 +246,7 @@ function GetPart($this_part, $part_no, $display_rfc822)
 				for ($i = 0; $i < count($this_part->parts); $i++)
 				{
 					// if it's an alternative, we skip the text part to only keep the HTML part
-					if ($this_part->subtype == ALTERNATIVE)// && $read == true)
+					if ($this_part->subtype == 'ALTERNATIVE')// && $read == true)
 						GetPart($this_part->parts[++$i], $part_no . ($i + 1), $display_rfc822);
 					else 
 						GetPart($this_part->parts[$i], $part_no . ($i + 1), $display_rfc822);
@@ -298,12 +312,12 @@ function GetPart($this_part, $part_no, $display_rfc822)
 					$charset = $obj->value;
 		$tmp = Array(
 				'number' => ($part_no != '' ? $part_no : 1),
-				'id' => $this_part->id,
+				'id' => $this_part->ifid ? $this_part->id : 0,
 				'name' => $att_name,
 				'mime' => $full_mime_type,
 				'transfer' => $encoding,
-				'disposition' => $this_part->disposition,
-				'charset' => $this_part->charset,
+				'disposition' => $this_part->ifdisposition ? $this_part->disposition : '',
+				'charset' => $charset,
 				'size' => ($this_part->bytes > 1000) ? ceil($this_part->bytes / 1000) : 1);
 		
 		array_unshift($attach_tab, $tmp);
@@ -347,12 +361,12 @@ function GetSinglePart($this_part, $header, $body)
 				$charset = $obj->value;
 	$tmp = Array(
 					'number' => 1,
-					'id' => $this_part->id,
+					'id' => $this_part->ifid ? $this_part->id : 0,
 					'name' => '',
 					'mime' => $full_mime_type,
 					'transfer' => $encoding,
-					'disposition' => $this_part->disposition,
-					'charset' => $this_part->charset,
+					'disposition' => $this_part->ifdisposition ? $this_part->disposition : '',
+					'charset' => $charset,
 					'size' => ($this_part->bytes > 1000) ? ceil($this_part->bytes / 1000) : 1);
 	array_unshift($attach_tab, $tmp);
 }
@@ -448,9 +462,10 @@ function change_date($date, $lang)
 // We have to figure out the entire mail size
 function get_mail_size($this_part)
 {
-	$size = $this_part->bytes;
-	for ($i = 0; $i < count($this_part->parts); $i++)
-		$size += $this_part->parts[$i]->bytes;
+	$size = (isset($this_part->bytes) ? $this_part->bytes : 0);
+	if (isset($this_part->parts))
+		for ($i = 0; $i < count($this_part->parts); $i++)
+			$size += $this_part->parts[$i]->bytes;
 	$size = ($size > 1000) ? ceil($size / 1000) : 1;
 	return ($size);
 }
@@ -470,7 +485,8 @@ function get_reply_all($user, $domain, $from, $to, $cc)
 	while ($tmp = array_shift($tab))
 		if (!eregi($user.'@'.$domain, $tmp))
 			$rcpt .= $tmp.'; ';
-	return (substr($rcpt, 0, strlen($rcpt) - 2));
+	$rcpt = isset($rcpt) ? substr($rcpt, 0, strlen($rcpt) - 2) : $from;
+	return ($rcpt);
 }
 
 /* ----------------------------------------------------- */
@@ -568,12 +584,12 @@ function encode_mime($string, $charset)
 // or accessing send.php via GET method
 function go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $lang)
 {
-	if (is_array($attach_array))
+	if (isset($attach_array) && is_array($attach_array))
 		while ($tmp = array_shift($attach_array))
 			unlink($tmpdir.'/'.$tmp->tmp_file);
 	session_unregister('num_attach');
 	session_unregister('attach_array');
-	header("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang&$php_session=".$$php_session);
+	header("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang&$php_session=" . $$php_session);
 }
 
 /* ----------------------------------------------------- */
@@ -595,6 +611,8 @@ function is_Imap($servr)
 // the way to send messages
 function get_crlf($smtp)
 {
+	GLOBAL $OS;
+
 	$crlf = stristr($OS, 'Windows') ? "\r\n" : "\n";
 	$crlf = $smtp ? "\r\n" : $crlf;
 	return ($crlf);
