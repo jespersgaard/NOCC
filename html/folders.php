@@ -1,4 +1,4 @@
-<!-- start of $Id: folders.php,v 1.9 2003/12/21 15:40:20 goddess_skuld Exp $ -->
+<!-- start of $Id: folders.php,v 1.10 2004/06/14 11:30:06 goddess_skuld Exp $ -->
 <?php
 
 $renameoldbox = $pop->html_folder_select('renameoldbox', '');
@@ -20,7 +20,7 @@ if (is_array($all_mailboxes)) {
 $select_list = array();
 if (count($big_list) > 1) {
     for ($i = 0; $i < count($big_list); $i++) {
-        array_push($select_list, "\t<OPTION value=\"".$big_list[$i]."\">".$big_list[$i]."</OPTION>\n");
+        array_push($select_list, "\t<option value=\"".$big_list[$i]."\">".$big_list[$i]."</option>\n");
     }
 }
 
@@ -97,4 +97,4 @@ if (count($big_list) > 1) {
           echo "\n    </td>\n</tr>";
     ?>
 </table>
-<!-- end of $Id: folders.php,v 1.9 2003/12/21 15:40:20 goddess_skuld Exp $ -->
+<!-- end of $Id: folders.php,v 1.10 2004/06/14 11:30:06 goddess_skuld Exp $ -->
