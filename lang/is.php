@@ -214,6 +214,8 @@ $lang_could_not_connect = 'Could not connect to server';
 
 $html_file_upload_attack = 'Possible file upload attack';  //to translate
 $html_invalid_email_address = 'Invalid e-mail address';  //to translate
+$html_invalid_msg_per_page = 'Invalid number of messages per page';  //to translate
+$html_invalid_wrap_msg = 'Invalid message wrap width';  //to translate
 $html_seperate_msg_win = 'Messages in seperate window';  //to translate
 
 // Exceptions

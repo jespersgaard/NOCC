@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.35 2004/06/22 11:25:27 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.37 2004/06/24 17:32:50 goddess_skuld Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -216,6 +216,8 @@ $lang_could_not_connect = 'Verbindung zum Server fehlgeschlagen'; //translated b
 
 $html_file_upload_attack = 'Possible file upload attack';  //to translate - May be 'M&ouml;gliche Attacke durch hochgelandene Datei'; but it sounds terrible. leave it in english
 $html_invalid_email_address = 'Ung&uuml;ltige E-mail Addresse'; //translated by Benjamin Bräuer - ben1@gmx.de
+$html_invalid_msg_per_page = 'Invalid number of messages per page';  //to translate
+$html_invalid_wrap_msg = 'Invalid message wrap width';  //to translate
 $html_seperate_msg_win = 'Nachricht in extra Fenster &ouml;ffnen'; //translated by Benjamin Bräuer - ben1@gmx.de
 
 // Exceptions

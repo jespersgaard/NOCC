@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.6 2004/06/15 10:37:08 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.7 2004/06/22 10:36:00 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -161,14 +161,27 @@ class NOCCUserPrefs {
 	function validate(&$ev) {
 		global $conf;
 		global $html_invalid_email_address;
+		global $html_invalid_msg_per_page;
+		global $html_invalid_wrap_msg;
 
 		if($conf->allow_address_change) {
 			if(!valid_email($this->email_address)) {
 				$ev = new NoccException($html_invalid_email_address);
+				return;
 			}
 		}
 		else {
 			$this->email_address = '';
+		}
+
+		if( isset($this->msg_per_page) && !is_numeric($this->msg_per_page) ) {
+		    $ev = new NoccException($html_invalid_msg_per_page);
+		    return;
+		}
+
+		if( isset($this->wrap_msg) && !ereg("^(0|72|80)$",$this->wrap_msg) ) {
+		  $ev = new NoccException($html_invalid_wrap_msg);
+		  return;
 		}
 
 		// Give go-ahead to commit

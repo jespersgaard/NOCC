@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ru-koi.php,v 1.22 2004/06/22 11:25:28 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ru-koi.php,v 1.24 2004/06/24 17:32:50 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -217,6 +217,8 @@ $lang_could_not_connect = 'Не могу подключится к серверу';
 
 $html_file_upload_attack = 'Подозрение на атаку через file upload';
 $html_invalid_email_address = 'Неправильный e-mail адрес';
+$html_invalid_msg_per_page = 'Invalid number of messages per page';  //to translate
+$html_invalid_wrap_msg = 'Invalid message wrap width';  //to translate
 $html_seperate_msg_win = 'Сообщения в отдельном окне';
 
 // Exceptions

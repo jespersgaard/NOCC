@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.154 2004/06/22 10:36:00 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.155 2004/06/23 09:45:56 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -409,19 +409,19 @@ switch($action)
 
         if(isset($_REQUEST['submit_prefs'])) {
             if (isset($_REQUEST['full_name']))
-                $user_prefs->full_name = stripslashes($_REQUEST['full_name']);
+                $user_prefs->full_name = safestrip($_REQUEST['full_name']);
             if (isset($_REQUEST['msg_per_page']))
                 $user_prefs->msg_per_page = $_REQUEST['msg_per_page'];
             if (isset($_REQUEST['email_address']))
-                $user_prefs->email_address = $_REQUEST['email_address'];
+                $user_prefs->email_address = safestrip($_REQUEST['email_address']);
             $user_prefs->cc_self = isset($_REQUEST['cc_self']);
             $user_prefs->hide_addresses = isset($_REQUEST['hide_addresses']);
             $user_prefs->outlook_quoting = isset($_REQUEST['outlook_quoting']);
             $user_prefs->seperate_msg_win = isset($_REQUEST['seperate_msg_win']);
             if (isset($_REQUEST['reply_leadin']))
-                $user_prefs->reply_leadin = stripslashes($_REQUEST['reply_leadin']);
+                $user_prefs->reply_leadin = safestrip($_REQUEST['reply_leadin']);
             if (isset($_REQUEST['signature']))
-                $user_prefs->signature = stripslashes($_REQUEST['signature']);
+                $user_prefs->signature = safestrip($_REQUEST['signature']);
 	    if (isset($_REQUEST['wrap_msg']))
                 $user_prefs->wrap_msg = $_REQUEST['wrap_msg'];
             $user_prefs->sig_sep = isset($_REQUEST['sig_sep']);

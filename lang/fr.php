@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.73 2004/06/22 11:25:27 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.74 2004/06/24 05:50:34 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -216,6 +216,8 @@ $lang_could_not_connect = 'Impossible de se connecter au serveur';
 
 $html_file_upload_attack = 'Possibilit&eacute; d\'attaque depuis le fichier upload&eacute;';
 $html_invalid_email_address = 'Adresse e-mail invalide';
+$html_invalid_msg_per_page = 'Nombre de messages par page invalide';
+$html_invalid_wrap_msg = 'Valeur de tronquature invalide';
 $html_seperate_msg_win = 'Messages dans des fen&ecirc;tres s&eacute;par&eacute;es';
 
 // Exceptions
