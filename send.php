@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.62 2001/06/18 13:41:10 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.63 2001/06/19 09:16:06 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -26,7 +26,7 @@ else
 	require ('class_send.php');
 	require ('class_smtp.php');
 
-	switch ($sendaction)
+	switch (trim($sendaction))
 	{
 		case 'add':
 			// Counting the attachments number in the array

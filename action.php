@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.42 2001/06/19 10:09:24 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.43 2001/06/20 16:27:38 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -21,7 +21,7 @@ if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
 	$default_date_format = $no_locale_date_format;
 $current_date = strftime($default_date_format, time());
 
-switch ($action)
+switch (trim($action))
 {
 	case 'aff_mail':
 		// Here we display the message
