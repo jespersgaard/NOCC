@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.28 2001/02/28 21:33:07 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.29 2001/02/28 22:01:38 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -137,6 +137,14 @@ $lang_array[10]->label = "Svenska";
 // Slovenian
 $lang_array[11]->filename = "sl";
 $lang_array[11]->label = "Slovensko";
+
+// Polish
+$lang_array[12]->filename = "pl";
+$lang_array[12]->label = "Polski";
+
+// Chinese
+$lang_array[13]->filename = "tw";
+$lang_array[13]->label = "Chinese";
 
 // ################### Messages Signature  ################### //
 
