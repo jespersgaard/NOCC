@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.45 2001/02/17 19:08:05 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.46 2001/02/20 17:37:19 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -205,12 +205,4 @@ echo $glob_theme->vlink_color ?>" alink="<? echo $glob_theme->alink_color ?>">
 				document.nocc_webmail_login.user.focus();
 				document.nocc_webmail_login.passwd.value='';
 			</script>
-	</td>
-</tr>
-<tr>
-	<td align="center" colspan="2"><a href="http://nocc.sourceforge.net/" target="_blank"><img src="img/button.png" border="0" height="31" width="88" alt="Powered by NOCC" /></a></td>
-</tr>
-</table>
-</form>
-</body>
-</html>
+<? require ("html/footer.php"); ?>
