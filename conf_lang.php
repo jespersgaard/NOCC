@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.5 2001/05/18 18:23:46 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.6 2001/05/27 08:42:47 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -107,4 +107,8 @@ $lang_array[22]->label = 'Slovensko';
 // Slovenski
 $lang_array[23]->filename = 'sk';
 $lang_array[23]->label = 'Slovensky';
+
+// Turkish
+$lang_array[24]->filename = 'tr';
+$lang_array[24]->filename = 'Turkish';
 ?>
