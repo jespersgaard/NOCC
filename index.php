@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.56 2001/03/16 14:04:33 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.57 2001/03/27 11:14:09 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -182,7 +182,9 @@ function updateTheme()
 			</table>
 			</form>
 			<script type="text/javascript">
+			<!--
 				document.nocc_webmail_login.user.focus();
 				document.nocc_webmail_login.passwd.value='';
+			-->
 			</script>
 <?php require ("html/footer.php"); ?>
