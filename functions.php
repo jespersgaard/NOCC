@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.175 2003/01/24 21:14:29 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.176 2003/01/26 15:02:55 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -54,10 +54,12 @@ function inbox(&$pop, $skip = 0, &$ev)
         $from_array = nocc_imap::mime_header_decode($ref_contenu_message->fromaddress);
         for ($j = 0; $j < count($from_array); $j++)
             $from .= $from_array[$j]->text;
+        $msg_size = 0;
         if ($pop->is_imap())
             $msg_size = get_mail_size($struct_msg);
         else
-            $msg_size = ($struct_msg->bytes > 1000) ? ceil($struct_msg->bytes / 1000) : 1;
+            if(isset($struct_msg->bytes))
+                $msg_size = ($struct_msg->bytes > 1000) ? ceil($struct_msg->bytes / 1000) : 1;
         if (isset($struct_msg->type) && $struct_msg->type == 1)
         {
             if ($struct_msg->subtype == 'ALTERNATIVE' || $struct_msg->subtype == 'RELATED')
@@ -127,7 +129,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
     $lang = $_SESSION['nocc_lang'];
 
     // Clear variables
-    $glob_body = $subject = $from = $to = $cc = $reply_to = '';
+    $body = $subject = $from = $to = $cc = $reply_to = '';
 
     // Get message numbers in sorted order
     $sorted = $pop->sort($sort, $sortdir, $ev);
@@ -174,23 +176,16 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
 
     // Get the first part
     $tmp = array_pop($attach_tab);
+    $body = $pop->fetchbody($mail, $tmp['number'], $ev);
+    if(Exception::isException($ev)) return;
+
     if (eregi('text/html', $tmp['mime']) || eregi('text/plain', $tmp['mime']))
-    {    
-        // QUOTED-PRINTABLE
-        if ($tmp['transfer'] == 4) {
-            $glob_body = nocc_imap::qprint($pop->fetchbody($mail, $tmp['number'], $ev));
-            if(Exception::isException($ev)) return;
-        }
-	// BASE64
-        elseif ($tmp['transfer'] == 3) {
-            $glob_body = base64_decode($pop->fetchbody($mail, $tmp['number'], $ev));
-            if(Exception::isException($ev)) return;
-        }
-        else {
-            $glob_body = $pop->fetchbody($mail, $tmp['number'], $ev);
-            if(Exception::isException($ev)) return;
-        }
-        $glob_body = remove_stuff($glob_body, $tmp['mime']);
+    {
+        if ($tmp['transfer'] == 'QUOTED-PRINTABLE')
+            $body = nocc_imap::qprint($body);
+        if ($tmp['transfer'] == 'BASE64')
+            $body = base64_decode($body);
+        $body = remove_stuff($body, $tmp['mime']);
     }
     else
         array_push($attach_tab, $tmp);
@@ -239,7 +234,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
         'time' => $time,
         'complete_date' => $date,
         'att' => $link_att,
-        'body' => $glob_body,
+        'body' => $body,
         'body_mime' => $tmp['mime'],
         'body_transfer' => $tmp['transfer'],
         'header' => $header,
@@ -390,7 +385,7 @@ function GetSinglePart(&$attach_tab, &$this_part, &$header, &$body)
     if (isset($this_part->encoding))
     {
         switch ($this_part->encoding)
-	{
+        {
             case 0:
                 $encoding = '7BIT';
                 break;
@@ -431,9 +426,11 @@ function GetSinglePart(&$attach_tab, &$this_part, &$header, &$body)
                 'mime' => $full_mime_type,
                 'transfer' => $encoding,
                 'disposition' => $this_part->ifdisposition ? $this_part->disposition : '',
-                'charset' => $charset,
-                'size' => ($this_part->bytes > 1000) ? ceil($this_part->bytes / 1000) : 1
+                'charset' => $charset
             );
+	    if(isset($this_part->bytes))
+		    $tmp['size'] = ($this_part->bytes > 1000) ? ceil($this_part->bytes / 1000) : 1;
+
             array_unshift($attach_tab, $tmp);
 }
 
@@ -779,12 +776,12 @@ function get_per_page() {
     $user_prefs = $_SESSION['nocc_user_prefs'];
     $msg_per_page = 0;
     if (isset($conf->msg_per_page))
-	    $msg_per_page = $conf->msg_per_page;
+            $msg_per_page = $conf->msg_per_page;
     if (isset($user_prefs->msg_per_page))
-	    $msg_per_page = $user_prefs->msg_per_page;
+            $msg_per_page = $user_prefs->msg_per_page;
     // Failsafe
     if($msg_per_page < 1)
-	    $msg_per_page = 25;
+            $msg_per_page = 25;
     return $msg_per_page;
 }
 
