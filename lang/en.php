@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.54 2002/04/19 18:30:15 mrylander Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.55 2002/04/24 23:32:25 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -92,9 +92,6 @@ $html_folders_updated = 'Folders updated';
 $html_folder_subscribe = 'Subscribe to';
 $html_folder_rename = 'Rename';
 $html_folder_create = 'Create new folder called';
-$html_folder_create_hint = "<pre>(HINT: Folder names should not have spaces: bobs_mail\n       ";
-$html_folder_create_hint .= "Create subfolders by using a slash:  bobs_mail/junk\n       ";
-$html_folder_create_hint .= "You cannot rename or delete the folder you are currently in)</pre>\n";
 $html_folder_remove = 'Unsubscribe from';
 
 // Other pages

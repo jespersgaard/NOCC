@@ -1,4 +1,4 @@
-<!-- start of $Id: folders.php,v 1.3 2002/04/19 14:39:36 rossigee Exp $ -->
+<!-- start of $Id: folders.php,v 1.4 2002/05/15 13:54:52 rossigee Exp $ -->
 <?php
 
 $renameoldbox = $pop->html_folder_select('renameoldbox');
@@ -35,9 +35,9 @@ if (count($big_list) > 1) {
             <table border="0" cellpadding="2" cellspacing="1" bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%">
                 <tr>
                     <td width="10%"></td>
-                    <td align="left" class="prefs" ><input type="radio" name="do" value="create_folder">
+                    <td align="left" class="prefs" colspan="2"><input type="radio" name="do" value="create_folder">
                         <?php echo $html_folder_create ?> <input type="text" name="createnewbox" size="15" maxlength="32"></td>
-                    <td align="left" class="prefs" valign="top"><?php echo $html_folder_create_hint ?></td>
+                    <td align="left" class="prefs" valign="top"></td>
                 </tr>
                 <tr>
                     <td width="10%"></td>
@@ -78,4 +78,4 @@ if (count($big_list) > 1) {
         </td>
     </tr>
 </table>
-<!-- end of $Id: folders.php,v 1.3 2002/04/19 14:39:36 rossigee Exp $ -->
+<!-- end of $Id: folders.php,v 1.4 2002/05/15 13:54:52 rossigee Exp $ -->
