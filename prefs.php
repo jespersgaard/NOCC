@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.10 2001/11/08 13:23:33 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.11 2001/11/17 15:44:26 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -71,7 +71,7 @@ function getPref($string)
 	global $prefs_dir, $user, $domain, $prefs_cache;
 	
 	$username = $user.'@'.$domain;
-	cachePrefValues($prefs_dir, $username);
+	cachePrefValues($username);
 	  
 	if (isset($prefs_cache[$string]))
 		return $prefs_cache[$string];
@@ -121,7 +121,7 @@ function setPref($string, $set_to)
 	global $prefs_dir, $user, $domain, $prefs_cache;
 
 	$username = $user.'@'.$domain;
-	cachePrefValues($prefs_dir, $username);
+	cachePrefValues($username);
 	if (isset($prefs_cache[$string]) && $prefs_cache[$string] == $set_to)
 		return;
 	if ($set_to === '')
