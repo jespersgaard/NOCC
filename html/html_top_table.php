@@ -1,7 +1,7 @@
 <?php
 $arrow = ($sortdir == 0) ? "up" : "down";
 $new_sortdir = ($sortdir == 0) ? 1 : 0;
-$is_Imap = (ereg("IMAP", $servr)) ? 1 : 0;
+$is_Imap = (ereg("imap", $servr)) ? 1 : 0;
 ?>
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 <tr><td bgcolor="<?php echo $glob_theme->inside_color ?>">
