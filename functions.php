@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.103 2001/10/18 23:37:07 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.104 2001/10/19 10:34:25 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -16,7 +16,7 @@ $attach_tab = Array();
 function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang, $theme)
 {
 	$mailhost = $servr;
-	require_once ('./conf.php');
+	require ('./conf.php');
 
 	$pop = @imap_open('{' . $mailhost . '}' . $folder, $user, $passwd);
 	if ($pop == false)
@@ -121,8 +121,8 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang, $theme)
 function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort, $sortdir)
 {
 	$mailhost = $servr;
-	require_once ('./conf.php');
-	require_once ('./check_lang.php');
+	require ('./conf.php');
+	require ('./check_lang.php');
 	GLOBAL $attach_tab;
 	GLOBAL $PHP_SELF;
 	$glob_body = $subject = $from = $to = $cc = '';
@@ -151,7 +151,7 @@ function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort
 		GetPart($struct_msg, NULL, $display_rfc822);
 	else
 		GetSinglePart($struct_msg, htmlspecialchars(imap_fetchheader($pop, $mail)), @imap_body($pop, $mail));
-	if ($verbose == 1 && $use_verbose == 1)
+	if (($verbose == 1) && ($use_verbose == true))
 		$header = htmlspecialchars(imap_fetchheader($pop, $mail));
 	else
 		$header = '';
@@ -477,11 +477,9 @@ function link_att($servr, $mail, $tab, $display_part_no)
 
 function change_date($date, $lang)
 {
-	require_once ('./check_lang.php');
+	require ('./check_lang.php');
 	if (empty($date))
-	{
 		$msg_date = $complete_date = '';
-	}
 	else
 	{
 		if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
@@ -545,16 +543,16 @@ function cut_address($addr, $charset)
 			continue;
 		$pos = strrpos($array[$i], '<');
 		if (!is_int($pos))
-			$array[$i] = '<'.$array[$i].'>';
+			$array[$i] = '"<'.$array[$i].'>"';
 
-		// FIXME: encode_mime breaks sendmail badly
-		// else
-		// {
-			//if ($pos != 0)
-				// $name = encode_mime(substr($array[$i], 0, $pos - 1), $charset).' ';
-			// $addr = substr($array[$i], $pos);
-			// $array[$i] = '"'.$name.'" '.$addr;
-		// }
+		/* FIXME: encode_mime breaks sendmail badly */
+		else
+		{
+			if ($pos != 0)
+				$name = encode_mime(substr($array[$i], 0, $pos - 1), $charset).' ';
+			$addr = substr($array[$i], $pos);
+			$array[$i] = '"'.$name.' '.$addr.'"';
+		} 
 	}
 	return ($array);
 }
