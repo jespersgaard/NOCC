@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.36 2001/11/16 11:56:41 rossigee Exp $ -->
+<!-- start of $Id: send.php,v 1.37 2001/11/19 01:02:54 nicocha Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
 		<td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -9,6 +9,14 @@
 			<input type="hidden" name="action" value="<?php echo $action ?>" />
 			<input type="hidden" name="sendaction" value="" />
 			<input type="hidden" name="num_attach" value="<?php echo $num_attach ?>" />
+			<table bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%" cellspacing="0" cellpadding="0" border="0">
+				<tr><td colspan="2">&nbsp;</td></tr>
+				<tr>
+					<td align="right" valign="top" width="50%"><input type="submit" class="button" value="<?php echo $html_send ?>" />&nbsp;</td>
+					<td align="left" valign="top" width="50%">&nbsp;<input type="reset" class="button" value="<?php echo $html_cancel ?>" /></td>
+				</tr>
+				<tr><td colspan="2">&nbsp;</td></tr>
+			</table>
 			<table width="100%" cellspacing="2" cellpadding="1" border="0" bgcolor="<?php echo $glob_theme->inside_color ?>">
 				<tr>
 					<td align="right" class="inbox"><?php echo $html_from ?> : </td>
@@ -131,4 +139,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.36 2001/11/16 11:56:41 rossigee Exp $ -->
+<!-- end of $Id: send.php,v 1.37 2001/11/19 01:02:54 nicocha Exp $ -->
