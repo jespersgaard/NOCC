@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ru-koi.php,v 1.2 2001/03/18 15:30:07 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ru-koi.php,v 1.3 2001/03/18 15:35:15 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -109,6 +109,7 @@ $html_no_mail = "Сообщений нет";
 $html_logout = "Выйти";
 $html_msg = "Сообщение";
 $html_msgs = "Сообщения";
+$html_configuration = "This server is not well set up !";
 
 $original_msg = "-- Original Message --";
 $to_empty = "Поле \"Кому\" не должно быть пустым !";

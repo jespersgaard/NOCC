@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/da.php,v 1.1 2001/03/11 11:39:13 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/da.php,v 1.2 2001/03/13 11:37:54 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -108,6 +108,7 @@ $html_no_mail = "Ingen meddelelser";
 $html_logout = "Log ud";
 $html_msg = "Meddelelse";
 $html_msgs = "Meddelelser";
+$html_configuration = "This server is not well set up !";
 
 $original_msg = "-- Oprindelig Meddelelse --";
 $to_empty = "Feltet 'Til' må ikke være tomt !" ;

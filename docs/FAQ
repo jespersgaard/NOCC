@@ -1,6 +1,6 @@
 Frequently Asked Questions for Nocc
 -----------------------------------
-Last updated: $Date: 2001/02/20 12:46:00 $
+Last updated: $Date: 2001/03/18 14:57:13 $
 
  Q. Nocc keeps me asking for a correct login/password.
 
@@ -86,7 +86,8 @@ Last updated: $Date: 2001/02/20 12:46:00 $
 
     See: http://www.redhat.com/bugzilla/show_bug.cgi?id=24933
 
- Q. Attachments can't be downloaded with IE in HTTPS mode.
+ Q. When I tried to attach a file it says 'This server is not well set up !'
 
- A. This is a known problem, this doesn't occur with Netscape and Mozilla.
-    We're trying to figure what's going on.
+ A. This is because you didn't fill in the '$tmpdir' variable in conf.php
+    and 'upload_tmp_dir' in 'php.ini'.
+    NOCC needs at least one of these variables to be at up.

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ar.php,v 1.11 2001/02/28 20:45:42 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ar.php,v 1.12 2001/03/13 11:37:54 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -109,6 +109,7 @@ $html_no_mail = "ليست هناك أية رسالة";
 $html_logout = "ءانهاء الاءرتباط";
 $html_msg = "رسالة";
 $html_msgs = "رسائل";
+$html_configuration = "This server is not well set up !";
 
 $original_msg = "--  الرسالة الأصلية  --";
 $to_empty = "يجب ءاعطاء عنوان المرسل ءاليه !";

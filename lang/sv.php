@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/se.php,v 1.8 2001/02/28 21:49:19 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sv.php,v 1.1 2001/03/11 11:40:51 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -108,6 +108,7 @@ $html_no_mail = "Inget meddelande.";
 $html_logout = "Logga ut";
 $html_msg = "Meddelande";
 $html_msgs = "Meddelanden";
+$html_configuration = "This server is not well set up !";
 
 $original_msg = "-- Original Meddelande --";
 $to_empty = "Mottagar fältet kan inte vara tomt !";

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.10 2001/03/18 15:13:19 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.11 2001/03/31 09:41:07 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -109,6 +109,7 @@ $html_no_mail = "Geen nieuwe berichten";
 $html_logout = "Logout";
 $html_msg = "Bericht";
 $html_msgs = "Berichten";
+$html_configuration = "This server is not well set up !";
 
 $original_msg = "--Oorspronkelijk Bericht--";
 $to_empty = "Het 'Aan'-veld kan niet leeg zijn !";

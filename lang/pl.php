@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.4 2001/03/11 17:55:02 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.5 2001/03/18 15:40:39 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -107,6 +107,7 @@ $html_no_mail = "Brak wiadomoœci.";
 $html_logout = "Wyloguj œiê";
 $html_msg = "Wiadomoœæ";
 $html_msgs = "Wiadomoœci";
+$html_configuration = "This server is not well set up !";
 
 $original_msg = "-- Oryginalna wiadomoœæ --";
 $to_empty = "Pole 'Do' nie mo¿e byæ puste !";

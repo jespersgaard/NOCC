@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/hu.php,v 1.1 2001/03/31 09:12:27 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/hu.php,v 1.2 2001/03/31 09:41:07 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -107,6 +107,7 @@ $html_no_mail = "Nincs &uuml;zenet.";
 $html_logout = "Kil&eacute;p";
 $html_msg = "&Uuml;zenet";
 $html_msgs = "&Uuml;zenetek";
+$html_configuration = "This server is not well set up !";
 
 $original_msg = "-- Eredeti &uuml;zenet --";
 $to_empty = "A 'C&iacute;mzett' mez&otilde;t ki kell t&ouml;lteni !";

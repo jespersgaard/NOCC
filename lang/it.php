@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.13 2001/02/28 21:49:19 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.14 2001/03/31 09:41:07 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -108,6 +108,7 @@ $html_no_mail = "Non vi sono nuovi messaggi.";
 $html_logout = "Esci";
 $html_msg = "Messaggio";
 $html_msgs = "Messaggi";
+$html_configuration = "This server is not well set up !";
 
 $original_msg = "-- Messaggio Originale --";
 $to_empty = "Il campo 'A' non può essere vuoto !";

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.42 2001/04/02 19:30:02 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.43 2001/04/17 20:55:49 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -52,6 +52,11 @@ $domains[2]->in = "";
 $domains[2]->smtp = "";
 $domains[2]->smtp_port = 25;
 */
+
+// Default tmp directory (where to store temporary uploaded files)
+$tmpdir = "/tmp"; // Can be empty if 'upload_tmp_dir' is set in php.ini
+// This should be something like '/tmp' on Unix System
+// And 'c:/tmp' on Win32
 
 // Default folder to go first
 $default_folder = "INBOX";

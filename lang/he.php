@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.26 2001/03/09 12:40:03 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/he.php,v 1.1 2001/04/01 08:12:29 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -117,6 +117,7 @@ $html_no_mail = "No message.";
 $html_logout = "יציאה";
 $html_msg = "הודעה";
 $html_msgs = "הודעות";
+$html_configuration = "This server is not well set up !";
 
 # I think some people will rather leave this one untranslated as well...
 #$original_msg = "-- Original Message --";

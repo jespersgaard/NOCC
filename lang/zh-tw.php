@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-tw.php,v 1.3 2001/03/18 15:40:39 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-tw.php,v 1.4 2001/03/22 00:24:25 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -107,6 +107,7 @@ $html_no_mail = "無內容.";
 $html_logout = "登出";
 $html_msg = "信件";
 $html_msgs = "信件";
+$html_configuration = "This server is not well set up !";
 
 $original_msg = "-- 原始內容 --";
 $to_empty = "此 '收件人' 之位置不能沒有 !";

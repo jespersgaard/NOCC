@@ -57,6 +57,8 @@ Installing NOCC
 	   The file is fairly well documented, so you should be able to pick
 	   out what you need to change fairly easily.
 
+	   You must at least fill in the $tmpdir in order to have attachments working
+
        4) (Optional step)
 	  if you run with suEXEC, you'll need to run './addcgipath path' to add
 	  the parser line at the beginning of PHP files.

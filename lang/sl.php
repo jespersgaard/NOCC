@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/sl.php,v 1.4 2001/02/23 09:31:58 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sl.php,v 1.5 2001/02/28 21:49:19 wolruf Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -108,6 +108,7 @@ $html_no_mail = "Ni sporoèil.";
 $html_logout = "Odjava";
 $html_msg = "Sporoèil";
 $html_msgs = "Sporoèil";
+$html_configuration = "This server is not well set up !";
 
 $original_msg = "-- Izvorno sporoèilo --";
 $to_empty = "Polje 'Za:' ne sme biti prazno!";
