@@ -1,5 +1,6 @@
 NOCC 0.9.4	??   ??, 2001
 
+	* Fixed problem with ip address in send.php on Win32 (bug #415180)
 	* Fixed attachments problem when running on Windows (bug #414497)
 	* Fixed a problem with IE and SSL which prevented from downloading
 	  attachments.
