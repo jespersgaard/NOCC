@@ -2,12 +2,19 @@ NOCC 0.9	November ??, 2000
 
 	* First release version.
 	* Multi language help system for end user.
+	* Configuration file with many tweakable values.
+	* PNG image attachments can be viewed inline.
+	* Minor memory optimizations (reduced GLOBAL usage and regexp).
+	* rfc822-compliant viewing messages.
+	* Fixed CC and BCC not working with SMTP.
+	* Many bugfixes, doc updates and cleanups.
 
 NOCC 0.8	October 14, 2000 (never released)
 
 	* Moved to sourceforge.
 	* Ability to send messages via SMTP.
 	* English translation.
+	* Patch to allow new mail detection on old UCB POP3 server. 
 
 NOCC 0.7	November 1999 (never released)
 
