@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.67 2001/10/17 22:51:44 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.68 2001/10/17 22:57:18 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -17,7 +17,7 @@
 // IMPORTANT: This directory must exist and be writable by the user
 // the webserver is running as (e.g. 'apache', or 'nobody'). For
 // Apache, see the User directive in the httpd.conf file.
-$prefs_dir = "/tmp";
+$prefs_dir = "/tmp/";
 
 // Default smtp server and smtp_port (default is 25)
 // If a domain has no smtp server, this one will be used
