@@ -1,7 +1,7 @@
 NOCC 0.9.3	?? ??, 2001
 
-	* Fixed bug #133573 : replying to someone with a name containning accent
-	* Better display of text/plain message
+	* Fixed replying to someone with a name containing accent (bug #133573).
+	* Better display of text/plain messages.
 	* Fixed bug with Netscape 4.x which prevented to send attachement.
 	* HTML code is now XHTML 1.0 Transitional compliant.
 	  (NB: nl2br() is not XHTML compliant when using PHP < 4.0.5)
@@ -9,7 +9,7 @@ NOCC 0.9.3	?? ??, 2001
 	* Added navigation between messages.
 	* If sender is empty, NOCC displays '[unknown]'.
 	* Added Russian, Slovenian, Swedish translations.
-	* Fix for flawed PHP install bundled with RedHat 7 (bug #24933).
+	* Fix for flawed PHP install bundled with RedHat 7 (RH bug #24933).
 	* Images with transparency are now in GIF. Fixes Netscape problems
 	  with transparent PNG.
 	* Changed <? to <?php, better compatibility when short tags is disabled. 
