@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.16 2001/05/27 15:02:33 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.17 2001/11/18 18:17:34 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,7 +9,7 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
  * Configuration file for the Italian language
- * Translation by Guido Venturini <guido@technojuice.com>
+ * Translation by Guido Venturini <guido@technojuice.com> and Francesco Andreozzi <ozzo@lauratiamo.it>
  */
 
 $charset = 'ISO-8859-1';
@@ -58,7 +58,7 @@ $alt_prev = 'Precedente';
 // index.php
 
 $html_lang = 'Lingua';
-$html_welcome = 'Benvenuto a';
+$html_welcome = 'Benvenuto in ';
 $html_login = 'Login';
 $html_passwd = 'Password';
 $html_submit = 'Ok';
@@ -71,16 +71,16 @@ $html_theme = 'Tema';
 
 // prefs.php
 
-$html_preferences = 'Preferences';
-$html_full_name = 'Full name';
-$html_email_address = 'E-mail Address';
+$html_preferences = 'Preferenze';
+$html_full_name = 'Nome';
+$html_email_address = 'Indirizzo E-mail';
 $html_ccself = 'Cc self';
-$html_hide_addresses = 'Hide addresses';
+$html_hide_addresses = 'Nascondi indirizzo';
 $html_outlook_quoting = 'Outlook-style quoting';
-$html_reply_to = 'Reply to';
-$html_use_signature = 'Use signature';
-$html_signature = 'Signature';
-$html_prefs_updated = 'Preferences updated';
+$html_reply_to = 'Rispondi a';
+$html_use_signature = 'Usa la firma';
+$html_signature = 'Firma';
+$html_prefs_updated = 'Preferenze aggiornate';
 
 // Other pages
 
@@ -102,7 +102,7 @@ $html_att_unknown = '[sconosciuto]';
 $html_attach = 'Allegato';
 $html_attach_forget = 'Devi allegare il file prima di inviare il messaggio !';
 $html_attach_delete = 'Elimina i files selezionati';
-$html_sort_by = 'Sort by';
+$html_sort_by = 'Ordina per';
 $html_from = 'da';
 $html_subject = 'Oggetto';
 $html_date = 'Data';
@@ -122,24 +122,24 @@ $html_no_mail = 'Non vi sono nuovi messaggi.';
 $html_logout = 'Esci';
 $html_msg = 'Messaggio';
 $html_msgs = 'Messaggi';
-$html_configuration = 'This server is not well set up !';
-$html_priority = 'Priority';
-$html_low = 'Low';
-$html_normal = 'Normal';
-$html_high = 'High';
-$html_select = 'Select';
-$html_select_all = 'Select All';
-$html_loading_image = 'Loading image';
-$html_send_confirmed = 'Your mail was accepted for delivery';
-$html_no_sendaction = 'No action specified. Try enabling JavaScript.';
-$html_error_occurred = 'An error occurred';
-$html_prefs_file_error = 'Unable to open preferences file for writing.';
-$html_sig_file_error = 'Unable to open signature file for writing.';
+$html_configuration = 'Questo server non e configurato correttamente !';
+$html_priority = 'Priorita';
+$html_low = 'Bassa';
+$html_normal = 'Normale';
+$html_high = 'Alta';
+$html_select = 'Seleziona';
+$html_select_all = 'Seleziona tutto';
+$html_loading_image = 'Apertura immagine';
+$html_send_confirmed = 'La tua e-mail e stata accettata per la consegna';
+$html_no_sendaction = 'Nessuna azione specificata. Provare ad abilitare JavaScript.';
+$html_error_occurred = 'Si e verificato un errore';
+$html_prefs_file_error = 'Impossibile aprire il file di preferences per la modifica.';
+$html_sig_file_error = 'Impossibile aprire il file di firma per la modifica.';
 
 $original_msg = '-- Messaggio Originale --';
 $to_empty = 'Il campo \'A\' non può essere vuoto !';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = "Unable to open connection";
+$html_smtp_error_no_conn = "Impossibile stabilire una connessione";
 $html_smtp_error_unexpected = "Unexpected response:";
 ?>
