@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.28 2004/06/28 15:28:04 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.33 2004/11/05 15:10:12 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -184,6 +184,7 @@ $html_usenet_separator = 'Разделитель в стиле Usenet ("-- \n") перед подписью';
 $html_mark_as = 'Пометить как';
 $html_read = 'прочитанное';
 $html_unread = 'непрочитанное';
+$html_mail_sent = 'Message successfully sent'; // to translate
 
 // Contacts manager
 $html_add = 'Add';

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.130 2004/11/25 17:33:51 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.131 2005/01/06 19:28:27 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -223,7 +223,7 @@ switch($_REQUEST['sendaction'])
         {
             // Redirect user to inbox
             require_once './proxy.php';
-            header("Location: ".$conf->base_url."action.php");
+            header("Location: ".$conf->base_url."action.php?successfulsend=true");
         }
         break;
     case unhtmlentities($html_attach_delete):

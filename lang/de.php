@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.42 2004/10/08 09:54:47 jdeluise Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.43 2004/10/21 11:27:38 goddess_skuld Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha AT free DOT fr>
  * Copyright 2000 Olivier Cahagne <wolruf AT free DOT fr>
@@ -189,6 +189,7 @@ $html_usenet_separator = 'Usenet-Signaturtrenner ("-- \n") benutzen';
 $html_mark_as = 'Markiere als';
 $html_read = 'gelesen';
 $html_unread = 'ungelesen';
+$html_mail_sent = 'Message successfully sent'; // to translate
 
 // Contacts manager
 $html_add = 'Hinzuf&uuml;gen';

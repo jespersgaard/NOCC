@@ -184,6 +184,7 @@ $html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to tr
 $html_mark_as = 'Mark as'; //to translate
 $html_read = 'read'; //to translate
 $html_unread = 'unread'; //to translate
+$html_mail_sent = 'Message successfully sent'; // to translate
 
 // Contacts manager
 $html_add = 'Add';  //to translate

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.37 2004/10/08 09:54:47 jdeluise Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.38 2004/10/21 11:27:38 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -189,6 +189,7 @@ $html_usenet_separator = 'Gebruik separator ("-- \n") voor de handtekening';
 $html_mark_as = 'Markeer als';
 $html_read = 'Lees';
 $html_unread = 'niet gelezen';
+$html_mail_sent = 'Message successfully sent'; // to translate
 
 // Contacts manager
 $html_add = 'Voeg toe';

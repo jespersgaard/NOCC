@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox.php,v 1.49 2004/10/21 11:27:37 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.50 2005/01/06 19:28:28 goddess_skuld Exp $ -->
 <?php
 $color_inbox = $color = $glob_theme->menu_color;
 $action = "";
@@ -37,7 +37,8 @@ elseif ($action == 'forward')
                     <td class="menu" align="center" width="120" bgcolor="<?php echo $color ?>">
                         <?php echo $line ?>
                     </td>
-                    <td width="*" bgcolor="<?php echo $glob_theme->menu_color ?>">
+                    <td class="menu" align="center" width="*" bgcolor="<?php echo $glob_theme->menu_color ?>">
+			<?php if ($_GET["successfulsend"]) { echo ($html_mail_sent); } ?>
                         <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/spacer.gif" height="1" width="1" alt="" />
                     </td>
                     <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
@@ -60,4 +61,4 @@ elseif ($action == 'forward')
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_inbox.php,v 1.49 2004/10/21 11:27:37 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_inbox.php,v 1.50 2005/01/06 19:28:28 goddess_skuld Exp $ -->

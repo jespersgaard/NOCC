@@ -1,5 +1,7 @@
 NOCC 0.9.7    ?? ??, 2005
 
+    * Add email sent confirmation within Inbox menu. (Arnaud Boudou, RFE
+      489151)
     * Dynamically load IMAP module if needed. (Arnaud Boudou, RFE #644084)
     * Force 'MIME-Version: 1.0' header for all outgoing mails. (Arnaud Boudou,
       bug #1090264)
