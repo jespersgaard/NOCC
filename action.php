@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.99 2002/03/24 17:00:36 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.100 2002/03/25 13:52:53 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -57,11 +57,18 @@ if(!isset($action))
 switch (trim($action))
 {
     case 'aff_mail':
+        $content = aff_mail($conf, $servr, $login, $passwd, $folder, $mail, $verbose, $lang, $sort, $sortdir, $ev);
+        if (Exception::isException($ev)) {
+            require ('./html/header.php');
+            require ('./html/error.php');
+            require ('./html/footer.php');
+            break;
+        }
+
         // Here we display the message
         require ('./html/header.php');
         require ('./html/menu_mail.php');
         require ('./html/html_mail_top.php');
-        $content = aff_mail($conf, $servr, $login, $passwd, $folder, $mail, $verbose, $lang, $sort, $sortdir);
         require ('./html/html_mail_header.php'); 
         while ($tmp = array_shift($attach_tab))
         {
@@ -106,7 +113,14 @@ switch (trim($action))
         break;
 
     case 'reply':    
-        $content = aff_mail($conf, $servr, $login, $passwd, $folder, $mail, 0, $lang, $sort, $sortdir);
+        $content = aff_mail($conf, $servr, $login, $passwd, $folder, $mail, 0, $lang, $sort, $sortdir, $ev);
+        if (Exception::isException($ev)) {
+            require ('./html/header.php');
+            require ('./html/error.php');
+            require ('./html/footer.php');
+            break;
+        }
+
         $mail_to = !empty($content['reply_to']) ? $content['reply_to'] : $content['from'];
         // Test for Re: in subject, should not be added twice ! 
         if (!strcasecmp(substr($content['subject'], 0, 2), $html_reply_short))
@@ -142,7 +156,14 @@ switch (trim($action))
         break;
 
     case 'reply_all':
-        $content = aff_mail($conf, $servr, $login, $passwd, $folder, $mail, 0, $lang, $sort, $sortdir);
+        $content = aff_mail($conf, $servr, $login, $passwd, $folder, $mail, 0, $lang, $sort, $sortdir, $ev);
+        if (Exception::isException($ev)) {
+            require ('./html/header.php');
+            require ('./html/error.php');
+            require ('./html/footer.php');
+            break;
+        }
+
         $mail_to = get_reply_all($login, $domain, $content['from'], $content['to'], $content['cc']);
         if (!strcasecmp(substr($content['subject'], 0, 2), $html_reply_short))
             $mail_subject = $content['subject'];
@@ -170,7 +191,14 @@ switch (trim($action))
         break;
 
     case 'forward':
-        $content = aff_mail($conf, $servr, $login, $passwd, $folder, $mail, 0, $lang, $sort, $sortdir);
+        $content = aff_mail($conf, $servr, $login, $passwd, $folder, $mail, 0, $lang, $sort, $sortdir, $ev);
+        if (Exception::isException($ev)) {
+            require ('./html/header.php');
+            require ('./html/error.php');
+            require ('./html/footer.php');
+            break;
+        }
+
         $mail_subject = $html_forward_short.': '.$content['subject'];
         $mail_body = $original_msg."\n".$html_from.': '.$content['from']."\n".$html_to.': '.$content['to']."\n".$html_sent.': '.$content['complete_date']."\n".$html_subject.': '.$content['subject']."\n\n".strip_tags2($content['body'],'');
         // Add signature
@@ -301,11 +329,11 @@ switch (trim($action))
         
         $ev = "";
         $pop = new nocc_imap('{'.$servr.'}'.$folder, $login, $passwd, $ev);
-        if (Exception::isException($lastev)) {
-            $ev = $lastev;
+        if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
             require ('./html/footer.php');
+            break;
         }
 
         $is_imap = $pop->is_imap();
