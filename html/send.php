@@ -1,4 +1,15 @@
-<!-- start of $Id: send.php,v 1.47 2002/04/19 14:39:37 rossigee Exp $ -->
+<!-- start of $Id: send.php,v 1.48 2002/04/24 19:32:31 rossigee Exp $ -->
+<?php
+
+// Default e-mail address on send form
+if($prefs_email_address != '')
+    $mail_from = $prefs_email_address;
+else
+    $mail_from = $_SESSION['user']. '@' . $_SESSION['domain'];
+if($prefs_full_name != '')
+    $mail_from = $prefs_full_name . ' <' . $mail_from . '>';
+
+?>
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -144,4 +155,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.47 2002/04/19 14:39:37 rossigee Exp $ -->
+<!-- end of $Id: send.php,v 1.48 2002/04/24 19:32:31 rossigee Exp $ -->
