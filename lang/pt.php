@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.25 2002/06/30 21:43:46 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.26 2002/11/29 07:04:58 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -10,6 +10,7 @@
  *
  * Configuration file for the Portuguese language
  * Translation by sena <sena@smux.net> and JS <jorge.silva@ciberlink.pt>
+ * Few updates by Paulo Matos <paulo.matos@fct.unl.pt>
  */
 
 $charset = 'ISO-8859-1';
@@ -39,8 +40,8 @@ $default_time_format = '%H:%M %p';
 
 // Here is the configuration for the HTML
 
-$err_user_empty = 'O login n&atilde;o foi preenchido';
-$err_passwd_empty = 'A password n&atilde;o foi preenchida';
+$err_user_empty = 'O identificador n&atilde;o foi preenchido';
+$err_passwd_empty = 'A senha n&atilde;o foi preenchida';
 
 
 // html message
@@ -59,13 +60,13 @@ $alt_prev = 'Anterior';
 
 $html_lang = 'L&iacute;ngua';
 $html_welcome = 'Benvindo ao';
-$html_login = 'Login';
-$html_passwd = 'Password';
+$html_login = 'Identificador';
+$html_passwd = 'Senha';
 $html_submit = 'Entrar';
 $html_help = 'Ajuda';
 $html_server = 'Servidor';
-$html_wrong = 'Login ou password incorrecto';
-$html_retry = 'Tentar de novo';
+$html_wrong = 'Identificador ou senha incorrectos';
+$html_retry = 'Tentar novamente';
 $html_on = 'em';
 $html_theme = 'Tema';
 
@@ -130,7 +131,7 @@ $html_normal = 'Normal';
 $html_high = 'Alta';
 $html_select_all = 'Seleccionar tudo';
 $html_loading_image = 'Carregando imagem';
-$html_send_confirmed = 'Sua mensagem foi aceite para envio';
+$html_send_confirmed = 'A mensagem foi aceite para envio';
 $html_no_sendaction = 'Ac&ccedil;&atilde;o n&atilde;o indicada. Tente activar o JavaScript.';
 $html_error_occurred = 'Ocorreu um erro';
 $html_prefs_file_error = 'N&atilde;o foi poss&iacute;vel abrir o ficheiro de preferen&ccedil;as para escrita.';
@@ -140,10 +141,10 @@ $original_msg = '-- Mensagem Original --';
 $to_empty = 'O campo \'Para\' tem de ser preenchido !';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = "N&atilde;o foi poss&iacute;vel ligar ao servidor";
-$html_smtp_error_unexpected = "Resposta inesperada:";
-$lang_could_not_connect = 'Could not connect to server';  //to translate
-$html_file_upload_attack = 'Possible file upload attack';  //to translate
-$html_invalid_email_address = 'Invalid e-mail address';  //to translate
-$html_seperate_msg_win = 'Messages in separate window';  //to translate
+$html_smtp_error_no_conn = 'N&atilde;o foi poss&iacute;vel estabelecer ligação ao servidor de SMTP';
+$html_smtp_error_unexpected = 'Resposta inesperada do servidor de SMTP:';
+$lang_could_not_connect = 'N&atilde;o foi poss&iacute;vel estabelecer ligação ao servidor';
+$html_file_upload_attack = 'Poss&iacute;vel ataque de \'upload\' de ficheiros';
+$html_invalid_email_address = 'Endereço de e-mail inv&aacute;lido';
+$html_seperate_msg_win = 'Mensagens em janela separada';
 ?>
