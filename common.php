@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.29 2003/12/21 15:40:20 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.30 2004/06/19 11:03:18 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -104,8 +104,10 @@ if (isset($_REQUEST['domainnum']))
     $_SESSION['nocc_smtp_port'] = $conf->domains[$domainnum]->smtp_port;
 
     // Do we provide the domain with the login?
-    if(isset($conf->domains[$domainnum]->login_with_domain))
+    if(isset($conf->domains[$domainnum]->login_with_domain)){
         $_SESSION['nocc_login'] .= "@" . $_SESSION['nocc_domain'];
+	$_SESSION['nocc_login_with_domain'] = 1;
+    }
 
     //append suffix to login
     if(isset($conf->domains[$domainnum]->login_suffix))
