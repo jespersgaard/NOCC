@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.93 2002/03/24 16:45:25 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.94 2002/03/24 17:00:35 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -71,6 +71,7 @@ else
             require ('./html/menu_inbox.php');
             require ('./html/send.php');
             require ('./html/menu_inbox.php');
+            require ('./html/footer.php');
             break;
         case 'send':
             $ip = (getenv('HTTP_X_FORWARDED_FOR') ? getenv('HTTP_X_FORWARDED_FOR') : getenv('REMOTE_ADDR'));
@@ -89,9 +90,9 @@ else
             $mail->to = cut_address(trim($mail_to), $charset);
             $mail->cc = cut_address(trim($mail_cc), $charset);
             $cc_self = getPref('cc_self');
-             if($cc_self != '') {
-                 array_unshift($mail->cc, $mail->from);
-             }
+            if($cc_self != '') {
+                array_unshift($mail->cc, $mail->from);
+            }
             $mail->bcc = cut_address(trim($mail_bcc), $charset);
             if ($mail_subject != '')
                 $mail->subject = trim($mail_subject);
@@ -124,9 +125,11 @@ else
                     }
                 }
             }
+
             // We need to unregister the attachments array and num_attach
             session_unregister('num_attach');
             session_unregister('attach_array');
+
             $ev = $mail->send();
             header("Content-type: text/html; Charset=$charset");
             if (Exception::isException($ev))
@@ -136,6 +139,7 @@ else
                 require ('./html/menu_inbox.php');
                 require ('./html/send_error.php');
                 require ('./html/menu_inbox.php');
+                require ('./html/footer.php');
             }
             else
             {
@@ -144,6 +148,7 @@ else
                 require ('./html/menu_inbox.php');
                 require ('./html/send_confirmed.php');
                 require ('./html/menu_inbox.php');
+                require ('./html/footer.php');
             }
             break;
         case 'delete':
@@ -176,6 +181,7 @@ else
             require ('./html/menu_inbox.php');
             require ('./html/send.php');
             require ('./html/menu_inbox.php');
+            require ('./html/footer.php');
             break;
         default:
             // Nothing was set in the sendaction (e.g. no javascript enabled)
@@ -185,8 +191,8 @@ else
             require ('./html/menu_inbox.php');
             require ('./html/send_error.php');
             require ('./html/menu_inbox.php');
+            require ('./html/footer.php');
             break;
     }
-    require ('./html/footer.php');
 }
 ?>
