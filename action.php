@@ -1,6 +1,6 @@
 <?
 /*
- * $Header$
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.16 2000/11/24 22:01:52 wolruf Exp $
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -28,11 +28,11 @@ switch ($action)
 		require ("html/html_mail_top.php");
 		$content = aff_mail($servr, $user, $passwd, $mail, $verbose, true, $lang);
 		require ("html/html_mail_header.php"); 
-		if (!eregi("html", $content["body_mime"]))
+		//if (!eregi("html", $content["body_mime"]))
 			while ($tmp = array_shift($attach_tab))
 			{
 				// $attach_tab is the array of attachments
-				if (eregi ("image", $tmp["mime"]))
+				if (eregi ("image", $tmp["mime"]) && ($tmp["id"] == ""))
 				{
 					// if it's an image, we display it
 					$img_type = array_pop(explode("/", $tmp["mime"]));

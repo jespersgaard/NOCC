@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.39 2000/12/15 20:39:09 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.40 2000/12/16 14:25:06 nicocha Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -176,7 +176,7 @@ function GetPart($this_part, $part_no, $read, $display_rfc822)
 	if ($this_part->ifdescription == TRUE)
 		$att_name = $this_part->description;
 	for ($lcv = 0; $lcv < count($this_part->parameters); $lcv++)
-	{
+	{ 
 		$param = $this_part->parameters[$lcv];
 	    if ($param->attribute == "NAME")
 		{
@@ -252,11 +252,11 @@ function GetPart($this_part, $part_no, $read, $display_rfc822)
 			$encoding = "none";
 			break;
 	}
-
 	if (($full_mime_type == "message/RFC822" && $display_rfc822 == true) || ($mime_type != "multipart" && $full_mime_type != "message/RFC822"))
 		{
 			$tmp = Array(
 					"number" => ($part_no != "" ? $part_no : 1),
+					"id" => $this_part->id,
 					"name" => $att_name,
 					"mime" => $full_mime_type,
 					"transfer" => $encoding,
@@ -305,15 +305,16 @@ function remove_stuff($body, $lang, $mime)
 function link_att($servr, $mail, $tab, $display_part_no)
 {
 	sort($tab);
-	$link = "<table border='0'";
+	$link = "<table border='0'>";
 	while ($tmp = array_shift($tab))
-	{
-		$link .= "<tr>";
-		if ($display_part_no == true)
-			$link .= "<td class='inbox'>".$tmp["number"]."</td>";
-		$att_name = imap_mime_header_decode($tmp["name"]);
-		$link .="<td class='inbox'><a href=download.php?mail=".$mail."&part=".$tmp["number"]."&transfer=".$tmp["transfer"]."&filename=".urlencode($att_name[0]->text).">".$att_name[0]->text."</a></td><td class='inbox'>".$tmp["mime"]."</td><td class='inbox'>".$tmp["size"]." kb</td><tr>";
-	}
+		if ($tmp["id"] == "")
+		{
+			$link .= "<tr>";
+			if ($display_part_no == true)
+				$link .= "<td class='inbox'>".$tmp["number"]."</td>";
+			$att_name = imap_mime_header_decode($tmp["name"]);
+			$link .="<td class='inbox'><a href=download.php?mail=".$mail."&part=".$tmp["number"]."&transfer=".$tmp["transfer"]."&filename=".urlencode($att_name[0]->text).">".$att_name[0]->text."</a></td><td class='inbox'>".$tmp["mime"]."</td><td class='inbox'>".$tmp["size"]." kb</td></tr>";
+		}
 	$link .= "</table>";
 	return ($link);
 }
