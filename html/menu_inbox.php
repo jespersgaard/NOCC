@@ -18,12 +18,11 @@ if ($action == "forward")
 ?>
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
-		<td>
+		<td bgcolor="<? echo $html_inside_color ?>">
 			<table border="0" cellpadding="2" cellspacing="1" bgcolor="<? echo $html_inside_color ?>" width="100%">
 				<tr>
 					<td class="menu" align="center" width="120" bgcolor="<? echo $color_inbox ?>">
-						<a href="<? echo $PHP_SELF ?>?lang=<?echo $lang ?>&sort=<? echo $sort 
-?>&sortdir=<? echo $sortdir ?>" class="menu"><? echo $html_inbox ?></a>
+						<a href="<? echo $PHP_SELF ?>?lang=<?echo $lang ?>&sort=<? echo $sort ?>&sortdir=<? echo $sortdir ?>" class="menu"><? echo $html_inbox ?></a>
 					</td>
 					<td class="menu" align="center" width="120" bgcolor="<? echo $color ?>">
 						<? echo $line ?>
