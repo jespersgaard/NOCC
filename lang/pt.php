@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.15 2001/05/27 15:02:33 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.16 2001/06/22 15:36:18 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -10,6 +10,7 @@
  *
  * Configuration file for the portuguese language
  * Translation by sena <sena@smux.net>
+ * and Jorge Silva <jorge.silva@ciberlink.pt>
  */
 
 $charset = 'ISO-8859-1';
@@ -36,7 +37,6 @@ $no_locale_date_format = '%d/%m/%Y';
 // today?
 $default_time_format = '%I:%M %p';
 
-
 // Here is the configuration for the HTML
 
 $err_user_empty = 'O login n&atilde;o foi preenchido';
@@ -50,7 +50,7 @@ $alt_delete_one = 'Apagar a mensagem';
 $alt_new_msg = 'Mensagens novas';
 $alt_reply = 'Responder ao autor';
 $alt_reply_all = 'Responder a todos';
-$alt_forward = 'Forward';
+$alt_forward = 'Reencaminhar';
 $alt_next = 'Pr&oacute;xima';
 $alt_prev = 'Anterior';
 
@@ -58,7 +58,7 @@ $alt_prev = 'Anterior';
 // index.php
 
 $html_lang = 'L&iacute;ngua';
-$html_welcome = 'Benvindo ao';
+$html_welcome = 'Benvindo ao servi&ccedil;o';
 $html_login = 'Login';
 $html_passwd = 'Password';
 $html_submit = 'Entrar';
@@ -73,21 +73,21 @@ $html_theme = 'Tema';
 
 $html_view_header = 'Ver cabe&ccedil;alhos';
 $html_remove_header = 'Esconder cabe&ccedil;alhos';
-$html_inbox = 'Inbox';
+$html_inbox = 'Correio';
 $html_new_msg = 'Escrever';
 $html_reply = 'Responder';
 $html_reply_short = 'Re';
 $html_reply_all = 'Responder a todos';
-$html_forward = 'Forward';
+$html_forward = 'Reencaminhar';
 $html_forward_short = 'Fw';
 $html_delete = 'Apagar';
 $html_new = 'Nova';
 $html_mark = 'Apagar';
-$html_att = 'Attachment';
-$html_atts = 'Attachments';
+$html_att = 'Anexo';
+$html_atts = 'Anexos';
 $html_att_unknown = '[desconhecido]';
-$html_attach = 'Attach';
-$html_attach_forget = 'Tem de fazer o attach antes de enviar a mensagem !';
+$html_attach = 'Anexar';
+$html_attach_forget = 'Tem de premir \`Anexar\` antes de enviar a mensagem !';
 $html_attach_delete = 'Retirar Ficheiros Seleccionados';
 $html_from = 'De';
 $html_subject = 'Assunto';
@@ -108,7 +108,11 @@ $html_no_mail = 'N&atilde;o h&aacute; mensagens novas.';
 $html_logout = 'Sair';
 $html_msg = 'Mensagem';
 $html_msgs = 'Mensagens';
-$html_configuration = 'This server is not well set up !';
+$html_configuration = 'Este servidor n&atilde;o est&aacute; correctamente configurado !';
+$html_priority = 'Prioridade';
+$html_low = 'Baixa';
+$html_normal = 'Normal';
+$html_high = 'Alta';
 
 $original_msg = '-- Mensagem Original --';
 $to_empty = 'O campo \'Para\' tem de ser preenchido !';
