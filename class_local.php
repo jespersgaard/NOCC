@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.27 2003/05/18 21:51:21 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.28 2003/12/21 15:40:20 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -122,13 +122,13 @@ class nocc_imap
     }
 
     function renamemailbox(&$old_box, &$new_box, &$ev) {
-        if(!imap_renamemailbox($this->conn, '{'.$this->server.'}'.$old_box, '{'.$this->server.'}'.$new_box)) {
+        if(!imap_renamemailbox($this->conn, '{'.$this->server.'}'.$old_box, '{'.$this->server.'}INBOX.'.$new_box)) {
             $ev = new NoccException(imap_last_error());
         }
     }
 
     function createmailbox(&$new_box, &$ev) {
-        if(!imap_createmailbox($this->conn, '{'.$this->server.'}'.$new_box)) {
+        if(!imap_createmailbox($this->conn, '{'.$this->server.'}INBOX.'.$new_box)) {
             $ev = new NoccException(imap_last_error());
         }
     }
@@ -137,8 +137,12 @@ class nocc_imap
         return imap_mail_copy($this->conn, $mail, $new_box, 0);
     }
 
-    function subscribe(&$new_box, &$ev) {
-        return imap_subscribe($this->conn, '{'.$this->server.'}'.$new_box);
+    function subscribe(&$new_box, &$ev, $isnewbox) {
+        if ($isnewbox) {
+            return imap_subscribe($this->conn, '{'.$this->server.'}INBOX.'.$new_box);
+        } else {
+            return imap_subscribe($this->conn, '{'.$this->server.'}'.$new_box);
+        }
     }
 
     function unsubscribe(&$old_box, &$ev) {

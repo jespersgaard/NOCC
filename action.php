@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.145 2003/12/21 15:40:20 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.146 2004/03/04 19:22:29 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -244,16 +244,16 @@ switch($action)
         switch ($do) {
             case 'create_folder':
                 if ($_REQUEST['createnewbox']) {
-                    $pop->createmailbox($createnewbox, $ev);
+                    $pop->createmailbox($_REQUEST['createnewbox'], $ev);
                     if(NoccException::isException($ev)) break;
-                    $pop->subscribe($createnewbox, $ev);
+                    $pop->subscribe($_REQUEST['createnewbox'], $ev, true);
                     if(NoccException::isException($ev)) break;
                 }
                 break;
 
             case 'subscribe_folder':
                 if ($_REQUEST['subscribenewbox']) {
-                    $pop->subscribe($_REQUEST['subscribenewbox'], $ev);
+                    $pop->subscribe($_REQUEST['subscribenewbox'], $ev, false);
                     if(NoccException::isException($ev)) break;
                 }
                 break;
@@ -274,7 +274,7 @@ switch($action)
                     if(NoccException::isException($ev)) break;
                     $pop->unsubscribe($_REQUEST['renameoldbox'], $ev);
                     if(NoccException::isException($ev)) break;
-                    $pop->subscribe($_REQUEST['renamenewbox'], $ev);
+                    $pop->subscribe($_REQUEST['renamenewbox'], $ev, true);
                     if(NoccException::isException($ev)) break;
                 }
                 break;
