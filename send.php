@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.76 2001/10/30 21:49:46 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.77 2001/11/03 16:51:28 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -118,7 +118,14 @@ else
 				require ('./html/menu_inbox.php');
 				exit;
 			}
-			header ("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang&$php_session=".$$php_session);
+
+			// Display a confirmation of success
+			require ('./html/header.php');
+			require ('./html/menu_inbox.php');
+			require ('./html/send_confirmed.php');
+			require ('./html/menu_inbox.php');
+			exit;
+			
 			break;
 		case 'delete':
 			// Rebuilding the attachments array with only the files the user wants to keep
@@ -152,7 +159,13 @@ else
 			require ('./html/menu_inbox.php');
 			break;
 		default:
-			go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $lang, true);
+			// Nothing was set in the sendaction (e.g. no javascript enabled)
+			header("Content-type: text/html; Charset=$charset");
+			$ev = new Exception("$html_no_sendaction");
+			require ('./html/header.php');
+			require ('./html/menu_inbox.php');
+			require ('./html/send_error.php');
+			require ('./html/menu_inbox.php');
 			break;
 	}
 	require_once ('./html/footer.php');
