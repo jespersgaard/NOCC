@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.145 2002/04/15 10:27:32 mrylander Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.146 2002/04/16 00:52:24 mrylander Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -657,6 +657,7 @@ function view_part(&$servr, &$login, &$passwd, &$folder, &$mail, $part_no, &$tra
         $str = nl2br($text);
     //if (eregi('koi', $transfer) || eregi('windows-1251', $transfer))
     //    $str = @convert_cyr_string($str, $msg_charset, $charset);
+    $pop->close();
     return ($str);
 }
 
