@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.1 2001/04/25 18:09:52 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.2 2001/04/25 18:27:11 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -10,7 +10,7 @@
  */
  
  // ################### Language Array  ################### //
-// If you had language files to '/lang' folder, please list them here
+// If you had language files in 'lang/' folder, please list them here
 
 // Arabic
 $lang_array[0]->filename = "ar";
