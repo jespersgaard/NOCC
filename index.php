@@ -31,10 +31,12 @@ function updatePort () {
 		<TR>
 			<TD align="center">
 				<TABLE border="0" cellpadding="0" cellspacing="5" align="center">
-					<TR> 
-						<TD><INPUT type="text" name="user"></span></TD>
+					<TR>
 						<TD>
 							<span class="f"><? echo $html_login ?>
+						</TD>
+						<TD>
+							<INPUT type="text" name="user"></span>
 							<?
 							if ($servr != "" && $provider != "")
 							{ ?>
