@@ -1,5 +1,6 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Replaced error_log calls with a sessionlog member in class_smtp.php
 	* Replaced PEAR::Error with simple Exception class.
 	* Strip slashes from user while logging in (#465418)
 	* Bypassed redundant 'check_form' javascript method.
