@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.170 2002/12/01 13:03:56 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.171 2002/12/16 15:22:48 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -457,6 +457,7 @@ function remove_stuff(&$body, &$mime)
     }
     elseif (eregi('plain', $mime))
     {
+        $body = htmlspecialchars($body);
         $body = eregi_replace("(http|https|ftp)://([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)","<a href=\"\\1://\\2\" target=\"_blank\">\\1://\\2</a>", $body);
         // Bug #511302: Comment out following line if you have the 'Invalid Range End' problem
         // New rewritten preg_replace should fix the problem, bug #522389
