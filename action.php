@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.126 2002/05/15 10:11:20 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.127 2002/05/15 15:48:24 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -376,7 +376,10 @@ switch($action)
             if (Exception::isException($lastev)) {
                 $ev = $lastev;
                 require ('./html/header.php');
+                require ('./html/menu_prefs.php');
                 require ('./html/prefs.php');
+                require ('./html/folders.php');
+                require ('./html/menu_prefs.php');
                 require ('./html/footer.php');
                 break;
             }
