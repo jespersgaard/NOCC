@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/logout.php,v 1.24 2002/03/24 16:45:26 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/logout.php,v 1.25 2002/03/24 17:00:36 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -18,5 +18,5 @@ if (isset($attach_array) && is_array($attach_array))
         @unlink($conf->tmpdir . '/' . $tmp->tmp_file);
 session_destroy();
 require_once './proxy.php';
-Header('Location: ' . $conf->base_url . 'index.php?lang=' . $lang . '&amp;theme=' . $old_theme);
+Header('Location: ' . $conf->base_url . 'index.php?lang=' . $lang . '&theme=' . $old_theme);
 ?>
