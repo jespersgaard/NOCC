@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/help.php,v 1.10 2002/03/24 17:00:36 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/help.php,v 1.11 2002/04/18 21:38:41 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -11,6 +11,7 @@
 
 require_once './conf.php';
 require_once './common.php';
+$lang = $_SESSION['lang'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang ?>" lang="<?php echo $lang ?>">

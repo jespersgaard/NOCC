@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.16 2002/04/18 15:09:23 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.1 2002/04/18 22:31:10 rossigee Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -10,30 +10,38 @@
  * Stuff that is always checked or run or initialised for every hit.
  */
 
-require_once './check_lang.php';
-require_once './functions.php';
-
 // Initialise session array
 session_start();
+
+require_once './check_lang.php';
+require_once './functions.php';
 
 // Useful for debugging sessions
 //echo "<pre>Session:";
 //var_dump($_SESSION);
 //echo "</pre>";
 
+// Set defaults
+if (!isset($_SESSION['folder']))
+	$_SESSION['folder'] = $conf->default_folder;
+if (!isset($_SESSION['sort']))
+	$_SESSION['sort'] = $conf->default_sort;
+if (!isset($_SESSION['sortdir']))
+	$_SESSION['sortdir'] = $conf->default_sortdir;
+
 // Override session variables from request, if supplied
 if(isset($_REQUEST['user']))
-	$_SESSION['user'] = $user;
+	$_SESSION['user'] = safestrip($_REQUEST['user']);
 if(isset($_REQUEST['passwd']))
-	$_SESSION['passwd'] = $passwd;
+	$_SESSION['passwd'] = safestrip($_REQUEST['passwd']);
 if(isset($_REQUEST['theme']))
-	$_SESSION['theme'] = $theme;
+	$_SESSION['theme'] = safestrip($_REQUEST['theme']);
 if(isset($_REQUEST['lang']))
-	$_SESSION['lang'] = $lang;
+	$_SESSION['lang'] = safestrip($_REQUEST['lang']);
 if(isset($_REQUEST['sort']))
-	$_SESSION['sort'] = $sort;
+	$_SESSION['sort'] = safestrip($_REQUEST['sort']);
 if(isset($_REQUEST['sortdir']))
-	$_SESSION['sortdir'] = $sortdir;
+	$_SESSION['sortdir'] = safestrip($_REQUEST['sortdir']);
 
 // Unpack session variables into global namespace. This shouldn't be long-term, as I'm
 // trying to clear up use of the global namespace.
@@ -83,13 +91,6 @@ if (empty($smtp_server))
 	$smtp_server = $conf->default_smtp_server;
 if (empty($smtp_port))
 	$smtp_port = $conf->default_smtp_port;
-
-if (!isset($folder))
-	$folder = $conf->default_folder;
-if (!isset($sort))
-	$sort = $conf->default_sort;
-if (!isset($sortdir))
-	$sortdir = $conf->default_sortdir;
 
 // If we are forced to use a particular theme...
 if (!$conf->use_theme || empty($theme))

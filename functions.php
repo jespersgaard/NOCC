@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.148 2002/04/18 21:38:40 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.149 2002/04/18 22:28:26 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -90,30 +90,18 @@ function inbox(&$pop, $skip = 0)
             $newmail = '<img src="themes/' . $theme . '/img/new.gif" alt="" height="17" width="17" />';
         else
             $newmail = '&nbsp;';
-        /*
-        if ($num_messages > 1)
-        {
-            $next = ($i + 1 < $num_messages) ? $pop->msgno($sorted[$i + 1]) : 0;
-            $prev = ($i - 1 > 0) ? $pop->msgno($sorted[$i - 1]) : 0;
-        }
-        else
-        {
-            $next = $prev = 0;
-        }
-        */
-        list($date, $complete_date) = change_date(chop($ref_contenu_message->udate), $lang);
+	$timestamp = chop($ref_contenu_message->udate);
+        $date = format_date($timestamp, $lang);
+        $time = format_time($timestamp, $lang);
         $msg_list[$i] =  Array(
                 'new' => $newmail, 
                 'number' => $pop->msgno($msgnum),
-                /*
-                'next' => $next,
-                'prev' => $prev,
-                */
                 'attach' => $attach, 
                 'from' => $from,
                 'subject' => $subject, 
                 'date' => $date,
-                'complete_date' => $complete_date, 
+                'time' => $time,
+                'complete_date' => $date, 
                 'size' => $msg_size,
                 'sort' => $sort,
                 'sortdir' => $sortdir);
@@ -122,22 +110,26 @@ function inbox(&$pop, $skip = 0)
 }
 
 /* ----------------------------------------------------- */
-function aff_mail(&$folder, &$mail, $verbose, &$ev)
+function aff_mail(&$mail, $verbose, &$ev)
 {
     GLOBAL $conf;
     GLOBAL $attach_tab;
     GLOBAL $PHP_SELF;
+    GLOBAL $lang_locale;
+    GLOBAL $no_locale_date_format;
 
     $mailhost = $_SESSION['servr'];
+    $folder = $_SESSION['folder'];
     $login = $_SESSION['login'];
     $passwd = $_SESSION['passwd'];
     $sort = $_SESSION['sort'];
     $sortdir = $_SESSION['sortdir'];
     $lang = $_SESSION['lang'];
 
+    // Clear variables
     $glob_body = $subject = $from = $to = $cc = $reply_to = '';
-    if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
-        $default_date_format = $no_locale_date_format;
+
+    // Connect to server
     $pop = new nocc_imap($mailhost, $folder, $login, $passwd, $ev);
     if($ev) 
         return (-1);
@@ -175,7 +167,7 @@ function aff_mail(&$folder, &$mail, $verbose, &$ev)
             $glob_body = base64_decode($pop->fetchbody($mail, $tmp['number']));
         else
             $glob_body = $pop->fetchbody($mail, $tmp['number']);
-        $glob_body = remove_stuff($glob_body, $lang, $tmp['mime']);
+        $glob_body = remove_stuff($glob_body, $tmp['mime']);
     }
     else
         array_push($attach_tab, $tmp);
@@ -213,7 +205,8 @@ function aff_mail(&$folder, &$mail, $verbose, &$ev)
     for ($j = 0; $j < count($reply_to_array); $j++)
         $reply_to .= $reply_to_array[$j]->text;
     $timestamp = chop($ref_contenu_message->udate);
-    list($date, $complete_date) = change_date($timestamp, $lang);
+    $date = format_date($timestamp, $lang);
+    $time = format_time($timestamp, $lang);
     $content = Array(
         'from' => $from,
         'to' => $to,
@@ -221,8 +214,8 @@ function aff_mail(&$folder, &$mail, $verbose, &$ev)
         'reply_to' => $reply_to,
         'subject' => $subject,
         'date' => $date,
-        'timestamp' => $timestamp,
-        'complete_date' => $complete_date,
+        'time' => $time,
+        'complete_date' => $date,
         'att' => $link_att,
         'body' => $glob_body,
         'body_mime' => $tmp['mime'],
@@ -425,9 +418,11 @@ function GetSinglePart(&$this_part, &$header, &$body)
 
 /* ----------------------------------------------------- */
 
-function remove_stuff(&$body, &$lang, &$mime)
+function remove_stuff(&$body, &$mime)
 {
     GLOBAL $PHP_SELF;
+
+    $lang = $_SESSION['lang'];
 
     if (eregi('html', $mime))
     {
@@ -492,24 +487,40 @@ function link_att(&$servr, &$mail, &$tab, &$display_part_no)
 }
 
 /* ----------------------------------------------------- */
+// Return date formatted as a string, according to locale
 
-function change_date(&$date, &$lang)
+function format_date(&$date, &$lang)
 {
+    global $default_date_format;
+    global $lang_locale;
+    global $no_locale_date_format;
+
+    // handle bad inputs
     if (empty($date))
-        $msg_date = $complete_date = '';
-    else
-    {
-        if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
-            $default_date_format = $no_locale_date_format;
-        $complete_date = strftime($default_date_format, $date); 
-        if ((date('Y', $date) != date('Y')) || (date('M') != date('M', $date)) || (date('d') != date('d', $date)))
-            // not today, use the date
-            $msg_date = $complete_date;
-        else
-            // else it's today, use the time
-            $msg_date = strftime($default_time_format, $date);
-    }
-    return (array($msg_date, $complete_date));
+        return '';
+
+    // if locale can't be set, use default for no locale
+    if (!setlocale (LC_TIME, $lang_locale))
+        $default_date_format = $no_locale_date_format;
+
+    // format dates
+    return strftime($default_date_format, $date); 
+}
+
+function format_time(&$time, &$lang)
+{
+    global $default_time_format;
+    global $lang_locale;
+
+    // handle bad inputs
+    if (empty($time))
+        return '';
+
+    // if locale can't be set, use default for no locale
+    setlocale (LC_TIME, $lang_locale);
+
+    // format dates
+    return strftime($default_time_format, $time); 
 }
 
 
@@ -696,7 +707,7 @@ function encode_mime(&$string, &$charset)
 
 // This function is used when accessing a page without being logged in
 // or accessing send.php via GET method
-function go_back_index(&$attach_array, &$tmpdir, &$sort, &$sortdir, &$lang, $redirect)
+function go_back_index(&$attach_array, &$tmpdir, $redirect)
 {
     if (isset($attach_array) && is_array($attach_array))
         while ($tmp = array_shift($attach_array))

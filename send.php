@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.97 2002/04/16 00:53:19 mrylander Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.98 2002/04/18 21:38:41 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -136,16 +136,16 @@ else
                     break;
                 }
 
-		// Rebuild original message from headers and body
-		$origmsg = "";
+                // Rebuild original message from headers and body
+                $origmsg = "";
                 $headers = $pop->fetchheader($forward_msgnum);
                 $body = $pop->body($forward_msgnum);
-		$origmsg .= $headers;
-		$origmsg .= "\r\n";
-		$origmsg .= $body;
+                $origmsg .= $headers;
+                $origmsg .= "\r\n";
+                $origmsg .= $body;
 
-		// Attach it
-		$mail->add_attachment($origmsg, '',  'message/rfc822', '', '');
+                // Attach it
+                $mail->add_attachment($origmsg, '',  'message/rfc822', '', '');
             }
 
             // We need to unregister the attachments array and num_attach

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.108 2002/04/18 21:46:07 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.109 2002/04/18 22:28:26 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -14,15 +14,10 @@
 
 require_once './conf.php';
 require_once './common.php';
-require_once './check_lang.php';
 require_once './prefs.php';
 
 if(!isset($_SESSION['loggedin']))
     $action = '';
-
-if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
-    $default_date_format = $no_locale_date_format;
-$current_date = strftime($default_date_format, time());
 
 // Get preferences
 $prefs_full_name = getPref('full_name');
@@ -54,7 +49,7 @@ if(!isset($action))
 switch (trim($action))
 {
     case 'aff_mail':
-        $content = aff_mail($folder, $mail, $verbose, $ev);
+        $content = aff_mail($mail, $verbose, $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
@@ -72,7 +67,7 @@ switch (trim($action))
             // $attach_tab is the array of attachments
             // If it's a text/plain, display it
             if ((!eregi('ATTACHMENT', $tmp['disposition'])) && $display_text_attach && (eregi('text/plain', $tmp['mime'])))
-                echo '<hr />'.view_part($servr, $login, $passwd, $folder, $mail, $tmp['number'], $tmp['transfer'], $tmp['charset'], $charset);
+                echo '<hr />'.view_part($mail, $tmp['number'], $tmp['transfer'], $tmp['charset'], $charset);
             if ($conf->display_img_attach && (eregi('image', $tmp['mime']) && ($tmp['number'] != '')))
             {
                 // if it's an image, display it
@@ -82,7 +77,7 @@ switch (trim($action))
                     echo '<hr />';
                     echo '<center>';
                     echo '<p>' . $html_loading_image . ' ' . $tmp['name'] . '...</p>';
-                    echo '<img src="get_img.php?mail=' . $mail.'&amp;folder=' . $folder . '&amp;num=' . $tmp['number'] . '&amp;mime=' . $img_type . '&amp;transfer=' . $tmp['transfer'] . '" />';
+                    echo '<img src="get_img.php?mail=' . $mail.'&amp;num=' . $tmp['number'] . '&amp;mime=' . $img_type . '&amp;transfer=' . $tmp['transfer'] . '" />';
                     echo '</center>';
                 }
             }
@@ -110,7 +105,7 @@ switch (trim($action))
         break;
 
     case 'reply':    
-        $content = aff_mail($folder, $mail, 0, $ev);
+        $content = aff_mail($mail, 0, $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
@@ -142,7 +137,7 @@ switch (trim($action))
         $mail_body .= "\r\n\r\n" . $prefs_signature;
 
         // We add the attachments of the original message
-        //list($num_attach, $attach_array) = save_attachment($servr, $login, $passwd, $folder, $mail, $tmpdir);
+        //list($num_attach, $attach_array) = save_attachment($mail, $tmpdir);
         require ('./html/header.php');
         require ('./html/menu_inbox.php');
         require ('./html/send.php');
@@ -151,7 +146,7 @@ switch (trim($action))
         break;
 
     case 'reply_all':
-        $content = aff_mail($folder, $mail, 0, $ev);
+        $content = aff_mail($mail, 0, $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
@@ -175,7 +170,7 @@ switch (trim($action))
         $mail_body .= "\r\n".$prefs_signature;
 
         // We add the attachments of the original message
-        //list($num_attach, $attach_array) = save_attachment($servr, $login, $passwd, $folder, $mail, $tmpdir);
+        //list($num_attach, $attach_array) = save_attachment($mail, $tmpdir);
         require ('./html/header.php');
         require ('./html/menu_inbox.php');
         require ('./html/send.php');
@@ -184,7 +179,7 @@ switch (trim($action))
         break;
 
     case 'forward':
-        $content = aff_mail($folder, $mail, 0, $ev);
+        $content = aff_mail($mail, 0, $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
@@ -193,19 +188,19 @@ switch (trim($action))
         }
 
         $mail_subject = $html_forward_short.': '.$content['subject'];
-	
+    
         // Add signature
         $mail_body .= "\r\n".$prefs_signature;
 
-	// Let send.php know to attach the original message
-	$forward_msgnum = $mail;
+    // Let send.php know to attach the original message
+    $forward_msgnum = $mail;
 
         // We add the attachments of the original message
-        list($num_attach, $attach_array) = save_attachment($servr, $login, $passwd, $folder, $mail, $tmpdir);
+        list($num_attach, $attach_array) = save_attachment($mail, $tmpdir);
         // Registering the attachments array into the session
         //session_register('num_attach', 'attach_array');
-	$_SESSION['num_attach'] = $_REQUEST['num_attach'];
-	$_SESSION['attach_array'] = $_REQUEST['attach_array'];
+        $_SESSION['num_attach'] = $_REQUEST['num_attach'];
+        $_SESSION['attach_array'] = $_REQUEST['attach_array'];
         require ('./html/header.php');
         require ('./html/menu_inbox.php');
         require ('./html/send.php');
@@ -214,8 +209,10 @@ switch (trim($action))
         break;
 
     case 'managefolders':
-	$user = $_SESSION['user'];
-	$passwd = $_SESSION['passwd'];
+        $servr = $_SESSION['servr'];
+        $folder = $_SESSION['folder'];
+        $user = $_SESSION['user'];
+        $passwd = $_SESSION['passwd'];
         $pop = new nocc_imap($servr, $folder, $user, $passwd, $ev);
         if ($ev) {
             $do = '';
@@ -305,8 +302,10 @@ switch (trim($action))
         break;
 
     case 'setprefs':
-	$user = $_SESSION['user'];
-	$passwd = $_SESSION['passwd'];
+        $servr = $_SESSION['servr'];
+        $folder = $_SESSION['folder'];
+        $user = $_SESSION['user'];
+        $passwd = $_SESSION['passwd'];
         $pop = new nocc_imap($servr, $folder, $user, $passwd, $lastev);
         if ($ev) {
             // I'll decide what to do with this later.
@@ -439,6 +438,10 @@ switch (trim($action))
         }
         
         $ev = "";
+        $servr = $_SESSION['servr'];
+        $folder = $_SESSION['folder'];
+        $user = $_SESSION['user'];
+        $passwd = $_SESSION['passwd'];
         $pop = new nocc_imap($servr, $folder, $login, $passwd, $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
@@ -475,11 +478,10 @@ switch (trim($action))
             default:
                 if (!isset($attach_array))
                     $attach_array = null;
-                go_back_index($attach_array, $tmpdir, $sort, $sortdir, $lang, false);
+                go_back_index($attach_array, $tmpdir, false);
                 $loggedin = 1;
                 session_register('loggedin');
                 // there are messages, we display
-                #$num_msg = count($tab_mail);
                 $num_msg = $pop->num_msg();
                 require ('./html/header.php');
                 require ('./html/menu_inbox.php');

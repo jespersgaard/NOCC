@@ -1,6 +1,6 @@
 <?php 
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.36 2002/04/18 21:38:40 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.37 2002/04/18 22:28:26 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -17,7 +17,11 @@ require_once './common.php';
 require_once './class_local.php';
 
 $ev = "";
-$pop = new nocc_imap($servr, $folder, $login, safestrip($passwd), $ev);
+$servr = $_SESSION['servr'];
+$folder = $_SESSION['folder'];
+$user = $_SESSION['user'];
+$passwd = $_SESSION['passwd'];
+$pop = new nocc_imap($servr, $folder, $login, $passwd, $ev);
 if($ev) {
     echo "<p class=\"error\">".$ev->getMessage()."</p>";
     return;
@@ -84,7 +88,7 @@ $pop->close();
 // Redirect user to index
 // TODO: redirect user to next message
 require_once './proxy.php';
-header('Location: ' . $conf->base_url . "action.php?folder=$folder);
+header('Location: ' . $conf->base_url . "action.php");
 
 // For debuging
 //reset($HTTP_POST_VARS);

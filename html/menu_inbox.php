@@ -1,10 +1,10 @@
-<!-- start of $Id: menu_inbox.php,v 1.33 2002/04/18 21:38:41 rossigee Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.34 2002/04/18 22:28:26 rossigee Exp $ -->
 <?php
 $color_inbox = $color = $glob_theme->menu_color;
 if ($action == '') 
 {
     $color_inbox = $glob_theme->menu_color_on; 
-    $line = '<a href="'.$PHP_SELF.'?action=write&amp;folder='.$folder.' class="menu">'.$html_new_msg.'</a>';
+    $line = '<a href="'.$PHP_SELF.'?action=write" class="menu">'.$html_new_msg.'</a>';
 }
 else
     $color =  $glob_theme->menu_color_on;
@@ -23,7 +23,7 @@ if ($action == 'forward')
             <table border="0" cellpadding="2" cellspacing="1" bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%">
                 <tr>
                     <td class="menu" align="center" width="120" bgcolor="<?php echo $color_inbox ?>">
-                        <a href="<?php echo $PHP_SELF ?>?folder=<?php echo $folder ?>" class="menu"><?php echo $folder ?></a>
+                        <a href="<?php echo $PHP_SELF ?>" class="menu"><?php echo $folder ?></a>
                     </td>
                     <td class="menu" align="center" width="120" bgcolor="<?php echo $color ?>">
                         <?php echo $line ?>
@@ -33,7 +33,7 @@ if ($action == 'forward')
                     </td>
                     <td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
                         <?php if($conf->prefs_dir) { ?>
-                            <a href="action.php?action=setprefs&amp;folder=<?php echo $folder ?>" class="menu"><?php echo $html_preferences ?></a>
+                            <a href="action.php?action=setprefs" class="menu"><?php echo $html_preferences ?></a>
                         <?php } ?>
                     </td>
                     <?php if ($conf->enable_logout) { ?>
@@ -49,4 +49,4 @@ if ($action == 'forward')
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_inbox.php,v 1.33 2002/04/18 21:38:41 rossigee Exp $ -->
+<!-- end of $Id: menu_inbox.php,v 1.34 2002/04/18 22:28:26 rossigee Exp $ -->

@@ -1,16 +1,11 @@
-<!-- start of $Id: send.php,v 1.45 2002/03/25 18:33:57 rossigee Exp $ -->
+<!-- start of $Id: send.php,v 1.46 2002/04/15 02:18:55 mrylander Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
             <form name="sendform" enctype="multipart/form-data" method="post" onsubmit="return(validate(this));" action="send.php">
-            <input type="hidden" name="sort" value="<?php echo $sort ?>" />
-            <input type="hidden" name="sortdir" value="<?php echo $sortdir ?>" />
-            <input type="hidden" name="lang" value="<?php echo $lang ?>" />
-            <input type="hidden" name="action" value="<?php echo $action ?>" />
             <input type="hidden" name="sendaction" value="" />
             <input type="hidden" name="num_attach" value="<?php echo $num_attach ?>" />
             <input type="hidden" name="forward_msgnum" value="<?php echo $forward_msgnum ?>" />
-	    <input type="hidden" name="folder" value="<?php echo $folder ?>" />
             <table bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%" cellspacing="0" cellpadding="0" border="0">
                 <tr><td colspan="2">&nbsp;</td></tr>
                 <tr>
@@ -149,4 +144,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.45 2002/03/25 18:33:57 rossigee Exp $ -->
+<!-- end of $Id: send.php,v 1.46 2002/04/15 02:18:55 mrylander Exp $ -->

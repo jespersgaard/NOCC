@@ -5,7 +5,7 @@ header ("Content-type: text/html; Charset=$charset");
 
 require_once './prefs.php';
 $pref_email_address = getPref('email_address');
-
+$lang = $_SESSION['lang'];
 $custom_header = './themes/' . $theme . '/header.php';
 if(file_exists($custom_header)) {
     include($custom_header);

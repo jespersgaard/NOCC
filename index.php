@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.90 2002/04/15 02:11:12 mrylander Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.89 2002/03/24 17:00:35 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -19,7 +19,6 @@ require_once './proxy.php';
 Header("Content-type: text/html; Charset=$charset");
 require_once './check.php';
 require ('./html/header.php');
-
 ?>
 <script type="text/javascript">
 <!--
@@ -55,7 +54,7 @@ function updateLang()
 {
     if (document.nocc_webmail_login.user.value == "" && document.nocc_webmail_login.passwd.value == "")
     {
-        var lang_page = "index.php?theme=<?php echo $theme ?>";
+        var lang_page = "index.php?lang=" + document.nocc_webmail_login.lang[document.nocc_webmail_login.lang.selectedIndex].value + "&amp;theme=<?php echo $theme ?>";
         self.location = lang_page;
     }
 }
@@ -64,7 +63,7 @@ function updateTheme()
 {
     if (document.nocc_webmail_login.user.value == "" && document.nocc_webmail_login.passwd.value == "")
     {
-        var lang_page = "index.php?theme=" + document.nocc_webmail_login.theme[document.nocc_webmail_login.theme.selectedIndex].value;
+        var lang_page = "index.php?lang=<?php echo $lang ?>&amp;theme=" + document.nocc_webmail_login.theme[document.nocc_webmail_login.theme.selectedIndex].value;
         self.location = lang_page;
     }
 }
@@ -72,7 +71,7 @@ function updateTheme()
 </script>
 
             <form action="action.php" method="post" name="nocc_webmail_login" target="_top">
-	    <input type="hidden" name="folder" value="INBOX">
+            <input type="hidden" name="folder" value="INBOX" />
             <table bgcolor="<?php echo $glob_theme->login_border ?>" border="0" cellpadding="1" cellspacing="0" width="428" align="center">
                 <tr> 
                     <td valign="bottom"> 
@@ -154,7 +153,7 @@ function updateTheme()
                                             if (file_exists('lang/'.$lang_array[$i]->filename.'.php'))
                                             {
                                                 echo '<option value="'.$lang_array[$i]->filename.'"';
-                                                if ($lang == $lang_array[$i]->filename)
+                                                if ($_SESSION['lang'] == $lang_array[$i]->filename)
                                                     echo ' selected="selected"';
                                                 echo '>'.$lang_array[$i]->label.'</option>';
                                             }
