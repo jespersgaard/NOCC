@@ -1,6 +1,6 @@
 <?
 /*
- * $Header$ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.9 2000/11/24 22:53:43 wolruf Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -97,7 +97,7 @@ $html_msgs = "Messages";
 $original_msg = "-- Original Message --";
 $to_empty = "The 'To' field must not be empty !";
 
-$html_outside = "You see that page outside of <b>".$name."</b>. To go back, close this window.";
+$html_outside = "You see that page outside of <b>".$nocc_name."</b>. To go back, close this window.";
 
 // This message is added to every message, the user cannot delete it
 $ad = "\n\n________________________________________________________________________\nNOCC, Your e-mails everywhere : http://nocc.sourceforge.net";
