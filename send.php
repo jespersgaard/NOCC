@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.60 2001/05/31 18:18:41 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.61 2001/06/16 12:39:28 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -30,15 +30,18 @@ else
 	{
 		case 'add':
 			// Counting the attachments number in the array
-			if (!is_array($attach_array))
+			if (!isset($attach_array))
+			{
+				$attach_array = array();
 				$num_attach = 1;
+			}
 			else
 				$num_attach++;
-			$tmp_name = basename($mail_att.'.att');
+			$tmp_name = basename($mail_att . '.att');
 			// Adding the new file to the array
 			if (is_uploaded_file($mail_att))
 			{
-				copy($mail_att, $tmpdir.'/'.$tmp_name);
+				copy($mail_att, $tmpdir . '/' . $tmp_name);
 				$attach_array[$num_attach]->file_name = basename($mail_att_name);
 				$attach_array[$num_attach]->tmp_file = $tmp_name;
 				$attach_array[$num_attach]->file_size = $mail_att_size;
@@ -74,25 +77,28 @@ else
 			else
 				$mail->body = $ad;
 			// Getting the attachments
-			for ($i = 1; $i <= $num_attach; $i++)
+			if (isset($attach_array))
 			{
-				// If the temporary file exists, attach it
-				if (file_exists($tmpdir.'/'.$attach_array[$i]->tmp_file))
+				for ($i = 1; $i <= $num_attach; $i++)
 				{
-					$fp = fopen($tmpdir.'/'.$attach_array[$i]->tmp_file, "rb");
-					$file = fread($fp, $attach_array[$i]->file_size);
-					fclose($fp);
-					// add it to the message, by default it is encoded in base64
-					$mail->add_attachment($file, imap_qprint($attach_array[$i]->file_name), $attach_array[$i]->file_mime, 'base64', '');
-					// then we delete the temporary file
-					unlink($tmpdir.'/'.$attach_array[$i]->tmp_file);
+					// If the temporary file exists, attach it
+					if (file_exists($tmpdir.'/'.$attach_array[$i]->tmp_file))
+					{
+						$fp = fopen($tmpdir.'/'.$attach_array[$i]->tmp_file, "rb");
+						$file = fread($fp, $attach_array[$i]->file_size);
+						fclose($fp);
+						// add it to the message, by default it is encoded in base64
+						$mail->add_attachment($file, imap_qprint($attach_array[$i]->file_name), $attach_array[$i]->file_mime, 'base64', '');
+						// then we delete the temporary file
+						unlink($tmpdir.'/'.$attach_array[$i]->tmp_file);
+					}
 				}
 			}
 			// We need to unregister the attachments array and num_attach
 			session_unregister('num_attach');
 			session_unregister('attach_array');
-			if (!$mail->send())
-				$error = true; // an error occured while sending the message
+			if (($error = $mail->send()) != true);
+				//echo $error; // an error occured while sending the message, I have to work on this NicoCha
 			header ("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang&$php_session=".$$php_session);
 			break;
 		case 'delete':

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.17 2001/03/29 08:38:12 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.18 2001/05/27 11:10:26 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -170,12 +170,19 @@ class smtp
 
 	function send()
 	{
-		$err = $smtp = $this->smtp_open();
-		$err = $this->smtp_helo($smtp);
-		$err = $this->smtp_mail_from($smtp);
-		$err = $this->smtp_rcpt_to($smtp);
-		$err = $this->smtp_data($smtp);
-		$err = $this->smtp_quit($smtp);
+		if (($smtp = $this->smtp_open()) == 0)
+			return (-1);
+		if (($this->smtp_helo($smtp)) == 0)
+			return (-2);
+		if (($this->smtp_mail_from($smtp)) == 0)
+			return (-3);
+		if (($this->smtp_rcpt_to($smtp)) == 0)
+			return (-4);
+		if (($this->smtp_data($smtp)) == 0)
+			return (-5);
+		if (($this->smtp_quit($smtp)) == 0)
+			return (-6);
+		return (true);
 	}
 }
 ?>
