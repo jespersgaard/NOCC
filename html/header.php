@@ -4,8 +4,13 @@ require_once 'proxy.php';
 header ("Content-type: text/html; Charset=$charset");
 
 require_once './prefs.php';
-$pref_email_address = getPref('email_address');
-$lang = $_SESSION['lang'];
+
+// Don't call getPref unless session has been initialised enough for
+// prefs.php to find it's prefs file.
+$pref_email_address = "";
+if(isset($_SESSION['user']) && isset($_SESSION['domain']))
+    $pref_email_address = getPref('email_address');
+
 $custom_header = './themes/' . $theme . '/header.php';
 if(file_exists($custom_header)) {
     include($custom_header);
