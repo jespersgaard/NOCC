@@ -1,38 +1,42 @@
-NOCC 0.9.6    ??, 2004
+NOCC 0.9.6    June 2?, 2004
 
-    * Add possibility to mark a message as read or unread - IMAP only (Arnaud Boudou, RFE #587725)
-    * Add typed domain names option and login suffix option (Leif Gustafson, patch #975016)
-    * Add graphical smilies support (Arnaud Boudou)
-    * Add IMAP folder delete (Arnaud Boudou)
-    * Correct multiple bugs on IMAP folder management (Arnaud Boudou)
-    * Downloadable mails (jourds and Arnaud Boudou, patch #811868)
-    * Move on next message on delete (jourds and Arnaud Boudou, patch #811856)
-    * Prompt on delete (jourds and Arnaud Boudou, patch #811848)
-    * Contact list (jourds and Arnaud Boudou, patch #811843)
+    * Added possibility to mark a message as read or unread - IMAP only
+      (Arnaud Boudou, RFE #587725).
+    * Added typed domain names option and login suffix option (Leif Gustafson,
+      patch #975016).
+    * Added graphical smilies support (Arnaud Boudou).
+    * Added IMAP folder delete (Arnaud Boudou).
+    * Correct multiple bugs on IMAP folder management (Arnaud Boudou).
+    * Downloadable mails (jourds and Arnaud Boudou, patch #811868).
+    * Move on next message on delete (jourds and Arnaud Boudou, patch #811856).
+    * Prompt on delete (jourds and Arnaud Boudou, patch #811848).
+    * Added contact list (jourds and Arnaud Boudou, patch #811843).
     * Multiple send prevention (jourds and Arnaud Boudou, patch #811836)
-    * Usenet signature separator user preference (jourds and Arnaud Boudou, patch #811823)
-    * Wrap outgoing messages user preference (jourds and Arnaud Boudou, patch #811816)
-    * PHP 5.0 compatibility (Arnaud Boudou)
+    * Added Usenet signature separator user preference (jourds and Arnaud
+      Boudou, patch #811823).
+    * Wrap outgoing messages user preference (jourds and Arnaud Boudou,
+      patch #811816).
+    * Added PHP 5.0 compatibility (Arnaud Boudou).
     * Added support for displaying RFC2045-encoded words, used in headers.
-      (Alexander Sabournekov)
-    * Preferences can be disabled by unsetting/clearing $conf->prefs_dir.
-      (Alexander Sabournekov)
-    * Added fix for 'file_uploads=0' (RH default).
-    * Applied patch intended to fix XSS vulnerability (Ulf Harnhammar)
-    * Fixed some warnings when not using user_prefs or user_filters.
-      (Paulo Matos)
-    * A few small cosmetic fixes (Paulo Matos)
-    * Attachment array being initialised as integer zero (Paulo Matos)
-    * Fixed MIME line termination incompliance with RFC822 (Paulo Matos)
-    * Removed 'delete_button_icon' option, as it didn't work. (#575741)
+      (Alexander Sabournekov).
+    * Preferences can be disabled by unsetting/clearing $conf->prefs_dir
+      (Alexander Sabournekov).
+    * Added fix for 'file_uploads=0' (RedHat default).
+    * Applied patch intended to fix XSS vulnerability (Ulf Harnhammar).
+    * Fixed some warnings when not using user_prefs or user_filters
+      (Paulo Matos).
+    * A few small cosmetic fixes (Paulo Matos).
+    * Attachment array being initialised as integer zero (Paulo Matos).
+    * Fixed MIME line termination incompliance with RFC822 (Paulo Matos).
+    * Removed 'delete_button_icon' option, as it didn't work (#575741).
     * Rewrote 'prefs.php' as 'user_prefs.php'.
     * Added a function 'get_default_from_address' to allow admins to
-      customise the default address in their conf.php. (#563396)
+      customise the default address in their conf.php (#563396).
     * A whole load of tidying up of the folder-related code.
     * Changed the way prefs functions return exceptions.
     * Improved the exception reporting from the nocc_imap class.
-    * Added 'seperate_msg_win' user preference. (#548360)
-    * Check for valid e-mail address when changing preferences. (#506379)
+    * Added 'seperate_msg_win' user preference (#548360).
+    * Check for valid e-mail address when changing preferences (#506379).
     * Use $_SERVER['PHP_SELF'] instead of $PHP_SELF (for register_globals=off)
     * Return user to INBOX when mail sent successfully.
     * Now works with 'register_globals=off' (i.e. new PHP 4.2 behaviour).
@@ -40,7 +44,7 @@ NOCC 0.9.6    ??, 2004
       via imap_last_error.
     * Fixed attachments bug [#509857]. Thanks crystalcyril.
     * Simplified handling of attachments, removed 'num_attach' stuff.
-    * Switched from 'X-Mailer' header to 'User-Agent' [#547441]
+    * Switched from 'X-Mailer' header to 'User-Agent' [#547441].
     * Added folder management to pref page.
     * Added Folder and Page selection to inbox page.
     * Added status bar to give links to folders containing new mesages.
@@ -90,7 +94,8 @@ NOCC 0.9.6    ??, 2004
       Greek, Croatian, Icelandic, Finnish and German (Benjamin Brauer),
       Norwegian (Bjørn Roger Rasmussen), Persian (Mahdi Dalirrooyfard),
       Portuguese (Paulo Matos), Russian (Alexander Sabourenkov),
-      Dutch (Silvan Jongerius), Thai (Anat Trakoonsirisak) and French (Arnaud Boudou) translations.
+      Dutch (Silvan Jongerius), Thai (Anat Trakoonsirisak) and French
+      (Arnaud Boudou) translations.
 
 
 NOCC 0.9.5    November   25, 2001
