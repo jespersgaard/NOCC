@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.151 2002/04/22 16:32:04 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.152 2002/04/24 14:43:09 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -702,20 +702,16 @@ function encode_mime(&$string, &$charset)
 
 /* ----------------------------------------------------- */
 
-// This function is used when accessing a page without being logged in
-// or accessing send.php via GET method
-function go_back_index(&$attach_array, &$tmpdir, $redirect)
+// This function removes temporary attachment files and
+// removes any attachment information from the session
+function clear_attachments(&$attach_array)
 {
+    global $conf;
     if (isset($attach_array) && is_array($attach_array))
         while ($tmp = array_shift($attach_array))
-            @unlink($tmpdir.'/'.$tmp->tmp_file);
+            @unlink($conf->tmpdir.'/'.$tmp->tmp_file);
     unset($_SESSION['num_attach']);
     unset($_SESSION['attach_array']);
-    if ($redirect)
-    {
-        require_once './proxy.php';
-        header("Location: ".$base_url."action.php");
-    }
 }
 
 /* ----------------------------------------------------- */

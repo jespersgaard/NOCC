@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.98 2002/04/18 21:38:41 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.99 2002/04/19 14:39:31 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -23,8 +23,12 @@ if (!isset($_SESSION['loggedin']))
 if (!function_exists('is_uploaded_file'))
     include_once ('./is_uploaded_file.php');
 
-if ($HTTP_SERVER_VARS['REQUEST_METHOD'] != 'POST')
-    go_back_index($attach_array, $conf->tmpdir, $sort, $sortdir, $lang, true);
+if ($HTTP_SERVER_VARS['REQUEST_METHOD'] != 'POST') {
+    clear_attachments($attach_array);
+    require_once './proxy.php';
+    header('Location: ' . $conf->base_url . 'action.php');
+    return;
+}
 else
 {
     require_once './class_send.php';

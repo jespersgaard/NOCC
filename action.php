@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.112 2002/04/19 23:50:48 mrylander Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.113 2002/04/24 14:43:09 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -479,7 +479,7 @@ switch (trim($action))
             default:
                 if (!isset($attach_array))
                     $attach_array = null;
-                go_back_index($attach_array, $tmpdir, false);
+                clear_attachments($attach_array);
                 $loggedin = 1;
                 session_register('loggedin');
                 // there are messages, we display
