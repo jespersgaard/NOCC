@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.14 2001/04/17 21:55:37 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.15 2001/05/27 15:02:33 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -105,7 +105,7 @@ $html_nosubject = 'Sem assunto';
 $html_send = 'Enviar';
 $html_cancel = 'Cancelar';
 $html_no_mail = 'N&atilde;o h&aacute; mensagens novas.';
-$html_logout = 'Sa&iacute;r';
+$html_logout = 'Sair';
 $html_msg = 'Mensagem';
 $html_msgs = 'Mensagens';
 $html_configuration = 'This server is not well set up !';
