@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.99 2004/06/24 05:26:10 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.100 2004/08/06 14:56:56 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -63,6 +63,17 @@ function updateTheme()
         self.location = lang_page;
     }
 }
+
+function updatePage() 
+{
+    if (document.nocc_webmail_login.user.value == "" && document.nocc_webmail_login.passwd.value == "")
+    {
+        var lang_page = "index.php?theme=" + document.nocc_webmail_login.theme[document.nocc_webmail_login.theme.selectedIndex].value + "&lang=" + document.nocc_webmail_login.lang[document.nocc_webmail_login.lang.selectedIndex].value;
+        self.location = lang_page;
+    }
+}
+
+
 // -->
 </script>
 
@@ -162,7 +173,7 @@ function updateTheme()
                                 <td><font size="-3">&nbsp;</font></td>
                                 <td class="f" align="left">
                                     <?php
-                                        echo '<select name="lang" onchange="updateLang()">';
+                                        echo '<select name="lang" onchange="updatePage()">';
                                         for ($i = 0; $i < sizeof($lang_array); $i++)
                                             if (file_exists('lang/'.$lang_array[$i]->filename.'.php'))
                                             {
@@ -181,7 +192,7 @@ function updateTheme()
                             <?php if ($conf->use_theme == true) 
                             {
                                 echo '<tr><td align="right" class="f">'.$html_theme.'</td><td><font size="-3">&nbsp;</font></td><td class="f" align="left">';
-                                echo '<select name="theme" onchange="updateTheme()">';
+                                echo '<select name="theme" onchange="updatePage()">';
                                 $handle = opendir('./themes');
                                 while (($file = readdir($handle)) != false) 
                                 {
