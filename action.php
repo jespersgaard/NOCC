@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.55 2001/10/19 10:34:24 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.56 2001/10/19 12:10:00 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -44,7 +44,7 @@ switch (trim($action))
 {
 	case 'aff_mail':
 		// Here we display the message
-		require_once ('./html/menu_mail.php');
+		require ('./html/menu_mail.php');
 		require_once ('./html/html_mail_top.php');
 		$content = aff_mail($servr, $user, stripslashes($passwd), $folder, $mail, $verbose, $lang, $sort, $sortdir);
 		require_once ('./html/html_mail_header.php'); 
@@ -66,7 +66,7 @@ switch (trim($action))
 			}
 		} 
 		require_once ('./html/html_mail_bottom.php');
-		require_once ('./html/menu_mail.php');
+		require ('./html/menu_mail.php');
 		break;
 
 	case 'logout':
@@ -74,14 +74,13 @@ switch (trim($action))
 		break;
 
 	case 'write':
-
 		// Add signature
-		$mail_body .= "\n".$prefs_signature;
+		$mail_body .= "\r\n".$prefs_signature;
 
 		$num_attach = 0;
-		require_once ('./html/menu_inbox.php');
+		require ('./html/menu_inbox.php');
 		require_once ('./html/send.php');
-		require_once ('./html/menu_inbox.php');
+		require ('./html/menu_inbox.php');
 		break;
 
 	case 'reply':
@@ -101,9 +100,9 @@ switch (trim($action))
 		list($num_attach, $attach_array) = save_attachment($servr, $user, stripslashes($passwd), $folder, $mail, $tmpdir);
 		// Registering the attachments array into the session
 		session_register('num_attach', 'attach_array');
-		require_once ('./html/menu_inbox.php');
+		require ('./html/menu_inbox.php');
 		require_once ('./html/send.php');
-		require_once ('./html/menu_inbox.php');
+		require ('./html/menu_inbox.php');
 		break;
 
 	case 'reply_all':
@@ -122,9 +121,9 @@ switch (trim($action))
 		list($num_attach, $attach_array) = save_attachment($servr, $user, stripslashes($passwd), $folder, $mail, $tmpdir);
 		// Registering the attachments array into the session
 		session_register('num_attach', 'attach_array');
-		require_once ('./html/menu_inbox.php');
+		require ('./html/menu_inbox.php');
 		require_once ('./html/send.php');
-		require_once ('./html/menu_inbox.php');
+		require ('./html/menu_inbox.php');
 		break;
 
 	case 'forward':
@@ -138,9 +137,9 @@ switch (trim($action))
 		list($num_attach, $attach_array) = save_attachment($servr, $user, stripslashes($passwd), $folder, $mail, $tmpdir);
 		// Registering the attachments array into the session
 		session_register('num_attach', 'attach_array');
-		require_once ('./html/menu_inbox.php');
+		require ('./html/menu_inbox.php');
 		require_once ('./html/send.php');
-		require_once ('./html/menu_inbox.php');
+		require ('./html/menu_inbox.php');
 		break;
 
 	case 'setprefs':
@@ -159,9 +158,9 @@ switch (trim($action))
 			$email_address = $prefs_email_address;
 			$signature = $prefs_signature;
 		}
-		require_once ('./html/menu_prefs.php');
+		require ('./html/menu_prefs.php');
 		require_once ('./html/prefs.php');
-		require_once ('./html/menu_prefs.php');
+		require ('./html/menu_prefs.php');
 		break;
 
 	default:
@@ -178,7 +177,7 @@ switch (trim($action))
 				session_register('loggedin');
 				// the mailbox is empty
 				$num_msg = 0;
-				require_once ('./html/menu_inbox.php');
+				require ('./html/menu_inbox.php');
 				require_once ('./html/html_top_table.php');
 				include_once ('./html/no_mail.php');
 				require_once ('./html/html_bottom_table.php');
@@ -198,6 +197,7 @@ switch (trim($action))
 				require_once ('./html/html_bottom_table.php');
 				break;
 		}
+		require ('./html/menu_inbox.php');
 		break;
 }
 
