@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.68 2001/05/27 10:07:54 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.69 2001/05/29 08:51:53 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -63,7 +63,7 @@ function updateTheme()
 {
 	if (document.nocc_webmail_login.user.value == "" && document.nocc_webmail_login.passwd.value == "")
 	{
-		var lang_page = "index.php?lang=<? echo $lang ?>&theme=" + document.nocc_webmail_login.theme[document.nocc_webmail_login.theme.selectedIndex].value;
+		var lang_page = "index.php?lang=<?php echo $lang ?>&theme=" + document.nocc_webmail_login.theme[document.nocc_webmail_login.theme.selectedIndex].value;
 		self.location = lang_page;
 	}
 }
