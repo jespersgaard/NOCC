@@ -79,7 +79,6 @@ cellspacing="0" width="428">
 							<tr> 
 								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
 							</tr>
-							<tr>
 							<?
 							if ($servr == "")
 							{ ?>
