@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/check_lang.php,v 1.12 2001/02/20 12:22:58 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/check_lang.php,v 1.13 2001/02/23 09:31:57 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -18,6 +18,7 @@ if (!ISSET($lang))
 	while ($accept_lang = array_shift($ar_lang))
 	{
 		$tmp = explode(";", $accept_lang);
+		$tmp[0] = strtolower($tmp[0]);
 		if (file_exists("lang/".$tmp[0].".php"))
 		{
 			$lang = $tmp[0];
