@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.10 2000/11/25 22:01:28 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/es.php,v 1.1 2000/12/20 09:21:56 wolruf Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -8,20 +8,20 @@
  * See the enclosed file COPYING for license information (GPL).  If you
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
- * Configuration file for the english language
+ * Configuration file for the spanish language
  */
 
 $charset = "ISO-8859-1";
 
 // Configuration for the days and months
 
-// What language to use (Here, english US --> en_US)
+// What language to use
 // see '/usr/share/locale/' for more information
-$lang_locale = "es";
+$lang_locale = "es_ES";
 
 // What format string should we pass to strftime() for messages sent on
 // days other than today?
-$default_date_format = "%Y-%m-%d"; 
+$default_date_format = "%A %d %B %Y";  
 
 // If the local is not implemented on the host, how we display the date
 $no_locale_date_format = "%Y-%m-%d";
@@ -96,9 +96,4 @@ $html_msgs = "Mensajes";
 
 $original_msg = "-- Mensaje Original --";
 $to_empty = "El campo 'A' no debe estar vac&iacute;o !";
-
-$html_outside = "Usted ve esa pagina desde fuera de <b>".$nocc_name."</b>. Para volver, cierre esta ventana.";
-
-// This message is added to every message, the user cannot delete it
-$ad = "\n\n________________________________________________________________________\nNOCC, Sus mensajes desde todo el mundo : http://nocc.sourceforge.net";
 ?>

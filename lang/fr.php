@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.25 2000/11/25 22:01:28 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.26 2000/12/23 13:02:20 nicocha Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -55,7 +55,7 @@ $alt_prev = "Pr&eacute;c&eacute;dent";
 $html_welcome = "Bienvenue &agrave;";
 $html_login = "Login";
 $html_passwd = "Mot de passe";
-$html_submit = "Valider";
+$html_submit = "Ok";
 $html_help = "Aide";
 $html_server = "Serveur";
 $html_wrong = "Le login ou le mot de passe ne sont pas valides";
@@ -97,9 +97,4 @@ $html_msgs = "Messages";
 
 $original_msg = "-- Message Original --";
 $to_empty = "Le champ 'A' ne doit pas &ecirc;tre vide !";
-
-$html_outside = "Vous voyez cette page en dehors de <b>".$nocc_name."</b>. Pour y retourner, fermez cette fen&ecirc;tre.";
-
-// This message is added to every message, the user cannot delete it
-$ad = "\n\n________________________________________________________________________\nNOCC, vos e-mails n'importe où : http://nocc.sourceforge.net";
 ?>

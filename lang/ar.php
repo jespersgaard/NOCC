@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ar.php,v 1.25 2000/11/25 22:01:28 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ar.php,v 1.1 2000/12/23 13:02:56 nicocha Exp $
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -97,9 +97,4 @@ $html_msgs = "رسائل";
 
 $original_msg = "--  الرسالة الأصلية  --";
 $to_empty = "يجب ءاعطاء عنوان المرسل ءاليه !";
-
-$html_outside = "Vous voyez cette page en dehors de <b>".$nocc_name."</b>. Pour y retourner, fermez cette fen&ecirc;tre.";
-
-// This message is added to every message, the user cannot delete it
-$ad = "\n\n________________________________________________________________________\n  نوك بريد ءالكتروني";
 ?>

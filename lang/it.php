@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.10 2000/11/25 22:01:28 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.1 2000/12/02 03:22:45 nicocha Exp $
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,7 +9,7 @@
  * See the enclosed file COPYING for license information (GPL).  If you
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
- * Configuration file for the english language
+ * Configuration file for the italian language
  */
 
 $charset = "ISO-8859-1";
@@ -22,7 +22,7 @@ $lang_locale = "it_IT";
 
 // What format string should we pass to strftime() for messages sent on
 // days other than today?
-$default_date_format = "%Y-%m-%d";
+$default_date_format = "%A %d %B %Y";
 
 // If the local is not implemented on the host, how we display the date
 $no_locale_date_format = "%d-%m-%Y";
@@ -97,10 +97,4 @@ $html_msgs = "Messagggi";
 
 $original_msg = "-- Messaggio Originale --";
 $to_empty = "Il campo 'A' non può essere vuoto !";
-
-
-$html_outside = "Visualizza la pagina all'esterno di <b>".$nocc_name."</b>. Torna indietro, chiudi questa finestra.";
-
-// This message is added to every message, the user cannot delete it
-$ad = "\n\n________________________________________________________________________\nNOCC, Your e-mails everywhere : http://nocc.sourceforge.net";
 ?>

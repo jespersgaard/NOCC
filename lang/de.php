@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.3 2000/11/25 22:01:28 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.4 2000/12/23 13:02:20 nicocha Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -18,7 +18,7 @@ $charset = "ISO-8859-1";
 
 // What language to use (Here, english US --> en_US)
 // see '/usr/share/locale/' for more information
-$lang_locale = "de";
+$lang_locale = "de_DE";
 
 // What format string should we pass to strftime() for messages sent on
 // days other than today?
@@ -97,9 +97,4 @@ $html_msgs = "Nachrichten";
 
 $original_msg = "-- Original Nachricht--";
 $to_empty = "Das 'An' Feld darf nicht leer sein !";
-
-$html_outside = "Sie betrachten diese Seite ausserhalb von <b>".$nocc_name."</b>. Um zur&uuml;ck zu kehren, schliessen Sie dieses Fenster.";
-
-// This message is added to every message, the user cannot delete it
-$ad = "\n\n________________________________________________________________________\nNOCC, Your e-mails everywhere : http://nocc.sourceforge.net";
 ?>

@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.1 2000/12/02 03:24:50 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.2 2000/12/28 14:55:37 nicocha Exp $
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -65,6 +65,10 @@ $default_sortdir = "1";
 // See FAQ for more details.
 $have_ucb_pop_server = "0";
 
+// ################### Messages Signature  ################### //
+
+// This message is added to every message, the user cannot delete it
+$ad = "\n\n________________________________________________________________________\nNOCC, http://nocc.sourceforge.net";
 
 // ################### color configuration ################### //
 
@@ -132,6 +136,7 @@ $alink_color = "#0033cc";
 $alt_fr = "Fran&ccedil;ais";
 $alt_en = "English";
 $alt_de = "Deutsch";
+$alt_es = "Espa&ntilde;ol";
 
 $nocc_version = "0.9.2-dev";
 $nocc_name = "NOCC";
