@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.117 2002/04/24 15:17:50 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.118 2002/04/24 19:32:30 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -111,8 +111,9 @@ switch (trim($action))
         require ('./html/footer.php');
         break;
 
-    case 'reply':    
-        $content = aff_mail($mail, 0, $ev);
+    case 'reply':
+        $attach_tab = array();
+        $content = aff_mail($attach_tab, $mail, 0, $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
@@ -152,6 +153,7 @@ switch (trim($action))
         break;
 
     case 'reply_all':
+        $attach_tab = array();
         $content = aff_mail($mail, 0, $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
@@ -184,7 +186,8 @@ switch (trim($action))
         break;
 
     case 'forward':
-        $content = aff_mail($mail, 0, $ev);
+        $attach_tab = array();
+        $content = aff_mail($attach_tab, $mail, 0, $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
