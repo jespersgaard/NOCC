@@ -1,5 +1,6 @@
-NOCC 0.9.7    ?? ??, 2004
+NOCC 0.9.7    ?? ??, 2005
 
+    * Dynamically load IMAP module if needed. (Arnaud Boudou, RFE #644084)
     * Force 'MIME-Version: 1.0' header for all outgoing mails. (Arnaud Boudou,
       bug #1090264)
     * Fix issue with Javascript and non ASCII language file. (Arnaud Boudou,
