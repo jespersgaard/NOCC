@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.86 2001/06/01 17:57:29 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.87 2001/06/01 20:40:04 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -302,6 +302,7 @@ function GetPart($this_part, $part_no, $display_rfc822)
 				'name' => $att_name,
 				'mime' => $full_mime_type,
 				'transfer' => $encoding,
+				'disposition' => $this_part->disposition,
 				'charset' => $this_part->charset,
 				'size' => ($this_part->bytes > 1000) ? ceil($this_part->bytes / 1000) : 1);
 		
@@ -350,6 +351,7 @@ function GetSinglePart($this_part, $header, $body)
 					'name' => '',
 					'mime' => $full_mime_type,
 					'transfer' => $encoding,
+					'disposition' => $this_part->disposition,
 					'charset' => $this_part->charset,
 					'size' => ($this_part->bytes > 1000) ? ceil($this_part->bytes / 1000) : 1);
 	array_unshift($attach_tab, $tmp);
