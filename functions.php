@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.97 2001/06/21 16:18:45 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.98 2001/06/22 00:28:16 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -145,7 +145,7 @@ function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort
 	}
 	// END finding the next and previous message number
 	$num_messages = @imap_num_msg($pop);
-	$ref_contenu_message = @imap_header($pop, $mail);
+	$ref_contenu_message = @imap_headerinfo($pop, $mail);
 	$struct_msg = @imap_fetchstructure($pop, $mail);
 	if (isset($struct_msg->parts) && (sizeof($struct_msg->parts) > 0))
 		GetPart($struct_msg, NULL, $display_rfc822);
@@ -196,11 +196,15 @@ function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort
 	$cc_array = isset($ref_contenu_message->ccaddress) ? imap_mime_header_decode($ref_contenu_message->ccaddress) : 0;
 	for ($j = 0; $j < count($cc_array); $j++)
 		$cc .= $cc_array[$j]->text;
+	$reply_to_array = isset($ref_contenu_message->reply_toaddress) ? imap_mime_header_decode($ref_contenu_message->reply_toaddress) : 0;
+	for ($j = 0; $j < count($reply_to_array); $j++)
+		$reply_to .= $reply_to_array[$j]->text;
 	list($date, $complete_date) = change_date(chop($ref_contenu_message->udate), $lang);
 	$content = Array(
 				'from' => htmlspecialchars($from),
 				'to' => htmlspecialchars($to),
 				'cc' => htmlspecialchars($cc),
+				'reply_to' => htmlspecialchars($reply_to),
 				'subject' => htmlspecialchars($subject),
 				'date' => $date,
 				'complete_date' => $complete_date,
