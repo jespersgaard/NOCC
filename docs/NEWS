@@ -1,9 +1,8 @@
-NOCC 0.9.6    ??
+NOCC 0.9.6    ??, 2002
 
-    * Now works with 'register_globals=off'.
+    * Now works with 'register_globals=off' (i.e. new PHP 4.2 behaviour).
     * Relaxed debugging flags to allow connection messages to be reported
       via imap_last_error.
-    * Added Icelandic translation.
     * Fixed attachments bug [#509857]. Thanks crystalcyril.
     * Simplified handling of attachments, removed 'num_attach' stuff.
     * Switched from 'X-Mailer' header to 'User-Agent' [#547441]
@@ -31,7 +30,7 @@ NOCC 0.9.6    ??
     * Added fix for mime encoding problem (#495626).
     * Fixed lang returning to default after prefs page.
     * Added 'allow_address_change' configuration parameter (patch #490576).
-    * Seperated imap_* functions into a nocc_imap class for extendability.
+    * Separated imap_* functions into a nocc_imap class for extendability.
     * Added HTTP headers to avoid caching from proxies and browsers.
     * Added request receipt feature.
     * Removed insecure 'X-Originating-Ip', and fixed 'X-Mailer' headers.
@@ -39,7 +38,6 @@ NOCC 0.9.6    ??
     * Fixed a wrong url for prefs after sending a message (bug #493072).
     * Configuration parameters are now in an array ($conf).
     * Speed up a bit by using ' instead of " for remaining strings.
-    * Added Croatian translation.
     * Added 'session_start' to top of action.php, as per advice from
       Karma Dorji.
     * Fixed some potential bugs on Win32 when sending message via
@@ -53,8 +51,8 @@ NOCC 0.9.6    ??
     * Added a 'timestamp' member to the content array in aff_mail.
     * Fixed message header display bug.
     * Remove date display from INBOX.
-    * Updated Portugese (Jose Carlos), Slovak (Peter Sochna), Greek
-      translations.
+    * Updated Portugese (Jose Carlos), Slovak (Peter Sochna), Greek,
+      Croatian, Icelandic translations.
 
 
 NOCC 0.9.5    November   25, 2001
