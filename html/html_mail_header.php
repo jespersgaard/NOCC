@@ -1,4 +1,4 @@
-<!-- start of $Id: html_mail_header.php,v 1.33 2002/05/29 19:17:28 rossigee Exp $ -->
+<!-- start of $Id: html_mail_header.php,v 1.34 2002/05/30 14:07:21 rossigee Exp $ -->
 <?php
 
 global $conf;
@@ -42,7 +42,7 @@ else {
     if($content['att'] != '') {
         echo $content['att'];
     }
-    echo '<tr><td colspan="2" bgcolor="'.$glob_theme->mail_color.'" class="mail"><pre>'.$content['header'].'</pre></td></tr>';
+    echo '<tr><td colspan="2" bgcolor="'.$glob_theme->mail_color.'" class="mail"><pre>'.htmlspecialchars($content['header']).'</pre></td></tr>';
 }
 
 //echo @convert_cyr_string($content['body'], $content['charset'], $charset);
@@ -50,4 +50,4 @@ echo '<tr><td colspan="2" bgcolor="'.$glob_theme->mail_color.'" class="mail">'.$
 
 ?>
 
-<!-- end of $Id: html_mail_header.php,v 1.33 2002/05/29 19:17:28 rossigee Exp $ -->
+<!-- end of $Id: html_mail_header.php,v 1.34 2002/05/30 14:07:21 rossigee Exp $ -->
