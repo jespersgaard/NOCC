@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: nicocha $
-	$Revision: 1.21 $
-	$Date: 2000/11/01 23:03:32 $
+	$Revision: 1.22 $
+	$Date: 2000/11/01 23:24:53 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
 the function get_part is based on a function from matt@bonneau.net
@@ -285,8 +285,17 @@ function remove_stuff($body, $lang, $mime)
 	if (eregi("html", $mime))
 	{
 		//$body = strip_tags($body, "<b>,<i>,<a>,<font>,<table>,<tr>,<td>,<ul>,<li>,<img>,<div>,<p>,<pre>,<center>");
-		$body = eregi_replace("<SCRIPT", "<!-- <SCRIPT", $body);
-		$body = eregi_replace("SCRIPT>", "SCRIPT> !>", $body);
+		$body = preg_replace("|<([^>]*)style|i", "<nocc_removed_style_tag", $body);
+		$body = preg_replace("|<([^>]*)script|i", "<nocc_removed_script_tag", $body);
+		$body = preg_replace("|href=\"(.*)script:|i", "href=\"nocc_removed_script:", $body);
+		$body = preg_replace("|<([^>]*)embed|i", "<nocc_removed_embed_tag", $body);
+		$body = preg_replace("|<([^>]*)java|i", "<nocc_removed_java_tag", $body);
+		$body = preg_replace("|<([^>]*)object|i", "<nocc_removed_object_tag", $body);
+		$body = preg_replace("|<([^>]*)&{.*}([^>]*)>|i", "<&{;}\\3>", $body);
+		$body = preg_replace("|<([^>]*)mocha:([^>]*)>|i", "<nocc_removed_mocha:\\2>",$body);
+
+		//$body = eregi_replace("<SCRIPT", "<NOCC REMOVED", $body);
+		//$body = eregi_replace("SCRIPT>", "SCRIPT> !>", $body);
 		$body = eregi_replace("href=\"mailto:([[:alnum:]/\n+-=%&:_.~?@]+[#[:alnum:]+]*)\"","<A HREF=\"$PHP_SELF?action=write&mail_to=\\1&lang=$lang\"", $body);
 		$body = eregi_replace("target=\"([[:alnum:]/\n+-=%&:_.~?]+[#[:alnum:]+]*)\"", "", $body);
 		$body = eregi_replace("href=\"([[:alnum:]/\n+-=%&:_.~?]+[#[:alnum:]+]*)\"","<A HREF=\"open.php?f=\\1&lang=$lang\" TARGET=_blank", $body);
