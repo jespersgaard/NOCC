@@ -20,3 +20,4 @@ Long term
  - Smileys support ("a la" Mozilla).
  - Handling multiple folders (IMAP).
  - WML (WAP) version.
+ - Handling the Delete flag with IMAP.
