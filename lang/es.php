@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/es.php,v 1.14 2001/04/17 21:55:37 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/es.php,v 1.15 2001/05/27 14:50:05 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -111,5 +111,5 @@ $html_msgs = 'Mensajes';
 $html_configuration = 'This server is not well set up !';
 
 $original_msg = '-- Mensaje Original --';
-$to_empty = 'El campo \'A\' no debe estar vac&iacute;o !';
+$to_empty = 'El campo \'A\' no debe estar vacio !';
 ?>
