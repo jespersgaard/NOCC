@@ -37,7 +37,7 @@
 					<TD ALIGN="RIGHT" class="inbox"><? echo $html_att ?> : </TD>
 					<TD>
 						<INPUT TYPE="file" NAME="mail_att" SIZE="40" MAXLENGTH="200" VALUE="">
-						<input type="button" class="button" onclick="attach()" value="<? echo $html_attach ?>">
+						<input type="button" class="button" onClick="attach()" value="<? echo $html_attach ?>">
 					</td>
 				</TR>
 				<TR>
@@ -107,27 +107,27 @@ function validate(f)
 			return (false);
 		}
 	}
-	if (sendform.mail_att.value != "")
+	if (f.elements['mail_att'].value != "")
 	{
 		alert("<? echo $html_attach_forget ?>")
 		return (false);
 	}
-	sendform.sendaction.value = "send";
+	f.elements['sendaction'].value = "send";
 }
 
 function attach()
 {
-	if (sendform.mail_att.value != "")
+	if (document.sendform.mail_att.value != "")
 	{
-		sendform.sendaction.value = "add";
-		sendform.submit();
+		document.sendform.sendaction.value = "add";
+		document.sendform.submit();
 	}
 }
 
 function delete_attach()
 {
-	sendform.sendaction.value = "delete";
-	sendform.submit();
+	document.sendform.sendaction.value = "delete";
+	document.sendform.submit();
 }
 //-->
 </script>
