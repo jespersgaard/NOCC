@@ -57,7 +57,7 @@
 							echo ("<tr><td colspan=\"2\"><input type=\"button\" class=\"button\" onclick=\"delete_attach()\" value=\"$html_attach_delete\" /></td><td class=\"inbox\"><b>$html_totalsize : $totalsize $html_bytes</b></td></tr></table>");
 						}
 						else
-							echo ("&nbsp;");
+							echo '&nbsp;';
 						?>
 					</td>
 				</tr>

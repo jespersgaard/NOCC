@@ -9,4 +9,4 @@
 </form>
 </td></tr>
 </table>
-<?php require ("html/menu_inbox.php"); ?>
+<?php require ('html/menu_inbox.php'); ?>

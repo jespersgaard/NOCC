@@ -17,7 +17,7 @@
 					<?php
 					if (!empty($domain) && !empty($user))
 					{ ?>
-						&nbsp;&nbsp;<font class="login"><b><?php echo $user."@".$domain ?></b></font>
+						&nbsp;&nbsp;<font class="login"><b><?php echo $user.'@'.$domain ?></b></font>
 					<?php } ?>
 				</td>
 			</tr>
