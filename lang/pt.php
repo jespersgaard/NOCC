@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.27 2002/12/01 12:57:09 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.28 2002/12/16 15:33:17 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -174,6 +174,26 @@ $html_no_sendaction = 'Ac&ccedil;&atilde;o n&atilde;o indicada. Tente activar o 
 $html_error_occurred = 'Ocorreu um erro';
 $html_prefs_file_error = 'N&atilde;o foi poss&iacute;vel abrir o ficheiro de preferen&ccedil;as para escrita.';
 //$html_sig_file_error = 'N&atilde;o foi poss&iacute;vel abrir o ficheiro de assinatura para escrita.';
+$html_wrap = 'Wrap outgoing messages to :'; // to translate
+$html_usenet_separator = 'Usenet separator ("-- \n") Before signature'; // to translate
+// Contacts manager
+$html_add = 'Add';
+$html_contacts = 'Contacts';
+$html_modify = 'Modify';
+$html_back = 'Back';
+$html_contact_add = 'Add new contact';
+$html_contact_mod = 'Modify a contact';
+$html_contact_first = 'First name';
+$html_contact_last = 'Last Name';
+$html_contact_nick = 'Nick';
+$html_contact_mail = 'Mail';
+$html_contact_list = 'Contact list of ';
+$html_contact_del = 'of de contact list';
+
+$html_contact_err1 = 'Maximal number of contact is ';
+$html_contact_err2 = 'You can\'t add a new contact';
+$html_del_msg = 'Delete selected messages ?'; // to translate
+$html_down_mail = 'Download'; // to translate
 
 $original_msg = '-- Mensagem Original --';
 $to_empty = 'O campo \'Para\' tem de ser preenchido !';

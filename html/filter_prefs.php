@@ -129,7 +129,7 @@
     <tr>
         <td align="center" colspan="2">
             <?php
-                if(Exception::isException($ev))
+                if(NoccException::isException($ev))
                   echo '<p class="prefs">'.$html_error_occurred.' : '.$ev->getMessage().'</p>';
                 elseif(isset($_REQUEST['do']))
                   echo '<p class="prefs">'.$html_prefs_updated.'</p>';

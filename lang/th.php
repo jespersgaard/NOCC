@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/th.php,v 1.45 2001/11/18 17:53:32 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/th.php,v 1.1 2002/12/01 12:53:30 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -135,6 +135,26 @@ $html_no_sendaction = 'ไม่มีการกระทำใดๆ ให้ลองเปิดการใช้ JavaScript';
 $html_error_occurred = 'เกิดข้อผิดพลาดขึ้น';
 $html_prefs_file_error = 'ไม่สามารถตั้งค่าได้';
 $html_sig_file_error = 'ไม่สามารถใช้ลายเซ็นต์ได้';
+$html_wrap = 'Wrap outgoing messages to :'; // to translate
+$html_usenet_separator = 'Usenet separator ("-- \n") Before signature'; // to translate
+// Contacts manager
+$html_add = 'Add';
+$html_contacts = 'Contacts';
+$html_modify = 'Modify';
+$html_back = 'Back';
+$html_contact_add = 'Add new contact';
+$html_contact_mod = 'Modify a contact';
+$html_contact_first = 'First name';
+$html_contact_last = 'Last Name';
+$html_contact_nick = 'Nick';
+$html_contact_mail = 'Mail';
+$html_contact_list = 'Contact list of ';
+$html_contact_del = 'of de contact list';
+
+$html_contact_err1 = 'Maximal number of contact is ';
+$html_contact_err2 = 'You can\'t add a new contact';
+$html_del_msg = 'Delete selected messages ?'; // to translate
+$html_down_mail = 'Download'; // to translate
 
 $original_msg = '-- ข้อความต้นฉบับ --';
 $to_empty = 'The \'ถึง\' ห้ามเว้นว่างไว้ !';

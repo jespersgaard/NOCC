@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/themes/newlook/colors.php,v 1.4 2001/03/29 15:59:21 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/themes/newlook/colors.php,v 1.5 2001/05/27 11:01:07 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,6 +13,27 @@
 
 
 // ################### color configuration ################### //
+
+class theme {
+  var $bgcolor = "";
+  var $login_border = "";
+  var $login_box_bgcolor = "";
+  var $menu_color = "";
+  var $menu_color_on = "";
+  var $mail_properties = "";
+  var $inside_color = "";
+  var $tr_color = "";
+  var $sort_color = "";
+  var $link_color = "";
+  var $text_color = "";
+  var $inbox_text_color = "";
+  var $inbox_color = "";
+  var $mail_color = "";
+  var $vlink_color = "";
+  var $alink_color = "";
+}
+
+$glob_theme = new theme();
 
 // Color on the pages background - default is 'white'
 $glob_theme->bgcolor = '#ffffff" background="themes/newlook/img/bg.gif';

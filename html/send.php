@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.60 2002/12/16 13:32:13 rossigee Exp $ -->
+<!-- start of $Id: send.php,v 1.61 2003/01/22 05:15:32 rossigee Exp $ -->
 <?php
 
 // Default e-mail address on send form
@@ -34,15 +34,14 @@ $mail_from = get_default_from_address();
                     </td>
                 </tr>
                 <tr>
-                    <td align="right" class="inbox"><?php echo $html_to ?> : </td>
+					<td align="right" class="inbox"><a href="javascript:void(0);" onClick="window.open('contacts.php?field=mail_to&<? echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_to ?></a> : </td>
                     <td align="left"><input type="text" name="mail_to" size="60" value="<?php echo (isset($mail_to) ? htmlspecialchars($mail_to) : ''); ?>" /></td>
                 </tr>
-                <tr>
-                    <td align="right" class="inbox"><?php echo $html_cc ?> : </td>
+					<td align="right" class="inbox"><a href="javascript:void(0);" onClick="window.open('contacts.php?field=mail_cc&<? echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_cc ?></a> : </td>
                     <td align="left"><input type="text" name="mail_cc" size="60" value="<?php echo (isset($mail_cc) ? htmlspecialchars($mail_cc) : '') ?>" /></td>
                 </tr>
                 <tr>
-                    <td align="right" class="inbox"><?php echo $html_bcc ?> : </td>
+					<td align="right" class="inbox"><a href="javascript:void(0);" onClick="window.open('contacts.php?field=mail_bcc&<? echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_bcc ?></a> : </td>
                     <td align="left"><input type="text" name="mail_bcc" size="60" value="<?php echo (isset($mail_bcc) ? htmlspecialchars($mail_bcc) : '') ?>" /></td>
                 </tr>
                 <tr>
@@ -102,7 +101,7 @@ $mail_from = get_default_from_address();
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2" align="center"><textarea name="mail_body" cols="60" rows="20"><?php echo (isset($mail_body) ? htmlspecialchars($mail_body) : '') ?></textarea></td>
+                    <td colspan="2" align="center"><textarea name="mail_body" cols="82" rows="20"><?php echo (isset($mail_body) ? htmlspecialchars($mail_body) : '') ?></textarea></td>
                 </tr>
                 <tr>
                     <td align="center" colspan="2">
@@ -162,4 +161,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.60 2002/12/16 13:32:13 rossigee Exp $ -->
+<!-- end of $Id: send.php,v 1.61 2003/01/22 05:15:32 rossigee Exp $ -->

@@ -134,6 +134,26 @@ $html_no_sendaction = 'Engar aðgerðir mögulegar. Reynið að virkja JavaScript.';
 $html_error_occurred = 'Villa gerðist';
 $html_prefs_file_error = 'Ómögulegt að opna valmöguleika skrá til útskriftar.';
 $html_sig_file_error = 'Ómögulegt að opna undirskriftar skrá til útskriftar.';
+$html_wrap = 'Wrap outgoing messages to :'; // to translate
+$html_usenet_separator = 'Usenet separator ("-- \n") Before signature'; // to translate
+// Contacts manager
+$html_add = 'Add';
+$html_contacts = 'Contacts';
+$html_modify = 'Modify';
+$html_back = 'Back';
+$html_contact_add = 'Add new contact';
+$html_contact_mod = 'Modify a contact';
+$html_contact_first = 'First name';
+$html_contact_last = 'Last Name';
+$html_contact_nick = 'Nick';
+$html_contact_mail = 'Mail';
+$html_contact_list = 'Contact list of ';
+$html_contact_del = 'of de contact list';
+
+$html_contact_err1 = 'Maximal number of contact is ';
+$html_contact_err2 = 'You can\'t add a new contact';
+$html_del_msg = 'Delete selected messages ?'; // to translate
+$html_down_mail = 'Download'; // to translate
 
 $original_msg = '-- Upphaflega bréf --'; 
 $to_empty = '\'Til\' reiturinn má ekki vera auður!';

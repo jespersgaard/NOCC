@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.179 2003/03/03 07:34:53 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.180 2003/03/05 13:28:48 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -33,7 +33,7 @@ function inbox(&$pop, $skip = 0, &$ev)
     $end_msg = $start_msg + $per_page;
 
     $sorted = $pop->sort($sort, $sortdir, $ev);
-    if(Exception::isException($ev)) return;
+    if(NoccException::isException($ev)) return;
 
     $end_msg = ($num_msg > $end_msg) ? $end_msg : $num_msg;
     if ($start_msg > $num_msg) {
@@ -45,9 +45,9 @@ function inbox(&$pop, $skip = 0, &$ev)
         $subject = $from = '';
         $msgnum = $sorted[$i];
         $ref_contenu_message = $pop->headerinfo($pop->msgno($msgnum), $ev);
-        if(Exception::isException($ev)) return;
+        if(NoccException::isException($ev)) return;
         $struct_msg = $pop->fetchstructure($pop->msgno($msgnum), $ev);
-        if(Exception::isException($ev)) return;
+        if(NoccException::isException($ev)) return;
         $subject_array = nocc_imap::mime_header_decode($ref_contenu_message->subject);
         for ($j = 0; $j < count($subject_array); $j++)
             $subject .= $subject_array[$j]->text;
@@ -76,7 +76,7 @@ function inbox(&$pop, $skip = 0, &$ev)
         if ($conf->have_ucb_pop_server)
         {
             $header_msg = $pop->fetchheader($pop->msgno($msgnum), $ev);
-            if(Exception::isException($ev)) return;
+            if(NoccException::isException($ev)) return;
             $header_lines = explode("\r\n", $header_msg);
             while (list($k, $v) = each($header_lines))
             {
@@ -133,7 +133,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
 
     // Get message numbers in sorted order
     $sorted = $pop->sort($sort, $sortdir, $ev);
-    if(Exception::isException($ev)) return;
+    if(NoccException::isException($ev)) return;
 
     // Finding the next and previous message number
     $prev_msg = $next_msg = 0;
@@ -152,11 +152,11 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
 
     // Get message header information (parsed)
     $ref_contenu_message = $pop->headerinfo($mail, $ev); 
-    if(Exception::isException($ev)) return;
+    if(NoccException::isException($ev)) return;
 
     // Get the MIME message structure
     $struct_msg = $pop->fetchstructure($mail, $ev);
-    if(Exception::isException($ev)) return; 
+    if(NoccException::isException($ev)) return; 
 
     // If there are attachments, populate the attachment array, otherwise
     // just get the main body as a single-element array
@@ -164,20 +164,20 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
         GetPart($attach_tab, $struct_msg, NULL, $conf->display_rfc822);
     else {
         GetSinglePart($attach_tab, $struct_msg, $pop->fetchheader($mail, $ev), $pop->body($mail, $ev));
-        if(Exception::isException($ev)) return;
+        if(NoccException::isException($ev)) return;
     }
 
     // If we are showing all headers, gather them into a header array
     $header = "";
     if (($verbose == 1) && ($conf->use_verbose == true)) {
         $header = $pop->fetchheader($mail, $ev);
-        if(Exception::isException($ev)) return;
+        if(NoccException::isException($ev)) return;
     }
 
     // Get the first part
     $tmp = array_pop($attach_tab);
     $body = $pop->fetchbody($mail, $tmp['number'], $ev);
-    if(Exception::isException($ev)) return;
+    if(NoccException::isException($ev)) return;
 
     if (eregi('text/html', $tmp['mime']) || eregi('text/plain', $tmp['mime']))
     {
@@ -220,8 +220,10 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
         $to .= $to_array[$j]->text;
     $to = str_replace(',', ', ', $to);
     $cc_array = isset($ref_contenu_message->ccaddress) ? nocc_imap::mime_header_decode($ref_contenu_message->ccaddress) : 0;
-    for ($j = 0; $j < count($cc_array); $j++)
-        $cc .= $cc_array[$j]->text;
+    if ($cc_array != 0) {
+        for ($j = 0; $j < count($cc_array); $j++)
+            $cc .= $cc_array[$j]->text;
+    }
     $cc = str_replace(',', ', ', $cc);
     $reply_to_array = isset($ref_contenu_message->reply_toaddress) ? nocc_imap::mime_header_decode($ref_contenu_message->reply_toaddress) : 0;
     for ($j = 0; $j < count($reply_to_array); $j++)
@@ -260,13 +262,13 @@ function GetPart(&$attach_tab, &$this_part, $part_no, &$display_rfc822)
     if ($this_part->ifdescription == true)
         $att_name = $this_part->description;
     for ($i = 0; $i < count($this_part->parameters); $i++)
-    { 
+    {
         $param = $this_part->parameters[$i];
         if ((($param->attribute == 'NAME') || ($param->attribute == 'name')) && ($param->value != ''))
         {
             $att_name = $param->value;
-               break;
-           }
+            break;
+        }
     }
     if (isset($this_part->type))
     {
@@ -372,7 +374,7 @@ function GetPart(&$attach_tab, &$this_part, $part_no, &$display_rfc822)
             'charset' => $charset,
             'size' => ($this_part->bytes > 1000) ? ceil($this_part->bytes / 1000) : 1
         );
-        
+
         array_unshift($attach_tab, $tmp);
     }
 }
@@ -657,11 +659,11 @@ function cut_address(&$addr, &$charset)
 
 function view_part(&$pop, &$mail, $part_no, &$transfer, &$msg_charset, &$charset)
 {
-    if(Exception::isException($ev)) {
+    if(NoccException::isException($ev)) {
         return "<p class=\"error\">".$ev->getMessage."</p>";
     }
     $text = $pop->fetchbody($mail, $part_no, $ev);
-    if(Exception::isException($ev)) {
+    if(NoccException::isException($ev)) {
         return "<p class=\"error\">".$ev->getMessage."</p>";
     }
     if ($transfer == 'BASE64')
@@ -741,9 +743,57 @@ function display_address(&$address)
 
 function mailquote(&$body, &$from, &$html_wrote)
 {
-    $from = ucwords(trim(ereg_replace("&lt;.*&gt;", "", str_replace("\"", "", $from))));
+    $user_prefs = $_SESSION['nocc_user_prefs'];
+
+  $crlf = "\r\n";
+  $from = ucwords(trim(ereg_replace("&lt;.*&gt;", "", str_replace("\"", "", $from))));
+
+  $wrap_msg = $user_prefs->wrap_msg;
+  // If we must wrap the message
+  if ($wrap_msg)
+    {
+      $msg = '';
+      //Break message in table with "\r\n" as separator
+      $tbl = explode ("\r\n", $body);
+      // For each line
+      for ($i = 0, $buffer = ''; $i < count ($tbl); ++$i)
+	{	// Number of "> "
+	  $q = substr_count($tbl[$i], "> ");
+
+	  $tbl[$i] = rtrim ($tbl[$i]);
+	  // Erase the "> "
+	  $tbl[$i] = str_replace ("> ", "", $tbl[$i]);
+	  // Erase the break line
+	  $tbl[$i] = str_replace ("\n", " ", $tbl[$i]);
+	  // length of "> > ...."
+	  $length = ($q + 1) * strlen ("> ");
+	  // Add the quote if ligne is not to long
+	  if (strlen ($tbl[$i]) + $length <= $wrap_msg)
+	    $msg .= str_pad($tbl[$i], strlen ($tbl[$i]) + $length, "> ", STR_PAD_LEFT) . $crlf;
+	  // If line is to long, create new line
+	  else
+	    {
+	      $words = explode (" ", $tbl[$i]);
+	      for ($j = 0; $j < count ($words); ++$j)
+		{
+		  if (strlen ($buffer) + strlen ($words[$j]) + $length <= $wrap_msg)
+		    $buffer .= $words[$j] . " ";
+		  else
+		    {
+		      $msg .=  str_pad(rtrim ($buffer), strlen (rtrim ($buffer)) + $length, "> ", STR_PAD_LEFT) . $crlf;
+		      $buffer = $words[$j] . " ";
+		    }
+		}
+	      if ($q != substr_count($tbl[$i + 1], "> "))
+		$msg .= str_pad(rtrim ($buffer), strlen (rtrim ($buffer)) + $length, "> ", STR_PAD_LEFT) . $crlf;
+	    }
+	}
+      $body = $msg;
+    }
+  else
     $body = "> " . ereg_replace("\n", "\n> ", trim($body));
-    return($from . ' ' . $html_wrote . " :\n\n" . $body);
+  return($from . ' ' . $html_wrote . " :\n\n" . $body);
+
 }
 /* ----------------------------------------------------- */
 
@@ -755,6 +805,38 @@ function safestrip(&$string)
     if(get_magic_quotes_gpc())
         $string = stripslashes($string);
     return $string;
+}
+
+
+// Wrap outgoing messages to
+function wrap_outgoing_msg ($txt, $length, $newline)
+{
+  $msg = '';
+  // cut message in segment
+  $tbl = explode ("\r\n", $txt);
+  // Clean the end of the line
+  for ($i = 0, $buffer = ''; $i < count ($tbl); ++$i)
+    {
+      $tbl[$i] = rtrim ($tbl[$i]);
+      if (strlen ($tbl[$i]) <= $length)
+	$msg .= $tbl[$i] . $newline;
+      else
+	{
+	  $words = explode (" ", $tbl[$i]);
+	  for ($j = 0; $j < count ($words); ++$j)
+	    {
+	      if ((strlen ($buffer) + strlen ($words[$j])) <= $length)
+		$buffer .= $words[$j] . " ";
+	      else
+		{
+		  $msg .= rtrim ($buffer) . $newline;
+		  $buffer = $words[$j] . " ";
+		}
+	    }
+	  $msg .= rtrim ($buffer) . $newline;
+	}
+    }
+  return $msg;
 }
 
 function strip_tags2(&$string, $allow)
@@ -792,4 +874,39 @@ function get_per_page() {
     return $msg_per_page;
 }
 
+// ==================================== Contact List ===========================================
+
+function load_list ($path)
+{
+   $fp = @fopen($path, "r");
+   if (!$fp)
+     return array();
+   // Create the contact list
+   $contacts = array ();
+   // Load the contact list
+   while(!feof ($fp))
+     {
+       $buffer = trim(fgets($fp, 4096));
+       if ($buffer != "")
+	 array_push ($contacts, $buffer);
+     }
+
+   fclose($fp);
+   // return the list
+   return $contacts;
+}
+
+
+function save_list ($path, $contacts)
+{
+  $fp = fopen($path, "w");
+
+  for ($i = 0; $i < count ($contacts); ++$i)
+  {
+      if (trim($contacts[$i]) != "")
+        fwrite ($fp, $contacts[$i]."\n");
+  }
+
+  fclose($fp);
+}
 ?>

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/el.php,v 1.9 2002/06/30 21:43:46 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/el.php,v 1.10 2002/11/29 07:04:57 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -135,6 +135,26 @@ $html_no_sendaction = 'Δεν επιλέχθηκε εντολή. Δοκιμάστε να ενεργοποιήσετε τηνJav
 $html_error_occurred = 'Ενα σφάλμα συνέβη';
 $html_prefs_file_error = 'Δεν μπορώ να γράψω στο αρχείο προτιμήσεων.';
 $html_sig_file_error = 'Δεν μπορώ να γράψω στο αρχείο υπογραφής.';
+$html_wrap = 'Wrap outgoing messages to :'; // to translate
+$html_usenet_separator = 'Usenet separator ("-- \n") Before signature'; // to translate
+// Contacts manager
+$html_add = 'Add';
+$html_contacts = 'Contacts';
+$html_modify = 'Modify';
+$html_back = 'Back';
+$html_contact_add = 'Add new contact';
+$html_contact_mod = 'Modify a contact';
+$html_contact_first = 'First name';
+$html_contact_last = 'Last Name';
+$html_contact_nick = 'Nick';
+$html_contact_mail = 'Mail';
+$html_contact_list = 'Contact list of ';
+$html_contact_del = 'of de contact list';
+
+$html_contact_err1 = 'Maximal number of contact is ';
+$html_contact_err2 = 'You can\'t add a new contact';
+$html_del_msg = 'Delete selected messages ?'; // to translate
+$html_down_mail = 'Download'; // to translate
 
 $original_msg = '-- Πρωτότυπο Μήνυμα --';
 $to_empty = 'Το πεδίο \'Πρός\' δεν πρέπει να είναι άδειο !';

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.60 2002/11/29 07:04:57 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.61 2003/03/03 07:34:53 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -172,6 +172,26 @@ $html_send_confirmed = 'Your mail was accepted for delivery';
 $html_no_sendaction = 'No action specified. Try enabling JavaScript.';
 $html_error_occurred = 'An error occurred';
 $html_prefs_file_error = 'Unable to open preferences file for writing.';
+$html_wrap = 'Wrap outgoing messages to :';
+$html_usenet_separator = 'Usenet separator ("-- \n") Before signature'; // to translate
+// Contacts manager
+$html_add = 'Add';
+$html_contacts = 'Contacts';
+$html_modify = 'Modify';
+$html_back = 'Back';
+$html_contact_add = 'Add new contact';
+$html_contact_mod = 'Modify a contact';
+$html_contact_first = 'First name';
+$html_contact_last = 'Last Name';
+$html_contact_nick = 'Nick';
+$html_contact_mail = 'Mail';
+$html_contact_list = 'Contact list of ';
+$html_contact_del = 'of de contact list';
+
+$html_contact_err1 = 'Maximal number of contact is ';
+$html_contact_err2 = 'You can\'t add a new contact';
+$html_del_msg = 'Delete selected messages ?';
+$html_down_mail = 'Download';
 
 $original_msg = '-- Original Message --';
 $to_empty = 'The \'To\' field must not be empty !';

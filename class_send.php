@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.53 2002/05/15 16:01:35 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.54 2003/04/27 20:47:23 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -139,7 +139,7 @@ class mime_mail
             $mime .= 'From: ' . $this->from . $this->crlf;
         if (count($this->cc) > 0 && $this->cc[0] != '')
             $mime .= 'Cc: ' . join(', ', $this->cc) . $this->crlf;
-        if (count($this->bcc) > 0 && $this->bcc[0] != '' && $this->smtp_server = '')
+        if (count($this->bcc) > 0 && $this->bcc[0] != '')
             $mime .= 'Bcc: ' . join(', ', $this->bcc) . $this->crlf;
         if (ereg("[4-9]\.[0-9]\.[4-9].*", phpversion()))
             $mime .= 'Date: ' . date("r") . $this->crlf;
@@ -173,7 +173,7 @@ class mime_mail
             else
                 $ev = @mail($rcpt_to, $this->subject, '', $mime);
             if ($ev != true)
-                return (new Exception('unable to send message, SMTP server unreachable'));
+                return (new NoccException('unable to send message, SMTP server unreachable'));
         }
         else
         {

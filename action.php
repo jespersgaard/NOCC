@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.143 2003/02/08 06:17:45 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.144 2003/03/03 07:34:52 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -29,7 +29,7 @@ switch($action)
 {
     case 'aff_mail':
         $pop = new nocc_imap($ev);
-        if (Exception::isException($ev)) {
+        if (NoccException::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
             require ('./html/footer.php');
@@ -38,7 +38,7 @@ switch($action)
 
         $attach_tab = array();
         $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
-        if (Exception::isException($ev)) {
+        if (NoccException::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
             require ('./html/footer.php');
@@ -99,7 +99,7 @@ switch($action)
             $_REQUEST['verbose'] = 0;
 
         $pop = new nocc_imap($ev);
-        if (Exception::isException($ev)) {
+        if (NoccException::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
             require ('./html/footer.php');
@@ -107,7 +107,7 @@ switch($action)
         }
 
         $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
-        if (Exception::isException($ev)) {
+        if (NoccException::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
             require ('./html/footer.php');
@@ -153,7 +153,7 @@ switch($action)
             $_REQUEST['verbose'] = 0;
 
         $pop = new nocc_imap($ev);
-        if (Exception::isException($ev)) {
+        if (NoccException::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
             require ('./html/footer.php');
@@ -161,7 +161,7 @@ switch($action)
         }
 
         $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
-        if (Exception::isException($ev)) {
+        if (NoccException::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
             require ('./html/footer.php');
@@ -197,7 +197,7 @@ switch($action)
         if(!isset($_REQUEST['verbose']))
             $_REQUEST['verbose'] = 0;
         $pop = new nocc_imap($ev);
-        if (Exception::isException($ev)) {
+        if (NoccException::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
             require ('./html/footer.php');
@@ -205,7 +205,7 @@ switch($action)
         }
 
         $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
-        if (Exception::isException($ev)) {
+        if (NoccException::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
             require ('./html/footer.php');
@@ -231,7 +231,7 @@ switch($action)
 
     case 'managefolders':
         $pop = new nocc_imap($ev);
-        if (Exception::isException($ev)) {
+        if (NoccException::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
             require ('./html/footer.php');
@@ -245,16 +245,16 @@ switch($action)
             case 'create_folder':
                 if ($_REQUEST['createnewbox']) {
                     $pop->createmailbox($createnewbox, $ev);
-                    if(Exception::isException($ev)) break;
+                    if(NoccException::isException($ev)) break;
                     $pop->subscribe($createnewbox, $ev);
-                    if(Exception::isException($ev)) break;
+                    if(NoccException::isException($ev)) break;
                 }
                 break;
 
             case 'subscribe_folder':
                 if ($_REQUEST['subscribenewbox']) {
                     $pop->subscribe($_REQUEST['subscribenewbox'], $ev);
-                    if(Exception::isException($ev)) break;
+                    if(NoccException::isException($ev)) break;
                 }
                 break;
 
@@ -262,20 +262,20 @@ switch($action)
                 if ($_REQUEST['removeoldbox']) {
                     // Don't want to remove, just unsubscribe.
                     //$pop->deletemailbox($removeoldbox, $ev);
-                    //if(Exception::isException($ev)) break;
+                    //if(NoccException::isException($ev)) break;
                     $pop->unsubscribe($_REQUEST['removeoldbox'], $ev);
-                    if(Exception::isException($ev)) break;
+                    if(NoccException::isException($ev)) break;
                 }
                 break;
 
             case 'rename_folder':
                 if ($_REQUEST['renamenewbox'] && $_REQUEST['renameoldbox']) {
                     $pop->renamemailbox($_REQUEST['renameoldbox'], $_REQUEST['renamenewbox'], $ev);
-                    if(Exception::isException($ev)) break;
+                    if(NoccException::isException($ev)) break;
                     $pop->unsubscribe($_REQUEST['renameoldbox'], $ev);
-                    if(Exception::isException($ev)) break;
+                    if(NoccException::isException($ev)) break;
                     $pop->subscribe($_REQUEST['renamenewbox'], $ev);
-                    if(Exception::isException($ev)) break;
+                    if(NoccException::isException($ev)) break;
                 }
                 break;
         }
@@ -297,7 +297,7 @@ switch($action)
         $user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
         $filterset = NOCCUserFilters::read($user_key, $ev);
 
-        if (Exception::isException($ev)) {
+        if (NoccException::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
             require ('./html/footer.php');
@@ -363,7 +363,7 @@ switch($action)
 
     case 'setprefs':
         $pop = new nocc_imap($ev);
-        if (Exception::isException($ev)) {
+        if (NoccException::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
             require ('./html/footer.php');
@@ -385,6 +385,8 @@ switch($action)
                 $user_prefs->reply_leadin = stripslashes($_REQUEST['reply_leadin']);
             if (isset($_REQUEST['signature']))
                 $user_prefs->signature = stripslashes($_REQUEST['signature']);
+            $user_prefs->wrap_msg = $_REQUEST['wrap_msg'];
+            $user_prefs->sig_sep = isset($_REQUEST['sig_sep']);
 
             // Commit preferences
             $user_prefs->commit($ev);
@@ -405,7 +407,7 @@ switch($action)
 
     default:
         $pop = new nocc_imap($ev);
-        if (Exception::isException($ev)) {
+        if (NoccException::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
             require ('./html/footer.php');
@@ -418,7 +420,7 @@ switch($action)
                 $user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
                 if (!empty($conf->prefs)) {
                     $filters = NOCCUserFilters::read($user_key, $ev);
-                    if(Exception::isException($ev)) {
+                    if(NoccException::isException($ev)) {
                         error_log("Error reading filters for user '$user_key': ".$ev->getMessage());
                         $filters = NULL;
                         $ev = NULL;
@@ -444,7 +446,7 @@ switch($action)
                     }
                 }
                 $pop->expunge($ev);
-                if(Exception::isException($ev)) {
+                if(NoccException::isException($ev)) {
                         error_log("Error expunging mail for user '$user_key': ".$ev->getMessage());
                         $ev = NULL;
                 }
@@ -463,7 +465,7 @@ switch($action)
         if ($pop->num_msg() > 0)
             $tab_mail = inbox($pop, $skip, $ev);
 
-        if (Exception::isException($ev)) {
+        if (NoccException::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
             require ('./html/footer.php');
@@ -502,7 +504,8 @@ switch($action)
         if (($conf->status_line == 1) && $pop->is_imap()) {
             // gather list of folders for menu_inbox_status
             $subscribed = $pop->getsubscribed($ev);
-            if (Exception::isException($ev)) {
+            if (NoccException::isException($ev)) {
+
                 require ('./html/header.php');
                 require ('./html/error.php');
                 require ('./html/footer.php');
@@ -540,7 +543,14 @@ switch($action)
 function add_signature(&$body) {
     $user_prefs = $_SESSION['nocc_user_prefs'];
     if(isset($user_prefs->signature))
-        $body .= "\r\n" . $user_prefs->signature;
+    {
+		// Add signature with separation if needed
+		if(isset($user_prefs->sig_sep) && $user_prefs->sig_sep)
+			$body = "\r\n\r\n"."-- \r\n".$user_prefs->signature;
+		else
+			$body = "\r\n\r\n".$user_prefs->signature;
+    }
+
 }
 
 ?>

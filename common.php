@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.27 2003/03/03 07:34:53 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.28 2003/03/03 07:45:08 rossigee Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -39,8 +39,10 @@ if (!isset($_SESSION['nocc_sortdir']))
     $_SESSION['nocc_sortdir'] = $conf->default_sortdir;
 
 // Override session variables from request, if supplied
-if(isset($_REQUEST['user']))
+if(isset($_REQUEST['user'])) {
+    unset($_SESSION['nocc_login']);
     $_SESSION['nocc_user'] = safestrip($_REQUEST['user']);
+}
 if(isset($_REQUEST['passwd']))
     $_SESSION['nocc_passwd'] = safestrip($_REQUEST['passwd']);
 if(isset($_REQUEST['lang']))
@@ -125,7 +127,7 @@ if(isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
     // Preferences
     if(!isset($_SESSION['nocc_user_prefs'])) {
         $_SESSION['nocc_user_prefs'] = NOCCUserPrefs::read($user_key, $ev);
-        if(Exception::isException($ev)) {
+        if(NoccException::isException($ev)) {
                 echo "<p>User prefs error ($user_key): ".$ev->getMessage()."</p>";
                 exit(1);
         }
@@ -136,7 +138,7 @@ if(isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
     if (!empty($conf->prefs)) {
         if(!isset($_SESSION['nocc_user_filters'])) {
             $_SESSION['nocc_user_filters'] = NOCCUserFilters::read($user_key, $ev);
-            if(Exception::isException($ev)) {
+            if(NoccException::isException($ev)) {
                     echo "<p>User filters error ($user_key): ".$ev->getMessage()."</p>";
                     exit(1);
             }

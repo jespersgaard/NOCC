@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/check.php,v 1.7 2001/12/19 20:22:52 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/check.php,v 1.8 2002/03/24 17:00:36 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,7 +9,7 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
 
-if (floor(phpversion()) != 4)
+if (floor(phpversion()) < 4)
 {
     echo '<font color="red"><b>You don\'t seem to be running PHP 4, you need at least PHP 4 to run NOCC.</b></font><br /><br /><div align="center"><img src="themes/standard/img/button.png" width="88" height="31" alt="Powered by NOCC" /></div>';
     exit;

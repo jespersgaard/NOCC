@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.26 2003/03/05 13:28:48 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.27 2003/05/18 21:51:21 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -15,6 +15,12 @@
 
 require_once 'exception.php';
 require_once 'detect_cyr_charset.php';
+
+class result
+{
+  var $text = "";
+  var $charset = "";
+}
 
 class nocc_imap
 {
@@ -37,7 +43,7 @@ class nocc_imap
         // $ev is set if there is a problem with the connection
         $conn = @imap_open('{'.$this->server.'}'.$this->folder, $this->login, $this->passwd, 0);
         if(!$conn) {
-            $ev = new Exception($lang_could_not_connect.": ".imap_last_error());
+            $ev = new NoccException($lang_could_not_connect.": ".imap_last_error());
             return;
         }
         $this->conn = $conn;
@@ -47,7 +53,7 @@ class nocc_imap
 
     function reopen($box, $flags = '', &$ev) {
         if(!imap_reopen($this->conn, $box, $flags)) {
-            $ev = new Exception(imap_last_error());
+            $ev = new NoccException(imap_last_error());
         }
     }
 
@@ -60,14 +66,14 @@ class nocc_imap
         if(empty($error))
             return array();
         
-        $ev = new Exception("imap_search: ".imap_last_error());
+        $ev = new NoccException("imap_search: ".imap_last_error());
         return;
     }
 
     function fetchstructure(&$msgnum, &$ev) {
         $structure = imap_fetchstructure($this->conn, $msgnum);
         if(!is_object($structure)) {
-            $ev = new Exception("imap_fetchstructure did not return an object: ".imap_last_error());
+            $ev = new NoccException("imap_fetchstructure did not return an object: ".imap_last_error());
             return;
         }
         return $structure;
@@ -99,9 +105,9 @@ class nocc_imap
 
     function headerinfo(&$msgnum, &$ev) {
         $headers = imap_headerinfo($this->conn, $msgnum, $ev);
-        if(Exception::isException($ev)) return;
+        if(NoccException::isException($ev)) return;
         if(!is_object($headers)) {
-            $ev = new Exception("Could not get header info: ".imap_last_error());
+            $ev = new NoccException("Could not get header info: ".imap_last_error());
             return;
         }
         return $headers;
@@ -111,19 +117,19 @@ class nocc_imap
     // [I will test this, I use Cyrus IMAP - Ross]
     function deletemailbox(&$old_box, &$ev) {
         if(!imap_deletemailbox($this->conn, '{'.$this->server.'}'.$old_box)) {
-            $ev = new Exception(imap_last_error());
+            $ev = new NoccException(imap_last_error());
         }
     }
 
     function renamemailbox(&$old_box, &$new_box, &$ev) {
         if(!imap_renamemailbox($this->conn, '{'.$this->server.'}'.$old_box, '{'.$this->server.'}'.$new_box)) {
-            $ev = new Exception(imap_last_error());
+            $ev = new NoccException(imap_last_error());
         }
     }
 
     function createmailbox(&$new_box, &$ev) {
         if(!imap_createmailbox($this->conn, '{'.$this->server.'}'.$new_box)) {
-            $ev = new Exception(imap_last_error());
+            $ev = new NoccException(imap_last_error());
         }
     }
 
@@ -171,7 +177,7 @@ class nocc_imap
     function getmailboxes(&$ev) {
         $mailboxes = imap_getmailboxes($this->conn, '{'.$this->server.'}', '*');
         if(!is_array($mailboxes)) {
-            $ev = new Exception("imap_getmailboxes did not return an array: ".imap_last_error());
+            $ev = new NoccException("imap_getmailboxes did not return an array: ".imap_last_error());
             return;
         }
         return $mailboxes;
@@ -186,7 +192,7 @@ class nocc_imap
         if(empty($error))
             return array();
         
-        $ev = new Exception("imap_getsubscribed: ".imap_last_error());
+        $ev = new NoccException("imap_getsubscribed: ".imap_last_error());
         return;
     }
 
@@ -209,6 +215,7 @@ class nocc_imap
     function mime_header_decode(&$header) {
         $output_charset = $GLOBALS['charset'];
         $source = imap_mime_header_decode($header);
+        $result[] = new result;
         $result[0]->text=''; $result[0]->charset='US-ASCII';
         for ($j = 0; $j < count($source); $j++ ) {
             $element_charset =  ($source[$j]->charset == "default") ? detect_charset($source[$j]->text) : $source[$j]->charset;
@@ -224,7 +231,7 @@ class nocc_imap
      */
     function html_folder_select($value, $selected = '') {
         $folders = $this->get_nice_subscribed($ev);
-        if(Exception::isException($ev)) {
+        if(NoccException::isException($ev)) {
                 return "<p class=\"error\">Error retrieving folder pulldown: ".$ev->getMessage()."</p>";
         }
         if(!is_array($folders) || count($folders) < 1) {
@@ -253,7 +260,7 @@ class nocc_imap
 
     function get_nice_subscribed(&$ev) {
         $folders = $this->getsubscribed($ev);
-        if(Exception::isException($ev)) return;
+        if(NoccException::isException($ev)) return;
         reset($folders);
         $subscribed = array();
         foreach($folders as $folder) {
@@ -270,7 +277,7 @@ class nocc_imap
      */
     function test() {
         imap_mailboxmsginfo($this->conn, $ev);
-        if(Exception::isException($ev)) {
+        if(NoccException::isException($ev)) {
             print "<p class=\"error\">imap_mailboxmsginfo() failed: ".$ev->getMessage(). "</p>\n";
             return;
         }

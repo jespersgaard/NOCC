@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.3 2003/01/22 05:31:39 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.4 2003/03/03 07:34:53 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -22,6 +22,8 @@ class NOCCUserPrefs {
 	var $seperate_msg_win;
 	var $reply_leadin;
 	var $signature;
+    var $wrap_msg;
+    var $sig_sep;
 
 	// Set when preferences have not been commit
 	var $dirty_flag;
@@ -46,7 +48,7 @@ class NOCCUserPrefs {
 		$prefs = new NOCCUserPrefs($key);
 
         if (empty($conf->prefs_dir)) {
-			//$ev = new Exception("User preferences are disabled");
+			//$ev = new NoccException("User preferences are disabled");
             $prefs->dirty_flag = 0;
 			return $prefs;
         }
@@ -59,7 +61,7 @@ class NOCCUserPrefs {
 		}
 		$file = fopen($filename, 'r');
 		if(!$file) {
-			$ev = new Exception("Could not open $filename for reading user preferences");
+			$ev = new NoccException("Could not open $filename for reading user preferences");
 			return;
 		}
 
@@ -92,9 +94,13 @@ class NOCCUserPrefs {
 				$prefs->signature = base64_decode($value);
 			if($key == 'reply_leadin')
 				$prefs->reply_leadin = base64_decode($value);
+            if($key == 'wrap_msg')
+                $prefs->wrap_msg = $value;
+			if($key == 'sig_sep')
+				$prefs->sig_sep = ($value == 1 || $value == 'on');
 		}
 		fclose($file);
- 
+
 		$prefs->dirty_flag = 0;
 		return $prefs;
 	}
@@ -108,7 +114,7 @@ class NOCCUserPrefs {
 
 		// Check it passes validation
 		$this->validate($ev);
-		if(Exception::isException($ev)) return;
+		if(NoccException::isException($ev)) return;
 		
 		// Do we need to write?
 		if(!$this->dirty_flag) return;
@@ -116,10 +122,10 @@ class NOCCUserPrefs {
 		// Write prefs to file
 		$filename = $conf->prefs_dir . '/' . $this->key . '.pref';
 		if(file_exists($filename) && !is_writable($filename))
-			return (new Exception($html_prefs_file_error));
+			return (new NoccException($html_prefs_file_error));
 		$file = fopen($filename, 'w');
 		if(!$file)
-			return (new Exception($html_prefs_file_error));
+			return (new NoccException($html_prefs_file_error));
 
 		fwrite($file, "full_name=".$this->full_name."\n");
 		fwrite($file, "email_address=".$this->email_address."\n");
@@ -130,6 +136,8 @@ class NOCCUserPrefs {
 		fwrite($file, "seperate_msg_win=".$this->seperate_msg_win."\n");
 		fwrite($file, "reply_leadin=".base64_encode($this->reply_leadin)."\n");
 		fwrite($file, "signature=".base64_encode($this->signature)."\n");
+        fwrite($file, "wrap_msg=".$this->wrap_msg."\n");
+		fwrite($file, "sig_sep=".$this->sig_sep."\n");
 		fclose($file);
 
 		$this->dirty_flag = 0;
@@ -144,7 +152,7 @@ class NOCCUserPrefs {
 
 		if($conf->allow_address_change) {
 			if(!valid_email($this->email_address)) {
-				$ev = new Exception($html_invalid_email_address);
+				$ev = new NoccException($html_invalid_email_address);
 			}
 		}
 		else {

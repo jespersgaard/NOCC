@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/no.php,v 1.5 2002/04/24 23:32:25 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/no.php,v 1.9 2002/12/01 10:30:44 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -137,6 +137,26 @@ $html_no_sendaction = 'Ingen handling spesifisert. Prøv å aktivere JavaScript.';
 $html_error_occurred = 'En feil oppstod';
 $html_prefs_file_error = 'Ikke mulig å åpne innstillingsfilen for skriving (lagring).';
 $html_sig_file_error = 'Ikke mulig å åpne signaturfilen for skriving (lagring).';
+$html_wrap = 'Wrap outgoing messages to :'; // to translate
+$html_usenet_separator = 'Usenet separator ("-- \n") Before signature'; // to translate
+// Contacts manager
+$html_add = 'Add';
+$html_contacts = 'Contacts';
+$html_modify = 'Modify';
+$html_back = 'Back';
+$html_contact_add = 'Add new contact';
+$html_contact_mod = 'Modify a contact';
+$html_contact_first = 'First name';
+$html_contact_last = 'Last Name';
+$html_contact_nick = 'Nick';
+$html_contact_mail = 'Mail';
+$html_contact_list = 'Contact list of ';
+$html_contact_del = 'of de contact list';
+
+$html_contact_err1 = 'Maximal number of contact is ';
+$html_contact_err2 = 'You can\'t add a new contact';
+$html_del_msg = 'Delete selected messages ?'; // to translate
+$html_down_mail = 'Download'; // to translate
 
 $original_msg = '-- Opprinnelig melding --';
 $to_empty = 'Feltet \'Til\' kan ikke være tomt !';

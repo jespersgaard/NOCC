@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.58 2002/06/30 21:43:46 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.1 2002/12/01 10:38:58 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -158,6 +158,26 @@ $html_send_confirmed = '&#1606;&#1575;&#1605;&#1607; &#1588;&#1605;&#1575; &#157
 $html_no_sendaction = '&#1607;&#1610;&#1670; &#1593;&#1605;&#1604;&#1609; &#1575;&#1606;&#1580;&#1575;&#1605; &#1606;&#1588;&#1583;. JavaScrip &#1585;&#1575; &#1601;&#1593;&#1575;&#1604; &#1606;&#1605;&#1575;&#1574;&#1610;&#1583;';
 $html_error_occurred = '&#1610;&#1705; &#1582;&#1591;&#1575; &#1575;&#1578;&#1601;&#1575;&#1602; &#1575;&#1601;&#1578;&#1575;&#1583;';
 $html_prefs_file_error = '&#1606;&#1605;&#1609;&#1578;&#1608;&#1575;&#1606;&#1605; &#1601;&#1575;&#1610;&#1604; &#1578;&#1606;&#1592;&#1610;&#1605;&#1575;&#1578; &#1601;&#1585;&#1583;&#1609; &#1585;&#1575; &#1576;&#1585;&#1575;&#1609; &#1606;&#1608;&#1588;&#1578;&#1606; &#1576;&#1575;&#1586; &#1705;&#1606;&#1605;';
+$html_wrap = 'Wrap outgoing messages to :'; // to translate
+$html_usenet_separator = 'Usenet separator ("-- \n") Before signature'; // to translate
+// Contacts manager
+$html_add = 'Add';
+$html_contacts = 'Contacts';
+$html_modify = 'Modify';
+$html_back = 'Back';
+$html_contact_add = 'Add new contact';
+$html_contact_mod = 'Modify a contact';
+$html_contact_first = 'First name';
+$html_contact_last = 'Last Name';
+$html_contact_nick = 'Nick';
+$html_contact_mail = 'Mail';
+$html_contact_list = 'Contact list of ';
+$html_contact_del = 'of de contact list';
+
+$html_contact_err1 = 'Maximal number of contact is ';
+$html_contact_err2 = 'You can\'t add a new contact';
+$html_del_msg = 'Delete selected messages ?'; // to translate
+$html_down_mail = 'Download'; // to translate
 
 $original_msg = '-- Original Message --';
 $to_empty = 'The \'To\' field must not be empty !';

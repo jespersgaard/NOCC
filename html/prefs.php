@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.28 2002/09/16 00:43:25 mrylander Exp $ -->
+<!-- start of $Id: prefs.php,v 1.29 2002/12/16 15:23:20 rossigee Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -44,6 +44,27 @@
                         <input type="checkbox" name="outlook_quoting" id="outlook_quoting" value="on" <?php if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting) echo "checked"; ?> /><label for="outlook_quoting"><?php echo $html_outlook_quoting ?></label>
                     </td>
                 </tr>
+				<tr>
+            		<td align="right" class="prefs" valign="top">&nbsp;</td>
+            		<td align="left" class="prefs">
+                        <table align="left">
+                		    <tr>
+                			    <td>
+                                    <label for="wrap_msg"><?php echo $html_wrap ?></label>
+                                </td>
+                			    <td>
+                                    <input type="radio" name="wrap_msg" id="wrap_msg" value="80" <?php if($user_prefs->wrap_msg == 80) echo "checked"; ?> />80
+                                </td>
+                			    <td>
+                                    <input type="radio" name="wrap_msg" id="wrap_msg" value="72" <?php if($user_prefs->wrap_msg == 72) echo "checked"; ?> />72
+                                </td>
+                  			    <td>
+                                    <label><input name="wrap_msg" type="radio" id="wrap_msg" value="0" <?php if($user_prefs->wrap_msg == '') echo "checked"; ?> />None</label>
+                                </td>
+                    	    </tr>
+              		    </table>
+                    </td>
+          		</tr>
                 <tr>
                     <td align="right" class="prefs" valign="top">&nbsp;</td>
                     <td align="left" class="prefs">
@@ -63,10 +84,16 @@
                         <textarea name="signature" rows="5" cols="40"><?php echo (isset($user_prefs->signature)) ? $user_prefs->signature : "" ?></textarea>
                     </td>
                 </tr>
+ 				<tr>
+					<td align="right" class="prefs" valign="top">&nbsp;</td>
+					<td align="left" class="prefs">
+						<input type="checkbox" name="sig_sep" id="sig_sep" value="on" <?php if(isset($user_prefs->sig_sep) && $user_prefs->sig_sep) echo "checked"; ?> /><label for="sig_sep"><?php echo $html_usenet_separator ?></label>
+					</td>
+				</tr>
                 <tr>
                     <td align="center" colspan="2">
                         <?php
-                            if(Exception::isException($ev))
+                            if(NoccException::isException($ev))
                                 echo '<p class="prefs">'.$html_error_occurred.' : '.$ev->getMessage().'</p>';
                             else
                                 if(isset($_REQUEST['submit_prefs']))
@@ -98,4 +125,4 @@
     ?>
 
 </table>
-<!-- end of $Id: prefs.php,v 1.28 2002/09/16 00:43:25 mrylander Exp $ -->
+<!-- end of $Id: prefs.php,v 1.29 2002/12/16 15:23:20 rossigee Exp $ -->

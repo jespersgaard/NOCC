@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/user_filters.php,v 1.3 2003/02/06 07:30:01 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/user_filters.php,v 1.4 2003/03/03 07:34:53 rossigee Exp $
  *
  * Copyright 2002 Mike Rylander <mrylander@mail.com>
  *
@@ -25,7 +25,7 @@ class NOCCUserFilters {
                 $this->filterset = array();
                 $this->dirty_flag = 1;
                 if (empty($conf->prefs_dir)) {
-                        $ev = new Exception("User preferences are turned off but tried to create object.");
+                        $ev = new NoccException("User preferences are turned off but tried to create object.");
                         return;
                 }
 
@@ -47,12 +47,12 @@ class NOCCUserFilters {
                 if (!file_exists($filename)) {
                         $filters->dirty_flag = 1;
                         $filters->commit($ev);
-                        if(Exception::isException($ev))
+                        if(NoccException::isException($ev))
                                 return;
                 }
                 $file = fopen($filename, 'r');
                 if(!$file) {
-                        $ev = new Exception("Could not open $filename for reading user preferences");
+                        $ev = new NoccException("Could not open $filename for reading user preferences");
                         return;
                 }
 
@@ -91,12 +91,12 @@ class NOCCUserFilters {
                 // Write prefs to file
                 $filename = $conf->prefs_dir . '/' . $this->key . '.filter';
                 if(file_exists($filename) && !is_writable($filename)) {
-                        $ev = new Exception($html_prefs_file_error);
+                        $ev = new NoccException($html_prefs_file_error);
                         return;
                 }
                 $file = fopen($filename, 'w');
                 if(!$file) {
-                        $ev = new Exception($html_prefs_file_error);
+                        $ev = new NoccException($html_prefs_file_error);
                         return;
                 }
 

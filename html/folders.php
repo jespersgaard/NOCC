@@ -1,4 +1,4 @@
-<!-- start of $Id: folders.php,v 1.7 2002/09/10 23:27:01 mrylander Exp $ -->
+<!-- start of $Id: folders.php,v 1.8 2002/09/16 00:43:25 mrylander Exp $ -->
 <?php
 
 $renameoldbox = $pop->html_folder_select('renameoldbox', '');
@@ -79,7 +79,7 @@ if (count($big_list) > 1) {
     <tr>
         <td align="center" colspan="2">
             <?php
-                if(Exception::isException($ev))
+                if(NoccException::isException($ev))
                   echo '<p class="prefs">'.$html_error_occurred.' : '.$ev->getMessage().'</p>';
                 elseif(isset($_REQUEST['submit_prefs']))
                   echo '<p class="prefs">'.$html_prefs_updated.'</p>';
@@ -92,4 +92,4 @@ if (count($big_list) > 1) {
           echo "\n    </td>\n</tr>";
     ?>
 </table>
-<!-- end of $Id: folders.php,v 1.7 2002/09/10 23:27:01 mrylander Exp $ -->
+<!-- end of $Id: folders.php,v 1.8 2002/09/16 00:43:25 mrylander Exp $ -->

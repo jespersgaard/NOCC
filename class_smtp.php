@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.27 2002/03/24 16:45:26 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.28 2002/03/24 17:00:36 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -42,11 +42,11 @@ class smtp
     {
         $smtp = fsockopen($this->smtp_server, $this->port, $errno, $errstr); 
         if (!$smtp)
-            return new Exception($html_smtp_no_con . ' : ' . $errstr); 
+            return new NoccException($html_smtp_no_con . ' : ' . $errstr); 
         $line = fgets($smtp, 1024);
 
         if (substr($line, 0, 1) != '2')
-            return new Exception($html_smtp_error_unexpected . ' : ' . $line); 
+            return new NoccException($html_smtp_error_unexpected . ' : ' . $line); 
         
         return $smtp;
     } 
@@ -60,7 +60,7 @@ class smtp
         $this->sessionlog .= "Rcvd: $line";
 
         if (substr($line, 0, 1) != '2')
-            return new Exception($html_smtp_error_unexpected . ' : ' . $line); 
+            return new NoccException($html_smtp_error_unexpected . ' : ' . $line); 
         
         return (true);
     } 
@@ -76,7 +76,7 @@ class smtp
         $this->sessionlog .= "Rcvd: $line";
 
         if (substr($line, 0, 1) <> '2')
-            return new Exception($html_smtp_error_unexpected . ' : ' . $line); 
+            return new NoccException($html_smtp_error_unexpected . ' : ' . $line); 
 
         return (true);
     } 
@@ -90,12 +90,12 @@ class smtp
         $this->sessionlog .= "Rcvd: $line";
 
         if (substr($line, 0, 1) <> '2')
-            return new Exception($html_smtp_error_unexpected . ' : ' . $line); 
-        
+            return new NoccException($html_smtp_error_unexpected . ' : ' . $line);
+
         return (true);
-    } 
-  
-    function smtp_rcpt_to($smtp) 
+    }
+
+    function smtp_rcpt_to($smtp)
     {
         // Modified by nicocha to use to, cc and bcc field
         while ($tmp = array_shift($this->to))
@@ -106,9 +106,9 @@ class smtp
             $this->sessionlog .= "Sent: RCPT TO:$tmp";
             $line = fgets($smtp, 1024);
             $this->sessionlog .= "Rcvd: $line";
- 
+
             if (substr($line, 0, 1) <> '2')
-                return new Exception($html_smtp_error_unexpected . ' : ' . $line); 
+                return new NoccException($html_smtp_error_unexpected . ' : ' . $line);
         }
         while ($tmp = array_shift($this->cc))
         {
@@ -120,19 +120,20 @@ class smtp
             $this->sessionlog .= "Rcvd: $line";
 
             if (substr($line, 0, 1) <> '2')
-                return new Exception($html_smtp_error_unexpected . ' : ' . $line); 
+                return new NoccException($html_smtp_error_unexpected . ' : ' . $line);
         }
+
         while ($tmp = array_shift($this->bcc))
         {
             if($tmp == '' || $tmp == '<>')
                 continue;
-            fputs($smtp, "RCPT TO:$tmp\r\n"); 
+            fputs($smtp, "RCPT TO:$tmp\r\n");
             $this->sessionlog .= "Sent: RCPT TO:$tmp";
             $line = fgets($smtp, 1024);
             $this->sessionlog .= "Rcvd: $line";
 
             if (substr($line, 0, 1) <> '2')
-                return new Exception($html_smtp_error_unexpected . ' : ' . $line); 
+                return new NoccException($html_smtp_error_unexpected . ' : ' . $line);
         }
         return (true);
     } 
@@ -145,14 +146,14 @@ class smtp
         $this->sessionlog .= "Rcvd: $line";
 
         if (substr($line, 0, 1) != '3')
-            return new Exception($html_smtp_error_unexpected . ' : ' . $line); 
+            return new NoccException($html_smtp_error_unexpected . ' : ' . $line); 
         
         fputs($smtp, "$this->data"); 
         fputs($smtp, "\r\n.\r\n"); 
         $line = fgets($smtp, 1024); 
         $this->sessionlog .= "Rcvd: $line";
         if (substr($line, 0, 1) !=  '2')
-            return new Exception($html_smtp_error_unexpected . ' : ' . $line); 
+            return new NoccException($html_smtp_error_unexpected . ' : ' . $line); 
 
         return (true);
     }
@@ -165,7 +166,7 @@ class smtp
         $this->sessionlog .= "Rcvd: $line";
 
         if (substr($line, 0, 1) !=  '2')
-            return new Exception($html_smtp_error_unexpected . ' : ' . $line); 
+            return new NoccException($html_smtp_error_unexpected . ' : ' . $line); 
 
         return (true);
     }
@@ -173,22 +174,22 @@ class smtp
     function send()
     {
         $smtp = $this->smtp_open();
-        if(Exception::isException($smtp))
+        if(NoccException::isException($smtp))
             return $smtp;
         $ev = $this->smtp_helo($smtp);
-        if(Exception::isException($ev))
+        if(NoccException::isException($ev))
             return $ev;
         $ev = $this->smtp_mail_from($smtp);
-        if(Exception::isException($ev))
+        if(NoccException::isException($ev))
             return $ev;
         $ev = $this->smtp_rcpt_to($smtp);
-        if(Exception::isException($ev))
+        if(NoccException::isException($ev))
             return $ev;
         $ev = $this->smtp_data($smtp);
-        if(Exception::isException($ev))
+        if(NoccException::isException($ev))
             return $ev;
         $ev = $this->smtp_quit($smtp);
-        if(Exception::isException($ev))
+        if(NoccException::isException($ev))
             return $ev;
         return (true);
     }

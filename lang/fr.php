@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.62 2002/06/30 21:43:46 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.63 2002/11/29 07:04:57 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -137,6 +137,26 @@ $html_no_sendaction = 'Aucune action sp&eacute;cifi&eacute;e. Essayer d\'activer
 $html_error_occurred = 'Une erreur est survenue';
 $html_prefs_file_error = 'Impossible d\'ouvrir le fichier de pr&eacute;f&eacute;rences';
 $html_sig_file_error = 'Impossible d\'ouvrir le fichier de signature';
+$html_wrap = 'Tronquer les messages sortant  &agrave;:';
+$html_usenet_separator = 'S&eacute;parateur Usenet ("-- \n") avant la signature'; // to translate
+// Contacts manager
+$html_add = 'Ajouter';
+$html_contacts = 'Contacts';
+$html_modify = 'Modifier';
+$html_back = 'Retour';
+$html_contact_add = 'Ajouter un nouveau contact';
+$html_contact_mod = 'Modifier un contact';
+$html_contact_first = 'Pr&eacute;nom';
+$html_contact_last = 'Nom';
+$html_contact_nick = 'Pseudo';
+$html_contact_mail = 'Email';
+$html_contact_list = 'Liste de contacts de ';
+$html_contact_del = 'de la liste de contacts';
+
+$html_contact_err1 = 'Le nombre maximal de contact est ';
+$html_contact_err2 = 'Vous ne pouvez pas ajouter un nouveau contact';
+$html_del_msg = 'Supprimer le(s) message(s) s&eacute;lectionn&eacute;(s) ?';
+$html_down_mail = 'T&eacute;l&eacute;charger';
 
 $original_msg = '-- Message Original --';
 $to_empty = 'Le champ \'A\' ne doit pas être vide !';
@@ -147,5 +167,5 @@ $html_smtp_error_unexpected = "R&eacute;ponse inattendue:";
 $lang_could_not_connect = 'Impossible de se connecter au serveur';
 $html_file_upload_attack = 'Possibilit&eacute; d\'attaque depuis le fichier upload&eacute;';
 $html_invalid_email_address = 'Adresse e-mail invalide';
-$html_seperate_msg_win = 'Messages in separate window';  //to translate
+$html_seperate_msg_win = 'Messages dans des fen&ecirc;tres s&eacute;par&eacute;es';
 ?>

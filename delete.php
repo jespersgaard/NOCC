@@ -1,6 +1,6 @@
-<?php 
+<?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.45 2002/06/27 22:17:52 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.46 2002/06/30 10:59:14 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -18,7 +18,7 @@ require_once('./class_local.php');
 
 $ev = "";
 $pop = new nocc_imap($ev);
-if (Exception::isException($ev)) {
+if (NoccException::isException($ev)) {
     require ('./html/header.php');
     require ('./html/error.php');
     require ('./html/footer.php');
@@ -26,6 +26,7 @@ if (Exception::isException($ev)) {
 }
 
 $num_messages = $pop->num_msg();
+$url = "action.php";
 
 // Work out folder and target_folder
 $folder = $_SESSION['nocc_folder'];
@@ -47,6 +48,12 @@ if (isset($_REQUEST['only_one'])) {
     }
     if (isset($_REQUEST['delete_mode'])) {
         $pop->delete($mail, $ev);
+        if ($mail - 1) {
+            $url = "action.php?action=aff_mail&mail=".--$mail."&verbose=0";
+        }
+        else {
+            $url = "action.php";
+        }
     }
 } else {
     for ($i = 1; $i <= $num_messages; $i++) {
@@ -71,7 +78,7 @@ if (isset($_REQUEST['only_one'])) {
 
 $pop->close();
 
-if (Exception::isException($ev)) {
+if (NoccException::isException($ev)) {
     require ('./html/header.php');
     require ('./html/error.php');
     require ('./html/footer.php');
@@ -81,7 +88,8 @@ if (Exception::isException($ev)) {
 // Redirect user to index
 // TODO: redirect user to next message
 require_once('./proxy.php');
-header('Location: ' . $conf->base_url . "action.php");
+//header('Location: ' . $conf->base_url . "action.php");
+header('Location: ' . $conf->base_url . $url);
 
 ?>
 

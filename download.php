@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.35 2002/05/30 14:07:20 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.36 2002/06/27 22:17:52 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -35,7 +35,7 @@ else
 
 $ev = "";
 $pop = new nocc_imap($ev);
-if (Exception::isException($ev)) {
+if (NoccException::isException($ev)) {
     require ('./html/header.php');
     require ('./html/error.php');
     require ('./html/footer.php');
@@ -43,7 +43,7 @@ if (Exception::isException($ev)) {
 }
 
 $file = $pop->fetchbody($mail, $part, $ev);
-if (Exception::isException($ev)) {
+if (NoccException::isException($ev)) {
     require ('./html/header.php');
     require ('./html/error.php');
     require ('./html/footer.php');
