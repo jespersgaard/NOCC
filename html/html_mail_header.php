@@ -46,4 +46,4 @@ if ($content["subject"] == "")
 
 <? echo $content["att"] ?>
 
-<tr><td colspan="2" bgcolor="#ffffff" class="mail"><pre><? echo $content["header"] ?><br><? echo $content["body"] ?></pre>
+<tr><td colspan="2" bgcolor="#ffffff" class="mail"><pre><? echo $content["header"] ?></pre><br><? echo $content["body"] ?>

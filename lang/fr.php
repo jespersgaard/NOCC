@@ -79,15 +79,17 @@ $html_size = "Taille";
 $html_to = "A";
 $html_cc = "Copie";
 $html_bcc = "Copie cachée";
-$html_nosubject = "Sans sujet";
+$html_nosubject = "Aucun sujet";
 $html_send = "Envoyer";
 $hmtl_cancel = "Annuler";
-
+$html_no_mail = "Vous n'avez pas de nouveaux message.";
 
 $original_msg = "-- Message Original --";
+$to_empty = "Le champs 'A' ne doit pas être vide !";
+
+
 $version = "OhMyMail v1.0";
 $name = "OhMyMail";
-$ad = "\n\n________________________________________________________________________\nRejoins tes amis sur C-monWeb.Com http://www.c-monweb.com";
 
 $ad = "\n\n________________________________________________________________________\nOhMyMail, votre bureau à porté de clic : http://www.ohmymail.com";
 

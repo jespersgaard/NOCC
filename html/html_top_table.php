@@ -18,26 +18,26 @@
 			<? echo $html_mark ?>
 		</TD>
 		<TD align=center class="inbox">
-			<A HREF="<? echo $PHP_SELF ?>?action=login&sort=&lang=<? echo $lang ?>">
+			<!--<A HREF="<? echo $PHP_SELF ?>?action=login&sort=&lang=<? echo $lang ?>">-->
 			<? echo $html_new ?></A>
 		</TD>
 		<TD align=center class="inbox">
 			<? echo $html_att ?>
 		</TD>
-		<td align=center class="inbox">
-			<A HREF="<? echo $PHP_SELF ?>?action=login&sort=SORTFROM&lang=<? echo $lang ?>">
+		<td align=center class="inbox" <? if ($sort == 2) echo "bgcolor='$html_sort_color'" ?>>
+			<A HREF="<? echo $PHP_SELF ?>?action=login&sort=2&sortdir=0&lang=<? echo $lang ?>">
 			<? echo $html_from ?></A>
 		</td>
-		<td align=center class="inbox">
-			<A HREF="<? echo $PHP_SELF ?>?action=login&sort=SORTSUBJECT&lang=<? echo $lang ?>">
+		<td align=center class="inbox" <? if ($sort == 3) echo "bgcolor='$html_sort_color'" ?>>
+			<A HREF="<? echo $PHP_SELF ?>?action=login&sort=3&sortdir=0&lang=<? echo $lang ?>">
 			<? echo $html_subject ?></A>
 		</td>
-		<td align=center class="inbox">
-			<A HREF="<? echo $PHP_SELF ?>?action=login&sort=SORTDATE&lang=<? echo $lang ?>">
+		<td align=center class="inbox" <? if ($sort == 0) echo "bgcolor='$html_sort_color'" ?>>
+			<A HREF="<? echo $PHP_SELF ?>?action=login&sort=0&sortdir=0&lang=<? echo $lang ?>">
 			<? echo $html_date ?></A>
 		</td>
-		<td align=right class="inbox">
-			<A HREF="<? echo $PHP_SELF ?>?action=login&sort=SORTSIZE&lang=<? echo $lang ?>">
+		<td align=right class="inbox" <? if ($sort == 6) echo "bgcolor='$html_sort_color'" ?>>
+			<A HREF="<? echo $PHP_SELF ?>?action=login&sort=6&sortdir=0&lang=<? echo $lang ?>">
 			<? echo $html_size ?></A>
 		</td>
 	</tr>

@@ -1,7 +1,7 @@
 <?
 require ("conf.php");
 require ("check_lang.php");
-
+ /*
 if (session_is_registered("user") && session_is_registered("passwd"))
 	Header("Location: action.php");
 else
@@ -20,9 +20,9 @@ else
 }
 if (session_is_registered("user") && session_is_registered("passwd"))
 	Header("Location: action.php?action=default");
-	//require ("redirection.php");
+	//require ("redirection.php");*/
 ?>
-<HTML><HEAD><TITLE>OhMyMail !</TITLE>
+<HTML><HEAD><TITLE>NOCC Webmail</TITLE>
 <META content="text/html; charset=windows-1252" http-equiv=Content-Type>
 <LINK href="style.css" rel="stylesheet">
 </HEAD>

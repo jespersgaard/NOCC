@@ -58,3 +58,21 @@
 		</td>
 	</tr>
 </table>
+
+<script language='javascript'>
+<!--
+function validate(f) 
+{
+	if (window.RegExp) 
+	{
+		var reg = new RegExp("[0-9A-Za-z]+","g");
+		if (!reg.test(f.elements['to'].value))
+		{
+			alert("<? echo $to_empty ?>");
+			f.elements['to'].focus();
+			return(false);
+		}
+	}
+}
+//-->
+</script>
