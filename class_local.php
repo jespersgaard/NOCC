@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.2 2002/02/10 14:39:23 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.3 2002/02/18 09:52:19 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -22,7 +22,7 @@ class nocc_imap
 	var $conn;
 
 	// constructor		
-	function nocc_imap($server, $login, $password, &$ev)
+	function nocc_imap($server, &$login, &$password, &$ev)
 	{
 		global $lang_could_not_connect;
 
@@ -38,19 +38,19 @@ class nocc_imap
 		return $this;
 	}
 
-	function fetchstructure($msgnum) {
+	function fetchstructure(&$msgnum) {
 		return imap_fetchstructure($this->conn, $msgnum);
 	}
 
-	function fetchheader($msgnum) {
+	function fetchheader(&$msgnum) {
 		return imap_fetchheader($this->conn, $msgnum);
 	}
 
-	function fetchbody($msgnum, $partnum) {
+	function fetchbody(&$msgnum, &$partnum) {
 		return imap_fetchbody($this->conn, $msgnum, $partnum);
 	}
 
-	function body($msgnum) {
+	function body(&$msgnum) {
 		return imap_body($this->conn, $msgnum);
 	}
 
@@ -58,19 +58,19 @@ class nocc_imap
 		return imap_num_msg($this->conn);
 	}
 
-	function msgno($msgnum) {
+	function msgno(&$msgnum) {
 		return imap_msgno($this->conn, $msgnum);
 	}
 
-	function sort($sort, $sortdir) {
+	function sort(&$sort, &$sortdir) {
 		return imap_sort($this->conn, $sort, $sortdir, SE_UID);
 	}
 
-	function headerinfo($msgnum) {
+	function headerinfo(&$msgnum) {
 		return imap_headerinfo($this->conn, $msgnum);
 	}
 
-	function delete($mail) {
+	function delete(&$mail) {
 		return imap_delete($this->conn, $mail, 0);
 	}
 
@@ -80,26 +80,26 @@ class nocc_imap
 
 	function is_imap() {
 		$check = imap_mailboxmsginfo($this->conn);
- 		return ($check->{'Driver'} == 'imap');
+        return ($check->{'Driver'} == 'imap');
 	}
 
 	/*
 	 * These functions are static, but if we could re-implement them without
 	 * requiring PHP IMAP support, more people can use NOCC.
 	 */
-	function base64($file) {
+	function base64(&$file) {
 		return imap_base64($file);
 	}
 
-	function i8bit($file) {
+	function i8bit(&$file) {
 		return imap_8bit($file);
 	}
 
-	function qprint($file) {
+	function qprint(&$file) {
 		return imap_qprint($file);
 	}
 
-	function mime_header_decode($header) {
+	function mime_header_decode(&$header) {
 		return imap_mime_header_decode($header);
 	}
 
