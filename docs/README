@@ -142,11 +142,10 @@ specifically tested and are known to work)
 	  - warning: due to a sessions bug, only PHP 4.0.4 or higher will run
 	    correctly on Win32 platforms.
 
-	* browsers: (some pages even pass the W3 Validator test available at
-'http://validator.w3.org/' and 256 colors setups are ok)
+	* browsers: (256 colors setups are ok)
 	  - Netscape 4.x, 6.x for Unix and Windows.
 	  - IE 4.x, 5.x for Windows.
-	  - Lynx 2.8.3.
+	  - Lynx 2.8.3, Konqueror, Opera.
 	  - Mozilla 0.x for Linux and Windows.
 	  - with or without cookies.
 
