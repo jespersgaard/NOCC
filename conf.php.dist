@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.117 2003/02/08 06:15:59 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.118 2003/12/21 15:40:20 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -192,9 +192,6 @@ set_magic_quotes_runtime(0);
 
 // Delay between 2 mail send (in second)
 $conf->send_delay = 30;
-
-// Directory to store contacts list files
-$conf->contact_dir = 'c:\\temp';
 
 // Number of contacts per user, 0 for none
 $conf->contact_number_max = 10;
