@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.26 2001/12/03 10:57:15 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.1 2002/02/09 20:25:01 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -24,6 +24,8 @@ class nocc_imap
 	// constructor		
 	function nocc_imap($server, $login, $password, $ev)
 	{
+		global $lang_could_not_connect;
+
 		$this->server = $server;
 		$this->login = $login;
 		$this->password = $password;
@@ -90,7 +92,7 @@ class nocc_imap
 	}
 
 	function i8bit($file) {
-		return imap_i8bit($file);
+		return imap_8bit($file);
 	}
 
 	function qprint($file) {
