@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.30 2001/03/21 15:14:29 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.31 2001/03/28 15:03:05 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -17,7 +17,7 @@ header ("Content-type: text/html; Charset=$charset");
 require ("html/header.php");
 require ("functions.php");
 
-if (setlocale ("LC_TIME", $lang_locale) != $lang_locale)
+if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
 	$default_date_format = $no_locale_date_format;
 $current_date = strftime($default_date_format, time());
 

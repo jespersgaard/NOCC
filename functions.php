@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.72 2001/03/16 14:05:17 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.73 2001/03/20 09:51:56 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -114,7 +114,7 @@ function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort
 	$glob_body = "";
 	$subject = $from = $to = $cc = "";
 
-	if (setlocale ("LC_TIME", $lang_locale) != $lang_locale)
+	if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
 		$default_date_format = $no_locale_date_format;
 	$current_date = strftime($default_date_format, time());
 	$pop = @imap_open("{".$mailhost."}".$folder, $user, $passwd);
@@ -424,7 +424,7 @@ function change_date($date, $lang)
 		$msg_date = "";
 	else
 	{
-		if (setlocale ("LC_TIME", $lang_locale) != $lang_locale)
+		if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
 			$default_date_format = $no_locale_date_format;
 		if ((date('Y', $date) != date('Y')) || (date('M') != date('M', $date)) || (date('d') != date('d', $date)))
 			// not today, use the date
