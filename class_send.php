@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.19 2001/01/30 09:45:33 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.20 2001/01/30 22:38:09 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -118,7 +118,7 @@ class mime_mail
 		$mime =  "";
 		if (!empty($this->from))
 			$mime .= "From: ".$this->from."\r\n";
-		if (($this->smtp_server != "" || $this->smtp_port != "") && (sizeof($this->to)))
+		if (($this->smtp_server != "" && $this->smtp_port != "") && ($this->to[0] != ""))
 			$mime .= "To: ".join(", ", $this->to)."\r\n"; 
 		if ($this->cc[0] != "")
 			$mime .= "Cc: ".join(", ", $this->cc)."\r\n";
