@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.43 2001/11/14 20:06:10 colinstephenson Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.44 2001/11/16 12:06:21 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -8,6 +8,8 @@
  * See the enclosed file COPYING for license information (GPL).  If you
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
+
+require_once ('exception.php');
 
 class mime_mail 
 {
@@ -164,9 +166,11 @@ class mime_mail
 		{
 			$rcpt_to = join(', ', $this->to);
 			if (ereg("[4-9]\.[0-9]\.[5-9].*", phpversion()))
-				return (mail($rcpt_to, $this->subject,  '', $mime, '-f' . $this->from));
+				$ev = @mail($rcpt_to, $this->subject, '', $mime, '-f' . $this->from);
 			else
-				return (mail($rcpt_to, $this->subject,  '', $mime));
+				$ev = @mail($rcpt_to, $this->subject, '', $mime);
+			if ($ev != true)
+				return (new Exception('unable to send message, SMTP server unreachable'));
 		}
 		else
 		{

@@ -1,5 +1,7 @@
 NOCC 0.9.6	??
 
+	* added exception handling when sending mail via PHP internal
+	  mail() function.
 	* Gets signature/leadin string from a base64-encoded preference.
 	* Added code to convert signature file to signature preference, if
 	  found.
