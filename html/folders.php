@@ -1,4 +1,4 @@
-<!-- start of $Id: folders.php,v 1.10 2004/06/14 11:30:06 goddess_skuld Exp $ -->
+<!-- start of $Id: folders.php,v 1.11 2004/06/21 21:20:42 wolruf Exp $ -->
 <?php
 
 $renameoldbox = $pop->html_folder_select('renameoldbox', '');
@@ -47,7 +47,7 @@ if (count($big_list) > 1) {
                 <tr>
                     <td width="10%"></td>
                     <td align="left" class="prefs" ><input type="radio" name="do" value="subscribe_folder">
-                        <?php echo $html_folder_subscribe ?> <SELECT name="subscribenewbox"> <?php echo join('', $select_list) ?> </SELECT></td>
+                        <?php echo $html_folder_subscribe ?> <select name="subscribenewbox"> <?php echo join('', $select_list) ?> </select></td>
                 </tr>
                 <tr>
                     <td width="10%"></td>
@@ -97,4 +97,4 @@ if (count($big_list) > 1) {
           echo "\n    </td>\n</tr>";
     ?>
 </table>
-<!-- end of $Id: folders.php,v 1.10 2004/06/14 11:30:06 goddess_skuld Exp $ -->
+<!-- end of $Id: folders.php,v 1.11 2004/06/21 21:20:42 wolruf Exp $ -->
