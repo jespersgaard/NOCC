@@ -1,18 +1,6 @@
 Known bugs for Nocc
 -------------------
-Last updated: $Date: 2002/04/28 21:43:49 $
-
-This is a list of known bugs for which we didn't have time to fix properly.
-Please report bugs via SourceForge Project Web page.
-
- Bug: Nocc doesn't accept more than a total of 2MB for attachments
-      sent with a mail.
-
- Explanation: this limitation affects both PHP 4.x and 5.x and seems
-              to come from PHP array size limitation. Any help is welcome to
-              overcome this limitation or rework the appropriate code.
-
------------------------------------
+Last updated: $Date: 2004/08/23 07:46:31 $
 
  Bug: Nocc doesn't send correct "To:" header when sending mail via mail()
       function under Win32 platform only, when SMTP has not been configured

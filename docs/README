@@ -193,6 +193,8 @@ specifically tested and are known to work)
       - IE 4.x, 6.x for Windows.
       - Lynx 2.8.3, Konqueror, Opera, WebTV 3.0.
       - Mozilla 1.x for Linux and Windows.
+      - Safari 1.x
+      - Firefox 0.5.x, 0.6.x, 0.7.x, 0.8.x, 0.9.x
       - cookies needed as of 0.9.5.
 
     * mail servers: (Nocc should work with any IMAP/POP3 server, however,
