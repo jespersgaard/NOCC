@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.100 2001/07/04 11:49:10 uid36047 Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.101 2001/07/12 17:40:29 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -193,9 +193,11 @@ function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort
 	$to_array = imap_mime_header_decode($ref_contenu_message->toaddress);
 	for ($j = 0; $j < count($to_array); $j++)
 		$to .= $to_array[$j]->text;
+	$to = str_replace(',', ', ', $to);
 	$cc_array = isset($ref_contenu_message->ccaddress) ? imap_mime_header_decode($ref_contenu_message->ccaddress) : 0;
 	for ($j = 0; $j < count($cc_array); $j++)
 		$cc .= $cc_array[$j]->text;
+	$cc = str_replace(',', ', ', $cc);
 	$reply_to_array = isset($ref_contenu_message->reply_toaddress) ? imap_mime_header_decode($ref_contenu_message->reply_toaddress) : 0;
 	for ($j = 0; $j < count($reply_to_array); $j++)
 		$reply_to .= $reply_to_array[$j]->text;
