@@ -44,11 +44,6 @@ echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 				<tr> 
 					<td valign="bottom"> 
 						<table bgcolor="<? echo $login_box_bgcolor ?>" border="0" cellpadding="0" cellspacing="0" width="428">
-							<TR valign="top">
-								<TD align="center" colspan="3">
-									<IMG alt="NOCC" border="0" src="img/logo.gif">
-								</TD>
-							</TR>
 							<tr> 
 								<td colspan="3" height="18"><font size="-3">&nbsp;</font></td>
 							</tr>
