@@ -1,11 +1,11 @@
-<!-- start of $Id: menu_prefs.php,v 1.21 2004/06/22 20:18:20 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_prefs.php,v 1.22 2004/10/04 18:23:30 goddess_skuld Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
             <table border="0" cellpadding="2" cellspacing="1" bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%">
                 <tr>
                     <td class="menu" align="center" width="120" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="<?php echo $_SERVER['PHP_SELF'] ?>" class="menu"><?php echo $_SESSION['nocc_folder'] ?></a>
+                        <a href="<?php echo $_SERVER['PHP_SELF'] ?>" class="menu"><?php if ($_SESSION['nocc_folder'] != INBOX) { echo $_SESSION['nocc_folder']; } else { echo $html_inbox; } ?></a>
                     </td>
                     <td class="menu" align="center" width="120" bgcolor="<?php echo $glob_theme->menu_color ?>">
                         <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=write" class="menu"><?php echo $html_new_msg ?></a>
@@ -31,4 +31,4 @@
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_prefs.php,v 1.21 2004/06/22 20:18:20 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_prefs.php,v 1.22 2004/10/04 18:23:30 goddess_skuld Exp $ -->
