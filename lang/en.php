@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.37 2001/10/21 20:54:25 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.38 2001/10/28 21:14:45 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -74,6 +74,7 @@ $html_full_name = 'Full name';
 $html_email_address = 'E-mail Address';
 $html_ccself = 'Cc self';
 $html_hide_addresses = 'Hide addresses';
+$html_outlook_quoting = 'Outlook-style quoting';
 $html_reply_to = 'Reply to';
 $html_use_signature = 'Use signature';
 $html_signature = 'Signature';

@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.5 2001/10/25 15:22:34 rossigee Exp $ -->
+<!-- start of $Id: prefs.php,v 1.6 2001/10/28 21:14:44 rossigee Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
 		<td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -31,6 +31,12 @@
 					</td>
 				</tr>
 				<tr>
+					<td align="right" class="prefs" valign="top"><?php echo $html_outlook_quoting ?> : </td>
+					<td align="left" class="prefs">
+						<input type="checkbox" name="outlook_quoting" value="on" <?php if($outlook_quoting != '') echo "checked"; ?> />
+					</td>
+				</tr>
+				<tr>
 					<td align="right" class="prefs" valign="top"><?php echo $html_signature ?> : </td>
 					<td align="left" class="prefs">
 						<textarea name="signature" rows="5" cols="40"><?php echo $signature ?></textarea>
@@ -59,4 +65,4 @@
 		</td>
 	</tr>
 </table>
-<!-- end of $Id: prefs.php,v 1.5 2001/10/25 15:22:34 rossigee Exp $ -->
+<!-- end of $Id: prefs.php,v 1.6 2001/10/28 21:14:44 rossigee Exp $ -->

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.65 2001/10/25 15:44:44 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.66 2001/10/28 21:14:44 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -99,10 +99,13 @@ switch (trim($action))
 			$mail_subject = $content['subject'];
 		else
 			$mail_subject = $html_reply_short.': '.$content['subject'];
-		$mail_body = $original_msg."\n".$html_from.': '.$content['from']."\n".$html_to.': '.$content['to']."\n".$html_sent.': '.$content['complete_date']."\n".$html_subject.': '.$content['subject']."\n\n".strip_tags($content['body'], '');
+		if($pref_outlook_quoting)
+			$mail_body = $original_msg."\n".$html_from.': '.$content['from']."\n".$html_to.': '.$content['to']."\n".$html_sent.': '.$content['complete_date']."\n".$html_subject.': '.$content['subject']."\n\n".strip_tags($content['body'], '');
+		else
+			$mail_body = mailquote(strip_tags($content['body'], ''),$content['from']);
 
 		// Add signature
-		$mail_body .= "\n".$prefs_signature;
+		$mail_body .= "\r\n".$prefs_signature;
 
 		// We add the attachments of the original message
 		list($num_attach, $attach_array) = save_attachment($servr, $user, stripslashes($passwd), $folder, $mail, $tmpdir);
@@ -123,7 +126,7 @@ switch (trim($action))
 		$mail_body = $original_msg."\n".$html_from.': '.$content['from']."\n".$html_to.': '.$content['to']."\n".$html_sent.': '.$content['complete_date']."\n".$html_subject.': '.$content['subject']."\n\n".strip_tags($content['body'], '');
 
 		// Add signature
-		$mail_body .= "\n".$prefs_signature;
+		$mail_body .= "\r\n".$prefs_signature;
 
 		// We add the attachments of the original message
 		list($num_attach, $attach_array) = save_attachment($servr, $user, stripslashes($passwd), $folder, $mail, $tmpdir);
@@ -139,7 +142,7 @@ switch (trim($action))
 		$mail_subject = $html_forward_short.': '.$content['subject'];
 		$mail_body = $original_msg."\n".$html_from.': '.$content['from']."\n".$html_to.': '.$content['to']."\n".$html_sent.': '.$content['complete_date']."\n".$html_subject.': '.$content['subject']."\n\n".strip_tags($content['body'], '');
 		// Add signature
-		$mail_body .= "\n".$prefs_signature;
+		$mail_body .= "\r\n".$prefs_signature;
 
 		// We add the attachments of the original message
 		list($num_attach, $attach_array) = save_attachment($servr, $user, stripslashes($passwd), $folder, $mail, $tmpdir);
