@@ -1,6 +1,6 @@
 Known bugs for Nocc
 -------------------
-Last updated: $Date: 2001/11/28 14:54:51 $
+Last updated: $Date: 2002/03/24 17:16:16 $
 
 This is a list of known bugs for which we didn't have time to fix properly.
 Please report bugs via SourceForge Project Web page.
@@ -63,6 +63,6 @@ Please report bugs via SourceForge Project Web page.
 
  Bug: Can't use NOCC without accepting cookies
 
- Explanation: this is a recent regression.
+ Explanation: this is a recent regression starting from 0.9.5.
 
- Work-around: none, we're working on this. Help is welcomed.
+ Work-around: none, we're working on this. Help is welcome.
