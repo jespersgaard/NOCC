@@ -1,8 +1,8 @@
 <?
 /*
-	$Author$
-	$Revision$
-	$Date$
+	$Author: nicocha $
+	$Revision: 1.18 $
+	$Date: 2000/10/23 23:57:13 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -51,6 +51,16 @@ echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 							<tr> 
 								<td colspan="3" height="18"><font size="-3">&nbsp;</font></td>
 							</tr>
+							<tr> 
+								<td colspan="3" align="center">
+								<a href="<? echo $PHP_SELF ?>?lang=fr"><img src="img/fr.gif" border="0" ALT="<? echo $alt_fr ?>"></a>
+								&nbsp;
+								<a href="<? echo $PHP_SELF ?>?lang=en"><img src="img/uk.gif" border="0" ALT="<? echo $alt_en ?>"></a>
+								</td>
+							</tr>
+							<tr> 
+								<td colspan="3" height="18"><font size="-3">&nbsp;</font></td>
+							</tr>
 							<tr valign="top"> 
 				               <td align="center" colspan="3" class="f"><b><? echo $html_welcome." ".$name." ".$version; ?></b></td>
 							</tr>
@@ -58,10 +68,10 @@ echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
 							</tr>
 							<tr>
-								<td align="right" class="f"><? echo $html_login ?></td>
+								<td width="150" align="right" class="f"><? echo $html_login ?></td>
 								<td><font size="-3">&nbsp;</font></td>
 								<td class="f"> 
-									<INPUT type="text" name="user">
+									<INPUT type="text" name="user" size="15">
 									<?
 									if ($servr != "" && $domain != "")
 									{ ?>
@@ -78,7 +88,7 @@ echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 								<td align=right class="f"><? echo $html_passwd ?></td>
 								<td><font size="-3">&nbsp;</font></td>
 								<td class="f"> 
-									<INPUT type="password" name="passwd">
+									<INPUT type="password" name="passwd" size="15">
 								</td>
 							</tr>
 							<tr> 
@@ -93,7 +103,7 @@ echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 								</td>
 								<td><font size="-3">&nbsp;</font></td>
 								<td class="f">
-									<input type="text" name="server" value="mail.example.com"><br>
+									<input type="text" name="server" value="mail.example.com" size="15"><br>
 									<input type="text" size="4" name="port" value="143">
 									<select name="servtype" onChange="updatePort();">
 										<option value="imap">IMAP</option>

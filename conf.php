@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: nicocha $
-	$Revision: 1.12 $
-	$Date: 2000/10/23 23:59:40 $
+	$Revision: 1.13 $
+	$Date: 2000/10/24 00:58:36 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -49,7 +49,6 @@ $default_sort = "1";
 
 // By default the most recent is in top ("1" --> sorting top to bottom, "0" --> bottom to top)
 $default_sortdir = "1";
-
 
 
 // ################### color configuration ################### //
@@ -111,6 +110,9 @@ $html_tb_msg_color = "#red";
 *********************************************************************
 ################### Do not modify below this line ###################
 */
+$alt_fr = "Fran&ccedil;ais";
+$alt_en = "Anglais";
+
 $version = "v1.0";
 $name = "NOCC";
 
