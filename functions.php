@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.55 2001/02/06 17:01:39 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.56 2001/02/06 18:22:52 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -57,7 +57,7 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang)
 				// non-RFC standard line header.
 				// Set this in conf.php
 				if ($have_ucb_pop_server)
-                {
+                		{
 					$header_msg = imap_fetchheader($pop, imap_msgno($pop, $msgnum));
 					$header_lines = explode("\r\n", $header_msg);
 					while (list($k, $v) = each($header_lines))
