@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.43 2000/12/28 13:18:01 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.45 2000/12/28 14:42:51 nicocha Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -339,12 +339,12 @@ function remove_stuff($body, $lang, $mime)
 		$body = eregi_replace("href=mailto:([[:alnum:]+-=%&:_.~?@]+[#[:alnum:]+]*)","<A HREF=\"$PHP_SELF?action=write&mail_to=\\1&lang=$lang\"", $body);
 		$body = eregi_replace("target=\"([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)\"", "", $body);
 		$body = eregi_replace("target=([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)", "", $body);
-		$body = eregi_replace("href=\"([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)\"","<A HREF=\"open.php?\\1&lang=$lang\" TARGET=_blank", $body);
-		$body = eregi_replace("href=([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)","\"<A HREF=\"open.php?\\1&lang=$lang\" TARGET=_blank\"", $body);
+		$body = eregi_replace("href=\"([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)\"","<A HREF=\"open.php?\\1\" TARGET=_blank", $body);
+		$body = eregi_replace("href=([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)","\"<A HREF=\"open.php?\\1\" TARGET=_blank\"", $body);
 	}
 	elseif (eregi("plain", $mime))
 	{
-		$body = eregi_replace("(http|https|ftp)://([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)","<A HREF=\"open.php?\\1://\\2&lang=$lang\" TARGET=_blank>\\1://\\2</a>", $body);
+		$body = eregi_replace("(http|https|ftp)://([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)","<A HREF=\"open.php?\\1://\\2\" TARGET=_blank>\\1://\\2</a>", $body);
 		$body = eregi_replace("([[:alnum:]+-_.]+[#[:alnum:]+]*)@([[:alnum:]+-_.]+[#[:alnum:]+]*)\.([[:alnum:]]+[#[:alnum:]+]*)","<A HREF=\"$PHP_SELF?action=write&mail_to=\\1@\\2.\\3&lang=$lang\">\\1@\\2.\\3</a>", $body);
 		$body = nl2br($body);
 		if (function_exists('wordwrap'))

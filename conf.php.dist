@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php,v 1.26 2000/12/01 15:49:16 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.1 2000/12/02 03:24:50 nicocha Exp $
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -136,7 +136,8 @@ $alt_de = "Deutsch";
 $nocc_version = "0.9.2-dev";
 $nocc_name = "NOCC";
 
-session_register("user", "passwd", "server", "servtype", "port");
+$lang_to_use = $lang;
+session_register("user", "passwd", "server", "servtype", "port", "lang_to_use");
 if ($servr == "" && $server != "" && $servtype != "" && $port != "")
 {
 		$servr = $server."/".strtoupper($servtype).":".$port;
