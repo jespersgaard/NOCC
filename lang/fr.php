@@ -7,8 +7,8 @@ NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <caha
   Free Software Foundation, Inc., 59 Temple Place - Suite 330,
   Boston, MA 02111-1307, USA.
 
-Modified by $Author ($Date)
-Revision : $Revision
+Modified by $Author$ ($Date$)
+Revision : $Revision$
 
 */
 
