@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.61 2003/01/22 05:15:32 rossigee Exp $ -->
+<!-- start of $Id: send.php,v 1.62 2003/12/21 15:40:20 goddess_skuld Exp $ -->
 <?php
 
 // Default e-mail address on send form
@@ -127,6 +127,9 @@ $mail_from = get_default_from_address();
 <!--
 function validate(f) 
 {
+    if (f.elements['sendaction'].value == "add") {
+        return(true);
+    }
     if (window.RegExp) 
     {
         var reg = new RegExp("[0-9A-Za-z]+","g");
@@ -161,4 +164,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.61 2003/01/22 05:15:32 rossigee Exp $ -->
+<!-- end of $Id: send.php,v 1.62 2003/12/21 15:40:20 goddess_skuld Exp $ -->
