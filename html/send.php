@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.48 2002/04/24 19:32:31 rossigee Exp $ -->
+<!-- start of $Id: send.php,v 1.49 2002/04/24 22:57:46 rossigee Exp $ -->
 <?php
 
 // Default e-mail address on send form
@@ -15,7 +15,9 @@ if($prefs_full_name != '')
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
             <form name="sendform" enctype="multipart/form-data" method="post" onsubmit="return(validate(this));" action="send.php">
             <input type="hidden" name="sendaction" value="" />
+<?php if(isset($forwarding_msgnum)) { ?>
             <input type="hidden" name="forward_msgnum" value="<?php echo $forward_msgnum ?>" />
+<?php } ?>
             <table bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%" cellspacing="0" cellpadding="0" border="0">
                 <tr><td colspan="2">&nbsp;</td></tr>
                 <tr>
@@ -155,4 +157,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.48 2002/04/24 19:32:31 rossigee Exp $ -->
+<!-- end of $Id: send.php,v 1.49 2002/04/24 22:57:46 rossigee Exp $ -->

@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.60 2002/04/28 21:28:12 wolruf Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.61 2002/05/02 12:20:29 rossigee Exp $ -->
 <?php
 
 require_once 'class_local.php';
@@ -22,15 +22,15 @@ if($pages > 1) {
     $pskip = $skip - 1;
     $this_page = $skip + 1;
     if($pskip > -1 ) {
-        $prev = "<a href=\"$PHP_SELF?skip=$pskip\">";
+        $prev = "<a href=\"".$_SERVER['PHP_SELF']."?skip=$pskip\">";
         $prev .= "<img src=\"themes/".$theme."/img/left_arrow.gif\" border=\"0\" /></a>\n";
     }
     if($nskip < $pages) {
-        $next = "<a href=\"$PHP_SELF?skip=$nskip\">";
+        $next = "<a href=\"".$_SERVER['PHP_SELF']."?skip=$nskip\">";
         $next .= "<img src=\"themes/".$theme."/img/right_arrow.gif\" border=\"0\" /></a>\n";
     }
 
-    $page_line = "<form method=\"post\" action=\"$PHP_SELF\">";
+    $page_line = "<form method=\"post\" action=\"".$_SERVER['PHP_SELF']."\">";
     $page_line .= "<input type=\"hidden\" name=\"folder\" value=\"$folder\" />";
     $page_line .= "$html_page <select name=\"skip\">\n";
     $selected = '';
@@ -50,7 +50,7 @@ if($pages > 1) {
 
 $fldr_line = "";
 if ($pop->is_imap()) {
-    $fldr_line = "<form method=\"POST\" action=\"$PHP_SELF\">$html_other_folders:  \n";
+    $fldr_line = "<form method=\"POST\" action=\"".$_SERVER['PHP_SELF']."\">$html_other_folders:  \n";
     $fldr_line .= $pop->html_folder_select('folder', $folder);
     $fldr_line .= "<input type=\"submit\" class=\"button\" name=\"submit\" value=\"$html_gotofolder\" />";
     $fldr_line .= "</form>";
@@ -92,33 +92,33 @@ if ($pop->is_imap()) {
         <?php } ?>
         <td align="center" class="inbox">&nbsp;</td>
         <td align="center" class="inbox" <?php if ($_SESSION['sort'] == 2) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
-            <a href="<?php echo $PHP_SELF ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>">
+            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>">
             <img src="themes/<?php echo $theme ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_from; ?>" /></a>
             &nbsp;
-            <a href="<?php echo $PHP_SELF ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>">
+            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>">
             <?php echo $html_from ?></a>
         </td>
         <td align="center" class="inbox" <?php if ($_SESSION['sort'] == 3) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
-            <a href="<?php echo $PHP_SELF ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>">
+            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>">
             <img src="themes/<?php echo $theme ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_subject; ?>" /></a>
             &nbsp;
-            <a href="<?php echo $PHP_SELF ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>">
+            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>">
             <?php echo $html_subject ?></a>
         </td>
         <td align="center" class="inbox" <?php if ($_SESSION['sort'] == 1) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
-            <a href="<?php echo $PHP_SELF ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>">
+            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>">
             <img src="themes/<?php echo $theme ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_date; ?>" /></a>
             &nbsp;
-            <a href="<?php echo $PHP_SELF ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>">
+            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>">
             <?php echo $html_date ?></a>
         </td>
         <td align="right" class="inbox" <?php if ($_SESSION['sort'] == 6) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
-            <a href="<?php echo $PHP_SELF ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>">
+            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>">
             <img src="themes/<?php echo $theme ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_size; ?>" /></a>
             &nbsp;
-            <a href="<?php echo $PHP_SELF ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>">
+            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>">
             <?php echo $html_size ?></a>
             <form method="post" action="delete.php" name="delete_form">
         </td>
     </tr>
-<!-- start of $Id: html_top_table.php,v 1.60 2002/04/28 21:28:12 wolruf Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.61 2002/05/02 12:20:29 rossigee Exp $ -->

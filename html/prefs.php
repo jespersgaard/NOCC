@@ -4,11 +4,11 @@ $user = $_SESSION['user'];
 $domain = $_SESSION['domain'];
 
 ?>
-<!-- start of $Id: prefs.php,v 1.16 2002/04/19 14:39:37 rossigee Exp $ -->
+<!-- start of $Id: prefs.php,v 1.17 2002/05/14 18:37:00 rossigee Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
-            <form method="post" action="<?php echo $PHP_SELF; ?>">
+            <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <input type="hidden" name="action" value="setprefs" />
             <input type="hidden" name="submit_prefs" value="set" />
             <table border="0" cellpadding="2" cellspacing="1" bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%">
@@ -88,4 +88,4 @@ $domain = $_SESSION['domain'];
         </td>
     </tr>
 </table>
-<!-- end of $Id: prefs.php,v 1.16 2002/04/19 14:39:37 rossigee Exp $ -->
+<!-- end of $Id: prefs.php,v 1.17 2002/05/14 18:37:00 rossigee Exp $ -->

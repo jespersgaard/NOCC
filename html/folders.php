@@ -1,4 +1,4 @@
-<!-- start of $Id: folders.php,v 1.2 2002/04/17 21:16:46 mrylander Exp $ -->
+<!-- start of $Id: folders.php,v 1.3 2002/04/19 14:39:36 rossigee Exp $ -->
 <?php
 
 $renameoldbox = $pop->html_folder_select('renameoldbox');
@@ -29,7 +29,7 @@ if (count($big_list) > 1) {
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
-            <form method="post" action="<?php echo $PHP_SELF; ?>">
+            <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <input type="hidden" name="action" value="managefolders" />
             <input type="hidden" name="submit_folders" value="1" />
             <table border="0" cellpadding="2" cellspacing="1" bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%">
@@ -78,4 +78,4 @@ if (count($big_list) > 1) {
         </td>
     </tr>
 </table>
-<!-- end of $Id: folders.php,v 1.2 2002/04/17 21:16:46 mrylander Exp $ -->
+<!-- end of $Id: folders.php,v 1.3 2002/04/19 14:39:36 rossigee Exp $ -->

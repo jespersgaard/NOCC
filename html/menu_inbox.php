@@ -1,6 +1,5 @@
-<!-- start of $Id: menu_inbox.php,v 1.37 2002/04/24 23:32:25 rossigee Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.38 2002/04/28 21:34:25 wolruf Exp $ -->
 <?php
-global $PHP_SELF;
 $color_inbox = $color = $glob_theme->menu_color;
 $action = "";
 if(isset($_REQUEST['action']))
@@ -8,7 +7,7 @@ if(isset($_REQUEST['action']))
 if ($action == '') 
 {
     $color_inbox = $glob_theme->menu_color_on; 
-    $line = '<a href="'.$PHP_SELF.'?action=write" class="menu">'.$html_new_msg.'</a>';
+    $line = '<a href="'.$_SERVER['PHP_SELF'].'?action=write" class="menu">'.$html_new_msg.'</a>';
 }
 else
     $color =  $glob_theme->menu_color_on;
@@ -33,7 +32,7 @@ elseif ($action == 'forward')
             <table border="0" cellpadding="2" cellspacing="1" bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%">
                 <tr>
                     <td class="menu" align="center" width="120" bgcolor="<?php echo $color_inbox ?>">
-                        <a href="<?php echo $PHP_SELF ?>" class="menu"><?php echo $_SESSION['folder'] ?></a>
+                        <a href="<?php echo $_SERVER['PHP_SELF'] ?>" class="menu"><?php echo $_SESSION['folder'] ?></a>
                     </td>
                     <td class="menu" align="center" width="120" bgcolor="<?php echo $color ?>">
                         <?php echo $line ?>
@@ -59,4 +58,4 @@ elseif ($action == 'forward')
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_inbox.php,v 1.37 2002/04/24 23:32:25 rossigee Exp $ -->
+<!-- end of $Id: menu_inbox.php,v 1.38 2002/04/28 21:34:25 wolruf Exp $ -->

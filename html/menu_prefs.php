@@ -1,15 +1,14 @@
-<!-- start of $Id: menu_prefs.php,v 1.14 2002/04/28 21:28:46 wolruf Exp $ -->
-<?php $PHP_SELF = $_SERVER['PHP_SELF']; ?>
+<!-- start of $Id: menu_prefs.php,v 1.15 2002/05/14 17:13:28 rossigee Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
             <table border="0" cellpadding="2" cellspacing="1" bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%">
                 <tr>
                     <td class="menu" align="center" width="120" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="<?php echo $PHP_SELF ?>" class="menu"><?php echo $folder ?></a>
+                        <a href="<?php echo $_SERVER['PHP_SELF'] ?>" class="menu"><?php echo $folder ?></a>
                     </td>
                     <td class="menu" align="center" width="120" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="<? echo $PHP_SELF ?>?action=write" class="menu"><?php echo $html_new_msg ?></a>
+                        <a href="<? echo $_SERVER['PHP_SELF'] ?>?action=write" class="menu"><?php echo $html_new_msg ?></a>
                     </td>
                     <td width="*" bgcolor="<?php echo $glob_theme->menu_color ?>">
                         <img src="themes/<?php echo $theme ?>/img/spacer.gif" height="1" width="1" alt="" />
@@ -30,4 +29,4 @@
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_prefs.php,v 1.14 2002/04/28 21:28:46 wolruf Exp $ -->
+<!-- end of $Id: menu_prefs.php,v 1.15 2002/05/14 17:13:28 rossigee Exp $ -->

@@ -27,7 +27,7 @@
 
                 $box_line = array();
                 while(list($junk,$name) = each($box_array)) {
-                    array_push($box_line, ' <a href="'.$PHP_SELF."?folder=$name\"> $name </a> ");
+                    array_push($box_line, ' <a href="'.$_SERVER['PHP_SELF']."?folder=$name\"> $name </a> ");
                 }
 
                 echo join('|', $box_line);

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.158 2002/05/02 12:20:29 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.159 2002/05/14 18:46:43 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -414,7 +414,7 @@ function GetSinglePart(&$attach_tab, &$this_part, &$header, &$body)
 
 function remove_stuff(&$body, &$mime)
 {
-    global $PHP_SELF;
+    $PHP_SELF = $_SERVER['PHP_SELF'];
 
     $lang = $_SESSION['lang'];
 
