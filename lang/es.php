@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/es.php,v 1.17 2001/11/18 18:17:34 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/es.php,v 1.18.2.1 2001/11/25 10:04:05 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -71,16 +71,16 @@ $html_theme = 'Apariencia';
 
 // prefs.php
 
-$html_preferences = 'Preferences';
-$html_full_name = 'Full name';
-$html_email_address = 'E-mail Address';
-$html_ccself = 'Cc self';
-$html_hide_addresses = 'Hide addresses';
-$html_outlook_quoting = 'Outlook-style quoting';
-$html_reply_to = 'Reply to';
-$html_use_signature = 'Use signature';
-$html_signature = 'Signature';
-$html_prefs_updated = 'Preferences updated';
+$html_preferences = 'Preferencias';
+$html_full_name = 'Nombre completo';
+$html_email_address = 'Direcci&oacute;n de E-mail';
+$html_ccself = 'Copia a uno mismo';
+$html_hide_addresses = 'Ocultar direcci&oacute;n';
+$html_outlook_quoting = 'Quotes tipo Outlook';
+$html_reply_to = 'Responder a';
+$html_use_signature = 'Usar firma';
+$html_signature = 'Firma';
+$html_prefs_updated = 'Preferencias actualizadas';
 
 // Other pages
 
@@ -102,7 +102,7 @@ $html_att_unknown = '[desconocido]';
 $html_attach = 'Asociar';
 $html_attach_forget = 'Debe asociar su archivo anes de enviar su mensaje !';
 $html_attach_delete = 'Borrar elegidos';
-$html_sort_by = 'Sort by';
+$html_sort_by = 'Ordenar por';
 $html_from = 'De';
 $html_subject = 'Tema';
 $html_date = 'Fecha';
@@ -122,24 +122,24 @@ $html_no_mail = 'Sin nuevos mensajes.';
 $html_logout = 'Salir';
 $html_msg = 'Mensaje';
 $html_msgs = 'Mensajes';
-$html_configuration = 'This server is not well set up !';
-$html_priority = 'Priority';
-$html_low = 'Low';
+$html_configuration = 'Este servidor no est&aacute; bien definido !';
+$html_priority = 'Prioridad';
+$html_low = 'Baja';
 $html_normal = 'Normal';
-$html_high = 'High';
-$html_select = 'Select';
-$html_select_all = 'Select All';
-$html_loading_image = 'Loading image';
-$html_send_confirmed = 'Your mail was accepted for delivery';
-$html_no_sendaction = 'No action specified. Try enabling JavaScript.';
-$html_error_occurred = 'An error occurred';
-$html_prefs_file_error = 'Unable to open preferences file for writing.';
-$html_sig_file_error = 'Unable to open signature file for writing.';
+$html_high = 'Alta';
+$html_select = 'Elegir';
+$html_select_all = 'Elegir todos';
+$html_loading_image = 'Cargando imagen';
+$html_send_confirmed = 'Su correo ha sido aceptado para envio';
+$html_no_sendaction = 'No ha especificado acci&oacute;n. Intente habilitando JavaScript.';
+$html_error_occurred = 'Ha ocurrido un error';
+$html_prefs_file_error = 'Imposible abrir el archivo de preferencias para cambiarlo.';
+$html_sig_file_error = 'Imposible abrir el archivo de firma para cambiarlo.';
 
 $original_msg = '-- Mensaje Original --';
 $to_empty = 'El campo \'A\' no debe estar vacio !';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = "Unable to open connection";
-$html_smtp_error_unexpected = "Unexpected response:";
+$html_smtp_error_no_conn = 'Imposible abrir conexi&oacute;n';
+$html_smtp_error_unexpected = 'Respuesta inesperada:';
 ?>

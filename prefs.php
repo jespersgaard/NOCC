@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.11 2001/11/17 15:44:26 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.12 2001/11/19 13:50:38 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -21,8 +21,7 @@ if (!session_is_registered('prefs_are_cached'))
 
 function cachePrefValues($username)
 {
-	global $prefs_dir;
-	global $prefs_are_cached, $prefs_cache;
+	global $prefs_dir, $prefs_are_cached, $prefs_cache;
 	   
 	if (!$prefs_dir)
 		return;
@@ -74,30 +73,24 @@ function getPref($string)
 	cachePrefValues($username);
 	  
 	if (isset($prefs_cache[$string]))
-		return $prefs_cache[$string];
-	return '';
+		return ($prefs_cache[$string]);
+	return ('');
 }
 
 
 function savePrefValues($username)
 {
-	global $prefs_dir, $prefs_cache;
-	global $html_prefs_file_error;
+	global $prefs_dir, $prefs_cache, $html_prefs_file_error;
 
 	$filename = $prefs_dir . $username . '.pref';
-	if(file_exists($filename) && !is_writable($filename)) {
-		return new Exception($html_prefs_file_error);
-	}
+	if(file_exists($filename) && !is_writable($filename))
+		return (new Exception($html_prefs_file_error));
 	$file = fopen($filename, 'w');
 	if(!$file)
-	{
-		return new Exception($html_prefs_file_error);
-	}
+		return (new Exception($html_prefs_file_error));
 	foreach ($prefs_cache as $Key => $Value)
-	{
 		if (isset($Value))
 			fwrite($file, $Key . '=' . $Value . "\n");
-	}
 	fclose($file);
 }
 
@@ -107,11 +100,9 @@ function removePref($username, $string)
 	global $prefs_cache;
 	  
 	cachePrefValues($username);
-	  
 	if (isset($prefs_cache[$string]))
 		unset($prefs_cache[$string]);
-		  
-	return savePrefValues($username);
+	return (savePrefValues($username));
 }
    
 
@@ -126,29 +117,25 @@ function setPref($string, $set_to)
 		return;
 	if ($set_to === '')
 	{
-		removePref($prefs_dir, $username, $string);
+		removePref($username, $string);
 		return;
 	}
 	$prefs_cache[$string] = $set_to;
-	return savePrefValues($prefs_dir, $username);
+	return (savePrefValues($username));
 }
 
 /** Writes the Signature **/
 function setSig($string)
 {
-	global $prefs_dir, $user, $domain;
-	global $html_sig_file_error;
+	global $prefs_dir, $user, $domain, $html_sig_file_error;
 
 	$username = $user . '@' . $domain;
 	$filename = $prefs_dir . $username . '.sig';
-	if(file_exists($filename) && !is_writable($filename)) {
+	if(file_exists($filename) && !is_writable($filename))
 		return new Exception($html_sig_file_error);
-	}
 	$file = fopen($filename, 'w');
 	if(!$file)
-	{
 		return new Exception($html_sig_file_error);
-	}
 	fwrite($file, $string);
 	fclose($file);
 }
@@ -169,12 +156,12 @@ function getSig()
 		if(!$file)
 		{
 			error_log("Could not open $filename for reading.");
-			return '';
+			return ('');
 		}
 		while (!feof($file))
 			$sig .= fgets($file, 1024);
 		fclose($file);
 	}
-	return $sig;
+	return ($sig);
 }
 ?>

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.81 2001/11/16 11:59:32 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.82.2.2 2001/11/25 13:05:23 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -118,20 +118,23 @@ else
 			session_unregister('num_attach');
 			session_unregister('attach_array');
 			$ev = $mail->send();
-			if (Exception::isException($ev)) {
+			header("Content-type: text/html; Charset=$charset");
+			if (Exception::isException($ev))
+			{
+				// Error while sending the message, display an error message
 				require ('./html/header.php');
 				require ('./html/menu_inbox.php');
 				require ('./html/send_error.php');
 				require ('./html/menu_inbox.php');
-				break;
 			}
-
-			// Display a confirmation of success
-			require ('./html/header.php');
-			require ('./html/menu_inbox.php');
-			require ('./html/send_confirmed.php');
-			require ('./html/menu_inbox.php');
-			
+			else
+			{
+				// Display a confirmation of success
+				require ('./html/header.php');
+				require ('./html/menu_inbox.php');
+				require ('./html/send_confirmed.php');
+				require ('./html/menu_inbox.php');
+			}
 			break;
 		case 'delete':
 			// Rebuilding the attachments array with only the files the user wants to keep
@@ -174,6 +177,6 @@ else
 			require ('./html/menu_inbox.php');
 			break;
 	}
-	require_once ('./html/footer.php');
+	require ('./html/footer.php');
 }
 ?>

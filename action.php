@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.81 2001/11/16 12:19:35 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.82.2.1 2001/11/19 20:07:20 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -33,17 +33,15 @@ $prefs_email_address = getPref('email_address');
 $prefs_signature = getSig();
 
 // Default e-mail address on send form
-$mail_from = $user."@".$domain;
-if($prefs_email_address != "") {
+if($prefs_email_address != "")
 	$mail_from = $prefs_email_address;
-}
-if($prefs_full_name != "") {
+else
+	$mail_from = $user."@".$domain;
+if($prefs_full_name != "")
 	$mail_from = $prefs_full_name." <".$mail_from.">";
-}
 
-if(!isset($action)) {
+if(!isset($action))
 	$action = '';
-}
 
 switch (trim($action))
 {
@@ -167,7 +165,8 @@ switch (trim($action))
 			$lastev = '';
 
 			// Full name
-			if (!$lastev && isset($full_name)) {
+			if (!$lastev && isset($full_name))
+			{
 				$ev = setPref('full_name', $full_name);
 				if(Exception::isException($ev))
 					$lastev = $ev;
@@ -246,7 +245,8 @@ switch (trim($action))
 
 	default:
 		// Default we display the mailbox
-		if(!isset($servr) || !isset($passwd)) {
+		if(!isset($servr) || !isset($passwd))
+		{
 			require_once ('./wrong.php');
 			break;
 		}

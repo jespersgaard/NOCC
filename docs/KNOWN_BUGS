@@ -1,6 +1,6 @@
 Known bugs for Nocc
 -------------------
-Last updated: $Date: 2001/11/18 19:06:48 $
+Last updated: $Date: 2001/11/25 09:42:44 $
 
 This is a list of known bugs for which we didn't have time to fix properly.
 Please report bugs via SourceForge Project Web page.
@@ -55,3 +55,11 @@ Please report bugs via SourceForge Project Web page.
  Work-around: comment line #448 in functions.php
  
  $body = eregi_replace("([#a-zA-Z0-9+-._]*)@([#a-zA-Z0-9+-_]*)\.([a-zA-Z0-9+-_.]+[#a-zA-Z0-9+]*)","<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1@\\2.\\3&amp;lang=$lang\">\\1@\\2.\\3</a>", $body);
+
+---------------------------------
+
+ Bug: Can't use NOCC without accepting cookies
+
+ Explanation: this is a recent regression.
+
+ Work-around: none, we're working on this. Help is welcomed.

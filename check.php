@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/check.php,v 1.3 2001/11/03 21:49:15 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/check.php,v 1.4.2.1 2001/11/19 20:00:54 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -22,6 +22,11 @@ if (!extension_loaded('imap'))
 if (empty($tmpdir))
 {
 	echo '<font color="red"><b>"$tmpdir" is not set in "conf.php". NOCC cannot run.</b></font><br /><br /><div align="center"><img src="themes/standard/img/button.png" width="88" height="31" alt="Powered by NOCC" /></div>';
+	exit;
+}
+if (!empty($prefs_dir) && !is_dir($prefs_dir))
+{
+	echo '<font color="red"><b>"$prefs_dir" is set in "conf.php" but doesn\'t exists. You must create "$prefs_dir" (' .$prefs_dir . ') in order for NOCC to run.</b></font><br /><br /><div align="center"><img src="themes/standard/img/button.png" width="88" height="31" alt="Powered by NOCC" /></div>';
 	exit;
 }
 ?>

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.18 2001/09/08 11:12:23 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.19.2.1 2001/11/25 10:04:05 wolruf Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -53,12 +53,12 @@ $alt_reply_all = 'Antwort an alle';
 $alt_forward = 'Weiterleitung';
 $alt_next = 'N&auml;chste';
 $alt_prev = 'Vorige';
-$html_on = 'on';
+$html_on = 'an';
 $html_theme = 'Theme';
 
 // index.php
 
-$html_lang = 'Lang';
+$html_lang = 'Sprache';
 $html_welcome = 'Willkommen bei';
 $html_login = 'Login';
 $html_passwd = 'Passwort';
@@ -67,55 +67,54 @@ $html_help = 'Hilfe';
 $html_server = 'Server';
 $html_wrong = 'Der Nutzername oder das Passwort sind falsch';
 $html_retry = 'Nochmal';
-$html_on = 'on';
-$html_theme = 'Theme';
 
 // prefs.php
 
-$html_preferences = 'Preferences';
-$html_full_name = 'Full name';
-$html_email_address = 'E-mail Address';
+$html_preferences = 'Einstellungen';
+$html_full_name = 'Voller Name';
+$html_email_address = 'E-mail Addresse';
 $html_ccself = 'Cc self';
-$html_hide_addresses = 'Hide addresses';
-$html_outlook_quoting = 'Outlook-style quoting';
-$html_reply_to = 'Reply to';
-$html_use_signature = 'Use signature';
-$html_signature = 'Signature';
-$html_prefs_updated = 'Preferences updated';
+$html_hide_addresses = 'Adressen verstecken';
+$html_outlook_quoting = 'Quoting im Outlook-Stil';
+$html_reply_to = 'Antwort an';
+$html_use_signature = 'Signatur benutzen';
+$html_signature = 'Signatur';
+$html_prefs_updated = 'Einstellungen gespeichert';
 
 // Other pages
 
-$html_view_header = 'Kopf anzeigen';
-$html_remove_header = 'Kopf verbergen';
+$html_view_header = 'Header anzeigen';
+$html_remove_header = 'Header verbergen';
 $html_inbox = 'Inbox';
 $html_new_msg = 'Schreiben';
 $html_reply = 'Antworten';
-$html_reply_short = 'AW';
+$html_reply_short = 'Re';
 $html_reply_all = 'Antwort an alle';
 $html_forward = 'Weiterleitung';
-$html_forward_short = 'WL';
+$html_forward_short = 'Fwd';
 $html_delete = 'L&ouml;schen';
 $html_new = 'Neu';
 $html_mark = 'L&ouml;schen';
 $html_att = 'Anhang';
 $html_atts = 'Anh&auml;nge';
 $html_att_unknown = '[unbekannt]';
-$html_attach = 'Attach';
-$html_attach_forget = 'You must attach your file before sending your message !';
-$html_attach_delete = 'Remove selected';
-$html_sort_by = 'Sort by';
+$html_attach = 'Anh&auml;ngen';
+$html_attach_forget = 'Sie m&uuml;ssen die Datei vor dem Senden der Nachricht anh&auml;ngen !';
+$html_attach_delete = 'Ausgew&auml;hlte entfernen';
+$html_sort_by = 'Sortieren nach';
 $html_from = 'Von';
 $html_subject = 'Betreff';
+$html_wrote = 'schrieb';
 $html_date = 'Datum';
 $html_sent = 'Senden';
 $html_size = 'Gr&ouml;sse';
-$html_totalsize = 'Total Size';
-$html_kb = 'Kb';
-$html_bytes = 'bytes';
-$html_filename = 'Filename';
+$html_totalsize = 'Gesamtgr&ouml;sse';
+$html_kb = 'KB';
+$html_bytes = 'Byte';
+$html_filename = 'Datei';
 $html_to = 'An';
 $html_cc = 'Kopie';
-$html_bcc = 'Blinde Kopie';
+$html_bcc = 'Blindekopie';
 $html_nosubject = 'Kein Betreff';
 $html_send = 'Senden';
 $html_cancel = 'Abbrechen';
@@ -124,23 +123,23 @@ $html_logout = 'Abmelden';
 $html_msg = 'Nachricht';
 $html_msgs = 'Nachrichten';
 $html_configuration = 'This server is not well set up !';
-$html_priority = 'Wichtigkeit';
+$html_priority = 'Priorit&auml;t';
 $html_low = 'Niedrig';
 $html_normal = 'Normal';
 $html_high = 'Hoch';
-$html_select = 'Select';
-$html_select_all = 'Select All';
-$html_loading_image = 'Loading image';
-$html_send_confirmed = 'Your mail was accepted for delivery';
-$html_no_sendaction = 'No action specified. Try enabling JavaScript.';
-$html_error_occurred = 'An error occurred';
-$html_prefs_file_error = 'Unable to open preferences file for writing.';
-$html_sig_file_error = 'Unable to open signature file for writing.';
+$html_select = 'Auswahl';
+$html_select_all = 'Alle';
+$html_loading_image = 'Lade Bild';
+$html_send_confirmed = 'Ihre Mail wurde verschickt.';
+$html_no_sendaction = 'Keine Aktion angegeben. Versuchen Sie es mit eingeschaltetem JavaScript.';
+$html_error_occurred = 'Ein Fehler ist aufgetreten';
+$html_prefs_file_error = 'Kann Ihre Einstellungen-Datei nicht zum Schreiben &ouml;ffnen.';
+$html_sig_file_error = 'Kann Ihre Signatur-Datei nicht zum Schreiben &ouml;ffnen.';
 
 $original_msg = '-- Original Nachricht--';
 $to_empty = 'Das \'An\' Feld darf nicht leer sein !';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = "Unable to open connection";
-$html_smtp_error_unexpected = "Unexpected response:";
+$html_smtp_error_no_conn = 'Konnte Verbindung nicht &ouml;ffnen';
+$html_smtp_error_unexpected = 'Unerwartete Antwort:';
 ?>
