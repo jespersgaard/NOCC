@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.104 2002/04/24 20:37:07 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.105 2002/04/24 23:32:25 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -180,12 +180,9 @@ switch($_REQUEST['sendaction'])
         }
         else
         {
-            // Display a confirmation of success
-            require ('./html/header.php');
-            require ('./html/menu_inbox.php');
-            require ('./html/send_confirmed.php');
-            require ('./html/menu_inbox.php');
-            require ('./html/footer.php');
+            // Redirect user to inbox
+            require_once './proxy.php';
+            header("Location: ".$conf->base_url."action.php");
         }
         break;
     case 'delete':
