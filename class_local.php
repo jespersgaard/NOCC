@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.14 2002/04/16 00:50:57 mrylander Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.15 2002/04/17 21:22:21 mrylander Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -123,29 +123,29 @@ class nocc_imap
     }
 
     function utf7_decode(&$thing) {
-	return imap_utf7_decode($thing);
+        return imap_utf7_decode($thing);
     }
 
     function utf7_encode(&$thing) {
-	return imap_utf7_encode($thing);
+        return imap_utf7_encode($thing);
     }
 
     function getmailboxes() {
-	if ($this->is_imap()) {
-		return imap_getmailboxes($this->conn, '{'.$this->server.'}', '*');
-	} else {
-		$temp = array();
-		return $temp;
-	}
+        if ($this->is_imap()) {
+            return imap_getmailboxes($this->conn, '{'.$this->server.'}', '*');
+        } else {
+            $temp = array();
+            return $temp;
+        }
     }
 
     function getsubscribed() {
-	if ($this->is_imap()) {
-		return imap_getsubscribed($this->conn, '{'.$this->server.'}', '*');
-	} else {
-		$temp = array();
-		return $temp;
-	}
+        if ($this->is_imap()) {
+            return imap_getsubscribed($this->conn, '{'.$this->server.'}', '*');
+        } else {
+            $temp = array();
+            return $temp;
+        }
     }
 
     /*
@@ -194,38 +194,35 @@ class nocc_imap
     }
 
 
-	function get_page_count(&$conf) {
+    function get_page_count(&$conf) {
+        if (($num_messages = $this->num_msg()) == 0) {
+            return 0;
+        } else {
+            $per_page = (getPref('msg_per_page')) ? getPref('msg_per_page') : (($conf->msg_per_page) ? $conf->msg_per_page : '25');
+            $pages = ceil($num_messages / $per_page);
+            return $pages;
+        }
+    }
 
-	        if (($num_messages = $this->num_msg()) == 0) {
-                	return (0);
-	        }else{
-	 	        $per_page = (getPref('msg_per_page')) ? getPref('msg_per_page') : (($conf->msg_per_page) ? $conf->msg_per_page : '25');
-        	        $pages = ceil($num_messages / $per_page);
-	                return($pages);
-        	}
-	}
+    function get_nice_subscribed() {
+        $ret = array();
+        $s = $this->server;
 
-	function get_nice_subscribed() {
+        $list = $this->getsubscribed();
+        if (is_array($list)) {
+            reset($list);
+            while (list($key,$val) = each($list)) {
+                list($junk,$name) = split("$s}", $this->utf7_decode($val->name));
+                if (!(in_array($name, $ret))) {
+                    array_push($ret, $name);
+                }
+            }
+        } else {
+            return ($ret);
+        }
 
- 	       $ret = array();
-
-                $s = $this->server;
-
-               	$list = $this->getsubscribed();
-               	if (is_array($list)) {
-                       	reset($list);
-                       	while (list($key,$val) = each($list)) {
-                               	list($junk,$name) = split("$s}", $this->utf7_decode($val->name));
-	                        if (!(in_array($name, $ret))) {
-                                    array_push($ret, $name);
-                                }
-                        }
-               	} else {
-                       	return ($ret);
-	        }
-
-       	        return ($ret);
-	}
+        return ($ret);
+    }
 
     /*
      * Test function
@@ -247,4 +244,5 @@ class nocc_imap
         }
     }
 }
+
 ?>
