@@ -105,13 +105,15 @@ class mime_mail
 	{
 		$mime =  "";
 		if (!empty($this->from))
-			$mime .= "From: ".$this->from. "\nReply-To: ".$this->from."\nErrors-To: ".$this->from."\n";
+			$mime .= "From: ".$this->from."\n";
 		if (!empty($this->to))
 			$mime .= "To: ".$this->to."\n";
 		if (!empty($this->cc))
 			$mime .= "Cc: ".$this->cc."\n";
 		if (!empty($this->bcc))
 			$mime .= "Bcc: ".$this->bcc."\n";
+		if (!empty($this->from))
+			$mime .= "Reply-To: ".$this->from."\nErrors-To: ".$this->from."\n";
 		if (!empty($this->headers))
 			$mime .= $this->headers. "\n";
 		if (sizeof($this->parts) >= 1)

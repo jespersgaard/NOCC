@@ -10,6 +10,16 @@ class smtp
 	var $subject;
 	var $data;
 		
+	function smtp()
+	{
+		$this->$smtp_server = "";
+		$this->$port = "";
+		$this->$from = "";
+		$this->$to = "";
+		$this->$subject = "";
+		$this->$data = "";
+	}
+
 	function smtp_open() 
 	{ 
         global $SMTP_GLOBAL_STATUS; 
@@ -63,8 +73,7 @@ class smtp
 	function smtp_mail_from($smtp) 
 	{ 
         global $SMTP_GLOBAL_STATUS; 
-
-        fputs($smtp,  "MAIL FROM: <$this->from>\r\n"); 
+        fputs($smtp,  "MAIL FROM: <$this->from>\n"); 
         $line = fgets($smtp, 1024); 
         $SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULT"] = substr($line, 0, 1); 
         $SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULTTXT"] = substr($line, 0, 1024); 
