@@ -4,22 +4,22 @@
 			<table border="0" cellpadding="2" cellspacing="1" bgcolor="<? echo $html_inside_color ?>" width="100%">
 				<tr>
 					<td class="menu" align="center" bgcolor="<? echo $html_menu_color ?>">
-						<a href="<? echo $PHP_SELF ?>?lang=<? echo $lang ?>&sort=<? echo $sort ?>&sortdir=<? echo $sortdir ?>" class="menu"><? echo $html_inbox ?></a>
+						<a href="<? echo $PHP_SELF ?>?lang=<? echo $lang ?>&amp;sort=<? echo $sort ?>&amp;sortdir=<? echo $sortdir ?>" class="menu"><? echo $html_inbox ?></a>
 					</td>
 					<td class="menu" align="center" bgcolor="<? echo $html_menu_color ?>">
-						<a href="<? echo $PHP_SELF ?>?action=write&lang=<? echo $lang ?>&sort=<? echo $sort ?>&sortdir=<? echo $sortdir ?>" class="menu"><? echo $html_new_msg ?></a>
+						<a href="<? echo $PHP_SELF ?>?action=write&amp;lang=<? echo $lang ?>&amp;sort=<? echo $sort ?>&amp;sortdir=<? echo $sortdir ?>" class="menu"><? echo $html_new_msg ?></a>
 					</td>
 					<td class="menu" align="center" bgcolor="<? echo $html_menu_color ?>">
-						<a href="<? echo $PHP_SELF ?>?action=reply&mail=<? echo $mail ?>&lang=<? echo $lang ?>&sort=<? echo $sort ?>&sortdir=<? echo $sortdir ?>" class="menu"><? echo $html_reply ?></a>
+						<a href="<? echo $PHP_SELF ?>?action=reply&amp;mail=<? echo $mail ?>&amp;lang=<? echo $lang ?>&amp;sort=<? echo $sort ?>&amp;sortdir=<? echo $sortdir ?>" class="menu"><? echo $html_reply ?></a>
 					</td>
 					<td class="menu" align="center" bgcolor="<? echo $html_menu_color ?>">
-						<a href="<? echo $PHP_SELF ?>?action=reply_all&mail=<? echo $mail ?>&lang=<? echo $lang ?>&sort=<? echo $sort ?>&sortdir=<? echo $sortdir ?>" class="menu"><? echo $html_reply_all ?></a>
+						<a href="<? echo $PHP_SELF ?>?action=reply_all&amp;mail=<? echo $mail ?>&amp;lang=<? echo $lang ?>&amp;sort=<? echo $sort ?>&amp;sortdir=<? echo $sortdir ?>" class="menu"><? echo $html_reply_all ?></a>
 					</td>
 					<td class="menu" align="center" bgcolor="<? echo $html_menu_color ?>">
-						<a href="<? echo $PHP_SELF ?>?action=forward&mail=<? echo $mail ?>&lang=<? echo $lang ?>&sort=<? echo $sort ?>&sortdir=<? echo $sortdir ?>" class="menu"><? echo $html_forward ?></a>
+						<a href="<? echo $PHP_SELF ?>?action=forward&amp;mail=<? echo $mail ?>&amp;lang=<? echo $lang ?>&amp;sort=<? echo $sort ?>&amp;sortdir=<? echo $sortdir ?>" class="menu"><? echo $html_forward ?></a>
 					</td>
 					<td class="menu" align="center" bgcolor="<? echo $html_menu_color ?>">
-						<a href="delete.php?mail=<? echo $mail ?>&only_one=1&lang=<? echo $lang ?>&sort=<? echo $sort ?>&sortdir=<? echo $sortdir ?>" class="menu"><? echo $html_delete ?></a>
+						<a href="delete.php?mail=<? echo $mail ?>&amp;only_one=1&amp;lang=<? echo $lang ?>&amp;sort=<? echo $sort ?>&amp;sortdir=<? echo $sortdir ?>" class="menu"><? echo $html_delete ?></a>
 					</td>
 					<? if ($enable_logout) { ?>
 					<td class="menu" align="center" width="80" bgcolor="<? echo $html_menu_color ?>">
@@ -27,7 +27,7 @@
 					</td>
 					<? } ?>
 					<!--<td class="menu" align="center" bgcolor="<? echo $html_menu_color ?>">
-						<a href="javascript:void(null)" onMouseUp="OpenHelpWindow('help.php?action=<? echo $action ?>&lang=<? echo $lang ?>&sort=<? echo $sort ?>&sortdir=<? echo $sortdir ?>','image','scrollbars=yes,resizable=yes,width=400,height=300')" class="menu"><? echo $html_help ?></a>
+						<a href="javascript:void(null)" onMouseUp="OpenHelpWindow('help.php?action=<? echo $action ?>&amp;lang=<? echo $lang ?>&amp;sort=<? echo $sort ?>&amp;sortdir=<? echo $sortdir ?>','image','scrollbars=yes,resizable=yes,width=400,height=300')" class="menu"><? echo $html_help ?></a>
 					</td>-->
 				</tr>
 			</table>

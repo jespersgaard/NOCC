@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.56 2001/02/06 18:22:52 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.57 2001/02/06 18:34:05 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -48,7 +48,7 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang)
 					if ($struct_msg->subtype == "ALTERNATIVE" || $struct_msg->subtype == "RELATED")
 						$attach = "&nbsp;";
 					else
-						$attach = "<img src=\"img/attach.png\" height=\"28\" width=\"27\">";
+						$attach = "<img src=\"img/attach.png\" height=\"28\" width=\"27\" alt=\"\" />";
 				}
 				else
 					$attach = "&nbsp;";
@@ -75,7 +75,7 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang)
 					$new_mail_from_header = "&nbsp;";
 				}
 				if ($new_mail_from_header == "")
-					$newmail = "<img src=\"img/new.png\" alt=\"N\" height=\"17\" width=\"17\">";
+					$newmail = "<img src=\"img/new.png\" alt=\"\" height=\"17\" width=\"17\" />";
 				else
 					$newmail = "&nbsp;";
 				$msg_list[$i] =  Array(
@@ -342,19 +342,19 @@ function remove_stuff($body, $lang, $mime)
 		$body = preg_replace("|<([^>]*)java|i", "<nocc_removed_java_tag", $body);
 		$body = preg_replace("|<([^>]*)&{.*}([^>]*)>|i", "<&{;}\\3>", $body);
 		$body = preg_replace("|<([^>]*)mocha:([^>]*)>|i", "<nocc_removed_mocha:\\2>",$body);
-		$body = eregi_replace("href=\"mailto:([[:alnum:]+-=%&:_.~?@]+[#[:alnum:]+]*)\"","<A HREF=\"$PHP_SELF?action=write&mail_to=\\1&lang=$lang\"", $body);
-		$body = eregi_replace("href=mailto:([[:alnum:]+-=%&:_.~?@]+[#[:alnum:]+]*)","<A HREF=\"$PHP_SELF?action=write&mail_to=\\1&lang=$lang\"", $body);
+		$body = eregi_replace("href=\"mailto:([[:alnum:]+-=%&:_.~?@]+[#[:alnum:]+]*)\"","<A HREF=\"$PHP_SELF?action=write&amp;mail_to=\\1&amp;lang=$lang\"", $body);
+		$body = eregi_replace("href=mailto:([[:alnum:]+-=%&:_.~?@]+[#[:alnum:]+]*)","<A HREF=\"$PHP_SELF?action=write&amp;mail_to=\\1&amp;lang=$lang\"", $body);
 		$body = eregi_replace("target=\"([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)\"", "", $body);
 		$body = eregi_replace("target=([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)", "", $body);
-		$body = eregi_replace("href=\"([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)\"","<A HREF=\"\\1\" TARGET=\"_blank\"", $body);
-		$body = eregi_replace("href=([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)","<A HREF=\"\\1\" TARGET=\"_blank\"", $body);
+		$body = eregi_replace("href=\"([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)\"","<a href=\"\\1\" target=\"_blank\"", $body);
+		$body = eregi_replace("href=([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)","<a href=\"\\1\" target=\"_blank\"", $body);
 	}
 	elseif (eregi("plain", $mime))
 	{
-		$body = eregi_replace("(http|https|ftp)://([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)","<A HREF=\"\\1://\\2\" TARGET=\"_blank\">\\1://\\2</a>", $body);
-		$body = eregi_replace("([[:alnum:]+-_.]+[#[:alnum:]+]*)@([[:alnum:]+-_.]+[#[:alnum:]+]*)\.([[:alnum:]+-_.]+[#[:alnum:]+]*)","<A HREF=\"$PHP_SELF?action=write&mail_to=\\1@\\2.\\3&lang=$lang\">\\1@\\2.\\3</a>", $body);
-		$body = nl2br($body);
-		if (function_exists('wordwrap'))
+		$body = eregi_replace("(http|https|ftp)://([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)","<a href=\"\\1://\\2\" target=\"_blank\">\\1://\\2</a>", $body);
+		$body = eregi_replace("([[:alnum:]+-_.]+[#[:alnum:]+]*)@([[:alnum:]+-_.]+[#[:alnum:]+]*)\.([[:alnum:]+-_.]+[#[:alnum:]+]*)","<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1@\\2.\\3&amp;lang=$lang\">\\1@\\2.\\3</a>", $body);
+		$body = str_replace("<br>", "<br />", nl2br($body));
+		if (function_exists("wordwrap"))
 			$body = wordwrap($body, 80, "\n");
 	}	
 	return ($body);
@@ -365,7 +365,7 @@ function remove_stuff($body, $lang, $mime)
 function link_att($servr, $mail, $tab, $display_part_no)
 {
 	sort($tab);
-	$link = "<table border='0'>";
+	$link = "<table border=\"0\">";
 	while ($tmp = array_shift($tab))
 		if ($tmp["id"] == "")
 		{
@@ -374,7 +374,7 @@ function link_att($servr, $mail, $tab, $display_part_no)
 			if ($display_part_no == true)
 				$link .= "<td class='inbox'>".$tmp["number"]."</td>";
 			$att_name = imap_mime_header_decode($tmp["name"]);
-			$link .="<td class='inbox'><a href=download.php?mail=".$mail."&part=".$tmp["number"]."&transfer=".$tmp["transfer"]."&filename=".urlencode($att_name[0]->text)."&mime=".$mime.">".htmlentities($att_name[0]->text)."</a></td><td class='inbox'>".$tmp["mime"]."</td><td class='inbox'>".$tmp["size"]." kb</td></tr>";
+			$link .="<td class=\"inbox\"><a href=\"download.php?mail=".$mail."&amp;part=".$tmp["number"]."&amp;transfer=".$tmp["transfer"]."&amp;filename=".urlencode($att_name[0]->text)."&amp;mime=".$mime."\">".htmlentities($att_name[0]->text)."</a></td><td class=\"inbox\">".$tmp["mime"]."</td><td class=\"inbox\">".$tmp["size"]." kb</td></tr>";
 		}
 	$link .= "</table>";
 	return ($link);
@@ -479,11 +479,11 @@ function view_part($servr, $user, $passwd, $folder, $mail, $part_no, $transfer)
 	$pop = imap_open("{".$servr."}".$folder, $user, $passwd);
 	$text = imap_fetchbody($pop, $mail, $part_no);
 	if ($transfer == "BASE64")
-		return (nl2br(imap_base64($text)));
+		return (str_replace("<br>", "<br />", nl2br(imap_base64($text))));
 	elseif($transfer == "QUOTED-PRINTABLE")
-		return (nl2br(quoted_printable_decode($text)));
+		return (str_replace("<br>", "<br />", nl2br(quoted_printable_decode($text))));
 	else
-		return (nl2br($text));
+		return (str_replace("<br>", "<br />", nl2br($text)));
 }
 
 /* ----------------------------------------------------- */

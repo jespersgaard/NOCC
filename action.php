@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.22 2001/02/06 17:01:39 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.23 2001/02/08 22:30:22 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -33,15 +33,15 @@ switch ($action)
 			// $attach_tab is the array of attachments
 			// If it's a text/plain, display it
 			if ($display_text_attach && eregi ("text/plain", $tmp["mime"]))
-				echo "<hr>".view_part($servr, $user, stripslashes($passwd), $folder, $mail, $tmp["number"], $tmp["transfer"]);
+				echo "<hr />".view_part($servr, $user, stripslashes($passwd), $folder, $mail, $tmp["number"], $tmp["transfer"]);
 			if ($display_img_attach && (eregi ("image", $tmp["mime"]) && ($tmp["id"] == "")))
 			{
 				// if it's an image, display it
 				$img_type = array_pop(explode("/", $tmp["mime"]));
 				if (eregi ("JPEG", $img_type) || eregi("JPG", $img_type) || eregi("GIF", $img_type) || eregi ("PNG", $img_type))
 				{
-					echo "<hr>";
-					echo "<center><img src=\"get_img.php?mail=".$mail."&folder=".$folder."&num=".$tmp["number"]."&mime=".$img_type."&transfer=".$tmp["transfer"]."\"></center>";
+					echo "<hr />";
+					echo "<center><img src=\"get_img.php?mail=".$mail."&amp;folder=".$folder."&amp;num=".$tmp["number"]."&amp;mime=".$img_type."&amp;transfer=".$tmp["transfer"]."\" /></center>";
 				}
 			}
 		} 

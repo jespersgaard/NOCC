@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.41 2001/02/11 15:49:20 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.42 2001/02/15 10:27:01 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -57,7 +57,7 @@ function selectLang()
 <body bgcolor="<? echo $bgcolor ?>" link="<? echo $link_color ?>" text="<? echo $text_color ?>" vlink="<? 
 echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 <form action="action.php" method="post" name="nocc_webmail_login" target="_top">
-<table border="0" width="100%" height="100%">
+<table border="0" width="100%">
 	<tr>
 		<td align="center" valign="middle">
 			<table bgcolor="<? echo $login_border ?>" border="0" cellpadding="1" cellspacing="0" width="428" align="center">
@@ -114,7 +114,7 @@ echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 								<td class="f">
 									<input type="text" name="server" value="mail.example.com" size="15" /><br />
 									<input type="text" size="4" name="port" value="143" />
-									<select name="servtype" onChange="updatePort()">
+									<select name="servtype" onchange="updatePort()">
 										<option value="imap">IMAP</option>
 										<option value="pop3">POP3</option>
 									</select>
@@ -133,13 +133,13 @@ echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 								<td><font size="-3">&nbsp;</font></td>
 								<td class="f">
 									<?
-										echo ("<select name=\"lang\" onChange=\"selectLang()\">");
+										echo ("<select name=\"lang\" onchange=\"selectLang()\">");
 										for ($i = 0; $i < sizeof($lang_array); $i++)
 											if (file_exists("lang/".$lang_array[$i]->filename.".php"))
 											{
 												echo ("<option value=\"".$lang_array[$i]->filename."\"");
 												if ($lang == $lang_array[$i]->filename)
-													echo (" selected");
+													echo (" selected=\"selected\"");
 												echo (">".$lang_array[$i]->label."</option>");
 											}
 										echo ("</select>");
