@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.58 2001/02/16 15:17:46 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.59 2001/02/16 15:47:40 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -479,7 +479,7 @@ function view_part($servr, $user, $passwd, $folder, $mail, $part_no, $transfer)
 	$pop = imap_open("{".$servr."}".$folder, $user, $passwd);
 	$text = imap_fetchbody($pop, $mail, $part_no);
 	if ($transfer == "BASE64")
-		return (imap_base64($text)));
+		return (imap_base64($text));
 	elseif($transfer == "QUOTED-PRINTABLE")
 		return (nl2br(quoted_printable_decode($text)));
 	else
