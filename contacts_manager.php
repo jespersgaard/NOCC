@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.10 2004/06/23 09:45:59 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.11 2004/06/30 17:52:43 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -28,7 +28,7 @@ $pop->close();
 $path = $conf->prefs_dir . "/" . $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'].".contacts";
 $contacts = load_list ($path);
 
-$query_str = session_name() . "=" . session_id();
+$query_str = session_name("NOCCSESSID") . "=" . session_id();
 ?>
 <html>
 <head>

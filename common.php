@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.32 2004/06/24 06:47:53 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.33 2004/06/29 11:22:38 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -17,6 +17,7 @@ $conf->nocc_version = '0.9.6-dev';
 $conf->nocc_url = 'http://nocc.sourceforge.net/';
 
 // Initialise session array
+session_name("NOCCSESSID");
 session_start();
 
 // Useful for debugging sessions

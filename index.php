@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.98 2004/06/19 11:03:18 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.99 2004/06/24 05:26:10 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -218,5 +218,6 @@ function updateTheme()
             </script>
 <?php
 require ('./html/footer.php');
+session_name("NOCCSESSID");
 session_destroy();
 ?>
