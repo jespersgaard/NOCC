@@ -79,7 +79,7 @@
 					</td>
 				</tr>
 			</table>
-		</form>
+			</form>
 		</td>
 	</tr>
 </table>
