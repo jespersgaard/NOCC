@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.97 2003/03/03 07:34:53 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.98 2004/06/19 11:03:18 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -116,12 +116,12 @@ function updateTheme()
                                                 echo "<option value=\"$i\">".$conf->domains[$i]->domain.'</option>';
                                                 $i++;
                                             }
-                                            echo '</select>';
+                                            echo '</select>'."\n";
                                         }
                                     }
                                     else
                                     {
-                                        echo '<input type="hidden" name="domainnum" value="0" />';
+                                        echo '<input type="hidden" name="domainnum" value="0" />'."\n";
                                     }
                                     ?>
                                 </td>
@@ -171,7 +171,7 @@ function updateTheme()
                                                     echo ' selected="selected"';
                                                 echo '>'.$lang_array[$i]->label.'</option>';
                                             }
-                                        echo '</select>';
+                                        echo '</select>'."\n";
                                     ?>
                                 </td>
                             </tr>
