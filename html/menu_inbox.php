@@ -3,7 +3,8 @@ $color_inbox = $color = $html_menu_color;
 if ($action == "") 
 {
 	$color_inbox = $html_menu_color_on; 
-	$line = "<a href=\"".$PHP_SELF."?action=write&lang=".$lang."&sort=".$sort."&sortdir=".$sortdir."\" class=\"menu\">".$html_new_msg."</a>";
+	$line = "<a href=\"".$PHP_SELF."?action=write&lang=".$lang."&sort=".$sort."&sortdir=".$sortdir."\" 
+class=\"menu\">".$html_new_msg."</a>";
 }
 else
 	$color =  $html_menu_color_on;
@@ -19,10 +20,12 @@ if ($action == "forward")
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
 		<td bgcolor="#f0f0f0">
-			<table border="0" cellpadding="2" cellspacing="1" bgcolor="<? echo $html_inside_color ?>" bordercolor="#000000" width="100%">
+			<table border="0" cellpadding="2" cellspacing="1" bgcolor="<? echo $html_inside_color ?>" 
+bordercolor="#000000" width="100%">
 				<tr>
 					<td class="menu" align="center" width="120" bgcolor="<? echo $color_inbox ?>">
-						<a href="<? echo $PHP_SELF ?>?lang=<?echo $lang ?>&sort=<? echo $sort ?>&sortdir=<? echo $sortdir ?>" class="menu"><? echo $html_inbox ?></a>
+						<a href="<? echo $PHP_SELF ?>?lang=<?echo $lang ?>&sort=<? echo $sort 
+?>&sortdir=<? echo $sortdir ?>" class="menu"><? echo $html_inbox ?></a>
 					</td>
 					<td class="menu" align="center" width="120" bgcolor="<? echo $color ?>">
 						<? echo $line ?>

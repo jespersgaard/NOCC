@@ -115,10 +115,14 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read)
 			$link_att = "";
 			break;
 		case 1:
-			$link_att = "<tr><td align=\"right\" valign=\"top\" class=\"mail\">".$html_att."</td><td bgcolor=\"".$html_mail_properties."\" class=\"mail\">".link_att($mailhost, $mail, $attach_tab)."</td></tr>";
+			$link_att = "<tr><td align=\"right\" valign=\"top\" class=\"mail\">".$html_att."</td><td 
+bgcolor=\"".$html_mail_properties."\" class=\"mail\">".link_att($mailhost, $mail, 
+$attach_tab)."</td></tr>";
 			break;
 		default:
-			$link_att = "<tr><td align=\"right\" valign=\"top\" class=\"mail\">".$html_atts."</td><td bgcolor=\"".$html_mail_tr_color."\" class=\"mail\">".link_att($mailhost, $mail, $attach_tab)."</td></tr>";
+			$link_att = "<tr><td align=\"right\" valign=\"top\" class=\"mail\">".$html_atts."</td><td 
+bgcolor=\"".$html_mail_tr_color."\" class=\"mail\">".link_att($mailhost, $mail, 
+$attach_tab)."</td></tr>";
 			break;
 	}
 	$subject = imap_mime_header_decode($ref_contenu_message->subject);
@@ -248,16 +252,20 @@ function remove_stuff($body, $lang, $mime)
 {
 	if (eregi("html", $mime))
 	{
-		$body = strip_tags($body, "<b>,<i>,<a>,<font>,<table>,<tr>,<td>,<ul>,<li>,<img>,<div>,<p>,<center>");
+		$body = strip_tags($body, 
+"<b>,<i>,<a>,<font>,<table>,<tr>,<td>,<ul>,<li>,<img>,<div>,<p>,<center>");
 		$body = eregi_replace("<SCRIPT", "<!-- <SCRIPT", $body);
 		$body = eregi_replace("SCRIPT>", "SCRIPT> !>", $body);
-		$body = eregi_replace("href=\"mailto:([[:alnum:]/\n+-=%&:_.~?@]+[#[:alnum:]+]*)\"","<A HREF=\"$PHP_SELF?action=write&mail_to=\\1&lang=$lang\"", $body);
+		$body = eregi_replace("href=\"mailto:([[:alnum:]/\n+-=%&:_.~?@]+[#[:alnum:]+]*)\"","<A 
+HREF=\"$PHP_SELF?action=write&mail_to=\\1&lang=$lang\"", $body);
 		$body = eregi_replace("target=\"([[:alnum:]/\n+-=%&:_.~?]+[#[:alnum:]+]*)\"", "", $body);
-		$body = eregi_replace("href=\"([[:alnum:]/\n+-=%&:_.~?]+[#[:alnum:]+]*)\"","<A HREF=\"open.php?f=\\1&lang=$lang\" TARGET=_blank", $body);
+		$body = eregi_replace("href=\"([[:alnum:]/\n+-=%&:_.~?]+[#[:alnum:]+]*)\"","<A 
+HREF=\"open.php?f=\\1&lang=$lang\" TARGET=_blank", $body);
 	}
 	else
 	{
-		$body = eregi_replace("(http|https|ftp)://([[:alnum:]/\n+-=%&:_.~?]+[#[:alnum:]+]*)","<A HREF=\"open.php?f=\\1://\\2&lang=$lang\" TARGET=_blank>\\1://\\2</a>", $body);
+		$body = eregi_replace("(http|https|ftp)://([[:alnum:]/\n+-=%&:_.~?]+[#[:alnum:]+]*)","<A 
+HREF=\"open.php?f=\\1://\\2&lang=$lang\" TARGET=_blank>\\1://\\2</a>", $body);
 		$body = "<PRE>".$body."</PRE>";
 	}	
 	return ($body);
@@ -270,7 +278,11 @@ function link_att($servr, $mail, $tab)
 	sort($tab);
 	$link = "<table border='0'";
 	while ($tmp = array_shift($tab))
-		$link .= "<tr><td><span class='inbox'>".$tmp["number"]."</span></td><td><span class='inbox'><a href=download.php?mail=".$mail."&part=".$tmp["number"]."&transfer=".$tmp["transfer"]."&filename=".urlencode($tmp["name"]).">".$tmp["name"]."</a></span></td><td><span class='inbox'>".$tmp["mime"]."</span></td><td><span class='inbox'>".$tmp["size"]." kb</span></td><tr>";
+		$link .= "<tr><td><span class='inbox'>".$tmp["number"]."</span></td><td><span class='inbox'><a 
+href=download.php?mail=".$mail."&part=".$tmp["number"]."&transfer=".$tmp["transfer"]."&filename="
+.urlencode($tmp["name"]).">".$tmp["name"]."</a></span></td><td><span 
+class='inbox'>".$tmp["mime"]."</span></td><td><span class='inbox'>".$tmp["size"]." 
+kb</span></td><tr>";
 	$link .= "</table>";
 	return ($link);
 }

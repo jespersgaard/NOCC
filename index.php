@@ -12,23 +12,30 @@ session_unset();
 <LINK href="style.css" rel="stylesheet">
 <script type="text/javascript">
 function updatePort () {
-  if (document.nocc_webmail_login.servtype.options[document.nocc_webmail_login.servtype.selectedIndex].value == 'imap') {
+  if 
+(document.nocc_webmail_login.servtype.options[document.nocc_webmail_login.servtype.selectedIndex].value 
+== 'imap') {
     document.nocc_webmail_login.port.value = 143;
-  } else if (document.nocc_webmail_login.servtype.options[document.nocc_webmail_login.servtype.selectedIndex].value == 'pop3') {
+  } else if 
+(document.nocc_webmail_login.servtype.options[document.nocc_webmail_login.servtype.selectedIndex].value 
+== 'pop3') {
     document.nocc_webmail_login.port.value = 110;
   }
 }
 </script>
 </HEAD>
-<BODY bgcolor="<? echo $bgcolor ?>" link="<? echo $link_color ?>" text="<? echo $text_color ?>" vlink="<? echo $vlink_color ?>" alink="<? echo $alink_color ?>">
+<BODY bgcolor="<? echo $bgcolor ?>" link="<? echo $link_color ?>" text="<? echo $text_color ?>" vlink="<? 
+echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 <FORM action="action.php" method="post" name="nocc_webmail_login" target="_top">
 <table border="0" width="100%" height="100%">
 	<tr>
 		<td align="center" valign="middle">
-			<table bgcolor="<? echo $login_border ?>" border="0" cellpadding="1" cellspacing="0" width="428" align="center">
+			<table bgcolor="<? echo $login_border ?>" border="0" cellpadding="1" cellspacing="0" 
+width="428" align="center">
 				<tr> 
 					<td valign="bottom"> 
-						<table bgcolor="<? echo $login_box_bgcolor ?>" border="0" cellpadding="0" cellspacing="0" width="428">
+						<table bgcolor="<? echo $login_box_bgcolor ?>" border="0" cellpadding="0" 
+cellspacing="0" width="428">
 							<TR valign="top">
 								<TD align="center" colspan="3">
 									<IMG alt="NOCC" border="0" src="img/logo.gif">
@@ -38,7 +45,8 @@ function updatePort () {
 								<td colspan="3" height="18"><font size="-3">&nbsp;</font></td>
 							</tr>
 							<tr valign="top"> 
-				               <td align="center" colspan="3"><span class="f"><b><? echo $html_welcome." ".$name." ".$version; ?></b></span></td>
+				               <td align="center" colspan="3"><span class="f"><b><? echo $html_welcome." 
+".$name." ".$version; ?></b></span></td>
 							</tr>
 							<tr> 
 								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
@@ -51,7 +59,8 @@ function updatePort () {
 									<?
 									if ($servr != "" && $provider != "")
 									{ ?>
-										@<select name="provider"><option value=""><? echo $provider ?></option></select>
+										@<select name="provider"><option value=""><? echo $provider 
+?></option></select>
 									<?
 									}
 									?>
