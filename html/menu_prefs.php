@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_prefs.php,v 1.19 2002/05/30 14:07:22 rossigee Exp $ -->
+<!-- start of $Id: menu_prefs.php,v 1.20 2002/06/27 22:17:52 rossigee Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -13,6 +13,11 @@
                     <td width="*" bgcolor="<?php echo $glob_theme->menu_color ?>">
                         <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/spacer.gif" height="1" width="1" alt="" />
                     </td>
+                    <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
+                      <td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
+                        <a href="javascript:void(0);" class="menu" onClick="window.open('contacts_manager.php?<? echo session_name() . '=' .   session_id() ?>','','scrollbars=yes,resizable=yes,width=600,height=400')"><?php echo $html_contacts ?></a>
+                      </td>
+                    <?php } ?>
                     <td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color_on ?>">
                         <font color="<?php echo $glob_theme->link_color ?>"><?php echo $html_preferences ?></font>
                     </td>
@@ -26,4 +31,4 @@
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_prefs.php,v 1.19 2002/05/30 14:07:22 rossigee Exp $ -->
+<!-- end of $Id: menu_prefs.php,v 1.20 2002/06/27 22:17:52 rossigee Exp $ -->
