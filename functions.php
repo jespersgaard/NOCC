@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.128 2001/11/30 17:18:24 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.129 2001/12/13 10:39:09 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,12 +13,12 @@ $attach_tab = Array();
 
 /* ----------------------------------------------------- */
 
-function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang, $theme)
+function inbox($servr, $login, $passwd, $folder, $sort, $sortdir, $lang, $theme)
 {
 	$mailhost = $servr;
 	require ('./conf.php');
 
-	$pop = @imap_open('{' . $mailhost . '}' . $folder, $user, $passwd);
+	$pop = @imap_open('{' . $mailhost . '}' . $folder, $login, $passwd);
 	if ($pop == false)
 		return (-1);
 	else
@@ -118,7 +118,7 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang, $theme)
 
 /* ----------------------------------------------------- */
 
-function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort, $sortdir)
+function aff_mail($servr, $login, $passwd, $folder, $mail, $verbose, $lang, $sort, $sortdir)
 {
 	$mailhost = $servr;
 	require ('./conf.php');
@@ -129,7 +129,7 @@ function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort
 
 	if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
 		$default_date_format = $no_locale_date_format;
-	$pop = @imap_open('{' . $mailhost . '}' . $folder, $user, $passwd);
+	$pop = @imap_open('{' . $mailhost . '}' . $folder, $login, $passwd);
 	// Finding the next and previous message number
 	$sorted = imap_sort($pop, $sort, $sortdir);
 	$prev_msg = $next_msg = 0;
@@ -515,17 +515,17 @@ function get_mail_size($this_part)
 /* ----------------------------------------------------- */
 
 // this function build an array with all the recipients of the message for later reply or reply all 
-function get_reply_all($user, $domain, $from, $to, $cc)
+function get_reply_all($login, $domain, $from, $to, $cc)
 {
-	if (!eregi($user.'@'.$domain, $from))
+	if (!eregi($login.'@'.$domain, $from))
 		$rcpt = $from.'; ';
 	$tab = explode(',', $to);
 	while ($tmp = array_shift($tab))
-		if (!eregi($user.'@'.$domain, $tmp))
+		if (!eregi($login.'@'.$domain, $tmp))
 			$rcpt .= $tmp.'; ';
 	$tab = explode(',', $cc);
 	while ($tmp = array_shift($tab))
-		if (!eregi($user.'@'.$domain, $tmp))
+		if (!eregi($login.'@'.$domain, $tmp))
 			$rcpt .= $tmp.'; ';
 	$rcpt = isset($rcpt) ? substr($rcpt, 0, strlen($rcpt) - 2) : $from;
 	return ($rcpt);
@@ -606,13 +606,13 @@ function cut_address($addr, $charset)
 
 // Function that save the attachment locally for reply, transfer...
 // This function returns an array of all the attachment
-function save_attachment($servr, $user, $passwd, $folder, $mail, $tmpdir)
+function save_attachment($servr, $login, $passwd, $folder, $mail, $tmpdir)
 {
 	GLOBAL $attach_tab;
 	$i = 0;
 	$attach_array = array();
 
-	$pop = @imap_open('{'.$servr.'}'.$folder, $user, $passwd);
+	$pop = @imap_open('{'.$servr.'}'.$folder, $login, $passwd);
 	while ($tmp = array_shift($attach_tab))
 	{
 		$i++;
@@ -636,9 +636,9 @@ function save_attachment($servr, $user, $passwd, $folder, $mail, $tmpdir)
 
 /* ----------------------------------------------------- */
 
-function view_part($servr, $user, $passwd, $folder, $mail, $part_no, $transfer, $msg_charset, $charset)
+function view_part($servr, $login, $passwd, $folder, $mail, $part_no, $transfer, $msg_charset, $charset)
 {
-	$pop = @imap_open('{' . $servr . '}' . $folder, $user, $passwd);
+	$pop = @imap_open('{' . $servr . '}' . $folder, $login, $passwd);
 	$text = imap_fetchbody($pop, $mail, $part_no);
 	if ($transfer == 'BASE64')
 		$str = nl2br(imap_base64($text));

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.87 2001/12/13 10:39:08 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.88 2001/12/16 12:49:03 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -61,14 +61,14 @@ switch (trim($action))
 		// Here we display the message
 		require ('./html/menu_mail.php');
 		require_once ('./html/html_mail_top.php');
-		$content = aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort, $sortdir);
+		$content = aff_mail($servr, $login, $passwd, $folder, $mail, $verbose, $lang, $sort, $sortdir);
 		require_once ('./html/html_mail_header.php'); 
 		while ($tmp = array_shift($attach_tab))
 		{
 			// $attach_tab is the array of attachments
 			// If it's a text/plain, display it
 			if ((!eregi('ATTACHMENT', $tmp['disposition'])) && $display_text_attach && (eregi('text/plain', $tmp['mime'])))
-				echo '<hr />'.view_part($servr, $user, $passwd, $folder, $mail, $tmp['number'], $tmp['transfer'], $tmp['charset'], $charset);
+				echo '<hr />'.view_part($servr, $login, $passwd, $folder, $mail, $tmp['number'], $tmp['transfer'], $tmp['charset'], $charset);
 			if ($conf->display_img_attach && (eregi('image', $tmp['mime']) && ($tmp['number'] != '')))
 			{
 				// if it's an image, display it
@@ -102,7 +102,7 @@ switch (trim($action))
 		break;
 
 	case 'reply':	
-		$content = aff_mail($servr, $user, $passwd, $folder, $mail, 0, $lang, $sort, $sortdir);
+		$content = aff_mail($servr, $login, $passwd, $folder, $mail, 0, $lang, $sort, $sortdir);
 		$mail_to = !empty($content['reply_to']) ? $content['reply_to'] : $content['from'];
 		// Test for Re: in subject, should not be added twice ! 
 		if (!strcasecmp(substr($content['subject'], 0, 2), $html_reply_short))
@@ -125,7 +125,7 @@ switch (trim($action))
 		$mail_body .= "\r\n\r\n" . $prefs_signature;
 
 		// We add the attachments of the original message
-		//list($num_attach, $attach_array) = save_attachment($servr, $user, $passwd, $folder, $mail, $tmpdir);
+		//list($num_attach, $attach_array) = save_attachment($servr, $login, $passwd, $folder, $mail, $tmpdir);
 		// Registering the attachments array into the session
 		//session_register('num_attach', 'attach_array');
 		require ('./html/menu_inbox.php');
@@ -134,8 +134,8 @@ switch (trim($action))
 		break;
 
 	case 'reply_all':
-		$content = aff_mail($servr, $user, $passwd, $folder, $mail, 0, $lang, $sort, $sortdir);
-		$mail_to = get_reply_all($user, $domain, $content['from'], $content['to'], $content['cc']);
+		$content = aff_mail($servr, $login, $passwd, $folder, $mail, 0, $lang, $sort, $sortdir);
+		$mail_to = get_reply_all($login, $domain, $content['from'], $content['to'], $content['cc']);
 		if (!strcasecmp(substr($content['subject'], 0, 2), $html_reply_short))
 			$mail_subject = $content['subject'];
 		else
@@ -151,7 +151,7 @@ switch (trim($action))
 		$mail_body .= "\r\n".$prefs_signature;
 
 		// We add the attachments of the original message
-		//list($num_attach, $attach_array) = save_attachment($servr, $user, $passwd, $folder, $mail, $tmpdir);
+		//list($num_attach, $attach_array) = save_attachment($servr, $login, $passwd, $folder, $mail, $tmpdir);
 		// Registering the attachments array into the session
 		//session_register('num_attach', 'attach_array');
 		require ('./html/menu_inbox.php');
@@ -160,14 +160,14 @@ switch (trim($action))
 		break;
 
 	case 'forward':
-		$content = aff_mail($servr, $user, $passwd, $folder, $mail, 0, $lang, $sort, $sortdir);
+		$content = aff_mail($servr, $login, $passwd, $folder, $mail, 0, $lang, $sort, $sortdir);
 		$mail_subject = $html_forward_short.': '.$content['subject'];
 		$mail_body = $original_msg."\n".$html_from.': '.$content['from']."\n".$html_to.': '.$content['to']."\n".$html_sent.': '.$content['complete_date']."\n".$html_subject.': '.$content['subject']."\n\n".strip_tags($content['body'], '');
 		// Add signature
 		$mail_body .= "\r\n".$prefs_signature;
 
 		// We add the attachments of the original message
-		list($num_attach, $attach_array) = save_attachment($servr, $user, $passwd, $folder, $mail, $tmpdir);
+		list($num_attach, $attach_array) = save_attachment($servr, $login, $passwd, $folder, $mail, $tmpdir);
 		// Registering the attachments array into the session
 		session_register('num_attach', 'attach_array');
 		require ('./html/menu_inbox.php');
@@ -280,7 +280,7 @@ switch (trim($action))
 			require_once ('./wrong.php');
 			break;
 		}
-		$tab_mail = inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang, $theme);
+		$tab_mail = inbox($servr, $login, $passwd, $folder, $sort, $sortdir, $lang, $theme);
 		switch ($tab_mail)
 		{
 			case -1:
