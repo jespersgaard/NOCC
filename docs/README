@@ -146,7 +146,7 @@ specifically tested and are known to work)
 	* browsers: (256 colors setups are ok)
 	  - Netscape 4.x, 6.x for Unix and Windows.
 	  - IE 4.x, 5.x for Windows.
-	  - Lynx 2.8.3, Konqueror, Opera.
+	  - Lynx 2.8.3, Konqueror, Opera, WebTV 3.0.
 	  - Mozilla 0.x for Linux and Windows.
 	  - with or without cookies.
 
