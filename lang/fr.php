@@ -1,8 +1,8 @@
 <?
 /*	
-	$Author: nicocha $
-	$Revision: 1.17 $
-	$Date: 2000/10/24 00:58:53 $
+	$Author: wolruf $
+	$Revision: 1.18 $
+	$Date: 2000/10/25 12:35:45 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -92,7 +92,7 @@ $html_subject = "Sujet";
 $html_date = "Date";
 $html_sent = "Envoy&eacute; le";
 $html_size = "Taille";
-$html_to = "A";
+$html_to = "&Agrave;";
 $html_cc = "Copie";
 $html_bcc = "Copie cach&eacute;e";
 $html_nosubject = "Aucun sujet";
