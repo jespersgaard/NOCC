@@ -1,6 +1,9 @@
 NOCC 0.9.2	???????? ??, 200?
 	
 	* now handle multiple attachments when sending message
+	* language files are now out of the release except for French and English files
+	  (We cannot maintain these files as we do not speak other language than English and French).
+	  These files will be available for download on NOCC website at http://nocc.sourceforge.net
 	* A lot of minor debugging
 	* Improved speed for parsing messages (both for the inbox display
 	  and the message display itself).
