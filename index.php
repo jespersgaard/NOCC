@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.43 2001/02/16 15:17:46 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.44 2001/02/17 14:06:51 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -79,7 +79,7 @@ echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
 							</tr>
 							<tr>
-								<td width="150" align="right" class="f"><? echo $html_login ?></td>
+								<td align="right" class="f"><? echo $html_login ?></td>
 								<td><font size="-3">&nbsp;</font></td>
 								<td class="f"> 
 									<input type="text" name="user" size="15" />
