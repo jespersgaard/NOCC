@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.6 2001/10/28 21:14:44 rossigee Exp $ -->
+<!-- start of $Id: prefs.php,v 1.7 2001/10/28 22:49:57 rossigee Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
 		<td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -19,21 +19,21 @@
 					</td>
 				</tr>
 				<tr>
-					<td align="right" class="prefs" valign="top"><?php echo $html_ccself ?> : </td>
+					<td align="right" class="prefs" valign="top">&nbsp; </td>
 					<td align="left" class="prefs">
-						<input type="checkbox" name="cc_self" value="on" <?php if($cc_self != '') echo "checked"; ?> />
+						<input type="checkbox" name="cc_self" id="cc_self" value="on" <?php if($cc_self != '') echo "checked"; ?> /><label for="cc_self"><?php echo $html_ccself ?></label>
 					</td>
 				</tr>
 				<tr>
-					<td align="right" class="prefs" valign="top"><?php echo $html_hide_addresses ?> : </td>
+					<td align="right" class="prefs" valign="top">&nbsp;</td>
 					<td align="left" class="prefs">
-						<input type="checkbox" name="hide_addresses" value="on" <?php if($hide_addresses != '') echo "checked"; ?> />
+						<input type="checkbox" name="hide_addresses" id="hide_addresses" value="on" <?php if($hide_addresses != '') echo "checked"; ?> /><label for="hide_addresses"><?php echo $html_hide_addresses ?></label>
 					</td>
 				</tr>
 				<tr>
-					<td align="right" class="prefs" valign="top"><?php echo $html_outlook_quoting ?> : </td>
+					<td align="right" class="prefs" valign="top">&nbsp;</td>
 					<td align="left" class="prefs">
-						<input type="checkbox" name="outlook_quoting" value="on" <?php if($outlook_quoting != '') echo "checked"; ?> />
+						<input type="checkbox" name="outlook_quoting" id="outlook_quoting" value="on" <?php if($outlook_quoting != '') echo "checked"; ?> /><label for="outlook_quoting"><?php echo $html_outlook_quoting ?></label>
 					</td>
 				</tr>
 				<tr>
@@ -65,4 +65,4 @@
 		</td>
 	</tr>
 </table>
-<!-- end of $Id: prefs.php,v 1.6 2001/10/28 21:14:44 rossigee Exp $ -->
+<!-- end of $Id: prefs.php,v 1.7 2001/10/28 22:49:57 rossigee Exp $ -->

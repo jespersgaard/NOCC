@@ -63,3 +63,7 @@ A.menu:hover {
    line-height: 12pt;
    border-style: outset;
 }
+
+label {
+    cursor: hand;
+}

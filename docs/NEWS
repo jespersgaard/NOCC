@@ -1,5 +1,7 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Added patch from Arno Bean to make checkbox labels clickable
+	  in prefs.
 	* Added tooltip for full e-mail address in message list.
 	* Moved 'select all' and 'delete' buttons, top and bottom.
 	* Added a 'send confirmed' page so user is sure mail was accepted.
