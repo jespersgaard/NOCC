@@ -1,5 +1,5 @@
 <HTML>
-	<HEAD><TITLE>OhMyMail !</TITLE>
+	<HEAD><TITLE>NOCC Webmail</TITLE>
 		<META content="text/html; charset=windows-1252" http-equiv=Content-Type>
 		<LINK href="style.css" rel="stylesheet">
 	</HEAD>
@@ -14,6 +14,6 @@
 			</tr>
 			<tr>
 				<td align="left" valign="top">
-					menu
+					&nbsp;
 				</td>
 				<td align="center" valign="top">

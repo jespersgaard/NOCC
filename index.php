@@ -49,7 +49,7 @@ if (session_is_registered("user") && session_is_registered("passwd"))
 			<BR>
 			<P><FONT class=f color=#FFC061 size=4><B><? echo $html_what ?></B></FONT><BR>
 			<FONT class=sw><? echo $html_explanation ?></FONT> 
-			<P><FONT class=f color=#FFC061 size=2><B>New! Protect your Inbox from Junk Mail!</B></FONT> 
+			<P><FONT class=f color=#FFC061 size=2><B>&nbsp;</B></FONT> 
 			<BR>
 			&nbsp;&nbsp;
 			<A href="help.php?lang=<? echo $lang ?>" target=_top><FONT class=sw><? echo $html_help ?></FONT></A><BR>

@@ -10,5 +10,5 @@ require ("../check_lang.php");
 </head>
 <body bgcolor="<? echo $html_tr_color ?>">
 <div align="center"><font class="sw"><? echo $html_outside ?></font></div>
-</boby>
+</body>
 </html>

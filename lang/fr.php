@@ -51,9 +51,9 @@ $alt_prev = "Précédent";
 $html_login = "Login";
 $html_passwd = "Mot de passe";
 $html_submit = "Ok";
-$html_ad = "Bienvenue à OhMyMail ! v1.0";
-$html_what = "OhMyMail !, c'est quoi ?";
-$html_explanation = "OhMyMail ! est un lecteur de Mail (POP et IMAP) écrit entièrement en PHP et gratuit.";
+$html_ad = "Bienvenue à NOCC Webmail v1.0";
+$html_what = "NOCC Webmail, c'est quoi ?";
+$html_explanation = "NOCC Webmail est un lecteur de Mail (POP et IMAP) écrit entièrement en PHP et gratuit.";
 $html_help = "Aide";
 
 
@@ -88,10 +88,10 @@ $original_msg = "-- Message Original --";
 $to_empty = "Le champs 'A' ne doit pas être vide !";
 
 
-$version = "OhMyMail v1.0";
-$name = "OhMyMail";
+$version = "NOCC Webmail v1.0";
+$name = "NOCC Webmail";
 
-$ad = "\n\n________________________________________________________________________\nOhMyMail, votre bureau à porté de clic : http://www.ohmymail.com";
+$ad = "\n\n________________________________________________________________________\nNOCC, votre bureau à porté de clic : http://nocc.sourceforge.net";
 
 $html_outside = "Vous voyez cette page en dehors de <b>".$name."</b>. Pour y retourner, fermez cette fenêtre.";
 
