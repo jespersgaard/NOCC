@@ -16,3 +16,4 @@ long term:
  - Switch to pure CSS for color backgrounds, etc.
  - Database usage for address books, user settings, etc.
  - Multiple file attachments
+ - Handling multiple folders (IMAP)
