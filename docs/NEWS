@@ -22,4 +22,18 @@ Epimail 0.6 (November 1999, never released)
 
  - MIME decoding for headers and file attachments. Thanks to Anthony Pinagot.
 
-Epimail 0.5 ( 
+Epimail 0.5 (October 1999, never released)
+
+ - Quoted-Printable characters bug fixed (thanks Outlook Express ! :).
+
+Epimail 0.4 (September 1999, never released)
+
+ - Icons modified.
+ - Speed optimization.
+ - Code clean-up.
+
+Epimail 0.3 (July 1999, never released)
+
+ - First workable version.
+ - Now handles HTML'ed mails.
+ - Handles attachements both when receiving and sending.
