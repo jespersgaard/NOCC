@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.6 2001/03/10 23:09:38 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ru-koi.php,v 1.2 2001/03/18 15:30:07 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -8,7 +8,7 @@
  * See the enclosed file COPYING for license information (GPL).  If you
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
- * Configuration file for the russian (Windows-1251) language
+ * Configuration file for the russian (KOI8-R) language
  * Translation by Sergey Frolovithev <serg@spylog.ru>
  * Additional translation Anton Jakimov <t0xa@ls2.lv>
  */
