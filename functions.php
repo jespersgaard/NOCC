@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.150 2002/04/19 14:39:30 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.151 2002/04/22 16:32:04 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -11,8 +11,6 @@
  */
 
 require_once 'class_local.php';
-
-$attach_tab = Array();
 
 /* ----------------------------------------------------- */
 
@@ -110,10 +108,9 @@ function inbox(&$pop, $skip = 0)
 }
 
 /* ----------------------------------------------------- */
-function aff_mail(&$mail, $verbose, &$ev)
+function aff_mail(&$attach_tab, &$mail, $verbose, &$ev)
 {
     GLOBAL $conf;
-    GLOBAL $attach_tab;
     GLOBAL $PHP_SELF;
     GLOBAL $lang_locale;
     GLOBAL $no_locale_date_format;
@@ -151,9 +148,9 @@ function aff_mail(&$mail, $verbose, &$ev)
     $ref_contenu_message = $pop->headerinfo($mail);
     $struct_msg = $pop->fetchstructure($mail);
     if (isset($struct_msg->parts) && (sizeof($struct_msg->parts) > 0))
-        GetPart($struct_msg, NULL, $conf->display_rfc822);
+        GetPart($attach_tab, $struct_msg, NULL, $conf->display_rfc822);
     else
-        GetSinglePart($struct_msg, $pop->fetchheader($mail), $pop->body($mail));
+        GetSinglePart($attach_tab, $struct_msg, $pop->fetchheader($mail), $pop->body($mail));
     if (($verbose == 1) && ($conf->use_verbose == true))
         $header = $pop->fetchheader($mail);
     else
@@ -231,10 +228,8 @@ function aff_mail(&$mail, $verbose, &$ev)
 /* ----------------------------------------------------- */
 
 // based on a function from matt@bonneau.net
-function GetPart(&$this_part, $part_no, &$display_rfc822)
+function GetPart(&$attach_tab, &$this_part, $part_no, &$display_rfc822)
 {
-    GLOBAL $attach_tab;
-
     $att_name = '[unknown]';
     if ($this_part->ifdescription == true)
         $att_name = $this_part->description;
@@ -264,9 +259,9 @@ function GetPart(&$this_part, $part_no, &$display_rfc822)
                     {
                         // if it's an alternative, we skip the text part to only keep the HTML part
                         if ($this_part->subtype == 'ALTERNATIVE')// && $read == true)
-                            GetPart($this_part->parts[++$i], $part_no . ($i + 1), $display_rfc822);
+                            GetPart($attach_tab, $this_part->parts[++$i], $part_no . ($i + 1), $display_rfc822);
                         else 
-                            GetPart($this_part->parts[$i], $part_no . ($i + 1), $display_rfc822);
+                            GetPart($attach_tab, $this_part->parts[$i], $part_no . ($i + 1), $display_rfc822);
                     }
                 }
                 break;
@@ -276,7 +271,7 @@ function GetPart(&$this_part, $part_no, &$display_rfc822)
                 if(isset($this_part->parts[0]->parts)) {
                     $num_parts = count($this_part->parts[0]->parts);
                     for ($i = 0; $i < $num_parts; $i++)
-                        GetPart($this_part->parts[0]->parts[$i], $part_no . '.' . ($i + 1), $display_rfc822);
+                        GetPart($attach_tab, $this_part->parts[0]->parts[$i], $part_no . '.' . ($i + 1), $display_rfc822);
                 }
                 break;
             // Maybe we can do something with the mime types later ??
@@ -358,10 +353,8 @@ function GetPart(&$this_part, $part_no, &$display_rfc822)
 
 /* ----------------------------------------------------- */
 
-function GetSinglePart(&$this_part, &$header, &$body)
+function GetSinglePart(&$attach_tab, &$this_part, &$header, &$body)
 {
-    GLOBAL $attach_tab;
-
     if (eregi('text/html', $header))
         $full_mime_type = 'text/html';
     else
@@ -633,9 +626,8 @@ function cut_address(&$addr, &$charset)
 
 // Function that save the attachment locally for reply, transfer...
 // This function returns an array of all the attachment
-function save_attachment(&$mail, &$tmpdir)
+function save_attachment(&$attach_tab, &$mail, &$tmpdir)
 {
-    GLOBAL $attach_tab;
     $i = 0;
     $attach_array = array();
 

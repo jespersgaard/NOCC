@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.111 2002/04/19 18:31:39 mrylander Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.112 2002/04/19 23:50:48 mrylander Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -49,7 +49,8 @@ if(!isset($action))
 switch (trim($action))
 {
     case 'aff_mail':
-        $content = aff_mail($mail, $verbose, $ev);
+        $attach_tab = array();
+        $content = aff_mail($attach_tab, $mail, $verbose, $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
