@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.185 2004/06/20 20:16:26 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.186 2004/06/22 10:36:00 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -751,7 +751,11 @@ function mailquote(&$body, &$from, &$html_wrote)
   $crlf = "\r\n";
   $from = ucwords(trim(ereg_replace("&lt;.*&gt;", "", str_replace("\"", "", $from))));
 
-  $wrap_msg = $user_prefs->wrap_msg;
+  if (isset($user_prefs->wrap_msg)) {
+    $wrap_msg = $user_prefs->wrap_msg;
+  } else {
+    $wrap_msg = 0;
+  }
   // If we must wrap the message
   if ($wrap_msg)
     {
