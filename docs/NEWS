@@ -1,5 +1,6 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Disabled encode_mime in cut_addresses until it can be checked.
 	* Strip comments from e-mail addresses before using on RCPT in
 	  SMTP transactions (fixes bug #430367)
 	* Added rudimentary user preferences (name, email and signature).
