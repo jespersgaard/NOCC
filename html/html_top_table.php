@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.47 2002/03/24 17:08:02 wolruf Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.48 2002/04/15 02:13:32 mrylander Exp $ -->
 <?php
 
 require_once 'class_local.php';
@@ -98,32 +98,32 @@ $pop->close();
         <?php } ?>
         <td align="center" class="inbox">&nbsp;</td>
         <td align="center" class="inbox" <?php if ($sort == 2) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
-            <a href="<?php echo $PHP_SELF ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>">
+            <a href="<?php echo $PHP_SELF ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>&amp;folder=<?php echo $folder ?>">
             <img src="themes/<?php echo $theme ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_from; ?>" /></a>
             &nbsp;
-            <a href="<?php echo $PHP_SELF ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>">
+            <a href="<?php echo $PHP_SELF ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>&amp;folder=<?php echo $folder ?>">
             <?php echo $html_from ?></a>
         </td>
         <td align="center" class="inbox" <?php if ($sort == 3) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
-            <a href="<?php echo $PHP_SELF ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>">
+            <a href="<?php echo $PHP_SELF ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>&amp;folder=<?php echo $folder ?>">
             <img src="themes/<?php echo $theme ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_subject; ?>" /></a>
             &nbsp;
-            <a href="<?php echo $PHP_SELF ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>">
+            <a href="<?php echo $PHP_SELF ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>&amp;folder=<?php echo $folder ?>">
             <?php echo $html_subject ?></a>
         </td>
         <td align="center" class="inbox" <?php if ($sort == 1) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
-            <a href="<?php echo $PHP_SELF ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>">
+            <a href="<?php echo $PHP_SELF ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>&amp;folder=<?php echo $folder ?>">
             <img src="themes/<?php echo $theme ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_date; ?>" /></a>
             &nbsp;
-            <a href="<?php echo $PHP_SELF ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>">
+            <a href="<?php echo $PHP_SELF ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>&amp;folder=<?php echo $folder ?>">
             <?php echo $html_date ?></a>
         </td>
         <td align="right" class="inbox" <?php if ($sort == 6) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
-            <a href="<?php echo $PHP_SELF ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>">
+            <a href="<?php echo $PHP_SELF ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>&amp;folder=<?php echo $folder ?>">
             <img src="themes/<?php echo $theme ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_size; ?>" /></a>
             &nbsp;
-            <a href="<?php echo $PHP_SELF ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>">
+            <a href="<?php echo $PHP_SELF ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>&amp;folder=<?php echo $folder ?>">
             <?php echo $html_size ?></a>
         </td>
     </tr>
-<!-- start of $Id: html_top_table.php,v 1.47 2002/03/24 17:08:02 wolruf Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.48 2002/04/15 02:13:32 mrylander Exp $ -->
