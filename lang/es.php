@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/es.php,v 1.7 2001/02/06 19:12:33 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/es.php,v 1.8 2001/02/06 20:44:05 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -61,6 +61,8 @@ $html_help = "Ayuda";
 $html_server = "Servidor";
 $html_wrong = "El usuario o la clave son incorrectos";
 $html_retry = "Reintentar";
+$html_on = "on";
+$html_theme = "Theme";
 
 // Other pages
 

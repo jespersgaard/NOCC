@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.21 2001/02/06 20:47:46 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.22 2001/02/20 17:33:12 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -47,6 +47,7 @@ $alt_reply_all = "Reply all";
 $alt_forward = "Forward";
 $alt_next = "Next message";
 $alt_prev = "Previous message";
+$html_on = "on";
 $html_theme = "Theme";
 
 // index.php
