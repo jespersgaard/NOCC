@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.62 2004/11/08 16:22:52 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.63 2005/01/06 19:45:02 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -173,7 +173,7 @@ class mime_mail
         {
             $rcpt_to = join(', ', $this->to);
             if (ereg("[4-9]\.[0-9]\.[0-9].*", phpversion()))
-                $ev = @mail($rcpt_to, $this->subject, '', $mime, '-f' . $this->from);
+                $ev = @mail($rcpt_to, $this->subject, '', $mime, '-f' . $this->strip_comment($this->from));
             else
                 $ev = @mail($rcpt_to, $this->subject, '', $mime);
                 
