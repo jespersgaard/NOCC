@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.58 2001/03/27 20:42:46 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.59 2001/03/28 10:05:59 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -124,7 +124,7 @@ function updateTheme()
 							{
 								echo "<tr><td align=\"right\" class=\"f\">".$html_server."</td>";
 								echo "<td><font size=\"-3\">&nbsp;</font></td>";
-								echo "<td class=\"f\"><input type=\"text\" name=\"server\" value=\"mail.example.com\" size=\"15\" /><br />input type=\"text\" size=\"4\" name=\"port\" value=\"143\" /><select name=\"servtype\" onchange=\"updatePort()\"><option value=\"imap\">IMAP</option><option value=\"pop3\">POP3</option></select></td>";
+								echo "<td class=\"f\"><input type=\"text\" name=\"server\" value=\"mail.example.com\" size=\"15\" /><br /><input type=\"text\" size=\"4\" name=\"port\" value=\"143\" /><select name=\"servtype\" onchange=\"updatePort()\"><option value=\"imap\">IMAP</option><option value=\"pop3\">POP3</option></select></td>";
 								echo "</tr><tr><td colspan=\"3\" height=\"12\"><font size=\"-3\">&nbsp;</font></td></tr>";
 							}
 							?>
