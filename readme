@@ -1,9 +1,9 @@
 NOCC readme documentation                                              README
 =--------------------------------------------------------------------------=
 
-$Author: jon $
-$Revision: 2.0.2.8 $
-$Date: 2000/05/26 03:01:47 $
+$Author: nicocha $
+$Revision: 1.1 $
+$Date: 2000/10/24 15:53:17 $
 
 
 Release Documentation
@@ -27,9 +27,7 @@ in this order:
 
     1)  The documentation distributed with NOCC (found in the docs/
         subdirectory).
-    2)  The online, user-editable FAQ, available at http://faq.horde.org/.
-    3)  The searchable mailing list archives, found at http://horde.tdyc.com/.
-    4)  The live mailing lists.  More information at http://horde.org/mail/.
+    2)  The online, user-editable FAQ, available at http://nocc.sourceforge.net.
 
 Failing to read the documentation before asking a simple question answered
 therein will no doubt result in a less-than-welcome response from the mailing
