@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.36 2001/05/31 10:55:11 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.37 2001/05/31 18:18:41 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -77,10 +77,10 @@ class mime_mail
 				break;
 		}
 		$val = 'Content-Type: ' . $part['ctype'] . ';';
-		$val .= ($part['charset'] ? ' charset=' . $part['charset'] : '');
+		$val .= ($part['charset'] ? $this->crlf . "\tcharset=\"" . $part['charset'] . '"' : '');
 		$val .= ($part['name'] ? $this->crlf . "\tname=\"" . $part['name'] . '"' : '');
 		$val .= $this->crlf . 'Content-Transfer-Encoding: ' . $encoding;
-		$val .= ($part['name'] ? $this->crlf . 'Content-Disposition: attachment;' . $this->crlf . "\tfilename=\"" . $part['name'] . "\"" : '');
+		$val .= ($part['name'] ? $this->crlf . 'Content-Disposition: attachment;' . $this->crlf . "\tfilename=\"" . $part['name'] . '"' : '');
 		$val .= $this->crlf . $this->crlf . $message . $this->crlf;
 		return($val);
 	}
