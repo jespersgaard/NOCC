@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/check.php,v 1.1 2001/06/21 15:26:56 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/check.php,v 1.2 2001/06/21 17:38:48 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -22,6 +22,11 @@ if (!extension_loaded('imap'))
 if (empty($tmpdir))
 {
 	echo '<font color="red"><b>"$tmpdir" is not set in "conf.php". NOCC cannot run.</b></font><br /><br /><div align="center"><img src="themes/standard/img/button.png" width="88" height="31" alt="Powered by NOCC" /></div>';
+	exit;
+}
+if (empty($prefs_dir))
+{
+	echo '<font color="red"><b>"$prefs_dir" is not set in "conf.php". NOCC cannot run.</b></font><br /><br /><div align="center"><img src="themes/standard/img/button.png" width="88" height="31" alt="Powered by NOCC" /></div>';
 	exit;
 }
 ?>
