@@ -1,5 +1,7 @@
 NOCC 0.9.3	?? ??, 2001
 
+	* Fixed bug #133573 : replying to someone with a name containning accent
+	* Better display of text/plain message
 	* Fixed bug with Netscape 4.x which prevented to send attachement.
 	* HTML code is now XHTML 1.0 Transitional compliant.
 	  (NB: nl2br() is not XHTML compliant when using PHP < 4.0.5)
