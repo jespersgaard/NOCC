@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.4 2001/02/06 19:15:26 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.6 2001/02/06 20:47:46 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,7 +9,7 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
  * Configuration file for the portguese language
- * Translation by sema <sema@smux.net>
+ * Translation by sena <sena@smux.net>
  */
 
 $charset = "ISO-8859-1";
@@ -52,11 +52,11 @@ $alt_prev = "Anterior";
 
 // index.php
 
-$html_lang = "Language";
+$html_lang = "L&iacute;ngua;
 $html_welcome = "Benvindo ao";
 $html_login = "Login";
 $html_passwd = "Password";
-$html_submit = "Ok";
+$html_submit = "Entrar";
 $html_help = "Ajuda";
 $html_server = "Servidor";
 $html_wrong = "Login ou password incorrecto";
@@ -80,17 +80,17 @@ $html_att = "Attachment";
 $html_atts = "Attachments";
 $html_att_unknown = "[desconhecido]";
 $html_attach = "Attach";
-$html_attach_forget = "You must attach your file before sending your message !";
-$html_attach_delete = "Remove Selected";
+$html_attach_forget = "Tem de fazer o attach antes de enviar a mensagem !";
+$html_attach_delete = "Retirar Ficheiros Seleccionados";
 $html_from = "De";
 $html_subject = "Assunto";
 $html_date = "Data";
 $html_sent = "Enviar";
 $html_size = "Tamanho";
-$html_totalsize = "Total Size";
+$html_totalsize = "Tamanho Total";
 $html_kb = "Kb";
 $html_bytes = "bytes";
-$html_filename = "Filename";
+$html_filename = "Ficheiro";
 $html_to = "Para";
 $html_cc = "Cc";
 $html_bcc = "Bcc";
@@ -98,7 +98,7 @@ $html_nosubject = "Sem assunto";
 $html_send = "Enviar";
 $html_cancel = "Cancelar";
 $html_no_mail = "N&atilde;o h&aacute; mensagens novas.";
-$html_logout = "Logout";
+$html_logout = "Sa&iacute;r";
 $html_msg = "Mensagem";
 $html_msgs = "Mensagens";
 
