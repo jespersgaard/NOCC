@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.60 2001/10/21 22:10:56 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.61 2001/10/21 23:16:14 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -38,6 +38,10 @@ if($prefs_email_address != "") {
 }
 if($prefs_full_name != "") {
 	$mail_from = $prefs_full_name." <".$mail_from.">";
+}
+
+if(!isset($action)) {
+	$action = '';
 }
 
 switch (trim($action))
