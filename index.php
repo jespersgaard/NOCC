@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: nicocha $
-	$Revision: 1.18 $
-	$Date: 2000/10/23 23:57:13 $
+	$Revision: 1.19 $
+	$Date: 2000/10/24 01:16:08 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -16,7 +16,7 @@ require ("conf.php");
 require ("check_lang.php");
 session_unset();
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
 <HEAD>
 <TITLE>NOCC - Webmail</TITLE>
@@ -129,11 +129,18 @@ echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 					</td>
 				</tr>
 			</table>
-			</form>
 			<script type="text/javascript">
 			<!--
 				document.nocc_webmail_login.user.focus();
 				document.nocc_webmail_login.passwd.value='';
 			// -->
 			</script>
-<? require ("html/footer.php"); ?>
+	</td>
+</tr>
+<tr>
+	<td align="center" colspan="2"><a href="http://nocc.sourceforge.net/"><img src="img/button.gif" border="0" alt"Powered by NOCC"></a></td>
+</tr>
+</table>
+</form>
+</body>
+</html>
