@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/check_lang.php,v 1.9 2001/01/30 09:45:33 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/check_lang.php,v 1.10 2001/02/19 11:53:26 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -27,5 +27,6 @@ if (!ISSET($lang))
 	if ($lang == "")
 		$lang = $default_lang;
 }
+$lang = trim($lang);
 require ("lang/".$lang.".php");
 ?>
