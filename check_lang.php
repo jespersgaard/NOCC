@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/check_lang.php,v 1.10 2001/02/19 11:53:26 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/check_lang.php,v 1.11 2001/02/20 10:56:39 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -27,6 +27,7 @@ if (!ISSET($lang))
 	if ($lang == "")
 		$lang = $default_lang;
 }
+//  Fix for faulty PHP install (RH7, see bug #24933)
 $lang = trim($lang);
 require ("lang/".$lang.".php");
 ?>
