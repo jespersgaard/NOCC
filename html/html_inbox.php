@@ -2,7 +2,7 @@
 	<td align="center">
 		<INPUT TYPE="checkbox" NAME="<? echo $tmp["number"] ?>" VALUE="<? echo $tmp["number"] ?>">
 	</td>
-	<? if ($is_Imap) { ?>
+	<? if (($is_Imap) || ($have_ucb_pop_server)) { ?>
 	<td align="center">
 		<? echo $tmp["new"] ?>
 	</td>
