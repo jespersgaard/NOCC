@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.38 2001/03/21 15:15:34 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.39 2001/03/22 00:24:51 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -152,37 +152,41 @@ $lang_array[7]->label = "Fran&ccedil;ais";
 $lang_array[8]->filename = "it";
 $lang_array[8]->label = "Italiano";
 
+// Magyar
+$lang_array[9]->filename = "hu";
+$lang_array[9]->label = "Magyar";
+
 // Polish
-$lang_array[9]->filename = "pl";
-$lang_array[9]->label = "Polski";
+$lang_array[10]->filename = "pl";
+$lang_array[10]->label = "Polski";
 
 // Portuguese
-$lang_array[10]->filename = "pt";
-$lang_array[10]->label = "Portug&ecirc;s";
+$lang_array[11]->filename = "pt";
+$lang_array[11]->label = "Portug&ecirc;s";
 
 //Russian
-$lang_array[11]->filename = "ru";
-$lang_array[11]->label = "Russian (Win)";
+$lang_array[12]->filename = "ru";
+$lang_array[12]->label = "Russian (Win)";
 
 //Russian
-$lang_array[12]->filename = "ru-koi";
-$lang_array[12]->label = "Russian (Unix)";
+$lang_array[13]->filename = "ru-koi";
+$lang_array[13]->label = "Russian (Unix)";
 
 //Russian
-$lang_array[13]->filename = "ru-iso";
-$lang_array[13]->label = "Russian (ISO)";
+$lang_array[14]->filename = "ru-iso";
+$lang_array[14]->label = "Russian (ISO)";
 
 // Swedish
-$lang_array[14]->filename = "sv";
-$lang_array[14]->label = "Svenska";
+$lang_array[15]->filename = "sv";
+$lang_array[15]->label = "Svenska";
 
 // Slovenian
-$lang_array[15]->filename = "sl";
-$lang_array[15]->label = "Slovensko";
+$lang_array[16]->filename = "sl";
+$lang_array[16]->label = "Slovensko";
 
 // Slovenski
-$lang_array[16]->filename = "sk";
-$lang_array[16]->label = "Slovensky";
+$lang_array[17]->filename = "sk";
+$lang_array[17]->label = "Slovensky";
 
 // ################### Messages Signature  ################### //
 
