@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.119 2002/04/24 19:35:40 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.120 2002/04/24 21:58:06 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -16,8 +16,8 @@ require_once './conf.php';
 require_once './common.php';
 require_once './prefs.php';
 
-if(!isset($_SESSION['loggedin']))
-    $action = '';
+// Remove any attachments from disk and from our session
+clear_attachments();
 
 // Get preferences
 $prefs_full_name = getPref('full_name');
@@ -35,17 +35,6 @@ if(!$prefs_signature) {
     }
 }
 
-// Default e-mail address on send form
-if($prefs_email_address != '')
-    $mail_from = $prefs_email_address;
-else
-    $mail_from = $_SESSION['user']. '@' . $_SESSION['domain'];
-if($prefs_full_name != '')
-    $mail_from = $prefs_full_name . ' <' . $mail_from . '>';
-
-if(!isset($action))
-    $action = '';
-
 // Get connection settings from session in case we need to
 // create a connection
 $servr = $_SESSION['servr'];
@@ -53,11 +42,15 @@ $folder = $_SESSION['folder'];
 $login = $_SESSION['login'];
 $passwd = $_SESSION['passwd'];
 
-switch (trim($action))
+// Act on 'action'
+$action = '';
+if(isset($_REQUEST['action']))
+    $action = safestrip($_REQUEST['action']);
+switch($action)
 {
     case 'aff_mail':
         $attach_tab = array();
-        $content = aff_mail($attach_tab, $mail, $verbose, $ev);
+        $content = aff_mail($attach_tab, $mail, $_REQUEST['verbose'], $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
@@ -435,15 +428,20 @@ switch (trim($action))
             break;
         }
 
+        // If we get this far, consider ourselves logged in
+        $_SESSION['loggedin'] = 1;
+
+        // Should we present folder options?
         $is_imap = $pop->is_imap();
+
+        // Fetch message list
         $tab_mail = 0;
         if ($pop->num_msg() > 0)
-            $tab_mail = inbox($pop, $skip);
+            $tab_mail = inbox($pop, $_REQUEST['skip']);
 
         switch ($tab_mail)
         {
             case 0:
-                $_SESSION['loggedin'] = 1;
                 // the mailbox is empty
                 $num_msg = 0;
                 require ('./html/header.php');
@@ -455,8 +453,6 @@ switch (trim($action))
                 require ('./html/footer.php');
                 break;
             default:
-                clear_attachments();
-                $_SESSION['loggedin'] = 1;
                 // there are messages, we display
                 $num_msg = $pop->num_msg();
                 require ('./html/header.php');
@@ -468,7 +464,7 @@ switch (trim($action))
                 }
                 // If we show it twice, the bottom folder select is sent, and might be wrong.
                 //require ('./html/menu_inbox_opts.php');
-                if ($pop->is_imap() && ($conf->status_line == 1)) {
+                if ($is_imap && ($conf->status_line == 1)) {
                     require ('./html/menu_inbox_status.php');
                 }
                 require ('./html/html_bottom_table.php');

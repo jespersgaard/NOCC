@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ro.php,v 1.45 2001/11/18 17:53:32 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ro.php,v 1.1 2002/03/21 09:03:07 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -143,4 +143,5 @@ $to_empty = 'Campul \'To\' nu poate fi gol !';
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = "Nu se poate deschide conexiunea";
 $html_smtp_error_unexpected = "Raspuns neasteptate:";
+$html_file_upload_attack = 'Possible file upload attack';  //to translate
 ?>

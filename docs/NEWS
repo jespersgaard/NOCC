@@ -1,5 +1,6 @@
 NOCC 0.9.6    ??
 
+    * Now works with 'register_globals=off'.
     * Relaxed debugging flags to allow connection messages to be reported
       via imap_last_error.
     * Added Icelandic translation.

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/sl.php,v 1.9 2001/12/19 20:06:04 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sl.php,v 1.10 2002/02/09 20:25:04 rossigee Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -143,4 +143,5 @@ $to_empty = 'Polje \'Za:\' ne sme biti prazno!';
 $html_smtp_error_no_conn = "Zveze ni mogoèe vzpostaviti";
 $html_smtp_error_unexpected = "Neprièakovan odgovor:";
 $lang_could_not_connect = 'Could not connect to server';  //to translate
+$html_file_upload_attack = 'Possible file upload attack';  //to translate
 ?>

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/kr.php,v 1.4 2001/11/18 18:17:34 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/kr.php,v 1.5 2002/02/09 20:25:04 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -142,4 +142,5 @@ $to_empty = '이메일(email) 주소를 입력하셔야 합니다.';
 $html_smtp_error_no_conn = "Unable to open connection";
 $html_smtp_error_unexpected = "Unexpected response:";
 $lang_could_not_connect = 'Could not connect to server';  //to translate
+$html_file_upload_attack = 'Possible file upload attack';  //to translate
 ?>

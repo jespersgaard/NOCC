@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/no.php,v 1.3 2001/11/18 21:08:06 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/no.php,v 1.4 2002/02/09 20:25:04 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -143,4 +143,5 @@ $to_empty = 'Feltet \'Til\' kan ikke være tomt !';
 $html_smtp_error_no_conn = "Unable to open connection";
 $html_smtp_error_unexpected = "Unexpected response:";
 $lang_could_not_connect = 'Could not connect to server';  //to translate
+$html_file_upload_attack = 'Possible file upload attack';  //to translate
 ?>

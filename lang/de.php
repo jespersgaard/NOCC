@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.21 2002/02/09 20:25:04 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.22 2002/02/09 20:30:15 rossigee Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -143,4 +143,5 @@ $to_empty = 'Das \'An\' Feld darf nicht leer sein !';
 $html_smtp_error_no_conn = 'Konnte Verbindung nicht &ouml;ffnen';
 $html_smtp_error_unexpected = 'Unerwartete Antwort:';
 $lang_could_not_connect = 'Could not connect to server';  //to translate
+$html_file_upload_attack = 'Possible file upload attack';  //to translate
 ?>

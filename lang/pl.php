@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.11 2001/11/18 18:17:34 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.12 2002/02/09 20:25:04 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -143,4 +143,5 @@ $to_empty = 'Pole \'Do\' nie mo¿e byæ puste!';
 $html_smtp_error_no_conn = "Nie mo¿na utworzyæ po³±czenia";
 $html_smtp_error_unexpected = "Nieoczekiwana reakcja:";
 $lang_could_not_connect = 'Could not connect to server';  //to translate
+$html_file_upload_attack = 'Possible file upload attack';  //to translate
 ?>

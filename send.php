@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.103 2002/04/24 19:43:55 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.104 2002/04/24 20:37:07 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -34,14 +34,15 @@ if ($HTTP_SERVER_VARS['REQUEST_METHOD'] != 'POST') {
 require_once './class_send.php';
 require_once './class_smtp.php';
 
-$mail_from = safestrip($mail_from);
-$mail_to = safestrip($mail_to);
-$mail_cc = safestrip($mail_cc);
-$mail_bcc = safestrip($mail_bcc);
-$mail_subject = safestrip($mail_subject);
-$mail_body = safestrip($mail_body);
+$mail_from = safestrip($_REQUEST['mail_from']);
+$mail_to = safestrip($_REQUEST['mail_to']);
+$mail_cc = safestrip($_REQUEST['mail_cc']);
+$mail_bcc = safestrip($_REQUEST['mail_bcc']);
+$mail_subject = safestrip($_REQUEST['mail_subject']);
+$mail_body = safestrip($_REQUEST['mail_body']);
+$mail_att = $_FILES['mail_att'];
 
-switch (trim($sendaction))
+switch($_REQUEST['sendaction'])
 {
     case 'add':
         // Counting the attachments number in the array
@@ -50,19 +51,25 @@ switch (trim($sendaction))
         $attach_array = $_SESSION['attach_array'];
 
         $num_attach = count($attach_array);
-        $tmp_name = basename($mail_att . '.att');
+        $tmp_name = $conf->tmpdir.'/'.basename($mail_att['tmp_name'] . '.att');
 
         // Adding the new file to the array
-        if (is_uploaded_file($mail_att))
+        if (move_uploaded_file($mail_att['tmp_name'], $tmp_name))
         {
-            copy($mail_att, $conf->tmpdir . '/' . $tmp_name);
-            $attach_array[$num_attach]->file_name = basename($mail_att_name);
+            $attach_array[$num_attach]->file_name = basename($mail_att['name']);
             $attach_array[$num_attach]->tmp_file = $tmp_name;
-            $attach_array[$num_attach]->file_size = $mail_att_size;
-            if ($mail_att_type == "") {
-                $mail_att_type = trim(`file -b $tmpdir/$tmp_name`);
+            $attach_array[$num_attach]->file_size = $mail_att['size'];
+            $attach_array[$num_attach]->file_mime = $mail_att['type'];
+            if (empty($mail_att['type'])) {
+                $attach_array[$num_attach]->file_mime = trim(`file -b $tmpdir/$tmp_name`);
             }
-            $attach_array[$num_attach]->file_mime = $mail_att_type;
+        }
+        else {
+            $ev = new Exception($html_file_upload_attack);
+            require ('./html/header.php');
+            require ('./html/error.php');
+            require ('./html/footer.php');
+            break;
         }
 
         // Registering the attachments array into the session
@@ -77,17 +84,17 @@ switch (trim($sendaction))
         require ('./html/footer.php');
         break;
     case 'send':
-        $ip = (getenv('HTTP_X_FORWARDED_FOR') ? getenv('HTTP_X_FORWARDED_FOR') : getenv('REMOTE_ADDR'));
         $mail = new mime_mail();
         $mail->crlf = get_crlf($smtp_server);
-        $mail->smtp_server = $smtp_server;
-        $mail->smtp_port = $smtp_port;
+        $mail->smtp_server = $_SESSION['smtp_server'];
+        $mail->smtp_port = $_SESSION['smtp_port'];
         $mail->charset = $charset;
         $mail->from = cut_address(trim($mail_from), $charset);
         $mail->from = $mail->from[0];
-        $mail->priority = $priority;
-        $mail->receipt = $receipt;
+        $mail->priority = $_REQUEST['priority'];
+        $mail->receipt = $_REQUEST['receipt'];
         $mail->headers = "";
+        // $ip = (getenv('HTTP_X_FORWARDED_FOR') ? getenv('HTTP_X_FORWARDED_FOR') : getenv('REMOTE_ADDR'));
         // $mail->headers .= 'X-Originating-Ip: [' . $ip . ']' . $mail->crlf;
         $mail->headers .= 'User-Agent: ' . $conf->nocc_name . ' <' . $conf->nocc_url . '>';
         $mail->to = cut_address(trim($mail_to), $charset);
@@ -133,7 +140,8 @@ switch (trim($sendaction))
         }
 
         // Add original message as attachment?
-        if($forward_msgnum != "") {
+        if(isset($_REQUEST['forward_msgnum']) && $_REQUEST['forward_msgnum'] != "") {
+            $forward_msgnum = $_REQUEST['forward_msgnum'];
             $ev = "";
             $servr = $_SESSION['servr'];
             $folder = $_SESSION['folder'];
@@ -184,7 +192,7 @@ switch (trim($sendaction))
         // Rebuilding the attachments array with only the files the user wants to keep
         $tmp_array = array();
         $attach_array = $_SESSION['attach_array'];
-        for ($i = $j = 1; $i <= count($attach_array); $i++)
+        for ($i = $j = 0; $i < count($attach_array); $i++)
         {
             $thefile = 'file' . $i;
             if (empty($$thefile))
@@ -198,7 +206,6 @@ switch (trim($sendaction))
             else
                 @unlink($conf->tmpdir . '/' . $attach_array[$i]->tmp_file);
         }
-        $num_attach = ($j > 1 ? $j - 1 : 0);
 
         // Registering the new attachments array into the session
         $_SESSION['attach_array'] = $tmp_array;

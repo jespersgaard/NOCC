@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ar.php,v 1.15 2001/11/18 17:53:32 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ar.php,v 1.16 2002/02/09 20:25:04 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -143,4 +143,5 @@ $to_empty = 'يجب ءاعطاء عنوان المرسل ءاليه !';
 $html_smtp_error_no_conn = "Unable to open connection";
 $html_smtp_error_unexpected = "Unexpected response:";
 $lang_could_not_connect = 'Could not connect to server';  //to translate
+$html_file_upload_attack = 'Possible file upload attack';  //to translate
 ?>

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.21 2001/11/30 11:52:39 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.22 2002/02/09 20:25:04 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -143,4 +143,5 @@ $to_empty = 'O campo \'Para\' tem de ser preenchido !';
 $html_smtp_error_no_conn = "N&atilde;o foi poss&iacute;vel ligar ao servidor";
 $html_smtp_error_unexpected = "Resposta inesperada:";
 $lang_could_not_connect = 'Could not connect to server';  //to translate
+$html_file_upload_attack = 'Possible file upload attack';  //to translate
 ?>

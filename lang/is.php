@@ -141,4 +141,5 @@ $to_empty = '\'Til\' reiturinn má ekki vera auður!';
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = "Ómögulegt að opna tengingu";
 $html_smtp_error_unexpected = "Ófyrirsjáanleg viðbrögð:";
+$html_file_upload_attack = 'Possible file upload attack';  //to translate
 ?>
