@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fi.php,v 1.6 2002/02/09 20:25:04 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fi.php,v 1.7 2002/04/24 23:32:25 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -121,7 +121,7 @@ $html_cancel = 'Peruuta';
 $html_no_mail = 'Ei viesti&auml;.';
 $html_logout = 'Poistu j&auml;rjestelm&auml;st&auml;';
 $html_msg = 'Viesti';
-$html_msgs = 'Viestit';
+$html_msgs = 'Viestiä';
 $html_configuration = 'T&auml;t&auml; palvelinta ei ole asennettu oikein';
 $html_priority = 'Kiireellisyys';
 $html_low = 'Matala';
@@ -140,8 +140,8 @@ $original_msg = '-- Alkuper&auml;inen viesti --';
 $to_empty = '\'Kenelle\' kentt&auml; ei saa olla tyhj&auml;';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = "Unable to open connection";
-$html_smtp_error_unexpected = "Unexpected response:";
-$lang_could_not_connect = 'Could not connect to server';  //to translate
-$html_file_upload_attack = 'Possible file upload attack';  //to translate
+$html_smtp_error_no_conn = "Yhteytt&auml; ei saada avattua.";
+$html_smtp_error_unexpected = "Odottamaton vastine:";
+$lang_could_not_connect = 'Ei saa yhteytt&auml; palvelimeen.';
+$html_file_upload_attack = 'Mahdollinen upload-hy&ouml;kk&auml;ys palvelimelle';
 ?>
