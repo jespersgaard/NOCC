@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.75 2001/04/13 13:35:01 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.76 2001/04/17 20:54:05 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -500,12 +500,12 @@ function cut_address($addr, $charset)
 
 // Function that save the attachment locally for reply, transfer...
 // This function returns an array of all the attachment
-function save_attachment($servr, $user, $passwd, $folder, $mail)
+function save_attachment($servr, $user, $passwd, $folder, $mail, $tmpdir)
 {
 	GLOBAL $attach_tab;
 	$i = 0;
 	$attach_array = array();
-	
+
 	$pop = imap_open("{".$servr."}".$folder, $user, $passwd);
 	while ($tmp = array_shift($attach_tab))
 	{
@@ -515,8 +515,8 @@ function save_attachment($servr, $user, $passwd, $folder, $mail)
 			$file = imap_qprint($file);
 		elseif ($tmp["transfer"] == "BASE64")
 			$file = base64_decode($file);
-		$filename = tempnam("", "NOCC_TMP".md5(uniqid(time())));
-		$fp = fopen($filename, "w");
+		$filename = "NOCC_TMP".md5(uniqid(time()));
+		$fp = fopen($tmpdir."/".$filename, "w");
 		fwrite($fp, $file);
 		fclose($fp);
 		$attach_array[$i]->file_name = $tmp["name"];
@@ -559,6 +559,20 @@ function encode_mime($string, $charset)
 	$text .= "?="; 
 	return ($text); 
 } 
+
+/* ----------------------------------------------------- */
+
+// This function is used when accessing a page without being logged in
+// or accessing send.php via GET method
+function go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $lang)
+{
+	if (is_array($attach_array))
+		while ($tmp = array_shift($attach_array))
+			unlink($tmpdir."/".$tmp->tmp_file);
+	session_unregister("num_attach");
+	session_unregister("attach_array");
+	header("Location: index.php?sort=$sort&sortdir=$sortdir&lang=$lang&$php_session=".$$php_session);
+}
 
 /* ----------------------------------------------------- */
 ?>

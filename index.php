@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.62 2001/04/17 20:53:51 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.63 2001/04/18 09:12:26 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -23,6 +23,11 @@ if (floor(phpversion()) != 4)
 if (!extension_loaded('imap'))
 {
 	echo "<font color=\"red\"><b>The IMAP module does not seem to be installed on this PHP setup, please see NOCC's documentation.</b></font><br /><br /><div align=\"center\"><img src=\"themes/standard/img/button.png\" width=\"88\" height=\"31\" alt=\"Powered by NOCC\" /></div>";
+	exit;
+}
+if (empty($tmpdir))
+{
+	echo "<font color=\"red\"><b>'\$tmpdir' is not set in 'conf.php'. NOCC cannot run.</b></font><br /><br /><div align=\"center\"><img src=\"themes/standard/img/button.png\" width=\"88\" height=\"31\" alt=\"Powered by NOCC\" /></div>";
 	exit;
 }
 ?>

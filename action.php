@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.32 2001/03/29 08:39:02 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.33 2001/04/17 21:55:36 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,16 +13,13 @@
 
 require ("conf.php");
 require ("check_lang.php");
+require ("functions.php");
 header ("Content-type: text/html; Charset=$charset");
 require ("html/header.php");
-require ("functions.php");
 
 if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
 	$default_date_format = $no_locale_date_format;
 $current_date = strftime($default_date_format, time());
-
-if (empty($action))
-	$action = "";
 
 switch ($action)
 {
@@ -44,7 +41,6 @@ switch ($action)
 				$img_type = array_pop(explode("/", $tmp["mime"]));
 				if (eregi("JPEG", $img_type) || eregi("JPG", $img_type) || eregi("GIF", $img_type) || eregi ("PNG", $img_type))
 				{
-					$php_session = ini_get("session.name");
 					echo "<hr />";
 					echo "<center><img src=\"get_img.php?".$php_session."=".$$php_session."&amp;mail=".$mail."&amp;folder=".$folder."&amp;num=".$tmp["number"]."&amp;mime=".$img_type."&amp;transfer=".$tmp["transfer"]."\" /></center>";
 				}
@@ -54,8 +50,7 @@ switch ($action)
 		require ("html/menu_mail.php");
 		break;
 	case "logout":
-		$php_session = ini_get("session.name");
-		Header("Location: logout.php?lang=$lang&$php_session=".$$php_session);
+		header("Location: logout.php?lang=$lang&$php_session=".$$php_session);
 		break;
 	case "write":
 		require ("html/menu_inbox.php");
@@ -63,7 +58,6 @@ switch ($action)
 		require ("html/menu_inbox.php");
 		break;
 	case "reply":
-		require ("html/menu_inbox.php");
 		$content = aff_mail($servr, $user, stripslashes($passwd), $folder, $mail, $verbose, $lang, $sort, $sortdir);
 		$mail_to = $content["from"];
 		// Test for Re: in subject, should not be added twice ! 
@@ -73,12 +67,14 @@ switch ($action)
 			$mail_subject = $html_reply_short.": ".$content["subject"];
 		$mail_body = $original_msg."\n".$html_from.": ".$content["from"]."\n".$html_to.": ".$content["to"]."\n".$html_sent.": ".$content["date"]."\n".$html_subject.": ".$content["subject"]."\n\n".strip_tags($content["body"], "");
 		// We add the attachments of the original message
-		list($num_attach, $attach_array) = save_attachment($servr, $user, stripslashes($passwd), $folder, $mail);
+		list($num_attach, $attach_array) = save_attachment($servr, $user, stripslashes($passwd), $folder, $mail, $tmpdir);
+		// Registering the attachments array into the session
+		session_register("num_attach", "attach_array");
+		require ("html/menu_inbox.php");
 		require("html/send.php");
 		require ("html/menu_inbox.php");
 		break;
 	case "reply_all":
-		require ("html/menu_inbox.php");
 		$content = aff_mail($servr, $user, stripslashes($passwd), $folder, $mail, $verbose, $lang, $sort, $sortdir);
 		$mail_to = get_reply_all($user, $domain, $content["from"], $content["to"], $content["cc"]);
 		if (!strcasecmp(substr($content["subject"], 0, 2), $html_reply_short))
@@ -87,17 +83,22 @@ switch ($action)
 			$mail_subject = $html_reply_short.": ".$content["subject"];
 		$mail_body = $original_msg."\n".$html_from.": ".$content["from"]."\n".$html_to.": ".$content["to"]."\n".$html_sent.": ".$content["date"]."\n".$html_subject.": ".$content["subject"]."\n\n".strip_tags($content["body"], "");
 		// We add the attachments of the original message
-		list($num_attach, $attach_array) = save_attachment($servr, $user, stripslashes($passwd), $folder, $mail);
+		list($num_attach, $attach_array) = save_attachment($servr, $user, stripslashes($passwd), $folder, $mail, $tmpdir);
+		// Registering the attachments array into the session
+		session_register("num_attach", "attach_array");
+		require ("html/menu_inbox.php");
 		require("html/send.php");
 		require ("html/menu_inbox.php");
 		break;
 	case "forward":
-		require ("html/menu_inbox.php");
 		$content = aff_mail($servr, $user, stripslashes($passwd), $folder, $mail, $verbose, $lang, $sort, $sortdir);
 		$mail_subject = $html_forward_short.": ".$content["subject"];
 		$mail_body = $original_msg."\n".$html_from.": ".$content["from"]."\n".$html_to.": ".$content["to"]."\n".$html_sent.": ".$content["date"]."\n".$html_subject.": ".$content["subject"]."\n\n".strip_tags($content["body"], "");
 		// We add the attachments of the original message
-		list($num_attach, $attach_array) = save_attachment($servr, $user, stripslashes($passwd), $folder, $mail);
+		list($num_attach, $attach_array) = save_attachment($servr, $user, stripslashes($passwd), $folder, $mail, $tmpdir);
+		// Registering the attachments array into the session
+		session_register("num_attach", "attach_array");
+		require ("html/menu_inbox.php");
 		require("html/send.php");
 		require ("html/menu_inbox.php");
 		break;
@@ -111,6 +112,8 @@ switch ($action)
 				require ("wrong.php");
 				break;
 			case 0:
+				$loggedin = 1;
+				session_register("loggedin");
 				// the mailbox is empty
 				$num_msg = 0;
 				require ("html/menu_inbox.php");
@@ -119,6 +122,8 @@ switch ($action)
 				require ("html/html_bottom_table.php");
 				break;
 			default:
+				$loggedin = 1;
+				session_register("loggedin");
 				// there are messages, we display
 				$num_msg = sizeof($tab_mail);
 				require ("html/menu_inbox.php");

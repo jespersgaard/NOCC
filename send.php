@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.41 2001/04/17 21:55:36 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.42 2001/04/18 09:02:13 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -11,25 +11,12 @@
 
 require ("conf.php");
 require ("check_lang.php");
-$php_session = ini_get("session.name");
-$upload_tmp_dir = ini_get("upload_tmp_dir");
-$tmpdir = (!empty($upload_tmp_dir) ? $upload_tmp_dir : $tmpdir);
 
-if (empty($tmpdir))
-	header("Location: problem.php?lang=$lang&$php_session=".$$php_session);
+if (!session_is_registered("loggedin"))
+	header("Location: logout.php?lang=$lang");
 
 if (!function_exists("is_uploaded_file"))
 	include ("is_uploaded_file.php");
-
-function go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $lang)
-{
-	if (is_array($attach_array))
-		while ($tmp = array_shift($attach_array))
-			unlink($tmpdir."/".$tmp->tmp_file);
-	session_unregister("num_attach");
-	session_unregister("attach_array");
-	header("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang&$php_session=".$$php_session);
-}
 
 if ($HTTP_SERVER_VARS["REQUEST_METHOD"] != "POST")
 	go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $lang);
@@ -52,13 +39,12 @@ else
 			if (is_uploaded_file($mail_att))
 			{
 				copy($mail_att, $tmpdir."/".$tmp_name);
-				copy($mail_att, $tmpdir."/".$tmp_name);
 				$attach_array[$num_attach]->file_name = $mail_att_name;
 				$attach_array[$num_attach]->tmp_file = $tmp_name;
 				$attach_array[$num_attach]->file_size = $mail_att_size;
 				$attach_array[$num_attach]->file_mime = $mail_att_type;
 			}
-			// Registering the attachment array into the session
+			// Registering the attachments array into the session
 			session_register("num_attach", "attach_array");
 			// Displaying the sending form with the new attachments array
 			header("Content-type: text/html; Charset=$charset");
@@ -130,7 +116,7 @@ else
 			session_unregister("num_attach");
 			session_unregister("attach_array");
 			$attach_array = $tmp_array;
-			// Registering the attachment array into the session
+			// Registering the attachments array into the session
 			session_register("num_attach", "attach_array");
 			// Displaying the sending form with the new attachment array
 			header("Content-type: text/html; Charset=$charset");
