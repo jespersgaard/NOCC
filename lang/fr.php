@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.31 2001/01/29 17:37:43 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.32 2001/01/30 09:45:33 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -56,7 +56,7 @@ $html_lang = "Langue";
 $html_welcome = "Bienvenue &agrave;";
 $html_login = "Login";
 $html_passwd = "Mot de passe";
-$html_submit = "Ok";
+$html_submit = "Entrer";
 $html_help = "Aide";
 $html_server = "Serveur";
 $html_wrong = "Le login ou le mot de passe ne sont pas valides";
