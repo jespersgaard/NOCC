@@ -9,7 +9,7 @@ if test $# -eq 0
 then
   echo "Missing first parameter (name of package)"
   echo "Usage: buildpackage.sh <name of package>"
-  echo "Example: buildpackage.sh nocc-0.9.3"
+  echo "Example: buildpackage.sh nocc-0.9.6"
   exit 0
 fi
 
@@ -19,6 +19,9 @@ cd .. && cp -rp $myname $distname
 cd $distname
  find . -name CVS -type d | xargs rm -rf
  rm -f buildpackage.sh
+ rm -f lang/add_message.sh
+ rm -f lang/add_message_file.sh
+ rm -f lang/remove_message.sh
 cd ..
 tar cf $distname.tar $distname
 rm -f $distname.tar.*
