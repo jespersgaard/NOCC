@@ -1,6 +1,7 @@
 NOCC 0.9.4	??   ??, 2001
 
-	* Added Slovak translation
+	* Correct a little bug when sending mail.
+	* Added Slovak translation.
 	* Added an error reporting control. No more 'undefined variable'
 	  warning will appear.
 	* Added a new theme 'newlook' from Anton Jakimov <t0xa@ls2.lv>
