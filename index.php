@@ -6,7 +6,7 @@ session_unset();
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
 <HEAD>
-<TITLE>NOCC Desktop - Webmail</TITLE>
+<TITLE>NOCC - Webmail</TITLE>
 <META http-equiv="pragma" content="no-cache">
 <META content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
 <LINK href="style.css" rel="stylesheet">
