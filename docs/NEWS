@@ -20,11 +20,12 @@ NOCC 0.7	November 1999 (never released)
 
 	* First PHP version.
 	* Rewritten from scrath.
+	* Heavily reduced number of POST with CGIs thanks to session handling.
 	* Changed name from Epimail to NOCC.
 
 Epimail 0.6a	September 2000 (never released because of lack of documentation)
 
-	* HTML clean-up.
+	* HTML cleanup.
 	* Apop (MD5) desactivated.
 	* bugfixes.
 
@@ -40,7 +41,7 @@ Epimail 0.4	September 1999 (never released)
 
 	* Icons modified.
 	* Speed optimization.
-	* Code clean-up.
+	* Code cleanup.
 
 Epimail 0.3	July 1999 (never released)
 
