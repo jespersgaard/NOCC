@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.45 2001/11/18 17:53:32 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/lv.php,v 1.1 2004/03/04 20:05:29 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -123,6 +123,7 @@ $html_gotofolder = 'Go to Folder'; // to translate
 $html_other_folders = 'Folder List'; // to translate
 $html_page = 'Page'; // to translate
 $html_of = 'of'; // to translate
+$html_to = 'to'; // to translate
 $html_view_header = 'Apskatît galveni';
 $html_remove_header = 'Paslçpt galveni';
 $html_inbox = 'Inbox';
@@ -175,15 +176,8 @@ $html_send_confirmed = 'Vçstule tika pieòemta nosûtîðanai';
 $html_no_sendaction = 'Rîcîba nav norâdîta. Pamçìiniet ieslçgt Java-script.';
 $html_error_occurred = 'Kïûda';
 $html_prefs_file_error = 'Nevar atvçrt uzstâdîjumu failu ierakstîðanai.';
-$html_wrap = 'Wrap outgoing messages to :';
-$html_usenet_separator = 'Usenet separator ("-- \n") Before signature';
-
-$html_del_msg = 'Delete selected messages ?'; // to translate
-$html_down_mail = 'Download'; // to translate
-
-$original_msg = '-- Original Message --';
-$to_empty = ' \'Kam\' laukumu nedrîkst atstât tukðu !';
-
+$html_wrap = 'Wrap outgoing messages to :'; // to translate
+$html_usenet_separator = 'Usenet separator ("-- \n") Before signature'; // to translate
 // Contacts manager
 $html_add = 'Add'; // to translate
 $html_contacts = 'Contacts'; // to translate
@@ -197,8 +191,14 @@ $html_contact_nick = 'Nick'; // to translate
 $html_contact_mail = 'Mail'; // to translate
 $html_contact_list = 'Contact list of '; // to translate
 $html_contact_del = 'from the contact list'; // to translate
+
 $html_contact_err1 = 'Maximal number of contact is '; // to translate
 $html_contact_err2 = 'You can\'t add a new contact'; // to translate
+$html_del_msg = 'Delete selected messages ?'; // to translate
+$html_down_mail = 'Download'; // to translate
+
+$original_msg = '-- Original Message --';
+$to_empty = ' \'Kam\' laukumu nedrîkst atstât tukðu !';
 
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = "Nevar atvçrt savienojumu";
