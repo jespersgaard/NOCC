@@ -1,9 +1,8 @@
 NOCC 0.9.4	??   ??, 2001
 
+	* Added support for multiple domain/server
 	* Messages are now send with the charset set in the header. The charset
 	  set is the one of the chosen language.
-	* Messages are now translated  from the charset in the mail headers to 
-	  the charset choosen at login time. 
 
 
 NOCC 0.9.3	March 12, 2001
