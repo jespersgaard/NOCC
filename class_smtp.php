@@ -1,7 +1,11 @@
 <?
 /*
-NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>  
-This class is based on a work from Unk <rgroesb_garbage@triple-it_garbage.nl>
+	$Author$
+	$Revision$
+	$Date$
+
+	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
+This class is based on a work from Unk <rgroesb_garbage@triple-it_garbage.nl>  
 
   You should have received a copy of the GNU Public
   License along with this package; if not, write to the
