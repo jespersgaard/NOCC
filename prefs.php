@@ -4,7 +4,7 @@
     **
     **  This contains functions for manipulating user preferences
     **
-    **  $Id: prefs.php,v 1.28 2001/06/25 16:20:57 fidian Exp $
+    **  $Id: prefs.php,v 1.1 2001/10/17 22:51:44 rossigee Exp $
     **/
 
    if (defined('prefs_php'))
@@ -26,8 +26,8 @@
        $filename = $data_dir . $username . '.pref';
        
        if (!file_exists($filename)) {
-           printf (_("Preference file, %s, does not exist. Log out, and log back in to create a default preference file."), $filename);
-           exit;
+           $file = fopen($filename, 'w');
+           fclose($file);
        }
 
        $file = fopen($filename, 'r');
@@ -119,9 +119,12 @@
    function checkForPrefs($data_dir, $username) {
       $filename = $data_dir . $username . '.pref';
       if (!file_exists($filename)) {
-         if (!copy($data_dir . 'default_pref', $filename)) {
-            echo _("Error opening ") . $filename;
-            exit;
+	 $default_pref = $data_dir . 'default_pref';
+         if (file_exists($default_pref)) {
+            if (!copy($default_pref, $filename)) {
+               $file = fopen($data_dir . $username . '.pref', 'w');
+               fclose($file);
+            }
          }
       }
    }
