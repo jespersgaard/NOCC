@@ -1,21 +1,15 @@
 <?
 /*
-	$Author: nicocha $
-	$Revision: 1.14 $
-	$Date: 2000/11/07 16:35:51 $
-
-	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
-  
-  You should have received a copy of the GNU Public
-  License along with this package; if not, write to the
-  Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-  Boston, MA 02111-1307, USA.
-*/
-
-
-/*
-This file is the main file of NOCC each function starts from here
-*/
+ * $Header$
+ *
+ * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
+ * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
+ *
+ * See the enclosed file COPYING for license information (GPL).  If you
+ * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
+ *
+ * This file is the main file of NOCC each function starts from here
+ */
 
 require ("conf.php");
 require ("check_lang.php");

@@ -1,21 +1,17 @@
 <?
 /*
-	$Author: nicocha $
-	$Revision: 1.6 $
-	$Date: 2000/10/30 00:31:44 $
+ * $Header$
+ *
+ * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
+ * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
+ *
+ * See the enclosed file COPYING for license information (GPL).  If you
+ * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
+ *
+ * Sets the language (default is browser language if it exists else
+ * it's $default_lang
+ */
 
-	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
-  
-  You should have received a copy of the GNU Public
-  License along with this package; if not, write to the
-  Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-  Boston, MA 02111-1307, USA.
-*/
-
-
-/*
- This file set the language (default is browser language if it exists else it's $default_lang
-*/
 if (!ISSET($lang))
 {
 	$ar_lang = explode(",", $HTTP_ACCEPT_LANGUAGE);

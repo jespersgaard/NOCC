@@ -1,19 +1,16 @@
 <?
 /*
-	$Author: nicocha $
-	$Revision: 1.5 $
-	$Date: 2000/10/23 23:57:13 $
+ * $Header$
+ *
+ * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
+ * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
+ *
+ * See the enclosed file COPYING for license information (GPL).  If you
+ * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
+ *
+ * File for downloading the attachments
+ */
 
-	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
-  
-  You should have received a copy of the GNU Public
-  License along with this package; if not, write to the
-  Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-  Boston, MA 02111-1307, USA.
-*/
-
-
-// File for downloading the attachments
 
 session_register ("user");
 session_register ("passwd");
