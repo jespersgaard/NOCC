@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.52 2002/04/16 00:46:59 mrylander Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.53 2002/04/17 21:17:53 mrylander Exp $ -->
 <?php
 
 require_once 'class_local.php';
@@ -22,17 +22,16 @@ if($pages > 1) {
 	$pskip = $skip - 1;
 	$this_page = $skip + 1;
 	if($pskip > -1 ) {
-		$prev = "<a href=\"$PHP_SELF?sort=$sort&sortdir=$sortdir&lang=$lang&skip=$pskip&folder=$folder\">".
-			"<img src=\"themes/".$theme."/img/left_arrow.gif\" border=\"0\" /></a>\n";
+		$prev = "<a href=\"$PHP_SELF?sort=$sort&sortdir=$sortdir&lang=$lang&skip=$pskip&folder=$folder\">";
+		$prev .= "<img src=\"themes/".$theme."/img/left_arrow.gif\" border=\"0\" /></a>\n";
 	}
-
 	if($nskip < $pages) {
-		$next = "<a href=\"$PHP_SELF?sort=$sort&sortdir=$sortdir&lang=$lang&skip=$nskip&folder=$folder\">".
-			"<img src=\"themes/".$theme."/img/right_arrow.gif\" border=\"0\" /></a>\n";
+		$next = "<a href=\"$PHP_SELF?sort=$sort&sortdir=$sortdir&lang=$lang&skip=$nskip&folder=$folder\">";
+		$next .= "<img src=\"themes/".$theme."/img/right_arrow.gif\" border=\"0\" /></a>\n";
 	}
-	$page_line = "<form method=\"POST\" action=\"$PHP_SElF?sort=1&sortdir=1&lang=$lang&folder=$folder\">";
-	$page_line .= "$html_page $this_page $html_of $pages; $per_page $html_msgperpage &nbsp;  $prev \n<SELECT name=\"skip\">\n";
 
+	$page_line = "<form method=\"POST\" action=\"$PHP_SELF?sort=1&sortdir=1&lang=$lang&folder=$folder\">";
+	$page_line .= "$html_page <select name=\"skip\">\n";
 	$selected = '';
 	for ($i = 0; $i < $pages; $i++) { 
 		$current_skip = $i + 1;
@@ -41,10 +40,11 @@ if($pages > 1) {
 		} else {
 			$selected = "";
 		}
-		$page_line .= "\t<OPTION $selected value=\"$i\">$current_skip</OPTION>\n";
+		$page_line .= "\t<option $selected value=\"$i\">$current_skip</option>\n";
 	}
-
-	$page_line .= "</select> $next <input type=\"submit\" class=\"button\" name=\"submit\" value=\"$html_gotopage\"></form>";
+	$page_line .= "</select> $html_of $pages";
+	$page_line .= "<input type=\"submit\" class=\"button\" name=\"submit\" value=\"$html_gotopage\">";
+	$page_line .= "</form>";
 }
 
 if ($pop->is_imap()) {
@@ -68,10 +68,14 @@ if ($pop->is_imap()) {
     </tr>
     <tr bgcolor="<?php echo $glob_theme->inside_color ?>">
         <td <?php if (($is_imap) || ($conf->have_ucb_pop_server)) echo 'colspan="3"'; else echo 'colspan="2"'; ?>align="left" class="inbox">
-            <?php echo $fldr_line ?></td>
+            <?php echo $fldr_line ?>
 	</td>
-	<td colspan="4" align="right" class="inbox">
-            <?php echo $page_line ?></td>
+	<td colspan="2" align="right" class="inbox">
+            <?php echo $page_line ?>
+	</td>
+	<td colspan="2" align="right" class="inbox">
+            <?php echo $prev ?>
+            <?php echo $next ?>
 	</td>
     </tr>
     <tr bgcolor="<?php echo $glob_theme->inbox_text_color ?>">
@@ -116,4 +120,4 @@ if ($pop->is_imap()) {
             <input type="hidden" name="folder" value="<?php echo $folder ?>" />
         </td>
     </tr>
-<!-- start of $Id: html_top_table.php,v 1.52 2002/04/16 00:46:59 mrylander Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.53 2002/04/17 21:17:53 mrylander Exp $ -->
