@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.52 2001/01/30 13:27:25 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.53 2001/01/30 22:38:09 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -42,7 +42,7 @@ function inbox($servr, $user, $passwd, $sort, $sortdir, $lang)
 				if (ereg("IMAP", $mailhost))
 					$msg_size = get_mail_size($struct_msg);
 				else
-					$msg_size = ($struct_msg->bytes > 1024) ? round($struct_msg->bytes / 1024) : 1;
+					$msg_size = ($struct_msg->bytes > 1000) ? ceil($struct_msg->bytes / 1000) : 1;
 				if ($struct_msg->type == 1)
 				{
 					if ($struct_msg->subtype == "ALTERNATIVE" || $struct_msg->subtype == "RELATED")
@@ -267,7 +267,7 @@ function GetPart($this_part, $part_no, $display_rfc822)
 					"name" => $att_name,
 					"mime" => $full_mime_type,
 					"transfer" => $encoding,
-					"size" => ($this_part->bytes > 1024) ? round($this_part->bytes / 1024) : 1);
+					"size" => ($this_part->bytes > 1000) ? ceil($this_part->bytes / 1000) : 1);
 		
 			array_unshift($attach_tab, $tmp);
 		}
@@ -310,7 +310,7 @@ function GetSinglePart($this_part, $header, $body)
 					"name" => "",
 					"mime" => $full_mime_type,
 					"transfer" => $encoding,
-					"size" => ($this_part->bytes > 1024) ? round($this_part->bytes / 1024) : 1);
+					"size" => ($this_part->bytes > 1000) ? ceil($this_part->bytes / 1000) : 1);
 	array_unshift($attach_tab, $tmp);
 }
 
@@ -403,7 +403,7 @@ function get_mail_size($this_part)
 	$size = $this_part->bytes;
 	for ($i = 0; $i < count($this_part->parts); $i++)
 		$size += $this_part->parts[$i]->bytes;
-	$size = ($size > 1024) ? round($size / 1024) : 1;
+	$size = ($size > 1000) ? ceil($size / 1000) : 1;
 	return ($size);
 }
 

@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.13 2001/01/30 09:45:33 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.14 2001/01/30 13:27:25 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -14,15 +14,19 @@
 session_register ("user", "passwd");
 require ("conf.php");
 
-$pop = imap_open("{".$servr."}INBOX", $user, stripslashes($passwd));
+header('Content-Type: application/x-unknown-'.$mime);
+// IE 5.5 is weird, the line is not correct but it works
+if (eregi("MSIE", $HTTP_USER_AGENT) && eregi("5.5", $HTTP_USER_AGENT))
+	header('Content-Disposition: filename='.urldecode($filename));
+else
+	header('Content-Disposition: attachment; filename='.urldecode($filename));
+	$pop = imap_open("{".$servr."}INBOX", $user, stripslashes($passwd));
 $file = imap_fetchbody($pop, $mail, $part);
 imap_close($pop);
 if ($transfer == "BASE64")
 	$file = imap_base64($file);
 elseif($transfer == "QUOTED_PRINTABLE")
-// We use "Content-Type: unknown" to be sure the file is downloaded and not displayed
-header("Content-Type: application/x-unknown-$mime");
-header("Content-Disposition: filename=\"".urldecode($filename)."\"");
-header("Content-Length: ".strlen($file));
-echo $file;
+	$file = quoted_printable_decode($file);
+header('Content-Length: '.strlen($file));
+echo ($file);
 ?>
