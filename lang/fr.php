@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.59 2002/04/24 23:32:25 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.60 2002/06/30 16:27:14 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -70,12 +70,13 @@ $html_retry = 'R&eacute;essayer';
 
 // prefs.php
 
+$html_msgperpage = 'Messages par page';
 $html_preferences = 'Pr&eacute;f&eacute;rences';
 $html_full_name = 'Nom complet';
 $html_email_address = 'Adresse e-mail';
 $html_ccself = 'Recevoir une copie';
 $html_hide_addresses = 'Cacher mon adresse e-mail';
-$html_outlook_quoting = 'Outlook-style quoting';
+$html_outlook_quoting = 'Citation &agrave; la Outlook';
 $html_reply_to = 'R&eacute;pondre &agrave;';
 $html_use_signature = 'Utiliser la signature';
 $html_signature = 'Signature';
@@ -143,7 +144,7 @@ $to_empty = 'Le champ \'A\' ne doit pas être vide !';
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = "Impossible d'ouvrir la connexion";
 $html_smtp_error_unexpected = "R&eacute;ponse inattendue:";
-$lang_could_not_connect = 'Could not connect to server';  //to translate
-$html_file_upload_attack = 'Possible file upload attack';  //to translate
-$html_invalid_email_address = 'Invalid e-mail address';  //to translate
+$lang_could_not_connect = 'Impossible de se connecter au serveur';
+$html_file_upload_attack = 'Possibilit&eacute; d\'attaque depuis le fichier upload&eacute;';
+$html_invalid_email_address = 'Adresse e-mail invalide';
 ?>
