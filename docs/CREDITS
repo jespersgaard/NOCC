@@ -1,23 +1,30 @@
-=------------------------------=
-NOCC Version 1.0 Development Team
-=------------------------------=
+=-------------------=
+NOCC Development Team
+=-------------------=
 
 Core Developers
 ===============
 
-* Nicolas Chalanset <nicocha@free.fr>
+ * Nicolas Chalanset <nicocha@free.fr>
 
 	SMTP and MIME functions
 	INBOX functions
 	Display messages functions
 
-* Olivier Cahagne <cahagn_o@epita.fr>
-  http://www.epita.fr/~cahagn_o/
+ * Olivier Cahagne <cahagn_o@epita.fr>
+   http://www.epita.fr/~cahagn_o/
 
 	Rewrote Epimail/Perl in PHP
 	A lot of debugging
 
+Additional Developers
+=====================
+
+ * David Ferch <dferch@tk-online.net>
+
+	German translation
+
 Thanks to
 =========
 
-* The KDE Team for the trash icon
+ * The KDE Team for the trash icon
