@@ -8,8 +8,8 @@
 if test $# -eq 0
 then
   echo "Missing first parameter (name of package)"
-  echo "Usage: buildpackage <name of package>"
-  echo "Example: buildpackage nocc-0.9.3"
+  echo "Usage: buildpackage.sh <name of package>"
+  echo "Example: buildpackage.sh nocc-0.9.3"
   exit 0
 fi
 
