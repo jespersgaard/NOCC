@@ -4,8 +4,7 @@ require ("check_lang.php");
 
 if ($is_standalone == true)
 {
-	session_register("user");
-	session_register("passwd");
+	session_register("user", "passwd");
 	require ("html/standalone_top.php");
 }
 require ("functions.php");

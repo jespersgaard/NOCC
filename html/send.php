@@ -1,9 +1,11 @@
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
 		<td bgcolor="#cacaca">
-
 			<TABLE WIDTH="100%" CELLSPACING="2" CELLPADDING="1" BORDER="0" bgcolor="<? echo $html_tb_color ?>" bordercolor="#000000">
 				<FORM ENCTYPE="multipart/form-data" METHOD="POST" ACTION="send.php" onSubmit="this.att_name.value=this.mail_att.value;">
+				<input type="hidden" name="sort" value="<? echo $sort ?>">
+				<input type="hidden" name="sortdir" value="<? echo $sortdir ?>">
+				<input type="hidden" name="lang" value="<? echo $lang ?>">
 				<TR>
 					<TD ALIGN="RIGHT" class="inbox"><? echo $html_from ?> : </TD>
 					<TD>
