@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.19 2004/01/02 21:03:16 ajetam Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.20 2004/01/03 12:04:47 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -177,25 +177,25 @@ $html_no_sendaction = 'Nie okre¶lona akcja. Spróbuj w³±czyæ Javascript.';
 $html_error_occurred = 'Wyst±pi³ b³±d';
 $html_prefs_file_error = 'Nie mo¿na otworzyæ pliku z ustawieniami do zapisu.';
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
-$html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
+$html_usenet_separator = 'U¿yj separatora ("-- \n") Przed sygnatur±';
 // Contacts manager
-$html_add = 'Add';  //to translate
-$html_contacts = 'Contacts';  //to translate
-$html_modify = 'Modify';  //to translate
-$html_back = 'Back';  //to translate
-$html_contact_add = 'Add new contact';  //to translate
-$html_contact_mod = 'Modify a contact';  //to translate
-$html_contact_first = 'First name';  //to translate
-$html_contact_last = 'Last Name';  //to translate
-$html_contact_nick = 'Nick';  //to translate
-$html_contact_mail = 'Mail';  //to translate
-$html_contact_list = 'Contact list of ';  //to translate
-$html_contact_del = 'from the contact list';  //to translate
+$html_add = 'Dodaj';
+$html_contacts = 'Kontakty';
+$html_modify = 'Zmieñ';
+$html_back = 'Cofnij';
+$html_contact_add = 'Dodaj nowy kontakt';
+$html_contact_mod = 'Zmieñ kontakt';
+$html_contact_first = 'Imiê';
+$html_contact_last = 'Nazwisko';
+$html_contact_nick = 'Nick';
+$html_contact_mail = 'Adres e-mail';
+$html_contact_list = 'Lista kontaktów u¿ytkownika ';
+$html_contact_del = 'z listy kontaktów';
 
-$html_contact_err1 = 'Maximal number of contact is ';  //to translate
-$html_contact_err2 = 'You can\'t add a new contact';  //to translate
-$html_del_msg = 'Delete selected messages ?';  //to translate
-$html_down_mail = 'Download';  //to translate
+$html_contact_err1 = 'Maksymalna liczba kontaktów to ';
+$html_contact_err2 = 'Nie mo¿esz dodaæ nowego kontaktu';
+$html_del_msg = 'Usun±æ zaznaczone wiadomo¶æi ?';
+$html_down_mail = 'Pobierz';
 
 $original_msg = '--- Wiadomo¶æ oryginalna ---';
 $to_empty = 'Pole \'Do\' nie mo¿e byæ puste!';
@@ -205,9 +205,9 @@ $html_smtp_error_no_conn = 'Nie mo¿na utworzyæ po³±czenia SMTP';
 $html_smtp_error_unexpected = 'Nieoczekiwana odpowied SMTP';
 
 // IMAP messages (class_local.php)
-$lang_could_not_connect = 'Nie mo¿na po³aczyæ siê z serwerem';  //to translate
+$lang_could_not_connect = 'Nie mo¿na po³aczyæ siê z serwerem';
 
-$html_file_upload_attack = 'Possible file upload attack';  //to translate
+$html_file_upload_attack = 'Mo¿liwy atak poprzez upload plików';
 $html_invalid_email_address = 'Niew³a¶ciwy adres e-mail';
 $html_seperate_msg_win = 'Wiadomo¶ci w osobnym oknie';
 ?>
