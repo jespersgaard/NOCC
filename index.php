@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.47 2001/02/20 21:06:03 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.48 2001/02/23 09:31:57 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -49,7 +49,7 @@ function selectLang()
 {
 	if (document.nocc_webmail_login.user.value == "" && document.nocc_webmail_login.passwd.value == "")
 	{
-		var lang_page = "<?phpecho $PHP_SELF?>?lang=" + document.nocc_webmail_login.lang[document.nocc_webmail_login.lang.selectedIndex].value;
+		var lang_page = "<?php echo $PHP_SELF?>?lang=" + document.nocc_webmail_login.lang[document.nocc_webmail_login.lang.selectedIndex].value;
 		self.location = lang_page;
 	}
 }
@@ -58,15 +58,14 @@ function selectTheme()
 {
 	if (document.nocc_webmail_login.user.value == "" && document.nocc_webmail_login.passwd.value == "")
 	{
-		var theme_page = "<?phpecho $PHP_SELF?>?theme=" + document.nocc_webmail_login.theme[document.nocc_webmail_login.theme.selectedIndex].value;
+		var theme_page = "<?php echo $PHP_SELF?>?theme=" + document.nocc_webmail_login.theme[document.nocc_webmail_login.theme.selectedIndex].value;
 		self.location = theme_page;
 	}
 }
 // -->
 </script>
 </head>
-<body bgcolor="<?php echo $glob_theme->bgcolor ?>" link="<?php echo $glob_theme->link_color ?>" text="<?php echo $glob_theme->text_color ?>" vlink="<?php 
-echo $glob_theme->vlink_color ?>" alink="<?php echo $glob_theme->alink_color ?>">
+<body bgcolor="<?php echo $glob_theme->bgcolor ?>" link="<?php echo $glob_theme->link_color ?>" text="<?php echo $glob_theme->text_color ?>" vlink="<?php echo $glob_theme->vlink_color ?>" alink="<?php echo $glob_theme->alink_color ?>">
 <form action="action.php" method="post" name="nocc_webmail_login" target="_top">
 <table border="0" width="100%">
 	<tr>

@@ -22,7 +22,7 @@ if ($action == "forward")
 			<table border="0" cellpadding="2" cellspacing="1" bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%">
 				<tr>
 					<td class="menu" align="center" width="120" bgcolor="<?php echo $color_inbox ?>">
-						<a href="<?php echo $PHP_SELF ?>?lang=<?phpecho $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>" class="menu"><?php echo $html_inbox ?></a>
+						<a href="<?php echo $PHP_SELF ?>?lang=<?php echo $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>" class="menu"><?php echo $html_inbox ?></a>
 					</td>
 					<td class="menu" align="center" width="120" bgcolor="<?php echo $color ?>">
 						<?php echo $line ?>
