@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.56 2002/06/27 22:17:52 rossigee Exp $ -->
+<!-- start of $Id: send.php,v 1.57 2002/06/28 17:45:17 rossigee Exp $ -->
 <?php
 
 // Default e-mail address on send form
@@ -25,7 +25,7 @@ $mail_from = get_default_from_address();
                 <tr>
                     <td align="right" class="inbox"><?php echo $html_from ?> : </td>
                     <td align="left" class="inbox">
-                        <?php if ($allow_address_change) { ?>
+                        <?php if ($conf->allow_address_change) { ?>
                             <input type="text" name="mail_from" size="60" value="<?php echo htmlspecialchars($mail_from) ?>" />
                         <?php } else { ?>
                             <input type="hidden" name="mail_from" value = "<?php echo htmlspecialchars($mail_from) ?>" /><?php echo htmlspecialchars($mail_from) ?>
@@ -152,4 +152,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.56 2002/06/27 22:17:52 rossigee Exp $ -->
+<!-- end of $Id: send.php,v 1.57 2002/06/28 17:45:17 rossigee Exp $ -->
