@@ -1,6 +1,6 @@
 Frequently Asked Questions for Nocc
 -----------------------------------
-Last updated: $Date: 2001/06/19 09:20:55 $
+Last updated: $Date: 2002/02/10 19:55:47 $
 
  Q. Nocc keeps me asking for a correct login/password.
 
@@ -29,7 +29,7 @@ Last updated: $Date: 2001/06/19 09:20:55 $
     PHP script with phpinfo() to see what it supports).
     Check the on-line PHP manual to configure IMAP/c-client support
 
-	http://www.php.net/manual/ref.imap.php
+    http://www.php.net/manual/ref.imap.php
 
 -----------------------------------
 

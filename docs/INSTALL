@@ -40,28 +40,28 @@ Installing NOCC
   --------------------
        
        1) Download nocc-x.y.tar.gz (where x and y are version numbers)
-	  (or nocc-x.y.zip for Windows' users).
-	  http://nocc.sourceforge.net/
+          (or nocc-x.y.zip for Windows' users).
+          http://nocc.sourceforge.net/
 
        2) untar/unzip nocc into the directory you want.
-	  Default directory is nocc.
+          Default directory is nocc.
    
        3) Change into the 'nocc' directory, make changes to the 
           config file (conf.php.dist) and save the new one to conf.php
-	  (remove .dist in the file name)
+          (remove .dist in the file name)
 
            'conf.php.dist' contains a large number of default values
            that you'll need to configure for your system, such as
            the default IMAP/POP3 server, whether or not users can pick a
            different server, etc...
-	   The file is fairly well documented, so you should be able to pick
-	   out what you need to change fairly easily.
-	   Be sure to check the '$prefs_dir' is writable by the user the
-	   webserver is running as.
+           The file is fairly well documented, so you should be able to pick
+           out what you need to change fairly easily.
+           Be sure to check the '$prefs_dir' is writable by the user the
+           webserver is running as.
 
        4) (Optional step)
-	  if you run with suEXEC, you'll need to run './addcgipath path' to add
-	  the parser line at the beginning of PHP files.
+          if you run with suEXEC, you'll need to run './addcgipath path' to add
+          the parser line at the beginning of PHP files.
 
        5) Remove ./addcgipath.sh. For security reasons, it might be run by
           external users although "sh" files are never interpreted by Web

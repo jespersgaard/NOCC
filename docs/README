@@ -8,13 +8,13 @@ Summary
 *******
 
 This file contains the following sections:
-	* Overview of Nocc
-	  - License
-	  - Getting Nocc
-	* Requirements for NOCC
-	* Installing NOCC
-	* Additional notes for NOCC
-	  - History
+    * Overview of Nocc
+      - License
+      - Getting Nocc
+    * Requirements for NOCC
+    * Installing NOCC
+    * Additional notes for NOCC
+      - History
 
 Overview of Nocc
 ****************
@@ -98,26 +98,26 @@ Installing NOCC
   --------------------
        
        1) Download nocc-x.y.tar.gz (where x and y are version numbers)
-	  (or nocc-x.y.zip for Windows' users).
-	  http://nocc.sourceforge.net/
+          (or nocc-x.y.zip for Windows' users).
+          http://nocc.sourceforge.net/
 
        2) untar/unzip nocc into the directory you want.
-	  Default directory is nocc.
+          Default directory is nocc.
       
        3) Change into the 'nocc' directory, make changes to the 
           config file (conf.php.dist) and save the new one to conf.php
-	  (remove .dist in the file name)
+          (remove .dist in the file name)
 
            'conf.php.dist' contains a large number of default values
            that you'll need to configure for your system, such as
            the default IMAP/POP3 server, whether or not users can pick a
            different server, etc...
-	   The file is fairly well documented, so you should be able to pick
-	   out what you need to change fairly easily.
+           The file is fairly well documented, so you should be able to pick
+           out what you need to change fairly easily.
 
        4) (Optional step)
-	  if you run with suEXEC, you'll need to run './addcgipath path' to add
-	  the parser line at the beginning of PHP files.
+          if you run with suEXEC, you'll need to run './addcgipath path' to add
+          the parser line at the beginning of PHP files.
 
        5) Remove ./addcgipath.sh. For security reasons, it might be run by
           external users although "sh" files are never interpreted by Web
@@ -167,43 +167,47 @@ to test every setup at each release, we have just sometimes tested this with
 some version of NOCC and it worked, we'd like to have a matrix of what works
 for every release and be able to update it with users' setups):
 
-	* servers: (Nocc should work with any server, however, these have been
+    * servers: (Nocc should work with any server, however, these have been
 specifically tested and are known to work)
-	  - Apache with PHP compiled as module or CGI.
-	  - Apache 1.3.12, 1.3.14, 1.3.17, 1.3.19, 2.0.14 (Win32).
-	  - Microsoft IIS 4.0, IIS 5.0 w/CGI, IIS 5.0 w/ISAPI.
-	  - O'Reilly WebSite Pro 2.x & 3.
-	  - Xitami.
-	  - PHP 4.0.0, 4.0.1, 4.0.1pl1, 4.0.2, 4.0.3pl1, 4.0.4, 4.0.4pl1, 4.0.5.
-	  - PHP running through a wrapper: suEXEC.
-	  - various OS including GNU/Linux, FreeBSD, NetBSD, OpenBSD and Win2k.
-	  - PHP 4.0.4-dev compiled as module for Apache Win32.
-	  - warning: due to a sessions bug, only PHP 4.0.4 or higher will run
-	    correctly on Win32 platforms.
+      - Apache with PHP compiled as module or CGI.
+      - Apache 1.3.12, 1.3.14, 1.3.17, 1.3.19, 2.0.14 (Win32).
+      - Microsoft IIS 4.0, IIS 5.0 w/CGI, IIS 5.0 w/ISAPI.
+      - O'Reilly WebSite Pro 2.x & 3.
+      - Xitami.
+      - PHP 4.0.0, 4.0.1, 4.0.1pl1, 4.0.2, 4.0.3pl1, 4.0.4, 4.0.4pl1, 4.0.5,
+          4.1.1, 4.1.2.
+          Will *NOT* with PHP 4.2.x yet because of register_global new
+               behaviour, this is being worked on and might be working in
+               0.9.6 before PHP 4.2.0 will be actually released.
+      - PHP running through a wrapper: suEXEC.
+      - various OS including GNU/Linux, FreeBSD, NetBSD, OpenBSD and Win2k.
+      - PHP 4.0.4-dev compiled as module for Apache Win32.
+      - warning: due to a sessions bug, only PHP 4.0.4 or higher will run
+        correctly on Win32 platforms.
 
-	* browsers: (256 colors setups are ok)
-	  - Netscape 4.x, 6.x for Unix and Windows.
-	  - IE 4.x, 5.x for Windows.
-	  - Lynx 2.8.3, Konqueror, Opera, WebTV 3.0.
-	  - Mozilla 0.x for Linux and Windows.
-	  - with or without cookies.
+    * browsers: (256 colors setups are ok)
+      - Netscape 4.x, 6.x for Unix and Windows.
+      - IE 4.x, 5.x for Windows.
+      - Lynx 2.8.3, Konqueror, Opera, WebTV 3.0.
+      - Mozilla 0.x for Linux and Windows.
+      - with or without cookies.
 
-	* mail servers: (Nocc should work with any IMAP/POP3 server, however,
+    * mail servers: (Nocc should work with any IMAP/POP3 server, however,
 these have been tested and work)
-	  - UCB POP3 1.831beta.
-	  - MS Exchange 5.5 Build 2650-24 Service Pack 3.
-	  - Default RedHat 6.1 IMAP daemon v.12.250 (perhaps Cyrus IMAPd ?).
+      - UCB POP3 1.831beta.
+      - MS Exchange 5.5 Build 2650-24 Service Pack 3.
+      - Default RedHat 6.1 IMAP daemon v.12.250 (perhaps Cyrus IMAPd ?).
 
         * MTA: (Nocc should work with any MTA, however, these have been tested
 and work)
-	 - Sendmail.
-	 - Postfix.
+     - Sendmail.
+     - Postfix.
 
    NOCC has been used for many months at:
 
-	* a company with approx. 150 unique users/day,
-	* a school with also 150 unique users/day,
-	* several other, see http://nocc.sf.net/ .
+    * a company with approx. 150 unique users/day,
+    * a school with also 150 unique users/day,
+    * several other, see http://nocc.sf.net/ .
 
   Tips
   ----
