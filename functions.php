@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.54 2001/01/31 00:14:20 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.55 2001/02/06 17:01:39 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -52,12 +52,11 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang)
 				}
 				else
 					$attach = "&nbsp;";
-				// Following removed by NicoCha, the new column is no longer display for POP3 Account
 				// Check Status Line with UCB POP Server to
 				// see if this is a new message. This is a
 				// non-RFC standard line header.
 				// Set this in conf.php
-				/*if ($have_ucb_pop_server)
+				if ($have_ucb_pop_server)
                 {
 					$header_msg = imap_fetchheader($pop, imap_msgno($pop, $msgnum));
 					$header_lines = explode("\r\n", $header_msg);
@@ -76,11 +75,6 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang)
 					$new_mail_from_header = "&nbsp;";
 				}
 				if ($new_mail_from_header == "")
-					$newmail = "<img src=\"img/new.png\" alt=\"N\" height=\"17\" width=\"17\">";
-				else
-					$newmail = "&nbsp;";
-				*/
-				if (($ref_contenu_message->Unseen == 'U') || ($ref_contenu_message->Recent == 'N'))
 					$newmail = "<img src=\"img/new.png\" alt=\"N\" height=\"17\" width=\"17\">";
 				else
 					$newmail = "&nbsp;";
