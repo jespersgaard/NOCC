@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.115 2002/07/02 08:13:36 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.116 2002/09/20 23:39:38 mrylander Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -218,8 +218,8 @@ function get_default_from_address() {
     }
     
     // Append name if known
-    if(!empty($users_prefs->full_name))
-        $from_address = $prefs_full_name . ' <' . $from_address . '>';
+    if(!empty($user_prefs->full_name))
+        $from_address = $user_prefs->full_name . ' <' . $from_address . '>';
 
     return $from_address;
 }
