@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.32 2001/01/18 22:16:50 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.33 2001/01/29 14:30:41 nicocha Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -50,7 +50,7 @@ cellspacing="0" width="428">
 							<tr> 
 								<td colspan="3" height="18"><font size="-3">&nbsp;</font></td>
 							</tr>
-							<tr> 
+							<!--<tr> 
 								<td colspan="3" align="center">
 								<a href="<? echo $PHP_SELF ?>?lang=fr"><img src="img/fr.png" border="0" 
 height="12" width="12" ALT="<? echo $alt_fr ?>"></a>
@@ -64,7 +64,7 @@ height="12" width="12" ALT="<? echo $alt_de ?>"></a>
 								<a href="<? echo $PHP_SELF ?>?lang=es"><img src="img/es.png" border="0" 
 height="12" width="12" ALT="<? echo $alt_es ?>"></a>
 								</td>
-							</tr>
+							</tr>-->
 							<tr> 
 								<td colspan="3" height="18"><font size="-3">&nbsp;</font></td>
 							</tr>
@@ -126,6 +126,25 @@ height="12" width="12" ALT="<? echo $alt_es ?>"></a>
 							<?
 							}
 							?>
+							<TR>
+								<td align="right" class="f">
+									<? echo $html_lang ?>
+								</td>
+								<td><font size="-3">&nbsp;</font></td>
+								<td class="f">
+									<?
+										echo ("<select name=\"lang\">");
+										for ($i = 0; $i < sizeof($lang_array); $i++)
+											if (file_exists("lang/".$lang_array[$i]->filename.".php"))
+
+												echo ("<option value=\"".$lang_array[$i]->filename."\">".$lang_array[$i]->label."</option>");
+										echo ("</select>");
+									?>
+								</td>
+							</TR>
+							<tr>
+								<td colspan="3">&nbsp;</td>
+							</tr>
 							<TR>
 								<TD COLSPAN="3" align="center" class="f">
 									<INPUT name="enter" class="button" type="submit" value="<? echo $html_submit ?>">
