@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.101 2002/04/24 14:53:12 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.102 2002/04/24 19:32:30 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -139,7 +139,7 @@ switch (trim($sendaction))
             $folder = $_SESSION['folder'];
             $login = $_SESSION['login'];
             $passwd = $_SESSION['passwd'];
-            $pop = new nocc_imap($servr, $folder, $login, $passwd, $ev);
+            $pop = new nocc_imap($servr, $folder, $login, $passwd, 0, $ev);
             if (Exception::isException($ev)) {
                 require ('./html/header.php');
                 require ('./html/error.php');
