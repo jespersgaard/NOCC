@@ -1,4 +1,4 @@
-<tr bgcolor="<? echo $inbox_color ?>">
+<tr bgcolor="<? echo $glob_theme->inbox_color ?>">
 	<td align="center">
 		<input type="checkbox" name="<? echo $tmp["number"] ?>" value="<? echo $tmp["number"] ?>" />
 	</td>
@@ -11,10 +11,10 @@
 		<? echo $tmp["attach"] ?>
 	</td>
 	<td nowrap="nowrap" class="inbox">
-		<a href="<? echo $PHP_SELF ?>?action=aff_mail&amp;mail=<? echo $tmp["number"] ?>&amp;sort=<? echo $sort ?>&amp;sortdir=<? echo $sortdir?>&amp;lang=<? echo $lang ?>"><? echo $tmp["from"] ?></a>
+		<a href="<? echo $PHP_SELF ?>?action=aff_mail&amp;mail=<? echo $tmp["number"] ?>&amp;sort=<? echo $sort ?>&amp;sortdir=<? echo $sortdir?>&amp;lang=<? echo $lang ?>"><? echo ($tmp["from"]? $tmp["from"] : $html_att_unknown) ?></a>
 	</td>
 	<td class="inbox">
-		<? echo $tmp["subject"]? $tmp["subject"] : $html_nosubject; ?>
+		<a href="<? echo $PHP_SELF ?>?action=aff_mail&amp;mail=<? echo $tmp["number"] ?>&amp;sort=<? echo $sort ?>&amp;sortdir=<? echo $sortdir?>&amp;lang=<? echo $lang ?>"><? echo $tmp["subject"]? $tmp["subject"] : $html_nosubject; ?></a>
 	</td>
 	<td class="inbox">
 		<? echo $tmp["date"] ?>

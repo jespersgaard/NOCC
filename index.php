@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.44 2001/02/17 14:06:51 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.45 2001/02/17 19:08:05 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -30,7 +30,7 @@ if (!(extension_loaded('imap')))
 <head>
 <title>NOCC - Webmail</title>
 
-<link href="style.css" rel="stylesheet" />
+<link href="themes/<? echo $theme ?>/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 <!--
 function updatePort () 
@@ -53,19 +53,28 @@ function selectLang()
 		self.location = lang_page;
 	}
 }
+
+function selectTheme()
+{
+	if (document.nocc_webmail_login.user.value == "" && document.nocc_webmail_login.passwd.value == "")
+	{
+		var theme_page = "<?echo $PHP_SELF?>?theme=" + document.nocc_webmail_login.theme[document.nocc_webmail_login.theme.selectedIndex].value;
+		self.location = theme_page;
+	}
+}
 // -->
 </script>
 </head>
-<body bgcolor="<? echo $bgcolor ?>" link="<? echo $link_color ?>" text="<? echo $text_color ?>" vlink="<? 
-echo $vlink_color ?>" alink="<? echo $alink_color ?>">
+<body bgcolor="<? echo $glob_theme->bgcolor ?>" link="<? echo $glob_theme->link_color ?>" text="<? echo $glob_theme->text_color ?>" vlink="<? 
+echo $glob_theme->vlink_color ?>" alink="<? echo $glob_theme->alink_color ?>">
 <form action="action.php" method="post" name="nocc_webmail_login" target="_top">
 <table border="0" width="100%">
 	<tr>
 		<td align="center" valign="middle">
-			<table bgcolor="<? echo $login_border ?>" border="0" cellpadding="1" cellspacing="0" width="428" align="center">
+			<table bgcolor="<? echo $glob_theme->login_border ?>" border="0" cellpadding="1" cellspacing="0" width="428" align="center">
 				<tr> 
 					<td valign="bottom"> 
-						<table bgcolor="<? echo $login_box_bgcolor ?>" border="0" cellpadding="0" cellspacing="0" width="428">
+						<table bgcolor="<? echo $glob_theme->login_box_bgcolor ?>" border="0" cellpadding="0" cellspacing="0" width="428">
 							<tr> 
 								<td colspan="3" height="18"><font size="-3">&nbsp;</font></td>
 							</tr>
@@ -148,9 +157,38 @@ echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 									?>
 								</td>
 							</tr>
+							<tr> 
+								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
+							</tr>
+							<? if ($use_theme == true) { ?>
+							<tr>
+								<td align="right" class="f">
+									<? echo $html_theme ?>
+								</td>
+								<td><font size="-3">&nbsp;</font></td>
+								<td class="f">
+									<?
+										echo ("<select name=\"theme\" onchange=\"selectTheme()\">");
+										$handle = opendir("./themes");
+										while (($file = readdir($handle)) != false) 
+										{
+											if (($file != ".") && ($file != ".."))
+											{
+												echo ("<option value=\"".$file."\"");
+												if ($file == $theme)
+														echo (" selected=\"selected\"");
+												echo (">".$file."</option>");
+											}
+										}
+										closedir($handle); 
+										echo ("</select>");
+									?>
+								</td>
+							</tr>
 							<tr>
 								<td colspan="3">&nbsp;</td>
 							</tr>
+							<? } ?>
 							<tr>
 								<td colspan="3" align="center" class="f">
 									<input name="enter" class="button" type="submit" value="<? echo $html_submit ?>" />

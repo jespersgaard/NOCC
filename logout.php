@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/logout.php,v 1.5 2001/01/30 09:45:33 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/logout.php,v 1.6 2001/01/31 18:08:48 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -11,5 +11,5 @@
 
 session_start();
 session_destroy();
-Header("Location: index.php?lang=$lang");
+Header("Location: index.php?lang=$lang&theme=$theme");
 ?>

@@ -1,6 +1,6 @@
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
-		<td bgcolor="<? echo $html_inside_color ?>">
+		<td bgcolor="<? echo $glob_theme->inside_color ?>">
 			<form name="sendform" enctype="multipart/form-data" method="post" onsubmit="return(check_form(this));" action="send.php">
 			<input type="hidden" name="sort" value="<? echo $sort ?>" />
 			<input type="hidden" name="sortdir" value="<? echo $sortdir ?>" />
@@ -8,7 +8,7 @@
 			<input type="hidden" name="action" value="<? echo $action ?>" />
 			<input type="hidden" name="sendaction" value="" />
 			<input type="hidden" name="num_attach" value="<? echo $num_attach ?>" />
-			<table width="100%" cellspacing="2" cellpadding="1" border="0" bgcolor="<? echo $html_inside_color ?>">
+			<table width="100%" cellspacing="2" cellpadding="1" border="0" bgcolor="<? echo $glob_theme->inside_color ?>">
 				<tr>
 					<td align="right" class="inbox"><? echo $html_from ?> : </td>
 					<td>
@@ -66,7 +66,7 @@
 				</tr>
 				<tr>
 					<td align="center" colspan="2">
-						<table bgcolor="<? echo $html_inside_color ?>" width="100%" cellspacing="0" cellpadding="0" border="0">
+						<table bgcolor="<? echo $glob_theme->inside_color ?>" width="100%" cellspacing="0" cellpadding="0" border="0">
 							<tr>
 								<td align="right" valign="top" width="50%">
 									<input type="submit" class="button" value="<? echo $html_send ?>" />&nbsp;
