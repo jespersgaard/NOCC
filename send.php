@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.29 2001/02/24 21:00:20 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.30 2001/02/26 11:33:13 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -119,6 +119,7 @@ switch ($sendaction)
 		}
 		$num_attach = $j;
 		// Displaying the sending form with the new attachment array
+		header("Content-type: text/html; Charset=$charset");
 		require ("html/header.php");
 		require ("html/menu_inbox.php");
 		require ("html/send.php");
