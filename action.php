@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.106 2002/04/17 21:21:40 mrylander Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.107 2002/04/18 21:38:40 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -94,7 +94,7 @@ switch (trim($action))
 
     case 'logout':
         require_once './proxy.php';
-        header("Location: ".$conf->base_url."logout.php);
+        header("Location: ".$conf->base_url."logout.php");
         break;
 
     case 'write':
