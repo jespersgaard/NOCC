@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.38 2001/04/16 19:41:03 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.39 2001/04/17 11:51:44 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -11,18 +11,20 @@
 
 require ("conf.php");
 require ("check_lang.php");
-$tmpdir = ini_get("upload_tmp_dir");
 $php_session = ini_get("session.name");
 
-if (($HTTP_SERVER_VARS["REQUEST_METHOD"] != "POST"))
+function go_back_index($attach_array, $php_session, $sort, $sortdir, $lang)
 {
 	if (is_array($attach_array))
-	while ($tmp = array_shift($attach_array))
-		@unlink($tmpdir."/".$tmp->tmp_file);
+		while ($tmp = array_shift($attach_array))
+			unlink($tmp->tmp_file);
 	session_unregister("num_attach");
 	session_unregister("attach_array");
 	header("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang&$php_session=".$$php_session);
 }
+
+if (($HTTP_SERVER_VARS["REQUEST_METHOD"] != "POST"))
+	go_back_index($attach_array, $php_session, $sort, $sortdir, $lang);
 else
 {
 	require ("class_send.php");
@@ -38,10 +40,9 @@ else
 			else
 				$num_attach++;
 			// Adding the new file to the array
-			$tmp_file_name = basename($mail_att);
-			copy($mail_att, $tmpdir."/".$tmp_file_name.".att");
+			copy($mail_att, $mail_att.".att");
 			$attach_array[$num_attach]->file_name = $mail_att_name;
-			$attach_array[$num_attach]->tmp_file = $tmp_file_name.".att";
+			$attach_array[$num_attach]->tmp_file = $mail_att.".att";
 			$attach_array[$num_attach]->file_size = $mail_att_size;
 			$attach_array[$num_attach]->file_mime = $mail_att_type;
 			// Registering the attachment array into the session
@@ -72,23 +73,22 @@ else
 				$mail->body = stripcslashes($mail_body)."\r\n\r\n".$ad;
 			else
 				$mail->body = $ad;
-
 			// Getting the attachments
 			for ($i = 1; $i <= $num_attach; $i++)
 			{
 				// If the temporary file exists, attach it
-				if (file_exists($tmpdir."/".$attach_array[$i]->tmp_file))
+				if (file_exists($attach_array[$i]->tmp_file))
 				{
-					$fp = fopen($tmpdir."/".$attach_array[$i]->tmp_file, "rb");
+					$fp = fopen($attach_array[$i]->tmp_file, "rb");
 					$file = fread($fp, $attach_array[$i]->file_size);
 					fclose($fp);
 					// add it to the message, by default it is encoded in base64
 					$mail->add_attachment($file, imap_qprint($attach_array[$i]->file_name), $attach_array[$i]->file_mime, "base64", "");
 					// then we delete the temporary file
-					unlink($tmpdir."/".$attach_array[$i]->tmp_file);
+					unlink($attach_array[$i]->tmp_file);
 				}
 			}
-			// We need to unregister the attachment array and num_attach
+			// We need to unregister the attachments array and num_attach
 			session_unregister("num_attach");
 			session_unregister("attach_array");
 			if ($mail->send() != 0)
@@ -110,7 +110,7 @@ else
 					$j++;
 				}
 				else
-					@unlink($tmpdir."/".$attach_array[$i]->tmp_file);
+					@unlink($attach_array[$i]->tmp_file);
 			}
 			$num_attach = ($j > 1 ? $j - 1 : 0);
 			// Removing the attachments array from the current session
@@ -127,6 +127,7 @@ else
 			require ("html/menu_inbox.php");
 			break;
 		default:
+			go_back_index($attach_array, $php_session, $sort, $sortdir, $lang);
 			break;
 	}
 	require ("html/footer.php");
