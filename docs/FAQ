@@ -1,0 +1,40 @@
+Frequently Asked Questions for Nocc
+-----------------------------------
+Last updated: $Date: 2000/11/01 19:28:43 $
+
+ *) Nocc keeps me asking for a correct login/password.
+
+  -> Check that you correctly configured your POP/IMAP server in conf.php
+  ex:
+
+  $servr = "pop.isp.com/POP3:110";
+
+  NOT $servr = "pop.isp.com";
+
+  -> Check that you're allowed to connect to the POP/IMAP server manually.
+  Your ISP may not allow people based on the IP.
+
+ *) Having configured Nocc, I get this error with my favourite browser:
+
+  Fatal error: Call to undefined function: imap_open() in /opt/apache/htdocs/nocc/functions.php on line 26
+
+  -> Please check that PHP has IMAP/c-client support (you can use a small
+  PHP script with phpinfo() to see what it supports).
+  Check the on-line PHP manual to configure IMAP/c-client support
+
+	http://www.php.net/manual/ref.imap.php
+
+ *) What is this UCB POP Server parameter in the configuration file ?
+
+  -> It's the standard Unix POP server that shipped with early versions of
+  various Un*x operating systems flavours.
+  UCB stands for University of California/Berkeley
+  You can check this by running the following:
+
+  %telnet myhost 110
+  Trying...
+  Connected to myhost.berkeley.edu.
+  Escape character is '^]'.
+  +OK UCB Pop server (version 1.6) at myhost starting.
+  quit
+  Connection closed by foreign host.
