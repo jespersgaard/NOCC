@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.21 2001/02/20 18:50:46 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.22 2001/02/21 17:25:28 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -48,7 +48,7 @@ $max_msg_num = 1;
 $use_verbose = true;
 
 // the user can logout or not (if nocc is used within your website
-// enter 'false' here else leave 'true'
+// enter 'false' here else leave 'true')
 $enable_logout = true;
 
 // Whether or not to display attachment part number
@@ -129,6 +129,10 @@ $lang_array[8]->label = "Russian";
 // Slovensko
 $lang_array[9]->filename = "sl";
 $lang_array[9]->label = "Slovensko";
+
+// Svenska
+$lang_array[9]->filename = "se";
+$lang_array[9]->label = "Svenska";
 
 // ################### Messages Signature  ################### //
 
