@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox.php,v 1.36 2002/04/24 22:58:34 rossigee Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.37 2002/04/24 23:32:25 rossigee Exp $ -->
 <?php
 global $PHP_SELF;
 $color_inbox = $color = $glob_theme->menu_color;
@@ -14,12 +14,18 @@ else
     $color =  $glob_theme->menu_color_on;
 if ($action == 'write')
     $line = '<font color="'.$glob_theme->link_color.'">'.$html_new_msg.'</font>';
-if ($action == 'reply')
+elseif ($action == 'reply')
+{
     $line = '<font color="'.$glob_theme->link_color.'">'.$html_reply.'</font>';
-if ($action == 'reply_all')
+}
+elseif ($action == 'reply_all')
+{
     $line = '<font color="'.$glob_theme->link_color.'">'.$html_reply_all.'</font>';
-if ($action == 'forward')
+}
+elseif ($action == 'forward')
+{
     $line = '<font color="'.$glob_theme->link_color.'">'.$html_forward.'</font>';
+}
 ?>
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
@@ -45,7 +51,7 @@ if ($action == 'forward')
                         <a href="logout.php" class="menu"><?php echo $html_logout ?></a>
                     </td>
                     <?php } ?>
-                    <!--<td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
+                    <!-- <td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
                         <a href="javascript:void(null)" onMouseUp="OpenHelpWindow('help.php?action=<?php echo $action ?>','image','scrollbars=yes,resizable=yes,width=400,height=300')" class="menu"><?php echo $html_help ?></a>
                     </td> -->
                 </tr>
@@ -53,4 +59,4 @@ if ($action == 'forward')
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_inbox.php,v 1.36 2002/04/24 22:58:34 rossigee Exp $ -->
+<!-- end of $Id: menu_inbox.php,v 1.37 2002/04/24 23:32:25 rossigee Exp $ -->
