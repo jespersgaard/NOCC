@@ -1,6 +1,6 @@
 Frequently Asked Questions for Nocc
 -----------------------------------
-Last updated: $Date: 2000/12/20 09:17:56 $
+Last updated: $Date: 2001/02/04 17:41:07 $
 
  *) Nocc keeps me asking for a correct login/password.
 
@@ -69,3 +69,19 @@ Last updated: $Date: 2000/12/20 09:17:56 $
   Increase max exec time in php.ini:
 
   max_execution_time = 300
+
+ *) I get "Warning: open(/tmp\sess_341b23452436243bfff454e5664756c67, O_RDWR)
+    failed".
+
+  -> Make sure you've created a valid directory in php.ini for sessions and
+  make sure this directory really _exists_. :)
+
+  session.save_path = c:\php\sessions
+
+ *) I get "Fatal error: Failed opening required 'lang/ en.php' [...]".
+
+  -> This is a know bug from flawed PHP 4 install on RedHat 7.
+ This is fixed with updated php-4.0.4pl1-6 RPM package or with Nocc 0.9.3
+ which has a fix that suppresses extra spaces within this variable.
+
+ See: http://www.redhat.com/bugzilla/show_bug.cgi?id=24933
