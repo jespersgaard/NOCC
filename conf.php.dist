@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.61 2001/06/07 21:30:18 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.62 2001/06/15 15:50:54 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -15,8 +15,9 @@
 
 // Default smtp server and smtp_port (default is 25)
 // If a domain has no smtp server, this one will be used
-// If no smtp server is provided, Nocc will default to the mail() function,
+// If no smtp server is provided, NOCC will default to the php mail() function,
 // and try to use Sendmail or any other MTA (Postfix)
+// If you're running NOCC on Windows, please set an smtp server below.
 $default_smtp_server = '';
 $default_smtp_port = 25;
 
@@ -72,6 +73,7 @@ $tmpdir = '';
 $default_folder = 'INBOX';
 
 // ===> End of required parameters
+
 // The following parameters can be changed but it's not necessary to
 // get a working version of nocc
 
@@ -99,7 +101,8 @@ $display_rfc822 = true;
 // set it to 'false'
 $display_img_attach = true;
 
-// If you don't want to display text/plain attachments set it to 'false'
+// If you don't want to display text/plain attachments marked as 'inline' 
+// set it to 'false'* 
 $display_text_attach = true;
 
 // By default the messages are sorted by date 
