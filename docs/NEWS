@@ -1,5 +1,9 @@
 NOCC 0.9.6    ??
 
+    * Added folder management to pref page.
+    * Added Folder and Page selection to inbox page.
+    * Added status bar to give links to folders containing new mesages.
+    * Removed 'conf', 'mailhost', 'user' and 'passwd' from aff_mail arguments.
     * Renamed 'change_date' to 'format_date' and simplified it.
     * Trimmed unnecessary passing of session variables to some functions.
     * Moved common stuff out of conf.php into a new 'common.php' file.

@@ -1,6 +1,6 @@
 <?php 
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.37 2002/04/18 22:28:26 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.38 2002/04/19 14:39:30 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,15 +12,16 @@
  * this file just delete the selected message(s)
  */
 
-require_once './conf.php';
-require_once './common.php';
-require_once './class_local.php';
+require_once('./conf.php');
+require_once('./common.php');
+require_once('./class_local.php');
 
 $ev = "";
 $servr = $_SESSION['servr'];
 $folder = $_SESSION['folder'];
 $user = $_SESSION['user'];
 $passwd = $_SESSION['passwd'];
+
 $pop = new nocc_imap($servr, $folder, $login, $passwd, $ev);
 if($ev) {
     echo "<p class=\"error\">".$ev->getMessage()."</p>";
@@ -28,18 +29,16 @@ if($ev) {
 }
 
 $num_messages = $pop->num_msg();
-$move_list = array();
-$copy_list = array();
 
 if (isset($only_one) && ($only_one == 1)) {
     if ($move_mode) {
-        if ($move_folder != $folder) {
-            $pop->mail_move($mail, $move_folder);
+        if ($target_folder != $folder) {
+            $pop->mail_move($mail, $target_folder);
         }
     }
     if ($copy_mode) {
-        if ($copy_folder != $folder) {
-            $pop->mail_copy($mail, $copy_folder);
+        if ($target_folder != $folder) {
+            $pop->mail_copy($mail, $target_folder);
         }
     }
     if ($delete_mode || $delete_mode_x) {
@@ -50,34 +49,18 @@ if (isset($only_one) && ($only_one == 1)) {
 
         $do_this_one = $HTTP_POST_VARS['msg-' . $i];
         if ($do_this_one == 'Y') {
-            //echo "doing message # $i\n";
             if ($move_mode) {
-                //echo "  move mode set\n";
-                if ($move_folder != $folder) {
-                    //echo "    moving from $folder to $move_folder\n";
-                    if ($pop->mail_move($i, $move_folder)) {
-                        //echo "      move succeeded\n";
-                    } else {
-                        //echo "      move FAILED\n";
-                    }
+                if ($target_folder != $folder) {
+                    $pop->mail_move($i, $target_folder);
                 }
             }
             if ($copy_mode) {
-                if ($copy_folder != $folder) {
-                    //echo "    copying from $folder to $copy_folder\n";
-                    if ($pop->mail_copy($i, $copy_folder)) {
-                        //echo "      copy succeeded\n";
-                    } else {
-                        //echo "      copy FAILED\n";
-                    }
+                if ($target_folder != $folder) {
+                    $pop->mail_copy($i, $target_folder);
                 }
             }
             if ($delete_mode || $delete_mode_x) {
-                if ($pop->delete($i)) {
-                    //echo "      delete succeeded\n";
-                } else {
-                    //echo "      delete FAILED\n";
-                }
+                $pop->delete($i);
             }
         }
     }
@@ -87,8 +70,8 @@ $pop->close();
 
 // Redirect user to index
 // TODO: redirect user to next message
-require_once './proxy.php';
-header('Location: ' . $conf->base_url . "action.php");
+require_once('./proxy.php');
+header('Location: ' . $conf->base_url . "action.php?folder=$folder");
 
 // For debuging
 //reset($HTTP_POST_VARS);

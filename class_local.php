@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.15 2002/04/17 21:22:21 mrylander Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.16 2002/04/18 15:09:23 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -24,7 +24,7 @@ class nocc_imap
     var $folder;
 
     // constructor        
-    function nocc_imap($server, $folder, &$login, &$password, &$ev)
+    function nocc_imap($server, $folder, &$login, &$password, &$ev, $flags = '')
     {
         global $lang_could_not_connect;
 
@@ -33,7 +33,7 @@ class nocc_imap
         $this->password = $password;
 
         // $ev is set if there is a problem with the connection
-        $this->conn = imap_open('{'. $server .'}'.$folder, $login, $password);
+        $this->conn = imap_open('{'. $server .'}'.$folder, $login, $password, $flags);
         if(!$this->conn) {
             $errors = imap_errors();
             if(count($errors) > 0) {
@@ -46,6 +46,14 @@ class nocc_imap
         }
 
         return $this;
+    }
+
+    function reopen($box, $flags = '') {
+        return imap_reopen($this->conn, $box, $flags);
+    }
+
+    function search($crit, $flags = '') {
+        return imap_search($this->conn, $crit, $flags);
     }
 
     function fetchstructure(&$msgnum) {

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.3 2002/04/19 15:14:36 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.4 2002/04/19 15:47:21 rossigee Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -13,7 +13,6 @@
 // Initialise session array
 session_start();
 
-require_once './check_lang.php';
 require_once './functions.php';
 
 // Useful for debugging sessions
@@ -49,6 +48,9 @@ if(isset($_SESSION['theme']))
 	$theme = $_SESSION['theme'];
 if(isset($_SESSION['lang']))
 	$lang = $_SESSION['lang'];
+
+// Need to wait on the language before checking it
+require_once './check_lang.php';
 
 // Default login to just the username
 if(isset($_SESSION['user']))

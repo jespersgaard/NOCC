@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.52 2002/04/16 00:49:22 mrylander Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.53 2002/04/17 21:20:49 mrylander Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -98,6 +98,8 @@ $html_folder_create_hint .= "You cannot rename or delete the folder you are curr
 $html_folder_remove = 'Unsubscribe from';
 
 // Other pages
+$html_new_msg_in = 'New messages in';
+$html_or = 'or';
 $html_move = 'Move';
 $html_copy = 'Copy';
 $html_messages_to = 'selected messages to';

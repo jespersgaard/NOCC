@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.109 2002/04/18 22:28:26 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.110 2002/04/19 14:39:28 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -492,6 +492,9 @@ switch (trim($action))
                 }
                 // If we show it twice, the bottom folder select is sent, and might be wrong.
                 //require ('./html/menu_inbox_opts.php');
+                if ($pop->is_imap() && ($conf->status_line == 1)) {
+                    require ('./html/menu_inbox_status.php');
+                }
                 require ('./html/html_bottom_table.php');
                 require ('./html/menu_inbox.php');
                 require ('./html/footer.php');

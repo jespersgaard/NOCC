@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox_opts.php,v 1.7 2002/03/24 17:08:02 wolruf Exp $ -->
+<!-- start of $Id: menu_inbox_opts.php,v 1.8 2002/04/17 21:18:21 mrylander Exp $ -->
 <tr>
  <td colspan="7">
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
@@ -6,19 +6,12 @@
         <td align="left">
             <input type="button" class="button" value="<?php echo $html_select_all; ?>" onselect="SelectAll()" onclick="SelectAll()" />
         </td>
-        <td align="left" class="titlew">
+        <td align="middle" class="titlew">
             <?php
             if ($pop->is_imap()) {
-                $html_move_select = $pop->html_folder_select('move_folder');
-                echo '<input type="submit" class="button" name="move_mode" value="'.$html_move.'">'." $html_messages_to $html_move_select";
-            }
-            ?>
-        </td>
-        <td align="center" class="titlew">
-            <?php
-            if ($pop->is_imap()) {
-                $html_copy_select = $pop->html_folder_select('copy_folder');
-                echo '<input type="submit" class="button" name="copy_mode" value="'.$html_copy.'">'." $html_messages_to $html_copy_select";
+                $html_target_select = $pop->html_folder_select('target_folder');
+                echo '<input type="submit" class="button" name="move_mode" value="'.$html_move.'">'." $html_or ";
+                echo '<input type="submit" class="button" name="copy_mode" value="'.$html_copy.'">'." $html_messages_to $html_target_select";
             }
             ?>
         </td>
@@ -34,4 +27,4 @@
 </table>
  </td>
 </tr>
-<!-- end of $Id: menu_inbox_opts.php,v 1.7 2002/03/24 17:08:02 wolruf Exp $ -->
+<!-- end of $Id: menu_inbox_opts.php,v 1.8 2002/04/17 21:18:21 mrylander Exp $ -->
