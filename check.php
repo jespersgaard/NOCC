@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/check.php,v 1.5 2001/11/28 14:54:50 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/check.php,v 1.6 2001/12/13 10:39:09 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -26,7 +26,7 @@ if (empty($conf->tmpdir))
 }
 if (!empty($conf->prefs_dir) && !is_dir($conf->prefs_dir))
 {
-	echo '<font color="red"><b>"$prefs_dir" is set in "conf.php" but doesn\'t exists. You must create "$prefs_dir" (' .$conf->prefs_dir . ') in order for NOCC to run.</b></font><br /><br /><div align="center"><img src="themes/standard/img/button.png" width="88" height="31" alt="Powered by NOCC" /></div>';
+	echo '<font color="red"><b>"$conf->prefs_dir" is set in "conf.php" but doesn\'t exists. You must create "$conf->prefs_dir" (' .$conf->prefs_dir . ') in order for NOCC to run.</b></font><br /><br /><div align="center"><img src="themes/standard/img/button.png" width="88" height="31" alt="Powered by NOCC" /></div>';
 	exit;
 }
 ?>
