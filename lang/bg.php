@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.21 2001/02/06 20:47:46 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/bg.php,v 1.1 2001/10/21 13:33:30 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -39,77 +39,106 @@ $default_time_format = "%H:%M";
 
 // Here is the configuration for the HTML
 
-$err_user_empty = "мЕ Е БЗБЕДЕМН ХЛЕ";
-$err_passwd_empty = "мЕ Е БЗБЕДЕМЮ ОЮПНКЮ";
+$err_user_empty = "Не е въведено име";
+$err_passwd_empty = "Не е въведена парола";
 
 
 // html message
 
-$alt_delete = "хГРПХИ ЛЮПЙХПЮМХРЕ ОХЯЛЮ";
-$alt_delete_one = "хГРПХИ ОХЯЛНРН";
-$alt_new_msg = "мНБН ОХЯЛН";
-$alt_reply = "нРЦНБНПХ МЮ ЮБРНПЮ";
-$alt_reply_all = "нРЦНБНПХ МЮ БЯХВЙХ";
-$alt_forward = "оПЕОПЮРХ";
-$alt_next = "яКЕДБЮЫН";
-$alt_prev = "оПЕДХЬМН";
+$alt_delete = "Изтрий маркираните писма";
+$alt_delete_one = "Изтрий писмото";
+$alt_new_msg = "Нови писма";
+$alt_reply = "Отговори на автора";
+$alt_reply_all = "Отговори на всички";
+$alt_forward = "Препрати";
+$alt_next = "Следващо писмо";
+$alt_prev = "Предишно писмо";
 $html_on = 'on';
-$html_theme = 'дХГЮИМ';
-
+$html_theme = 'Дизайн';
 
 // index.php
 
-$html_lang = "еГХЙ";
-$html_welcome = "дНАПЕ ДНЬКХ!<br>";
-$html_login = "хЛЕ";
-$html_passwd = "оЮПНКЮ";
-$html_submit = "бУНД";
-$html_help = "оНЛНЫ";
-$html_server = "яЗПБЗП";
-$html_wrong = "хЛЕРН ХКХ ОЮПНКЮРЮ ЯЮ ЦПЕЬМХ";
-$html_retry = "нОХРЮИ НРМНБН";
+$html_lang = "Език";
+$html_welcome = "Добре дошли!<br>";
+$html_login = "Име";
+$html_passwd = "Парола";
+$html_submit = "Потвърждение";
+$html_help = "Помощ";
+$html_server = "Сървър";
+$html_wrong = "Името или паролата са грешни";
+$html_retry = "Опитай отново";
+
+// prefs.php
+
+$html_preferences = 'Настройки';
+$html_full_name = 'Име, Презиме, Фамилия';
+$html_email_address = 'E-mail адрес';
+$html_ccself = 'Копие към мен';
+$html_hide_addresses = 'Скрий адресите';
+$html_outlook_quoting = 'Outlook формат';
+$html_reply_to = 'Отговори на';
+$html_use_signature = 'Ползвай сигнатура';
+$html_signature = 'Сигнатура';
+$html_prefs_updated = 'Настройките са обновени';
 
 // Other pages
 
-$html_view_header = "оНЙЮФХ ЯКСФ. ХМТНПЛЮЖХЪ";
-$html_remove_header = "яЙПХИ ЯКСФ. ХМТНПЛЮЖХЪ";
-$html_inbox = "оНКСВЕМХ ОХЯЛЮ";
-$html_new_msg = "хГОПЮРХ ОХЯЛН";
-$html_reply = "нРЦНБНПХ";
-$html_reply_short = "нРЦ.";
-$html_reply_all = "нРЦНБНПХ МЮ БЯХВЙХ";
-$html_forward = "оПЕОПЮРХ";
-$html_forward_short = "оПЕОП.";
-$html_delete = "хГРПХИ";
-$html_new = "мНБН";
-$html_mark = "хГРПХИ";
-$html_att = "оПХЙЮВЕМ ТЮИК";
-$html_atts = "оПХЙЮВЕМХ ТЮИКНБЕ";
-$html_att_unknown = "[???]";
-$html_attach = "оПХЙЮВХ";
-$html_attach_forget = "оПХЙЮВХ ТЮИКЮ ОПЕДХ ДЮ ХГОПЮРХЬ ЯЗНАЫЕМХЕРН!";
-$html_attach_delete = "хГРПХИ ОПХЙЮВЕМХЪ ТЮИК";
-$html_from = "нР";
-$html_subject = "рЕЛЮ";
-$html_date = "дЮРЮ";
-$html_sent = "хГОПЮРЕМН МЮ";
-$html_size = "цНКЕЛХМЮ";
-$html_totalsize = "нАЫН";
-$html_kb = "йа";
-$html_bytes = "АЮИРЮ";
-$html_filename = "ХЛЕ МЮ ТЮИК";
-$html_to = "гЮ";
-$html_cc = "йНОХЕ";
-$html_bcc = "мЕБХДХЛН ЙНОХЕ";
-$html_nosubject = "аЕГ РЕЛЮ";
-$html_send = "хГОПЮРХ";
-$html_cancel = "нРЙЮГ";
-$html_no_mail = "мЪЛЮ ОХЯЛЮ.";
-$html_logout = "хГУНД";
-$html_msg = "оХЯЛН";
-$html_msgs = "оХЯЛЮ";
-$html_configuration = 'This server is not well set up !';
+$html_view_header = "Покажи служ. информация";
+$html_remove_header = "Скрий служ. информация";
+$html_inbox = "Получени писма";
+$html_new_msg = "Изпрати писмо";
+$html_reply = "Отговори";
+$html_reply_short = "Отг.";
+$html_reply_all = "Отговори на всички";
+$html_forward = "Препрати";
+$html_forward_short = "Препр.";
+$html_delete = "Изтрий";
+$html_new = 'Ново';
+$html_mark = 'Маркирай';
+$html_att = 'Прикачен файл';
+$html_atts = 'Прикачени файлове';
+$html_att_unknown = '[unknown]';
+$html_attach = 'Прикачи';
+$html_attach_forget = 'Прикачи файла преди да изпратиш съобщението!';
+$html_attach_delete = 'Изтрий прикачения файл';
+$html_sort_by = 'Сортирай по';
+$html_from = 'От';
+$html_subject = 'Тема';
+$html_date = 'Дата';
+$html_sent = 'Изпратено';
+$html_wrote = 'написа';
+$html_size = 'Големина';
+$html_totalsize = 'Общо';
+$html_kb = 'КБ';
+$html_bytes = 'байта';
+$html_filename = 'име на файл';
+$html_to = 'За';
+$html_cc = 'Копие';
+$html_bcc = 'Невидимо копие';
+$html_nosubject = 'Без тема';
+$html_send = 'Изпрати';
+$html_cancel = 'Отказ';
+$html_no_mail = 'Няма писма';
+$html_logout = 'Изход';
+$html_msg = 'Писмо';
+$html_msgs = 'Писма';
+$html_configuration = 'Сървърът не е конфигуриран!';
 
-$original_msg = "-- нПХЦХМЮКМН ОХЯЛН --";
-$to_empty = "оНКЕРН \'гЮ\' МЕ ЛНФЕ ДЮ Е ОПЮГМН!";
+
+$html_priority = 'Приоритет';
+$html_low = 'Нисък';
+$html_normal = 'Нормален';
+$html_high = 'Висок';
+$html_select = 'Маркирай';
+$html_select_all = 'Маркирай всички';
+$html_loading_image = 'Зареждане на картинка';
+$html_send_confirmed = 'Писмото е прието';
+$html_no_sendaction = 'Не е посочено действие. Опитай да разрешиш Javascript в браузера.';
+
+$original_msg = '-- Оригинално писмо --';
+$to_empty = 'Полето \'За\' не трябва да е празно !';
+
+// SMTP problems (class_smtp.php)
+$html_smtp_error_no_conn = "Грешка! Не може да бъда осъществена връзка със сървъра ";
+$html_smtp_error_unexpected = "Грешка! Непознат отговор от сървъра:";
 ?>
