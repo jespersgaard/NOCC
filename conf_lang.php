@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.7 2001/06/04 22:09:30 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.8 2001/07/16 11:24:55 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -48,71 +48,75 @@ $lang_array[7]->label = 'English';
 $lang_array[8]->filename = 'es';
 $lang_array[8]->label = 'Espa&ntilde;ol';
 
+// Finnish
+$lang_array[9]->filename = 'fi';
+$lang_array[9]->label = 'Finnish';
+
 // French
-$lang_array[9]->filename = 'fr';
-$lang_array[9]->label = 'Fran&ccedil;ais';
+$lang_array[10]->filename = 'fr';
+$lang_array[10]->label = 'Fran&ccedil;ais';
 
 // Greek
-$lang_array[10]->filename = 'el';
-$lang_array[10]->label = 'Greek';
+$lang_array[11]->filename = 'el';
+$lang_array[11]->label = 'Greek';
 
 // Hebrew
-$lang_array[11]->filename = 'he';
-$lang_array[11]->label = 'Hebrew';
+$lang_array[12]->filename = 'he';
+$lang_array[12]->label = 'Hebrew';
 
 // Italiano
-$lang_array[12]->filename = 'it';
-$lang_array[12]->label = 'Italiano';
+$lang_array[13]->filename = 'it';
+$lang_array[13]->label = 'Italiano';
 
 // Korean
-$lang_array[13]->filename = 'kr';
-$lang_array[13]->label = 'Korean';
+$lang_array[14]->filename = 'kr';
+$lang_array[14]->label = 'Korean';
 
 // Magyar
-$lang_array[14]->filename = 'hu';
-$lang_array[14]->label = 'Magyar';
+$lang_array[15]->filename = 'hu';
+$lang_array[15]->label = 'Magyar';
 
 // Norvegian
-$lang_array[15]->filename = 'no';
-$lang_array[15]->label = 'Norwegian';
+$lang_array[16]->filename = 'no';
+$lang_array[16]->label = 'Norwegian';
 
 // Polish
-$lang_array[16]->filename = 'pl';
-$lang_array[16]->label = 'Polski';
+$lang_array[17]->filename = 'pl';
+$lang_array[17]->label = 'Polski';
 
 // Portuguese
-$lang_array[17]->filename = 'pt';
-$lang_array[17]->label = 'Portugu&ecirc;s';
+$lang_array[18]->filename = 'pt';
+$lang_array[18]->label = 'Portugu&ecirc;s';
 
 // Portuguese Brazil
-$lang_array[18]->filename = 'pt-br';
-$lang_array[18]->label = 'Portugu&ecirc;s Brasil';
+$lang_array[19]->filename = 'pt-br';
+$lang_array[19]->label = 'Portugu&ecirc;s Brasil';
 
 //Russian
-$lang_array[19]->filename = 'ru';
-$lang_array[19]->label = 'Russian (Win)';
+$lang_array[20]->filename = 'ru';
+$lang_array[20]->label = 'Russian (Win)';
 
 //Russian
-$lang_array[20]->filename = 'ru-koi';
-$lang_array[20]->label = 'Russian (Unix)';
+$lang_array[21]->filename = 'ru-koi';
+$lang_array[21]->label = 'Russian (Unix)';
 
 //Russian
-$lang_array[21]->filename = 'ru-iso';
-$lang_array[21]->label = 'Russian (ISO)';
+$lang_array[22]->filename = 'ru-iso';
+$lang_array[22]->label = 'Russian (ISO)';
 
 // Swedish
-$lang_array[22]->filename = 'sv';
-$lang_array[22]->label = 'Svenska';
+$lang_array[23]->filename = 'sv';
+$lang_array[23]->label = 'Svenska';
 
 // Slovenian
-$lang_array[23]->filename = 'sl';
-$lang_array[23]->label = 'Slovensko';
+$lang_array[24]->filename = 'sl';
+$lang_array[24]->label = 'Slovensko';
 
 // Slovenski
-$lang_array[24]->filename = 'sk';
-$lang_array[24]->label = 'Slovensky';
+$lang_array[25]->filename = 'sk';
+$lang_array[25]->label = 'Slovensky';
 
 // Turkish
-$lang_array[25]->filename = 'tr';
-$lang_array[25]->filename = 'Turkish';
+$lang_array[26]->filename = 'tr';
+$lang_array[26]->filename = 'Turkish';
 ?>

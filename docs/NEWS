@@ -1,24 +1,23 @@
 NOCC 0.9.5	??   ??, 2001
 
 	* Fixed a bug which prevented to send email on RH7 with RPM version
-	  of PHP (bug #430069)
-	* Fixed long list of addresses not wrapped (bug #440905)
-	* In the send form, the user can now change his email address
-	* Added Norvegian translation
-	* Correct a problem with some Linux installation which displayed
-	  an 'invalid range' error message (bug #432724)
-	* Correct a problem which allowed people to send message without
-	  log in a valid mail account (bug #440319)
-	* Correct a problem with range when trying to get messages 
-	  charset (bug #432724)
-	* Correct a problem which prevented to add attachments when
-	  php was running in safe mode.
+	  of PHP (bug #430069).
+	* Fixed long list of addresses not wrapped (bug #440905).
+	* In the send form, the user can now change his email address.
+	* Added Norvegian, Turkish and Finnish translations.
+	* Fixed a problem with some Linux installation which displayed
+	  an 'invalid range' error message (bug #432724).
+	* Fixed a problem which allowed people to send an e-mail without
+	  logging in a valid mail account (bug #440319).
+	* Fixed a problem with range when trying to get messages 
+	  charset (bug #432724).
+	* Fixed a problem which prevented to add attachments when
+	  PHP was running in safe mode.
 	* Correct a problem with attachments when a Content-ID was
 	  specified by the mailer.
 	* Return Path is now set correctly when not using SMTP server.
 	* Added support for priority when sending messages.
-	* Added Turkish translation.
-	* correct all the warnings when using E_ALL in error reporting.
+	* Removed warnings when using E_ALL in error reporting.
 
 NOCC 0.9.4	June 02, 2001
 
