@@ -20,7 +20,6 @@ cd $distname
  find . -name CVS -type d | xargs rm -rf
  rm -f buildpackage.sh
  rm -f lang/add_message.sh
- rm -f lang/add_message_file.sh
  rm -f lang/remove_message.sh
 cd ..
 tar cf $distname.tar $distname
