@@ -1,5 +1,7 @@
 NOCC 0.9.6    ??
 
+    * Simplified handling of attachments, removed 'num_attach' stuff.
+    * Switched from 'X-Mailer' header to 'User-Agent' [#547441]
     * Added folder management to pref page.
     * Added Folder and Page selection to inbox page.
     * Added status bar to give links to folders containing new mesages.
