@@ -33,4 +33,5 @@ Long term
  - Smileys support ("a la" Mozilla).
  - Handling multiple folders (IMAP).
  - WML (WAP) version.
+ - Printer-friendly e-mail formatting.
  - Handling the Delete flag with IMAP.
