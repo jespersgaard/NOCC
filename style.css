@@ -1,3 +1,6 @@
+A.menu:link {color: #0000FF; text-decoration:none;}
+A.menu:visited {color: #0000FF; text-decoration:none;}
+A.menu:hover {color: #0000FF; text-decoration:underline;}
 .sw {
 	COLOR: #ffffff; 
 	FONT-FAMILY: arial,verdana,sans-serif; 
