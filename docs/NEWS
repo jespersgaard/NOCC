@@ -2,8 +2,8 @@ NOCC 0.9.3	?? ??, 2001
 
 	* Fixed bug with Netscape 4.x which prevented to send attachement.
 	* HTML code is now XHTML 1.0 Transitional compliant.
-	  NOCC is completely XHTML compliant if using PHP 4.0.5 or later
-	* Added support for theme
+	* NOCC is completely XHTML compliant if using PHP 4.0.5 or later
+	* Added support for themes
 	* Added navigation between messages
 	* If sender is empty NOCC displays '[unknown]'
 	* Added Russian, Slovenian translations.
