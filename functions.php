@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.152 2002/04/24 14:43:09 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.153 2002/04/24 14:47:59 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -620,44 +620,6 @@ function cut_address(&$addr, &$charset)
         } */
     }
     return ($addresses);
-}
-
-/* ----------------------------------------------------- */
-
-// Function that save the attachment locally for reply, transfer...
-// This function returns an array of all the attachment
-function save_attachment(&$attach_tab, &$mail, &$tmpdir)
-{
-    $i = 0;
-    $attach_array = array();
-
-    $mailhost = $_SESSION['servr'];
-    $login = $_SESSION['login'];
-    $passwd = $_SESSION['passwd'];
-    $folder = $_SESSION['folder'];
-
-    $pop = new nocc_imap($mailhost, $folder, $login, $passwd, $ev);
-    if($ev) 
-        return (-1);
-    while ($tmp = array_shift($attach_tab))
-    {
-        $i++;
-        $file = $pop->fetchbody($mail, $tmp['number']);
-        if ($tmp['transfer'] == 'QUOTED-PRINTABLE')
-            $file = nocc_imap::qprint($file);
-        elseif ($tmp['transfer'] == 'BASE64')
-            $file = base64_decode($file);
-        $filename = 'NOCC_TMP'.md5(uniqid(time()));
-        $fp = fopen($tmpdir . '/' . $filename, 'w');
-        fwrite($fp, $file);
-        fclose($fp);
-        $attach_array[$i]->file_name = $tmp['name'];
-        $attach_array[$i]->tmp_file = $filename;
-        $attach_array[$i]->file_size = strlen($file);
-        $attach_array[$i]->file_mime = $tmp['mime'];
-    } 
-    $pop->close();
-    return(array($i, $attach_array));
 }
 
 /* ----------------------------------------------------- */
