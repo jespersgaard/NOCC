@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.104 2002/04/15 10:26:29 mrylander Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.105 2002/04/16 00:50:28 mrylander Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -222,25 +222,27 @@ switch (trim($action))
     case 'managefolders':
         $pop = new nocc_imap($servr, $folder, $user, $passwd, $ev);
         if ($ev) {
-            // I'll decide what to do with this later.
-            break;
+            $do = '';
         }
 
         switch (trim($do)) {
             case 'create_folder':
                 if ($createnewbox) {
                     if (!($pop->createmailbox($createnewbox))) {
-                        $html_folders_updated = "Folder '$createnewbox' could not be created!";
+                        $html_folders_updated = $html_folders_create_failed;
                         break;
                     }
-                    $pop->subscribe($createnewbox);
+                    if (!($pop->subscribe($createnewbox))) {
+                        $html_folders_updated = $html_folders_sub_failed;
+                        break;
+                    }
                 }
                 break;
 
             case 'subscribe_folder':
                 if ($subscribenewbox) {
                     if (!($pop->subscribe($subscribenewbox))) {
-                        $html_folders_updated = "Folder '$subscribednewbox' could not be subscribed to!";
+                        $html_folders_updated = $html_folders_sub_failed;
                         break;
                     }
                 }
@@ -248,24 +250,43 @@ switch (trim($action))
 
             case 'remove_folder':
                 if ($removeoldbox) {
-                    if (!($pop->deletemailbox($removeoldbox))) {
-                        $html_folders_updated = "Folder '$removeoldbox' could not be removed!";
+                    // Don't want to remove, just unsubscribe.
+                    //if (!($pop->deletemailbox($removeoldbox))) {
+                    //    $html_folders_updated = $html_folders_unsub_failed;
+                    //    break;
+                    //}
+                    if (!($pop->unsubscribe($removeoldbox))) {
+                        $html_folders_updated = $html_folders_unsub_failed;
                         break;
                     }
-                    $pop->unsubscribe($removeoldbox);
                 }
                 break;
 
             case 'rename_folder':
                 if ($renamenewbox && $renameoldbox) {
                     if (!($pop->renamemailbox($renameoldbox, $renamenewbox))) {
-                        $html_folders_updated = "Folder '$renameoldbox' could not be renamed!";
+                        $html_folders_updated = $html_folders_rename_failed;
                         break;
                     }
-                    $pop->unsubscribe($renameoldbox);
-                    $pop->subscribe($renamenewbox);
+                    if (!($pop->unsubscribe($renameoldbox))) {
+                        $html_folders_updated = $html_folders_unsub_failed;
+                        break;
+                    }
+                    if (!($pop->subscribe($renamenewbox))) {
+                        $html_folders_updated = $html_folders_sub_failed;
+                        break;
+                    }
                 }
                 break;
+        }
+
+        // Handle an errors that occurred
+        if (Exception::isException($lastev)) {
+            $ev = $lastev;
+            require ('./html/header.php');
+            require ('./html/error.php');
+            require ('./html/footer.php');
+            break;
         }
 
         $full_name = getPref('full_name');
@@ -288,7 +309,7 @@ switch (trim($action))
         break;
 
     case 'setprefs':
-        $pop = new nocc_imap($servr, $folder, $user, $passwd, $ev);
+        $pop = new nocc_imap($servr, $folder, $user, $passwd, $lastev);
         if ($ev) {
             // I'll decide what to do with this later.
             break;
@@ -467,9 +488,11 @@ switch (trim($action))
                 require ('./html/menu_inbox.php');
                 require ('./html/html_top_table.php');
                 require ('./html/menu_inbox_opts.php');
-                while ($tmp = array_shift($tab_mail))
+                while ($tmp = array_shift($tab_mail)) {
                     require ('./html/html_inbox.php');
-                require ('./html/menu_inbox_opts.php');
+                }
+                // If we show it twice, the bottom folder select is sent, and might be wrong.
+                //require ('./html/menu_inbox_opts.php');
                 require ('./html/html_bottom_table.php');
                 require ('./html/menu_inbox.php');
                 require ('./html/footer.php');

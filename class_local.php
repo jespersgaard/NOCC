@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.13 2002/04/15 16:03:44 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.14 2002/04/16 00:50:57 mrylander Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -81,32 +81,32 @@ class nocc_imap
     }
 
     // From what I can find, this will not work on Cyrus imap servers.
-    function deletemailbox($old_box) {
+    function deletemailbox(&$old_box) {
         return imap_deletemailbox($this->conn, '{'.$this->server.'}'.$old_box);
     }
 
-    function renamemailbox($old_box, $new_box) {
+    function renamemailbox(&$old_box, &$new_box) {
         return imap_renamemailbox($this->conn, '{'.$this->server.'}'.$old_box, '{'.$this->server.'}'.$new_box);
     }
 
-    function createmailbox($new_box) {
+    function createmailbox(&$new_box) {
         return imap_createmailbox($this->conn, '{'.$this->server.'}'.$new_box);
     }
 
-    function mail_copy($mail, $new_box) {
-        return imap_mail_copy($this->conn, $mail, '{'.$this->server.'}'.$new_box, CP_UID);
+    function mail_copy(&$mail, &$new_box) {
+        return imap_mail_copy($this->conn, $mail, $new_box, 0);
     }
 
-    function subscribe($new_box) {
+    function subscribe(&$new_box) {
         return imap_subscribe($this->conn, '{'.$this->server.'}'.$new_box);
     }
 
-    function unsubscribe($old_box) {
+    function unsubscribe(&$old_box) {
         return imap_unsubscribe($this->conn, '{'.$this->server.'}'.$old_box);
     }
 
-    function mail_move($mail, $new_box) {
-        return imap_mail_move($this->conn, $mail, '{'.$this->server.'}'.$new_box, CP_UID);
+    function mail_move(&$mail, &$new_box) {
+        return imap_mail_move($this->conn, $mail, $new_box, 0);
     }
 
     function delete(&$mail) {
@@ -122,11 +122,11 @@ class nocc_imap
         return ($check->{'Driver'} == 'imap');
     }
 
-    function utf7_decode($thing) {
+    function utf7_decode(&$thing) {
 	return imap_utf7_decode($thing);
     }
 
-    function utf7_encode($thing) {
+    function utf7_encode(&$thing) {
 	return imap_utf7_encode($thing);
     }
 
@@ -171,7 +171,7 @@ class nocc_imap
     /*
      * These are general utility functions that extend the imap interface.
      */
-    function html_folder_select($value, $selected) {
+    function html_folder_select($value, $selected = '') {
         $list = $this->get_nice_subscribed();
 
         if(is_array($list) && count($list) > 0) {

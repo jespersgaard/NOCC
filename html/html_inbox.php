@@ -1,8 +1,7 @@
-<!-- start of $Id: html_inbox.php,v 1.31 2002/03/24 18:07:47 wolruf Exp $ -->
+<!-- start of $Id: html_inbox.php,v 1.32 2002/04/15 02:11:55 mrylander Exp $ -->
 <tr bgcolor="<?php echo $glob_theme->inbox_color ?>">
     <td align="center">
         <input type="checkbox" name="msg-<?php echo $tmp['number'] ?>" value="Y" />
-	<input type="hidden" name="folder" value="<?php echo $folder ?>" />
     </td>
     <?php if (($is_imap) || ($conf->have_ucb_pop_server)) { ?>
     <td align="center">
@@ -25,4 +24,4 @@
         <?php echo $tmp['size'] ?> <?php echo $html_kb ?>
     </td>
 </tr>
-<!-- end of $Id: html_inbox.php,v 1.31 2002/03/24 18:07:47 wolruf Exp $ -->
+<!-- end of $Id: html_inbox.php,v 1.32 2002/04/15 02:11:55 mrylander Exp $ -->

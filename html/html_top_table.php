@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.51 2002/04/15 11:20:57 mrylander Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.52 2002/04/16 00:46:59 mrylander Exp $ -->
 <?php
 
 require_once 'class_local.php';
@@ -31,7 +31,7 @@ if($pages > 1) {
 			"<img src=\"themes/".$theme."/img/right_arrow.gif\" border=\"0\" /></a>\n";
 	}
 	$page_line = "<form method=\"POST\" action=\"$PHP_SElF?sort=1&sortdir=1&lang=$lang&folder=$folder\">";
-	$page_line .= "$html_page $this_page $html_of $pages; $per_page $html_msgperpage &nbsp;  ($prev \n<SELECT name=\"skip\">\n";
+	$page_line .= "$html_page $this_page $html_of $pages; $per_page $html_msgperpage &nbsp;  $prev \n<SELECT name=\"skip\">\n";
 
 	$selected = '';
 	for ($i = 0; $i < $pages; $i++) { 
@@ -44,21 +44,18 @@ if($pages > 1) {
 		$page_line .= "\t<OPTION $selected value=\"$i\">$current_skip</OPTION>\n";
 	}
 
-	$page_line .= "</select>$next)<input type=\"submit\" name=\"submit\" value=\"$html_gotopage\"></form>";
+	$page_line .= "</select> $next <input type=\"submit\" class=\"button\" name=\"submit\" value=\"$html_gotopage\"></form>";
 }
 
 if ($pop->is_imap()) {
     $fldr_line = "<form method=\"POST\" action=\"$PHP_SElF?sort=1&sortdir=1&lang=$lang\">$html_other_folders:  \n";
     $fldr_line .= $pop->html_folder_select('folder', $folder);
-    $fldr_line .= "<input type=\"submit\" name=\"submit\" value=\"$html_gotofolder\"></form>";
+    $fldr_line .= "<input type=\"submit\" class=\"button\" name=\"submit\" value=\"$html_gotofolder\"></form>";
 }
 
 ?>
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 <tr><td bgcolor="<?php echo $glob_theme->inside_color ?>">
-<form method="post" action="delete.php" name="delete_form">
-<input type="hidden" name="lang" value="<?php echo $lang ?>" />
-<input type="hidden" name="folder" value="<?php echo $folder ?>" />
 
 <table width="100%" cellpadding="2" cellspacing="1" border="0" bgcolor="<?php echo $glob_theme->inside_color ?>">
     <tr bgcolor="<?php echo $glob_theme->tr_color ?>">
@@ -69,13 +66,12 @@ if ($pop->is_imap()) {
             <?php echo $num_msg ?> <?php if ($num_msg == 1) {echo $html_msg;} else {echo $html_msgs;}?>
         </td>
     </tr>
-    <tr bgcolor="<?php echo $glob_theme->inbox_text_color ?>">
-	<td colspan="7" align="left">
-		<table border=0 width="100%">
-				<tr><td valign="top" align="center"><?php echo $fldr_line ?></td>
-				    <td valign="top" align="center"><?php echo $page_line ?></td>
-				</tr>
-		</table>
+    <tr bgcolor="<?php echo $glob_theme->inside_color ?>">
+        <td <?php if (($is_imap) || ($conf->have_ucb_pop_server)) echo 'colspan="3"'; else echo 'colspan="2"'; ?>align="left" class="inbox">
+            <?php echo $fldr_line ?></td>
+	</td>
+	<td colspan="4" align="right" class="inbox">
+            <?php echo $page_line ?></td>
 	</td>
     </tr>
     <tr bgcolor="<?php echo $glob_theme->inbox_text_color ?>">
@@ -115,6 +111,9 @@ if ($pop->is_imap()) {
             &nbsp;
             <a href="<?php echo $PHP_SELF ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>&amp;folder=<?php echo $folder ?>">
             <?php echo $html_size ?></a>
+            <form method="post" action="delete.php" name="delete_form">
+            <input type="hidden" name="lang" value="<?php echo $lang ?>" />
+            <input type="hidden" name="folder" value="<?php echo $folder ?>" />
         </td>
     </tr>
-<!-- start of $Id: html_top_table.php,v 1.51 2002/04/15 11:20:57 mrylander Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.52 2002/04/16 00:46:59 mrylander Exp $ -->

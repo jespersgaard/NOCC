@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_mail.php,v 1.18 2002/03/24 17:08:02 wolruf Exp $ -->
+<!-- start of $Id: menu_mail.php,v 1.19 2002/04/15 02:16:48 mrylander Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -20,7 +20,7 @@
                         <a href="<?php echo $PHP_SELF ?>?action=forward&amp;mail=<?php echo $mail ?>&amp;lang=<?php echo $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>&amp;folder=<?php echo $folder ?>" class="menu"><?php echo $html_forward ?></a>
                     </td>
                     <td class="menu" align="center" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="delete.php?mail=<?php echo $mail ?>&amp;only_one=1&amp;lang=<?php echo $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>&amp;folder=<?php echo $folder ?>" class="menu"><?php echo $html_delete ?></a>
+                        <a href="delete.php?delete_mode=1&mail=<?php echo $mail ?>&amp;only_one=1&amp;lang=<?php echo $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>&amp;folder=<?php echo $folder ?>" class="menu"><?php echo $html_delete ?></a>
                     </td>
                     <?php if ($conf->enable_logout) { ?>
                     <td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
@@ -35,4 +35,4 @@
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_mail.php,v 1.18 2002/03/24 17:08:02 wolruf Exp $ -->
+<!-- end of $Id: menu_mail.php,v 1.19 2002/04/15 02:16:48 mrylander Exp $ -->

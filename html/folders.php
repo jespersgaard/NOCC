@@ -1,8 +1,8 @@
-<!-- start of $Id: prefs.php,v 1.13 2002/04/15 10:24:26 mrylander Exp $ -->
+<!-- start of $Id: folders.php,v 1.1 2002/04/16 00:10:30 mrylander Exp $ -->
 <?php
 
-$renameoldbox = $pop->html_folder_select('renameoldbox', '');
-$removeoldbox = $pop->html_folder_select('removeoldbox', '');
+$renameoldbox = $pop->html_folder_select('renameoldbox');
+$removeoldbox = $pop->html_folder_select('removeoldbox');
 
 $all_mailboxes = $pop->getmailboxes();
 
@@ -49,13 +49,13 @@ if (count($big_list) > 1) {
                 </tr>
                 <tr>
                     <td width="10%"></td>
-                    <td align="left" class="prefs" ><input type="radio" name="do" value="remove_folder">
-                        <?php echo $html_folder_remove ?> <?php echo $removeoldbox ?></td>
+                    <td align="left" class="prefs" ><input type="radio" name="do" value="subscribe_folder">
+                        <?php echo $html_folder_subscribe ?> <SELECT name="subscribenewbox"> <?php echo join('', $select_list) ?> </SELECT></td>
                 </tr>
                 <tr>
                     <td width="10%"></td>
-                    <td align="left" class="prefs" ><input type="radio" name="do" value="subscribe_folder">
-                        <?php echo $html_folder_subscribe ?> <SELECT name="subscribenewbox"> <?php echo join('', $select_list) ?> </SELECT></td>
+                    <td align="left" class="prefs" ><input type="radio" name="do" value="remove_folder">
+                        <?php echo $html_folder_remove ?> <?php echo $removeoldbox ?></td>
                 </tr>
                 <tr>
                     <td align="center" colspan="3">
@@ -80,4 +80,4 @@ if (count($big_list) > 1) {
         </td>
     </tr>
 </table>
-<!-- end of $Id: prefs.php,v 1.13 2002/04/15 10:24:26 mrylander Exp $ -->
+<!-- end of $Id: folders.php,v 1.1 2002/04/16 00:10:30 mrylander Exp $ -->
