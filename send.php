@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.73 2001/10/26 11:37:16 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.74 2001/10/28 12:33:16 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -152,7 +152,13 @@ else
 			require ('./html/menu_inbox.php');
 			break;
 		default:
-			go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $lang, true);
+			/* FIXME: Fix this properly! This is just a workaround to
+			   keep CVS functional and sane */
+			$ev = new PEAR_Error("Sorry! You currently need have Javascript enabled.");
+			require ('./html/header.php');
+			require ('./html/menu_inbox.php');
+			require ('./html/send_error.php');
+			require ('./html/menu_inbox.php');
 			break;
 	}
 	require_once ('./html/footer.php');
