@@ -1,8 +1,8 @@
 <?
 /*
-	$Author: wolruf $
-	$Revision: 1.15 $
-	$Date: 2000/10/25 12:39:48 $
+	$Author: nicocha $
+	$Revision: 1.16 $
+	$Date: 2000/10/25 12:49:56 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -49,6 +49,11 @@ $default_sort = "1";
 
 // By default the most recent is in top ("1" --> sorting top to bottom, "0" --> bottom to top)
 $default_sortdir = "1";
+
+// For old UCB POP server, change this setting to 1 to enable
+// new mail detection. Recommended: leave it to 0 for any other POP or
+// IMAP server
+$have_ucb_pop_server = "0";
 
 
 // ################### color configuration ################### //
