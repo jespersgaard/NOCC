@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.46 2001/04/24 19:10:39 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.47 2001/05/23 14:49:26 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -39,7 +39,7 @@ else
 			if (is_uploaded_file($mail_att))
 			{
 				copy($mail_att, $tmpdir."/".$tmp_name);
-				$attach_array[$num_attach]->file_name = $mail_att_name;
+				$attach_array[$num_attach]->file_name = basename($mail_att_name);
 				$attach_array[$num_attach]->tmp_file = $tmp_name;
 				$attach_array[$num_attach]->file_size = $mail_att_size;
 				$attach_array[$num_attach]->file_mime = $mail_att_type;
