@@ -5,6 +5,7 @@ NOCC 0.9.1	November ??, 2000
 	* Added German translation (thanks to David Ferch).
 	* text/plain messages are now wrapped to 80 cols if PHP >= 4.0.2 found.
 	* Reply and Forward bugs solved.
+	* To and cc line are now decoded from other charset
 
 NOCC 0.9	November 10, 2000
 
