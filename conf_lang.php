@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.15 2001/11/07 17:49:48 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.16 2001/11/29 12:32:55 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -104,35 +104,39 @@ $lang_array[20]->label = 'Portugu&ecirc;s';
 $lang_array[21]->filename = 'pt-br';
 $lang_array[21]->label = 'Portugu&ecirc;s Brasil';
 
-//Russian
-$lang_array[22]->filename = 'ru';
-$lang_array[22]->label = 'Russian (Win)';
+// Romanian
+$lang_array[22]->filename = 'ro';
+$lang_array[22]->label = 'Romanian';
 
-//Russian
-$lang_array[23]->filename = 'ru-koi';
-$lang_array[23]->label = 'Russian (Unix)';
+// Russian
+$lang_array[23]->filename = 'ru';
+$lang_array[23]->label = 'Russian (Win)';
 
-//Russian
-$lang_array[24]->filename = 'ru-iso';
-$lang_array[24]->label = 'Russian (ISO)';
+// Russian
+$lang_array[24]->filename = 'ru-koi';
+$lang_array[24]->label = 'Russian (Unix)';
+
+// Russian
+$lang_array[25]->filename = 'ru-iso';
+$lang_array[25]->label = 'Russian (ISO)';
 
 // Swedish
-$lang_array[25]->filename = 'sv';
-$lang_array[25]->label = 'Svenska';
+$lang_array[26]->filename = 'sv';
+$lang_array[26]->label = 'Svenska';
 
 // Slovenian
-$lang_array[26]->filename = 'sl';
-$lang_array[26]->label = 'Slovensko';
+$lang_array[27]->filename = 'sl';
+$lang_array[27]->label = 'Slovensko';
 
 // Slovenski
-$lang_array[27]->filename = 'sk';
-$lang_array[27]->label = 'Slovensky';
+$lang_array[28]->filename = 'sk';
+$lang_array[28]->label = 'Slovensky';
 
 // Srpski Jezik
-$lang_array[28]->filename = 'sr';
-$lang_array[28]->label = 'Srpski Jezik';
+$lang_array[29]->filename = 'sr';
+$lang_array[29]->label = 'Srpski Jezik';
 
 // Turkish
-$lang_array[29]->filename = 'tr';
-$lang_array[29]->filename = 'Turkish';
+$lang_array[30]->filename = 'tr';
+$lang_array[30]->filename = 'Turkish';
 ?>
