@@ -37,7 +37,7 @@ $default_sortdir = "1";
 // ################### color configuration ################### //
 
 // Color on the pages background - default is "white"
-$bgcolor = "#ffffff";
+$bgcolor = "#000000";
 
 // Color of the login box border - default is "black"
 $login_border = "#000000";
@@ -54,7 +54,7 @@ $html_menu_color_on = "#FFC061";
 // Mail properties color (to, from, subject, attachments, etc.) - default is "sky blue"
 $html_mail_properties = "#99ccff";
 
-// Color of the inside of the root table - default is "grey"
+// Color of all the inside border - default is "grey"
 $html_inside_color = "#f0f0f0";
 
 // Color of the Inbox line and the garbage line and of the outside page - default is "dark blue"
@@ -69,9 +69,17 @@ $link_color = "#0033cc";
 // Color of the text
 $text_color = "#000000";
 
+// Color of the Inbox Text display (Delete, new, attachment ...) - default is "white"
+$inbox_text_color = "#ffffff";
+
+// Color of the Inbox display - default is "white"
+$inbox_color = "#ffffff";
+
+// Color of the Message display - default is "white"
+$mail_color = "#ffffff";
+
 // Color of the visited links
 $vlink_color ="#0033cc";
-
 
 $alink_color = "#0033cc";
 
