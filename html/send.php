@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.51 2002/05/15 15:48:24 rossigee Exp $ -->
+<!-- start of $Id: send.php,v 1.52 2002/05/15 16:34:03 rossigee Exp $ -->
 <?php
 
 // Default e-mail address on send form
@@ -63,7 +63,7 @@ if(!empty($prefs_full_name))
                 </tr>
                 <tr>
                     <td align="right" class="inbox"><?php echo $html_receipt ?> : </td>
-                    <td align="left"><input name="receipt" type="checkbox" /></td>
+                    <td align="left"><input name="receipt" type="checkbox" <?php if(isset($mail_receipt) && $mail_receipt) echo "checked"; ?>/></td>
                 </tr>
                 <tr>
                     <td align="right" class="inbox"><?php echo $html_priority ?> : </td>
@@ -158,4 +158,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.51 2002/05/15 15:48:24 rossigee Exp $ -->
+<!-- end of $Id: send.php,v 1.52 2002/05/15 16:34:03 rossigee Exp $ -->
