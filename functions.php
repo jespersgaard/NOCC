@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.107 2001/10/22 11:05:36 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.108 2001/10/25 13:17:47 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -125,7 +125,7 @@ function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort
 	require ('./check_lang.php');
 	GLOBAL $attach_tab;
 	GLOBAL $PHP_SELF;
-	$glob_body = $subject = $from = $to = $cc = '';
+	$glob_body = $subject = $from = $to = $cc = $reply_to = '';
 
 	if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
 		$default_date_format = $no_locale_date_format;
