@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.67 2001/02/28 10:58:23 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.68 2001/03/02 11:36:17 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -377,7 +377,7 @@ function remove_stuff($body, $lang, $mime)
 	{
 		$body = htmlspecialchars($body);
 		$body = eregi_replace("(http|https|ftp)://([[:alnum:]+-=%&:_.~?]+[#[:alnum:]+]*)","<a href=\"\\1://\\2\" target=\"_blank\">\\1://\\2</a>", $body);
-		$body = eregi_replace("([#[:alnum:]+]*)@([#[:alnum:]+]*)\.([[:alnum:]+-_.]+[#[:alnum:]+]*)","<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1@\\2.\\3&amp;lang=$lang\">\\1@\\2.\\3</a>", $body);
+		$body = eregi_replace("([#[:alnum:]+._]*)@([#[:alnum:]+-_]*)\.([[:alnum:]+-_.]+[#[:alnum:]+]*)","<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1@\\2.\\3&amp;lang=$lang\">\\1@\\2.\\3</a>", $body);
 		$body = nl2br($body);
 		if (function_exists("wordwrap"))
 			$body = wordwrap($body, 80, "\n");
