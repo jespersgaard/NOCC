@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.78 2001/11/03 17:10:09 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.79 2001/11/04 21:34:19 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -116,7 +116,7 @@ else
 				require ('./html/menu_inbox.php');
 				require ('./html/send_error.php');
 				require ('./html/menu_inbox.php');
-				exit;
+				break;
 			}
 
 			// Display a confirmation of success
@@ -124,7 +124,6 @@ else
 			require ('./html/menu_inbox.php');
 			require ('./html/send_confirmed.php');
 			require ('./html/menu_inbox.php');
-			exit;
 			
 			break;
 		case 'delete':
