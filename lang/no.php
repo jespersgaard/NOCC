@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/no.php,v 1.7 2002/06/30 21:43:46 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/no.php,v 1.5 2002/04/24 23:32:25 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -70,16 +70,17 @@ $html_retry = 'Prøv igjen';
 
 // prefs.php
 
-$html_preferences = 'Preferences';
-$html_full_name = 'Full name';
-$html_email_address = 'E-mail Address';
-$html_ccself = 'Cc self';
-$html_hide_addresses = 'Hide addresses';
-$html_outlook_quoting = 'Outlook-style quoting';
-$html_reply_to = 'Reply to';
-$html_use_signature = 'Use signature';
-$html_signature = 'Signature';
-$html_prefs_updated = 'Preferences updated';
+$html_msgperpage = 'Beskjeder pr. side';
+$html_preferences = 'Innstillinger';
+$html_full_name = 'Fullt navn';
+$html_email_address = 'E-post - adresse';
+$html_ccself = 'Cc selv';
+$html_hide_addresses = 'Skjul adresser';
+$html_outlook_quoting = 'Outlook-liknende sitering';
+$html_reply_to = 'Svar til';
+$html_use_signature = 'Bruk signatur';
+$html_signature = 'Signatur';
+$html_prefs_updated = 'Innstillinger oppdatert';
 
 // Other pages
 
@@ -117,7 +118,7 @@ $html_cc = 'Cc';
 $html_bcc = 'Bcc';
 $html_nosubject = 'Intet emne';
 $html_send = 'Send';
-$html_cancel = 'Annulér';
+$html_cancel = 'Annuller';
 $html_no_mail = 'Ingen meldinger';
 $html_logout = 'Logg av';
 $html_msg = 'Melding';
@@ -127,23 +128,24 @@ $html_priority = 'Prioritet';
 $html_low = 'Lav';
 $html_normal = 'Normal';
 $html_high = 'Høy';
-$html_select = 'Select';
-$html_select_all = 'Select All';
-$html_loading_image = 'Loading image';
-$html_send_confirmed = 'Your mail was accepted for delivery';
-$html_no_sendaction = 'No action specified. Try enabling JavaScript.';
-$html_error_occurred = 'An error occurred';
-$html_prefs_file_error = 'Unable to open preferences file for writing.';
-$html_sig_file_error = 'Unable to open signature file for writing.';
+$html_receipt = 'Krev en leveringsbekreftelse';
+$html_select = 'Velg';
+$html_select_all = 'Velg alle';
+$html_loading_image = 'Laster bilde';
+$html_send_confirmed = 'Din e-post ble akseptert for levering';
+$html_no_sendaction = 'Ingen handling spesifisert. Prøv å aktivere JavaScript.';
+$html_error_occurred = 'En feil oppstod';
+$html_prefs_file_error = 'Ikke mulig å åpne innstillingsfilen for skriving (lagring).';
+$html_sig_file_error = 'Ikke mulig å åpne signaturfilen for skriving (lagring).';
 
 $original_msg = '-- Opprinnelig melding --';
 $to_empty = 'Feltet \'Til\' kan ikke være tomt !';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = "Unable to open connection";
-$html_smtp_error_unexpected = "Unexpected response:";
-$lang_could_not_connect = 'Could not connect to server';  //to translate
-$html_file_upload_attack = 'Possible file upload attack';  //to translate
+$html_smtp_error_no_conn = "Ikke mulig å oppnå forbindelse";
+$html_smtp_error_unexpected = "Uventet svar:";
+$lang_could_not_connect = 'Kunne ikke oppnå tilkobling mot server';
+$html_file_upload_attack = 'Muligens filopplastingsangrep';
 $html_invalid_email_address = 'Invalid e-mail address';  //to translate
 $html_seperate_msg_win = 'Messages in separate window';  //to translate
 ?>
