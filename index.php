@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.54 2001/02/28 21:44:46 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.55 2001/03/11 14:52:24 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -92,10 +92,16 @@ function updateTheme()
 								<td class="f"> 
 									<input type="text" name="user" size="15" />
 									<?php
-									if ($servr != "" && $domain != "")
-									{ ?>
-										@<select name="domain"><option value=""><?php echo $domain ?></option></select>
-									<?php
+									if ($domains[0]->in != "")
+									{
+										echo "@<select name=\"domainnum\">";
+										$i = 0; 
+										while ($domains[$i]->in != "" )
+										{
+											echo "<option value=\"$i\">".$domains[$i]->domain."</option>";
+											$i++;
+										}
+										echo "</select>";
 									}
 									?>
 								</td>
@@ -114,7 +120,7 @@ function updateTheme()
 								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
 							</tr>
 							<?php
-							if ($servr == "")
+							if ($domains[0]->in == "")
 							{ ?>
 							<tr>
 								<td align="right" class="f">

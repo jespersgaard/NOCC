@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.35 2001/03/12 18:37:21 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.36 2001/03/13 09:13:21 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,23 +13,45 @@
 
 // ==> Required parameters
 
+// Default smtp server and smtp_port (default is 25)
+// If a domain has no smtp server, this one will be used
+$default_smtp_server = "";
+$default_smtp_port = 25;
+
+// List of domain people can log in
+// You can have as much domain as you need
+
+// domain name e.g "sourceforge.net". This field is used when sending message
+
 // IMAP or POP3 server name + protocol + port
 // [server_name]/[PROTOCOL]:[port number]
 // ex : mail.sourceforge.net/IMAP:143
 // ex : mail.sourceforge.net/POP3:110
 // PROTOCOL can be POP3 or IMAP
-$servr = "";
-
-// domain name e.g "sourceforge.net". This field is used when sending message
-$domain = "";
 
 // Optional: smtp server name or ip
 // Leave empty to send mail via sendmail
 // ex: smtp.isp.com
-$smtp_server = "";
 
 // port number to connect to smtp (usually 25)
-$smtp_port = "25";
+
+$domains[0]->domain = "";
+$domains[0]->in = "";
+$domains[0]->smtp = "";
+$domains[0]->smtp_port = 25;
+
+// If you want to add more domain, uncomment the following lines and fill them in
+/*
+$domains[1]->domain = "";
+$domains[1]->in = "";
+$domains[1]->smtp = "";
+$domains[1]->smtp_port = 25;
+
+$domains[2]->domain = "";
+$domains[2]->in = "";
+$domains[2]->smtp = "";
+$domains[2]->smtp_port = 25;
+*/
 
 // Default folder to go first
 $default_folder = "INBOX";
@@ -171,12 +193,26 @@ $ad = "___________________________________\r\nNOCC, http://nocc.sourceforge.net"
 $nocc_version = "0.9.4-dev";
 $nocc_name = "NOCC";
 
-session_register("user", "passwd", "server", "servtype", "port", "theme");
+session_register("domainnum", "user", "passwd", "server", "servtype", "port", "theme");
+
+if (isset($domainnum))
+{
+    $domain	= $domains[$domainnum]->domain;
+    $servr = $domains[$domainnum]->in;
+    $smtp_server = $domains[$domainnum]->smtp;
+	$smtp_port = $domains[$domainnum]->smtp_port;
+}
+
+if ($smtp_server == "")
+	$smtp_server = $default_smtp_server;
+if ($smtp_port == "")
+	$smtp_port = $default_smtp_port;
 if ($servr == "" && $server != "" && $servtype != "" && $port != "")
 {
 		$servr = $server."/".strtoupper($servtype).":".$port;
 		$domain = $server;
 }
+
 if (!isset($folder))
 	$folder = $default_folder;
 if (!isset($sort))
