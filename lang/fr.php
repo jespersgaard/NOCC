@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.42 2001/04/17 21:55:37 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.43 2001/05/27 12:59:28 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -109,6 +109,10 @@ $html_logout = 'D&eacute;connexion';
 $html_msg = 'Message';
 $html_msgs = 'Messages';
 $html_configuration = 'Le serveur n\'est pas correctement configur&eacute;';
+$html_priority = "Priorit&eacute;";
+$html_low = 'Basse';
+$html_normal = 'Normale';
+$html_high = 'Haute';
 
 $original_msg = '-- Message Original --';
 $to_empty = 'Le champ \'A\' ne doit pas être vide !';

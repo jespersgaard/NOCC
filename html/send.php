@@ -41,6 +41,16 @@
 					</td>
 				</tr>
 				<tr>
+					<td align="right" class="inbox"><?php echo $html_priority ?> : </td>
+					<td>
+						<select name="priority">
+							<option value="2 (High)"><?php echo $html_high ?></option>
+							<option value="3 (Normal)" selected="selected"><?php echo $html_normal ?></option>
+							<option value="4 (Low)"><?php echo $html_low ?></option>
+						</select>
+					</td>
+				</tr>
+				<tr>
 					<td>&nbsp;</td>
 					<td>
 						<?php
