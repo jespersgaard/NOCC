@@ -1,6 +1,6 @@
-<?
+<?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.21 2001/02/20 18:50:46 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.28 2001/02/28 21:33:07 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -48,7 +48,7 @@ $max_msg_num = 1;
 $use_verbose = true;
 
 // the user can logout or not (if nocc is used within your website
-// enter 'false' here else leave 'true'
+// enter 'false' here else leave 'true')
 $enable_logout = true;
 
 // Whether or not to display attachment part number
