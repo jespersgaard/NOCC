@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.74 2001/10/28 21:48:42 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.75 2001/11/04 21:34:19 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -71,6 +71,8 @@ $tmpdir = '';
 // IMPORTANT: This directory must exist and be writable by the user
 // the webserver is running as (e.g. 'apache', or 'nobody'). For
 // Apache, see the User directive in the httpd.conf file.
+// This should be something like 'profiles/' on Unix System
+// or 'prefs\\' on Win32 (note that we must escape "\")
 $prefs_dir = '';
 
 // Default folder to go first
