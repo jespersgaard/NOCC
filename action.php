@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.141 2003/01/22 05:04:25 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.142 2003/01/22 05:31:08 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -50,7 +50,8 @@ switch($action)
         require ('./html/menu_mail.php');
         require ('./html/html_mail_top.php');
         require ('./html/html_mail_header.php'); 
-        while ($tmp = array_shift($attach_tab))
+        require ('./html/html_mail_bottom.php');
+        while ($tmp = array_pop($attach_tab))
         {
             // $attach_tab is the array of attachments
             // If it's a text/plain, display it
@@ -70,7 +71,6 @@ switch($action)
                 }
             }
         } 
-        require ('./html/html_mail_bottom.php');
         require ('./html/menu_mail.php');
         require ('./html/footer.php');
 
