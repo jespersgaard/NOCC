@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.72 2001/10/31 11:06:02 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.73 2001/11/01 11:18:44 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -233,10 +233,12 @@ switch (trim($action))
 				// there are messages, we display
 				$num_msg = count($tab_mail);
 				require ('./html/menu_inbox.php');
+				require ('./html/menu_inbox_opts.php');
 				require_once ('./html/html_top_table.php');
 				while ($tmp = array_shift($tab_mail))
 					require ('./html/html_inbox.php');
 				require_once ('./html/html_bottom_table.php');
+				require ('./html/menu_inbox_opts.php');
 				require ('./html/menu_inbox.php');
 				break;
 		}

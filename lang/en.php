@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.40 2001/10/31 09:27:35 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.41 2001/11/03 17:10:09 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -126,6 +126,7 @@ $html_priority = 'Priority';
 $html_low = 'Low';
 $html_normal = 'Normal';
 $html_high = 'High';
+$html_select = 'Select';
 $html_select_all = 'Select All';
 $html_loading_image = 'Loading image';
 $html_send_confirmed = 'Your mail was accepted for delivery';

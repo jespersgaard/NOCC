@@ -1,5 +1,6 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Moved 'select all' and 'delete' buttons, top and bottom.
 	* Added a 'send confirmed' page so user is sure mail was accepted.
 	* Present an error when sendaction has not been set (e.g javascript disabled)
 	* Replaced error_log calls with a sessionlog member in class_smtp.php

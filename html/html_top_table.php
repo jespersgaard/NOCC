@@ -1,4 +1,4 @@
-<!-- start of $Id$ -->
+<!-- start of $Id: html_top_table.php,v 1.33 2001/10/25 15:22:34 rossigee Exp $ -->
 <?php
 $arrow = ($sortdir == 0) ? 'up' : 'down';
 $new_sortdir = ($sortdir == 0) ? 1 : 0;
@@ -23,7 +23,7 @@ $is_Imap = is_Imap($servr);
 	</tr>
 	<tr bgcolor="<?php echo $glob_theme->inbox_text_color ?>">
 		<td align="center" class="inbox" width="40">
-			<?php //echo $html_mark ?><input type="checkbox" name="none" onclick="SelectAll()" alt="<?php echo $html_select_all ?>"/>
+			<?php echo $html_select ?>
 		</td>
 		<?php if (($is_Imap) || ($have_ucb_pop_server)) { ?>
 		<td align="center" class="inbox">
@@ -62,4 +62,4 @@ $is_Imap = is_Imap($servr);
 			<?php echo $html_size ?></a>
 		</td>
 	</tr>
-<!-- start of $Id$ -->
+<!-- start of $Id: html_top_table.php,v 1.33 2001/10/25 15:22:34 rossigee Exp $ -->
