@@ -1,7 +1,7 @@
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
-		<td bgcolor="#cacaca">
-			<TABLE WIDTH="100%" CELLSPACING="2" CELLPADDING="1" BORDER="0" bgcolor="<? echo $html_inside_color ?>" bordercolor="#000000">
+		<td>
+			<TABLE WIDTH="100%" CELLSPACING="2" CELLPADDING="1" BORDER="0" bgcolor="<? echo $html_inside_color ?>">
 				<FORM ENCTYPE="multipart/form-data" METHOD="POST" ACTION="send.php" onSubmit="this.att_name.value=this.mail_att.value;validate(this)">
 				<input type="hidden" name="sort" value="<? echo $sort ?>">
 				<input type="hidden" name="sortdir" value="<? echo $sortdir ?>">
@@ -42,7 +42,7 @@
 				</TR>
 				<TR>
 					<TD align="center" colspan="2">
-						<TABLE bgcolor="<? echo $html_inside_color ?>" bordercolor="#000000" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">
+						<TABLE bgcolor="<? echo $html_inside_color ?>" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">
 							<TR>
 									<TD ALIGN="RIGHT" VALIGN="TOP" width="50%">
 										<INPUT TYPE="submit" value="<? echo $html_send ?>">&nbsp;

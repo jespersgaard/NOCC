@@ -35,5 +35,5 @@ class="mail"><? echo $content["date"] ?></td></tr>
 
 <? echo $content["att"] ?>
 
-<tr><td colspan="2" bgcolor="#ffffff" class="mail"><pre><? echo $content["header"] ?></pre><br><? echo 
+<tr><td colspan="2" bgcolor="<? echo $mail_color ?>" class="mail"><pre><? echo $content["header"] ?></pre><br><? echo 
 $content["body"] ?>

@@ -1,4 +1,4 @@
-<tr bgcolor="#ffffff">
+<tr bgcolor="<? echo $inbox_color ?>">
 	<td align="center">
 		<INPUT TYPE="checkbox" NAME="<? echo $tmp["number"] ?>" VALUE="<? echo $tmp["number"] ?>"> 
 	</td>
