@@ -22,7 +22,7 @@ $is_Imap = (ereg("IMAP", $servr)) ? 1 : 0;
 		<TD align="center" class="inbox">
 			<? echo $html_mark ?>
 		</TD>
-		<? if ($is_Imap) { ?>
+		<? if (($is_Imap) || ($have_ucb_pop_server)) { ?>
 		<TD align="center" class="inbox">
 			<? echo $html_new ?>
 		</TD>
