@@ -1,8 +1,8 @@
 <?
 /*
-	$Author$
-	$Revision$
-	$Date$
+	$Author: nicocha $
+	$Revision: 1.8 $
+	$Date: 2000/10/23 23:57:13 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -84,7 +84,7 @@ switch ($action)
 		break;
 	default:
 		// Default we display the mailbox
-		$tab_mail = inbox($servr, $user, $passwd, $sort, $sortdir);
+		$tab_mail = inbox($servr, $user, $passwd, $sort, $sortdir, $lang);
 		switch ($tab_mail)
 		{
 			case -1:
