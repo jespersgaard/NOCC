@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.9 2001/01/23 01:13:13 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.10 2001/01/30 09:45:33 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -41,13 +41,11 @@ class smtp
 
         $smtp = fsockopen($this->smtp_server, $this->port); 
         if ($smtp < 0) return 0; 
-
         $line = fgets($smtp, 1024); 
-
         $SMTP_GLOBAL_STATUS[$smtp]["LASTRESULT"] = substr($line, 0, 1); 
         $SMTP_GLOBAL_STATUS[$smtp]["LASTRESULTTXT"] = substr($line, 0, 1024); 
 
-        if ($SMTP_GLOBAL_STATUS[$smtp]["LASTRESULT"] <>  "2") return 0; 
+        if ($SMTP_GLOBAL_STATUS[$smtp]["LASTRESULT"] !=  "2") return 0; 
 		
         return $smtp; 
 	} 
@@ -57,12 +55,12 @@ class smtp
         global $SMTP_GLOBAL_STATUS; 
 
          /* 'localhost' always works [Unk] */ 
-        fputs($smtp,  "helo localhost\r\n"); 
+        fputs($smtp, "helo localhost\r\n"); 
         $line = fgets($smtp, 1024); 
         $SMTP_GLOBAL_STATUS[$smtp]["LASTRESULT"] = substr($line, 0, 1); 
         $SMTP_GLOBAL_STATUS[$smtp]["LASTRESULTTXT"] = substr($line, 0, 1024); 
 
-        if ($SMTP_GLOBAL_STATUS[$smtp]["LASTRESULT"] <>  "2") return 0; 
+        if ($SMTP_GLOBAL_STATUS[$smtp]["LASTRESULT"] !=  "2") return 0; 
 		
         return 1;
 	} 
@@ -74,8 +72,8 @@ class smtp
          /* Well, let's use "helo" for now.. Until we need the 
            extra func's   [Unk] 
          */ 
-        fputs($smtp,  "helo localhost\r\n"); 
-        $line = fgets($smtp, 1024); 
+        fputs($smtp, "helo localhost\r\n"); 
+        $line = fgets($smtp, 1024);
         $SMTP_GLOBAL_STATUS[$smtp]["LASTRESULT"] = substr($line, 0, 1); 
         $SMTP_GLOBAL_STATUS[$smtp]["LASTRESULTTXT"] = substr($line, 0, 1024); 
 
@@ -88,8 +86,8 @@ class smtp
 	function smtp_mail_from($smtp) 
 	{ 
         global $SMTP_GLOBAL_STATUS; 
-        fputs($smtp,  "MAIL FROM: <$this->from>\n"); 
-        $line = fgets($smtp, 1024); 
+        fputs($smtp, "MAIL FROM: $this->from\n"); 
+        $line = fgets($smtp, 1024);
 		$SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULT"] = substr($line, 0, 1); 
         $SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULTTXT"] = substr($line, 0, 1024); 
 
@@ -104,30 +102,29 @@ class smtp
 		// Modified by nicocha to use to, cc and bcc field
 		while ($tmp = array_shift($this->to))
 		{
-			fputs($smtp,  "RCPT TO: <$tmp>\r\n");
-			$line = fgets($smtp, 1024); 
+			fputs($smtp, "RCPT TO: $tmp\r\n");
+			$line = fgets($smtp, 1024);
 			$SMTP_GLOBAL_STATUS[$smtp]["LASTRESULT"] = substr($line, 0, 1); 
 			$SMTP_GLOBAL_STATUS[$smtp]["LASTRESULTTXT"] = substr($line, 0, 1024); 
-
-			if ($SMTP_GLOBAL_STATUS[$smtp]["LASTRESULT"] <>  "2") return 0;
+			if ($SMTP_GLOBAL_STATUS[$smtp]["LASTRESULT"] !=  "2") return 0;
 		}
 		while ($tmp = array_shift($this->cc))
 		{
-			fputs($smtp,  "RCPT TO: <$tmp>\r\n");
-			$line = fgets($smtp, 1024); 
+			fputs($smtp, "RCPT TO: $tmp\r\n");
+			$line = fgets($smtp, 1024);
 		    $SMTP_GLOBAL_STATUS[$smtp]["LASTRESULT"] = substr($line, 0, 1); 
 			$SMTP_GLOBAL_STATUS[$smtp]["LASTRESULTTXT"] = substr($line, 0, 1024); 
 
-			if ($SMTP_GLOBAL_STATUS[$smtp]["LASTRESULT"] <>  "2") return 0;
+			if ($SMTP_GLOBAL_STATUS[$smtp]["LASTRESULT"] !=  "2") return 0;
 		}
 		while ($tmp = array_shift($this->bcc))
 		{
-			fputs($smtp,  "RCPT TO: <$tmp>\r\n"); 
-			$line = fgets($smtp, 1024); 
+			fputs($smtp, "RCPT TO: $tmp\r\n"); 
+			$line = fgets($smtp, 1024);
 		    $SMTP_GLOBAL_STATUS[$smtp]["LASTRESULT"] = substr($line, 0, 1); 
 			$SMTP_GLOBAL_STATUS[$smtp]["LASTRESULTTXT"] = substr($line, 0, 1024); 
 
-			if ($SMTP_GLOBAL_STATUS[$smtp]["LASTRESULT"] <>  "2") return 0;
+			if ($SMTP_GLOBAL_STATUS[$smtp]["LASTRESULT"] !=  "2") return 0;
 		}
         return 1; 
 	} 
@@ -136,17 +133,17 @@ class smtp
 	{ 
         global $SMTP_GLOBAL_STATUS; 
 
-        fputs($smtp,  "DATA\r\n"); 
-        $line = fgets($smtp, 1024); 
+        fputs($smtp, "DATA\r\n"); 
+        $line = fgets($smtp, 1024);
         $SMTP_GLOBAL_STATUS[$smtp]["LASTRESULT"] = substr($line, 0, 1); 
         $SMTP_GLOBAL_STATUS[$smtp]["LASTRESULTTXT"] = substr($line, 0, 1024); 
 
-        if ($SMTP_GLOBAL_STATUS[$smtp]["LASTRESULT"] <>  "3") return 0; 
+        if ($SMTP_GLOBAL_STATUS[$smtp]["LASTRESULT"] !=  "3") return 0; 
 		
-        fputs($smtp, "$this->data\r\n\r\n"); 
-        fputs($smtp, ".\r\n"); 
+		fputs($smtp, "$this->data"); 
+        fputs($smtp, "\r\n.\r\n"); 
         $line = fgets($smtp, 1024); 
-        if (substr($line, 0, 1) <>  "2")
+        if (substr($line, 0, 1) !=  "2")
 			return 0;  
 
         return 1; 
@@ -157,11 +154,11 @@ class smtp
         global $SMTP_GLOBAL_STATUS; 
 
         fputs($smtp,  "QUIT\r\n"); 
-        $line = fgets($smtp, 1024); 
+        $line = fgets($smtp, 1024);
         $SMTP_GLOBAL_STATUS[$smtp]["LASTRESULT"] = substr($line, 0, 1); 
         $SMTP_GLOBAL_STATUS[$smtp]["LASTRESULTTXT"] = substr($line, 0, 1024); 
 
-        if ($SMTP_GLOBAL_STATUS[$smtp]["LASTRESULT"] <>  "2") return 0; 
+        if ($SMTP_GLOBAL_STATUS[$smtp]["LASTRESULT"] !=  "2") return 0; 
 
         return 1; 
 	} 

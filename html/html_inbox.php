@@ -1,6 +1,6 @@
 <tr bgcolor="<? echo $inbox_color ?>">
 	<td align="center">
-		<INPUT TYPE="checkbox" NAME="<? echo $tmp["number"] ?>" VALUE="<? echo $tmp["number"] ?>"> 
+		<INPUT TYPE="checkbox" NAME="<? echo $tmp["number"] ?>" VALUE="<? echo $tmp["number"] ?>">
 	</td>
 	<? if ($is_Imap) { ?>
 	<td align="center">

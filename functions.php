@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.51 2001/01/30 09:45:33 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.52 2001/01/30 13:27:25 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -48,7 +48,7 @@ function inbox($servr, $user, $passwd, $sort, $sortdir, $lang)
 					if ($struct_msg->subtype == "ALTERNATIVE" || $struct_msg->subtype == "RELATED")
 						$attach = "&nbsp;";
 					else
-						$attach = "<img src=\"img/attach.png\" height\"28\" width=\"27\">";
+						$attach = "<img src=\"img/attach.png\" height=\"28\" width=\"27\">";
 				}
 				else
 					$attach = "&nbsp;";
@@ -75,7 +75,7 @@ function inbox($servr, $user, $passwd, $sort, $sortdir, $lang)
 						$new_mail_from_header = "&nbsp;";
 				}
 				if ($new_mail_from_header == "")
-					$newmail = "<img src=\"img/new.png\" alr=\"N\" height=\"17\" width=\"17\">";
+					$newmail = "<img src=\"img/new.png\" alt=\"N\" height=\"17\" width=\"17\">";
 				else
 					$newmail = "&nbsp;";
 				$msg_list[$i] =  Array(
@@ -367,7 +367,7 @@ function link_att($servr, $mail, $tab, $display_part_no)
 			if ($display_part_no == true)
 				$link .= "<td class='inbox'>".$tmp["number"]."</td>";
 			$att_name = imap_mime_header_decode($tmp["name"]);
-			$link .="<td class='inbox'><a href=download.php?mail=".$mail."&part=".$tmp["number"]."&transfer=".$tmp["transfer"]."&filename=".urlencode($att_name[0]->text)."&mime=".$mime.">".$att_name[0]->text."</a></td><td class='inbox'>".$tmp["mime"]."</td><td class='inbox'>".$tmp["size"]." kb</td></tr>";
+			$link .="<td class='inbox'><a href=download.php?mail=".$mail."&part=".$tmp["number"]."&transfer=".$tmp["transfer"]."&filename=".urlencode($att_name[0]->text)."&mime=".$mime.">".htmlentities($att_name[0]->text)."</a></td><td class='inbox'>".$tmp["mime"]."</td><td class='inbox'>".$tmp["size"]." kb</td></tr>";
 		}
 	$link .= "</table>";
 	return ($link);
@@ -451,7 +451,8 @@ function save_attachment($servr, $user, $passwd, $mail)
 			$file = imap_qprint($file);
 		elseif ($tmp["transfer"] == "BASE64")
 			$file = base64_decode($file);
-		$filename = ini_get("upload_tmp_dir")."/NOCC_TMP".md5(uniqid(time()));
+		$filename = tempnam("", "NOCC_TMP".md5(uniqid(time())));
+		//$filename = ini_get("upload_tmp_dir")."/NOCC_TMP".md5(uniqid(time()));
 		$fp = fopen($filename, "w");
 		fwrite($fp, $file);
 		fclose($fp);

@@ -51,8 +51,9 @@
 							for ($i = 1; $i <= $num_attach; $i++)
 							{	
 								$totalsize += $attach_array[$i]->file_size;
-								echo ("<tr><td class=\"inbox\"><input type=\"checkbox\" name=\"file$i\" value=\"file$i\"></td><td class=\"inbox\">".$attach_array[$i]->file_name."</td><td class=\"inbox\">".$attach_array[$i]->file_size."</td></tr>");
-								echo ("\n<input type=\"hidden\" name=\"send_att$i\" value=\"".$attach_array[$i]->file_name."\">\n<input type=\"hidden\" name=\"send_att_tmp$i\" value=\"".$attach_array[$i]->tmp_file."\">\n<input type=\"hidden\" name=\"send_att_size$i\" value=\"".$attach_array[$i]->file_size."\">\n<input type=\"hidden\" name=\"send_att_mime$i\" value=\"".$attach_array[$i]->file_mime."\">\n");
+								$att_name = imap_mime_header_decode($attach_array[$i]->file_name);
+								echo ("<tr><td class=\"inbox\"><input type=\"checkbox\" name=\"file$i\" value=\"file$i\"></td><td class=\"inbox\">".htmlentities($att_name[0]->text)."</td><td class=\"inbox\">".$attach_array[$i]->file_size."</td></tr>");
+								echo ("\n<input type=\"hidden\" name=\"send_att$i\" value=\"".imap_8bit($att_name[0]->text)."\">\n<input type=\"hidden\" name=\"send_att_tmp$i\" value=\"".$attach_array[$i]->tmp_file."\">\n<input type=\"hidden\" name=\"send_att_size$i\" value=\"".$attach_array[$i]->file_size."\">\n<input type=\"hidden\" name=\"send_att_mime$i\" value=\"".$attach_array[$i]->file_mime."\">\n");
 							}
 							echo ("<tr><td colspan=\"2\"><input type=\"button\" class=\"button\" onclick=\"delete_attach()\" value=\"$html_attach_delete\"></td><td class=\"inbox\"><b>$html_totalsize : $totalsize $html_bytes</b></td></tr></table>");
 						}

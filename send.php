@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.21 2001/01/29 16:54:04 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.22 2001/01/30 13:27:25 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -33,7 +33,7 @@ switch ($sendaction)
 			$file_tmp = "send_att_tmp".$i;
 			$file_size = "send_att_size".$i;
 			$file_mime = "send_att_mime".$i;
-			$attach_array[$i]->file_name = $$file_name;
+			$attach_array[$i]->file_name = imap_qprint($$file_name);
 			$attach_array[$i]->tmp_file = $$file_tmp;
 			$attach_array[$i]->file_size = $$file_size;
 			$attach_array[$i]->file_mime = $$file_mime;
@@ -58,14 +58,14 @@ switch ($sendaction)
 		$mail->smtp_port = $smtp_port;
 		$mail->charset = $charset;
 		$mail->from = $mail_from;
-		$mail->headers = "X-Originating-Ip: [".$ip."]\nX-Mailer: ".$nocc_name." v".$nocc_version;
+		$mail->headers = "X-Originating-Ip: [".$ip."]\r\nX-Mailer: ".$nocc_name." v".$nocc_version;
 		$mail->to = cut_address($mail_to);
 		$mail->cc = cut_address($mail_cc);
 		$mail->bcc = cut_address($mail_bcc);
 		if ($mail_subject != "")
 			$mail->subject = stripcslashes($mail_subject);
 		if ($mail_body != "")
-			$mail->body = stripcslashes($mail_body)."\n\n".$ad;
+			$mail->body = stripcslashes($mail_body)."\r\n\r\n".$ad;
 		else
 			$mail->body = $ad;
 
@@ -83,7 +83,7 @@ switch ($sendaction)
 				$file = fread($fp, $$file_size);
 				fclose($fp);
 				// add it to the message, by default it is encoded in base64
-				$mail->add_attachment($file, $$file_name, $$file_mime, "base64");
+				$mail->add_attachment($file, imap_qprint($$file_name), $$file_mime, "base64");
 				// then we delete the temporary file
 				unlink($$file_tmp);
 			}
