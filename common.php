@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.13 2002/05/09 09:30:32 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.14 2002/05/14 10:52:44 rossigee Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -107,17 +107,15 @@ if (isset($_REQUEST['server'])) {
     $_SESSION['servr'] = $servr;
 }
 
-// If we are forced to use a particular theme...
+// If we have requested a particular theme
+if(isset($_REQUEST['theme']))
+    $_SESSION['theme'] = safestrip($_REQUEST['theme']);
+
+// If we haven't chosen, or are forced to use a particular theme...
 if(!$conf->use_theme || !isset($_SESSION['theme']))
     $_SESSION['theme'] = $conf->default_theme;
-else
-    if(isset($_REQUEST['theme']))
-        $_SESSION['theme'] = safestrip($_REQUEST['theme']);
-// Add to global namespace for now
-if(isset($_SESSION['theme']))
-    $theme = $_SESSION['theme'];
 
 require_once ('./conf_lang.php');
-require_once ('./themes/'.$theme.'/colors.php');
+require_once ('./themes/'.$_SESSION['theme'].'/colors.php');
 
 ?>

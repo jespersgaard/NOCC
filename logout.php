@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/logout.php,v 1.27 2002/04/18 21:38:41 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/logout.php,v 1.28 2002/04/24 19:32:30 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,7 +12,7 @@
 require_once './conf.php';
 require_once './common.php';
 
-$old_theme = $theme;
+$old_theme = $_SESSION['theme'];
 clear_attachments();
 session_destroy();
 require_once './proxy.php';

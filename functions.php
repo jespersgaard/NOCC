@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.161 2002/05/15 14:54:03 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.162 2002/05/15 15:48:24 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -19,7 +19,6 @@ function inbox(&$pop, $skip = 0)
     global $conf;
 
     $lang = $_SESSION['lang'];
-    $theme = $_SESSION['theme'];
     $sort = $_SESSION['sort'];
     $sortdir = $_SESSION['sortdir'];
 
@@ -58,7 +57,7 @@ function inbox(&$pop, $skip = 0)
             if ($struct_msg->subtype == 'ALTERNATIVE' || $struct_msg->subtype == 'RELATED')
                 $attach = '&nbsp;';
             else
-                $attach = '<img src="themes/' . $theme . '/img/attach.gif" alt="" />';
+                $attach = '<img src="themes/' . $_SESSION['theme'] . '/img/attach.gif" alt="" />';
         }
         else
             $attach = '&nbsp;';
@@ -85,7 +84,7 @@ function inbox(&$pop, $skip = 0)
             $new_mail_from_header = '&nbsp;';
         }
         if ($new_mail_from_header == '')
-            $newmail = '<img src="themes/' . $theme . '/img/new.gif" alt="" height="17" width="17" />';
+            $newmail = '<img src="themes/' . $_SESSION['theme'] . '/img/new.gif" alt="" height="17" width="17" />';
         else
             $newmail = '&nbsp;';
         $timestamp = chop($ref_contenu_message->udate);

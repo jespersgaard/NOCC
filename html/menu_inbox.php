@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox.php,v 1.39 2002/05/15 13:54:52 rossigee Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.40 2002/05/20 14:37:33 rossigee Exp $ -->
 <?php
 $color_inbox = $color = $glob_theme->menu_color;
 $action = "";
@@ -38,7 +38,7 @@ elseif ($action == 'forward')
                         <?php echo $line ?>
                     </td>
                     <td width="*" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <img src="themes/<?php echo $theme ?>/img/spacer.gif" height="1" width="1" alt="" />
+                        <img src="themes/<?php echo $_SESSION['theme'] ?>/img/spacer.gif" height="1" width="1" alt="" />
                     </td>
                     <td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
                         <?php if($conf->prefs_dir) { ?>
@@ -55,4 +55,4 @@ elseif ($action == 'forward')
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_inbox.php,v 1.39 2002/05/15 13:54:52 rossigee Exp $ -->
+<!-- end of $Id: menu_inbox.php,v 1.40 2002/05/20 14:37:33 rossigee Exp $ -->
