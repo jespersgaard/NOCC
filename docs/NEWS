@@ -1,5 +1,7 @@
 NOCC 0.9.4	??   ??, 2001
 
+	* Fixed Eudora attachments' name field in lowercase (patch from William
+	  Emmanuel S. Yu).
 	* Fixed a problem with the protocol when connecting to an imap server.
 	* Fixed a security issue which allowed people to send critical system
 	  files (attachments array is now kept in session data and several
