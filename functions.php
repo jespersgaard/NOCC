@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.64 2001/02/23 11:32:29 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.65 2001/02/24 21:00:44 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -464,12 +464,16 @@ function cut_address($addr, $charset)
 	$addr = str_replace(",", ";", $addr);
 	$array = explode(";", $addr);
 	for ($i = 0; $i < sizeof($array); $i++)
+	{
 		if (($pos = strrpos($array[$i], '<')) != false)
 		{
 			$name = "\"".encode_mime(substr($array[$i], 0, $pos - 1), $charset)."\"";
 			$addr = substr($array[$i], $pos);
-			$array[$i] = $name.$addr;		
+			$array[$i] = $name.$addr;
 		}
+		elseif ($array[$i] != '')
+			$array[$i] = '<'.$array[$i].'>';
+	}
 	return ($array);
 }
 
