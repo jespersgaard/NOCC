@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.37 2004/06/28 15:28:04 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.38 2004/06/29 16:41:03 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -172,13 +172,13 @@ $html_normal = 'Normalna';
 $html_high = 'Wysoka';
 $html_receipt = 'Za¿±daj potwierdzenia otrzymania wiadomo¶ci';
 $html_select = 'Zaznacz';
-$html_select_all = 'Odwró&#263; zaznaczenie';
+$html_select_all = 'Odwróæ zaznaczenie';
 $html_loading_image = '£adowanie obrazka';
 $html_send_confirmed = 'Twoja wiadomo¶æ zosta³a wys³ana';
 $html_no_sendaction = 'Nie okre¶lona akcja. Spróbuj w³±czyæ Javascript.';
 $html_error_occurred = 'Wyst±pi³ b³±d';
 $html_prefs_file_error = 'Nie mo¿na otworzyæ pliku z ustawieniami do zapisu.';
-$html_wrap = 'Zawijaj linie w poczcie wychodz&#261;cej do d&#322;ugo&#347;ci &#40;znaków&#41;:';
+$html_wrap = 'Zawijaj linie w poczcie wychodz±cej do d³ugo¶ci (znaków):';
 $html_usenet_separator = 'U¿yj separatora ("-- \n") Przed sygnatur±';
 $html_mark_as = 'Zaznacz jako';
 $html_read = 'Przeczytane';
@@ -200,8 +200,8 @@ $html_contact_del = 'z listy kontaktów';
 
 $html_contact_err1 = 'Maksymalna liczba kontaktów to ';
 $html_contact_err2 = 'Nie mo¿esz dodaæ nowego kontaktu';
-$html_contact_err3 = 'Nie posiadasz uprawnie&#324; do listy kontaktów.';
-$html_del_msg = 'Usun±æ zaznaczone wiadomo¶ci ?';
+$html_contact_err3 = 'Nie posiadasz uprawnieñ do listy kontaktów.';
+$html_del_msg = 'Usun±æ zaznaczone wiadomo¶ci?';
 $html_down_mail = 'Pobierz';
 
 $original_msg = '--- Wiadomo¶æ oryginalna ---';
@@ -216,10 +216,10 @@ $lang_could_not_connect = 'Nie mo¿na po³aczyæ siê z serwerem';
 
 $html_file_upload_attack = 'Mo¿liwy atak poprzez upload plików';
 $html_invalid_email_address = 'Niew³a¶ciwy adres e-mail';
-$html_invalid_msg_per_page = 'Niepoprawna ilo&#347;&#263; wiadomo&#347;ci na stron&#281;';
-$html_invalid_wrap_msg =  'Niepoprawna szeroko&#347;&#263; zawijania linii';
+$html_invalid_msg_per_page = 'Niepoprawna ilo¶æ wiadomo¶ci na stronê';
+$html_invalid_wrap_msg =  'Niepoprawna szerokoæ zawijania linii';
 $html_seperate_msg_win = 'Wiadomo¶ci w osobnym oknie';
 
 // Exceptions
-$html_err_file_contacts = 'Brak dost&#281;pu do zapisu listy kontaktów.';
+$html_err_file_contacts = 'Brak dostêpu do zapisu listy kontaktów.';
 ?>
