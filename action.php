@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.50 2001/10/17 22:51:44 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.51 2001/10/18 12:37:58 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -25,6 +25,22 @@ require ('html/header.php');
 if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
 	$default_date_format = $no_locale_date_format;
 $current_date = strftime($default_date_format, time());
+
+// Get preferences
+$full_name = getPref($prefs_dir, $user, 'full_name');
+$email_address = getPref($prefs_dir, $user, 'email_address');
+$signature = getSig($prefs_dir, $user);
+
+// Default address and reply-to fields, if available
+if($email_address == "") {
+	$email_address = $user."@".$domain;
+}
+if($full_name != "") {
+	$mail_from = $full_name." <".$email_address.">";
+}
+else {
+	$mail_from = $email_address;
+}
 
 switch (trim($action))
 {
@@ -60,21 +76,6 @@ switch (trim($action))
 		break;
 
 	case 'write':
-		// Get preferences
-		$full_name = getPref($prefs_dir, $user, 'full_name');
-		$email_address = getPref($prefs_dir, $user, 'email_address');
-		$signature = getSig($prefs_dir, $user);
-
-		// Default address and reply-to fields, if available
-		if($email_address == "") {
-			$email_address = $user."@".$domain;
-		}
-		if($full_name != "") {
-			$mail_from = $full_name." <".$email_address.">";
-		}
-		else {
-			$mail_from = $email_address;
-		}
 
 		// Add signature
 		$mail_body .= "\n".$signature;
@@ -94,6 +95,10 @@ switch (trim($action))
 		else
 			$mail_subject = $html_reply_short.': '.$content['subject'];
 		$mail_body = $original_msg."\n".$html_from.': '.$content['from']."\n".$html_to.': '.$content['to']."\n".$html_sent.': '.$content['complete_date']."\n".$html_subject.': '.$content['subject']."\n\n".strip_tags($content['body'], '');
+
+		// Add signature
+		$mail_body .= "\n".$signature;
+
 		// We add the attachments of the original message
 		list($num_attach, $attach_array) = save_attachment($servr, $user, stripslashes($passwd), $folder, $mail, $tmpdir);
 		// Registering the attachments array into the session
@@ -111,6 +116,10 @@ switch (trim($action))
 		else
 			$mail_subject = $html_reply_short.': '.$content['subject'];
 		$mail_body = $original_msg."\n".$html_from.': '.$content['from']."\n".$html_to.': '.$content['to']."\n".$html_sent.': '.$content['complete_date']."\n".$html_subject.': '.$content['subject']."\n\n".strip_tags($content['body'], '');
+
+		// Add signature
+		$mail_body .= "\n".$signature;
+
 		// We add the attachments of the original message
 		list($num_attach, $attach_array) = save_attachment($servr, $user, stripslashes($passwd), $folder, $mail, $tmpdir);
 		// Registering the attachments array into the session
@@ -124,6 +133,9 @@ switch (trim($action))
 		$content = aff_mail($servr, $user, stripslashes($passwd), $folder, $mail, 0, $lang, $sort, $sortdir);
 		$mail_subject = $html_forward_short.': '.$content['subject'];
 		$mail_body = $original_msg."\n".$html_from.': '.$content['from']."\n".$html_to.': '.$content['to']."\n".$html_sent.': '.$content['complete_date']."\n".$html_subject.': '.$content['subject']."\n\n".strip_tags($content['body'], '');
+		// Add signature
+		$mail_body .= "\n".$signature;
+
 		// We add the attachments of the original message
 		list($num_attach, $attach_array) = save_attachment($servr, $user, stripslashes($passwd), $folder, $mail, $tmpdir);
 		// Registering the attachments array into the session
