@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.72 2001/10/22 11:04:27 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.73 2001/10/24 12:32:42 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -135,6 +135,8 @@ $default_theme = 'standard';
 // Display error but no notice
 $debug_level = E_ALL & ~E_NOTICE;
 
+// Display delete button as icon (true) or as an HTML button (false)
+$delete_button_icon = true;
 
 // ################### Messages Signature  ################### //
 

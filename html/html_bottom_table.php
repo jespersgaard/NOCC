@@ -1,7 +1,11 @@
-<!-- start of $Id$ -->
+<!-- start of $Id: html_bottom_table.php,v 1.22 2001/10/25 15:22:34 rossigee Exp $ -->
 <tr bgcolor="<?php echo $glob_theme->tr_color ?>">
 	<td align="center" valign="middle">
-		<input type="image" src="themes/<?php echo $theme ?>/img/delete.gif" alt="<?php echo $alt_delete ?>" />
+		<? if ($delete_button_icon) { ?>
+			<input type="image" src="themes/<?php echo $theme ?>/img/delete.gif" alt="<?php echo $alt_delete ?>" />
+		<? } else { ?>
+			<input type="submit" value="<?php echo $html_delete ?>" />
+		<? } ?>
 	</td>
 	<td colspan="6"><!--<a href="javascript:void(null)" class="button" onclick="SelectAll();"><?php echo $html_select_all ?></a>--></td>
 </tr>
@@ -25,4 +29,4 @@ function SelectAll() {
 </script>
 
 <?php require_once ('./html/menu_inbox.php'); ?>
-<!-- end of $Id$ -->
+<!-- end of $Id: html_bottom_table.php,v 1.22 2001/10/25 15:22:34 rossigee Exp $ -->

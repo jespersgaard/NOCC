@@ -1,5 +1,6 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Added config option to present delete icon as a button.
 	* Added 'hide addresses' preference (#471806).
 	* Moved inclusion of 'menu_inbox' so when the wrong password is
 	  supplied, it doesn't present options for 'Inbox', 'Preferences' etc
