@@ -1,10 +1,9 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.1 2000/12/02 03:22:45 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.4 2001/02/04 18:14:08 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
- * italian translation Guido Venturini <guido@technojuice.com>
  *
  * See the enclosed file COPYING for license information (GPL).  If you
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.

@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/es.php,v 1.1 2000/12/20 09:21:56 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/es.php,v 1.4 2001/02/04 18:10:40 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -18,7 +18,7 @@ $charset = "ISO-8859-1";
 
 // What language to use (Here, english US --> en_US)
 // see '/usr/share/locale/' for more information
-$lang_locale = "es";
+$lang_locale = "es_ES";
 
 // What format string should we pass to strftime() for messages sent on
 // days other than today?
