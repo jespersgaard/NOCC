@@ -1,18 +1,13 @@
 <?
 /*
-	$Author: wolruf $
-	$Revision: 1.33 $
-	$Date: 2000/11/24 19:32:29 $
-
-	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
-the function get_part is based on a function from matt@bonneau.net
-  
-  You should have received a copy of the GNU Public
-  License along with this package; if not, write to the
-  Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-  Boston, MA 02111-1307, USA.
-*/
-
+ * $Header$ 
+ *
+ * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
+ * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
+ *
+ * See the enclosed file COPYING for license information (GPL).  If you
+ * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
+ */
 
 $attach_tab = Array();
 $glob_body = "";
