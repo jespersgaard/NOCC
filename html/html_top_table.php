@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.49 2002/04/15 06:48:43 mrylander Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.50 2002/04/15 10:23:49 mrylander Exp $ -->
 <?php
 
 require_once 'class_local.php';
@@ -9,9 +9,6 @@ $per_page = (getPref('msg_per_page')) ? getPref('msg_per_page') : (($conf->msg_p
 $arrow = ($sortdir == 0) ? 'up' : 'down';
 $new_sortdir = ($sortdir == 0) ? 1 : 0;
 $skip = ($skip) ? $skip : '0';
-
-$pop = new nocc_imap('{' . $servr . '}' . $folder, $user, $passwd, $ev);
-
 
 $pages = $pop->get_page_count($conf);
 
@@ -135,4 +132,4 @@ if(is_array($list) && count($list) > 0) {
             <?php echo $html_size ?></a>
         </td>
     </tr>
-<!-- start of $Id: html_top_table.php,v 1.49 2002/04/15 06:48:43 mrylander Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.50 2002/04/15 10:23:49 mrylander Exp $ -->
