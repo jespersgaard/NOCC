@@ -1,6 +1,6 @@
 <?
 /*
- * $Header$ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.35 2000/11/24 21:49:27 wolruf Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -162,11 +162,12 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 	}
 	$subject = imap_mime_header_decode($ref_contenu_message->subject);
 	$from = imap_mime_header_decode($ref_contenu_message->fromaddress);
-
+	$to = imap_mime_header_decode($ref_contenu_message->toaddress);
+	$cc = imap_mime_header_decode($ref_contenu_message->ccaddress);
 	$content = Array(
 				"from" => htmlspecialchars($from[0]->text),
-				"to" => $ref_contenu_message->toaddress,
-				"cc" => $ref_contenu_message->ccaddress,
+				"to" => htmlspecialchars($to[0]->text),
+				"cc" => htmlspecialchars($cc[0]->text),
 				"subject" => htmlspecialchars($subject[0]->text),
 				"date" => change_date(chop($ref_contenu_message->udate), $lang),
 				"att" => $link_att,
@@ -366,15 +367,15 @@ function get_mail_size($this_part)
 function get_reply_all($user, $domain, $from, $to, $cc)
 {
 	if (!eregi($user."@".$domain, $from))
-		$rcpt = $from.", ";
+		$rcpt = $from."; ";
 	$tab = explode(",", $to);
 	while ($tmp = array_shift($tab))
 		if (!eregi($user."@".$domain, $tmp))
-			$rcpt .= $tmp.", ";
+			$rcpt .= $tmp."; ";
 	$tab = explode(",", $cc);
 	while ($tmp = array_shift($tab))
 		if (!eregi($user."@".$domain, $tmp))
-			$rcpt .= $tmp.", ";
+			$rcpt .= $tmp."; ";
 	return (substr($rcpt, 0, strlen($rcpt) - 2));
 }
 

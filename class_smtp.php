@@ -1,6 +1,6 @@
 <?
 /*
- * $Header$
+ * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.7 2000/11/24 22:01:52 wolruf Exp $
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -48,7 +48,7 @@ class smtp
         $SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULTTXT"] = substr($line, 0, 1024); 
 
         if ($SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULT"] <>  "2") return 0; 
-
+		
         return $smtp; 
 	} 
 	
@@ -63,7 +63,7 @@ class smtp
         $SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULTTXT"] = substr($line, 0, 1024); 
 
         if ($SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULT"] <>  "2") return 0; 
-
+		
         return 1;
 	} 
   
@@ -94,7 +94,7 @@ class smtp
         $SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULTTXT"] = substr($line, 0, 1024); 
 
         if ($SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULT"] <>  "2") return 0; 
-
+		
         return 1; 
 	} 
   
@@ -108,7 +108,8 @@ class smtp
 			$line = fgets($smtp, 1024); 
 			$SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULT"] = substr($line, 0, 1); 
 			$SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULTTXT"] = substr($line, 0, 1024); 
-	        if ($SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULT"] <>  "2") return 0;
+
+			if ($SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULT"] <>  "2") return 0;
 		}
 		while ($tmp = array_shift($this->cc))
 		{
@@ -116,7 +117,8 @@ class smtp
 			$line = fgets($smtp, 1024); 
 		    $SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULT"] = substr($line, 0, 1); 
 			$SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULTTXT"] = substr($line, 0, 1024); 
-	        if ($SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULT"] <>  "2") return 0;
+
+			if ($SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULT"] <>  "2") return 0;
 		}
 		while ($tmp = array_shift($this->bcc))
 		{
@@ -124,7 +126,8 @@ class smtp
 			$line = fgets($smtp, 1024); 
 		    $SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULT"] = substr($line, 0, 1); 
 			$SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULTTXT"] = substr($line, 0, 1024); 
-	        if ($SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULT"] <>  "2") return 0;
+
+			if ($SMTP_GLOBAL_STATUS[$smtp][ "LASTRESULT"] <>  "2") return 0;
 		}
         return 1; 
 	} 
