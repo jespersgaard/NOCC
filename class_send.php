@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.40 2001/06/19 09:15:41 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.41 2001/06/25 08:45:07 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -173,10 +173,10 @@ class mime_mail
 			{
 				$smtp->smtp_server = $this->smtp_server;
 				$smtp->port = $this->smtp_port;
-				$smtp->from = $this->from;
-				$smtp->to = $this->to;
-				$smtp->cc = $this->cc;
-				$smtp->bcc = $this->bcc;
+				$smtp->from = $this->strip_comment($this->from);
+				$smtp->to = $this->strip_comment_array($this->to);
+				$smtp->cc = $this->strip_comment_array($this->cc);
+				$smtp->bcc = $this->strip_comment_array($this->bcc);
 				$smtp->subject = $this->subject;
 				$smtp->data = $mime;
 				return ($smtp->send());
@@ -185,5 +185,23 @@ class mime_mail
 				return (0);
 		}
 	}
+
+	function strip_comment_array($array) {
+		for($i = 0; $i < count($array); $i++) {
+			$array[$i] = $this->strip_comment($array[$i]);
+		}
+		return $array;
+	}
+
+	function strip_comment($address) {
+		$pos = strrpos($address, '<');
+		if ($pos === false) {
+			return '<'.$address.'>';
+		}
+		else {
+			return substr($address, $pos);
+		}
+	}
+
 }  // end of class
 ?>
