@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.66 2001/10/28 21:14:44 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.67 2001/10/28 22:49:57 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -186,6 +186,16 @@ switch (trim($action))
 			else
 			{
 				setPref('hide_addresses', '');
+			}
+
+			// Outlook-style quoting
+			if (isset($outlook_quoting) && $outlook_quoting == 'on')
+			{
+				setPref('outlook_quoting', $outlook_quoting);
+			}
+			else
+			{
+				setPref('outlook_quoting', '');
 			}
 
 			if ($signature != "")
