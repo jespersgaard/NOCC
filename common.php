@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.9 2002/04/24 21:08:18 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.10 2002/04/24 23:01:16 rossigee Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -51,13 +51,6 @@ if(isset($_REQUEST['sort']))
 if(isset($_REQUEST['sortdir']))
     $_SESSION['sortdir'] = safestrip($_REQUEST['sortdir']);
 
-// Unpack session variables into global namespace. This shouldn't be long-term, as I'm
-// trying to clear up use of the global namespace.
-if(isset($_SESSION['theme']))
-    $theme = $_SESSION['theme'];
-if(isset($_SESSION['lang']))
-    $lang = $_SESSION['lang'];
-
 // Need to wait on the language before checking it
 if (!isset($_SESSION['lang']))
 {
@@ -76,6 +69,13 @@ if (!isset($_SESSION['lang']))
         $_SESSION['lang'] = $conf->default_lang;
 }
 require ('./lang/' . $_SESSION['lang'] . '.php');
+
+// Unpack session variables into global namespace. This shouldn't be long-term, as I'm
+// trying to clear up use of the global namespace.
+if(isset($_SESSION['theme']))
+    $theme = $_SESSION['theme'];
+if(isset($_SESSION['lang']))
+    $lang = $_SESSION['lang'];
 
 // Start with default smtp server/port, override later
 $_SESSION['smtp_server'] = $conf->default_smtp_server;
