@@ -1,0 +1,40 @@
+NOCC readme documentation                                              README
+=--------------------------------------------------------------------------=
+
+$Author: jon $
+$Revision: 2.0.2.8 $
+$Date: 2000/05/26 03:01:47 $
+
+
+Release Documentation
+~~~~~~~~~~~~~~~~~~~~~
+COPYING       - Copyright license
+docs/CHANGES  - A list of changes by release
+docs/HELP     - How you can help
+docs/INSTALL  - Installation instructions and notes
+docs/CREDITS  - Who developed this 
+
+Installation
+~~~~~~~~~~~~
+All NOCC installation documentation is located in the docs/ subdirectory.
+Start by reading the docs/INSTALL file.
+
+Need Help?
+~~~~~~~~~~
+If you run into problems during the installation, there are multiple
+resources as your disposal.  It is highly suggested that you consult them
+in this order:
+
+    1)  The documentation distributed with NOCC (found in the docs/
+        subdirectory).
+    2)  The online, user-editable FAQ, available at http://faq.horde.org/.
+    3)  The searchable mailing list archives, found at http://horde.tdyc.com/.
+    4)  The live mailing lists.  More information at http://horde.org/mail/.
+
+Failing to read the documentation before asking a simple question answered
+therein will no doubt result in a less-than-welcome response from the mailing
+lists.  You've been warned. =)
+
+Thanks,
+
+The NOCC Team
