@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.12 2002/04/15 11:22:00 mrylander Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.13 2002/04/15 16:03:44 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -21,9 +21,10 @@ class nocc_imap
     var $login;
     var $password;
     var $conn;
+    var $folder;
 
     // constructor        
-    function nocc_imap($server, &$login, &$password, &$ev)
+    function nocc_imap($server, $folder, &$login, &$password, &$ev)
     {
         global $lang_could_not_connect;
 
@@ -32,7 +33,7 @@ class nocc_imap
         $this->password = $password;
 
         // $ev is set if there is a problem with the connection
-        $this->conn = imap_open($server, $login, $password);
+        $this->conn = imap_open('{'. $server .'}'.$folder, $login, $password);
         if(!$this->conn) {
             $errors = imap_errors();
             if(count($errors) > 0) {
@@ -79,6 +80,35 @@ class nocc_imap
         return imap_headerinfo($this->conn, $msgnum);
     }
 
+    // From what I can find, this will not work on Cyrus imap servers.
+    function deletemailbox($old_box) {
+        return imap_deletemailbox($this->conn, '{'.$this->server.'}'.$old_box);
+    }
+
+    function renamemailbox($old_box, $new_box) {
+        return imap_renamemailbox($this->conn, '{'.$this->server.'}'.$old_box, '{'.$this->server.'}'.$new_box);
+    }
+
+    function createmailbox($new_box) {
+        return imap_createmailbox($this->conn, '{'.$this->server.'}'.$new_box);
+    }
+
+    function mail_copy($mail, $new_box) {
+        return imap_mail_copy($this->conn, $mail, '{'.$this->server.'}'.$new_box, CP_UID);
+    }
+
+    function subscribe($new_box) {
+        return imap_subscribe($this->conn, '{'.$this->server.'}'.$new_box);
+    }
+
+    function unsubscribe($old_box) {
+        return imap_unsubscribe($this->conn, '{'.$this->server.'}'.$old_box);
+    }
+
+    function mail_move($mail, $new_box) {
+        return imap_mail_move($this->conn, $mail, '{'.$this->server.'}'.$new_box, CP_UID);
+    }
+
     function delete(&$mail) {
         return imap_delete($this->conn, $mail, 0);
     }
@@ -98,6 +128,15 @@ class nocc_imap
 
     function utf7_encode($thing) {
 	return imap_utf7_encode($thing);
+    }
+
+    function getmailboxes() {
+	if ($this->is_imap()) {
+		return imap_getmailboxes($this->conn, '{'.$this->server.'}', '*');
+	} else {
+		$temp = array();
+		return $temp;
+	}
     }
 
     function getsubscribed() {
@@ -132,6 +171,29 @@ class nocc_imap
     /*
      * These are general utility functions that extend the imap interface.
      */
+    function html_folder_select($value, $selected) {
+        $list = $this->get_nice_subscribed();
+
+        if(is_array($list) && count($list) > 0) {
+            reset($list);
+
+            $html_select = "<SELECT name=\"$value\">\n";
+
+            $select = '';
+            while (list($junk, $name) = each($list)) {
+                if ($name == $selected) {
+                    $select = "selected";
+                } else {
+                    $select = "";
+                }
+                $html_select .= "\t<OPTION $select value=\"$name\">$name</OPTION>\n";
+            }
+            $html_select .= "</select>\n";
+            return $html_select;
+        }
+    }
+
+
 	function get_page_count(&$conf) {
 
 	        if (($num_messages = $this->num_msg()) == 0) {
@@ -147,12 +209,16 @@ class nocc_imap
 
  	       $ret = array();
 
+                $s = $this->server;
+
                	$list = $this->getsubscribed();
                	if (is_array($list)) {
                        	reset($list);
                        	while (list($key,$val) = each($list)) {
-                               	list($junk,$name) = split("$servr}", $this->utf7_decode($val->name));
-	                        array_push($ret, $name);
+                               	list($junk,$name) = split("$s}", $this->utf7_decode($val->name));
+	                        if (!(in_array($name, $ret))) {
+                                    array_push($ret, $name);
+                                }
                         }
                	} else {
                        	return ($ret);

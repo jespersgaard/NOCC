@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.27 2002/03/24 16:45:26 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.28 2002/03/24 17:00:36 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -27,7 +27,7 @@ if (eregi('MSIE', $HTTP_USER_AGENT) && eregi('5.5', $HTTP_USER_AGENT))
 else
     header('Content-Disposition: attachment; filename=' . urldecode($filename));
 
-$pop = new nocc_imap('{'.$servr.'}'.$folder, $login, $passwd, &$ev);
+$pop = new nocc_imap($servr, $folder, $login, $passwd, &$ev);
 if($ev) {
     echo "<p class=\"error\">".$ev->getMessage()."</p>";
     return;

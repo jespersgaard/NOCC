@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.50 2002/04/15 10:23:49 mrylander Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.51 2002/04/15 11:20:57 mrylander Exp $ -->
 <?php
 
 require_once 'class_local.php';
@@ -47,26 +47,11 @@ if($pages > 1) {
 	$page_line .= "</select>$next)<input type=\"submit\" name=\"submit\" value=\"$html_gotopage\"></form>";
 }
 
-$list = $pop->get_nice_subscribed();
-
-$fldr_line = '';
-if(is_array($list) && count($list) > 0) {
-	reset($list);
-
-	$fldr_line = "<form method=\"POST\" action=\"$PHP_SElF?sort=1&sortdir=1&lang=$lang\">$html_other_folders:  \n<SELECT name=\"folder\">\n";
-
-	$selected = '';
-	while (list($junk, $name) = each($list)) {
-		if ($name == $folder) {
-			$selected = "selected";
-		} else {
-			$selected = "";
-		}
-		$fldr_line .= "\t<OPTION $selected value=\"$name\">$name</OPTION>\n";
-	}
-	$fldr_line .= "</select>\n<input type=\"submit\" name=\"submit\" value=\"$html_gotofolder\"></form>";
+if ($pop->is_imap()) {
+    $fldr_line = "<form method=\"POST\" action=\"$PHP_SElF?sort=1&sortdir=1&lang=$lang\">$html_other_folders:  \n";
+    $fldr_line .= $pop->html_folder_select('folder', $folder);
+    $fldr_line .= "<input type=\"submit\" name=\"submit\" value=\"$html_gotofolder\"></form>";
 }
-
 
 ?>
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
@@ -132,4 +117,4 @@ if(is_array($list) && count($list) > 0) {
             <?php echo $html_size ?></a>
         </td>
     </tr>
-<!-- start of $Id: html_top_table.php,v 1.50 2002/04/15 10:23:49 mrylander Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.51 2002/04/15 11:20:57 mrylander Exp $ -->

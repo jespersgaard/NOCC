@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.12 2002/03/24 17:08:02 wolruf Exp $ -->
+<!-- start of $Id: prefs.php,v 1.13 2002/04/15 10:24:26 mrylander Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -26,7 +26,7 @@
                 </tr>
                 <tr>
                     <td align="right" class="prefs" valign="top"><?php echo $html_msgperpage ?></td>
-                    <td align="left" class="prefs">
+                    <td align="left" class="prefs" valign="top">
                         <input type="text" name="msg_per_page" value="<?php echo $msg_per_page ?>" size="3" maxlength="3"/>
                     </td>
                 </tr>
@@ -84,4 +84,4 @@
         </td>
     </tr>
 </table>
-<!-- end of $Id: prefs.php,v 1.12 2002/03/24 17:08:02 wolruf Exp $ -->
+<!-- end of $Id: prefs.php,v 1.13 2002/04/15 10:24:26 mrylander Exp $ -->

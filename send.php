@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.95 2002/03/25 14:00:42 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.96 2002/03/25 18:33:57 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -129,7 +129,7 @@ else
             // Add original message as attachment?
             if($forward_msgnum != "") {
                 $ev = "";
-                $pop = new nocc_imap('{'.$servr.'}'.$folder, $login, $passwd, $ev);
+                $pop = new nocc_imap($servr, $folder, $login, $passwd, $ev);
                 if (Exception::isException($ev)) {
                     require ('./html/header.php');
                     require ('./html/error.php');

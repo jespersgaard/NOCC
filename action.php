@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.103 2002/04/15 01:58:26 mrylander Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.104 2002/04/15 10:26:29 mrylander Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -219,7 +219,81 @@ switch (trim($action))
         require ('./html/footer.php');
         break;
 
+    case 'managefolders':
+        $pop = new nocc_imap($servr, $folder, $user, $passwd, $ev);
+        if ($ev) {
+            // I'll decide what to do with this later.
+            break;
+        }
+
+        switch (trim($do)) {
+            case 'create_folder':
+                if ($createnewbox) {
+                    if (!($pop->createmailbox($createnewbox))) {
+                        $html_folders_updated = "Folder '$createnewbox' could not be created!";
+                        break;
+                    }
+                    $pop->subscribe($createnewbox);
+                }
+                break;
+
+            case 'subscribe_folder':
+                if ($subscribenewbox) {
+                    if (!($pop->subscribe($subscribenewbox))) {
+                        $html_folders_updated = "Folder '$subscribednewbox' could not be subscribed to!";
+                        break;
+                    }
+                }
+                break;
+
+            case 'remove_folder':
+                if ($removeoldbox) {
+                    if (!($pop->deletemailbox($removeoldbox))) {
+                        $html_folders_updated = "Folder '$removeoldbox' could not be removed!";
+                        break;
+                    }
+                    $pop->unsubscribe($removeoldbox);
+                }
+                break;
+
+            case 'rename_folder':
+                if ($renamenewbox && $renameoldbox) {
+                    if (!($pop->renamemailbox($renameoldbox, $renamenewbox))) {
+                        $html_folders_updated = "Folder '$renameoldbox' could not be renamed!";
+                        break;
+                    }
+                    $pop->unsubscribe($renameoldbox);
+                    $pop->subscribe($renamenewbox);
+                }
+                break;
+        }
+
+        $full_name = getPref('full_name');
+        $msg_per_page = getPref('msg_per_page');
+        $email_address = getPref('email_address');
+        $cc_self = getPref('cc_self');
+        $hide_addresses = getPref('hide_addresses');
+        $outlook_quoting = getPref('outlook_quoting');
+        $reply_leadin = getPref('leadin');
+        $signature = getPref('signature');
+        require ('./html/header.php');
+        require ('./html/menu_prefs.php');
+        require ('./html/prefs.php');
+        require ('./html/folders.php');
+        require ('./html/menu_prefs.php');
+        require ('./html/footer.php');
+
+        $pop->close();
+
+        break;
+
     case 'setprefs':
+        $pop = new nocc_imap($servr, $folder, $user, $passwd, $ev);
+        if ($ev) {
+            // I'll decide what to do with this later.
+            break;
+        }
+
         if(isset($submit_prefs))
         {
             $lastev = '';
@@ -325,8 +399,14 @@ switch (trim($action))
         require ('./html/header.php');
         require ('./html/menu_prefs.php');
         require ('./html/prefs.php');
+        if ($pop->is_imap()) {
+            require ('./html/folders.php');
+        }
         require ('./html/menu_prefs.php');
         require ('./html/footer.php');
+
+        $pop->close();
+
         break;
 
     default:
@@ -340,7 +420,7 @@ switch (trim($action))
         }
         
         $ev = "";
-        $pop = new nocc_imap('{'.$servr.'}'.$folder, $login, $passwd, $ev);
+        $pop = new nocc_imap($servr, $folder, $login, $passwd, $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');

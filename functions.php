@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.144 2002/04/15 02:10:01 mrylander Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.145 2002/04/15 10:27:32 mrylander Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -125,7 +125,7 @@ function aff_mail(&$conf, &$mailhost, &$login, &$passwd, &$folder, &$mail, $verb
     $glob_body = $subject = $from = $to = $cc = $reply_to = '';
     if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
         $default_date_format = $no_locale_date_format;
-    $pop = new nocc_imap('{'.$mailhost.'}'.$folder, $login, $passwd, $ev);
+    $pop = new nocc_imap($mailhost, $folder, $login, $passwd, $ev);
     if($ev) 
         return (-1);
 
@@ -617,7 +617,7 @@ function save_attachment(&$servr, &$login, &$passwd, &$folder, &$mail, &$tmpdir)
     $i = 0;
     $attach_array = array();
 
-    $pop = new nocc_imap('{'.$mailhost.'}'.$folder, $login, $passwd, $ev);
+    $pop = new nocc_imap($mailhost, $folder, $login, $passwd, $ev);
     if($ev) 
         return (-1);
     while ($tmp = array_shift($attach_tab))
@@ -645,7 +645,7 @@ function save_attachment(&$servr, &$login, &$passwd, &$folder, &$mail, &$tmpdir)
 
 function view_part(&$servr, &$login, &$passwd, &$folder, &$mail, $part_no, &$transfer, &$msg_charset, &$charset)
 {
-    $pop = new nocc_imap('{'.$mailhost.'}'.$folder, $login, $passwd, $ev);
+    $pop = new nocc_imap($mailhost, $folder, $login, $passwd, $ev);
     if($ev) 
         return (-1);
     $text = $pop->fetchbody($mail, $part_no);
