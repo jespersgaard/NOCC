@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.68 2001/10/28 22:55:46 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.69 2001/10/28 22:58:34 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -91,8 +91,8 @@ switch (trim($action))
 		require ('./html/menu_inbox.php');
 		break;
 
-	case 'reply':
-		$content = aff_mail($servr, $user, stripslashes($passwd), $folder, $mail, 0, $lang, $sort, $sortdir);
+	case 'reply':	
+	$content = aff_mail($servr, $user, stripslashes($passwd), $folder, $mail, 0, $lang, $sort, $sortdir);
 		$mail_to = !empty($content['reply_to']) ? $content['reply_to'] : $content['from'];
 		// Test for Re: in subject, should not be added twice ! 
 		if (!strcasecmp(substr($content['subject'], 0, 2), $html_reply_short))
@@ -101,12 +101,12 @@ switch (trim($action))
 			$mail_subject = $html_reply_short.': '.$content['subject'];
 		$outlook_quoting = getPref('outlook_quoting');
 		if($outlook_quoting)
-			$mail_body = $original_msg."\n".$html_from.': '.$content['from']."\n".$html_to.': '.$content['to']."\n".$html_sent.': '.$content['complete_date']."\n".$html_subject.': '.$content['subject']."\n\n".strip_tags($content['body'], '');
+			$mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . strip_tags($content['body'], '');
 		else
-			$mail_body = mailquote(strip_tags($content['body'], ''),$content['from']);
+			$mail_body = mailquote(strip_tags($content['body'], ''), $content['from'], $html_wrote);
 
 		// Add signature
-		$mail_body .= "\r\n".$prefs_signature;
+		$mail_body .= "\r\n\r\n" . $prefs_signature;
 
 		// We add the attachments of the original message
 		list($num_attach, $attach_array) = save_attachment($servr, $user, stripslashes($passwd), $folder, $mail, $tmpdir);

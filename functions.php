@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.110 2001/10/28 21:14:44 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.111 2001/10/28 22:49:57 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -697,10 +697,11 @@ function display_address($address)
 
 /* ----------------------------------------------------- */
 
-function mailquote($body, $from) {
-	$from = ucwords(trim(ereg_replace("&lt;.*&gt;", "", str_replace("\"","",$from))));
-	$body = "> ".ereg_replace("\n","\n> ", trim($body));
-	return($from." wrote:\n\n".$body);
+function mailquote($body, $from, $html_wrote)
+{
+	$from = ucwords(trim(ereg_replace("&lt;.*&gt;", "", str_replace("\"", "", $from))));
+	$body = "> " . ereg_replace("\n", "\n> ", trim($body));
+	return($from . ' ' . $html_wrote . " :\n\n" . $body);
 }
 
 ?>
