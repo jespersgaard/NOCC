@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.32 2001/01/30 09:45:33 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.33 2001/01/31 13:53:36 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -97,7 +97,7 @@ $html_bcc = "Copie cach&eacute;e";
 $html_nosubject = "Aucun sujet";
 $html_send = "Envoyer";
 $html_cancel = "Annuler";
-$html_no_mail = "Vous n'avez pas de nouveaux messages.";
+$html_no_mail = "Aucun message.";
 $html_logout = "D&eacute;connexion";
 $html_msg = "Message";
 $html_msgs = "Messages";
