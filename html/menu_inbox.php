@@ -1,10 +1,10 @@
-<!-- start of $Id: menu_inbox.php,v 1.27 2001/12/16 12:44:25 nicocha Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.28 2001/12/19 21:14:21 nicocha Exp $ -->
 <?php
 $color_inbox = $color = $glob_theme->menu_color;
 if ($action == '') 
 {
 	$color_inbox = $glob_theme->menu_color_on; 
-	$line = '<a href="'.$PHP_SELF.'?action=write&amp;lang='.$lang.'&amp;sort='.$sort.'&amp;sortdir='.$sortdir.'" class="menu">'.$html_new_msg.'</a>';
+	$line = '<a href="'.$PHP_SELF.'?action=write&lang='.$lang.'&sort='.$sort.'&sortdir='.$sortdir.'" class="menu">'.$html_new_msg.'</a>';
 }
 else
 	$color =  $glob_theme->menu_color_on;
@@ -23,7 +23,7 @@ if ($action == 'forward')
 			<table border="0" cellpadding="2" cellspacing="1" bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%">
 				<tr>
 					<td class="menu" align="center" width="120" bgcolor="<?php echo $color_inbox ?>">
-						<a href="<?php echo $PHP_SELF ?>?lang=<?php echo $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>" class="menu"><?php echo $html_inbox ?></a>
+						<a href="<?php echo $PHP_SELF ?>?lang=<?php echo $lang ?>&sort=<?php echo $sort ?>&sortdir=<?php echo $sortdir ?>" class="menu"><?php echo $html_inbox ?></a>
 					</td>
 					<td class="menu" align="center" width="120" bgcolor="<?php echo $color ?>">
 						<?php echo $line ?>
@@ -42,11 +42,11 @@ if ($action == 'forward')
 					</td>
 					<?php } ?>
 					<!--<td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
-						<a href="javascript:void(null)" onMouseUp="OpenHelpWindow('help.php?action=<?php echo $action ?>&amp;lang=<?php echo $lang ?>&amp;sort=<?php echo $sort ?>&amp;sortdir=<?php echo $sortdir ?>','image','scrollbars=yes,resizable=yes,width=400,height=300')" class="menu"><?php echo $html_help ?></a>
+						<a href="javascript:void(null)" onMouseUp="OpenHelpWindow('help.php?action=<?php echo $action ?>&lang=<?php echo $lang ?>&sort=<?php echo $sort ?>&sortdir=<?php echo $sortdir ?>','image','scrollbars=yes,resizable=yes,width=400,height=300')" class="menu"><?php echo $html_help ?></a>
 					</td> -->
 				</tr>
 			</table>
 		</td>
 	</tr>
 </table>
-<!-- end of $Id: menu_inbox.php,v 1.27 2001/12/16 12:44:25 nicocha Exp $ -->
+<!-- end of $Id: menu_inbox.php,v 1.28 2001/12/19 21:14:21 nicocha Exp $ -->
