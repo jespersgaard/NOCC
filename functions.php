@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.157 2002/04/24 23:00:54 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.158 2002/05/02 12:20:29 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -220,7 +220,8 @@ function aff_mail(&$attach_tab, &$mail, $verbose, &$ev)
         'header' => htmlspecialchars($header),
         'verbose' => $verbose,
         'prev' => $prev_msg,
-        'next' => $next_msg
+        'next' => $next_msg,
+        'msgnum' => $mail
     );
     return ($content);
 }

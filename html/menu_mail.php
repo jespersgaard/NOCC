@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_mail.php,v 1.23 2002/04/19 14:39:37 rossigee Exp $ -->
+<!-- start of $Id: menu_mail.php,v 1.24 2002/04/28 21:28:47 wolruf Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -8,16 +8,16 @@
                         <a href="<?php echo $PHP_SELF ?>" class="menu"><?php echo $folder ?></a>
                     </td>
                     <td class="menu" align="center" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="<?php echo $PHP_SELF ?>?action=write&amp;" class="menu"><?php echo $html_new_msg ?></a>
+                        <a href="<?php echo $PHP_SELF ?>?action=write" class="menu"><?php echo $html_new_msg ?></a>
                     </td>
                     <td class="menu" align="center" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="<?php echo $PHP_SELF ?>?action=reply&amp;mail=<?php echo $mail ?>" class="menu"><?php echo $html_reply ?></a>
+                        <a href="<?php echo $PHP_SELF ?>?action=reply&amp;mail=<?php echo $content['msgnum'] ?>" class="menu"><?php echo $html_reply ?></a>
                     </td>
                     <td class="menu" align="center" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="<?php echo $PHP_SELF ?>?action=reply_all&amp;mail=<?php echo $mail ?>" class="menu"><?php echo $html_reply_all ?></a>
+                        <a href="<?php echo $PHP_SELF ?>?action=reply_all&amp;mail=<?php echo $content['msgnum'] ?>" class="menu"><?php echo $html_reply_all ?></a>
                     </td>
                     <td class="menu" align="center" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="<?php echo $PHP_SELF ?>?action=forward&amp;mail=<?php echo $mail ?>" class="menu"><?php echo $html_forward ?></a>
+                        <a href="<?php echo $PHP_SELF ?>?action=forward&amp;mail=<?php echo $content['msgnum'] ?>" class="menu"><?php echo $html_forward ?></a>
                     </td>
                     <td class="menu" align="center" bgcolor="<?php echo $glob_theme->menu_color ?>">
                         <a href="delete.php?delete_mode=1&mail=<?php echo $mail ?>&amp;only_one=1" class="menu"><?php echo $html_delete ?></a>
@@ -35,4 +35,4 @@
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_mail.php,v 1.23 2002/04/19 14:39:37 rossigee Exp $ -->
+<!-- end of $Id: menu_mail.php,v 1.24 2002/04/28 21:28:47 wolruf Exp $ -->

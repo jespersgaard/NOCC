@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.123 2002/05/14 18:36:59 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.124 2002/05/14 18:40:14 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -78,7 +78,7 @@ switch($action)
                     echo '<hr />';
                     echo '<center>';
                     echo '<p>' . $html_loading_image . ' ' . $tmp['name'] . '...</p>';
-                    echo '<img src="get_img.php?mail=' . $mail.'&amp;num=' . $tmp['number'] . '&amp;mime=' . $img_type . '&amp;transfer=' . $tmp['transfer'] . '" />';
+                    echo '<img src="get_img.php?mail=' . $_REQUEST['mail'].'&amp;num=' . $tmp['number'] . '&amp;mime=' . $img_type . '&amp;transfer=' . $tmp['transfer'] . '" />';
                     echo '</center>';
                 }
             }
