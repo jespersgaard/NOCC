@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.59 2004/08/16 17:09:10 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.60 2004/08/16 18:01:54 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -126,7 +126,7 @@ class mime_mail
      *      void send()
      *      Send the mail (last class-function to be called)
      */ 
-    function send() 
+    function send(&$conf) 
     {
         $mime = '';
         if (($this->smtp_server != '' && $this->smtp_port != ''))
@@ -191,7 +191,23 @@ class mime_mail
                 $smtp->bcc = $this->strip_comment_array($this->bcc);
                 $smtp->subject = $this->subject;
                 $smtp->data = $mime;
-                return ($smtp->send());
+                $smtp_return = $smtp->send();
+                $copy_return = 1;
+                $user_prefs = $_SESSION['nocc_user_prefs'];
+                if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder){
+                    // Copy email to Sent folder
+                    $pop = new nocc_imap($ev);
+                    if (NoccException::isException($ev)) {
+                        return($ev);
+                    }
+                    if ($pop->is_imap()) {
+                        $copy_return = $pop->copytosentfolder($smtp->data, $ev, $conf);
+                        if (NoccException::isException($ev)) {
+                            return($ev);
+                        }
+                    }
+                }
+                return ($smtp_return && $copy_return);
             }
             else
                 return (0);

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.126 2004/09/11 16:05:13 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.127 2004/10/08 06:14:15 jdeluise Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -202,17 +202,16 @@ switch($_REQUEST['sendaction'])
             $mail->add_attachment($origmsg, 'orig_msg.eml',  'message/rfc822', '', '');
         }
 
-        //$ev = $mail->send();
-		if (!isset ($_SESSION['last_send']))
-		{
-			$ev = $mail->send();
-			$_SESSION['last_send'] = time ();
-		}
-		else if ($_SESSION['last_send'] + $conf->send_delay < time ())
-		{
-			$ev = $mail->send();
-			$_SESSION['last_send'] = time ();
-		}
+            if (!isset ($_SESSION['last_send']))
+            {
+                $ev = $mail->send($conf);
+                $_SESSION['last_send'] = time ();
+            }
+            else if ($_SESSION['last_send'] + $conf->send_delay < time ())
+            {
+                $ev = $mail->send($conf);
+                $_SESSION['last_send'] = time ();
+            }
         header("Content-type: text/html; Charset=$charset");
         if (NoccException::isException($ev))
         {

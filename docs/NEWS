@@ -1,7 +1,9 @@
 NOCC 0.9.7    ?? ??, 2004
 
+    * Add possibility to copy sent mails into a dedicated folder - IMAP only
+      (Arnaud Boudou, RFE #436736).
     * Fix issue with persistent sessions variable while login accross different
-      users (Arnaud Boudou, bugs #1047257 and #1047233)
+      users (Arnaud Boudou, bugs #1047257 and #1047233).
     * Eliminated the javascript requirement when adding or removing
       attachments while composing a message, javascript validation is still
       performed (Leif Gustafson, RFE #602492).

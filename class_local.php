@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.33 2004/06/20 20:16:25 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.34 2004/06/22 10:36:00 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -215,6 +215,27 @@ class nocc_imap
         return imap_clearflag_full($this->conn, imap_uid($this->conn, $mail), "\\Seen",ST_UID);
     }
 
+    function exists(&$mailbox, &$ev) {
+        $exists = false;
+        $list = imap_list($this->conn, '{'.$this->server.'}', '*');
+        if(is_array($list)) {
+           reset($list);
+           while (list($key, $val) = each($list)) {
+               if (imap_utf7_decode($val) == 'INBOX.'.$mailbox) {
+                   $exists = true;
+               }
+           }
+        }
+        return $exists;
+    }
+
+    function copytosentfolder(&$maildata, &$ev, &$conf) {
+        if (!(imap_append($this->conn, '{'.$this->server.'}INBOX.'.$conf->sent_folder, $maildata, "\\Seen"))) {
+            $ev = new NoccException("could not copy mail into $conf->sent_folder folder: ".imap_last_error());
+            return false;
+        }
+        return true;
+    }
 
     /*
      * These functions are static, but if we could re-implement them without

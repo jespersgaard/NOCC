@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.30 2003/12/21 15:40:20 goddess_skuld Exp $ -->
+<!-- start of $Id: prefs.php,v 1.31 2004/06/15 10:37:08 goddess_skuld Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -95,7 +95,15 @@
 					<td align="left" class="prefs">
 						<input type="checkbox" name="graphical_smilies" id="graphical_smilies" value="on" <?php if (isset($user_prefs->graphical_smilies) && $user_prefs->graphical_smilies) echo "checked"; ?> /><label for="graphical_smilies"><?php echo $html_use_graphical_smilies ?></label>
 					</td>
-				</tr>
+                </tr>
+                <?php if($pop->is_imap()) { ?>
+                <tr>
+                    <td align="right" class="prefs" valign="top">&nbsp;</td>
+                    <td align="left" class="prefs">
+                      <input type="checkbox" name="sent_folder" id="sent_folder" value="on" <?php if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder) echo "checked"; ?> /><label for="sent_folder"><?php echo $html_sent_folder ?></label>
+                    </td>
+                </tr>
+                <?php } ?>
                 <tr>
                     <td align="center" colspan="2">
                         <?php
@@ -131,4 +139,4 @@
     ?>
 
 </table>
-<!-- end of $Id: prefs.php,v 1.30 2003/12/21 15:40:20 goddess_skuld Exp $ -->
+<!-- end of $Id: prefs.php,v 1.31 2004/06/15 10:37:08 goddess_skuld Exp $ -->

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.4 2004/09/23 19:14:34 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.5 2004/10/08 09:54:47 jdeluise Exp $ 
  *
  * Copyright 2004 Nicolas Chalanset <nicocha at free.fr>
  * Copyright 2004 Olivier Cahagne <wolruf at free.fr>
@@ -87,6 +87,7 @@ $html_prefs_updated = 'Pr3f3r3nc3s upd4t3d';
 $html_manage_folders_link = 'M4n4g3 !M4P F0ld3rs';
 $html_manage_filters_link = 'M4n4g3 3m4!l F!lt3rs';
 $html_use_graphical_smilies = 'Us3 gr4ph!c4l sm!l!3s';
+$html_sent_folder = 'C0py s3nt m4!ls !nt0 4 d3d!c4t3d f0ld3r';
 
 // folders.php
 $html_folders_create_failed = 'F0ld3r c0u1d n0t b3 cr34t3d!';

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.126 2004/09/13 19:17:54 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.127 2004/09/14 09:30:04 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -226,6 +226,9 @@ $conf->memory_limit="20M";
 // Set to '' to disable
 $conf->allowed_char='';
 
+//IMAP Sent folder: the folder where outgoing mails are copied if the user
+// wants it. CAUTION: Don't use IMAP folder prefix (ie: INBOX.).
+$conf->sent_folder='Sent';
 /*
 ###################     End of Configuration     ####################
 */

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.15 2004/09/23 19:14:33 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.16 2004/10/08 09:54:47 jdeluise Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -85,6 +85,7 @@ $html_prefs_updated = '&#1578;&#1606;&#1591;&#1610;&#1605;&#1575;&#1578; &#1576;
 $html_manage_folders_link = 'Manage IMAP Folders';  //to translate
 $html_manage_filters_link = 'Manage Email Filters';  //to translate
 $html_use_graphical_smilies = 'Use graphical smilies'; //to translate
+$html_sent_folder = 'Copy sent mails into a dedicated folder'; //to translate
 
 // folders.php
 $html_folders_create_failed = '&#1588;&#1575;&#1582;&#1607; &#1606;&#1605;&#1609;&#1578;&#1608;&#1575;&#1606;&#1583; &#1575;&#1610;&#1580;&#1575;&#1583; &#1588;&#1608;&#1583;';

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.8 2004/06/28 15:28:03 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.9 2004/06/30 17:52:43 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -25,6 +25,7 @@ class NOCCUserPrefs {
         var $wrap_msg;
         var $sig_sep;
 	var $graphical_smilies;
+        var $sent_folder;
 
 	// Set when preferences have not been commit
 	var $dirty_flag;
@@ -101,6 +102,8 @@ class NOCCUserPrefs {
 				$prefs->sig_sep = ($value == 1 || $value == 'on');
 			if($key == 'graphical_smilies')
 				$prefs->graphical_smilies = ($value == 1 || $value == 'on');
+                        if($key == 'sent_folder')
+                                $prefs->sent_folder = ($value == 1 || $value == 'on');
 		}
 		fclose($file);
 
@@ -150,6 +153,7 @@ class NOCCUserPrefs {
         fwrite($file, "wrap_msg=".$this->wrap_msg."\n");
 		fwrite($file, "sig_sep=".$this->sig_sep."\n");
 		fwrite($file, "graphical_smilies=".$this->graphical_smilies."\n");
+                fwrite($file, "sent_folder=".$this->sent_folder."\n");
 		fclose($file);
 
 		$this->dirty_flag = 0;

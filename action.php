@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.157 2004/09/27 19:43:55 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.158 2004/10/15 08:30:52 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -429,6 +429,7 @@ switch($action)
                 $user_prefs->wrap_msg = $_REQUEST['wrap_msg'];
             $user_prefs->sig_sep = isset($_REQUEST['sig_sep']);
 	    $user_prefs->graphical_smilies = isset($_REQUEST['graphical_smilies']);
+            $user_prefs->sent_folder = isset($_REQUEST['sent_folder']);
 
             // Commit preferences
             $user_prefs->commit($ev);
@@ -467,6 +468,15 @@ switch($action)
             require ('./html/error.php');
             require ('./html/footer.php');
             break;
+        }
+        if ($action == 'login') {
+            // Create Sent folder if IMAP connection and it doesn't exists.
+            if($pop->is_imap() && !($pop->exists($conf->sent_folder, $ev))) {
+                $pop->createmailbox($conf->sent_folder, $ev);
+                //if(NoccException::isException($ev)) {}
+                $pop->subscribe($conf->sent_folder, $ev, true);
+                //if(NoccException::isException($ev)) {}
+            }
         }
 
         // We may need to apply some filters to the INBOX...  this is still a work in progress.

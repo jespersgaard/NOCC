@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.41 2004/09/23 19:14:34 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.42 2004/10/08 09:54:47 jdeluise Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -85,6 +85,7 @@ $html_prefs_updated = 'Zapisano nowe ustawienia';
 $html_manage_folders_link = 'Zarz±dzaj Folderami IMAP';
 $html_manage_filters_link = 'Regu³y wiadomo¶ci';
 $html_use_graphical_smilies = 'U¿ywaj emotikon';
+$html_sent_folder = 'Copy sent mails into a dedicated folder'; //to translate
 
 // folders.php
 $html_folders_create_failed = 'Nie mo¿na uworzyæ folderu!';
