@@ -9,7 +9,7 @@ NOCC 0.9.4	??   ??, 2001
 	* Fixed a session problem with IE in HTTPS mode which prevented from
 	  downloading attachments.
 	* Fixed missing '\r' when sending mail (bug #408232).
-	* Added Slovak, Hungarian, Greek, Czech, Chinese Simplified and (still
+	* Added Slovak, Hungarian, Greek, Czech, Chinese Simplified, Korean and (still
 	  experimental) Hebrew translations.
 	* Added an error reporting control. No more 'undefined variable'
 	  warning will appear.
