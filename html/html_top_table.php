@@ -10,7 +10,7 @@ $is_Imap = is_Imap($servr);
 
 <table width="100%" cellpadding="2" cellspacing="1" border="0" bgcolor="<?php echo $glob_theme->inside_color ?>">
 	<tr bgcolor="<?php echo $glob_theme->tr_color ?>">
-		<td <?php if (($is_Imap) || ($have_ucb_pop_server)) echo 'colspan="4"'; else echo 'colspan="3"'; ?>align="left" class="titlew">
+		<td <?php if (($is_Imap) || ($have_ucb_pop_server)) echo 'colspan="5"'; else echo 'colspan="4"'; ?>align="left" class="titlew">
 			<b><?php echo $folder ?></b>
 		</td>
 		<td class="titlew">
@@ -30,7 +30,7 @@ $is_Imap = is_Imap($servr);
 		</td>
 		<?php } ?>
 		<td align="center" class="inbox">
-			&nbsp; <?php //echo $html_att ?>
+			&nbsp; <? // echo $html_att ?>
 		</td>
 		<td align="center" class="inbox" <?php if ($sort == 2) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
 			<a href="<?php echo $PHP_SELF ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>&amp;lang=<?php echo $lang ?>">
