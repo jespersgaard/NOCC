@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.119 2001/11/14 20:08:12 colinstephenson Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.120 2001/11/15 18:27:18 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -52,7 +52,7 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang, $theme)
 					if ($struct_msg->subtype == 'ALTERNATIVE' || $struct_msg->subtype == 'RELATED')
 						$attach = '&nbsp;';
 					else
-						$attach = '<img src="themes/' . $theme . '/img/attach.gif" height="28" width="27" alt="" />';
+						$attach = '<img src="themes/' . $theme . '/img/attach.gif" alt="" />';
 				}
 				else
 					$attach = '&nbsp;';
@@ -543,7 +543,7 @@ function cut_address($addr, $charset)
 	// quoted addresses into account
 	$addresses = array();
 	$token = '';
-	$quot_esc = false;
+	$quote_esc = false;
 	for ($i = 0; $i < strlen($addr); $i++) {
 		$c = substr($addr, $i, 1);
 
