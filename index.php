@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.52 2001/02/27 09:21:50 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.53 2001/02/28 21:30:54 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -66,7 +66,7 @@ function updateTheme()
 // -->
 </script>
 </head>
-<body bgcolor="<?php echo $glob_theme->bgcolor ?>" link="<?php echo $glob_theme->link_color ?>" text="<?php echo $glob_theme->text_color ?>" vlink="<?php echo $glob_theme->vlink_color ?>" alink="<?php echo $glob_theme->alink_color ?>">
+<body dir="<?php echo $lang_dir ?>" bgcolor="<?php echo $glob_theme->bgcolor ?>" link="<?php echo $glob_theme->link_color ?>" text="<?php echo $glob_theme->text_color ?>" vlink="<?php echo $glob_theme->vlink_color ?>" alink="<?php echo $glob_theme->alink_color ?>">
 <table border="0" width="100%">
 	<tr>
 		<td align="center" valign="middle">
