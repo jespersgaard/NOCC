@@ -1,6 +1,6 @@
 <?
 /*
- * $Header$
+ * $Header: /cvsroot/nocc/nocc/webmail/get_img.php,v 1.6 2000/11/24 22:01:52 wolruf Exp $
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,7 +13,7 @@ session_register ("user");
 session_register ("passwd");
 require ("conf.php");
 
-$pop = imap_open("{".$servr."}INBOX", $user, $passwd);
+$pop = imap_open("{".$servr."}INBOX", $user, stripslashes($passwd);
 $img = imap_fetchbody($pop, $mail, $num);
 imap_close($pop);
 if ($transfer == "BASE64")

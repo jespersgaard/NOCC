@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.16 2000/11/24 22:01:52 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.17 2000/12/18 15:02:16 nicocha Exp $
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -26,7 +26,7 @@ switch ($action)
 		// Here we display the message
 		require ("html/menu_mail.php");
 		require ("html/html_mail_top.php");
-		$content = aff_mail($servr, $user, $passwd, $mail, $verbose, true, $lang);
+		$content = aff_mail($servr, $user, stripslashes($passwd), $mail, $verbose, true, $lang);
 		require ("html/html_mail_header.php"); 
 		//if (!eregi("html", $content["body_mime"]))
 			while ($tmp = array_shift($attach_tab))
@@ -56,7 +56,7 @@ switch ($action)
 		break;
 	case "reply":
 		require ("html/menu_inbox.php");
-		$content = aff_mail($servr, $user, $passwd, $mail, $verbose, false, $lang);
+		$content = aff_mail($servr, $user, stripslashes($passwd), $mail, $verbose, false, $lang);
 		$mail_to = $content["from"];
 		// Test for Re: in subject, should not be added twice ! 
 		if (!strcasecmp(substr($content["subject"], 0, 2), $html_reply_short))
@@ -69,7 +69,7 @@ switch ($action)
 		break;
 	case "reply_all":
 		require ("html/menu_inbox.php");
-		$content = aff_mail($servr, $user, $passwd, $mail, $verbose, false, $lang);
+		$content = aff_mail($servr, $user, stripslashes($passwd), $mail, $verbose, false, $lang);
 		$mail_to = get_reply_all($user, $domain, $content["from"], $content["to"], $content["cc"]);
 		if (!strcasecmp(substr($content["subject"], 0, 2), $html_reply_short))
 			$mail_subject = $content["subject"];
@@ -81,7 +81,7 @@ switch ($action)
 		break;
 	case "forward":
 		require ("html/menu_inbox.php");
-		$content = aff_mail($servr, $user, $passwd, $mail, $verbose, false, $lang);
+		$content = aff_mail($servr, $user, stripslashes($passwd), $mail, $verbose, false, $lang);
 		$mail_subject = $html_forward_short.": ".$content["subject"];
 		$mail_body = $original_msg."\n".$html_from.": ".$content["from"]."\n".$html_to.": ".$content["to"]."\n".$html_sent.": ".$content["date"]."\n".$html_subject.": ".$content["subject"]."\n\n".strip_tags($content["body"], "");
 		require("html/send.php");
@@ -89,7 +89,7 @@ switch ($action)
 		break;
 	default:
 		// Default we display the mailbox
-		$tab_mail = inbox($servr, $user, $passwd, $sort, $sortdir, $lang);
+		$tab_mail = inbox($servr, $user, stripslashes($passwd), $sort, $sortdir, $lang);
 		switch ($tab_mail)
 		{
 			case -1:

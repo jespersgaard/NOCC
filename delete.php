@@ -1,6 +1,6 @@
 <? 
 /*
- * $Header$
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.7 2000/11/24 22:01:52 wolruf Exp $
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -15,7 +15,7 @@ session_register ("user");
 session_register ("passwd");
 require ("conf.php");
 
-$pop = imap_open("{".$servr."}INBOX", $user, $passwd);
+$pop = imap_open("{".$servr."}INBOX", $user, stripslashes($passwd));
 $num_messages = imap_num_msg($pop);
 
 if ($only_one == 1)
