@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.36 2001/01/30 13:42:25 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.37 2001/01/31 18:08:48 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -118,7 +118,7 @@ cellspacing="0" width="428">
 								<td><font size="-3">&nbsp;</font></td>
 								<td class="f">
 									<?
-										echo ("<select name=\"lang\">");
+										echo ("<select name=\"lang\" onchange=\"changeLang()\">");
 										for ($i = 0; $i < sizeof($lang_array); $i++)
 											if (file_exists("lang/".$lang_array[$i]->filename.".php"))
 											{
@@ -165,6 +165,14 @@ you need PHP 4 at least to run Nocc.</b></font></td>
 			</table>
 			<script type="text/javascript">
 			<!--
+				function changeLang()
+				{
+					if (document.nocc_webmail_login.user.value == "" && document.nocc_webmail_login.passwd.value == "")
+					{
+						var lang_page = "<?echo $PHP_SELF?>?lang=" + document.nocc_webmail_login.lang[document.nocc_webmail_login.lang.selectedIndex].value;
+						self.location = lang_page;
+					}
+				}
 				document.nocc_webmail_login.user.focus();
 				document.nocc_webmail_login.passwd.value='';
 			// -->
