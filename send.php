@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.72 2001/10/25 13:06:40 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.73 2001/10/26 11:37:16 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -53,10 +53,10 @@ else
 			session_register('num_attach', 'attach_array');
 			// Displaying the sending form with the new attachments array
 			header("Content-type: text/html; Charset=$charset");
-			require_once ('./html/header.php');
-			require_once ('./html/menu_inbox.php');
-			require_once ('./html/send.php');
-			require_once ('./html/menu_inbox.php');
+			require ('./html/header.php');
+			require ('./html/menu_inbox.php');
+			require ('./html/send.php');
+			require ('./html/menu_inbox.php');
 			break;
 		case 'send':
 			$ip = (getenv('HTTP_X_FORWARDED_FOR') ? getenv('HTTP_X_FORWARDED_FOR') : getenv('REMOTE_ADDR'));
@@ -112,10 +112,10 @@ else
 			session_unregister('attach_array');
 			$ev = $mail->send();
 			if (PEAR::isError($ev)) {
-				require_once ('./html/header.php');
-				require_once ('./html/menu_inbox.php');
-				require_once ('./html/send_error.php');
-				require_once ('./html/menu_inbox.php');
+				require ('./html/header.php');
+				require ('./html/menu_inbox.php');
+				require ('./html/send_error.php');
+				require ('./html/menu_inbox.php');
 				exit;
 			}
 			header ("Location: action.php?sort=$sort&sortdir=$sortdir&lang=$lang&$php_session=".$$php_session);
@@ -146,10 +146,10 @@ else
 			session_register('num_attach', 'attach_array');
 			// Displaying the sending form with the new attachment array
 			header("Content-type: text/html; Charset=$charset");
-			require_once ('./html/header.php');
-			require_once ('./html/menu_inbox.php');
-			require_once ('./html/send.php');
-			require_once ('./html/menu_inbox.php');
+			require ('./html/header.php');
+			require ('./html/menu_inbox.php');
+			require ('./html/send.php');
+			require ('./html/menu_inbox.php');
 			break;
 		default:
 			go_back_index($attach_array, $tmpdir, $php_session, $sort, $sortdir, $lang, true);
