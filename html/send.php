@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.50 2002/05/15 13:54:52 rossigee Exp $ -->
+<!-- start of $Id: send.php,v 1.51 2002/05/15 15:48:24 rossigee Exp $ -->
 <?php
 
 // Default e-mail address on send form
@@ -6,6 +6,7 @@ $prefs_email_address = getPref('email_address');
 if(empty($prefs_email_address))
     $prefs_email_address = $_SESSION['user'].'@'.$_SESSION['domain'];
 $prefs_full_name = getPref('full_name');
+$mail_from = $prefs_email_address;
 if(!empty($prefs_full_name))
     $mail_from = $prefs_full_name . ' <' . $mail_from . '>';
 
@@ -87,7 +88,7 @@ if(!empty($prefs_full_name))
                             {    
                                 $totalsize += $attach_array[$i]->file_size;
                                 $att_name = nocc_imap::mime_header_decode($attach_array[$i]->file_name);
-                                echo '<tr><td class="inbox"><input type="checkbox" name="file' . $i . '" /></td><td class="inbox">' . htmlentities($att_name[0]->text) . '</td><td class="inbox">' . $attach_array[$i]->file_size . '</td></tr>';
+                                echo '<tr><td class="inbox"><input type="checkbox" name="file-' . $i . '" /></td><td class="inbox">' . htmlentities($att_name[0]->text) . '</td><td class="inbox">' . $attach_array[$i]->file_size . '</td></tr>';
                             }
                             echo '<tr><td colspan="2"><input type="button" class="button" onclick="delete_attach()" value="' . $html_attach_delete . '" /></td><td class="inbox"><b>' . $html_totalsize . ' : ' . $totalsize . ' ' . $html_bytes . '</b></td></tr></table>';
                         }
@@ -157,4 +158,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.50 2002/05/15 13:54:52 rossigee Exp $ -->
+<!-- end of $Id: send.php,v 1.51 2002/05/15 15:48:24 rossigee Exp $ -->

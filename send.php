@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.106 2002/05/15 13:02:57 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.107 2002/05/15 13:44:46 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -124,7 +124,7 @@ switch($_REQUEST['sendaction'])
             for ($i = 0; $i < count($attach_array); $i++)
             {
                 // If the temporary file exists, attach it
-                if (file_exists($conf->tmpdir . '/' . $attach_array[$i]->tmp_file))
+                if (file_exists($attach_array[$i]->tmp_file))
                 {
                     $fp = fopen($conf->tmpdir . '/' . $attach_array[$i]->tmp_file, 'rb');
                     $file = fread($fp, $attach_array[$i]->file_size);
@@ -191,8 +191,7 @@ switch($_REQUEST['sendaction'])
         $attach_array = $_SESSION['attach_array'];
         for ($i = $j = 0; $i < count($attach_array); $i++)
         {
-            $thefile = 'file' . $i;
-            if (empty($$thefile))
+            if (!isset($_REQUEST['file-'.$i]))
             {
                 $tmp_array[$j]->file_name = $attach_array[$i]->file_name;
                 $tmp_array[$j]->tmp_file = $attach_array[$i]->tmp_file;
