@@ -1,14 +1,14 @@
 NOCC 0.9.1	November ??, 2000
 
-	* Added PHP and IMAP lib version initial checking
-	* Fixed language problem with Amaya
-	* Added German translation (thanks to David Ferch)
-	* messages are now wrapped to 80 cols when in text/plain
-	* Reply and Forward bugs have been resolved
+	* Added PHP and IMAP lib version initial checking.
+	* Fixed language problem with Amaya.
+	* Added German translation (thanks to David Ferch).
+	* text/plain messages are now wrapped to 80 cols if PHP >= 4.0.2 found.
+	* Reply and Forward bugs solved.
 
 NOCC 0.9	November 10, 2000
 
-	* First release version.
+	* First public released version.
 	* Multi language help system for end user.
 	* Configuration file with many tweakable values.
 	* PNG image attachments can be viewed inline.
