@@ -144,9 +144,6 @@ class mime_mail
 		}
 		// Whether or not to use SMTP or sendmail
 		// depends on the config file (conf.php)
-		header ('Content-Type: text/plain');
-		echo $mime;
-		exit;
 		if ($this->smtp_server == '' || $this->smtp_port == '')
 			return (mail(join(', ', $this->to), $this->subject,  '', $mime));
 		else
