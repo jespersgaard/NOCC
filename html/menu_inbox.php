@@ -8,13 +8,13 @@ if ($action == "")
 else
 	$color =  $glob_theme->menu_color_on;
 if ($action == "write")
-	$line = "<font color=\"".$link_color."\">".$html_new_msg."</font>";
+	$line = "<font color=\"".$glob_theme->link_color."\">".$html_new_msg."</font>";
 if ($action == "reply")
-	$line = "<font color=\"".$link_color."\">".$html_reply."</font>";
+	$line = "<font color=\"".$glob_theme->link_color."\">".$html_reply."</font>";
 if ($action == "reply_all")
-	$line = "<font color=\"".$link_color."\">".$html_reply_all."</font>";
+	$line = "<font color=\"".$glob_theme->link_color."\">".$html_reply_all."</font>";
 if ($action == "forward")
-	$line = "<font color=\"".$link_color."\">".$html_forward."</font>";
+	$line = "<font color=\"".$glob_theme->link_color."\">".$html_forward."</font>";
 ?>
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
