@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/logout.php,v 1.26 2002/04/15 11:57:27 mrylander Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/logout.php,v 1.27 2002/04/18 21:38:41 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,9 +13,7 @@ require_once './conf.php';
 require_once './common.php';
 
 $old_theme = $theme;
-if (isset($attach_array) && is_array($attach_array))
-    while ($tmp = array_shift($attach_array))
-        @unlink($conf->tmpdir . '/' . $tmp->tmp_file);
+clear_attachments();
 session_destroy();
 require_once './proxy.php';
 Header('Location: ' . $conf->base_url . 'index.php?theme=' . $old_theme);

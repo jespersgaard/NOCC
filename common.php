@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.6 2002/04/19 23:51:14 mrylander Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.7 2002/04/24 15:07:15 rossigee Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -50,9 +50,9 @@ if(isset($_REQUEST['sortdir']))
 // Unpack session variables into global namespace. This shouldn't be long-term, as I'm
 // trying to clear up use of the global namespace.
 if(isset($_SESSION['theme']))
-	$theme = $_SESSION['theme'];
+    $theme = $_SESSION['theme'];
 if(isset($_SESSION['lang']))
-	$lang = $_SESSION['lang'];
+    $lang = $_SESSION['lang'];
 
 // Need to wait on the language before checking it
 if (!isset($_SESSION['lang']))

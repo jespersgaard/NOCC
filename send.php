@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.100 2002/04/24 14:47:59 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.101 2002/04/24 14:53:12 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -25,7 +25,7 @@ if (!function_exists('is_uploaded_file'))
     include_once ('./is_uploaded_file.php');
 
 if ($HTTP_SERVER_VARS['REQUEST_METHOD'] != 'POST') {
-    clear_attachments($attach_array);
+    clear_attachments();
     require_once './proxy.php';
     header('Location: ' . $conf->base_url . 'action.php');
     return;
@@ -45,14 +45,13 @@ switch (trim($sendaction))
 {
     case 'add':
         // Counting the attachments number in the array
-        if (!isset($attach_array))
-        {
-            $attach_array = array();
-            $num_attach = 1;
-        }
-        else
-            $num_attach++;
+        if (!isset($_SESSION['attach_array']))
+            $_SESSION['attach_array'] = array();
+        $attach_array = $_SESSION['attach_array'];
+
+        $num_attach = count($attach_array);
         $tmp_name = basename($mail_att . '.att');
+
         // Adding the new file to the array
         if (is_uploaded_file($mail_att))
         {
@@ -65,9 +64,10 @@ switch (trim($sendaction))
             }
             $attach_array[$num_attach]->file_mime = $mail_att_type;
         }
+
         // Registering the attachments array into the session
-        unset($_SESSION['num_attach']);
-        unset($_SESSION['attach_array']);
+        $_SESSION['attach_array'] = $attach_array;
+
         // Displaying the sending form with the new attachments array
         header("Content-type: text/html; Charset=$charset");
         require ('./html/header.php');
@@ -111,9 +111,10 @@ switch (trim($sendaction))
                 $mail->body = $conf->ad;
 
         // Getting the attachments
-        if (isset($attach_array))
+        if (isset($_SESSION['attach_array']))
         {
-            for ($i = 1; $i <= $num_attach; $i++)
+            $attach_array = $_SESSION['attach_array'];
+            for ($i = 0; $i < count($attach_array); $i++)
             {
                 // If the temporary file exists, attach it
                 if (file_exists($conf->tmpdir . '/' . $attach_array[$i]->tmp_file))
@@ -127,11 +128,17 @@ switch (trim($sendaction))
                     unlink($conf->tmpdir . '/' . $attach_array[$i]->tmp_file);
                 }
             }
+            // Finished with attachments array now.
+            unset($_SESSION['attach_array']);
         }
 
         // Add original message as attachment?
         if($forward_msgnum != "") {
             $ev = "";
+            $servr = $_SESSION['servr'];
+            $folder = $_SESSION['folder'];
+            $login = $_SESSION['login'];
+            $passwd = $_SESSION['passwd'];
             $pop = new nocc_imap($servr, $folder, $login, $passwd, $ev);
             if (Exception::isException($ev)) {
                 require ('./html/header.php');
@@ -151,10 +158,6 @@ switch (trim($sendaction))
             // Attach it
             $mail->add_attachment($origmsg, '',  'message/rfc822', '', '');
         }
-
-        // We need to unregister the attachments array and num_attach
-        unset($_SESSION['num_attach']);
-        unset($_SESSION['attach_array']);
 
         $ev = $mail->send();
         header("Content-type: text/html; Charset=$charset");
@@ -180,7 +183,8 @@ switch (trim($sendaction))
     case 'delete':
         // Rebuilding the attachments array with only the files the user wants to keep
         $tmp_array = array();
-        for ($i = $j = 1; $i <= $num_attach; $i++)
+        $attach_array = $_SESSION['attach_array'];
+        for ($i = $j = 1; $i <= count($attach_array); $i++)
         {
             $thefile = 'file' . $i;
             if (empty($$thefile))
@@ -195,13 +199,10 @@ switch (trim($sendaction))
                 @unlink($conf->tmpdir . '/' . $attach_array[$i]->tmp_file);
         }
         $num_attach = ($j > 1 ? $j - 1 : 0);
-        // Removing the attachments array from the current session
-        unset($_SESSION['num_attach']);
-        unset($_SESSION['attach_array']);
-        $attach_array = $tmp_array;
-        // Registering the attachments array into the session
-        $_SESSION['num_arrach'] = $num_attach;
-        $_SESSION['attach_array'] = $attach_array;
+
+        // Registering the new attachments array into the session
+        $_SESSION['attach_array'] = $tmp_array;
+
         // Displaying the sending form with the new attachment array
         header("Content-type: text/html; Charset=$charset");
         require ('./html/header.php');

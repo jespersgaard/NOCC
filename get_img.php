@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/get_img.php,v 1.21 2002/04/18 10:37:12 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/get_img.php,v 1.22 2002/04/18 21:38:41 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,9 +13,15 @@ require_once './conf.php';
 require_once './common.php';
 
 $ev = "";
-$pop = new nocc_imap($servr, $folder, $login, safestrip($passwd), $ev);
-if($ev) {
-    echo "<p class=\"error\">".$ev->getMessage()."</p>";
+$servr = $_SESSION['servr'];
+$folder = $_SESSION['folder'];
+$login = $_SESSION['login'];
+$passwd = $_SESSION['passwd'];
+$pop = new nocc_imap($servr, $folder, $login, $passwd, 0, $ev);
+if (Exception::isException($ev)) {
+    require ('./html/header.php');
+    require ('./html/error.php');
+    require ('./html/footer.php');
     return;
 }
 

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.116 2002/04/24 15:01:37 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.117 2002/04/24 15:17:50 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -104,7 +104,6 @@ switch (trim($action))
         // Add signature
         $mail_body = "\r\n".$prefs_signature;
 
-        $num_attach = 0;
         require ('./html/header.php');
         require ('./html/menu_inbox.php');
         require ('./html/send.php');
@@ -468,11 +467,8 @@ switch (trim($action))
                 require ('./html/footer.php');
                 break;
             default:
-                if (!isset($attach_array))
-                    $attach_array = null;
-                clear_attachments($attach_array);
-                $loggedin = 1;
-                session_register('loggedin');
+                clear_attachments();
+                $_SESSION['loggedin'] = 1;
                 // there are messages, we display
                 $num_msg = $pop->num_msg();
                 require ('./html/header.php');

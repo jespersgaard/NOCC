@@ -1,10 +1,9 @@
-<!-- start of $Id: send.php,v 1.46 2002/04/15 02:18:55 mrylander Exp $ -->
+<!-- start of $Id: send.php,v 1.47 2002/04/19 14:39:37 rossigee Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
             <form name="sendform" enctype="multipart/form-data" method="post" onsubmit="return(validate(this));" action="send.php">
             <input type="hidden" name="sendaction" value="" />
-            <input type="hidden" name="num_attach" value="<?php echo $num_attach ?>" />
             <input type="hidden" name="forward_msgnum" value="<?php echo $forward_msgnum ?>" />
             <table bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%" cellspacing="0" cellpadding="0" border="0">
                 <tr><td colspan="2">&nbsp;</td></tr>
@@ -66,11 +65,12 @@
                     <td>&nbsp;</td>
                     <td align="left">
                         <?php
-                        if (isset($num_attach) && ($num_attach > 0))
+                        if (isset($_SESSION['attach_array']) && count($_SESSION['attach_array']) > 0)
                         {
+                            $attach_array = $_SESSION['attach_array'];
                             echo '<table border="0" cellspacing="2"><tr><td class="inbox">&nbsp;</td><td class="inbox"><b>' . $html_filename . '</b></td><td class="inbox"><b>' . $html_size . '(' . $html_bytes . ')</b></td></tr>';
                             $totalsize = 0;
-                            for ($i = 1; $i <= $num_attach; $i++)
+                            for ($i = 0; $i < count($attach_array); $i++)
                             {    
                                 $totalsize += $attach_array[$i]->file_size;
                                 $att_name = nocc_imap::mime_header_decode($attach_array[$i]->file_name);
@@ -144,4 +144,4 @@ function delete_attach()
 }
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.46 2002/04/15 02:18:55 mrylander Exp $ -->
+<!-- end of $Id: send.php,v 1.47 2002/04/19 14:39:37 rossigee Exp $ -->

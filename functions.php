@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.153 2002/04/24 14:47:59 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.154 2002/04/24 15:01:37 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -33,8 +33,8 @@ function inbox(&$pop, $skip = 0)
 
     $end_msg = ($num_msg > $end_msg) ? $end_msg : $num_msg;
     if ($start_msg > $num_msg) {
-	$msgs = Array();
-	return ($msgs);
+        $msgs = Array();
+        return ($msgs);
     }
 
     for ($i = $start_msg; $i < $end_msg; $i++)
@@ -88,7 +88,7 @@ function inbox(&$pop, $skip = 0)
             $newmail = '<img src="themes/' . $theme . '/img/new.gif" alt="" height="17" width="17" />';
         else
             $newmail = '&nbsp;';
-	$timestamp = chop($ref_contenu_message->udate);
+        $timestamp = chop($ref_contenu_message->udate);
         $date = format_date($timestamp, $lang);
         $time = format_time($timestamp, $lang);
         $msg_list[$i] =  Array(
@@ -127,7 +127,7 @@ function aff_mail(&$attach_tab, &$mail, $verbose, &$ev)
     $glob_body = $subject = $from = $to = $cc = $reply_to = '';
 
     // Connect to server
-    $pop = new nocc_imap($mailhost, $folder, $login, $passwd, $ev);
+    $pop = new nocc_imap($mailhost, $folder, $login, $passwd, 0, $ev);
     if($ev) 
         return (-1);
 
@@ -626,7 +626,7 @@ function cut_address(&$addr, &$charset)
 
 function view_part(&$servr, &$login, &$passwd, &$folder, &$mail, $part_no, &$transfer, &$msg_charset, &$charset)
 {
-    $pop = new nocc_imap($mailhost, $folder, $login, $passwd, $ev);
+    $pop = new nocc_imap($mailhost, $folder, $login, $passwd, 0, $ev);
     if($ev) 
         return (-1);
     $text = $pop->fetchbody($mail, $part_no);
@@ -666,13 +666,12 @@ function encode_mime(&$string, &$charset)
 
 // This function removes temporary attachment files and
 // removes any attachment information from the session
-function clear_attachments(&$attach_array)
+function clear_attachments()
 {
     global $conf;
-    if (isset($attach_array) && is_array($attach_array))
-        while ($tmp = array_shift($attach_array))
+    if (isset($_SESSION['attach_array']) && is_array($_SESSION['attach_array']))
+        while ($tmp = array_shift($_SESSION['attach_array']))
             @unlink($conf->tmpdir.'/'.$tmp->tmp_file);
-    unset($_SESSION['num_attach']);
     unset($_SESSION['attach_array']);
 }
 
