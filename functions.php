@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.40 2000/12/16 14:25:06 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.41 2000/12/18 15:02:26 nicocha Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -117,7 +117,7 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 	$ref_contenu_message = @imap_header($pop, $mail);
 	$struct_msg = @imap_fetchstructure($pop, $mail);
 
-	GetPart($struct_msg, "", $read, $display_rfc822);
+	GetPart($struct_msg, NULL, $read, $display_rfc822);
 	if ($verbose == 1 && $use_verbose == 1)
 		$header = htmlspecialchars(imap_fetchheader($pop, $mail));
 	else
