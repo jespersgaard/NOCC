@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.8 2001/02/23 09:31:58 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.9 2001/02/28 21:49:19 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -67,6 +67,8 @@ $html_help = "Help";
 $html_server = "Server";
 $html_wrong = "De login-naam of password is onjuist";
 $html_retry = "Probeer opnieuw";
+$html_on = "on";
+$html_theme = "Theme";
 
 // Other pages
 
