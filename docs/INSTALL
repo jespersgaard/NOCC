@@ -67,8 +67,5 @@ Installing NOCC
           external users although "sh" files are never interpreted by Web
           servers with default configuration.
 
-       6) Make sure the PEAR directory path (in PHP installation directory) is in
-          the php.ini 'include_path' directive.
-
 
 See README for more complete information.

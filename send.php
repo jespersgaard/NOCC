@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.74 2001/10/28 12:33:16 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.76 2001/10/30 21:49:46 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -111,7 +111,7 @@ else
 			session_unregister('num_attach');
 			session_unregister('attach_array');
 			$ev = $mail->send();
-			if (PEAR::isError($ev)) {
+			if (Exception::isException($ev)) {
 				require ('./html/header.php');
 				require ('./html/menu_inbox.php');
 				require ('./html/send_error.php');

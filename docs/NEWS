@@ -1,5 +1,6 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Replaced PEAR::Error with simple Exception class.
 	* Strip slashes from user while logging in (#465418)
 	* Bypassed redundant 'check_form' javascript method.
 	* Added 'outlook-style quoting' preference (#459461)
