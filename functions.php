@@ -170,8 +170,8 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 
 	$content = Array(
 				"from" => htmlspecialchars($from[0]->text),
-				"to" => htmlspecialchars($ref_contenu_message->toaddress),
-				"cc" => htmlspecialchars($ref_contenu_message->ccaddress),
+				"to" => $ref_contenu_message->toaddress,
+				"cc" => $ref_contenu_message->ccaddress,
 				"subject" => htmlspecialchars($subject[0]->text),
 				"date" => change_date(chop($ref_contenu_message->udate), $lang),
 				"att" => $link_att,
@@ -307,7 +307,8 @@ function remove_stuff($body, $lang, $mime)
 	else
 	{
 		$body = eregi_replace("(http|https|ftp)://([[:alnum:]/\n+-=%&:_.~?]+[#[:alnum:]+]*)","<A HREF=\"open.php?f=\\1://\\2&lang=$lang\" TARGET=_blank>\\1://\\2</a>", $body);
-		$body = "<PRE>".$body."</PRE>";
+		$body = wordwrap($body, 80, "\n");
+		$body = "<PRE>".$body."</PRE>"; 
 	}	
 	return ($body);
 }
