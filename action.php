@@ -173,10 +173,10 @@ switch (trim($action))
 				setSig($signature);
 			}
 		}
-		$full_name = $prefs_full_name;
-		$email_address = $prefs_email_address;
+		$full_name = getPref('full_name');
+		$email_address = getPref('email_address');
 		$cc_self = getPref('cc_self');
-		$signature = $prefs_signature;
+		$signature = getSig();
 		require ('./html/menu_prefs.php');
 		require_once ('./html/prefs.php');
 		require ('./html/menu_prefs.php');
