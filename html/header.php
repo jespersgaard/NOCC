@@ -33,7 +33,7 @@ else {
             <tr>
                 <td align="left" valign="middle" colspan="2">
                     <img src="themes/<?php echo $_SESSION['nocc_theme']; ?>/img/logo.gif" width="153" height="47" alt="Logo" />
-                    &nbsp;&nbsp;<font class="login"><b><?php echo $header_display_address; ?></b></font>
+                    &nbsp;&nbsp;<font class="login"><b><?php echo htmlspecialchars($header_display_address); ?></b></font>
                 </td>
             </tr>
             <tr>
