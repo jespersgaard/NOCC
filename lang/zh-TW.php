@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-TW.php,v 1.1 2001/03/09 12:40:03 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-TW.php,v 1.2 2001/03/09 12:40:48 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -8,7 +8,7 @@
  * See the enclosed file COPYING for license information (GPL).  If you
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
- * Configuration file for the chinese big5 language
+ * Configuration file for the chinese (Taiwan) big5 language
  * Translation by Cary Leung <cary@cary.net>
  */
 
