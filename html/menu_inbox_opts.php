@@ -1,10 +1,10 @@
-<!-- start of $Id: menu_inbox_opts.php,v 1.2 2001/11/04 23:32:35 rossigee Exp $ -->
+<!-- start of $Id: menu_inbox_opts.php,v 1.3 2001/11/07 18:08:57 rossigee Exp $ -->
 <tr>
  <td colspan="7">
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 	<tr bgcolor="<?php echo $glob_theme->tr_color ?>">
 		<td align="left">
-			<input type="button" value="<?php echo $html_select_all; ?>" onselect="SelectAll()" />
+			<input type="button" value="<?php echo $html_select_all; ?>" onselect="SelectAll()" onClick="SelectAll()" />
 		</td>
 		<td align="right">
 			<? if ($delete_button_icon) { ?>
@@ -17,4 +17,4 @@
 </table>
  </td>
 </tr>
-<!-- end of $Id: menu_inbox_opts.php,v 1.2 2001/11/04 23:32:35 rossigee Exp $ -->
+<!-- end of $Id: menu_inbox_opts.php,v 1.3 2001/11/07 18:08:57 rossigee Exp $ -->
