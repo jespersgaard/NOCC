@@ -1,6 +1,9 @@
 NOCC 0.9.5	??   ??, 2001
-	* Return Path is now set correctly when not using SMTP server
-	* Added support for priority when sending messages
+
+	* Correct a problem with attachments when a Content-ID was
+	  specified by the mailer.
+	* Return Path is now set correctly when not using SMTP server.
+	* Added support for priority when sending messages.
 	* Added Turkish translation.
 	* correct all the warnings when using E_ALL in error reporting.
 
