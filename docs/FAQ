@@ -1,6 +1,6 @@
 Frequently Asked Questions for Nocc
 -----------------------------------
-Last updated: $Date: 2000/11/01 19:57:42 $
+Last updated: $Date: 2000/11/22 18:43:45 $
 
  *) Nocc keeps me asking for a correct login/password.
 
@@ -47,3 +47,9 @@ Last updated: $Date: 2000/11/01 19:57:42 $
   If not out yet, try PHP 4.0.4-dev snapshot at http://www.php4win.de/
   The problem only affects PHP Win32, not Unix.
   See the bug: http://bugs.php.net/?id=5231
+
+ *) Nocc is slow with a CGI version of PHP when there're big mails
+
+ -> Unfortunately, we tried to optimize the code but some functions are
+ clearly very slow in CGI mode. We hope this will be solved in future
+ PHP releases.
