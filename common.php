@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.4 2002/04/19 15:47:21 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.5 2002/04/19 18:32:36 mrylander Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -21,8 +21,13 @@ require_once './functions.php';
 //echo "</pre>";
 
 // Set defaults
-if (!isset($_SESSION['folder']))
-    $_SESSION['folder'] = $conf->default_folder;
+if (!isset($_SESSION['folder'])) {
+    if (!isset($folder)) {
+        $_SESSION['folder'] = $conf->default_folder;
+    } else {
+        $_SESSION['folder'] = $folder;
+    }
+}
 if (!isset($_SESSION['sort']))
     $_SESSION['sort'] = $conf->default_sort;
 if (!isset($_SESSION['sortdir']))

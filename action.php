@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.110 2002/04/19 14:39:28 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.111 2002/04/19 18:31:39 mrylander Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -199,8 +199,8 @@ switch (trim($action))
         list($num_attach, $attach_array) = save_attachment($mail, $tmpdir);
         // Registering the attachments array into the session
         //session_register('num_attach', 'attach_array');
-        $_SESSION['num_attach'] = $_REQUEST['num_attach'];
-        $_SESSION['attach_array'] = $_REQUEST['attach_array'];
+        //$_SESSION['num_attach'] = $_REQUEST['num_attach'];
+        //$_SESSION['attach_array'] = $_REQUEST['attach_array'];
         require ('./html/header.php');
         require ('./html/menu_inbox.php');
         require ('./html/send.php');
@@ -209,11 +209,11 @@ switch (trim($action))
         break;
 
     case 'managefolders':
-        $servr = $_SESSION['servr'];
-        $folder = $_SESSION['folder'];
-        $user = $_SESSION['user'];
-        $passwd = $_SESSION['passwd'];
-        $pop = new nocc_imap($servr, $folder, $user, $passwd, $ev);
+        //$servr = $_SESSION['servr'];
+        //$folder = $_SESSION['folder'];
+        //$user = $_SESSION['user'];
+        //$passwd = $_SESSION['passwd'];
+        //$pop = new nocc_imap($servr, $folder, $user, $passwd, $ev);
         if ($ev) {
             $do = '';
         }
@@ -302,10 +302,10 @@ switch (trim($action))
         break;
 
     case 'setprefs':
-        $servr = $_SESSION['servr'];
-        $folder = $_SESSION['folder'];
-        $user = $_SESSION['user'];
-        $passwd = $_SESSION['passwd'];
+        //$servr = $_SESSION['servr'];
+        //$folder = $_SESSION['folder'];
+        //$user = $_SESSION['user'];
+        //$passwd = $_SESSION['passwd'];
         $pop = new nocc_imap($servr, $folder, $user, $passwd, $lastev);
         if ($ev) {
             // I'll decide what to do with this later.
@@ -438,10 +438,10 @@ switch (trim($action))
         }
         
         $ev = "";
-        $servr = $_SESSION['servr'];
-        $folder = $_SESSION['folder'];
-        $user = $_SESSION['user'];
-        $passwd = $_SESSION['passwd'];
+        //$servr = $_SESSION['servr'];
+        //$folder = $_SESSION['folder'];
+        //$user = $_SESSION['user'];
+        //$passwd = $_SESSION['passwd'];
         $pop = new nocc_imap($servr, $folder, $login, $passwd, $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
