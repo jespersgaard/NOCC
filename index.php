@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.76 2001/10/17 20:52:58 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.77 2001/10/19 10:34:25 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -16,6 +16,9 @@ session_destroy();
 Header("Content-type: text/html; Charset=$charset");
 require_once ('./check.php');
 require_once ('./html/header.php');
+
+$user = "";
+
 ?>
 <script type="text/javascript">
 <!--

@@ -1,5 +1,6 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Clear user on login form.
 	* Header displays email address from preferences, if available.
 	* Added 'CC self' preference to receive a copy of outgoing emails.
 	* Added Bulgarian translation
