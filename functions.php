@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.84 2001/05/31 09:55:03 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.85 2001/05/31 18:18:41 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -44,7 +44,7 @@ function inbox($servr, $user, $passwd, $folder, $sort, $sortdir, $lang, $theme)
 				$from_array = imap_mime_header_decode($ref_contenu_message->fromaddress);
 				for ($j = 0; $j < count($from_array); $j++)
 					$from .= $from_array[$j]->text;
-				if (ereg('imap', $mailhost))
+				if (is_Imap($mailhost))
 					$msg_size = get_mail_size($struct_msg);
 				else
 					$msg_size = ($struct_msg->bytes > 1000) ? ceil($struct_msg->bytes / 1000) : 1;
