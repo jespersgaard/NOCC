@@ -31,7 +31,7 @@ Requirements
    * PHP needs to be compiled with IMAP support. (--with-imap at the configure
      stage).
      You'll find information on IMAP support for PHP at
-'http://www.php.net/manual/ref.imap.php'.
+     'http://www.php.net/manual/ref.imap.php'.
 
 Installing NOCC
 ***************
@@ -57,10 +57,12 @@ Installing NOCC
 	   The file is fairly well documented, so you should be able to pick
 	   out what you need to change fairly easily.
 
-	   You must at least fill in the $tmpdir in order to have attachments working
-
        4) (Optional step)
 	  if you run with suEXEC, you'll need to run './addcgipath path' to add
 	  the parser line at the beginning of PHP files.
+
+       5) Remove ./addcgipath.sh. For security reasons, it might be run by
+          external users although "sh" files are never interpreted by Web
+          servers with default configuration.
 
 See README for more complete information.

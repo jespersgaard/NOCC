@@ -119,6 +119,10 @@ Installing NOCC
 	  if you run with suEXEC, you'll need to run './addcgipath path' to add
 	  the parser line at the beginning of PHP files.
 
+       5) Remove ./addcgipath.sh. For security reasons, it might be run by
+          external users although "sh" files are never interpreted by Web
+          servers with default configuration.
+
 Additional notes
 ****************
 
