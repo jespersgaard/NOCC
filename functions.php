@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.159 2002/05/14 18:46:43 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.160 2002/05/15 13:54:51 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -169,12 +169,12 @@ function aff_mail(&$attach_tab, &$mail, $verbose, &$ev)
     else
         array_push($attach_tab, $tmp);
     $pop->close();
+    $link_att = '';
     if ($struct_msg->subtype != 'ALTERNATIVE' && $struct_msg->subtype != 'RELATED')
     {
         switch (sizeof($attach_tab))
         {
             case 0:
-                $link_att = '';
                 break;
             case 1:
                 $link_att = '<tr><td align="right" valign="top" class="mail">' . $html_att . '</td><td bgcolor="' . $glob_theme->mail_properties . '" class="mail">' . link_att($mail, $attach_tab, $conf->display_part_no) . '</td></tr>';
