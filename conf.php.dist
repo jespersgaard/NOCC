@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.86 2001/12/19 22:46:43 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.87 2001/12/19 23:05:18 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -179,7 +179,7 @@ if (isset($domainnum))
 	$smtp_port = $conf->domains[$domainnum]->smtp_port;
 
 	// Do we provide the domain with the login?
-	$if(isset(conf->domains[$domainnum]->login_with_domain))
+	$if(isset($conf->domains[$domainnum]->login_with_domain))
 		$login .= "@" . $domain;
 }
 
