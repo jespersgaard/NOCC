@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.28 2000/11/24 19:56:10 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.29 2000/11/24 20:06:46 wolruf Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -55,6 +55,8 @@ echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 								<a href="<? echo $PHP_SELF ?>?lang=en"><img src="img/uk.png" border="0" height="12" width="12" ALT="<? echo $alt_en ?>"></a>
 								&nbsp;
 								<a href="<? echo $PHP_SELF ?>?lang=de"><img src="img/de.png" border="0" height="12" width="12" ALT="<? echo $alt_de ?>"></a>
+								&nbsp;
+								<a href="<? echo $PHP_SELF ?>?lang=es"><img src="img/es.png" border="0" height="12" width="12" ALT="<? echo $alt_es ?>"></a>
 								</td>
 							</tr>
 							<tr> 
