@@ -1,4 +1,5 @@
-<!-- start of $Id: menu_prefs.php,v 1.13 2002/04/19 14:39:37 rossigee Exp $ -->
+<!-- start of $Id: menu_prefs.php,v 1.14 2002/04/28 21:28:46 wolruf Exp $ -->
+<?php $PHP_SELF = $_SERVER['PHP_SELF']; ?>
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -29,4 +30,4 @@
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_prefs.php,v 1.13 2002/04/19 14:39:37 rossigee Exp $ -->
+<!-- end of $Id: menu_prefs.php,v 1.14 2002/04/28 21:28:46 wolruf Exp $ -->
