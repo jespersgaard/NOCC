@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.35 2001/05/27 10:04:50 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.36 2001/05/27 10:09:17 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -65,7 +65,7 @@ switch ($action)
 			$mail_subject = $content['subject'];
 		else
 			$mail_subject = $html_reply_short.': '.$content['subject'];
-		$mail_body = $original_msg.'\\n'.$html_from.': '.$content['from'].'\\n'.$html_to.': '.$content['to'].'\\n'.$html_sent.': '.$content['date'].'\\n'.$html_subject.': '.$content['subject'].'\\n\n'.strip_tags($content['body'], '');
+		$mail_body = $original_msg."\n".$html_from.': '.$content['from']."\n".$html_to.': '.$content['to']."\n".$html_sent.': '.$content['date']."\n".$html_subject.': '.$content['subject']."\n\n".strip_tags($content['body'], '');
 		// We add the attachments of the original message
 		list($num_attach, $attach_array) = save_attachment($servr, $user, stripslashes($passwd), $folder, $mail, $tmpdir);
 		// Registering the attachments array into the session
@@ -81,7 +81,7 @@ switch ($action)
 			$mail_subject = $content['subject'];
 		else
 			$mail_subject = $html_reply_short.': '.$content['subject'];
-		$mail_body = $original_msg.'\\n'.$html_from.': '.$content['from'].'\\n'.$html_to.': '.$content['to'].'\\n'.$html_sent.': '.$content['date'].'\\n'.$html_subject.': '.$content['subject'].'\\n\n'.strip_tags($content['body'], '');
+		$mail_body = $original_msg."\n".$html_from.': '.$content['from']."\n".$html_to.': '.$content['to']."\n".$html_sent.': '.$content['date']."\n".$html_subject.': '.$content['subject']."\n\n".strip_tags($content['body'], '');
 		// We add the attachments of the original message
 		list($num_attach, $attach_array) = save_attachment($servr, $user, stripslashes($passwd), $folder, $mail, $tmpdir);
 		// Registering the attachments array into the session
@@ -93,7 +93,7 @@ switch ($action)
 	case 'forward':
 		$content = aff_mail($servr, $user, stripslashes($passwd), $folder, $mail, $verbose, $lang, $sort, $sortdir);
 		$mail_subject = $html_forward_short.': '.$content['subject'];
-		$mail_body = $original_msg.'\\n'.$html_from.': '.$content['from'].'\\n'.$html_to.': '.$content['to'].'\\n'.$html_sent.': '.$content['date'].'\\n'.$html_subject.': '.$content['subject'].'\\n\n'.strip_tags($content['body'], '');
+		$mail_body = $original_msg."\n".$html_from.': '.$content['from']."\n".$html_to.': '.$content['to']."\n".$html_sent.': '.$content['date']."\n".$html_subject.': '.$content['subject']."\n\n".strip_tags($content['body'], '');
 		// We add the attachments of the original message
 		list($num_attach, $attach_array) = save_attachment($servr, $user, stripslashes($passwd), $folder, $mail, $tmpdir);
 		// Registering the attachments array into the session

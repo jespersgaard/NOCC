@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.53 2001/05/24 16:32:21 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.54 2001/05/27 10:04:50 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -128,7 +128,7 @@ $debug_level = E_ALL & ~E_NOTICE;
 // This message is added to every message, the user cannot delete it
 // Be careful if you modify this, do not forget to write '\r\n' to switch
 // to the next line !
-$ad = '___________________________________\\r\\nNOCC, http://nocc.sourceforge.net';
+$ad = "___________________________________\r\nNOCC, http://nocc.sourceforge.net";
 
 
 /*
