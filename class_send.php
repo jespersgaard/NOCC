@@ -94,7 +94,7 @@ class mime_mail
 		
 		for($i = sizeof($this->parts) - 1; $i >= 0; $i--) 
 			$multipart .=  "\r\n".$this->build_message($this->parts[$i]). "--$boundary";
-		return $multipart.=  "--\r\n";
+		return ($multipart.=  "--\r\n");
 	}
 
 /*
