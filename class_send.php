@@ -1,6 +1,6 @@
 <?
 /*
- * $Header$
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.14 2000/11/24 22:01:52 wolruf Exp $
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -75,7 +75,8 @@ class mime_mail
 				break;
 		}
 		return  "Content-Type: ".$part[ "ctype"].
-                        ($part[ "name"]? "; name = \"".$part[ "name"]. "\"" :  "")."\nContent-Transfer-Encoding: $encoding\n\n$message\n";
+                        ($part[ "name"]? "; name = \"".$part[ "name"]. "\"" :  
+"")."\nContent-Transfer-Encoding: $encoding\n\n$message\n";
 	}
 
 /*
@@ -85,7 +86,8 @@ class mime_mail
 	function build_multipart() 
 	{
 		$boundary =  "NextPart".md5(uniqid(time()));
-		$multipart =  "Content-Type: multipart/mixed;\n\tboundary = $boundary\n\nThis is a MIME encoded message.\n\n--$boundary";
+		$multipart =  "Content-Type: multipart/mixed;\n\tboundary = $boundary\n\nThis is a MIME encoded 
+message.\n\n--$boundary";
 		
 		for($i = sizeof($this->parts)-1; $i >= 0; $i--) 
 			$multipart .=  "\n".$this->build_message($this->parts[$i]). "--$boundary";
@@ -115,7 +117,7 @@ class mime_mail
 		$mime =  "";
 		if (!empty($this->from))
 			$mime .= "From: ".$this->from."\r\n";
-		if (sizeof($this->to))
+		if (($this->smtp_server != "" || $this->smtp_port != "") && (sizeof($this->to)))
 			$mime .= "To: ".join(", ", $this->to)."\r\n";
 		if (sizeof($this->cc))
 			$mime .= "Cc: ".join(", ", $this->cc)."\r\n";
