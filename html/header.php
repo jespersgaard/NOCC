@@ -2,7 +2,7 @@
 
 require_once 'proxy.php';
 //header ("Content-type: text/html; Charset=$charset");
-//require_once './prefs.php';
+require_once './prefs.php';
 
 // Don't call getPref unless session has been initialised enough for
 // prefs.php to find it's prefs file.
