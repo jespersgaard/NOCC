@@ -39,12 +39,10 @@ echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 <table border="0" width="100%" height="100%">
 	<tr>
 		<td align="center" valign="middle">
-			<table bgcolor="<? echo $login_border ?>" border="0" cellpadding="1" cellspacing="0" 
-width="428" align="center">
+			<table bgcolor="<? echo $login_border ?>" border="0" cellpadding="1" cellspacing="0" width="428" align="center">
 				<tr> 
 					<td valign="bottom"> 
-						<table bgcolor="<? echo $login_box_bgcolor ?>" border="0" cellpadding="0" 
-cellspacing="0" width="428">
+						<table bgcolor="<? echo $login_box_bgcolor ?>" border="0" cellpadding="0" cellspacing="0" width="428">
 							<TR valign="top">
 								<TD align="center" colspan="3">
 									<IMG alt="NOCC" border="0" src="img/logo.gif">
@@ -54,22 +52,20 @@ cellspacing="0" width="428">
 								<td colspan="3" height="18"><font size="-3">&nbsp;</font></td>
 							</tr>
 							<tr valign="top"> 
-				               <td align="center" colspan="3"><span class="f"><b><? echo $html_welcome." 
-".$name." ".$version; ?></b></span></td>
+				               <td align="center" colspan="3" class="f"><b><? echo $html_welcome." ".$name." ".$version; ?></b></td>
 							</tr>
 							<tr> 
 								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
 							</tr>
 							<tr>
-								<td align="right"><span class="f"><? echo $html_login ?></td>
+								<td align="right" class="f"><? echo $html_login ?></td>
 								<td><font size="-3">&nbsp;</font></td>
-								<td> 
-									<INPUT type="text" name="user"></span>
+								<td class="f"> 
+									<INPUT type="text" name="user">
 									<?
 									if ($servr != "" && $domain != "")
 									{ ?>
-										@<select name="domain"><option value=""><? echo $domain 
-?></option></select>
+										@<select name="domain"><option value=""><? echo $domain ?></option></select>
 									<?
 									}
 									?>
@@ -79,9 +75,9 @@ cellspacing="0" width="428">
 								<td colspan="3" height="12"><font size="-3">&nbsp;</font></td>
 							</tr>
 							<tr> 
-								<td align=right><span class="f"><? echo $html_passwd ?></td>
+								<td align=right class="f"><? echo $html_passwd ?></td>
 								<td><font size="-3">&nbsp;</font></td>
-								<td> 
+								<td class="f"> 
 									<INPUT type="password" name="passwd">
 								</td>
 							</tr>
@@ -92,19 +88,17 @@ cellspacing="0" width="428">
 							if ($servr == "")
 							{ ?>
 							<TR>
-								<td align="right">
-									<span class="f"><? echo $html_server ?></span>
+								<td align="right" class="f">
+									<? echo $html_server ?>
 								</td>
 								<td><font size="-3">&nbsp;</font></td>
-								<td>
-									<span class="f">
+								<td class="f">
 									<input type="text" name="server" value="mail.example.com"><br>
 									<input type="text" size="4" name="port" value="143">
 									<select name="servtype" onChange="updatePort();">
 										<option value="imap">IMAP</option>
 										<option value="pop3">POP3</option>
 									</select>
-									</span>
 								</td>
 							</TR>
 							<tr> 
@@ -114,7 +108,7 @@ cellspacing="0" width="428">
 							}
 							?>
 							<TR>
-								<TD COLSPAN="3" align="center">
+								<TD COLSPAN="3" align="center" class="f">
 									<INPUT name="enter" type="submit" value="<? echo $html_submit ?>">
 								</TD>
 							</TR>
