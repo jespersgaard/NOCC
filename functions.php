@@ -74,6 +74,7 @@ function inbox($servr, $user, $passwd, $sort, $sortdir)
 
 function aff_mail($servr, $user, $passwd, $mail, $verbose, $read)
 {
+	$mailhost = $servr;
 	require ("conf.php");
 	require ("check_lang.php");
 	GLOBAL $attach_tab;
@@ -81,7 +82,7 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read)
 	GLOBAL $PHP_SELF;
 
 	$current_date = date("D, d M");
-	$pop = @imap_open("{".$servr."}INBOX", $user, $passwd);
+	$pop = @imap_open("{".$mailhost."}INBOX", $user, $passwd);
 	$num_messages = @imap_num_msg($pop);
 	$ref_contenu_message = @imap_header($pop, $mail);
 	$struct_msg = @imap_fetchstructure($pop, $mail);
@@ -114,17 +115,17 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read)
 			$body = remove_stuff($body, $lang, $tmp["mime"]);			
 		}
 	}
-	imap_close($pop);
+	@imap_close($pop);
 	switch (sizeof($attach_tab))
 	{
 		case 0:
 			$link_att = "";
 			break;
 		case 1:
-			$link_att = "<tr><td align='right' class='mail'>".$html_att."</td><td bgcolor='".$html_mail_tr_color."' class='mail'>".link_att($servr, $mail, $attach_tab)."</td></tr>";
+			$link_att = "<tr><td align=\"right\" valign=\"top\" class=\"mail\">".$html_att."</td><td bgcolor=\"".$html_mail_tr_color."\" class=\"mail\">".link_att($mailhost, $mail, $attach_tab)."</td></tr>";
 			break;
 		default:
-			$link_att = "<tr><td align='right' class='mail'>".$html_atts."</td><td bgcolor='".$html_mail_tr_color."' class='mail'>".link_att($servr, $mail, $attach_tab)."</td></tr>";
+			$link_att = "<tr><td align=\"right\" valign=\"top\" class=\"mail\">".$html_atts."</td><td bgcolor=\"".$html_mail_tr_color."\" class=\"mail\">".link_att($mailhost, $mail, $attach_tab)."</td></tr>";
 			break;
 	}
 	$subject = imap_mime_header_decode($ref_contenu_message->subject);

@@ -50,12 +50,11 @@ $alt_prev = "Précédent";
 
 $html_login = "Login";
 $html_passwd = "Mot de passe";
-$html_submit = "Ok";
-$html_ad = "Bienvenue à NOCC Webmail v1.0";
-$html_what = "NOCC Webmail, c'est quoi ?";
-$html_explanation = "NOCC Webmail est un lecteur de Mail (POP et IMAP) écrit entièrement en PHP et gratuit.";
+$html_submit = "Valider";
 $html_help = "Aide";
-
+$html_server = "Serveur";
+$html_wrong = "Le login ou le mot de passe ne sont pas valides";
+$html_retry = "Réessayer";
 
 $html_view_header = "Voir l'entête";
 $html_remove_header = "Masquer l'entête";
@@ -83,6 +82,9 @@ $html_nosubject = "Aucun sujet";
 $html_send = "Envoyer";
 $hmtl_cancel = "Annuler";
 $html_no_mail = "Vous n'avez pas de nouveaux message.";
+$html_logout = "Déconnexion";
+$html_msg = "Message";
+$html_msgs = "Messages";
 
 $original_msg = "-- Message Original --";
 $to_empty = "Le champs 'A' ne doit pas être vide !";

@@ -1,8 +1,8 @@
 <?
 if ($verbose == 1 && $use_verbose == true)
-	echo "<TR><TD class='menu'><a href=\"$PHP_SELF?action=aff_mail&mail=$mail&verbose=0\" class='menu'>".$html_remove_header."</A></TD>";
+	echo "<TR><TD class='menu'><a href=\"$PHP_SELF?action=aff_mail&mail=$mail&verbose=0&sort=".$sort."&sortdir=".$sortdir."\" class='menu'>".$html_remove_header."</A></TD>";
 elseif ($use_verbose == true)
-	echo "<TR><TD class='menu'><a href=\"$PHP_SELF?action=aff_mail&mail=$mail&verbose=1\" class='menu'>".$html_view_header."</A></TD>";
+	echo "<TR><TD class='menu'><a href=\"$PHP_SELF?action=aff_mail&mail=$mail&verbose=1&sort=".$sort."&sortdir=".$sortdir."\" class='menu'>".$html_view_header."</A></TD>";
 else
 	echo "<TR><TD>&nbsp;</TD>";
 

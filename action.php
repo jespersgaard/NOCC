@@ -1,13 +1,13 @@
 <?
 require ("conf.php");
 require ("check_lang.php");
+
 if ($is_standalone == true)
 {
 	session_register("user");
 	session_register("passwd");
 	require ("html/standalone_top.php");
 }
-
 require ("functions.php");
 $current_date = $days[date("D")].", ".date("d")." ".$months[date("M")]; 
 
@@ -15,7 +15,7 @@ switch ($action)
 {
 	case "aff_mail":
 		require ("html/menu_mail.php");
-		require ("html/html_mail_top.php"); 
+		require ("html/html_mail_top.php");
 		$content = aff_mail($servr, $user, $passwd, $mail, $verbose, true);
 		require ("html/html_mail_header.php"); 
 		while ($tmp = array_shift($attach_tab))
@@ -72,7 +72,7 @@ switch ($action)
 		switch ($tab_mail)
 		{
 			case -1:
-				echo "wrong password or username";
+				require ("wrong.php");
 				break;
 			case 0:
 				require ("html/menu_inbox.php");
@@ -83,12 +83,9 @@ switch ($action)
 			default:
 				$num_msg = sizeof($tab_mail);
 				require ("html/menu_inbox.php");
-				echo $tab_mail[0]["sort"];
 				require ("html/html_top_table.php");
 				while ($tmp = array_shift($tab_mail))
-				{
 					require ("html/html_inbox.php");
-				}
 				require ("html/html_bottom_table.php");
 				break;
 		}

@@ -1,15 +1,11 @@
 <?
-// This is the main configuration for 
+// This is the main configuration for NOCC Desktop - Webmail
 
-//$servr = "mail.c-monweb.com/POP3:110";
-$servr = "mail.c-monweb.com/IMAP:143";
-$provider = "c-monweb.com";
-//$servr = "pop.epita.fr/POP3:110";
-//$provider = "epita.fr";
-//$servr = "pop.free.fr/IMAP:143";
-$default_lang = "fr";
-$use_verbose = true;
-$is_standalone = true;
+$servr = ""; // [server_name]/[protocol]:[port] ex : mail.sourceforge.net/IMAP:143 or 												mail.sourceforge.net/POP3:110
+$provider = ""; // domain name e.g "sourceforge.net". This field is used when sending message
+$default_lang = "fr"; // if browser has no preferred language, we use the default language
+$use_verbose = true; // let user see the header of a message
+$is_standalone = true; // do not change used to development
 
 
 // color configuration
@@ -29,4 +25,11 @@ $alink_color = "#0033cc";
 
 $html_tb_msg_color = "#ffffff";
 
+// Do not modify below this line 
+
+session_register("server");
+session_register("servtype");
+session_register("port");
+if ($servr == "" && $server != "" && $servtype != "" && $port != "")
+		$servr = $server."/".strtoupper($servtype).":".$port;
 ?>

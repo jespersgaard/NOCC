@@ -3,7 +3,7 @@ $color_inbox = $color = $html_menu_color;
 if ($action == "") 
 {
 	$color_inbox = $html_menu_color_on; 
-	$line = "<a href=\"".$PHP_SELF."?action=write&lang=".$lang."\" class=\"menu\">".$html_new_msg."</a>";
+	$line = "<a href=\"".$PHP_SELF."?action=write&lang=".$lang."&sort=".$sort."&sortdir=".$sortdir."\" class=\"menu\">".$html_new_msg."</a>";
 }
 else
 	$color =  $html_menu_color_on;
@@ -21,10 +21,21 @@ if ($action == "forward")
 		<td bgcolor="#f0f0f0">
 			<table border="0" cellpadding="2" cellspacing="1" bgcolor="<? echo $html_tb_color ?>" bordercolor="#000000" width="100%">
 				<tr>
-					<td class="menu" align="center" width="120" bgcolor="<? echo $color_inbox ?>"><a href="<? echo $PHP_SELF ?>?lang=<?echo $lang ?>" class="menu"><? echo $html_inbox ?></a></td>
-					<td class="menu" align="center" width="120" bgcolor="<? echo $color ?>"><? echo $line ?></td>
-					<td width="*" bgcolor="<? echo $html_menu_color ?>"><img src="img/spacer.gif"></td>
-					<td class="menu" align="center" width="80" bgcolor="<? echo $html_menu_color ?>"><a href="help.php?lang=<? echo $lang ?>" class="menu"><? echo $html_help ?></a></td>
+					<td class="menu" align="center" width="120" bgcolor="<? echo $color_inbox ?>">
+						<a href="<? echo $PHP_SELF ?>?lang=<?echo $lang ?>&sort=<? echo $sort ?>&sortdir=<? echo $sortdir ?>" class="menu"><? echo $html_inbox ?></a>
+					</td>
+					<td class="menu" align="center" width="120" bgcolor="<? echo $color ?>">
+						<? echo $line ?>
+					</td>
+					<td width="*" bgcolor="<? echo $html_menu_color ?>">
+						<img src="img/spacer.gif">
+					</td>
+					<td class="menu" align="center" width="80" bgcolor="<? echo $html_menu_color ?>">
+						<a href="logout.php" class="menu"><? echo $html_logout ?></a>
+					</td>
+					<td class="menu" align="center" width="80" bgcolor="<? echo $html_menu_color ?>">
+						<a href="help.php?lang=<? echo $lang ?>" class="menu"><? echo $html_help ?></a>
+					</td>
 				</tr>
 			</table>
 		</td>
