@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ar.php,v 1.22 2003/12/25 00:54:57 ajetam Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ar.php,v 1.23 2004/01/02 21:03:16 ajetam Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -189,7 +189,7 @@ $html_contact_last = 'Last Name';  //to translate
 $html_contact_nick = 'Nick';  //to translate
 $html_contact_mail = 'Mail';  //to translate
 $html_contact_list = 'Contact list of ';  //to translate
-$html_contact_del = 'of de contact list';  //to translate
+$html_contact_del = 'from the contact list';  //to translate
 
 $html_contact_err1 = 'Maximal number of contact is ';  //to translate
 $html_contact_err2 = 'You can\'t add a new contact';  //to translate

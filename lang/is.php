@@ -188,7 +188,7 @@ $html_contact_last = 'Last Name';  //to translate
 $html_contact_nick = 'Nick';  //to translate
 $html_contact_mail = 'Mail';  //to translate
 $html_contact_list = 'Contact list of ';  //to translate
-$html_contact_del = 'of de contact list';  //to translate
+$html_contact_del = 'from the contact list';  //to translate
 
 $html_contact_err1 = 'Maximal number of contact is ';  //to translate
 $html_contact_err2 = 'You can\'t add a new contact';  //to translate
