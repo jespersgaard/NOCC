@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.4 2004/01/09 22:16:52 ajetam Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.5 2004/01/10 08:07:48 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -24,7 +24,7 @@ $query_str = session_name() . "=" . session_id();
 ?>
 <html>
 <head>
-<link href="themes/<?php echo $theme ?>/style.css" rel="stylesheet" type="text/css" />
+<link href="themes/<?php echo $_SESSION['nocc_theme']; ?>/style.css" rel="stylesheet" type="text/css" />
 <title>NOCC - Webmail - <?php echo $html_contact_list . " " . $_SESSION["nocc_user"]; ?></title>
 <meta content="text/html; charset=<?php echo $charset ?>" http-equiv="Content-Type" />
 <script language="JavaScript">
@@ -38,8 +38,8 @@ function prompt_delete (email, id)
 </script>
 </head>
 
-<body>
-<?php
+    <body dir="<?php echo $lang_dir; ?>" alink="<?php echo $glob_theme->alink_color; ?>" bgcolor="<?php echo $glob_theme->bgcolor; ?>" link="<?php echo $glob_theme->link_color ?>" text="<?php echo $glob_theme->text_color ?>" vlink="<?php echo $glob_theme->vlink_color; ?>">
+    <?php
 if (!isset($_GET['action']))
 {
     $_GET['action'] = "";
@@ -154,11 +154,11 @@ switch($action){
 	{
 		$tab = explode ("\t",$contacts[$i]);
 ?>
-  <tr class="inbox" bgcolor="<?php echo ($i % 2) ? "#ffffff" : $glob_theme->inside_color ?>">
-    <td><?php echo ($tab[0]) ? $tab[0] : "&nbsp;"; ?></td>
-    <td><?php echo ($tab[1]) ? $tab[1] : "&nbsp;"; ?></td>
-    <td><?php echo ($tab[2]) ? $tab[2] : "&nbsp;"; ?></td>
-    <td><?php echo $tab[3]; ?></td>
+  <tr class="inbox" bgcolor="<?php echo ($i % 2) ? $glob_theme->tr_color : $glob_theme->inside_color ?>">
+    <td><span style="color:<?php echo ($i % 2) ? "#ffffff" : "#000000" ?>"><?php echo ($tab[0]) ? $tab[0] : "&nbsp;"; ?></span></td>
+    <td><span style="color:<?php echo ($i % 2) ? "#ffffff" : "#000000" ?>"><?php echo ($tab[1]) ? $tab[1] : "&nbsp;"; ?></span></td>
+    <td><span style="color:<?php echo ($i % 2) ? "#ffffff" : "#000000" ?>"><?php echo ($tab[2]) ? $tab[2] : "&nbsp;"; ?></span></td>
+    <td><span style="color:<?php echo ($i % 2) ? "#ffffff" : "#000000" ?>"><?php echo $tab[3]; ?></span></td>
     <td><input type="button" name="Submit5" value="<?php echo $html_modify ?>" class="button" onClick="self.location.href='<? echo $_SERVER['PHP_SELF'] . "?" . $query_str ?>&amp;action=add_prompt&amp;id=<?php echo $i ?>&amp;modif=1'">
     </td>
     <td><input type="button" name="Submit" value="<?php echo $html_delete ?>" class="button" onClick="prompt_delete ('<?php echo $tab[3] ?>', <?php echo $i ?>)">

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts.php,v 1.4 2004/01/09 22:16:52 ajetam Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts.php,v 1.5 2004/01/10 08:07:48 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -18,8 +18,9 @@ $_SESSION['nocc_loggedin'] = 1;
 ?>
 <html>
 <head>
-<link href="themes/<?php echo $theme ?>/style.css" rel="stylesheet" type="text/css" />
 <title>NOCC - Webmail - <?php echo $html_contact_list . " " . $_SESSION["nocc_user"]; ?></title>
+<link href="themes/<?php echo $_SESSION['nocc_theme']; ?>/style.css" rel="stylesheet" type="text/css" />
+
 <meta content="text/html; charset=<?php echo $charset ?>" http-equiv="Content-Type" />
 <script language="JavaScript">
 
@@ -60,8 +61,8 @@ function toggle (bt)
 
 </script>
 </head>
-<body>
-<p align="center"><font color="#0033CC" size="2" face="Verdana, Arial, Helvetica, sans-serif"><b><?php echo $html_contact_list . " " . $_SESSION["nocc_user"]; ?></b></font> </p>
+    <body dir="<?php echo $lang_dir; ?>" alink="<?php echo $glob_theme->alink_color; ?>" bgcolor="<?php echo $glob_theme->bgcolor; ?>" link="<?php echo $glob_theme->link_color ?>" text="<?php echo $glob_theme->text_color ?>" vlink="<?php echo $glob_theme->vlink_color; ?>">
+    <p align="center"><font color="#0033CC" size="2" face="Verdana, Arial, Helvetica, sans-serif"><b><?php echo $html_contact_list . " " . $_SESSION["nocc_user"]; ?></b></font> </p>
 
 <table width="300" border="0" align="center" cellpadding="4" cellspacing="0">
   <tr align="center" bgcolor="<?php echo $glob_theme->menu_color ?>" class="menu">
@@ -79,11 +80,11 @@ function toggle (bt)
 	{
 		$tab = explode ("\t",$contacts[$i]);
 ?>
-  <tr class="inbox" bgcolor="<?php echo ($i % 2) ? "#ffffff" : $glob_theme->inside_color ?>">
-    <td><?php echo ($tab[0]) ? $tab[0] : "&nbsp;"; ?></td>
-    <td><?php echo ($tab[1]) ? $tab[1] : "&nbsp;"; ?></td>
-    <td><?php echo ($tab[2]) ? $tab[2] : "&nbsp;"; ?></td>
-    <td><?php echo $tab[3]; ?></td>
+  <tr class="inbox" bgcolor="<?php echo ($i % 2) ? $glob_theme->tr_color : $glob_theme->inside_color ?>">
+    <td><span style="color:<?php echo ($i % 2) ? "#ffffff" : "#000000" ?>"><?php echo ($tab[0]) ? $tab[0] : "&nbsp;"; ?></span></td>
+    <td><span style="color:<?php echo ($i % 2) ? "#ffffff" : "#000000" ?>"><?php echo ($tab[1]) ? $tab[1] : "&nbsp;"; ?></span></td>
+    <td><span style="color:<?php echo ($i % 2) ? "#ffffff" : "#000000" ?>"><?php echo ($tab[2]) ? $tab[2] : "&nbsp;"; ?></span></td>
+    <td><span style="color:<?php echo ($i % 2) ? "#ffffff" : "#000000" ?>"><?php echo $tab[3]; ?></span></td>
     <td align="right"><input type="button" name="Submit" value="<?php echo $html_add ?>" class="button" onClick="action (this, '<?php echo trim($tab[3]); ?>');toggle (this);"></td>
   </tr>
 <?
