@@ -135,9 +135,10 @@ specifically tested and are known to work)
 	  - Apache with PHP compiled as module or CGI.
 	  - Apache 1.3.12, 1.3.14, 1.3.17, 1.3.19, 2.0.14 (Win32).
 	  - Microsoft IIS 4.0, IIS 5.0 w/CGI, IIS 5.0 w/ISAPI.
+	  - O'Reilly WebSite Pro 2.x & 3.
 	  - PHP 4.0.0, 4.0.1, 4.0.1pl1, 4.0.2, 4.0.3pl1, 4.0.4, 4.0.4pl1.
 	  - PHP running through a wrapper: suEXEC.
-	  - various OS including GNU/Linux, NetBSD, OpenBSD and Windows 2000.
+	  - various OS including GNU/Linux, FreeBSD, NetBSD, OpenBSD and Win2k.
 	  - PHP 4.0.4-dev compiled as module for Apache Win32.
 	  - warning: due to a sessions bug, only PHP 4.0.4 or higher will run
 	    correctly on Win32 platforms.
