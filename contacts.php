@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts.php,v 1.6 2004/01/10 08:47:17 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts.php,v 1.7 2004/06/22 11:25:27 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -14,6 +14,15 @@ require_once ('proxy.php');
 require_once ('./conf.php');
 require_once ('./functions.php');
 require_once ('./common.php');
+$pop = new nocc_imap($ev);
+if (NoccException::isException($ev)) {
+    require ('./html/header.php'); 
+    require ('./html/error.php');
+    require ('./html/footer.php');
+    exit;
+}   
+$pop->close();
+
 $_SESSION['nocc_loggedin'] = 1;
 ?>
 <html>
