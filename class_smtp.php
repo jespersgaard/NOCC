@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.19 2001/06/18 13:43:19 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.20 2001/10/18 23:46:18 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -39,33 +39,33 @@ class smtp
 
 	function smtp_open() 
 	{ 
-        global $SMTP_GLOBAL_STATUS; 
+		global $SMTP_GLOBAL_STATUS; 
 
-        $smtp = fsockopen($this->smtp_server, $this->port); 
+		$smtp = fsockopen($this->smtp_server, $this->port); 
 		if ($smtp < 0)
 			return new PEAR_Error($html_smtp_no_conn); 
-        $line = fgets($smtp, 1024);
-        $SMTP_GLOBAL_STATUS[$smtp]['LASTRESULT'] = substr($line, 0, 1); 
-        $SMTP_GLOBAL_STATUS[$smtp]['LASTRESULTTXT'] = substr($line, 0, 1024); 
+		$line = fgets($smtp, 1024);
+		$SMTP_GLOBAL_STATUS[$smtp]['LASTRESULT'] = substr($line, 0, 1); 
+		$SMTP_GLOBAL_STATUS[$smtp]['LASTRESULTTXT'] = substr($line, 0, 1024); 
 
 		if ($SMTP_GLOBAL_STATUS[$smtp]['LASTRESULT'] !=  '2')
 			return new PEAR_Error($html_smtp_error_unexpected." ".$line); 
 		
-        return $smtp; 
+		return $smtp; 
 	} 
 	
 	function smtp_helo($smtp) 
 	{ 
-        global $SMTP_GLOBAL_STATUS; 
+		global $SMTP_GLOBAL_STATUS; 
 
-         /* 'localhost' always works [Unk] */ 
-        fputs($smtp, "helo localhost\r\n"); 
+		/* 'localhost' always works [Unk] */ 
+		fputs($smtp, "helo localhost\r\n"); 
 		error_log("Sent: helo localhost");
-        $line = fgets($smtp, 1024); 
+		$line = fgets($smtp, 1024); 
 		error_log("Rcvd: $line");
 
-        $SMTP_GLOBAL_STATUS[$smtp]['LASTRESULT'] = substr($line, 0, 1); 
-        $SMTP_GLOBAL_STATUS[$smtp]['LASTRESULTTXT'] = substr($line, 0, 1024); 
+		$SMTP_GLOBAL_STATUS[$smtp]['LASTRESULT'] = substr($line, 0, 1); 
+		$SMTP_GLOBAL_STATUS[$smtp]['LASTRESULTTXT'] = substr($line, 0, 1024); 
 
 		if ($SMTP_GLOBAL_STATUS[$smtp]['LASTRESULT'] !=  '2')
 			return new PEAR_Error($html_smtp_error_unexpected." ".$line); 
@@ -75,17 +75,17 @@ class smtp
   
 	function smtp_ehlo($smtp) 
 	{ 
-        global $SMTP_GLOBAL_STATUS; 
+		global $SMTP_GLOBAL_STATUS; 
 
-        /* Well, let's use "helo" for now.. Until we need the 
-          extra func's   [Unk] 
-        */ 
-        fputs($smtp, "ehlo localhost\r\n"); 
+		/* Well, let's use "helo" for now.. Until we need the 
+		  extra func's   [Unk] 
+		*/ 
+		fputs($smtp, "ehlo localhost\r\n"); 
 		error_log("Sent: ehlo localhost");
-        $line = fgets($smtp, 1024);
+		$line = fgets($smtp, 1024);
 		error_log("Rcvd: $line");
-        $SMTP_GLOBAL_STATUS[$smtp]['LASTRESULT'] = substr($line, 0, 1); 
-        $SMTP_GLOBAL_STATUS[$smtp]['LASTRESULTTXT'] = substr($line, 0, 1024); 
+		$SMTP_GLOBAL_STATUS[$smtp]['LASTRESULT'] = substr($line, 0, 1); 
+		$SMTP_GLOBAL_STATUS[$smtp]['LASTRESULTTXT'] = substr($line, 0, 1024); 
 
 		if ($SMTP_GLOBAL_STATUS[$smtp]['LASTRESULT'] <>  '2')
 			return new PEAR_Error($html_smtp_error_unexpected." ".$line); 
@@ -96,14 +96,14 @@ class smtp
 
 	function smtp_mail_from($smtp) 
 	{ 
-        global $SMTP_GLOBAL_STATUS; 
-        fputs($smtp, "MAIL FROM:$this->from\r\n"); 
+		global $SMTP_GLOBAL_STATUS; 
+		fputs($smtp, "MAIL FROM:$this->from\r\n"); 
 		error_log("Sent: MAIL FROM:$this->from");
-        $line = fgets($smtp, 1024);
+		$line = fgets($smtp, 1024);
 		error_log("Rcvd: $line");
 
 		$SMTP_GLOBAL_STATUS[$smtp]['LASTRESULT'] = substr($line, 0, 1); 
-        $SMTP_GLOBAL_STATUS[$smtp]['LASTRESULTTXT'] = substr($line, 0, 1024); 
+		$SMTP_GLOBAL_STATUS[$smtp]['LASTRESULTTXT'] = substr($line, 0, 1024); 
 
 		if ($SMTP_GLOBAL_STATUS[$smtp]['LASTRESULT'] <>  '2')
 			return new PEAR_Error($html_smtp_error_unexpected." ".$line); 
@@ -113,7 +113,7 @@ class smtp
   
 	function smtp_rcpt_to($smtp) 
 	{ 
-        global $SMTP_GLOBAL_STATUS; 
+		global $SMTP_GLOBAL_STATUS;
 
 		// Modified by nicocha to use to, cc and bcc field
 		while ($tmp = array_shift($this->to))
@@ -138,7 +138,7 @@ class smtp
 			error_log("Sent: RCPT TO:$tmp");
 			$line = fgets($smtp, 1024);
 			error_log("Rcvd: $line");
-		    $SMTP_GLOBAL_STATUS[$smtp]['LASTRESULT'] = substr($line, 0, 1); 
+			$SMTP_GLOBAL_STATUS[$smtp]['LASTRESULT'] = substr($line, 0, 1); 
 			$SMTP_GLOBAL_STATUS[$smtp]['LASTRESULTTXT'] = substr($line, 0, 1024); 
 
 			if ($SMTP_GLOBAL_STATUS[$smtp]['LASTRESULT'] <>  '2')
@@ -152,7 +152,7 @@ class smtp
 			error_log("Sent: RCPT TO:$tmp");
 			$line = fgets($smtp, 1024);
 			error_log("Rcvd: $line");
-		    $SMTP_GLOBAL_STATUS[$smtp]['LASTRESULT'] = substr($line, 0, 1); 
+			$SMTP_GLOBAL_STATUS[$smtp]['LASTRESULT'] = substr($line, 0, 1); 
 			$SMTP_GLOBAL_STATUS[$smtp]['LASTRESULTTXT'] = substr($line, 0, 1024); 
 
 			if ($SMTP_GLOBAL_STATUS[$smtp]['LASTRESULT'] <>  '2')
@@ -163,24 +163,24 @@ class smtp
 
 	function smtp_data($smtp) 
 	{ 
-        global $SMTP_GLOBAL_STATUS; 
+		global $SMTP_GLOBAL_STATUS; 
 
-        fputs($smtp, "DATA\r\n"); 
+		fputs($smtp, "DATA\r\n"); 
 		error_log("Sent: DATA");
-        $line = fgets($smtp, 1024);
+		$line = fgets($smtp, 1024);
 		error_log("Rcvd: $line");
 
-        $SMTP_GLOBAL_STATUS[$smtp]['LASTRESULT'] = substr($line, 0, 1); 
-        $SMTP_GLOBAL_STATUS[$smtp]['LASTRESULTTXT'] = substr($line, 0, 1024); 
+		$SMTP_GLOBAL_STATUS[$smtp]['LASTRESULT'] = substr($line, 0, 1); 
+		$SMTP_GLOBAL_STATUS[$smtp]['LASTRESULTTXT'] = substr($line, 0, 1024); 
 
 		if ($SMTP_GLOBAL_STATUS[$smtp]['LASTRESULT'] <>  '3')
 			return new PEAR_Error($html_smtp_error_unexpected." ".$line); 
 		
 		fputs($smtp, "$this->data"); 
-        fputs($smtp, "\r\n.\r\n"); 
-        $line = fgets($smtp, 1024); 
+		fputs($smtp, "\r\n.\r\n"); 
+		$line = fgets($smtp, 1024); 
 		error_log("Rcvd: $line");
-        if (substr($line, 0, 1) !=  '2')
+		if (substr($line, 0, 1) !=  '2')
 			return new PEAR_Error($html_smtp_error_unexpected." ".$line); 
 
 		return (true); 
@@ -188,15 +188,15 @@ class smtp
   
 	function smtp_quit($smtp) 
 	{ 
-        global $SMTP_GLOBAL_STATUS; 
+		global $SMTP_GLOBAL_STATUS; 
 
-        fputs($smtp,  "QUIT\r\n"); 
+		fputs($smtp,  "QUIT\r\n"); 
 		error_log("Sent: QUIT");
-        $line = fgets($smtp, 1024);
+		$line = fgets($smtp, 1024);
 		error_log("Rcvd: $line");
 
-        $SMTP_GLOBAL_STATUS[$smtp]['LASTRESULT'] = substr($line, 0, 1); 
-        $SMTP_GLOBAL_STATUS[$smtp]['LASTRESULTTXT'] = substr($line, 0, 1024); 
+		$SMTP_GLOBAL_STATUS[$smtp]['LASTRESULT'] = substr($line, 0, 1); 
+		$SMTP_GLOBAL_STATUS[$smtp]['LASTRESULTTXT'] = substr($line, 0, 1024); 
 
 		if ($SMTP_GLOBAL_STATUS[$smtp]['LASTRESULT'] !=  '2')
 			return new PEAR_Error($html_smtp_error_unexpected." ".$line); 
