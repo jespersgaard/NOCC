@@ -1,8 +1,8 @@
 <?
 /*
-	$Author: nicocha $
-	$Revision: 1.19 $
-	$Date: 2000/10/24 01:16:08 $
+	$Author: wolruf $
+	$Revision: 1.20 $
+	$Date: 2000/10/24 14:55:13 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -53,9 +53,9 @@ echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 							</tr>
 							<tr> 
 								<td colspan="3" align="center">
-								<a href="<? echo $PHP_SELF ?>?lang=fr"><img src="img/fr.gif" border="0" ALT="<? echo $alt_fr ?>"></a>
+								<a href="<? echo $PHP_SELF ?>?lang=fr"><img src="img/fr.gif" border="0" height="12" width="12" ALT="<? echo $alt_fr ?>"></a>
 								&nbsp;
-								<a href="<? echo $PHP_SELF ?>?lang=en"><img src="img/uk.gif" border="0" ALT="<? echo $alt_en ?>"></a>
+								<a href="<? echo $PHP_SELF ?>?lang=en"><img src="img/uk.gif" border="0" height="12" width="12" ALT="<? echo $alt_en ?>"></a>
 								</td>
 							</tr>
 							<tr> 
@@ -138,7 +138,7 @@ echo $vlink_color ?>" alink="<? echo $alink_color ?>">
 	</td>
 </tr>
 <tr>
-	<td align="center" colspan="2"><a href="http://nocc.sourceforge.net/"><img src="img/button.gif" border="0" alt"Powered by NOCC"></a></td>
+	<td align="center" colspan="2"><a href="http://nocc.sourceforge.net/"><img src="img/button.gif" border="0" height="30" width="90" alt"Powered by NOCC"></a></td>
 </tr>
 </table>
 </form>
