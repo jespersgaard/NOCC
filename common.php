@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.16 2002/05/30 14:07:20 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.17 2002/05/30 14:07:56 rossigee Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -109,7 +109,7 @@ if (isset($_REQUEST['server'])) {
 
 // If we have requested a particular theme
 if(isset($_REQUEST['theme']))
-    $_SESSION['nocc_theme'] = safestrip($_REQUEST['nocc_theme']);
+    $_SESSION['nocc_theme'] = safestrip($_REQUEST['theme']);
 
 // If we haven't chosen, or are forced to use a particular theme...
 if(!$conf->use_theme || !isset($_SESSION['nocc_theme']))
