@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.4 2001/02/04 18:14:08 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.5 2001/02/06 14:37:36 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -66,7 +66,6 @@ $html_retry = "Riprova";
 
 $html_view_header = "Mostra intestazione";
 $html_remove_header = "Nascondi intestazione";
-$html_inbox = "Inbox";
 $html_new_msg = "Scrivi";
 $html_reply = "Rispondi";
 $html_reply_short = "Re";

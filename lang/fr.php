@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.33 2001/01/31 13:53:36 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.34 2001/01/31 15:39:14 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -66,7 +66,6 @@ $html_retry = "R&eacute;essayer";
 
 $html_view_header = "Voir l'ent&ecirc;te";
 $html_remove_header = "Masquer l'ent&ecirc;te";
-$html_inbox = "Bo&icirc;te de r&eacute;ception";
 $html_new_msg = "Ecrire";
 $html_reply = "R&eacute;pondre";
 $html_reply_short = "Re";
