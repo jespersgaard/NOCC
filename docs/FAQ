@@ -1,6 +1,6 @@
 Frequently Asked Questions for Nocc
 -----------------------------------
-Last updated: $Date: 2001/04/24 19:14:54 $
+Last updated: $Date: 2001/05/22 15:45:12 $
 
  Q. Nocc keeps me asking for a correct login/password.
 
@@ -113,3 +113,12 @@ Last updated: $Date: 2001/04/24 19:14:54 $
  A. This is because you didn't fill in the '$tmpdir' variable in conf.php
     and 'upload_tmp_dir' in 'php.ini'.
     NOCC needs at least one of these variables to be at up.
+
+-----------------------------------
+
+ Q. When I try yo attach a big file (>2M), I get a warning:
+    "Max size of 2097152 bytes exceeded [...]"
+
+ A. You have to increase the maximum file size in your PHP setup via php.ini:
+    ; Maximum allowed size for uploaded files.
+    upload_max_filesize = 2M
