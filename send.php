@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.36 2001/04/09 09:27:55 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.37 2001/04/11 08:39:17 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -8,6 +8,9 @@
  * See the enclosed file COPYING for license information (GPL).  If you
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
+
+if ($HTTP_SERVER_VARS["REQUEST_METHOD"] != "POST")
+	header("Location: index.php");
 
 require ("conf.php");
 require ("class_send.php");
