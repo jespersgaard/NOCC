@@ -1,7 +1,12 @@
+NOCC 0.9.6	??
+
+	* Fixed message header display bug.
+	* Remove date display from INBOX.
+
 NOCC 0.9.5	November   25, 2001
 
-	* Fixed handling prefs file in prefs.php
-	* Fixed calls to cachePrefValue() in prefs.php
+	* Fixed handling prefs file in prefs.php.
+	* Fixed calls to cachePrefValue() in prefs.php.
 	* Preferences optional, by omitting to set the prefs_dir in conf.php.
 	* Stopped including attachments in replies.
 	* Changed all imap_open to @imap_open to suppress warnings (#477574)
