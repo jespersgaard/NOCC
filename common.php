@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.24 2002/09/22 20:29:27 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.25 2002/12/03 06:37:07 rossigee Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -88,7 +88,8 @@ if (isset($_REQUEST['domainnum']))
     $domainnum = $_REQUEST['domainnum'];
     $_SESSION['nocc_domain'] = $conf->domains[$domainnum]->domain;
     $_SESSION['nocc_servr'] = $conf->domains[$domainnum]->in;
-    $_SESSION['nocc_smtp_server'] = $conf->domains[$domainnum]->smtp;
+    if(!empty($_SESSION['nocc_smtp_server']))
+	    $_SESSION['nocc_smtp_server'] = $conf->domains[$domainnum]->smtp;
     $_SESSION['nocc_smtp_port'] = $conf->domains[$domainnum]->smtp_port;
 
     // Do we provide the domain with the login?
