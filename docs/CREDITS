@@ -16,6 +16,11 @@ Core Developers
 
 	Rewrote Epimail/Perl in PHP
 	A lot of debugging
+	
+ * Ross Golder <rossigee@users.sourceforge.net>
+ 
+ 	Added Preferences code, hardened SMTP code
+ 	Bug report triaging
 
 Additional Developers
 =====================
