@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.74 2001/10/06 13:47:51 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.75 2001/10/17 20:46:30 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -88,9 +88,9 @@ function updateTheme()
 								<td align="right" class="f"><?php echo $html_login ?></td>
 								<td><font size="-3">&nbsp;</font></td>
 								<td class="f" align="left"> 
-									<input type="text" name="user" size="15" />
+									<input type="text" name="user" size="15" value="<?=$REMOTE_USER?>"/>
 									<?php
-									if ($domains[0]->in != '')
+									if (count($domains) > 1)
 									{
 										echo '@ <select name="domainnum">';
 										$i = 0; 
@@ -100,6 +100,10 @@ function updateTheme()
 											$i++;
 										}
 										echo '</select>';
+									}
+									else
+									{
+										echo '<input type="hidden" name="domainnum" value="0" />';
 									}
 									?>
 								</td>

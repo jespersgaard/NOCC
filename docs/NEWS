@@ -1,5 +1,8 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* If user is logged in using HTTP auth, default username on
+	  login page.
+	* Hide the domain pulldown when only one domain exists.
 	* Made the login page use the same header as any other page.
 	* Added tooltips to the sort column icons in the messageview.
 	* Added a Theme tips section to the README.
