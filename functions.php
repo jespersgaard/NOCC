@@ -1,8 +1,8 @@
 <?
 /*
-	$Author: nicocha $
-	$Revision: 1.29 $
-	$Date: 2000/11/07 16:35:51 $
+	$Author: wolruf $
+	$Revision: 1.30 $
+	$Date: 2000/11/09 11:11:22 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
 the function get_part is based on a function from matt@bonneau.net
@@ -384,11 +384,9 @@ function get_reply_all($user, $domain, $from, $to, $cc)
 /* ----------------------------------------------------- */
 
 // We need that to build a correct list of all the recipient when we send a message
-function cut_address($addr)
-{
-	$addr = ereg_replace(",", " ", $addr);
-	$addr = ereg_replace(";", " ", $addr);
-	return (explode(" ", $addr));
+function cut_address($addr) {
+  $addr = ereg_replace(",", ";", $addr);
+  return (explode(";", $addr));
 }
 
 /* ----------------------------------------------------- */
