@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.9 2001/10/25 12:45:30 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/prefs.php,v 1.10 2001/11/08 13:23:33 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -19,14 +19,17 @@ if (!session_is_registered('prefs_are_cached'))
 	session_register('prefs_are_cached');
 }
 
-function cachePrefValues($data_dir, $username)
+function cachePrefValues($username)
 {
+	global $prefs_dir;
 	global $prefs_are_cached, $prefs_cache;
 	   
+	if (!$prefs_dir)
+		return;
 	if ($prefs_are_cached)
 		return;
 	
-	$filename = $data_dir . $username . '.pref';
+	$filename = $prefs_dir . $username . '.pref';
 	if (file_exists($filename))
 	{
 		$file = fopen($filename, 'r');
@@ -76,12 +79,12 @@ function getPref($string)
 }
 
 
-function savePrefValues($data_dir, $username)
+function savePrefValues($username)
 {
-	global $prefs_cache;
+	global $prefs_dir, $prefs_cache;
 	global $html_prefs_file_error;
 
-	$filename = $data_dir . $username . '.pref';
+	$filename = $prefs_dir . $username . '.pref';
 	if(file_exists($filename) && !is_writable($filename)) {
 		return new Exception($html_prefs_file_error);
 	}
@@ -99,16 +102,16 @@ function savePrefValues($data_dir, $username)
 }
 
 
-function removePref($data_dir, $username, $string)
+function removePref($username, $string)
 {
 	global $prefs_cache;
 	  
-	cachePrefValues($data_dir, $username);
+	cachePrefValues($username);
 	  
 	if (isset($prefs_cache[$string]))
 		unset($prefs_cache[$string]);
 		  
-	return savePrefValues($data_dir, $username);
+	return savePrefValues($username);
 }
    
 
