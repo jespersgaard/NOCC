@@ -1,4 +1,4 @@
-NOCC 0.9.2	February 07, 2001
+NOCC 0.9.2	February 08, 2001
 	
 	* now handle multiple attachments when sending message (adding and
 	  deleting attachments is now possible).
