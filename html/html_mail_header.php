@@ -1,5 +1,7 @@
-<!-- start of $Id: html_mail_header.php,v 1.31 2002/05/15 14:41:55 rossigee Exp $ -->
+<!-- start of $Id: html_mail_header.php,v 1.32 2002/05/22 14:23:43 rossigee Exp $ -->
 <?php
+
+global $conf;
 
 // Show/hide header link
 $verbose = (isset($_REQUEST['verbose']) && $_REQUEST['verbose'] == 1) ? '1' : '0';
@@ -31,10 +33,15 @@ if ($conf->use_verbose && $verbose == '0') {
         $content['subject'] = $html_nosubject;
     echo '<tr><td align="right" class="mail">'.$html_subject.'</td><td bgcolor="'.$glob_theme->mail_properties.'" class="mail"><b>'.htmlspecialchars($content['subject']).'</b></td></tr>';
     echo '<tr><td align="right" class="mail">'.$html_date.'</td><td bgcolor="'.$glob_theme->mail_properties.'" class="mail">'.$content['date'].'</td></tr>';
+    if($content['att'] != '') {
+        echo $content['att'];
+    }
 }
 
 else {
-    echo $content['att'];
+    if($content['att'] != '') {
+        echo $content['att'];
+    }
     echo '<tr><td colspan="2" bgcolor="'.$glob_theme->mail_color.'" class="mail"><pre>'.$content['header'].'</pre></td></tr>';
 }
 
@@ -43,4 +50,4 @@ echo '<tr><td colspan="2" bgcolor="'.$glob_theme->mail_color.'" class="mail">'.$
 
 ?>
 
-<!-- end of $Id: html_mail_header.php,v 1.31 2002/05/15 14:41:55 rossigee Exp $ -->
+<!-- end of $Id: html_mail_header.php,v 1.32 2002/05/22 14:23:43 rossigee Exp $ -->
