@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.78 2001/04/19 19:40:02 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.79 2001/05/10 14:22:01 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -212,11 +212,11 @@ function GetPart($this_part, $part_no, $display_rfc822)
 	for ($lcv = 0; $lcv < count($this_part->parameters); $lcv++)
 	{ 
 		$param = $this_part->parameters[$lcv];
-	    if ($param->attribute == "NAME")
-		{
-			$att_name = $param->value;
-	        break;
-	    }
+			if (($param->attribute == "NAME") || ($param->attribute == "name"))
+			{
+				$att_name = $param->value;
+	        	break;
+	    		}
 	}
 	switch ($this_part->type)
 	{
