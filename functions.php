@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.35 2000/11/24 21:49:27 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.36 2000/11/25 12:53:38 nicocha Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -321,7 +321,8 @@ function link_att($servr, $mail, $tab, $display_part_no)
 		$link .= "<tr>";
 		if ($display_part_no == true)
 			$link .= "<td class='inbox'>".$tmp["number"]."</td>";
-		$link .="<td class='inbox'><a href=download.php?mail=".$mail."&part=".$tmp["number"]."&transfer=".$tmp["transfer"]."&filename=".urlencode($tmp["name"]).">".$tmp["name"]."</a></td><td class='inbox'>".$tmp["mime"]."</td><td class='inbox'>".$tmp["size"]." kb</td><tr>";
+		$att_name = imap_mime_header_decode($tmp["name"]);
+		$link .="<td class='inbox'><a href=download.php?mail=".$mail."&part=".$tmp["number"]."&transfer=".$tmp["transfer"]."&filename=".urlencode($att_name[0]->text).">".$att_name[0]->text."</a></td><td class='inbox'>".$tmp["mime"]."</td><td class='inbox'>".$tmp["size"]." kb</td><tr>";
 	}
 	$link .= "</table>";
 	return ($link);
