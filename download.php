@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.30 2002/04/18 10:37:12 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.31 2002/04/18 21:38:40 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -18,8 +18,6 @@ require_once './conf.php';
 require_once './common.php';
 require_once './class_local.php';
 
-$passwd = safestrip($passwd);
-
 header('Content-Type: application/x-unknown-' . $mime);
 // IE 5.5 is weird, the line is not correct but it works
 if (eregi('MSIE', $HTTP_USER_AGENT) && eregi('5.5', $HTTP_USER_AGENT))
@@ -27,9 +25,16 @@ if (eregi('MSIE', $HTTP_USER_AGENT) && eregi('5.5', $HTTP_USER_AGENT))
 else
     header('Content-Disposition: attachment; filename=' . urldecode($filename));
 
-$pop = new nocc_imap($servr, $folder, $login, $passwd, $ev);
-if($ev) {
-    echo "<p class=\"error\">".$ev->getMessage()."</p>";
+$ev = "";
+$servr = $_SESSION['servr'];
+$folder = $_SESSION['folder'];
+$login = $_SESSION['login'];
+$passwd = $_SESSION['passwd'];
+$pop = new nocc_imap($servr, $folder, $login, $passwd, 0, $ev);
+if (Exception::isException($ev)) {
+    require ('./html/header.php');
+    require ('./html/error.php');
+    require ('./html/footer.php');
     return;
 }
 

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.115 2002/04/24 14:57:16 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.116 2002/04/24 15:01:37 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -45,6 +45,13 @@ if($prefs_full_name != '')
 
 if(!isset($action))
     $action = '';
+
+// Get connection settings from session in case we need to
+// create a connection
+$servr = $_SESSION['servr'];
+$folder = $_SESSION['folder'];
+$login = $_SESSION['login'];
+$passwd = $_SESSION['passwd'];
 
 switch (trim($action))
 {
@@ -202,13 +209,12 @@ switch (trim($action))
         break;
 
     case 'managefolders':
-        //$servr = $_SESSION['servr'];
-        //$folder = $_SESSION['folder'];
-        //$user = $_SESSION['user'];
-        //$passwd = $_SESSION['passwd'];
-        //$pop = new nocc_imap($servr, $folder, $user, $passwd, $ev);
-        if ($ev) {
-            $do = '';
+        $pop = new nocc_imap($servr, $folder, $login, $passwd, 0, $ev);
+        if (Exception::isException($ev)) {
+            require ('./html/header.php');
+            require ('./html/error.php');
+            require ('./html/footer.php');
+            break;
         }
 
         switch (trim($do)) {
@@ -295,13 +301,11 @@ switch (trim($action))
         break;
 
     case 'setprefs':
-        //$servr = $_SESSION['servr'];
-        //$folder = $_SESSION['folder'];
-        //$user = $_SESSION['user'];
-        //$passwd = $_SESSION['passwd'];
-        $pop = new nocc_imap($servr, $folder, $user, $passwd, $lastev);
-        if ($ev) {
-            // I'll decide what to do with this later.
+        $pop = new nocc_imap($servr, $folder, $login, $passwd, 0, $ev);
+        if (Exception::isException($ev)) {
+            require ('./html/header.php');
+            require ('./html/error.php');
+            require ('./html/footer.php');
             break;
         }
 
@@ -430,12 +434,7 @@ switch (trim($action))
             break;
         }
         
-        $ev = "";
-        //$servr = $_SESSION['servr'];
-        //$folder = $_SESSION['folder'];
-        //$user = $_SESSION['user'];
-        //$passwd = $_SESSION['passwd'];
-        $pop = new nocc_imap($servr, $folder, $login, $passwd, $ev);
+        $pop = new nocc_imap($servr, $folder, $login, $passwd, 0, $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
