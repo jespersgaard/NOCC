@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.12 2001/04/17 21:55:37 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.13 2001/05/27 15:02:33 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -10,7 +10,8 @@
  *
  * Configuration file for the Netherlander language
  * Translation by Sander Schroevers and Pieterjan Goppel
- *  <lp_leeki@mail.euronet.nl>
+ *  <lp_leeki@euronet.nl>
+ *  Some adding by Mathijs Kolenberg (mack@solcon.nl)
  */
 
 $charset = 'ISO-8859-1';
@@ -28,10 +29,10 @@ $lang_dir = 'ltr';
 
 // What format string should we pass to strftime() for messages sent on
 // days other than today?
-$default_date_format = '%Y-%m-%d'; 
+$default_date_format = '%d-%m-%Y'; 
 
 // If the local is not implemented on the host, how we display the date
-$no_locale_date_format = '%Y-%m-%d';
+$no_locale_date_format = '%d-%m-%Y';
 
 // What format string should we pass to strftime() for messages sent
 // today?
@@ -58,23 +59,23 @@ $alt_prev = 'Vorige';
 
 // index.php
 
-$html_lang = 'Language';
+$html_lang = 'Taal';
 $html_welcome = 'Welkom op';
 $html_login = 'Login';
-$html_passwd = 'Password';
+$html_passwd = 'Wachtwoord';
 $html_submit = 'Login';
 $html_help = 'Help';
 $html_server = 'Server';
-$html_wrong = 'De login-naam of password is onjuist';
+$html_wrong = 'De login-naam of het wachtwoord is onjuist';
 $html_retry = 'Probeer opnieuw';
 $html_on = 'on';
-$html_theme = 'Theme';
+$html_theme = 'Schema';
 
 // Other pages
 
-$html_view_header = 'Header inzien';
-$html_remove_header = 'Verberg header';
-$html_inbox = 'Inbox';
+$html_view_header = 'Broncode inzien';
+$html_remove_header = 'Verberg broncode';
+$html_inbox = 'Postvak In';
 $html_new_msg = 'Schrijven';
 $html_reply = 'Antwoorden';
 $html_reply_short = 'Betr.:';
@@ -84,21 +85,21 @@ $html_forward_short = 'Fw';
 $html_delete = 'Verwijder';
 $html_new = 'Nieuw';
 $html_mark = 'Verwijder';
-$html_att = 'Attachment';
-$html_atts = 'Attachments';
+$html_att = 'Bijlage';
+$html_atts = 'Bijlagen';
 $html_att_unknown = '[onbekend]';
-$html_attach = 'Attach';
+$html_attach = 'Voeg toe';
 $html_attach_forget = 'You must attach your file before sending your message !';
-$html_attach_delete = 'Remove Selected';
+$html_attach_delete = 'Verwijder selectie';
 $html_from = 'Van';
 $html_subject = 'Onderwerp';
 $html_date = 'Datum';
 $html_sent = 'Verzenden';
 $html_size = 'Grootte';
-$html_totalsize = 'Total Size';
+$html_totalsize = 'Totale groote';
 $html_kb = 'Kb';
 $html_bytes = 'bytes';
-$html_filename = 'Filename';
+$html_filename = 'Bestandsnaam';
 $html_to = 'Aan';
 $html_cc = 'CC';
 $html_bcc = 'Bcc';
@@ -106,11 +107,12 @@ $html_nosubject = 'Geen onderwerp';
 $html_send = 'Verzenden';
 $html_cancel = 'Annuleren';
 $html_no_mail = 'Geen nieuwe berichten';
-$html_logout = 'Logout';
+$html_logout = 'Uitloggen';
 $html_msg = 'Bericht';
 $html_msgs = 'Berichten';
 $html_configuration = 'This server is not well set up !';
 
 $original_msg = '--Oorspronkelijk Bericht--';
 $to_empty = 'Het \'Aan\'-veld kan niet leeg zijn !';
+$from_empty = 'Het \'Van\'-veld kan niet leeg zijn !';
 ?>
