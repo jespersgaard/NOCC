@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.121 2001/11/16 10:53:31 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.122 2001/11/16 11:59:32 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -129,7 +129,6 @@ function aff_mail($servr, $user, $passwd, $folder, $mail, $verbose, $lang, $sort
 
 	if (setlocale (LC_TIME, $lang_locale) != $lang_locale)
 		$default_date_format = $no_locale_date_format;
-	$current_date = strftime($default_date_format, time());
 	$pop = @imap_open('{' . $mailhost . '}' . $folder, $user, $passwd);
 	// Finding the next and previous message number
 	$sorted = imap_sort($pop, $sort, $sortdir);
