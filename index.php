@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.73 2001/06/21 15:26:56 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.74 2001/10/06 13:47:51 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -15,12 +15,8 @@ session_start();
 session_destroy();
 Header("Content-type: text/html; Charset=$charset");
 require ('check.php');
+require ('html/header.php');
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang ?>" lang="<?php echo $lang ?>">
-<head>
-<title>NOCC - Webmail</title>
-<link href="themes/<?php echo $theme ?>/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 <!--
 function updatePort () 
@@ -70,11 +66,7 @@ function updateTheme()
 }
 // -->
 </script>
-</head>
-<body dir="<?php echo $lang_dir ?>" bgcolor="<?php echo $glob_theme->bgcolor ?>" link="<?php echo $glob_theme->link_color ?>" text="<?php echo $glob_theme->text_color ?>" vlink="<?php echo $glob_theme->vlink_color ?>" alink="<?php echo $glob_theme->alink_color ?>">
-<table border="0" width="100%">
-	<tr>
-		<td align="center" valign="middle">
+
 			<form action="action.php" method="post" name="nocc_webmail_login" target="_top">
 			<table bgcolor="<?php echo $glob_theme->login_border ?>" border="0" cellpadding="1" cellspacing="0" width="428" align="center">
 				<tr> 

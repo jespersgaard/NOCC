@@ -1,5 +1,6 @@
 NOCC 0.9.5	??   ??, 2001
 
+	* Made the login page use the same header as any other page.
 	* Added tooltips to the sort column icons in the messageview.
 	* Added a Theme tips section to the README.
 	* Made page header/footer theme-customisable.
