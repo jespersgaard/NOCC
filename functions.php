@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.37 2000/11/25 13:11:44 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.38 2000/12/11 00:33:36 nicocha Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -107,6 +107,7 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 	GLOBAL $attach_tab;
 	GLOBAL $glob_body;
 	GLOBAL $PHP_SELF;
+	$glob_body = "";
 
 	if (setlocale ("LC_TIME", $lang_locale) != $lang_locale)
 		$default_date_format = $no_locale_date_format;
@@ -116,36 +117,22 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 	$ref_contenu_message = @imap_header($pop, $mail);
 	$struct_msg = @imap_fetchstructure($pop, $mail);
 
-	if (sizeof($struct_msg->parts) > 0)
-	{
-			$glob_body = "";
-			GetPart($struct_msg, "", $read, $display_rfc822);
-	}
-	else
-		$glob_body = @imap_body($pop, $mail);
+	GetPart($struct_msg, "", $read, $display_rfc822);
 	if ($verbose == 1 && $use_verbose == 1)
 		$header = htmlspecialchars(imap_fetchheader($pop, $mail));
 	else
 		$header = "";
-	if ($glob_body != "")
-	{
-		$glob_body = stripcslashes(htmlspecialchars($glob_body));
-		$glob_body = remove_stuff($glob_body, $lang, "");
-	}
-	else
-	{
-		$tmp = array_pop($attach_tab);
-		if (eregi("text/html", $tmp["mime"]) || eregi("text/plain", $tmp["mime"]))
-		{	
-			$glob_body_mime = $tmp["mime"];
-			if ($tmp["transfer"] == "QUOTED-PRINTABLE")
-				$glob_body = imap_qprint(imap_fetchbody($pop, $mail, $tmp["number"]));
-			elseif ($tmp["transfer"] == "BASE64")
-				$glob_body = base64_decode(imap_fetchbody($pop, $mail, $tmp["number"]));
-			else
-				$glob_body = imap_fetchbody($pop, $mail, $tmp["number"]);
-			$glob_body = remove_stuff($glob_body, $lang, $tmp["mime"]);			
-		}
+	$tmp = array_pop($attach_tab);
+	if (eregi("text/html", $tmp["mime"]) || eregi("text/plain", $tmp["mime"]))
+	{	
+		$glob_body_mime = $tmp["mime"];
+		if ($tmp["transfer"] == "QUOTED-PRINTABLE")
+			$glob_body = imap_qprint(imap_fetchbody($pop, $mail, $tmp["number"]));
+		elseif ($tmp["transfer"] == "BASE64")
+			$glob_body = base64_decode(imap_fetchbody($pop, $mail, $tmp["number"]));
+		else
+			$glob_body = imap_fetchbody($pop, $mail, $tmp["number"]);
+		$glob_body = remove_stuff($glob_body, $lang, $tmp["mime"]);			
 	}
 	@imap_close($pop);
 	switch (sizeof($attach_tab))
@@ -269,7 +256,7 @@ function GetPart($this_part, $part_no, $read, $display_rfc822)
 	if (($full_mime_type == "message/RFC822" && $display_rfc822 == true) || ($mime_type != "multipart" && $full_mime_type != "message/RFC822"))
 		{
 			$tmp = Array(
-					"number" => $part_no,
+					"number" => ($part_no != "" ? $part_no : 1),
 					"name" => $att_name,
 					"mime" => $full_mime_type,
 					"transfer" => $encoding,
@@ -286,16 +273,19 @@ function remove_stuff($body, $lang, $mime)
 	if (eregi("html", $mime))
 	{
 		//$body = strip_tags($body, "<b>,<i>,<a>,<font>,<table>,<tr>,<td>,<ul>,<li>,<img>,<div>,<p>,<pre>,<center>");
-		$body = preg_replace("|<([^>]*)style|i", "<nocc_removed_style_tag", $body);
-		$body = preg_replace("|<([^>]*)script|i", "<nocc_removed_script_tag", $body);
+		$to_removed_array = array (
+						"'<head[^>]*>.*?</head>'si",
+						"'<style[^>]*>.*?</style>'si",
+						"'<script[^>]*>.*?</script>'si",
+						"'<object[^>]*>.*?</object>'si",
+						"'<embed[^>]*>.*?</embed>'si",
+						"'<applet[^>]*>.*?</applet>'si",
+						"'<mocha[^>]*>.*?</mocha>'si");
+		$body = preg_replace($to_removed_array, "", $body);
 		$body = preg_replace("|href=\"(.*)script:|i", "href=\"nocc_removed_script:", $body);
-		$body = preg_replace("|<([^>]*)embed|i", "<nocc_removed_embed_tag", $body);
 		$body = preg_replace("|<([^>]*)java|i", "<nocc_removed_java_tag", $body);
-		$body = preg_replace("|<([^>]*)object|i", "<nocc_removed_object_tag", $body);
 		$body = preg_replace("|<([^>]*)&{.*}([^>]*)>|i", "<&{;}\\3>", $body);
 		$body = preg_replace("|<([^>]*)mocha:([^>]*)>|i", "<nocc_removed_mocha:\\2>",$body);
-		//$body = eregi_replace("<SCRIPT", "<NOCC REMOVED", $body);
-		//$body = eregi_replace("SCRIPT>", "SCRIPT> !>", $body);
 		$body = eregi_replace("href=\"mailto:([[:alnum:]/\n+-=%&:_.~?@]+[#[:alnum:]+]*)\"","<A HREF=\"$PHP_SELF?action=write&mail_to=\\1&lang=$lang\"", $body);
 		$body = eregi_replace("target=\"([[:alnum:]/\n+-=%&:_.~?]+[#[:alnum:]+]*)\"", "", $body);
 		$body = eregi_replace("href=\"([[:alnum:]/\n+-=%&:_.~?]+[#[:alnum:]+]*)\"","<A HREF=\"open.php?f=\\1&lang=$lang\" TARGET=_blank", $body);
@@ -305,7 +295,6 @@ function remove_stuff($body, $lang, $mime)
 		$body = eregi_replace("(http|https|ftp)://([[:alnum:]/\n+-=%&:_.~?]+[#[:alnum:]+]*)","<A HREF=\"open.php?f=\\1://\\2&lang=$lang\" TARGET=_blank>\\1://\\2</a>", $body);
 		if (function_exists('wordwrap'))
 			$body = wordwrap($body, 80, "\n");
-		$body = "<PRE>".$body."</PRE>"; 
 	}	
 	return ($body);
 }
@@ -346,7 +335,7 @@ function change_date($date, $lang)
 			// else it's today, use the time
 			$msg_date = strftime($default_time_format, $date);
 	}
-	return $msg_date;
+	return ($msg_date);
 }
 
 
