@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.77 2001/11/07 18:51:51 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.78 2001/11/08 13:23:33 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -98,6 +98,8 @@ switch (trim($action))
 			$mail_subject = $content['subject'];
 		else
 			$mail_subject = $html_reply_short.': '.$content['subject'];
+
+		// Set body
 		$outlook_quoting = getPref('outlook_quoting');
 		if($outlook_quoting)
 			$mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . strip_tags($content['body'], '');
@@ -123,7 +125,12 @@ switch (trim($action))
 			$mail_subject = $content['subject'];
 		else
 			$mail_subject = $html_reply_short.': '.$content['subject'];
-		$mail_body = $original_msg."\n".$html_from.': '.$content['from']."\n".$html_to.': '.$content['to']."\n".$html_sent.': '.$content['complete_date']."\n".$html_subject.': '.$content['subject']."\n\n".strip_tags($content['body'], '');
+		// Set body
+		$outlook_quoting = getPref('outlook_quoting');
+		if($outlook_quoting)
+			$mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . strip_tags($content['body'], '');
+		else
+			$mail_body = mailquote(strip_tags($content['body'], ''), $content['from'], $html_wrote);
 
 		// Add signature
 		$mail_body .= "\r\n".$prefs_signature;
