@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: nicocha $
-	$Revision: 1.22 $
-	$Date: 2000/11/22 17:06:47 $
+	$Revision: 1.23 $
+	$Date: 2000/11/22 17:08:53 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
   
@@ -136,7 +136,7 @@ $alt_fr = "Fran&ccedil;ais";
 $alt_en = "English";
 $alt_de = "Deutsch";
 
-$nocc_version = "0.9";
+$nocc_version = "0.9.1-dev";
 $nocc_name = "NOCC";
 
 session_register("user", "passwd", "server", "servtype", "port");
