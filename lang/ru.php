@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.5 2001/02/28 21:49:19 wolruf Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.6 2001/03/10 23:09:38 wolruf Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -10,13 +10,14 @@
  *
  * Configuration file for the russian (Windows-1251) language
  * Translation by Sergey Frolovithev <serg@spylog.ru>
+ * Additional translation Anton Jakimov <t0xa@ls2.lv>
  */
 
 $charset = "Windows-1251";
 
 // Configuration for the days and months
 
-// What language to use (Here, english US --> en_US)
+// What language to use
 // see '/usr/share/locale/' for more information
 $lang_locale = "ru_RU";
 
@@ -27,14 +28,14 @@ $lang_dir = "ltr";
 
 // What format string should we pass to strftime() for messages sent on
 // days other than today?
-$default_date_format = "%Y-%m-%d"; 
+$default_date_format = "%d.%m.%Y";
 
 // If the local is not implemented on the host, how we display the date
-$no_locale_date_format = "%Y-%m-%d";
+$no_locale_date_format = "%d.%m.%Y";
 
 // What format string should we pass to strftime() for messages sent
 // today?
-$default_time_format = "%I:%M %p";
+$default_time_format = "%H:%M";
 
 
 // Here is the configuration for the HTML
@@ -59,15 +60,15 @@ $alt_prev = "Предыдущее";
 
 $html_lang = "Язык";
 $html_welcome = "Добро пожаловать в";
-$html_login = "Логин";
+$html_login = "Имя";
 $html_passwd = "Пароль";
-$html_submit = "Логин";
+$html_submit = "Войти";
 $html_help = "Помощь";
 $html_server = "Сервер";
 $html_wrong = "Логин или пароль не верны";
-$html_retry = "Повторить";
-$html_on = "on";
-$html_theme = "Theme";
+$html_retry = "Вернуться";
+$html_on = "Вкл.";
+$html_theme = "Дизайн";
 
 // Other pages
 
@@ -86,12 +87,12 @@ $html_mark = "Удалить";
 $html_att = "Прикрепленный файл";
 $html_atts = "Прикрепленные файлы";
 $html_att_unknown = "[неизвестно]";
-$html_attach = "Прикрепленный файл";
-$html_attach_forget = "Вы должны присоединить файл до отправки сообщения!";
+$html_attach = "Прикрепить файл";
+$html_attach_forget = "Вы должны прикрепить файл до отправки сообщения!";
 $html_attach_delete = "Удалить выбранные";
 $html_from = "От";
 $html_subject = "Тема";
-$html_date = "Дата";
+$html_date = "Время";
 $html_sent = "Отправить";
 $html_size = "Размер";
 $html_totalsize = "Общий размер";
@@ -101,14 +102,14 @@ $html_filename = "Имя файла";
 $html_to = "Кому";
 $html_cc = "Копия";
 $html_bcc = "Bcc";
-$html_nosubject = "Без темы";
+$html_nosubject = "no subject";
 $html_send = "Отправить";
 $html_cancel = "Отменить";
-$html_no_mail = "Нет сообщения.";
+$html_no_mail = "Сообщений нет";
 $html_logout = "Выйти";
 $html_msg = "Сообщение";
 $html_msgs = "Сообщения";
 
 $original_msg = "-- Original Message --";
-$to_empty = "Поле 'Кому' не должно быть пустым !";
+$to_empty = "Поле \"Кому\" не должно быть пустым !";
 ?>
