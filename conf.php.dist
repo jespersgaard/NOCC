@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.100 2002/04/18 21:38:40 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.101 2002/04/19 18:33:01 mrylander Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -144,8 +144,9 @@ $conf->use_theme = true;
 $conf->default_theme = 'standard';
 
 // Error reporting
-// Display error but no notice
-$conf->debug_level = E_ALL & ~E_NOTICE;
+// Display all errors (including IMAP connection errors, such as
+// 'host not found' or 'invalid login')
+$conf->debug_level = E_ALL;
 
 // Display delete button as icon (true) or as an HTML button (false)
 $conf->delete_button_icon = true;

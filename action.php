@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.118 2002/04/24 19:32:30 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.119 2002/04/24 19:35:40 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -427,15 +427,6 @@ switch (trim($action))
         break;
 
     default:
-        // Default we display the mailbox
-        if(!isset($servr) || !isset($passwd))
-        {
-            require ('./html/header.php');
-            require ('./wrong.php');
-            require ('./html/footer.php');
-            break;
-        }
-        
         $pop = new nocc_imap($servr, $folder, $login, $passwd, 0, $ev);
         if (Exception::isException($ev)) {
             require ('./html/header.php');
@@ -451,12 +442,6 @@ switch (trim($action))
 
         switch ($tab_mail)
         {
-            case -1:
-                // -1 either the login and/or the password are wrong or the server is down
-                require ('./html/header.php');
-                require ('./wrong.php');
-                require ('./html/footer.php');
-                break;
             case 0:
                 $_SESSION['loggedin'] = 1;
                 // the mailbox is empty
