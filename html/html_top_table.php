@@ -22,7 +22,7 @@ $is_Imap = is_Imap($servr);
 	</tr>
 	<tr bgcolor="<?php echo $glob_theme->inbox_text_color ?>">
 		<td align="center" class="inbox" width="40">
-			<?php echo $html_mark ?>
+			<?php //echo $html_mark ?><input type="checkbox" name="none" onclick="SelectAll()" alt="<?php echo $html_select_all ?>"/>
 		</td>
 		<?php if (($is_Imap) || ($have_ucb_pop_server)) { ?>
 		<td align="center" class="inbox">
