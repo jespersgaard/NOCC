@@ -50,7 +50,7 @@
 									<TD ALIGN="LEFT" VALIGN="TOP" width="50%"></FORM>
 										<FORM METHOD="GET" ACTION="action.php">
 										<INPUT TYPE="HIDDEN" NAME="lang" VALUE="<? echo $lang ?>">
-										&nbsp;<INPUT TYPE="submit" value="<? echo $hmtl_cancel ?>">
+										&nbsp;<INPUT TYPE="submit" value="<? echo $html_cancel ?>">
 										</FORM>
 									</TD>
 								</TR>
