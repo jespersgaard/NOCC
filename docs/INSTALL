@@ -8,8 +8,8 @@ This code is licensed under the GNU Public License.
 See the file COPYING in this directory.
 
 $Author: wolruf $
-$Revision: 1.1 $
-$Date: 2000/10/30 13:12:57 $
+$Revision: 1.2 $
+$Date: 2000/10/30 13:20:50 $
 
 +++++++++
 Overview:
@@ -90,8 +90,9 @@ Additional notes:
 
 NOCC has been tested with:
 
- - servers:
-   + Apache with PHP compiled as module and CGI,
+ - servers: (NOCC should work with any server, however, these have been
+   specifically tested and are known to work)
+   + Apache with PHP compiled as module or CGI,
    + Apache 1.3.x,
    + PHP 4.0.3pl1, 4.0.4-dev,
    + PHP running through via a wrapper: suEXEC,
@@ -100,7 +101,7 @@ NOCC has been tested with:
  - browsers:
    + Netscape 4.x for Unix and Windows,
    + IE 5.x for Windows,
-   + Lynx,
+   + Lynx 2.8.3,
    + Mozilla M18 for Linux and Windows,
    + with or without cookies.
 
