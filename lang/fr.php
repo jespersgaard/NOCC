@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.28 2001/01/29 12:48:56 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.29 2001/01/29 14:29:00 nicocha Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -78,13 +78,18 @@ $html_mark = "Effacer";
 $html_att = "Pi&egrave;ce jointe";
 $html_atts = "Pi&egrave;ces jointes";
 $html_att_unknown = "[inconnu]";
-$html_attach = "Joindre";
+$html_attach = "Attacher";
+$html_attach_forget = "Vous devez attacher votre fichier avant d'envoyer votre message !"; 
+$html_attach_delete = "Supprimer les fichiers selectionnés";
 $html_from = "De";
 $html_subject = "Sujet";
 $html_date = "Date";
 $html_sent = "Envoy&eacute; le";
 $html_size = "Taille";
+$html_totalsize = "Taille Totale";
 $html_kb = "Ko";
+$html_bytes = "octets";
+$html_filename = "Fichier";
 $html_to = "&Agrave;";
 $html_cc = "Copie";
 $html_bcc = "Copie cach&eacute;e";

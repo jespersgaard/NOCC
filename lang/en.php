@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.12 2000/12/28 15:48:39 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.13 2001/01/29 14:29:00 nicocha Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -78,12 +78,17 @@ $html_att = "Attachment";
 $html_atts = "Attachments";
 $html_att_unknown = "[unknown]";
 $html_attach = "Attach";
+$html_attach_forget = "You must attach your file before sending your message !";
+$html_attach_delete = "Remove Selected";
 $html_from = "From";
 $html_subject = "Subject";
 $html_date = "Date";
 $html_sent = "Send";
 $html_size = "Size";
+$html_totalsize = "Total Size";
 $html_kb = "Kb";
+$html_bytes = "bytes";
+$html_filename = "Filename";
 $html_to = "To";
 $html_cc = "Cc";
 $html_bcc = "Bcc";
