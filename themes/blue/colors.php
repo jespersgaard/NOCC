@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/themes/standard/colors.php,v 1.2 2001/02/23 09:31:58 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/themes/blue/colors.php,v 1.1 2001/02/26 11:13:43 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
