@@ -1,4 +1,4 @@
-<!-- start of $Id: folders.php,v 1.8 2002/09/16 00:43:25 mrylander Exp $ -->
+<!-- start of $Id: folders.php,v 1.9 2003/12/21 15:40:20 goddess_skuld Exp $ -->
 <?php
 
 $renameoldbox = $pop->html_folder_select('renameoldbox', '');
@@ -55,6 +55,11 @@ if (count($big_list) > 1) {
                         <?php echo $html_folder_remove ?> <?php echo $removeoldbox ?></td>
                 </tr>
                 <tr>
+                    <td width="10%"></td>
+                    <td align="left" class="prefs" ><input type="radio" name="do" value="delete_folder">
+                        <?php echo $html_folder_delete ?> <SELECT name="deletebox"> <?php echo join('', $select_list) ?> </SELECT></td>
+                </tr>
+                <tr>
                     <td align="center" colspan="3">
                         <?php
                             if(isset($submit_folders))
@@ -92,4 +97,4 @@ if (count($big_list) > 1) {
           echo "\n    </td>\n</tr>";
     ?>
 </table>
-<!-- end of $Id: folders.php,v 1.8 2002/09/16 00:43:25 mrylander Exp $ -->
+<!-- end of $Id: folders.php,v 1.9 2003/12/21 15:40:20 goddess_skuld Exp $ -->

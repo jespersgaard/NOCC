@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.148 2004/06/13 16:56:05 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.149 2004/06/14 11:15:23 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -278,6 +278,16 @@ switch($action)
                     if(NoccException::isException($ev)) break;
                 }
                 break;
+            
+            case 'delete_folder':
+                if ($_REQUEST['deletebox']) {
+                    $pop->unsubscribe($_REQUEST['deletebox'], $ev);
+                    if(NoccException::isException($ev)) break;
+                    $pop->deletemailbox($_REQUEST['deletebox'], $ev);
+                    if(NoccException::isException($ev)) break;
+                }
+                break;
+
         }
 
         require ('./html/header.php');

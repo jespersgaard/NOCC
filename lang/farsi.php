@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.3 2004/01/02 21:03:16 ajetam Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.4 2004/01/03 12:04:47 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -95,6 +95,7 @@ $html_folder_subscribe = 'Subscribe to';  //to translate
 $html_folder_rename = '&#1578;&#1594;&#1610;&#1610;&#1585; &#1606;&#1575;&#1605;';
 $html_folder_create = '&#1587;&#1575;&#1582;&#1578;&#1606; &#1588;&#1575;&#1582;&#1607; &#1580;&#1583;&#1610;&#1583; &#1589;&#1583;&#1575; &#1588;&#1583;';
 $html_folder_remove = 'Unsubscribe from';  //to translate
+$html_folder_delete = 'Delete';  //to translate
 
 // filters.php
 $html_filter_remove = 'Delete';  //to translate

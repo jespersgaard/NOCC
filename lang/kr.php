@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/kr.php,v 1.11 2004/01/02 21:03:16 ajetam Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/kr.php,v 1.12 2004/01/03 12:04:47 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -94,6 +94,7 @@ $html_folder_subscribe = 'Subscribe to';  //to translate
 $html_folder_rename = 'Rename';  //to translate
 $html_folder_create = 'Create new folder called';  //to translate
 $html_folder_remove = 'Unsubscribe from';  //to translate
+$html_folder_delete = 'Delete';  //to translate
 
 // filters.php
 $html_filter_remove = 'Delete';  //to translate

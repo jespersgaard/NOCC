@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ru-koi.php,v 1.15 2004/01/02 21:03:16 ajetam Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ru-koi.php,v 1.16 2004/01/03 12:04:47 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -96,6 +96,7 @@ $html_folder_subscribe = 'Подписаться на';
 $html_folder_rename = 'Переименовать';
 $html_folder_create = 'Создать новую папку';
 $html_folder_remove = 'Отписаться от';
+$html_folder_delete = 'Delete';  //to translate
 
 // filters.php
 $html_filter_remove = 'Удалить';
