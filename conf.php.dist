@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.6 2001/01/29 18:15:38 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.7 2001/01/30 09:45:33 nicocha Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -91,7 +91,7 @@ $lang_array[4]->label = "";
 // ################### Messages Signature  ################### //
 
 // This message is added to every message, the user cannot delete it
-$ad = "\n\n________________________________________________________________________\nNOCC, http://nocc.sourceforge.net";
+$ad = "\n\n___________________________________\nNOCC, http://nocc.sourceforge.net";
 
 // ################### color configuration ################### //
 
