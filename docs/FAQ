@@ -1,6 +1,6 @@
 Frequently Asked Questions for Nocc
 -----------------------------------
-Last updated: $Date: 2000/11/22 23:13:14 $
+Last updated: $Date: 2000/11/23 12:30:39 $
 
  *) Nocc keeps me asking for a correct login/password.
 
@@ -45,7 +45,6 @@ Last updated: $Date: 2000/11/22 23:13:14 $
     Warning: Session object destruction failed...
 
   -> There's a know session_destroy() bug on PHP for Win32 < 4.0.4
-  If not out yet, try PHP 4.0.4-dev snapshot at http://www.php4win.de/
   The problem only affects PHP Win32, not Unix.
   See the bug: http://bugs.php.net/?id=5231
 
@@ -54,3 +53,19 @@ Last updated: $Date: 2000/11/22 23:13:14 $
   -> Unfortunately, we tried to optimize the code but some functions are
   clearly very slow in CGI mode. We hope this will be solved in future
   PHP releases.
+
+ *) The trashbox icon is not transparent on Netscape 4.x and some other
+    browser.
+
+  -> This is a known issue, Netscape 4.x doesn't support transparent PNG
+  images whereas it's ok with GIF. We might switch to GIF again but we
+  were wondering about license issues...
+
+ *) I get "Maximum time execution of 30 seconds exceeded" when loading
+    a mailbox.
+
+  -> It might be because the networks is slow, a large mailbox or having
+  a CGI version of PHP.
+  Increase max exec time in php.ini:
+
+  max_execution_time = 300
