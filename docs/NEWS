@@ -1,5 +1,7 @@
 NOCC 0.9.7    ?? ??, 2004
 
+    * Add configuration for line feed behavior, could be useful with some
+      MTA. (Arnaud Boudou)
     * Add possibility to copy sent mails into a dedicated folder - IMAP only
       (Arnaud Boudou, RFE #436736).
     * Fix issue with persistent sessions variable while login accross different
