@@ -1,8 +1,8 @@
 <?
 /*
 	$Author: nicocha $
-	$Revision: 1.20 $
-	$Date: 2000/11/01 17:16:40 $
+	$Revision: 1.21 $
+	$Date: 2000/11/01 23:03:32 $
 
 	NOCC: Copyright 2000 Nicolas Chalanset <nicocha@free.fr> , Olivier Cahagne <cahagn_o@epita.fr>
 the function get_part is based on a function from matt@bonneau.net
@@ -139,8 +139,10 @@ function aff_mail($servr, $user, $passwd, $mail, $verbose, $read, $lang)
 		$tmp = array_pop($attach_tab);
 		if (eregi("text/html", $tmp["mime"]) || eregi("text/plain", $tmp["mime"]))
 		{	
-			if (eregi("QUOTED-PRINTABLE", $tmp["transfer"]))
+			if ($tmp["transfer"] == "QUOTED-PRINTABLE")
 				$glob_body = imap_qprint(imap_fetchbody($pop, $mail, $tmp["number"]));
+			elseif ($tmp["transfer"] == "BASE64")
+				$glob_body = base64_decode(imap_fetchbody($pop, $mail, $tmp["number"]));
 			else
 				$glob_body = imap_fetchbody($pop, $mail, $tmp["number"]);
 			$glob_body = remove_stuff($glob_body, $lang, $tmp["mime"]);			
@@ -282,7 +284,7 @@ function remove_stuff($body, $lang, $mime)
 {
 	if (eregi("html", $mime))
 	{
-		$body = strip_tags($body, "<b>,<i>,<a>,<font>,<table>,<tr>,<td>,<ul>,<li>,<img>,<div>,<p>,<center>");
+		//$body = strip_tags($body, "<b>,<i>,<a>,<font>,<table>,<tr>,<td>,<ul>,<li>,<img>,<div>,<p>,<pre>,<center>");
 		$body = eregi_replace("<SCRIPT", "<!-- <SCRIPT", $body);
 		$body = eregi_replace("SCRIPT>", "SCRIPT> !>", $body);
 		$body = eregi_replace("href=\"mailto:([[:alnum:]/\n+-=%&:_.~?@]+[#[:alnum:]+]*)\"","<A HREF=\"$PHP_SELF?action=write&mail_to=\\1&lang=$lang\"", $body);
