@@ -1,87 +1,92 @@
 Frequently Asked Questions for Nocc
 -----------------------------------
-Last updated: $Date: 2001/02/04 17:41:07 $
+Last updated: $Date: 2001/02/20 12:46:00 $
 
- *) Nocc keeps me asking for a correct login/password.
+ Q. Nocc keeps me asking for a correct login/password.
 
-  -> Check that you correctly configured your POP/IMAP server in conf.php
-  ex:
+ A. Check that you correctly configured your POP/IMAP server in conf.php
+    ex:
 
-  $servr = "pop.isp.com/POP3:110";
+    $servr = "pop.isp.com/POP3:110";
 
-  NOT $servr = "pop.isp.com";
+    NOT $servr = "pop.isp.com";
 
-  -> Check that you're allowed to connect to the POP/IMAP server manually.
-  Your ISP may not allow people based on the IP.
+    -> Check that you're allowed to connect to the POP/IMAP server manually.
+    Your ISP may not allow people based on the IP.
 
- *) Having configured Nocc, I get this error with my favourite browser:
+ Q. Having configured Nocc, I get this error with my favourite browser:
 
-  Fatal error: Call to undefined function: imap_open()
-  in /opt/apache/htdocs/nocc/functions.php on line 26
+ A. Fatal error: Call to undefined function: imap_open()
+    in /opt/apache/htdocs/nocc/functions.php on line 26
 
-  -> Please check that PHP has IMAP/c-client support (you can use a small
-  PHP script with phpinfo() to see what it supports).
-  Check the on-line PHP manual to configure IMAP/c-client support
+    -> Please check that PHP has IMAP/c-client support (you can use a small
+    PHP script with phpinfo() to see what it supports).
+    Check the on-line PHP manual to configure IMAP/c-client support
 
 	http://www.php.net/manual/ref.imap.php
 
- *) What is this UCB POP Server parameter in the configuration file ?
+ Q. What is this UCB POP Server parameter in the configuration file ?
 
-  -> It's the standard Unix POP server that shipped with early versions of
-  various Un*x operating systems flavours.
-  UCB stands for University of California/Berkeley
-  You can check this by running the following:
+ A. It's the standard Unix POP server that shipped with early versions of
+    various Un*x operating systems flavours.
+    UCB stands for University of California/Berkeley
+    You can check this by running the following:
 
-  %telnet myhost 110
-  Trying...
-  Connected to myhost.berkeley.edu.
-  Escape character is '^]'.
-  +OK UCB Pop server (version 1.6) at myhost starting.
-  quit
-  Connection closed by foreign host.
+    %telnet myhost 110
+    Trying...
+    Connected to myhost.berkeley.edu.
+    Escape character is '^]'.
+    +OK UCB Pop server (version 1.6) at myhost starting.
+    quit
+    Connection closed by foreign host.
 
- *) I get session_destroy() errors when logging out of Nocc with PHP 4.0.3
+ Q. I get session_destroy() errors when logging out of Nocc with PHP 4.0.3
     on Win32.
     Warning: Session object destruction failed...
 
-  -> There's a known session_destroy() bug on PHP for Win32 < 4.0.4
-  The problem only affects PHP Win32, not Unix.
-  See the bug: http://bugs.php.net/?id=5231
+ A. There's a known session_destroy() bug on PHP for Win32 < 4.0.4
+    The problem only affects PHP Win32, not Unix.
+    See the bug: http://bugs.php.net/?id=5231
 
- *) Nocc is slow with a CGI version of PHP when there're big mails
+ Q. Nocc is slow with a CGI version of PHP when there're big mails
 
-  -> Unfortunately, we tried to optimize the code but some functions are
-  clearly very slow in CGI mode. We hope this will be solved in future
-  PHP releases.
+ A. Unfortunately, we tried to optimize the code but some functions are
+    clearly very slow in CGI mode. We hope this will be solved in future
+    PHP releases.
 
- *) The trashbox icon is not transparent on Netscape 4.x and some other
+ Q. The trashbox icon is not transparent on Netscape 4.x and some other
     browser.
 
-  -> This is a known issue, Netscape 4.x doesn't support transparent PNG
-  images whereas it's ok with GIF. We might switch to GIF again but we
-  were wondering about license issues...
+ A. This is a known issue, Netscape 4.x doesn't support transparent PNG
+    images whereas it's ok with GIF. We might switch to GIF again but we
+    were wondering about license issues...
 
- *) I get "Maximum time execution of 30 seconds exceeded" when loading
+ Q. I get "Maximum time execution of 30 seconds exceeded" when loading
     a mailbox.
 
-  -> It might be because the networks is slow, a large mailbox or having
-  a CGI version of PHP.
-  Increase max exec time in php.ini:
+ A. It might be because the networks is slow, a large mailbox or having
+    a CGI version of PHP.
+    Increase max exec time in php.ini:
 
-  max_execution_time = 300
+    max_execution_time = 300
 
- *) I get "Warning: open(/tmp\sess_341b23452436243bfff454e5664756c67, O_RDWR)
+ Q. I get "Warning: open(/tmp\sess_341b23452436243bfff454e5664756c67, O_RDWR)
     failed".
 
-  -> Make sure you've created a valid directory in php.ini for sessions and
-  make sure this directory really _exists_. :)
+ A. Make sure you've created a valid directory in php.ini for sessions and
+    make sure this directory really _exists_. :)
 
-  session.save_path = c:\php\sessions
+    session.save_path = c:\php\sessions
 
- *) I get "Fatal error: Failed opening required 'lang/ en.php' [...]".
+ Q. I get "Fatal error: Failed opening required 'lang/ en.php' [...]".
 
-  -> This is a know bug from flawed PHP 4 install on RedHat 7.
- This is fixed with updated php-4.0.4pl1-6 RPM package or with Nocc 0.9.3
- which has a fix that suppresses extra spaces within this variable.
+ A. This is a know bug from flawed PHP 4 install on RedHat 7.
+    This is fixed with updated php-4.0.4pl1-6 RPM package or with Nocc 0.9.3
+    which has a fix that suppresses extra spaces within this variable.
 
- See: http://www.redhat.com/bugzilla/show_bug.cgi?id=24933
+    See: http://www.redhat.com/bugzilla/show_bug.cgi?id=24933
+
+ Q. Attachments can't be downloaded with IE in HTTPS mode.
+
+ A. This is a known problem, this doesn't occur with Netscape and Mozilla.
+    We're trying to figure what's going on.
