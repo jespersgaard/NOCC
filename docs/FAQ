@@ -1,6 +1,6 @@
 Frequently Asked Questions for Nocc
 -----------------------------------
-Last updated: $Date: 2000/11/23 12:30:39 $
+Last updated: $Date: 2000/12/20 09:17:56 $
 
  *) Nocc keeps me asking for a correct login/password.
 
@@ -44,7 +44,7 @@ Last updated: $Date: 2000/11/23 12:30:39 $
     on Win32.
     Warning: Session object destruction failed...
 
-  -> There's a know session_destroy() bug on PHP for Win32 < 4.0.4
+  -> There's a known session_destroy() bug on PHP for Win32 < 4.0.4
   The problem only affects PHP Win32, not Unix.
   See the bug: http://bugs.php.net/?id=5231
 
