@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.104 2001/10/19 10:34:25 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.105 2001/10/21 18:30:24 nicocha Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -546,13 +546,13 @@ function cut_address($addr, $charset)
 			$array[$i] = '"<'.$array[$i].'>"';
 
 		/* FIXME: encode_mime breaks sendmail badly */
-		else
+		/*else
 		{
 			if ($pos != 0)
 				$name = encode_mime(substr($array[$i], 0, $pos - 1), $charset).' ';
 			$addr = substr($array[$i], $pos);
 			$array[$i] = '"'.$name.' '.$addr.'"';
-		} 
+		} */
 	}
 	return ($array);
 }
