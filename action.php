@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.63 2001/10/22 00:06:51 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.64 2001/10/25 12:57:29 rossigee Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -15,8 +15,9 @@ require_once ('./conf.php');
 require_once ('./check_lang.php');
 require_once ('./functions.php');
 require_once ('./prefs.php');
-checkForPrefs($prefs_dir, $user);
-
+if(isset($user)) {
+	checkForPrefs($prefs_dir, $user);
+}
 if (!session_is_registered('loggedin'))
 	$action = '';
 header ("Content-type: text/html; Charset=$charset");
@@ -184,6 +185,10 @@ switch (trim($action))
 
 	default:
 		// Default we display the mailbox
+		if(!isset($servr) || !isset($passwd)) {
+			require_once ('./wrong.php');
+			break;
+		}
 		$tab_mail = inbox($servr, $user, stripslashes($passwd), $folder, $sort, $sortdir, $lang, $theme);
 		switch ($tab_mail)
 		{
