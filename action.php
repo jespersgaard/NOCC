@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.98 2002/03/24 16:45:26 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.99 2002/03/24 17:00:36 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -19,7 +19,6 @@ session_start();
 
 if (!session_is_registered('loggedin'))
     $action = '';
-require ('./html/header.php');
 
 $user = safestrip($user);
 $passwd = safestrip($passwd);
@@ -59,6 +58,7 @@ switch (trim($action))
 {
     case 'aff_mail':
         // Here we display the message
+        require ('./html/header.php');
         require ('./html/menu_mail.php');
         require ('./html/html_mail_top.php');
         $content = aff_mail($conf, $servr, $login, $passwd, $folder, $mail, $verbose, $lang, $sort, $sortdir);
@@ -85,6 +85,7 @@ switch (trim($action))
         } 
         require ('./html/html_mail_bottom.php');
         require ('./html/menu_mail.php');
+        require ('./html/footer.php');
         break;
 
     case 'logout':
@@ -97,9 +98,11 @@ switch (trim($action))
         $mail_body = "\r\n".$prefs_signature;
 
         $num_attach = 0;
+        require ('./html/header.php');
         require ('./html/menu_inbox.php');
         require ('./html/send.php');
         require ('./html/menu_inbox.php');
+        require ('./html/footer.php');
         break;
 
     case 'reply':    
@@ -131,9 +134,11 @@ switch (trim($action))
         //list($num_attach, $attach_array) = save_attachment($servr, $login, $passwd, $folder, $mail, $tmpdir);
         // Registering the attachments array into the session
         //session_register('num_attach', 'attach_array');
+        require ('./html/header.php');
         require ('./html/menu_inbox.php');
         require ('./html/send.php');
         require ('./html/menu_inbox.php');
+        require ('./html/footer.php');
         break;
 
     case 'reply_all':
@@ -157,9 +162,11 @@ switch (trim($action))
         //list($num_attach, $attach_array) = save_attachment($servr, $login, $passwd, $folder, $mail, $tmpdir);
         // Registering the attachments array into the session
         //session_register('num_attach', 'attach_array');
+        require ('./html/header.php');
         require ('./html/menu_inbox.php');
         require ('./html/send.php');
         require ('./html/menu_inbox.php');
+        require ('./html/footer.php');
         break;
 
     case 'forward':
@@ -173,9 +180,11 @@ switch (trim($action))
         list($num_attach, $attach_array) = save_attachment($servr, $login, $passwd, $folder, $mail, $tmpdir);
         // Registering the attachments array into the session
         session_register('num_attach', 'attach_array');
+        require ('./html/header.php');
         require ('./html/menu_inbox.php');
         require ('./html/send.php');
         require ('./html/menu_inbox.php');
+        require ('./html/footer.php');
         break;
 
     case 'setprefs':
@@ -259,7 +268,9 @@ switch (trim($action))
             // Handle an errors that occurred
             if (Exception::isException($lastev)) {
                 $ev = $lastev;
-                require ('./html/prefs_error.php');
+                require ('./html/header.php');
+                require ('./html/error.php');
+                require ('./html/footer.php');
                 break;
             }
 
@@ -271,23 +282,31 @@ switch (trim($action))
         $outlook_quoting = getPref('outlook_quoting');
         $reply_leadin = getPref('leadin');
         $signature = getPref('signature');
+        require ('./html/header.php');
         require ('./html/menu_prefs.php');
         require ('./html/prefs.php');
         require ('./html/menu_prefs.php');
+        require ('./html/footer.php');
         break;
 
     default:
         // Default we display the mailbox
         if(!isset($servr) || !isset($passwd))
         {
+            require ('./html/header.php');
             require ('./wrong.php');
+            require ('./html/footer.php');
             break;
         }
         
         $ev = "";
         $pop = new nocc_imap('{'.$servr.'}'.$folder, $login, $passwd, $ev);
-        if($ev) 
-            return (-1);
+        if (Exception::isException($lastev)) {
+            $ev = $lastev;
+            require ('./html/header.php');
+            require ('./html/error.php');
+            require ('./html/footer.php');
+        }
 
         $is_imap = $pop->is_imap();
         $tab_mail = 0;
@@ -300,18 +319,22 @@ switch (trim($action))
         {
             case -1:
                 // -1 either the login and/or the password are wrong or the server is down
+                require ('./html/header.php');
                 require ('./wrong.php');
+                require ('./html/footer.php');
                 break;
             case 0:
                 $loggedin = 1;
                 session_register('loggedin');
                 // the mailbox is empty
                 $num_msg = 0;
+                require ('./html/header.php');
                 require ('./html/menu_inbox.php');
                 require ('./html/html_top_table.php');
                 include ('./html/no_mail.php');
                 require ('./html/html_bottom_table.php');
                 require ('./html/menu_inbox.php');
+                require ('./html/footer.php');
                 break;
             default:
                 if (!isset($attach_array))
@@ -321,6 +344,7 @@ switch (trim($action))
                 session_register('loggedin');
                 // there are messages, we display
                 $num_msg = count($tab_mail);
+                require ('./html/header.php');
                 require ('./html/menu_inbox.php');
                 require ('./html/html_top_table.php');
                 require ('./html/menu_inbox_opts.php');
@@ -329,10 +353,10 @@ switch (trim($action))
                 require ('./html/menu_inbox_opts.php');
                 require ('./html/html_bottom_table.php');
                 require ('./html/menu_inbox.php');
+                require ('./html/footer.php');
                 break;
         }
         break;
 }
 
-require ('./html/footer.php');
 ?>
