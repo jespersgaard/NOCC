@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.34 2004/08/06 14:56:56 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.35 2004/08/24 10:40:30 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -13,7 +13,7 @@
 require_once("user_filters.php");
 
 $conf->nocc_name = 'NOCC';
-$conf->nocc_version = '0.9.6-dev';
+$conf->nocc_version = '0.9.7-dev';
 $conf->nocc_url = 'http://nocc.sourceforge.net/';
 
 // Initialise session array
