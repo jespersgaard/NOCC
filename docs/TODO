@@ -7,6 +7,7 @@ Short term
  - Create specific icons for attachments.
  - split navigation through mails when there're more than 20 mails.
  - Cleaner BiDi support (arabic for example) with mailbox display.
+ - translating from the charset in the mail headers to the charset choosen at login time. 
 
 Long term
 ---------
