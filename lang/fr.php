@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.27 2000/12/28 15:48:39 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.28 2001/01/29 12:48:56 nicocha Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -78,6 +78,7 @@ $html_mark = "Effacer";
 $html_att = "Pi&egrave;ce jointe";
 $html_atts = "Pi&egrave;ces jointes";
 $html_att_unknown = "[inconnu]";
+$html_attach = "Joindre";
 $html_from = "De";
 $html_subject = "Sujet";
 $html_date = "Date";

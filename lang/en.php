@@ -1,6 +1,6 @@
 <?
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.11 2000/12/23 13:02:20 nicocha Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.12 2000/12/28 15:48:39 nicocha Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -77,6 +77,7 @@ $html_mark = "Delete";
 $html_att = "Attachment";
 $html_atts = "Attachments";
 $html_att_unknown = "[unknown]";
+$html_attach = "Attach";
 $html_from = "From";
 $html_subject = "Subject";
 $html_date = "Date";
