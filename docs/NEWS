@@ -1,9 +1,9 @@
 NOCC 0.9.6    June 2?, 2004
 
     * Correct problem where no attachment shown when mail contains only an
-      attachment without message (Arnaud Boudou, bug #621260)
+      attachment without message (Arnaud Boudou, bug #621260).
     * Deny access to login screen and diplay an error message if 
-      register_globals is set to On (Arnaud Boudou)
+      register_globals is set to On (Arnaud Boudou).
     * Added possibility to mark a message as read or unread - IMAP only
       (Arnaud Boudou, RFE #587725).
     * Added typed domain names option and login suffix option (Leif Gustafson,
@@ -11,15 +11,17 @@ NOCC 0.9.6    June 2?, 2004
     * Added graphical smilies support (Arnaud Boudou).
     * Added IMAP folder delete (Arnaud Boudou).
     * Correct multiple bugs on IMAP folder management (Arnaud Boudou).
-    * Downloadable mails (jourds and Arnaud Boudou, patch #811868).
-    * Move on next message on delete (jourds and Arnaud Boudou, patch #811856).
-    * Prompt on delete (jourds and Arnaud Boudou, patch #811848).
-    * Added contact list (jourds and Arnaud Boudou, patch #811843).
-    * Multiple send prevention (jourds and Arnaud Boudou, patch #811836)
-    * Added Usenet signature separator user preference (jourds and Arnaud
-      Boudou, patch #811823).
-    * Wrap outgoing messages user preference (jourds and Arnaud Boudou,
-      patch #811816).
+    * Downloadable mails (Olivier Jourdat and Arnaud Boudou, patch #811868).
+    * Move on next message on delete (Olivier Jourdat and Arnaud
+      Boudou, patch #811856).
+    * Prompt on delete (Olivier Jourdat and Arnaud Boudou, patch #811848).
+    * Added contact list (Olivier Jourdat and Arnaud Boudou, patch #811843).
+    * Multiple send prevention (Olivier Jourdat and Arnaud Boudou,
+      patch #811836)
+    * Added Usenet signature separator user preference (Olivier
+      Jourdat and Arnaud Boudou, patch #811823).
+    * Wrap outgoing messages user preference (Olivier Jourdat and
+      Arnaud Boudou, patch #811816).
     * Added PHP 5.0 compatibility (Arnaud Boudou).
     * Added support for displaying RFC2045-encoded words, used in headers.
       (Alexander Sabournekov).
