@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.151 2004/06/14 16:28:53 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.152 2004/06/15 10:37:08 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -408,7 +408,8 @@ switch($action)
                 $user_prefs->reply_leadin = stripslashes($_REQUEST['reply_leadin']);
             if (isset($_REQUEST['signature']))
                 $user_prefs->signature = stripslashes($_REQUEST['signature']);
-            $user_prefs->wrap_msg = $_REQUEST['wrap_msg'];
+	    if (isset($_REQUEST['wrap_msg']))
+                $user_prefs->wrap_msg = $_REQUEST['wrap_msg'];
             $user_prefs->sig_sep = isset($_REQUEST['sig_sep']);
 	    $user_prefs->graphical_smilies = isset($_REQUEST['graphical_smilies']);
 

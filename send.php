@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.118 2004/05/28 21:01:20 ajetam Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.119 2004/06/21 07:31:13 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -122,8 +122,9 @@ switch($_REQUEST['sendaction'])
             $mail->subject = trim($mail_subject);
 
         // Append advertisement tag, if set
-		// Wrap outgoing message if needed
-		$wrap_msg = $user_prefs->wrap_msg;
+	// Wrap outgoing message if needed
+	if (isset($user_prefs->wrap_msg))
+	    $wrap_msg = $user_prefs->wrap_msg;
         if ($mail_body != '')
 		{
 			if (isset ($wrap_msg) && $wrap_msg)
