@@ -26,6 +26,13 @@ else {
             {
                 window.open(theURL,winName,features);
             }
+<?php
+  // if message is opened in another window, we reload the opener window
+  // (message list), in order to refresh the mail list after a successful 
+  // deletion. It does not works with Safari
+  if(isset($user_prefs->seperate_msg_win) && $user_prefs->seperate_msg_win)
+    echo ("\n            window.opener.location.reload();\n");
+?>
         </script>
     </head>
     <body dir="<?php echo $lang_dir; ?>" alink="<?php echo $glob_theme->alink_color; ?>" bgcolor="<?php echo $glob_theme->bgcolor; ?>" link="<?php echo $glob_theme->link_color ?>" text="<?php echo $glob_theme->text_color ?>" vlink="<?php echo $glob_theme->vlink_color; ?>">
