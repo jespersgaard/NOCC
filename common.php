@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.43 2004/10/21 17:27:43 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.44 2004/11/08 17:02:55 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -23,9 +23,13 @@ if ($_REQUEST["action"] == 'login') {
   session_destroy();
 }
 
-// Initialise session array
 session_name("NOCCSESSID");
 session_start();
+// Initialise session array
+if ($_REQUEST['action'] == 'cookie'){
+  list($_SESSION['nocc_user'], $_SESSION['nocc_passwd'], $_SESSION['nocc_lang'], $_SESSION['nocc_smtp_server'], $_SESSION['nocc_smtp_port'], $_SESSION['nocc_theme'], $_SESSION['nocc_domain'], $_SESSION['imap_namespace'], $_SESSION['nocc_servr'], $_SESSION['nocc_folder'], $_SESSION['smtp_auth']) = explode(" ", base64_decode($_COOKIE['NoccIdent']));
+  
+}
 
 // Useful for debugging sessions
 //echo "<pre>Session:";

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-tw.php,v 1.28 2004/10/21 11:27:38 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-tw.php,v 1.29 2005/01/08 22:08:30 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -67,6 +67,7 @@ $html_help = '幫助';
 $html_server = '伺服器';
 $html_wrong = '登入名字或密碼不正確';
 $html_retry = '再嘗試';
+$html_remember = "Remember settings"; //to translate
 
 // prefs.php
 

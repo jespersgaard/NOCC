@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ar.php,v 1.37 2004/10/21 11:27:37 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ar.php,v 1.38 2005/01/08 22:08:30 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -67,6 +67,7 @@ $html_help = 'مساعدة';
 $html_server = 'Server';  //to translate
 $html_wrong = 'ءأسم المستخدم أو كلمة السر غير صحيحة ';
 $html_retry = 'أعد المحاولة';
+$html_remember = "Remember settings"; //to translate
 
 // prefs.php
 

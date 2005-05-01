@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.81 2004/11/25 17:33:52 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.82 2005/01/08 22:08:30 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -67,6 +67,7 @@ $html_help = 'Aide';
 $html_server = 'Serveur';
 $html_wrong = 'Le login ou le mot de passe ne sont pas valides';
 $html_retry = 'R&eacute;essayer';
+$html_remember = "Conserver les param&egrave;tres";
 
 // prefs.php
 

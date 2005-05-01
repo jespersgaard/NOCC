@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.17 2004/10/21 11:27:38 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.18 2005/01/08 22:08:30 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -67,6 +67,7 @@ $html_help = '&#1705;&#1605;&#1705;';
 $html_server = '&#1587;&#1585;&#1608;&#1585;';
 $html_wrong = '&#1588;&#1606;&#1575;&#1587;&#1607; &#1705;&#1575;&#1585;&#1576;&#1585; &#1610;&#1575; &#1585;&#1605;&#1586; &#1575;&#1588;&#1578;&#1576;&#1575;&#1607; &#1575;&#1587;&#1578;';
 $html_retry = '&#1587;&#1593;&#1609; &#1583;&#1608;&#1576;&#1575;&#1585;&#1607;';
+$html_remember = "Remember settings"; //to translate
 
 // prefs.php
 

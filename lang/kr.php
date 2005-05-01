@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/kr.php,v 1.25 2004/10/21 11:27:38 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/kr.php,v 1.26 2005/01/08 22:08:30 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -67,6 +67,7 @@ $html_help = '도움말';
 $html_server = '서버';
 $html_wrong = '아이디가 없거나 비밀번호가 일치하지 않습니다';
 $html_retry = '다시입력';
+$html_remember = "Remember settings"; //to translate
 
 // prefs.php
 

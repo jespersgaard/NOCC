@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.101 2004/09/03 15:00:45 ajetam Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.102 2004/10/15 08:30:53 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -10,10 +10,15 @@
  */
 
 require_once './conf.php';
+require_once './check.php';
+//If a previous authentification cookie was set, we use it to bypass login
+//window.
+if ($_COOKIE['NoccIdent'] != '' && $_COOKIE['NoccIdent'] != null) {
+  header("Location: ".$conf->base_url."action.php?action=cookie");
+}
 require_once './common.php';
 require_once './proxy.php';
 Header("Content-type: text/html; Charset=$charset");
-require_once './check.php';
 require ('./html/header.php');
 ?>
 <script type="text/javascript">
@@ -209,6 +214,13 @@ function updatePage()
                                 echo '</select></td></tr><tr><td colspan="3">&nbsp;</td></tr>';
                             }
                             ?>
+                            <tr>
+                                <td align="right" class="f"><?php echo $html_remember ?></td>
+                                <td><font size="-3">&nbsp;</font></td>
+                                <td class="f" align="left">
+                                    <input type="checkbox" name="remember" value="true" />
+                                </td>
+                            </tr>
                             <tr>
                                 <td colspan="3" align="center" class="f">
                                     <input name="enter" class="button" type="submit" value="<?php echo $html_submit ?>" />

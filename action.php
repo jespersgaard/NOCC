@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.160 2005/01/22 16:56:20 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.161 2005/01/22 17:00:39 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -20,6 +20,10 @@ clear_attachments();
 
 // Reset exception vector
 $ev = NULL;
+
+$remember = '';
+if(isset($_REQUEST['remember']))
+    $remember = safestrip($_REQUEST['remember']);
 
 // Act on 'action'
 $action = '';
@@ -458,12 +462,13 @@ switch($action)
     default:
         $pop = new nocc_imap($ev);
         if (NoccException::isException($ev)) {
-	    if ($action == 'login') {
-	        session_name("NOCCSESSID");
-	        $_SESSION["nocc_login"] = "";
-	        $_SESSION["nocc_user_prefs"] = "";
-	        session_destroy();
-	    }
+	        if ($action == 'login' || $action == 'cookie') {
+	            session_name("NOCCSESSID");
+	            $_SESSION["nocc_login"] = "";
+	            $_SESSION["nocc_user_prefs"] = "";
+	            session_destroy();
+	            setcookie ("NoccIdent");
+	        }
             require ('./html/header.php');
             require ('./html/error.php');
             require ('./html/footer.php');
@@ -481,6 +486,27 @@ switch($action)
             if($pop->is_imap()) {
                 $pop->subscribe($pop->folder, $ev, false);
             }
+            // If needed, store a cookie with all needed parameters
+            if ($remember == "true") {
+              $cookie_string = $_SESSION['nocc_user'];
+              $cookie_string .= " " . $_SESSION['nocc_passwd'];
+              $cookie_string .= " " . $_SESSION['nocc_lang'];
+              $cookie_string .= " " . $_SESSION['nocc_smtp_server'];
+              $cookie_string .= " " . $_SESSION['nocc_smtp_port'];
+              $cookie_string .= " " . $_SESSION['nocc_theme'];
+              $cookie_string .= " " . $_SESSION['nocc_domain'];
+              $cookie_string .= " " . $_SESSION['imap_namespace'];
+              $cookie_string .= " " . $_SESSION['nocc_servr'];
+              $cookie_string .= " " . $_SESSION['nocc_folder'];
+              $cookie_string .= " " . $_SESSION['smtp_auth'];
+
+              //encode cookie string to base64
+              $cookie_string = base64_encode($cookie_string);
+
+              //store cookie for thirty days
+              setcookie ("NoccIdent", $cookie_string, time()+60*60*24*30);
+            }
+
         }
 
         // We may need to apply some filters to the INBOX...  this is still a work in progress.

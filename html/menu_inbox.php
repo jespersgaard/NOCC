@@ -1,10 +1,10 @@
-<!-- start of $Id: menu_inbox.php,v 1.50 2005/01/06 19:28:28 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.51 2005/01/08 22:08:30 goddess_skuld Exp $ -->
 <?php
 $color_inbox = $color = $glob_theme->menu_color;
 $action = "";
 if(isset($_REQUEST['action']))
     $action = safestrip($_REQUEST['action']);
-if ($action == '' || $action == 'login') 
+if ($action == '' || $action == 'login' || $action == 'cookie') 
 {
     $color_inbox = $glob_theme->menu_color_on; 
     $line = '<a href="'.$_SERVER['PHP_SELF'].'?action=write" class="menu">'.$html_new_msg.'</a>';
@@ -61,4 +61,4 @@ elseif ($action == 'forward')
         </td>
     </tr>
 </table>
-<!-- end of $Id: menu_inbox.php,v 1.50 2005/01/06 19:28:28 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_inbox.php,v 1.51 2005/01/08 22:08:30 goddess_skuld Exp $ -->

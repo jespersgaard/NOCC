@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.43 2004/10/21 11:27:38 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.44 2005/01/08 22:08:30 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -67,6 +67,7 @@ $html_help = 'Pomoc';
 $html_server = 'Serwer';
 $html_wrong = 'Nazwa konta lub has³o jest niepoprawne';
 $html_retry = 'Ponów';
+$html_remember = "Remember settings"; //to translate
 
 // prefs.php
 

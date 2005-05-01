@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.39 2005/01/08 22:08:30 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.40 2005/02/17 12:22:11 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -70,6 +70,7 @@ $html_help = 'Help';
 $html_server = 'Server';
 $html_wrong = 'De login-naam of het wachtwoord is onjuist';
 $html_retry = 'Probeer opnieuw';
+$html_remember = "Remember settings"; //to translate
 
 // prefs.php
 

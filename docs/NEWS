@@ -1,5 +1,8 @@
 NOCC 0.9.7    ?? ??, 2005
 
+    * Add an option to remember login settings, using a cookie (Arnaud Boudou)
+    * Fix issue with deleted messages when user open message in a new window
+      (Arnaud Boudou, bug #1163679)
     * Add email sent confirmation within Inbox menu. (Arnaud Boudou, RFE
       489151)
     * Dynamically load IMAP module if needed. (Arnaud Boudou, RFE #644084)

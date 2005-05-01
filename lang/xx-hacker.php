@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.6 2004/10/21 11:27:38 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.7 2005/01/08 22:08:30 goddess_skuld Exp $ 
  *
  * Copyright 2004 Nicolas Chalanset <nicocha at free.fr>
  * Copyright 2004 Olivier Cahagne <wolruf at free.fr>
@@ -69,6 +69,7 @@ $html_help = 'H3lp';
 $html_server = 'S3rv3r';
 $html_wrong = 'Th3 l0gin 0r th3 p4ssw0rd 4r3 !nc0rr3ct';
 $html_retry = 'R3try';
+$html_remember = "Remember settings"; //to translate
 
 // prefs.php
 

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.33 2004/11/05 15:10:12 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.34 2005/01/08 22:08:30 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -68,6 +68,7 @@ $html_help = 'Помощь';
 $html_server = 'Сервер';
 $html_wrong = 'Логин или пароль не верны';
 $html_retry = 'Вернуться';
+$html_remember = "Remember settings"; //to translate
 
 // prefs.php
 

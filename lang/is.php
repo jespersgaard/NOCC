@@ -65,6 +65,7 @@ $html_help = 'Hjálp';
 $html_server = 'Póstþjónn';
 $html_wrong = 'Annað hvort notendanafnið eða lykilorðið er ekki rétt slegið inn';
 $html_retry = 'Reyna aftur';
+$html_remember = "Remember settings"; //to translate
 
 // prefs.php
 
