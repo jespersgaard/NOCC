@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.48 2004/06/19 12:00:55 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.49 2004/06/20 09:39:31 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -47,6 +47,9 @@ if (isset($_REQUEST['only_one'])) {
         }
     }
     if (isset($_REQUEST['delete_mode'])) {
+        // If messages are opened in a new windows, we will reload the opener window
+        // i.e. the one with messages list
+        $_SESSION['message_deleted'] = "true";
         $pop->delete($mail, $ev);
         if ($mail - 1) {
             $url = "action.php?action=aff_mail&mail=".--$mail."&verbose=0";
@@ -70,6 +73,9 @@ if (isset($_REQUEST['only_one'])) {
                 }
             }
             if (isset($_REQUEST['delete_mode'])) {
+                // If messages are opened in a new windows, we will reload the opener window
+                // i.e. the one with messages list
+                $_SESSION['message_deleted'] = "true";
                 $pop->delete($i, $ev);
             }
             if (isset($_REQUEST['mark_read_mode']) && $_REQUEST['mark_mode'] == 'read') {
