@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.130 2004/11/08 17:02:55 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.131 2005/01/08 21:20:47 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -239,6 +239,10 @@ $conf->sent_folder='Sent';
 // OS independent, this is a MTA problem
 // not ours.
 $conf->crlf = '\r\n';
+
+// Webmail url (i.e. http://www.example.com/webmail/), used by RSS feed.
+// Don't forget the trailing "/"
+$conf->webmail_url = "http://www.example.com/webmail/";
 
 /*
 ###################     End of Configuration     ####################

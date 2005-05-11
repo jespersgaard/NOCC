@@ -34,8 +34,20 @@ else {
     echo ("\n            window.opener.location.href = window.opener.location;\n");
     $_SESSION['message_deleted'] = "false";
   }
+  $rss_url = "rss.php";
+  $rss_url .= '?nocc_lang=' . $_SESSION['nocc_lang'];
+  $rss_url .= '&nocc_smtp_server=' . $_SESSION['nocc_smtp_server'];
+  $rss_url .= '&nocc_smtp_port=' . $_SESSION['nocc_smtp_port'];
+  $rss_url .= '&nocc_theme=' . $_SESSION['nocc_theme'];
+  $rss_url .= '&nocc_domain=' . $_SESSION['nocc_domain'];
+  $rss_url .= '&imap_namespace=' . $_SESSION['imap_namespace'];
+  $rss_url .= '&nocc_servr=' . $_SESSION['nocc_servr'];
+  $rss_url .= '&nocc_folder=' . $_SESSION['nocc_folder'];
+  $rss_url .= '&smtp_auth=' . $_SESSION['smtp_auth'];
+  
 ?>
         </script>
+        <link rel="alternate" type="application/rss+xml" title="RSS - NOCC" href="<?php echo $rss_url ?>" />
     </head>
     <body dir="<?php echo $lang_dir; ?>" alink="<?php echo $glob_theme->alink_color; ?>" bgcolor="<?php echo $glob_theme->bgcolor; ?>" link="<?php echo $glob_theme->link_color ?>" text="<?php echo $glob_theme->text_color ?>" vlink="<?php echo $glob_theme->vlink_color; ?>">
         <table border="0" width="100%">

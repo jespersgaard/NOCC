@@ -1,5 +1,6 @@
 NOCC 0.9.7    ?? ??, 2005
 
+    * Add mailbox RSS streams. (Arnaud Boudou)
     * Fix issue where text and image attachments where not rendered at the end
       of the mail (Arnaud Boudou)
     * Add an option to remember login settings, using a cookie (Arnaud Boudou)
