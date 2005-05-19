@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.162 2005/05/01 20:45:55 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.163 2005/05/09 13:32:51 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -24,6 +24,19 @@ $ev = NULL;
 $remember = '';
 if(isset($_REQUEST['remember']))
     $remember = safestrip($_REQUEST['remember']);
+
+// Refresh quota usage
+if (isset($conf->quota_enable) && $conf->quota_enable == true) {
+  $pop = new nocc_imap($ev);
+  if (NoccException::isException($ev)) {
+   require ('./html/header.php');
+   require ('./html/error.php');
+   require ('./html/footer.php');
+   exit;
+  }
+  $quota = $pop->get_quota_usage($_SESSION['nocc_folder']);
+  $_SESSION['quota'] = $quota;
+}
 
 // Act on 'action'
 $action = '';

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.35 2004/10/21 11:27:36 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.36 2004/11/08 17:02:54 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -314,6 +314,11 @@ class nocc_imap
         }
         return $subscribed;
     }
+
+    function get_quota_usage(&$mailbox) {
+      return imap_get_quotaroot($this->conn, $mailbox);
+    }
+      
 
     /*
      * Test function

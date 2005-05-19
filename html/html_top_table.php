@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.73 2005/01/06 19:28:27 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.74 2005/05/11 10:44:42 goddess_skuld Exp $ -->
 <?php
 
 require_once 'class_local.php';
@@ -70,6 +70,16 @@ if ($pop->is_imap()) {
         <td <?php if ($conf->have_ucb_pop_server || $pop->is_imap()) echo 'colspan="5"'; else echo 'colspan="4"'; ?> align="left" class="titlew">
             <b><?php if ($_SESSION['nocc_folder'] != INBOX) { echo $_SESSION['nocc_folder']; } else { echo $html_inbox; } ?></b>
             <a class="titlew" href="<?php echo $rss_url ?>">(RSS)</a>
+            &nbsp;
+            <?php
+              if (isset($conf->quota_enable) && $conf->quota_enable == true) { 
+                if ($conf->quota_type == 'STORAGE') {
+                  echo $_SESSION['quota'][$conf->quota_type]['usage'] . $html_kb . ' / ' . $_SESSION['quota'][$conf->quota_type]['limit'] . $html_kb;
+                } else {
+                  echo $_SESSION['quota'][$conf->quota_type]['usage'] . $html_msgs . ' / ' . $_SESSION['quota'][$conf->quota_type]['limit'] . $html_msgs;
+                }
+              }
+            ?>
         </td>
         <td align="right" class="titlew" colspan="2">
             <?php echo $num_msg ?> <?php if ($num_msg == 1) {echo $html_msg;} else {echo $html_msgs;}?>
@@ -134,4 +144,4 @@ if ($pop->is_imap()) {
             <form method="post" action="delete.php" name="delete_form">
         </td>
     </tr>
-<!-- start of $Id: html_top_table.php,v 1.73 2005/01/06 19:28:27 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.74 2005/05/11 10:44:42 goddess_skuld Exp $ -->
