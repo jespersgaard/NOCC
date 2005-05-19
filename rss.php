@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.37 2003/12/21 15:40:20 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.1 2005/05/11 10:46:06 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -24,8 +24,6 @@
   $_SESSION['nocc_user'] = $_SERVER['PHP_AUTH_USER'];
   $_SESSION['nocc_passwd'] = $_SERVER['PHP_AUTH_PW'];
   
-//  $_SESSION['nocc_user'] = $_REQUEST['nocc_user'];
-//  $_SESSION['nocc_passwd'] = $_REQUEST['nocc_passwd'];
   $_SESSION['nocc_lang'] = $_REQUEST['nocc_lang'];
   $_SESSION['nocc_smtp_server'] = $_REQUEST['nocc_smtp_server'];
   $_SESSION['nocc_smtp_port'] = $_REQUEST['nocc_smtp_port'];
@@ -104,7 +102,7 @@
     require ('./html/error.php');
     exit;
   }
-  echo htmlentities(substr($content['body'], 0, 200) . '...');  
+  echo htmlspecialchars(substr($content['body'], 0, 200) . '...');  
 ?>
   </description>
 </item>
