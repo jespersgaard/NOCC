@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.132 2005/05/11 10:44:42 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.133 2005/05/19 17:44:52 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -238,7 +238,7 @@ $conf->sent_folder='Sent';
 // According to rfc-822 CRLF is "\r\n"
 // OS independent, this is a MTA problem
 // not ours.
-$conf->crlf = '\r\n';
+$conf->crlf = "\r\n";
 
 // Webmail url (i.e. http://www.example.com/webmail/), used by RSS feed.
 // Don't forget the trailing "/"
