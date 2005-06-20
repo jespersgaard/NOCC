@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.44 2005/01/08 22:08:30 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.45 2005/05/01 20:45:56 goddess_skuld Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha AT free DOT fr>
  * Copyright 2000 Olivier Cahagne <wolruf AT free DOT fr>
@@ -186,6 +186,7 @@ $html_no_sendaction = 'Keine Aktion angegeben. Versuchen Sie es mit eingeschalte
 $html_error_occurred = 'Ein Fehler ist aufgetreten';
 $html_prefs_file_error = 'Kann Ihre Einstellungen-Datei nicht zum Schreiben &ouml;ffnen.';
 $html_wrap = 'Umbrechen der ausgehenden Nachrichten nach x Zeichen:';
+$html_wrap_none = 'None'; //to translate
 $html_usenet_separator = 'Usenet-Signaturtrenner ("-- \n") benutzen';
 $html_mark_as = 'Markiere als';
 $html_read = 'gelesen';

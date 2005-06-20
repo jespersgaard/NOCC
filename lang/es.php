@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/es.php,v 1.42 2005/01/08 22:08:30 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/es.php,v 1.43 2005/05/01 20:45:56 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -183,6 +183,7 @@ $html_no_sendaction = 'No ha especificado acci&oacute;n. Intente habilitando Jav
 $html_error_occurred = 'Ha ocurrido un error';
 $html_prefs_file_error = 'Imposible abrir el archivo de preferencias para cambiarlo.';
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
+$html_wrap_none = 'None'; //to translate
 $html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
 $html_mark_as = 'Mark as'; //to translate
 $html_read = 'read'; //to translate

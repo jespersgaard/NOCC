@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.44 2005/01/08 22:08:30 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.45 2005/05/01 20:45:56 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -183,6 +183,7 @@ $html_no_sendaction = 'Nie okre¶lona akcja. Spróbuj w³±czyæ Javascript.';
 $html_error_occurred = 'Wyst±pi³ b³±d';
 $html_prefs_file_error = 'Nie mo¿na otworzyæ pliku z ustawieniami do zapisu.';
 $html_wrap = 'Zawijaj linie w poczcie wychodz±cej do d³ugo¶ci (znaków):';
+$html_wrap_none = 'None'; //to translate
 $html_usenet_separator = 'U¿yj separatora ("-- \n") Przed sygnatur±';
 $html_mark_as = 'Zaznacz jako';
 $html_read = 'Przeczytane';

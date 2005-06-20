@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.34 2005/01/08 22:08:30 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.35 2005/05/01 20:45:56 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -181,6 +181,7 @@ $html_no_sendaction = 'Не указано действие. Попробуйте включить JavaScript.';
 $html_error_occurred = 'Произошла ошибка';
 $html_prefs_file_error = 'Файл настроек не может быть открыт для записи.';
 $html_wrap = 'Ширина строки (в символах):';
+$html_wrap_none = 'None'; //to translate
 $html_usenet_separator = 'Разделитель в стиле Usenet ("-- \n") перед подписью';
 $html_mark_as = 'Пометить как';
 $html_read = 'прочитанное';

@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.31 2004/06/15 10:37:08 goddess_skuld Exp $ -->
+<!-- start of $Id: prefs.php,v 1.32 2004/10/21 11:27:37 goddess_skuld Exp $ -->
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -59,7 +59,7 @@
                                     <input type="radio" name="wrap_msg" id="wrap_msg" value="72" <?php if($user_prefs->wrap_msg == 72) echo "checked"; ?> />72
                                 </td>
                   			    <td>
-                                    <label><input name="wrap_msg" type="radio" id="wrap_msg" value="0" <?php if($user_prefs->wrap_msg == '') echo "checked"; ?> />None</label>
+                                    <label><input name="wrap_msg" type="radio" id="wrap_msg" value="0" <?php if($user_prefs->wrap_msg == '') echo "checked"; ?> /><?php echo $html_wrap_none?></label>
                                 </td>
                     	    </tr>
               		    </table>
@@ -139,4 +139,4 @@
     ?>
 
 </table>
-<!-- end of $Id: prefs.php,v 1.31 2004/06/15 10:37:08 goddess_skuld Exp $ -->
+<!-- end of $Id: prefs.php,v 1.32 2004/10/21 11:27:37 goddess_skuld Exp $ -->

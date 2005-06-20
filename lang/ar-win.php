@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ar-win.php,v 1.24 2005/01/08 22:08:30 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ar-win.php,v 1.25 2005/05/01 20:45:56 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -184,6 +184,7 @@ $html_no_sendaction = 'áÇíæÌÏ ÃÍÏÇË ÊİÚíáÇÊ ãÍÏÏå. ÍÇæá Êãßíä ÏÚã ÌÇİÇ ÓßÑíÈÊ Ja
 $html_error_occurred = 'ÍÕá ÎØÃ ãÇ';
 $html_prefs_file_error = 'áÇíÓÊØíÚ İÊÍ ãáİ ÇáÊİÖíáÇÊ ááßÊÇÈå Úáíå.';
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
+$html_wrap_none = 'None'; //to translate
 $html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
 $html_mark_as = 'Mark as'; //to translate
 $html_read = 'read'; //to translate

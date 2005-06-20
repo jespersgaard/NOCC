@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.40 2005/02/17 12:22:11 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.41 2005/05/01 20:45:56 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -186,6 +186,7 @@ $html_no_sendaction = 'Geen actie gespecificeerd. Evt. JavaScript aanzetten.';
 $html_error_occurred = 'Er is een fout opgetreden';
 $html_prefs_file_error = 'Het instellingenbestand kan niet worden geopend.';
 $html_wrap = 'Wrap uitgaande berichten naar :';
+$html_wrap_none = 'None'; //to translate
 $html_usenet_separator = 'Gebruik separator ("-- \n") voor de handtekening';
 $html_mark_as = 'Markeer als';
 $html_read = 'Lees';

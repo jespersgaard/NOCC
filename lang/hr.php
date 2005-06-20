@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/hr.php,v 1.23 2005/01/08 22:08:30 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/hr.php,v 1.24 2005/05/01 20:45:56 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -183,6 +183,7 @@ $html_no_sendaction = 'Nista nije specificirano - ukljucite JavaScript.';
 $html_error_occurred = 'Dogodila se greska';
 $html_prefs_file_error = 'Ne mogu zapisati postavke.';
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
+$html_wrap_none = 'None'; //to translate
 $html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
 $html_mark_as = 'Mark as'; //to translate
 $html_read = 'read'; //to translate

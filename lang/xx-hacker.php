@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.8 2005/05/01 20:45:56 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.9 2005/05/01 20:50:30 goddess_skuld Exp $ 
  *
  * Copyright 2004 Nicolas Chalanset <nicocha at free.fr>
  * Copyright 2004 Olivier Cahagne <wolruf at free.fr>
@@ -185,6 +185,7 @@ $html_no_sendaction = 'N0 4cti0n sp3c!fi3d. Try 3n4bl!ng J4v4Scr!pt.';
 $html_error_occurred = '4n 3rr0r 0ccurr3d';
 $html_prefs_file_error = 'Un4bl3 t0 0p3n pr3f3r3nc3s f!l3 f0r wr!ting.';
 $html_wrap = 'Wrap 0utg0!ng messag3s t0 :';
+$html_wrap_none = 'N0n3';
 $html_usenet_separator = 'Us3n3t s3p4rat0r ("-- \n") B3f0r3 s!gn4tur3';
 $html_mark_as = 'M4rk as';
 $html_read = 'r3ad';

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.18 2005/01/08 22:08:30 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.19 2005/05/01 20:45:56 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -183,6 +183,7 @@ $html_no_sendaction = '&#1607;&#1610;&#1670; &#1593;&#1605;&#1604;&#1609; &#1575
 $html_error_occurred = '&#1610;&#1705; &#1582;&#1591;&#1575; &#1575;&#1578;&#1601;&#1575;&#1602; &#1575;&#1601;&#1578;&#1575;&#1583;';
 $html_prefs_file_error = '&#1606;&#1605;&#1609;&#1578;&#1608;&#1575;&#1606;&#1605; &#1601;&#1575;&#1610;&#1604; &#1578;&#1606;&#1592;&#1610;&#1605;&#1575;&#1578; &#1601;&#1585;&#1583;&#1609; &#1585;&#1575; &#1576;&#1585;&#1575;&#1609; &#1606;&#1608;&#1588;&#1578;&#1606; &#1576;&#1575;&#1586; &#1705;&#1606;&#1605;';
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
+$html_wrap_none = 'None'; //to translate
 $html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
 $html_mark_as = 'Mark as'; //to translate
 $html_read = 'read'; //to translate

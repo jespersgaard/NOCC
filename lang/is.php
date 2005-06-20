@@ -181,6 +181,7 @@ $html_no_sendaction = 'Engar aðgerðir mögulegar. Reynið að virkja JavaScript.';
 $html_error_occurred = 'Villa gerðist';
 $html_prefs_file_error = 'Ómögulegt að opna valmöguleika skrá til útskriftar.';
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
+$html_wrap_none = 'None'; //to translate
 $html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
 $html_mark_as = 'Mark as'; //to translate
 $html_read = 'read'; //to translate

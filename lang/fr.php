@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.82 2005/01/08 22:08:30 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.83 2005/05/01 20:45:56 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -183,6 +183,7 @@ $html_no_sendaction = 'Aucune action sp&eacute;cifi&eacute;e. Essayer d\'activer
 $html_error_occurred = 'Une erreur est survenue';
 $html_prefs_file_error = 'Impossible d\'ouvrir le fichier de pr&eacute;f&eacute;rences';
 $html_wrap = 'Tronquer les messages sortant  &agrave;:';
+$html_wrap_none = 'aucun';
 $html_usenet_separator = 'S&eacute;parateur Usenet ("-- \n") avant la signature';
 $html_mark_as = 'Marquer comme';
 $html_read = 'lu';

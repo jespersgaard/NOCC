@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.79 2005/01/08 22:08:30 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.80 2005/05/01 20:45:56 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -183,6 +183,7 @@ $html_no_sendaction = 'No action specified. Try enabling JavaScript.';
 $html_error_occurred = 'An error occurred';
 $html_prefs_file_error = 'Unable to open preferences file for writing.';
 $html_wrap = 'Wrap outgoing messages to :';
+$html_wrap_none = 'None';
 $html_usenet_separator = 'Usenet separator ("-- \n") Before signature';
 $html_mark_as = 'Mark as';
 $html_read = 'read';

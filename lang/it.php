@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.41 2005/01/08 22:08:30 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.42 2005/05/01 20:45:56 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -183,6 +183,7 @@ $html_no_sendaction = 'Nessuna azione specificata. Provare ad abilitare JavaScri
 $html_error_occurred = 'Si e verificato un errore';
 $html_prefs_file_error = 'Impossibile aprire il file di preferences per la modifica.';
 $html_wrap = 'Nuovo testo a capo alla colonna:';
+$html_wrap_none = 'None'; //to translate
 $html_usenet_separator = 'Separatore ("-- \n") prima della firma';
 $html_mark_as = 'Contrassegna come';
 $html_read = 'letto';
