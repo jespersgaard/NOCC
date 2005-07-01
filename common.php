@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.46 2005/05/11 10:44:42 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.47 2005/07/01 11:05:16 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -11,6 +11,7 @@
  */
 
 require_once("user_filters.php");
+require_once("html_entity_decode.php");
 
 $conf->nocc_name = 'NOCC';
 $conf->nocc_version = '0.9.8-dev';

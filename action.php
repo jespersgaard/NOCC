@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.163 2005/05/09 13:32:51 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.164 2005/05/19 17:44:51 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -151,15 +151,15 @@ switch($action)
 
         // Set body
         if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
-            $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . strip_tags($content['body'], '');
+            $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . html_entity_decode(strip_tags($content['body'], ''));
         else {
             if (isset($user_prefs->reply_leadin) && ($user_prefs->reply_leadin != ''))
             {
                 $parsed_leadin = NOCCUserPrefs::parseLeadin($user_prefs->reply_leadin, $content);
-                $mail_body = mailquote(strip_tags($content['body'], ''), $parsed_leadin, '');
+                $mail_body = mailquote(html_entity_decode(strip_tags($content['body'], '')), $parsed_leadin, '');
             }
             else
-                $mail_body = mailquote(strip_tags($content['body'], ''), $content['from'], $html_wrote);
+                $mail_body = mailquote(html_entity_decode(strip_tags($content['body'], '')), $content['from'], $html_wrote);
         }
 
         // Add signature
