@@ -1,4 +1,8 @@
-NOCC 0.9.7    ?? ??, 2005
+NOCC 0.9.8    ?? ??, 2005
+
+
+
+NOCC 0.9.7    July 01, 2005
 
     * Add quotas limits display. (Arnaud Boudou)
     * Add mailbox RSS streams. (Arnaud Boudou)
