@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.1 2005/05/11 10:46:06 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.2 2005/05/19 11:37:14 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -66,35 +66,35 @@
     xmlns="http://purl.org/rss/1.0/"
 >
 
-  <channel rdf:about="<? echo $conf->webmail_url ?>">
-  <title>NOCC Webmail - <? echo $_SESSION['nocc_folder'] ?></title>
-  <description>Your mailbox</description>
-  <link><? echo $conf->webmail_url ?></link>
+<channel rdf:about="<?php echo $conf->webmail_url ?>">
+<title>NOCC Webmail - <?php echo $_SESSION['nocc_folder'] ?></title>
+<description>Your mailbox</description>
+<link><?php echo $conf->webmail_url ?></link>
 
-  <admin:generatorAgent rdf:resource="http://nocc.sourceforge.net/" />
+<admin:generatorAgent rdf:resource="http://nocc.sourceforge.net/" />
 
-  <items>
-  <rdf:Seq>
+<items>
+<rdf:Seq>
 <?php
-  while ($tmp = array_shift($tab_mail)) {
+while ($tmp = array_shift($tab_mail)) {
 ?>
-    <rdf:li rdf:resource="<?php echo $conf->webmail_url . 'action.php?action=aff_mail&amp;mail='.$tmp['number'].'&amp;verbose=0&amp;rss=true' ?>" />
+<rdf:li rdf:resource="<?php echo $conf->webmail_url . 'action.php?action=aff_mail&amp;mail='.$tmp['number'].'&amp;verbose=0&amp;rss=true' ?>" />
 <?php
-  }
-  $tab_mail = $tab_mail_bak;
+}
+$tab_mail = $tab_mail_bak;
 ?>
-  </rdf:Seq>
-  </items>
+</rdf:Seq>
+</items>
 </channel>
 
 <?php
-  while ($tmp = array_shift($tab_mail)) {
+while ($tmp = array_shift($tab_mail)) {
 ?>
 <item rdf:about="<?php echo $conf->webmail_url . 'action.php?action=aff_mail&amp;mail='.$tmp['number'].'&amp;verbose=0&amp;rss=true' ?>">
-  <title><?php echo htmlspecialchars(htmlentities($tmp['subject'])) ?></title>
-  <link><?php echo $conf->webmail_url . 'action.php?action=aff_mail&amp;mail=' . $tmp['number'] . '&amp;verbose=0&amp;rss=true' ?></link>
-  <description>
-    <?php echo htmlspecialchars(str_replace("themes/", $conf->webmail_url . "themes/", $tmp['attach'])) ?> <?php echo $html_size . ": " . $tmp['size'] . " " . $html_kb ?> <br /><br />
+<title><?php echo htmlspecialchars(htmlentities($tmp['subject'])) ?></title>
+<link><?php echo $conf->webmail_url . 'action.php?action=aff_mail&amp;mail=' . $tmp['number'] . '&amp;verbose=0&amp;rss=true' ?></link>
+<description>
+<?php echo htmlspecialchars(str_replace("themes/", $conf->webmail_url . "themes/", $tmp['attach'])) ?> <?php echo $html_size . ": " . $tmp['size'] . " " . $html_kb ?> <br /><br />
 <?php
   $attach_tab = array();
   $content = aff_mail($pop, $attach_tab, $tmp['number'], 0, $ev);

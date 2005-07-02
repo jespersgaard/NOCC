@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.14 2005/01/06 19:28:27 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.15 2005/07/02 14:03:59 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -122,7 +122,7 @@ switch($action){
     <?php } ?>
   </table>
 </form>
-<?
+<?php
 		break;
 	case "add":
 	if (!empty($_POST['email']))
@@ -169,7 +169,7 @@ switch($action){
 		}
 	?>
 	<script language="JavaScript">self.location.href="<?php echo $_SERVER['PHP_SELF'] . "?" . $query_str ?>";</script>
-<?
+<?php
 		;
 		break;
 	case "delete":
@@ -199,7 +199,7 @@ switch($action){
     <td nowrap><b><?php echo $html_contact_mail ?></b></td>
     <td colspan="2" nowrap>&nbsp;</td>
   </tr>
-  <?
+  <?php
 	for ($i = 0; $i < count ($contacts); ++$i)
 	{
 		$tab = array_pad(explode ("\t",$contacts[$i]), -4, "");
@@ -214,7 +214,7 @@ switch($action){
     <td><input type="button" name="Submit" value="<?php echo $html_delete ?>" class="button" onClick="prompt_delete ('<?php echo $tab[3] ?>', <?php echo $i ?>)">
     </td>
   </tr>
-  <?
+  <?php
 	}
 ?>
 </table>

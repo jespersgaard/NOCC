@@ -1,5 +1,6 @@
 NOCC 0.9.8    ?? ??, 2005
 
+    * Replace all "<?" tags by "<?php" tags. (Arnaud Boudou, bug #1230999).
     * Convert Nocc to UTF-8 support (Arnaud Boudou).
     * Replying to HTML mails now convert HTML special chars to standard chars
       (Arnaud Boudou).
