@@ -10,7 +10,7 @@
  * Translation by: Firmanet ehf.
  */
 
-$charset = 'ISO-8859-1';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -38,49 +38,49 @@ $default_time_format = '%I:%M %p';
 // Here is the configuration for the HTML
 
 $err_user_empty = 'Notendanafn vantar';
-$err_passwd_empty = 'Lykilorğ vantar';
+$err_passwd_empty = 'LykilorÃ° vantar';
 
 
 // html message
 
-$alt_delete = 'Eyğa völdum bréfum';
-$alt_delete_one = 'Eyğa bréfi';
-$alt_new_msg = 'Nı bréf';
+$alt_delete = 'EyÃ°a vÃ¶ldum brÃ©fum';
+$alt_delete_one = 'EyÃ°a brÃ©fi';
+$alt_new_msg = 'NÃ½ brÃ©f';
 $alt_reply = 'Svara sendanda';
-$alt_reply_all = 'Svara öllum';
-$alt_forward = 'Áframsenda';
-$alt_next = 'Næsta bréf';
-$alt_prev = 'Fyrra bréf';
-$html_on = 'á';
-$html_theme = 'Şema';
+$alt_reply_all = 'Svara Ã¶llum';
+$alt_forward = 'Ãframsenda';
+$alt_next = 'NÃ¦sta brÃ©f';
+$alt_prev = 'Fyrra brÃ©f';
+$html_on = 'Ã¡';
+$html_theme = 'Ãema';
 
 // index.php
 
-$html_lang = 'Tungumál';
-$html_welcome = 'Velkomin/n í';
+$html_lang = 'TungumÃ¡l';
+$html_welcome = 'Velkomin/n Ã­';
 $html_login = 'Notendanafn';
-$html_passwd = 'Lykilorğ';
-$html_submit = 'Skrá inn';
-$html_help = 'Hjálp';
-$html_server = 'Póstşjónn';
-$html_wrong = 'Annağ hvort notendanafniğ eğa lykilorğiğ er ekki rétt slegiğ inn';
+$html_passwd = 'LykilorÃ°';
+$html_submit = 'SkrÃ¡ inn';
+$html_help = 'HjÃ¡lp';
+$html_server = 'PÃ³stÃ¾jÃ³nn';
+$html_wrong = 'AnnaÃ° hvort notendanafniÃ° eÃ°a lykilorÃ°iÃ° er ekki rÃ©tt slegiÃ° inn';
 $html_retry = 'Reyna aftur';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
 
 $html_msgperpage = 'Messages per page';
-$html_preferences = 'Valmöguleikar';
+$html_preferences = 'ValmÃ¶guleikar';
 $html_full_name = 'Fullt nafn';
 $html_email_address = 'Netfang';
-$html_ccself = 'Afrit á mig';
-$html_hide_addresses = 'Fela netföng';
-$html_outlook_quoting = 'Outlook-stíl quoting';
+$html_ccself = 'Afrit Ã¡ mig';
+$html_hide_addresses = 'Fela netfÃ¶ng';
+$html_outlook_quoting = 'Outlook-stÃ­l quoting';
 $html_reply_to = 'Svara til';
 $html_use_signature = 'Nota undirskrift';
 $html_signature = 'Undirskrift';
 $html_reply_leadin = 'Reply Leadin';  //to translate
-$html_prefs_updated = 'Valmöguleikar uppfærğir';
+$html_prefs_updated = 'ValmÃ¶guleikar uppfÃ¦rÃ°ir';
 $html_manage_folders_link = 'Manage IMAP Folders';  //to translate
 $html_manage_filters_link = 'Manage Email Filters';  //to translate
 $html_use_graphical_smilies = 'Use graphical smilies'; //to translate
@@ -126,60 +126,60 @@ $html_other_folders = 'Folder List';  //to translate
 $html_page = 'Page';  //to translate
 $html_of = 'of';  //to translate
 $html_to = 'to';  //to translate
-$html_view_header = 'Sjá haus';
+$html_view_header = 'SjÃ¡ haus';
 $html_remove_header = 'Fela haus';
-$html_inbox = 'Innpóstur';
-$html_new_msg = 'Semja Bréf';
+$html_inbox = 'InnpÃ³stur';
+$html_new_msg = 'Semja BrÃ©f';
 $html_reply = 'Svara';
 $html_reply_short = 'Re';  //to translate
-$html_reply_all = 'Svara öllum';
+$html_reply_all = 'Svara Ã¶llum';
 $html_forward = 'Framsenda';
 $html_forward_short = 'Fw';  //to translate
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
-$html_delete = 'Eyğa';
-$html_new = 'Nıtt';
-$html_mark = 'Eyğa';
-$html_att = 'Viğhengi';
-$html_atts = 'Viğhengi';
-$html_att_unknown = '[óşekkt]';
-$html_attach = 'Hengja viğ';
-$html_attach_forget = 'Şú verğur ağ hengja skrána viğ áğur en şú sendir skilaboğin!';
-$html_attach_delete = 'Eyğa völdum skrám';
+$html_delete = 'EyÃ°a';
+$html_new = 'NÃ½tt';
+$html_mark = 'EyÃ°a';
+$html_att = 'ViÃ°hengi';
+$html_atts = 'ViÃ°hengi';
+$html_att_unknown = '[Ã³Ã¾ekkt]';
+$html_attach = 'Hengja viÃ°';
+$html_attach_forget = 'ÃÃº verÃ°ur aÃ° hengja skrÃ¡na viÃ° Ã¡Ã°ur en Ã¾Ãº sendir skilaboÃ°in!';
+$html_attach_delete = 'EyÃ°a vÃ¶ldum skrÃ¡m';
 $html_attach_none = 'You must select a file to attach!';  //to translate
-$html_sort_by = 'Rağa eftir';
-$html_from = 'Frá';
+$html_sort_by = 'RaÃ°a eftir';
+$html_from = 'FrÃ¡';
 $html_subject = 'Titill';
 $html_date = 'Dags.';
 $html_sent = 'Senda';
-$html_wrote = 'skrifaği';
-$html_size = 'Stærğ';
-$html_totalsize = 'Heildarstærğ';
+$html_wrote = 'skrifaÃ°i';
+$html_size = 'StÃ¦rÃ°';
+$html_totalsize = 'HeildarstÃ¦rÃ°';
 $html_kb = 'Kb';  //to translate
-$html_bytes = 'bæti';
-$html_filename = 'Skráarnafn';
+$html_bytes = 'bÃ¦ti';
+$html_filename = 'SkrÃ¡arnafn';
 $html_to = 'Til';
 $html_cc = 'Afrit';
 $html_bcc = 'Blint afrit';
 $html_nosubject = 'Enginn titill';
 $html_send = 'Senda';
-$html_cancel = 'Hætta viğ';
-$html_no_mail = 'Ekkert bréf';
-$html_logout = 'Skrá út';
-$html_msg = 'Bréf';
-$html_msgs = 'Bréf';
-$html_configuration = 'Şessi şjónn er ekki vel uppsettur!';
+$html_cancel = 'HÃ¦tta viÃ°';
+$html_no_mail = 'Ekkert brÃ©f';
+$html_logout = 'SkrÃ¡ Ãºt';
+$html_msg = 'BrÃ©f';
+$html_msgs = 'BrÃ©f';
+$html_configuration = 'Ãessi Ã¾jÃ³nn er ekki vel uppsettur!';
 $html_priority = 'Forgangur';
-$html_low = 'Lár';
+$html_low = 'LÃ¡r';
 $html_normal = 'Venjulegur';
-$html_high = 'Hár';
+$html_high = 'HÃ¡r';
 $html_receipt = 'Request a return receipt';
 $html_select = 'Velja';
 $html_select_all = 'Invert Selection';  //to translate
-$html_loading_image = 'Hleğ mynd';
-$html_send_confirmed = 'Pósturinn var samşykktur fyrir sendingu';
-$html_no_sendaction = 'Engar ağgerğir mögulegar. Reyniğ ağ virkja JavaScript.';
-$html_error_occurred = 'Villa gerğist';
-$html_prefs_file_error = 'Ómögulegt ağ opna valmöguleika skrá til útskriftar.';
+$html_loading_image = 'HleÃ° mynd';
+$html_send_confirmed = 'PÃ³sturinn var samÃ¾ykktur fyrir sendingu';
+$html_no_sendaction = 'Engar aÃ°gerÃ°ir mÃ¶gulegar. ReyniÃ° aÃ° virkja JavaScript.';
+$html_error_occurred = 'Villa gerÃ°ist';
+$html_prefs_file_error = 'Ã“mÃ¶gulegt aÃ° opna valmÃ¶guleika skrÃ¡ til Ãºtskriftar.';
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
 $html_wrap_none = 'None'; //to translate
 $html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
@@ -208,12 +208,12 @@ $html_contact_err3 = 'You don\'t have access rights to contact list'; //to trans
 $html_del_msg = 'Delete selected messages ?';  //to translate
 $html_down_mail = 'Download';  //to translate
 
-$original_msg = '-- Upphaflega bréf --'; 
-$to_empty = '\'Til\' reiturinn má ekki vera auğur!';
+$original_msg = '-- Upphaflega brÃ©f --'; 
+$to_empty = '\'Til\' reiturinn mÃ¡ ekki vera auÃ°ur!';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = 'Ómögulegt ağ opna tengingu';
-$html_smtp_error_unexpected = 'Ófyrirsjáanleg viğbrögğ:';
+$html_smtp_error_no_conn = 'Ã“mÃ¶gulegt aÃ° opna tengingu';
+$html_smtp_error_unexpected = 'Ã“fyrirsjÃ¡anleg viÃ°brÃ¶gÃ°:';
 
 // IMAP messages (class_local.php)
 $lang_could_not_connect = 'Could not connect to server';

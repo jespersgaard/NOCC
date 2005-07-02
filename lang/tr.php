@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/tr.php,v 1.25 2005/05/01 20:45:56 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/tr.php,v 1.26 2005/06/20 16:30:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,7 +12,7 @@
  * Missing translation author
  */
 
-$charset = 'ISO-8859-9';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -40,32 +40,32 @@ $default_time_format = '%I:%M %p';
 // Here is the configuration for the HTML
 
 $err_user_empty = 'The login field is empty';
-$err_passwd_empty = 'Parola kýsmýný boþ geçemezsiniz';
+$err_passwd_empty = 'Parola kÄ±smÄ±nÄ± boÅŸ geÃ§emezsiniz';
 
 
 // html message
 
-$alt_delete = 'Seçili mesajlarý sil';
-$alt_delete_one = 'Seçili mesajý sil';
+$alt_delete = 'SeÃ§ili mesajlarÄ± sil';
+$alt_delete_one = 'SeÃ§ili mesajÄ± sil';
 $alt_new_msg = 'Yeni mesaj';
 $alt_reply = 'Yazana cevapla';
-$alt_reply_all = 'Tümüne cevapla';
-$alt_forward = 'Ýlet';
+$alt_reply_all = 'TÃ¼mÃ¼ne cevapla';
+$alt_forward = 'Ä°let';
 $alt_next = 'Sonraki mesaj';
-$alt_prev = 'Önceki Mesaj';
+$alt_prev = 'Ã–nceki Mesaj';
 $html_on = 'on';  //to translate
-$html_theme = 'Biçim';
+$html_theme = 'BiÃ§im';
 
 // index.php
 
 $html_lang = 'Dil';
 $html_welcome = 'Welcome to';  //to translate
-$html_login = 'Kullanýcý Adý';
+$html_login = 'KullanÄ±cÄ± AdÄ±';
 $html_passwd = 'Parola';
-$html_submit = 'Giriþ';
-$html_help = 'Yardým';
+$html_submit = 'GiriÅŸ';
+$html_help = 'YardÄ±m';
 $html_server = 'Sunucu';
-$html_wrong = 'Kullanýcý adý ya da parola hatalý';
+$html_wrong = 'KullanÄ±cÄ± adÄ± ya da parola hatalÄ±';
 $html_retry = 'Tekrar Deneyin';
 $html_remember = "Remember settings"; //to translate
 
@@ -128,15 +128,15 @@ $html_other_folders = 'Folder List';  //to translate
 $html_page = 'Page';  //to translate
 $html_of = 'of';  //to translate
 $html_to = 'to';  //to translate
-$html_view_header = 'Baþlýklarý Göster';
-$html_remove_header = 'Baþlýklarý Gizle';
+$html_view_header = 'BaÅŸlÄ±klarÄ± GÃ¶ster';
+$html_remove_header = 'BaÅŸlÄ±klarÄ± Gizle';
 $html_inbox = 'Gelen Kutusu';
 $html_new_msg = 'Yeni Mesaj';
 $html_reply = 'Cevapla';
 $html_reply_short = 'Ynt';
-$html_reply_all = 'Tümüne cevapla';
-$html_forward = 'Ýlet';
-$html_forward_short = 'Ýlt';
+$html_reply_all = 'TÃ¼mÃ¼ne cevapla';
+$html_forward = 'Ä°let';
+$html_forward_short = 'Ä°lt';
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
 $html_delete = 'Sil';
 $html_new = 'Yeni';
@@ -145,31 +145,31 @@ $html_att = 'Ek';
 $html_atts = 'Ekler';
 $html_att_unknown = '[bilinmiyor]';
 $html_attach = 'Ek';
-$html_attach_forget = 'Mesajý göndermeden önce dosyayý eklemelisiniz !';
-$html_attach_delete = 'Ýþaretleneni Sil';
+$html_attach_forget = 'MesajÄ± gÃ¶ndermeden Ã¶nce dosyayÄ± eklemelisiniz !';
+$html_attach_delete = 'Ä°ÅŸaretleneni Sil';
 $html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sort by';  //to translate
-$html_from = 'Gönderen';
+$html_from = 'GÃ¶nderen';
 $html_subject = 'Konu';
 $html_date = 'Tarih';
-$html_sent = 'Gönder';
+$html_sent = 'GÃ¶nder';
 $html_wrote = 'wrote';
 $html_size = 'Boyut';
 $html_totalsize = 'Toplam Boyut';
 $html_kb = 'Kb';
 $html_bytes = 'byte';
-$html_filename = 'Dosya Adý';
-$html_to = 'Alýcý';
+$html_filename = 'Dosya AdÄ±';
+$html_to = 'AlÄ±cÄ±';
 $html_cc = 'Cc';  //to translate
 $html_bcc = 'Bcc';  //to translate
 $html_nosubject = 'Konusuz';
-$html_send = 'Gönder';
-$html_cancel = 'Ýptal';
+$html_send = 'GÃ¶nder';
+$html_cancel = 'Ä°ptal';
 $html_no_mail = 'Mesaj Yok.';
-$html_logout = 'Çýkýþ';
+$html_logout = 'Ã‡Ä±kÄ±ÅŸ';
 $html_msg = 'Mesaj';
 $html_msgs = 'Mesajlar';
-$html_configuration = 'Bu sunucusu henüz konfigure edilmemiþ !';
+$html_configuration = 'Bu sunucusu henÃ¼z konfigure edilmemiÅŸ !';
 $html_priority = 'Priority';  //to translate
 $html_low = 'Low';  //to translate
 $html_normal = 'Normal';  //to translate
@@ -211,7 +211,7 @@ $html_del_msg = 'Delete selected messages ?';  //to translate
 $html_down_mail = 'Download';  //to translate
 
 $original_msg = '-- Orijinal Mesaj --';
-$to_empty = ' \'Alýcý\' alaný boþ geçilemez !';
+$to_empty = ' \'AlÄ±cÄ±\' alanÄ± boÅŸ geÃ§ilemez !';
 
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Unable to open SMTP connection';  //to translate

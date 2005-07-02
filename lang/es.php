@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/es.php,v 1.43 2005/05/01 20:45:56 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/es.php,v 1.44 2005/06/20 16:30:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,7 +12,7 @@
  * Translation by Gustavo Muslera <gmuslera@internet.com.uy>
  */
 
-$charset = 'ISO-8859-1';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -39,8 +39,8 @@ $default_time_format = '%I:%M %p';
 
 // Here is the configuration for the HTML
 
-$err_user_empty = 'El campo de usuario esta vac&iacute;o';
-$err_passwd_empty = 'El campo de clave esta vac&iacute;o';
+$err_user_empty = 'El campo de usuario esta vacío';
+$err_passwd_empty = 'El campo de clave esta vacío';
 
 
 // html message
@@ -74,9 +74,9 @@ $html_remember = "Remember settings"; //to translate
 $html_msgperpage = 'Messages per page';
 $html_preferences = 'Preferencias';
 $html_full_name = 'Nombre completo';
-$html_email_address = 'Direcci&oacute;n de E-mail';
+$html_email_address = 'Dirección de E-mail';
 $html_ccself = 'Copia a uno mismo';
-$html_hide_addresses = 'Ocultar direcci&oacute;n';
+$html_hide_addresses = 'Ocultar dirección';
 $html_outlook_quoting = 'Quotes tipo Outlook';
 $html_reply_to = 'Responder a';
 $html_use_signature = 'Usar firma';
@@ -145,7 +145,7 @@ $html_att = 'Archivo asociado';
 $html_atts = 'Archivos asociados';
 $html_att_unknown = '[desconocido]';
 $html_attach = 'Asociar';
-$html_attach_forget = 'Debe asociar su archivo anes de enviar su mensaje !';
+$html_attach_forget = '¡ Debe asociar su archivo anes de enviar su mensaje !';
 $html_attach_delete = 'Borrar elegidos';
 $html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Ordenar por';
@@ -154,8 +154,8 @@ $html_subject = 'Tema';
 $html_date = 'Fecha';
 $html_sent = 'Enviar';
 $html_wrote = 'wrote';
-$html_size = 'Tama&ntilde;o';
-$html_totalsize = 'Tama&ntilde;o total';
+$html_size = 'Tamaño';
+$html_totalsize = 'Tamaño total';
 $html_kb = 'Kb';
 $html_bytes = 'bytes';
 $html_filename = 'Archivo';
@@ -169,7 +169,7 @@ $html_no_mail = 'Sin nuevos mensajes.';
 $html_logout = 'Salir';
 $html_msg = 'Mensaje';
 $html_msgs = 'Mensajes';
-$html_configuration = 'Este servidor no est&aacute; bien definido !';
+$html_configuration = '¡ Este servidor no está bien definido !';
 $html_priority = 'Prioridad';
 $html_low = 'Baja';
 $html_normal = 'Normal';  //to translate
@@ -179,7 +179,7 @@ $html_select = 'Elegir';
 $html_select_all = 'Invert Selection';  //to translate
 $html_loading_image = 'Cargando imagen';
 $html_send_confirmed = 'Su correo ha sido aceptado para envio';
-$html_no_sendaction = 'No ha especificado acci&oacute;n. Intente habilitando JavaScript.';
+$html_no_sendaction = 'No ha especificado acción. Intente habilitando JavaScript.';
 $html_error_occurred = 'Ha ocurrido un error';
 $html_prefs_file_error = 'Imposible abrir el archivo de preferencias para cambiarlo.';
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
@@ -211,10 +211,10 @@ $html_del_msg = 'Delete selected messages ?';  //to translate
 $html_down_mail = 'Download';  //to translate
 
 $original_msg = '-- Mensaje Original --';
-$to_empty = 'El campo \'A\' no debe estar vacio !';
+$to_empty = '¡ El campo \'A\' no debe estar vacio !';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = 'Imposible abrir conexi&oacute;n';
+$html_smtp_error_no_conn = 'Imposible abrir conexión';
 $html_smtp_error_unexpected = 'Respuesta inesperada:';
 
 // IMAP messages (class_local.php)

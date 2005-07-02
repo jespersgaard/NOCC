@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.42 2005/05/01 20:45:56 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.43 2005/06/20 16:30:09 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,7 +12,7 @@
  * Translation by Guido Venturini <guido@technojuice.com> and Francesco Andreozzi <ozzo@lauratiamo.it>
  */
 
-$charset = 'ISO-8859-1';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -89,10 +89,10 @@ $html_use_graphical_smilies = 'Usa smilies grafici';
 $html_sent_folder = 'Copy sent mails into a dedicated folder'; //to translate
 
 // folders.php
-$html_folders_create_failed = 'La cartella non può essere creata!';
+$html_folders_create_failed = 'La cartella non puÃ² essere creata!';
 $html_folders_sub_failed = 'Impossibile connettersi alla cartella!';
 $html_folders_unsub_failed = 'Impossibile disconnettersi dalla cartella!';
-$html_folders_rename_failed = 'La cartella non può essere rinominata!';
+$html_folders_rename_failed = 'La cartella non puÃ² essere rinominata!';
 $html_folders_updated = 'Cartelle aggiornate';
 $html_folder_subscribe = 'Connettiti a'; 
 $html_folder_rename = 'Rinomina';
@@ -169,7 +169,7 @@ $html_no_mail = 'Non vi sono nuovi messaggi.';
 $html_logout = 'Esci';
 $html_msg = 'Messaggio';
 $html_msgs = 'Messaggi';
-$html_configuration = 'Questo server non è configurato correttamente!';
+$html_configuration = 'Questo server non Ã¨ configurato correttamente!';
 $html_priority = 'Priorita';
 $html_low = 'Bassa';
 $html_normal = 'Normale';
@@ -204,21 +204,21 @@ $html_contact_mail = 'Mail';
 $html_contact_list = 'Lista dei Contatti di ';
 $html_contact_del = 'dalla lista dei contatti';
 
-$html_contact_err1 = 'Il numero massimo dei contatti è ';
+$html_contact_err1 = 'Il numero massimo dei contatti Ã¨ ';
 $html_contact_err2 = 'Non puoi aggiungere altri contatti';
 $html_contact_err3 = 'Non hai i privilegi necessari per accedere alla lista contatti';
 $html_del_msg = 'Eliminare i messaggi selezionati ?';
 $html_down_mail = 'Download';
 
 $original_msg = '-- Messaggio Originale --';
-$to_empty = 'Il campo \'A\' non può essere vuoto !';
+$to_empty = 'Il campo \'A\' non puÃ² essere vuoto !';
 
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Impossibile stabilire una connessione';
 $html_smtp_error_unexpected = 'Risposta inattesa dal server SMTP:';
 
 // IMAP messages (class_local.php)
-$lang_could_not_connect = 'Non è possibile connettersi al server';
+$lang_could_not_connect = 'Non Ã¨ possibile connettersi al server';
 $lang_invalid_msg_num = 'Bad Message Number';  //to translate
 
 $html_file_upload_attack = 'Possibile file upload attack'; //to translate

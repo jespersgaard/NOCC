@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fi.php,v 1.29 2005/05/01 20:45:56 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fi.php,v 1.30 2005/06/20 16:30:09 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,10 +9,10 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
  * Configuration file for the finnish language
- * Translation by Jarmo J�rvenp�� <Jarmo.Jarvenpaa@softers.net>
+ * Translation by Jarmo Järvenpää <Jarmo.Jarvenpaa@softers.net>
  */
 
-$charset = 'ISO-8859-1';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -39,8 +39,8 @@ $default_time_format = '%I:%M %p';
 
 // Here is the configuration for the HTML
 
-$err_user_empty = 'K&auml;ytt&auml;j&auml;tunnus-kentt&auml; on tyhj&auml;';
-$err_passwd_empty = 'Salasana-kentt&auml; on tyhj&auml;';
+$err_user_empty = 'Käyttäjätunnus-kenttä on tyhjä';
+$err_passwd_empty = 'Salasana-kenttä on tyhjä';
 
 
 // html message
@@ -50,7 +50,7 @@ $alt_delete_one = 'Poista viesti';
 $alt_new_msg = 'Uudet viestit';
 $alt_reply = 'Vastaa kirjoittajalle';
 $alt_reply_all = 'Vastaa kaikille';
-$alt_forward = 'Edelleenl&auml;het&auml;';
+$alt_forward = 'Edelleenlähetä';
 $alt_next = 'Seuraava viesti';
 $alt_prev = 'Edellinen viesti';
 $html_on = 'on';  //to translate
@@ -60,12 +60,12 @@ $html_theme = 'Teema';
 
 $html_lang = 'Kieli';
 $html_welcome = 'Tervetuloa';
-$html_login = 'K&auml;ytt&auml;j&auml;tunnus';
+$html_login = 'Käyttäjätunnus';
 $html_passwd = 'Salasana';
-$html_submit = 'Sis&auml;&auml;n';
+$html_submit = 'Sisään';
 $html_help = 'Apua';
 $html_server = 'Palvelin';
-$html_wrong = 'K&auml;ytt&auml;j&auml;tunnus tai salasana on virheellinen';
+$html_wrong = 'Käyttäjätunnus tai salasana on virheellinen';
 $html_retry = 'Uudestaan';
 $html_remember = "Remember settings"; //to translate
 
@@ -74,15 +74,15 @@ $html_remember = "Remember settings"; //to translate
 $html_msgperpage = 'Messages per page';
 $html_preferences = 'Asetukset';
 $html_full_name = 'Koko nimi';
-$html_email_address = 'S&auml;hk&ouml;postiosoitteet';
+$html_email_address = 'Sähkäpostiosoitteet';
 $html_ccself = 'Kopio itsellesi';
 $html_hide_addresses = 'Piilota osoitteet';
 $html_outlook_quoting = 'Outlook-tyyppinen lainaus';
 $html_reply_to = 'Vastaa';
-$html_use_signature = 'K&auml;yt&auml; allekirjoitusta';
+$html_use_signature = 'Käytä allekirjoitusta';
 $html_signature = 'Allekirjoitus';
 $html_reply_leadin = 'Reply Leadin';  //to translate
-$html_prefs_updated = 'Asetukset P&auml;ivitetty';
+$html_prefs_updated = 'Asetukset Päivitetty';
 $html_manage_folders_link = 'Manage IMAP Folders';  //to translate
 $html_manage_filters_link = 'Manage Email Filters';  //to translate
 $html_use_graphical_smilies = 'Use graphical smilies'; //to translate
@@ -128,14 +128,14 @@ $html_other_folders = 'Folder List';  //to translate
 $html_page = 'Page';  //to translate
 $html_of = 'of';  //to translate
 $html_to = 'to';  //to translate
-$html_view_header = 'N&auml;yt&auml; otsikot';
+$html_view_header = 'Näytä otsikot';
 $html_remove_header = 'Piilota otsikot';
 $html_inbox = 'Postilaatikko';
 $html_new_msg = 'Uusi viesti';
 $html_reply = 'Vastaa';
 $html_reply_short = 'Re';  //to translate
 $html_reply_all = 'Vastaa kaikille';
-$html_forward = 'Edelleenl&auml;het&auml;';
+$html_forward = 'Edelleenlähetä';
 $html_forward_short = 'Fw';  //to translate
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
 $html_delete = 'Poista';
@@ -144,18 +144,18 @@ $html_mark = 'Poista';
 $html_att = 'Liite';
 $html_atts = 'Liitteet';
 $html_att_unknown = '[tuntematon]';
-$html_attach = 'Liit&auml;';
-$html_attach_forget = 'Sinun t&auml;ytyy liitt&auml;&auml; tiedosto(t) ennen l&auml;hetyst&auml;';
+$html_attach = 'Liitä';
+$html_attach_forget = 'Sinun täytyy liittää tiedosto(t) ennen lähetystä';
 $html_attach_delete = 'Poista valitut';
 $html_attach_none = 'You must select a file to attach!';  //to translate
-$html_sort_by = 'J&auml;rjestele';
-$html_from = 'Kenelt&auml;';
+$html_sort_by = 'Järjestele';
+$html_from = 'Keneltä';
 $html_subject = 'Aihe';
-$html_date = 'P&auml;iv&auml;';
-$html_sent = 'L&auml;het&auml;';
+$html_date = 'Päivä';
+$html_sent = 'Lähetä';
 $html_wrote = 'kirjoitti';
 $html_size = 'Koko';
-$html_totalsize = 'Kokonais m&auml;&auml;r&auml;';
+$html_totalsize = 'Kokonais määrä';
 $html_kb = 'Kb';
 $html_bytes = 'tavua';
 $html_filename = 'Tiedostonimi';
@@ -163,13 +163,13 @@ $html_to = 'Kenelle';
 $html_cc = 'Kopio';
 $html_bcc = 'Bcc';  //to translate
 $html_nosubject = 'Ei viestin aihetta';
-$html_send = 'L&auml;het&auml;';
+$html_send = 'Lähetä';
 $html_cancel = 'Peruuta';
-$html_no_mail = 'Ei viesti&auml;.';
-$html_logout = 'Poistu j&auml;rjestelm&auml;st&auml;';
+$html_no_mail = 'Ei viestiä.';
+$html_logout = 'Poistu järjestelmästä';
 $html_msg = 'Viesti';
-$html_msgs = 'Viesti�';
-$html_configuration = 'T&auml;t&auml; palvelinta ei ole asennettu oikein';
+$html_msgs = 'Viestiä';
+$html_configuration = 'Tätä palvelinta ei ole asennettu oikein';
 $html_priority = 'Kiireellisyys';
 $html_low = 'Matala';
 $html_normal = 'Tavallinen';
@@ -178,10 +178,10 @@ $html_receipt = 'Request a return receipt';
 $html_select = 'Valitse';
 $html_select_all = 'Invert Selection';  //to translate
 $html_loading_image = 'Lataan kuvaa';
-$html_send_confirmed = 'S&auml;hk&ouml;postisi on onnistuneesti l&auml;hetetty';
-$html_no_sendaction = 'Toimintoa ei m&auml;&auml;ritelty. Kokeile sallia JavaScriptin suoritus selaimessasi.';
+$html_send_confirmed = 'Sähköpostisi on onnistuneesti lähetetty';
+$html_no_sendaction = 'Toimintoa ei määritelty. Kokeile sallia JavaScriptin suoritus selaimessasi.';
 $html_error_occurred = 'Tapahtui virhe';
-$html_prefs_file_error = 'En voi avata asetustiedostoa p&auml;ivityst&auml; varten.';
+$html_prefs_file_error = 'En voi avata asetustiedostoa päivitystä varten.';
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
 $html_wrap_none = 'None'; //to translate
 $html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
@@ -210,18 +210,18 @@ $html_contact_err3 = 'You don\'t have access rights to contact list'; //to trans
 $html_del_msg = 'Delete selected messages ?';  //to translate
 $html_down_mail = 'Download';  //to translate
 
-$original_msg = '-- Alkuper&auml;inen viesti --';
-$to_empty = '\'Kenelle\' kentt&auml; ei saa olla tyhj&auml;';
+$original_msg = '-- Alkuperäinen viesti --';
+$to_empty = '\'Kenelle\' kenttä ei saa olla tyhjä';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = 'Yhteytt&auml; ei saada avattua.';
+$html_smtp_error_no_conn = 'Yhteyttä ei saada avattua.';
 $html_smtp_error_unexpected = 'Odottamaton vastine:';
 
 // IMAP messages (class_local.php)
-$lang_could_not_connect = 'Ei saa yhteytt&auml; palvelimeen.';
+$lang_could_not_connect = 'Ei saa yhteyttä palvelimeen.';
 $lang_invalid_msg_num = 'Bad Message Number';  //to translate
 
-$html_file_upload_attack = 'Mahdollinen upload-hy&ouml;kk&auml;ys palvelimelle';
+$html_file_upload_attack = 'Mahdollinen upload-hyökkäys palvelimelle';
 $html_invalid_email_address = 'Invalid e-mail address';  //to translate
 $html_invalid_msg_per_page = 'Invalid number of messages per page';  //to translate
 $html_invalid_wrap_msg = 'Invalid message wrap width';  //to translate

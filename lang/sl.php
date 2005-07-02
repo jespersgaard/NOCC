@@ -12,7 +12,7 @@
  * Tanslation by Borut Mrak <borut.mrak@ijs.si>
  */
 
-$charset = 'ISO-8859-2';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -39,33 +39,33 @@ $default_time_format = '%I:%M %p';
 
 // Here is the configuration for the HTML
 
-$err_user_empty = 'Uporabniško ime ni bilo vnešeno';
-$err_passwd_empty = 'Geslo ni bilo vnešeno';
+$err_user_empty = 'UporabniÂško ime ni bilo vneÂšeno';
+$err_passwd_empty = 'Geslo ni bilo vneÂšeno';
 
 
 // html message
 
-$alt_delete = 'Izbriši izbrana sporoèila';
-$alt_delete_one = 'Izbriši sporoèilo';
-$alt_new_msg = 'Nova sporoèila';
+$alt_delete = 'IzbriÂši izbrana sporoÄila';
+$alt_delete_one = 'IzbriÂši sporoÄilo';
+$alt_new_msg = 'Nova sporoÄila';
 $alt_reply = 'Odgovori';
 $alt_reply_all = 'Odgovori vsem';
 $alt_forward = 'Naprej';
 $alt_next = 'Naslednji';
-$alt_prev = 'Prejšnji';
+$alt_prev = 'PrejÂšnji';
 $html_on = 'on';  //to translate
 $html_theme = 'tema';
 
 // index.php
 
 $html_lang = 'Jezik';
-$html_welcome = 'Dobrodošli v';
-$html_login = 'Uporabniško ime';
+$html_welcome = 'DobrodoÂšli v';
+$html_login = 'UporabniÂško ime';
 $html_passwd = 'Geslo';
 $html_submit = 'Prijava';
-$html_help = 'Pomoè';
-$html_server = 'Strenik';
-$html_wrong = 'Uporabniško ime ali geslo je napaèno';
+$html_help = 'PomoÄ';
+$html_server = 'StreÂnik';
+$html_wrong = 'UporabniÂško ime ali geslo je napaÄno';
 $html_retry = 'Poskusi ponovno';
 $html_remember = "Remember settings"; //to translate
 
@@ -128,24 +128,24 @@ $html_other_folders = 'Folder List';  //to translate
 $html_page = 'Page';  //to translate
 $html_of = 'of';  //to translate
 $html_to = 'to';  //to translate
-$html_view_header = 'Pokai glavo';
+$html_view_header = 'PokaÂi glavo';
 $html_remove_header = 'Skrij glavo';
 $html_inbox = 'Prejeto';
-$html_new_msg = 'Piši';
+$html_new_msg = 'PiÂši';
 $html_reply = 'Odgovori';
 $html_reply_short = 'Re';
 $html_reply_all = 'Odgovori vsem';
 $html_forward = 'Posreduj';
 $html_forward_short = 'Fw';
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
-$html_delete = 'Briši';
+$html_delete = 'BriÂši';
 $html_new = 'Novo';
-$html_mark = 'Izbriši';
+$html_mark = 'IzbriÂši';
 $html_att = 'Priponka';
 $html_atts = 'Priponke';
 $html_att_unknown = '[neznan]';
 $html_attach = 'Pripni';
-$html_attach_forget = 'Datoteko morate pripeti pred poišiljanjem sporoèila!';
+$html_attach_forget = 'Datoteko morate pripeti pred poiÂšiljanjem sporoÄila!';
 $html_attach_delete = 'Odstrani izbrane';
 $html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sortiraj po';
@@ -163,23 +163,23 @@ $html_to = 'Za';
 $html_cc = 'Kp';
 $html_bcc = 'Skp';
 $html_nosubject = 'Brez zadeve';
-$html_send = 'Pošlji';
-$html_cancel = 'Preklièi';
-$html_no_mail = 'Ni sporoèil.';
+$html_send = 'PoÅ¡lji';
+$html_cancel = 'PrekliÄi';
+$html_no_mail = 'Ni sporoÄil.';
 $html_logout = 'Odjava';
-$html_msg = 'Sporoèilo';
-$html_msgs = 'Sporoèil';
-$html_configuration = 'Napaka na streniku';
+$html_msg = 'SporoÄilo';
+$html_msgs = 'SporoÄil';
+$html_configuration = 'Napaka na streÂniku';
 $html_priority = 'Prioriteta';
 $html_low = 'Nizka';
-$html_normal = 'Obièajna';
+$html_normal = 'ObiÄajna';
 $html_high = 'Visoka';
 $html_receipt = 'Request a return receipt';  //to translate
-$html_select = 'Oznaèi';
+$html_select = 'OznaÄi';
 $html_select_all = 'Invert Selection';  //to translate
 $html_loading_image = 'Nalagam sliko';
-$html_send_confirmed = 'Vase sporoèilo je bilo poslano.';
-$html_no_sendaction = 'Napaka: Brez ukaza. Poskusite vkljuèiti JavaScript.';
+$html_send_confirmed = 'Vase sporoÄilo je bilo poslano.';
+$html_no_sendaction = 'Napaka: Brez ukaza. Poskusite vkljuÄiti JavaScript.';
 $html_error_occurred = 'Zgodila se je napaka.';
 $html_prefs_file_error = 'Ne morem pisati v datoteko z nastavitvami';
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
@@ -210,12 +210,12 @@ $html_contact_err3 = 'You don\'t have access rights to contact list'; //to trans
 $html_del_msg = 'Delete selected messages ?';  //to translate
 $html_down_mail = 'Download';  //to translate
 
-$original_msg = '-- Izvorno sporoèilo --';
+$original_msg = '-- Izvorno sporoÄilo --';
 $to_empty = 'Polje \'Za:\' ne sme biti prazno!';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = 'Zveze ni mogoèe vzpostaviti';
-$html_smtp_error_unexpected = 'Neprièakovan odgovor:';
+$html_smtp_error_no_conn = 'Zveze ni mogoÄe vzpostaviti';
+$html_smtp_error_unexpected = 'NepriÄakovan odgovor:';
 
 // IMAP messages (class_local.php)
 $lang_could_not_connect = 'Could not connect to server';  //to translate

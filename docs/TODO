@@ -3,8 +3,6 @@ please send a note to <nocc-discuss at lists.sourceforge.net>
 or file a RFE at:
 http://sf.net/tracker/?atid=362177&group_id=12177&func=browse
 
- - Switch all charsets to UTF-8, as per:
-    http://www.joelonsoftware.com/articles/Unicode.html
  - Change language files to use an array ($lang_text->...).
  - Create specific icons for attachments.
  - Colored quotes.

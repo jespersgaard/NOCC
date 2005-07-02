@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.131 2005/01/06 19:28:27 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.132 2005/01/08 22:08:29 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -89,7 +89,7 @@ switch($_REQUEST['sendaction'])
         $_SESSION['nocc_attach_array'] = $attach_array;
 
         // Displaying the sending form with the new attachments array
-        header("Content-type: text/html; Charset=$charset");
+        //header("Content-type: text/html; Charset=$charset");
         require ('./html/header.php');
         require ('./html/menu_inbox.php');
         require ('./html/send.php');

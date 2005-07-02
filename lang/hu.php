@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/hu.php,v 1.29 2005/05/01 20:45:56 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/hu.php,v 1.30 2005/06/20 16:30:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,10 +9,10 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
  * Configuration file for the Hungarian language
- * Translation by Hajdu Zolt�n <wirhock@wirhock.com>
+ * Translation by Hajdu Zoltán <wirhock@wirhock.com>
  */
 
-$charset = 'ISO-8859-1';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -39,38 +39,37 @@ $default_time_format = '%H:%M';
 
 // Here is the configuration for the HTML
 
-$err_user_empty = 'Az azonos&iacute;t&oacute;t meg kell adni';
-$err_passwd_empty = 'A jelsz&oacute;t meg kell adni';
+$err_user_empty = 'Az azonosítót meg kell adni';
+$err_passwd_empty = 'A jelszót meg kell adni';
 
 
 // html message
 
-$alt_delete = 'Kijel&ouml;lt &uuml;zenetek t&ouml;rl&eacute;se';
-$alt_delete_one = '&Uuml;zenet t&ouml;rl&eacute;se';
-$alt_new_msg = '&Uacute;j &uuml;zenetek';
-$alt_reply = 'V&aacute;laszol';
-$alt_reply_all = 'Mindre v&aacute;laszol';
-$alt_forward = 'Tov&aacute;bbk&uuml;ld';
-$alt_next = 'K&ouml;vetkez&otilde; &uuml;zenet';
-$alt_prev = 'El&otilde;z&otilde; &uuml;zenet';
+$alt_delete = 'Kijelölt üzenetek törlése';
+$alt_delete_one = 'Üzenet törlése';
+$alt_new_msg = 'Új üzenetek';
+$alt_reply = 'Válaszol';
+$alt_reply_all = 'Mindre válaszol';
+$alt_forward = 'Továbbküld';
+$alt_next = 'Következõ üzenet';
+$alt_prev = 'Elõzõ üzenet';
 $html_on = 'on';  //to translate
-$html_theme = 'T&eacute;ma';
+$html_theme = 'Téma';
 
 // index.php
 
 $html_lang = 'Nyelv';
-$html_welcome = '&Uuml;dv&ouml;zli a';
-$html_login = 'Azonos&iacute;t&oacute;';
-$html_passwd = 'Jelsz&oacute;';
-$html_submit = 'Bejelentkez&eacute;s';
-$html_help = 'Seg&iacute;ts&eacute;g';
+$html_welcome = 'Üdvözli a';
+$html_login = 'Azonosító';
+$html_passwd = 'Jelszó';
+$html_submit = 'Bejelentkezés';
+$html_help = 'Segítség';
 $html_server = 'Szerver';
-$html_wrong = 'Az azonos&iacute;t&oacute; vagy jelsz&oacute; nem megfelel&otilde;';
-$html_retry = '&Uacute;jra';
+$html_wrong = 'Az azonosító vagy jelszó nem megfelelõ';
+$html_retry = 'Újra';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
-o
 $html_msgperpage = 'Messages per page';  //to translate
 $html_preferences = 'Preferences';  //to translate
 $html_full_name = 'Full name';  //to translate
@@ -128,47 +127,47 @@ $html_other_folders = 'Folder List';  //to translate
 $html_page = 'Page';  //to translate
 $html_of = 'of';  //to translate
 $html_to = 'to';  //to translate
-$html_view_header = 'Fejl&eacute;cet mutat';
-$html_remove_header = 'Fejl&eacute;cet takar';
-$html_inbox = '&Eacute;rkezett';
-$html_new_msg = '&iacute;r';
-$html_reply = 'V&aacute;laszol';
+$html_view_header = 'Fejlécet mutat';
+$html_remove_header = 'Fejlécet takar';
+$html_inbox = 'Érkezett';
+$html_new_msg = 'ír';
+$html_reply = 'Válaszol';
 $html_reply_short = 'Re';  //to translate
-$html_reply_all = 'Mindre v&aacute;laszol';
-$html_forward = 'Tov&aacute;bbk&uuml;ld';
+$html_reply_all = 'Mindre válaszol';
+$html_forward = 'Továbbküld';
 $html_forward_short = 'Fw';  //to translate
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
-$html_delete = 'T&ouml;r&ouml;l';
-$html_new = '&Uacute;j';
-$html_mark = 'T&ouml;r&ouml;l';
-$html_att = 'Csatolt f&aacute;jl';
-$html_atts = 'Csatolt f&aacute;jlok';
+$html_delete = 'Töröl';
+$html_new = 'Új';
+$html_mark = 'Töröl';
+$html_att = 'Csatolt fájl';
+$html_atts = 'Csatolt fájlok';
 $html_att_unknown = '[ismeretlen]';
 $html_attach = 'Csatol';
-$html_attach_forget = 'Csatolni kell a f&aacute;jlt &uuml;zenetk&uuml;ld&eacute;s el&otilde;tt !';
-$html_attach_delete = 'Csatolt f&aacute;jl elv&eacute;tele';
+$html_attach_forget = 'Csatolni kell a fájlt üzenetküldés elõtt !';
+$html_attach_delete = 'Csatolt fájl elvétele';
 $html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sort by';  //to translate
-$html_from = 'Felad&oacute;';
-$html_subject = 'C&iacute;m';
-$html_date = 'D&aacute;tum';
-$html_sent = 'Elk&uuml;ldve';
+$html_from = 'Feladó';
+$html_subject = 'Cím';
+$html_date = 'Dátum';
+$html_sent = 'Elküldve';
 $html_wrote = 'wrote';  //to translate
-$html_size = 'M&eacute;ret';
-$html_totalsize = 'Teljes m&eacute;ret';
+$html_size = 'Méret';
+$html_totalsize = 'Teljes méret';
 $html_kb = 'Kb';  //to translate
 $html_bytes = 'bytes';  //to translate
-$html_filename = 'F&aacute;jln&eacute;v';
-$html_to = 'C&iacute;mzett';
-$html_cc = 'M&aacute;solat';
-$html_bcc = 'Vakm&aacute;solat';
-$html_nosubject = 'Nincs c&iacute;m';
+$html_filename = 'Fájlnév';
+$html_to = 'Címzett';
+$html_cc = 'Másolat';
+$html_bcc = 'Vakmásolat';
+$html_nosubject = 'Nincs cím';
 $html_send = 'Mehet';
-$html_cancel = 'M&eacute;gsem';
-$html_no_mail = 'Nincs &uuml;zenet.';
-$html_logout = 'Kil&eacute;p';
-$html_msg = '&Uuml;zenet';
-$html_msgs = '&Uuml;zenetek';
+$html_cancel = 'Mégsem';
+$html_no_mail = 'Nincs üzenet.';
+$html_logout = 'Kilép';
+$html_msg = 'Üzenet';
+$html_msgs = 'Üzenetek';
 $html_configuration = 'This server is not well set up !';  //to translate
 $html_priority = 'Priority';  //to translate
 $html_low = 'Low';  //to translate
@@ -210,8 +209,8 @@ $html_contact_err3 = 'You don\'t have access rights to contact list'; //to trans
 $html_del_msg = 'Delete selected messages ?';  //to translate
 $html_down_mail = 'Download';  //to translate
 
-$original_msg = '-- Eredeti &uuml;zenet --';
-$to_empty = 'A \'C&iacute;mzett\' mez&otilde;t ki kell t&ouml;lteni !';
+$original_msg = '-- Eredeti üzenet --';
+$to_empty = 'A \'Címzett\' mezõt ki kell tölteni !';
 
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Unable to open SMTP connection';  //to translate

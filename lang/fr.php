@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.83 2005/05/01 20:45:56 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.84 2005/06/20 16:30:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,7 +12,7 @@
  *
  */
 
-$charset = 'ISO-8859-1';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -45,59 +45,59 @@ $err_passwd_empty = 'Vous n\'avez pas saisi de mot de passe';
 
 // html message
 
-$alt_delete = 'Effacer les messages selectionn&eacute;s';
+$alt_delete = 'Effacer les messages selectionnés';
 $alt_delete_one = 'Effacer le message';
 $alt_new_msg = 'Nouveaux messages';
-$alt_reply = 'R&eacute;pondre &agrave; l\'auteur';
-$alt_reply_all = 'R&eacute;pondre &agrave; tous';
-$alt_forward = 'Transf&eacute;rer';
+$alt_reply = 'Répondre à l\'auteur';
+$alt_reply_all = 'Répondre à tous';
+$alt_forward = 'Transférer';
 $alt_next = 'Message suivant';
-$alt_prev = 'Message pr&eacute;c&eacute;dent';
+$alt_prev = 'Message précédent';
 $html_on = 'sur';
-$html_theme = 'Th&egrave;me';
+$html_theme = 'Thème';
 
 // index.php
 
 $html_lang = 'Langue';
-$html_welcome = 'Bienvenue &agrave;';
+$html_welcome = 'Bienvenue à';
 $html_login = 'Login';
 $html_passwd = 'Mot de passe';
 $html_submit = 'Valider';
 $html_help = 'Aide';
 $html_server = 'Serveur';
 $html_wrong = 'Le login ou le mot de passe ne sont pas valides';
-$html_retry = 'R&eacute;essayer';
-$html_remember = "Conserver les param&egrave;tres";
+$html_retry = 'Réessayer';
+$html_remember = "Conserver les paramètres";
 
 // prefs.php
 
 $html_msgperpage = 'Messages par page';
-$html_preferences = 'Pr&eacute;f&eacute;rences';
+$html_preferences = 'Préférences';
 $html_full_name = 'Nom complet';
 $html_email_address = 'Adresse e-mail';
 $html_ccself = 'Recevoir une copie';
 $html_hide_addresses = 'Cacher les adresses e-mail';
-$html_outlook_quoting = 'Citation &agrave; la Outlook';
-$html_reply_to = 'R&eacute;pondre &agrave;';
+$html_outlook_quoting = 'Citation à la Outlook';
+$html_reply_to = 'Répondre à';
 $html_use_signature = 'Utiliser la signature';
 $html_signature = 'Signature';
 $html_reply_leadin = 'Reply Leadin';  //to translate
-$html_prefs_updated = 'Pr&eacute;f&eacute;rences mises &agrave; jour';
+$html_prefs_updated = 'Préférences mises à jour';
 $html_manage_folders_link = 'Gestion des dossiers IMAP';
 $html_manage_filters_link = 'Gestion des filtres email';
-$html_use_graphical_smilies = 'Utiliser les emoticons graphiques';
-$html_sent_folder = 'Copier les &eacute;l&eacute;ments envoy&eacute;s dans un dossier d&eacute;di&eacute;';
+$html_use_graphical_smilies = 'Utiliser les émoticons graphiques';
+$html_sent_folder = 'Copier les éléments envoyés dans un dossier dédié';
 
 // folders.php
-$html_folders_create_failed = 'Le dossier n\'a pas pu &ecirc;tre cr&eacute;&eacute;!';
-$html_folders_sub_failed = 'Il n\' pas &eacute;t&eacute; possible de s\'inscrire au dossier!';
-$html_folders_unsub_failed = 'Il n\' pas &eacute;t&eacute; possible de de d&eacute;inscrire du dossier!';
-$html_folders_rename_failed = 'Le dossier n\'a pas pu &ecirc;tre renomm&eacute;!';
-$html_folders_updated = 'Dossiers mis &agrave; jour';
-$html_folder_subscribe = 'S\'inscrire &agrave;';
+$html_folders_create_failed = 'Le dossier n\'a pas pu être créé!';
+$html_folders_sub_failed = 'Il n\' pas été possible de s\'inscrire au dossier!';
+$html_folders_unsub_failed = 'Il n\' pas été possible de de désinscrire du dossier!';
+$html_folders_rename_failed = 'Le dossier n\'a pas pu être renommé!';
+$html_folders_updated = 'Dossiers mis à jour';
+$html_folder_subscribe = 'S\'inscrire à';
 $html_folder_rename = 'Renommer';
-$html_folder_create = 'Cr&eacute;er un nouveau dossier';
-$html_folder_remove = 'Se d&eacute;sincrire de';
+$html_folder_create = 'Créer un nouveau dossier';
+$html_folder_remove = 'Se désincrire de';
 $html_folder_delete = 'Supprimer';
 
 // filters.php
@@ -107,53 +107,53 @@ $html_filter_subject = 'Objet';
 $html_filter_to = 'A';
 $html_filter_cc = 'Cc';
 $html_filter_from = 'De';
-$html_filter_change_tip = 'Pour changer un filtre, re&eacute;crivez dessus.';
-$html_reapply_filters = 'R&eacute;appliquer tous les filtres';
+$html_filter_change_tip = 'Pour changer un filtre, reécrivez dessus.';
+$html_reapply_filters = 'Réappliquer tous les filtres';
 $html_filter_contains = 'contient';
 $html_filter_name = 'Nom du filtre';
 $html_filter_action = 'Action';
-$html_filter_moveto = 'd&eacute;placer vers';
+$html_filter_moveto = 'déplacer vers';
 
 // Other pages
-$html_select_one = '--S&eacute;lectionner--';
+$html_select_one = '--Sélectionner--';
 $html_and = 'Et';
 $html_new_msg_in = 'Nouveaux messages dans';
 $html_or = 'ou';
-$html_move = 'D&eacute;placer';
+$html_move = 'Déplacer';
 $html_copy = 'Copier';
-$html_messages_to = 'le message s&eacute;lectionn&eacute; vers';
-$html_gotopage = 'Aller &agrave; la page';
+$html_messages_to = 'le message sélectionné vers';
+$html_gotopage = 'Aller à la page';
 $html_gotofolder = 'Aller au dossier';
 $html_other_folders = 'Liste des dossiers';
 $html_page = 'Page';
 $html_of = 'sur';
 $html_to = 'vers';
-$html_view_header = 'Voir l\'ent&ecirc;te';
-$html_remove_header = 'Masquer l\'ent&ecirc;te';
-$html_inbox = 'Bo&icirc;te de r&eacute;ception';
+$html_view_header = 'Voir l\'entête';
+$html_remove_header = 'Masquer l\'entête';
+$html_inbox = 'Boîte de réception';
 $html_new_msg = 'Ecrire';
-$html_reply = 'R&eacute;pondre';
+$html_reply = 'Répondre';
 $html_reply_short = 'Re';
-$html_reply_all = 'R&eacute;pondre &agrave; tous';
-$html_forward = 'Transf&eacute;rer';
+$html_reply_all = 'Répondre à tous';
+$html_forward = 'Transférer';
 $html_forward_short = 'Tr';
-$html_forward_info = 'Le message transf&eacute;r&eacute; sera envoy&eacute; en pi&egrave;ce jointe avec ce message.';
+$html_forward_info = 'Le message transféré sera envoyé en pièce jointe avec ce message.';
 $html_delete = 'Supprimer';
 $html_new = 'Nouveau';
 $html_mark = 'Effacer';
-$html_att = 'Pi&egrave;ce jointe';
-$html_atts = 'Pi&egrave;ces jointes';
+$html_att = 'Pièce jointe';
+$html_atts = 'Pièces jointes';
 $html_att_unknown = '[inconnu]';
 $html_attach = 'Attacher';
 $html_attach_forget = 'Vous devez attacher votre fichier avant d\'envoyer votre message !'; 
-$html_attach_delete = 'Supprimer les fichiers s&eacute;lectionn&eacute;s';
-$html_attach_none = 'Vous devez s&eacute;lectionner un fichier &agrave; attacher!';
+$html_attach_delete = 'Supprimer les fichiers sélectionnés';
+$html_attach_none = 'Vous devez sélectionner un fichier à attacher!';
 $html_sort_by = 'Trier par';
 $html_from = 'De';
 $html_subject = 'Sujet';
 $html_date = 'Date';
-$html_sent = 'Envoy� le';
-$html_wrote = 'a �crit';
+$html_sent = 'Envoyé le';
+$html_wrote = 'a écrit';
 $html_size = 'Taille';
 $html_totalsize = 'Taille Totale';
 $html_kb = 'Ko';
@@ -161,34 +161,34 @@ $html_bytes = 'octets';
 $html_filename = 'Fichier';
 $html_to = 'A';
 $html_cc = 'Copie';
-$html_bcc = 'Copie cach&eacute;e';
+$html_bcc = 'Copie cachée';
 $html_nosubject = 'Aucun sujet';
 $html_send = 'Envoyer';
 $html_cancel = 'Annuler';
 $html_no_mail = 'Aucun message.';
-$html_logout = 'D&eacute;connexion';
+$html_logout = 'Déconnexion';
 $html_msg = 'Message';
 $html_msgs = 'Messages';
-$html_configuration = 'Le serveur n\'est pas correctement configur&eacute;';
-$html_priority = 'Priorit&eacute;';
+$html_configuration = 'Le serveur n\'est pas correctement configuré';
+$html_priority = 'Priorité';
 $html_low = 'Basse';
 $html_normal = 'Normale';
 $html_high = 'Haute';
-$html_receipt = 'Accus&eacute; de r&eacute;ception';
-$html_select = 'S&eacute;lectionner';
-$html_select_all = 'Inverser la s&eacute;lection';
+$html_receipt = 'Accusé de réception';
+$html_select = 'Sélectionner';
+$html_select_all = 'Inverser la sélection';
 $html_loading_image = 'Chargement de l\'image';
-$html_send_confirmed = 'Votre message a bien &eacute;t&eacute; envoy&eacute;';
-$html_no_sendaction = 'Aucune action sp&eacute;cifi&eacute;e. Essayer d\'activer JavaScript';
+$html_send_confirmed = 'Votre message a bien été envoyé';
+$html_no_sendaction = 'Aucune action spécifiée. Essayer d\'activer JavaScript';
 $html_error_occurred = 'Une erreur est survenue';
-$html_prefs_file_error = 'Impossible d\'ouvrir le fichier de pr&eacute;f&eacute;rences';
-$html_wrap = 'Tronquer les messages sortant  &agrave;:';
+$html_prefs_file_error = 'Impossible d\'ouvrir le fichier de préférences';
+$html_wrap = 'Tronquer les messages sortant à:';
 $html_wrap_none = 'aucun';
-$html_usenet_separator = 'S&eacute;parateur Usenet ("-- \n") avant la signature';
+$html_usenet_separator = 'Séparateur Usenet ("-- \n") avant la signature';
 $html_mark_as = 'Marquer comme';
 $html_read = 'lu';
 $html_unread = 'non lu';
-$html_mail_sent = 'Message envoy&eacute; avec succ&eacute;s';
+$html_mail_sent = 'Message envoyé avec succés';
 
 // Contacts manager
 $html_add = 'Ajouter';
@@ -197,7 +197,7 @@ $html_modify = 'Modifier';
 $html_back = 'Retour';
 $html_contact_add = 'Ajouter un nouveau contact';
 $html_contact_mod = 'Modifier un contact';
-$html_contact_first = 'Pr&eacute;nom';
+$html_contact_first = 'Prénom';
 $html_contact_last = 'Nom';
 $html_contact_nick = 'Pseudo';
 $html_contact_mail = 'Email';
@@ -206,26 +206,26 @@ $html_contact_del = 'de la liste de contacts';
 
 $html_contact_err1 = 'Le nombre maximal de contact est ';
 $html_contact_err2 = 'Vous ne pouvez pas ajouter un nouveau contact';
-$html_contact_err3 = 'Vous n\'avez pas le droit d\'acceder &agrave; la liste des contacts';
-$html_del_msg = 'Supprimer le(s) message(s) s&eacute;lectionn&eacute;(s) ?';
-$html_down_mail = 'T&eacute;l&eacute;charger';
+$html_contact_err3 = 'Vous n\'avez pas le droit d\'acceder à la liste des contacts';
+$html_del_msg = 'Supprimer le(s) message(s) sélectionné(s) ?';
+$html_down_mail = 'Télécharger';
 
 $original_msg = '-- Message Original --';
-$to_empty = 'Le champ \'A\' ne doit pas �tre vide !';
+$to_empty = 'Le champ \'A\' ne doit pas être vide !';
 
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Impossible d\'ouvrir la connexion';
-$html_smtp_error_unexpected = 'R&eacute;ponse inattendue:';
+$html_smtp_error_unexpected = 'Réponse inattendue:';
 
 // IMAP messages (class_local.php)
 $lang_could_not_connect = 'Impossible de se connecter au serveur';
-$lang_invalid_msg_num = 'Mauvais num&eacute;ro de message';
+$lang_invalid_msg_num = 'Mauvais numéro de message';
 
-$html_file_upload_attack = 'Possibilit&eacute; d\'attaque depuis le fichier upload&eacute;';
+$html_file_upload_attack = 'Possibilité d\'attaque depuis le fichier uploadé';
 $html_invalid_email_address = 'Adresse e-mail invalide';
 $html_invalid_msg_per_page = 'Nombre de messages par page invalide';
 $html_invalid_wrap_msg = 'Valeur de tronquature invalide';
-$html_seperate_msg_win = 'Messages dans des fen&ecirc;tres s&eacute;par&eacute;es';
+$html_seperate_msg_win = 'Messages dans des fenêtres séparées';
 
 // Exceptions
 $html_err_file_contacts = 'Impossible d\'ouvrir le fichier des contacts';

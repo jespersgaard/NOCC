@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/no.php,v 1.27 2005/05/01 20:45:56 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/no.php,v 1.28 2005/06/20 16:30:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,7 +12,7 @@
  * Translation by Rune Dalmo <runed@balder.narviknett.no>
  */
 
-$charset = 'ISO-8859-1';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -58,7 +58,7 @@ $html_theme = 'Tema';
 
 // index.php
 
-$html_lang = 'Språk';
+$html_lang = 'SprÃ¥k';
 $html_welcome = 'Velkommen til';
 $html_login = 'Brukernavn';
 $html_passwd = 'Passord';
@@ -66,7 +66,7 @@ $html_submit = 'Logg inn';
 $html_help = 'Hjelp';
 $html_server = 'Server';
 $html_wrong = 'Brukernavn eller passord er feil';
-$html_retry = 'Prøv igjen';
+$html_retry = 'PrÃ¸v igjen';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
@@ -145,7 +145,7 @@ $html_att = 'Vedlagt fil';
 $html_atts = 'Vedlagte filer';
 $html_att_unknown = '[ukjent]';
 $html_attach = 'Legg til';
-$html_attach_forget = 'Du må legge til filen før du kan sende meldingen !';
+$html_attach_forget = 'Du mÃ¥ legge til filen fÃ¸r du kan sende meldingen !';
 $html_attach_delete = 'Fjern markerte vedlegg';
 $html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sort by';  //to translate
@@ -154,8 +154,8 @@ $html_subject = 'Emne';
 $html_date = 'Dato';
 $html_sent = 'Sendt';
 $html_wrote = 'wrote';  //to translate
-$html_size = 'Størrelse';
-$html_totalsize = 'Total Størrelse';
+$html_size = 'StÃ¸rrelse';
+$html_totalsize = 'Total StÃ¸rrelse';
 $html_kb = 'Kb';  //to translate
 $html_bytes = 'bytes';  //to translate
 $html_filename = 'Filnavn';
@@ -173,15 +173,15 @@ $html_configuration = 'Denne serveren er ikke satt opp riktig !';
 $html_priority = 'Prioritet';
 $html_low = 'Lav';
 $html_normal = 'Normal';  //to translate
-$html_high = 'Høy';
+$html_high = 'HÃ¸y';
 $html_receipt = 'Krev en leveringsbekreftelse';
 $html_select = 'Velg';
 $html_select_all = 'Invert Selection';  //to translate
 $html_loading_image = 'Laster bilde';
 $html_send_confirmed = 'Din e-post ble akseptert for levering';
-$html_no_sendaction = 'Ingen handling spesifisert. Prøv å aktivere JavaScript.';
+$html_no_sendaction = 'Ingen handling spesifisert. PrÃ¸v Ã¥ aktivere JavaScript.';
 $html_error_occurred = 'En feil oppstod';
-$html_prefs_file_error = 'Ikke mulig å åpne innstillingsfilen for skriving (lagring).';
+$html_prefs_file_error = 'Ikke mulig Ã¥ Ã¥pne innstillingsfilen for skriving (lagring).';
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
 $html_wrap_none = 'None'; //to translate
 $html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
@@ -211,14 +211,14 @@ $html_del_msg = 'Delete selected messages ?';  //to translate
 $html_down_mail = 'Download';  //to translate
 
 $original_msg = '-- Opprinnelig melding --';
-$to_empty = 'Feltet \'Til\' kan ikke være tomt !';
+$to_empty = 'Feltet \'Til\' kan ikke vÃ¦re tomt !';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = 'Ikke mulig å oppnå forbindelse';
+$html_smtp_error_no_conn = 'Ikke mulig Ã¥ oppnÃ¥ forbindelse';
 $html_smtp_error_unexpected = 'Uventet svar:';
 
 // IMAP messages (class_local.php)
-$lang_could_not_connect = 'Kunne ikke oppnå tilkobling mot server';
+$lang_could_not_connect = 'Kunne ikke oppnÃ¥ tilkobling mot server';
 $lang_invalid_msg_num = 'Bad Message Number';  //to translate
 
 $html_file_upload_attack = 'Muligens filopplastingsangrep';

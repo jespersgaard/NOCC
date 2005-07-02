@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/cs.php,v 1.26 2005/05/01 20:45:56 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/cs.php,v 1.27 2005/06/20 16:30:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,7 +12,7 @@
  * Translation by Vaclav Habr <habr@fonet.cz>
  */
 
-$charset = 'ISO-8859-2';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -39,50 +39,50 @@ $default_time_format = '%I:%M %p';
 
 // Here is the configuration for the HTML
 
-$err_user_empty = 'Není vyplnìno pøihla¹ovací jméno ';
-$err_passwd_empty = 'Není vyplnìno heslo';
+$err_user_empty = 'NenÃ­ vyplnÄ›no pÅ™ihlaÅ¡ovacÃ­ jmÃ©no ';
+$err_passwd_empty = 'NenÃ­ vyplnÄ›no heslo';
 
 
 // html message
 
-$alt_delete = 'Vymazat vybrané zprávy';
-$alt_delete_one = 'Vymazat zprávu';
-$alt_new_msg = 'Nové zprávy';
-$alt_reply = 'Odpovìdìt autorovi';
-$alt_reply_all = 'Odpovìdìt v¹em';
-$alt_forward = 'Pøedat dál';
-$alt_next = 'Dal¹í zpráva';
-$alt_prev = 'Pøedchozí zpráva';
+$alt_delete = 'Vymazat vybranÃ© zprÃ¡vy';
+$alt_delete_one = 'Vymazat zprÃ¡vu';
+$alt_new_msg = 'NovÃ© zprÃ¡vy';
+$alt_reply = 'OdpovÄ›dÄ›t autorovi';
+$alt_reply_all = 'OdpovÄ›dÄ›t vÅ¡em';
+$alt_forward = 'PÅ™edat dÃ¡l';
+$alt_next = 'DalÅ¡Ã­ zprÃ¡va';
+$alt_prev = 'PÅ™edchozÃ­ zprÃ¡va';
 $html_on = 'na';
-$html_theme = 'Téma';
+$html_theme = 'TÃ©ma';
 
 // index.php
 
 $html_lang = 'Jazyk';
-$html_welcome = 'Vítejte v';
-$html_login = 'Jméno';
+$html_welcome = 'VÃ­tejte v';
+$html_login = 'JmÃ©no';
 $html_passwd = 'Heslo';
 $html_submit = 'Potvrdit';
 $html_help = 'Pomoc';
 $html_server = 'Server';
-$html_wrong = 'Prihla¹ovací jméno a heslo nesouhlasí';
+$html_wrong = 'PrihlaÅ¡ovacÃ­ jmÃ©no a heslo nesouhlasÃ­';
 $html_retry = 'Zkusit znovu';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
 
 $html_msgperpage = 'Messages per page';
-$html_preferences = 'Nastavení';
-$html_full_name = 'Celé jméno';
-$html_email_address = 'E-mailová adresa';
-$html_ccself = 'Automaticky kopii sobì';
+$html_preferences = 'NastavenÃ­';
+$html_full_name = 'CelÃ© jmÃ©no';
+$html_email_address = 'E-mailovÃ¡ adresa';
+$html_ccself = 'Automaticky kopii sobÄ›';
 $html_hide_addresses = 'Skryj adresy';
-$html_outlook_quoting = 'Formátování ve stylu Outlook';
-$html_reply_to = 'Odpovìdìt';
-$html_use_signature = 'Pou¾ij podpis';
+$html_outlook_quoting = 'FormÃ¡tovÃ¡nÃ­ ve stylu Outlook';
+$html_reply_to = 'OdpovÄ›dÄ›t';
+$html_use_signature = 'PouÅ¾ij podpis';
 $html_signature = 'Podpis';
-$html_reply_leadin = 'Hlavièka odpovìdi';
-$html_prefs_updated = 'Nastavení aktualizováno ';
+$html_reply_leadin = 'HlaviÄka odpovÄ›di';
+$html_prefs_updated = 'NastavenÃ­ aktualizovÃ¡no ';
 $html_manage_folders_link = 'Manage IMAP Folders';  //to translate
 $html_manage_filters_link = 'Manage Email Filters';  //to translate
 $html_use_graphical_smilies = 'Use graphical smilies'; //to translate
@@ -128,60 +128,60 @@ $html_other_folders = 'Folder List';  //to translate
 $html_page = 'Page';  //to translate
 $html_of = 'of';  //to translate
 $html_to = 'to';  //to translate
-$html_view_header = 'Zobrazit hlavièku';
-$html_remove_header = 'Skrıt hlavièku';
-$html_inbox = 'Doruèená po¹ta';
-$html_new_msg = 'Nová zpráva';
-$html_reply = 'Odpovìdìt';
+$html_view_header = 'Zobrazit hlaviÄku';
+$html_remove_header = 'SkrÃ½t hlaviÄku';
+$html_inbox = 'DoruÄenÃ¡ poÅ¡ta';
+$html_new_msg = 'NovÃ¡ zprÃ¡va';
+$html_reply = 'OdpovÄ›dÄ›t';
 $html_reply_short = 'Re';
-$html_reply_all = 'Odpovìdìt v¹em';
-$html_forward = 'Pøedat dál';
+$html_reply_all = 'OdpovÄ›dÄ›t vÅ¡em';
+$html_forward = 'PÅ™edat dÃ¡l';
 $html_forward_short = 'Fw';
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
 $html_delete = 'Vymazat';
-$html_new = 'Nová';
+$html_new = 'NovÃ¡';
 $html_mark = 'Vymazat';
-$html_att = 'Pøíloha';
-$html_atts = 'Pøílohy';
-$html_att_unknown = '[neznámá]';
-$html_attach = 'Pøilo¾it';
-$html_attach_forget = 'Soubor musí bıt pøilo¾en pøed odesláním zprávy';
-$html_attach_delete = 'Vymazat vybrané';
+$html_att = 'PÅ™Ã­loha';
+$html_atts = 'PÅ™Ã­lohy';
+$html_att_unknown = '[neznÃ¡mÃ¡]';
+$html_attach = 'PÅ™iloÅ¾it';
+$html_attach_forget = 'Soubor musÃ­ bÃ½t pÅ™iloÅ¾en pÅ™ed odeslÃ¡nÃ­m zprÃ¡vy';
+$html_attach_delete = 'Vymazat vybranÃ©';
 $html_attach_none = 'You must select a file to attach!';  //to translate
-$html_sort_by = 'Seøadit dle';
+$html_sort_by = 'SeÅ™adit dle';
 $html_from = 'Od';
-$html_subject = 'Pøedmìt';
+$html_subject = 'PÅ™edmÄ›t';
 $html_date = 'Datum';
 $html_sent = 'Odeslat';
-$html_wrote = 'odesláno';
+$html_wrote = 'odeslÃ¡no';
 $html_size = 'Velikost';
-$html_totalsize = 'Celková velikost';
+$html_totalsize = 'CelkovÃ¡ velikost';
 $html_kb = 'Kb';
-$html_bytes = 'bajtù';
-$html_filename = 'Název souboru';
+$html_bytes = 'bajtÅ¯';
+$html_filename = 'NÃ¡zev souboru';
 $html_to = 'Komu';
 $html_cc = 'Kopie';
-$html_bcc = 'Skrytá';
-$html_nosubject = 'Bez názvu';
+$html_bcc = 'SkrytÃ¡';
+$html_nosubject = 'Bez nÃ¡zvu';
 $html_send = 'Odeslat';
-$html_cancel = 'Zru¹it';
-$html_no_mail = '®ádná zpráva';
-$html_logout = 'Odhlá¹ení';
-$html_msg = 'Zpráva';
-$html_msgs = 'Zpráv';
-$html_configuration = 'Chybná konfigurace serveru!!!';
-$html_priority = 'Dùle¾itost';
-$html_low = 'Malá';
-$html_normal = 'Støední';
-$html_high = 'Vysoká';
-$html_receipt = 'Potvrzení o doruèení';
+$html_cancel = 'ZruÅ¡it';
+$html_no_mail = 'Å½Ã¡dnÃ¡ zprÃ¡va';
+$html_logout = 'OdhlÃ¡Å¡enÃ­';
+$html_msg = 'ZprÃ¡va';
+$html_msgs = 'ZprÃ¡v';
+$html_configuration = 'ChybnÃ¡ konfigurace serveru!!!';
+$html_priority = 'DÅ¯leÅ¾itost';
+$html_low = 'MalÃ¡';
+$html_normal = 'StÅ™ednÃ­';
+$html_high = 'VysokÃ¡';
+$html_receipt = 'PotvrzenÃ­ o doruÄenÃ­';
 $html_select = 'Vybrat';
 $html_select_all = 'Invert Selection';  //to translate
-$html_loading_image = 'Nahrávám obrázek';
-$html_send_confirmed = 'Vá¹ dopis byl pøijat k doruèení';
-$html_no_sendaction = 'Nedefinovaná akce. Zkuste povolit JavaScript.';
-$html_error_occurred = 'Do¹lo k chybì';
-$html_prefs_file_error = 'Chyba pøi ukládání souboru s nastavením.';
+$html_loading_image = 'NahrÃ¡vÃ¡m obrÃ¡zek';
+$html_send_confirmed = 'VÃ¡Å¡ dopis byl pÅ™ijat k doruÄenÃ­';
+$html_no_sendaction = 'NedefinovanÃ¡ akce. Zkuste povolit JavaScript.';
+$html_error_occurred = 'DoÅ¡lo k chybÄ›';
+$html_prefs_file_error = 'Chyba pÅ™i uklÃ¡dÃ¡nÃ­ souboru s nastavenÃ­m.';
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
 $html_wrap_none = 'None'; //to translate
 $html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
@@ -210,15 +210,15 @@ $html_contact_err3 = 'You don\'t have access rights to contact list'; //to trans
 $html_del_msg = 'Delete selected messages ?';  //to translate
 $html_down_mail = 'Download';  //to translate
 
-$original_msg = '-- Pùvodní zpráva --';
-$to_empty = 'Musíte vyplnit kolonku Komu:';
+$original_msg = '-- PÅ¯vodnÃ­ zprÃ¡va --';
+$to_empty = 'MusÃ­te vyplnit kolonku Komu:';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = 'Chyba pøi vytváøení SMTP spojení';
-$html_smtp_error_unexpected = 'Neoèekávaná odezva SMTP:';
+$html_smtp_error_no_conn = 'Chyba pÅ™i vytvÃ¡Å™enÃ­ SMTP spojenÃ­';
+$html_smtp_error_unexpected = 'NeoÄekÃ¡vanÃ¡ odezva SMTP:';
 
 // IMAP messages (class_local.php)
-$lang_could_not_connect = 'Chyba pøi pøipojování k serveru';
+$lang_could_not_connect = 'Chyba pÅ™i pÅ™ipojovÃ¡nÃ­ k serveru';
 $lang_invalid_msg_num = 'Bad Message Number';  //to translate
 
 $html_file_upload_attack = 'Possible file upload attack';  //to translate

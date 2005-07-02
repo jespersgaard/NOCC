@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.21 2003/12/21 15:40:20 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.22 2004/03/04 20:05:29 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -25,10 +25,10 @@ $lang_array[$i]->filename = 'ar';
 $lang_array[$i]->label = 'Arabic';
 
 // Arabic (Windows-1256)
-$i++;
-$lang_array[$i] = new lang();
-$lang_array[$i]->filename = 'ar-win';
-$lang_array[$i]->label = 'Arabic (Windows-1256)';
+//$i++;
+//$lang_array[$i] = new lang();
+//$lang_array[$i]->filename = 'ar-win';
+//$lang_array[$i]->label = 'Arabic (Windows-1256)';
 
 // Bulgarian
 $i++;
@@ -82,19 +82,19 @@ $lang_array[$i]->label = 'English';
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'es';
-$lang_array[$i]->label = 'Espa&ntilde;ol';
+$lang_array[$i]->label = 'Español';
 
-// Finnish
+// Persian
 $i++;
 $lang_array[$i] = new lang();
-$lang_array[$i]->filename = 'fi';
-$lang_array[$i]->label = 'Suomi';
+$lang_array[$i]->filename = 'farsi';
+$lang_array[$i]->label = 'Farsi';
 
 // French
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'fr';
-$lang_array[$i]->label = 'Fran&ccedil;ais';
+$lang_array[$i]->label = 'Français';
 
 // Greek
 $i++;
@@ -108,6 +108,18 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'he';
 $lang_array[$i]->label = 'Hebrew';
 
+// Croatian
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'hr';
+$lang_array[$i]->label = 'Hrvatski';
+
+// Icelandic
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'is';
+$lang_array[$i]->label = 'Icelandic';
+
 // Italiano
 $i++;
 $lang_array[$i] = new lang();
@@ -120,6 +132,12 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'kr';
 $lang_array[$i]->label = 'Korean';
 
+// Latvian
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'lv';
+$lang_array[$i]->label = 'Latviesu';
+
 // Magyar
 $i++;
 $lang_array[$i] = new lang();
@@ -130,7 +148,7 @@ $lang_array[$i]->label = 'Magyar';
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'no';
-$lang_array[$i]->label = 'Norsk bokm�l';
+$lang_array[$i]->label = 'Norsk bokmål';
 
 // Norwegian Nynorsk
 $i++;
@@ -148,13 +166,13 @@ $lang_array[$i]->label = 'Polski';
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'pt';
-$lang_array[$i]->label = 'Portugu&ecirc;s';
+$lang_array[$i]->label = 'Português';
 
 // Portuguese Brazil
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'pt-br';
-$lang_array[$i]->label = 'Portugu&ecirc;s Brasil';
+$lang_array[$i]->label = 'Português Brasil';
 
 // Romanian
 $i++;
@@ -166,19 +184,19 @@ $lang_array[$i]->label = 'Romanian';
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'ru';
-$lang_array[$i]->label = 'Russian (Win)';
+$lang_array[$i]->label = 'Russian';
 
 // Russian
-$i++;
-$lang_array[$i] = new lang();
-$lang_array[$i]->filename = 'ru-koi';
-$lang_array[$i]->label = 'Russian (Unix)';
+//$i++;
+//$lang_array[$i] = new lang();
+//$lang_array[$i]->filename = 'ru-koi';
+//$lang_array[$i]->label = 'Russian (Unix)';
 
 // Russian
-$i++;
-$lang_array[$i] = new lang();
-$lang_array[$i]->filename = 'ru-iso';
-$lang_array[$i]->label = 'Russian (ISO)';
+//$i++;
+//$lang_array[$i] = new lang();
+//$lang_array[$i]->filename = 'ru-iso';
+//$lang_array[$i]->label = 'Russian (ISO)';
 
 // Swedish
 $i++;
@@ -204,16 +222,21 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'sr';
 $lang_array[$i]->label = 'Srpski Jezik';
 
-// Latvian
+// Finnish
 $i++;
 $lang_array[$i] = new lang();
-$lang_array[$i]->filename = 'lv';
-$lang_array[$i]->label = 'Latviesu';
+$lang_array[$i]->filename = 'fi';
+$lang_array[$i]->label = 'Suomi';
+
+// Thai
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'th';
+$lang_array[$i]->label = 'Thai';
 
 // Turkish
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'tr';
 $lang_array[$i]->label = 'Turkish';
-
 ?>

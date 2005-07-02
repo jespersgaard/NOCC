@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.35 2005/05/01 20:45:56 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.36 2005/06/20 16:30:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,7 +13,7 @@
  * Additional translation Anton Jakimov <t0xa@ls2.lv>
  */
 
-$charset = 'Windows-1251';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -40,190 +40,190 @@ $default_time_format = '%H:%M';
 
 // Here is the configuration for the HTML
 
-$err_user_empty = 'Íå ââåäåí ëîãèí';
-$err_passwd_empty = 'Íå ââåäåí ïàðîëü';
+$err_user_empty = 'ÐÐµ Ð²Ð²ÐµÐ´ÐµÐ½ Ð»Ð¾Ð³Ð¸Ð½';
+$err_passwd_empty = 'ÐÐµ Ð²Ð²ÐµÐ´ÐµÐ½ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ';
 
 
 // html message
 
-$alt_delete = 'Óäàëèòü âûáðàííûå ñîîáùåíèÿ';
-$alt_delete_one = 'Óäàëèòü ñîîáùåíèå';
-$alt_new_msg = 'Íîâûå ñîîáùåíèÿ';
-$alt_reply = 'Îòâåòèòü àâòîðó';
-$alt_reply_all = 'Îòâåòèòü âñåì';
-$alt_forward = 'Ïåðåñëàòü';
-$alt_next = 'Ñëåäóþùåå';
-$alt_prev = 'Ïðåäûäóùåå';
-$html_on = 'Âêë.';
-$html_theme = 'Äèçàéí';
+$alt_delete = 'Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ Ð²Ñ‹Ð±Ñ€Ð°Ð½Ð½Ñ‹Ðµ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ';
+$alt_delete_one = 'Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ';
+$alt_new_msg = 'ÐÐ¾Ð²Ñ‹Ðµ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ';
+$alt_reply = 'ÐžÑ‚Ð²ÐµÑ‚Ð¸Ñ‚ÑŒ Ð°Ð²Ñ‚Ð¾Ñ€Ñƒ';
+$alt_reply_all = 'ÐžÑ‚Ð²ÐµÑ‚Ð¸Ñ‚ÑŒ Ð²ÑÐµÐ¼';
+$alt_forward = 'ÐŸÐµÑ€ÐµÑÐ»Ð°Ñ‚ÑŒ';
+$alt_next = 'Ð¡Ð»ÐµÐ´ÑƒÑŽÑ‰ÐµÐµ';
+$alt_prev = 'ÐŸÑ€ÐµÐ´Ñ‹Ð´ÑƒÑ‰ÐµÐµ';
+$html_on = 'Ð’ÐºÐ».';
+$html_theme = 'Ð”Ð¸Ð·Ð°Ð¹Ð½';
 
 // index.php
 
-$html_lang = 'ßçûê';
-$html_welcome = 'Äîáðî ïîæàëîâàòü â';
-$html_login = 'Èìÿ';
-$html_passwd = 'Ïàðîëü';
-$html_submit = 'Âîéòè';
-$html_help = 'Ïîìîùü';
-$html_server = 'Ñåðâåð';
-$html_wrong = 'Ëîãèí èëè ïàðîëü íå âåðíû';
-$html_retry = 'Âåðíóòüñÿ';
+$html_lang = 'Ð¯Ð·Ñ‹Ðº';
+$html_welcome = 'Ð”Ð¾Ð±Ñ€Ð¾ Ð¿Ð¾Ð¶Ð°Ð»Ð¾Ð²Ð°Ñ‚ÑŒ Ð²';
+$html_login = 'Ð˜Ð¼Ñ';
+$html_passwd = 'ÐŸÐ°Ñ€Ð¾Ð»ÑŒ';
+$html_submit = 'Ð’Ð¾Ð¹Ñ‚Ð¸';
+$html_help = 'ÐŸÐ¾Ð¼Ð¾Ñ‰ÑŒ';
+$html_server = 'Ð¡ÐµÑ€Ð²ÐµÑ€';
+$html_wrong = 'Ð›Ð¾Ð³Ð¸Ð½ Ð¸Ð»Ð¸ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ Ð½Ðµ Ð²ÐµÑ€Ð½Ñ‹';
+$html_retry = 'Ð’ÐµÑ€Ð½ÑƒÑ‚ÑŒÑÑ';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
 
-$html_msgperpage = 'Ïèñåì íà ñòðàíèöå';
-$html_preferences = 'Íàñòðîéêè';
-$html_full_name = 'Èìÿ';
-$html_email_address = 'Àäðåñ ýëåêòðîííîé ïî÷òû';
-$html_ccself = 'Êîïèþ ñåáå';
-$html_hide_addresses = 'Ñïðÿòàòü àäðåñ';
-$html_outlook_quoting = 'Öèòèðîâàíèå â ñòèëå Outlook';
-$html_reply_to = 'Îòâåòèòü';
-$html_use_signature = 'Èñïîëüçîâàòü ïîäïèñü';
-$html_signature = 'Ïîäïèñü';
+$html_msgperpage = 'ÐŸÐ¸ÑÐµÐ¼ Ð½Ð° ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ðµ';
+$html_preferences = 'ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸';
+$html_full_name = 'Ð˜Ð¼Ñ';
+$html_email_address = 'ÐÐ´Ñ€ÐµÑ ÑÐ»ÐµÐºÑ‚Ñ€Ð¾Ð½Ð½Ð¾Ð¹ Ð¿Ð¾Ñ‡Ñ‚Ñ‹';
+$html_ccself = 'ÐšÐ¾Ð¿Ð¸ÑŽ ÑÐµÐ±Ðµ';
+$html_hide_addresses = 'Ð¡Ð¿Ñ€ÑÑ‚Ð°Ñ‚ÑŒ Ð°Ð´Ñ€ÐµÑ';
+$html_outlook_quoting = 'Ð¦Ð¸Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ Ð² ÑÑ‚Ð¸Ð»Ðµ Outlook';
+$html_reply_to = 'ÐžÑ‚Ð²ÐµÑ‚Ð¸Ñ‚ÑŒ';
+$html_use_signature = 'Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ Ð¿Ð¾Ð´Ð¿Ð¸ÑÑŒ';
+$html_signature = 'ÐŸÐ¾Ð´Ð¿Ð¸ÑÑŒ';
 $html_reply_leadin = 'Reply Leadin';
-$html_prefs_updated = 'Íàñòðîéêè ñîõðàíåíû';
-$html_manage_folders_link = 'Óïðàâëåíèå ïàïêàìè IMAP';
-$html_manage_filters_link = 'Óïðàâëåíèå ïî÷òîâûìè ôèëüòðàìè';
-$html_use_graphical_smilies = 'Èñïîëüçîâàòü ãðàôè÷åñêèå ñìàéëèêè';
+$html_prefs_updated = 'ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ ÑÐ¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ñ‹';
+$html_manage_folders_link = 'Ð£Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ð¿Ð°Ð¿ÐºÐ°Ð¼Ð¸ IMAP';
+$html_manage_filters_link = 'Ð£Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ð¿Ð¾Ñ‡Ñ‚Ð¾Ð²Ñ‹Ð¼Ð¸ Ñ„Ð¸Ð»ÑŒÑ‚Ñ€Ð°Ð¼Ð¸';
+$html_use_graphical_smilies = 'Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ Ð³Ñ€Ð°Ñ„Ð¸Ñ‡ÐµÑÐºÐ¸Ðµ ÑÐ¼Ð°Ð¹Ð»Ð¸ÐºÐ¸';
 
 // folders.php
-$html_folders_create_failed = 'Ïàïêà íå ìîæåò áûòü ñîçäàíà!';
-$html_folders_sub_failed = 'Íåâîçìîæíî ïîäïèñàòüñÿ íà ïàïêó!';
-$html_folders_unsub_failed = 'Íåâîçìîæíî îòïèñàòüñÿ îò ïàïêè!';
-$html_folders_rename_failed = 'Ïàïêà íå ìîæåò áûòü ïåðåèìåíîâàíà!';
-$html_folders_updated = 'Ïàïêè ñîõðàíåíû';
-$html_folder_subscribe = 'Ïîäïèñàòüñÿ íà';
-$html_folder_rename = 'Ïåðåèìåíîâàòü';
-$html_folder_create = 'Ñîçäàòü íîâóþ ïàïêó ñ èìåíåì';
-$html_folder_remove = 'Îòïèñàòüñÿ îò';
-$html_folder_delete = 'Óäàëèòü';
+$html_folders_create_failed = 'ÐŸÐ°Ð¿ÐºÐ° Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ ÑÐ¾Ð·Ð´Ð°Ð½Ð°!';
+$html_folders_sub_failed = 'ÐÐµÐ²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ Ð¿Ð¾Ð´Ð¿Ð¸ÑÐ°Ñ‚ÑŒÑÑ Ð½Ð° Ð¿Ð°Ð¿ÐºÑƒ!';
+$html_folders_unsub_failed = 'ÐÐµÐ²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ Ð¾Ñ‚Ð¿Ð¸ÑÐ°Ñ‚ÑŒÑÑ Ð¾Ñ‚ Ð¿Ð°Ð¿ÐºÐ¸!';
+$html_folders_rename_failed = 'ÐŸÐ°Ð¿ÐºÐ° Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð¿ÐµÑ€ÐµÐ¸Ð¼ÐµÐ½Ð¾Ð²Ð°Ð½Ð°!';
+$html_folders_updated = 'ÐŸÐ°Ð¿ÐºÐ¸ ÑÐ¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ñ‹';
+$html_folder_subscribe = 'ÐŸÐ¾Ð´Ð¿Ð¸ÑÐ°Ñ‚ÑŒÑÑ Ð½Ð°';
+$html_folder_rename = 'ÐŸÐµÑ€ÐµÐ¸Ð¼ÐµÐ½Ð¾Ð²Ð°Ñ‚ÑŒ';
+$html_folder_create = 'Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ Ð½Ð¾Ð²ÑƒÑŽ Ð¿Ð°Ð¿ÐºÑƒ Ñ Ð¸Ð¼ÐµÐ½ÐµÐ¼';
+$html_folder_remove = 'ÐžÑ‚Ð¿Ð¸ÑÐ°Ñ‚ÑŒÑÑ Ð¾Ñ‚';
+$html_folder_delete = 'Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ';
 
 // filters.php
-$html_filter_remove = 'Óäàëèòü';
-$html_filter_body = 'Òåëî ïèñüìà';
-$html_filter_subject = 'Òåìà';
-$html_filter_to = 'Ïîëå Êîìó';
-$html_filter_cc = 'Ïîëå Êîïèÿ';
-$html_filter_from = 'Ïîëå Îò';
-$html_filter_change_tip = 'Äëÿ çàìåíû, ïðîñòî ïåðåçàïåøèòå ôèëüòð.';
-$html_reapply_filters = 'Ïåðåïðèìåíèòü âñå ôèëüòðû';
-$html_filter_contains = 'ñîäåðæèò';
-$html_filter_name = 'Íàçâàíèå ôèëüòðà';
-$html_filter_action = 'Äåéñòâèå ôèëüòðà';
-$html_filter_moveto = 'Ïåðåìåñòèòü â';
+$html_filter_remove = 'Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ';
+$html_filter_body = 'Ð¢ÐµÐ»Ð¾ Ð¿Ð¸ÑÑŒÐ¼Ð°';
+$html_filter_subject = 'Ð¢ÐµÐ¼Ð°';
+$html_filter_to = 'ÐŸÐ¾Ð»Ðµ ÐšÐ¾Ð¼Ñƒ';
+$html_filter_cc = 'ÐŸÐ¾Ð»Ðµ ÐšÐ¾Ð¿Ð¸Ñ';
+$html_filter_from = 'ÐŸÐ¾Ð»Ðµ ÐžÑ‚';
+$html_filter_change_tip = 'Ð”Ð»Ñ Ð·Ð°Ð¼ÐµÐ½Ñ‹, Ð¿Ñ€Ð¾ÑÑ‚Ð¾ Ð¿ÐµÑ€ÐµÐ·Ð°Ð¿ÐµÑˆÐ¸Ñ‚Ðµ Ñ„Ð¸Ð»ÑŒÑ‚Ñ€.';
+$html_reapply_filters = 'ÐŸÐµÑ€ÐµÐ¿Ñ€Ð¸Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð²ÑÐµ Ñ„Ð¸Ð»ÑŒÑ‚Ñ€Ñ‹';
+$html_filter_contains = 'ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ñ‚';
+$html_filter_name = 'ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ñ„Ð¸Ð»ÑŒÑ‚Ñ€Ð°';
+$html_filter_action = 'Ð”ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ Ñ„Ð¸Ð»ÑŒÑ‚Ñ€Ð°';
+$html_filter_moveto = 'ÐŸÐµÑ€ÐµÐ¼ÐµÑÑ‚Ð¸Ñ‚ÑŒ Ð²';
 
 // Other pages
-$html_select_one = '--âûáåðèòå îäíî--';
-$html_and = 'è';
-$html_new_msg_in = 'Íîâûå ñîîáùåíèÿ â';
-$html_or = 'èëè';
-$html_move = 'Ïåðåìåñòèòü';
-$html_copy = 'Êîïèðîâàòü';
-$html_messages_to = 'âûáðàííûå ïèñüìà â';
-$html_gotopage = 'Ïåðåéòè íà ñòðàíèöó';
-$html_gotofolder = 'Ïåðåéòè â ïàïêó';
-$html_other_folders = 'Ñïèñîê ïàïîê';
-$html_page = 'Ñòðàíèöà';
-$html_of = 'èç';
-$html_to = 'äî';
-$html_view_header = 'Ïðîñìîòðåòü çàãîëîâîê ïèñüìà';
-$html_remove_header = 'Óáðàòü çàãîëîâîê ïèñüìà';
-$html_inbox = 'Âõîäÿùèå';
-$html_new_msg = 'Íàïèñàòü';
-$html_reply = 'Îòâåòèòü';
+$html_select_one = '--Ð²Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð¾Ð´Ð½Ð¾--';
+$html_and = 'Ð¸';
+$html_new_msg_in = 'ÐÐ¾Ð²Ñ‹Ðµ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ Ð²';
+$html_or = 'Ð¸Ð»Ð¸';
+$html_move = 'ÐŸÐµÑ€ÐµÐ¼ÐµÑÑ‚Ð¸Ñ‚ÑŒ';
+$html_copy = 'ÐšÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ';
+$html_messages_to = 'Ð²Ñ‹Ð±Ñ€Ð°Ð½Ð½Ñ‹Ðµ Ð¿Ð¸ÑÑŒÐ¼Ð° Ð²';
+$html_gotopage = 'ÐŸÐµÑ€ÐµÐ¹Ñ‚Ð¸ Ð½Ð° ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñƒ';
+$html_gotofolder = 'ÐŸÐµÑ€ÐµÐ¹Ñ‚Ð¸ Ð² Ð¿Ð°Ð¿ÐºÑƒ';
+$html_other_folders = 'Ð¡Ð¿Ð¸ÑÐ¾Ðº Ð¿Ð°Ð¿Ð¾Ðº';
+$html_page = 'Ð¡Ñ‚Ñ€Ð°Ð½Ð¸Ñ†Ð°';
+$html_of = 'Ð¸Ð·';
+$html_to = 'Ð´Ð¾';
+$html_view_header = 'ÐŸÑ€Ð¾ÑÐ¼Ð¾Ñ‚Ñ€ÐµÑ‚ÑŒ Ð·Ð°Ð³Ð¾Ð»Ð¾Ð²Ð¾Ðº Ð¿Ð¸ÑÑŒÐ¼Ð°';
+$html_remove_header = 'Ð£Ð±Ñ€Ð°Ñ‚ÑŒ Ð·Ð°Ð³Ð¾Ð»Ð¾Ð²Ð¾Ðº Ð¿Ð¸ÑÑŒÐ¼Ð°';
+$html_inbox = 'Ð’Ñ…Ð¾Ð´ÑÑ‰Ð¸Ðµ';
+$html_new_msg = 'ÐÐ°Ð¿Ð¸ÑÐ°Ñ‚ÑŒ';
+$html_reply = 'ÐžÑ‚Ð²ÐµÑ‚Ð¸Ñ‚ÑŒ';
 $html_reply_short = 'Re';  //to translate
-$html_reply_all = 'Îòâåòèòü âñåì';
-$html_forward = 'Ïåðåñëàòü';
+$html_reply_all = 'ÐžÑ‚Ð²ÐµÑ‚Ð¸Ñ‚ÑŒ Ð²ÑÐµÐ¼';
+$html_forward = 'ÐŸÐµÑ€ÐµÑÐ»Ð°Ñ‚ÑŒ';
 $html_forward_short = 'Fw';  //to translate
-$html_delete = 'Óäàëèòü';
-$html_new = 'Íîâîå';
-$html_mark = 'Óäàëèòü';
-$html_att = 'Ïðèêðåïëåííûé ôàéë';
-$html_atts = 'Ïðèêðåïëåííûå ôàéëû';
-$html_att_unknown = '[íåèçâåñòíî]';
-$html_attach = 'Ïðèêðåïèòü ôàéë';
-$html_attach_forget = 'Âû äîëæíû ïðèêðåïèòü ôàéë äî îòïðàâêè ñîîáùåíèÿ!';
-$html_attach_delete = 'Óäàëèòü âûáðàííûå';
-$html_sort_by = 'Ñîðòèðîâàòü ïî';
-$html_from = 'Îò';
-$html_subject = 'Òåìà';
-$html_date = 'Âðåìÿ';
-$html_sent = 'Îòïðàâèòü';
-$html_wrote = 'Íàïèñàë(à)';
-$html_size = 'Ðàçìåð';
-$html_totalsize = 'Îáùèé ðàçìåð';
-$html_kb = 'ÊÁ';
-$html_bytes = 'Á';
-$html_filename = 'Èìÿ ôàéëà';
-$html_to = 'Êîìó';
-$html_cc = 'Êîïèÿ';
+$html_delete = 'Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ';
+$html_new = 'ÐÐ¾Ð²Ð¾Ðµ';
+$html_mark = 'Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ';
+$html_att = 'ÐŸÑ€Ð¸ÐºÑ€ÐµÐ¿Ð»ÐµÐ½Ð½Ñ‹Ð¹ Ñ„Ð°Ð¹Ð»';
+$html_atts = 'ÐŸÑ€Ð¸ÐºÑ€ÐµÐ¿Ð»ÐµÐ½Ð½Ñ‹Ðµ Ñ„Ð°Ð¹Ð»Ñ‹';
+$html_att_unknown = '[Ð½ÐµÐ¸Ð·Ð²ÐµÑÑ‚Ð½Ð¾]';
+$html_attach = 'ÐŸÑ€Ð¸ÐºÑ€ÐµÐ¿Ð¸Ñ‚ÑŒ Ñ„Ð°Ð¹Ð»';
+$html_attach_forget = 'Ð’Ñ‹ Ð´Ð¾Ð»Ð¶Ð½Ñ‹ Ð¿Ñ€Ð¸ÐºÑ€ÐµÐ¿Ð¸Ñ‚ÑŒ Ñ„Ð°Ð¹Ð» Ð´Ð¾ Ð¾Ñ‚Ð¿Ñ€Ð°Ð²ÐºÐ¸ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ñ!';
+$html_attach_delete = 'Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ Ð²Ñ‹Ð±Ñ€Ð°Ð½Ð½Ñ‹Ðµ';
+$html_sort_by = 'Ð¡Ð¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¿Ð¾';
+$html_from = 'ÐžÑ‚';
+$html_subject = 'Ð¢ÐµÐ¼Ð°';
+$html_date = 'Ð’Ñ€ÐµÐ¼Ñ';
+$html_sent = 'ÐžÑ‚Ð¿Ñ€Ð°Ð²Ð¸Ñ‚ÑŒ';
+$html_wrote = 'ÐÐ°Ð¿Ð¸ÑÐ°Ð»(Ð°)';
+$html_size = 'Ð Ð°Ð·Ð¼ÐµÑ€';
+$html_totalsize = 'ÐžÐ±Ñ‰Ð¸Ð¹ Ñ€Ð°Ð·Ð¼ÐµÑ€';
+$html_kb = 'ÐšÐ‘';
+$html_bytes = 'Ð‘';
+$html_filename = 'Ð˜Ð¼Ñ Ñ„Ð°Ð¹Ð»Ð°';
+$html_to = 'ÐšÐ¾Ð¼Ñƒ';
+$html_cc = 'ÐšÐ¾Ð¿Ð¸Ñ';
 $html_bcc = 'Bcc';  //to translate
-$html_nosubject = 'Íåò òåìû';
-$html_send = 'Îòïðàâèòü';
-$html_cancel = 'Îòìåíèòü';
-$html_no_mail = 'Ñîîáùåíèé íåò';
-$html_logout = 'Âûéòè';
-$html_msg = 'Ñîîáùåíèå';
-$html_msgs = 'Ñîîáùåíèé';
-$html_configuration = 'Ýòîò ñåðâåð íåêîððåêíî óñòàíîâëåí!';
-$html_priority = 'Ïðèîðèòåò';
-$html_low = 'Íèçêèé';
-$html_normal = 'Íîðìàëüíûé';
-$html_high = 'Âûñîêèé';
-$html_receipt = 'Çàïðîñèòü óâåäîìëåíèå î ïðî÷òåíèè';
-$html_select = 'Âûáðàòü';
-$html_select_all = 'Èíâåðòèðîâàòü âûáîð';
-$html_loading_image = 'Çàãðóçêà èçîáðàæåíèÿ';
-$html_send_confirmed = 'Âàøà ïî÷òà ïðèíÿòà ê îòïðàâëåíèþ';
-$html_no_sendaction = 'Íå óêàçàíî äåéñòâèå. Ïîïðîáóéòå âêëþ÷èòü JavaScript.';
-$html_error_occurred = 'Ïðîèçîøëà îøèáêà';
-$html_prefs_file_error = 'Ôàéë íàñòðîåê íå ìîæåò áûòü îòêðûò äëÿ çàïèñè.';
-$html_wrap = 'Øèðèíà ñòðîêè (â ñèìâîëàõ):';
+$html_nosubject = 'ÐÐµÑ‚ Ñ‚ÐµÐ¼Ñ‹';
+$html_send = 'ÐžÑ‚Ð¿Ñ€Ð°Ð²Ð¸Ñ‚ÑŒ';
+$html_cancel = 'ÐžÑ‚Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ';
+$html_no_mail = 'Ð¡Ð¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ð¹ Ð½ÐµÑ‚';
+$html_logout = 'Ð’Ñ‹Ð¹Ñ‚Ð¸';
+$html_msg = 'Ð¡Ð¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ';
+$html_msgs = 'Ð¡Ð¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ð¹';
+$html_configuration = 'Ð­Ñ‚Ð¾Ñ‚ ÑÐµÑ€Ð²ÐµÑ€ Ð½ÐµÐºÐ¾Ñ€Ñ€ÐµÐºÐ½Ð¾ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½!';
+$html_priority = 'ÐŸÑ€Ð¸Ð¾Ñ€Ð¸Ñ‚ÐµÑ‚';
+$html_low = 'ÐÐ¸Ð·ÐºÐ¸Ð¹';
+$html_normal = 'ÐÐ¾Ñ€Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹';
+$html_high = 'Ð’Ñ‹ÑÐ¾ÐºÐ¸Ð¹';
+$html_receipt = 'Ð—Ð°Ð¿Ñ€Ð¾ÑÐ¸Ñ‚ÑŒ ÑƒÐ²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ðµ Ð¾ Ð¿Ñ€Ð¾Ñ‡Ñ‚ÐµÐ½Ð¸Ð¸';
+$html_select = 'Ð’Ñ‹Ð±Ñ€Ð°Ñ‚ÑŒ';
+$html_select_all = 'Ð˜Ð½Ð²ÐµÑ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð²Ñ‹Ð±Ð¾Ñ€';
+$html_loading_image = 'Ð—Ð°Ð³Ñ€ÑƒÐ·ÐºÐ° Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ';
+$html_send_confirmed = 'Ð’Ð°ÑˆÐ° Ð¿Ð¾Ñ‡Ñ‚Ð° Ð¿Ñ€Ð¸Ð½ÑÑ‚Ð° Ðº Ð¾Ñ‚Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸ÑŽ';
+$html_no_sendaction = 'ÐÐµ ÑƒÐºÐ°Ð·Ð°Ð½Ð¾ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ. ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ Ð²ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ JavaScript.';
+$html_error_occurred = 'ÐŸÑ€Ð¾Ð¸Ð·Ð¾ÑˆÐ»Ð° Ð¾ÑˆÐ¸Ð±ÐºÐ°';
+$html_prefs_file_error = 'Ð¤Ð°Ð¹Ð» Ð½Ð°ÑÑ‚Ñ€Ð¾ÐµÐº Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚ Ð´Ð»Ñ Ð·Ð°Ð¿Ð¸ÑÐ¸.';
+$html_wrap = 'Ð¨Ð¸Ñ€Ð¸Ð½Ð° ÑÑ‚Ñ€Ð¾ÐºÐ¸ (Ð² ÑÐ¸Ð¼Ð²Ð¾Ð»Ð°Ñ…):';
 $html_wrap_none = 'None'; //to translate
-$html_usenet_separator = 'Ðàçäåëèòåëü â ñòèëå Usenet ("-- \n") ïåðåä ïîäïèñüþ';
-$html_mark_as = 'Ïîìåòèòü êàê';
-$html_read = 'ïðî÷èòàííîå';
-$html_unread = 'íåïðî÷èòàííîå';
+$html_usenet_separator = 'Ð Ð°Ð·Ð´ÐµÐ»Ð¸Ñ‚ÐµÐ»ÑŒ Ð² ÑÑ‚Ð¸Ð»Ðµ Usenet ("-- \n") Ð¿ÐµÑ€ÐµÐ´ Ð¿Ð¾Ð´Ð¿Ð¸ÑÑŒÑŽ';
+$html_mark_as = 'ÐŸÐ¾Ð¼ÐµÑ‚Ð¸Ñ‚ÑŒ ÐºÐ°Ðº';
+$html_read = 'Ð¿Ñ€Ð¾Ñ‡Ð¸Ñ‚Ð°Ð½Ð½Ð¾Ðµ';
+$html_unread = 'Ð½ÐµÐ¿Ñ€Ð¾Ñ‡Ð¸Ñ‚Ð°Ð½Ð½Ð¾Ðµ';
 $html_mail_sent = 'Message successfully sent'; // to translate
 
 // Contacts manager
 $html_add = 'Add';
-$html_contacts = 'Êîíòàêòû';
-$html_modify = 'Èçìåíèòü';
-$html_back = 'Íàçàä';
-$html_contact_add = 'Äîáàâèòü êîíòàêò';
-$html_contact_mod = 'Èçìåíèòü êîíòàêò';
-$html_contact_first = 'Èìÿ';
-$html_contact_last = 'Ôàìèëèÿ';
-$html_contact_nick = 'Ïñåâäîíèì';
-$html_contact_mail = 'Àäðåñ ýëåêòðîííîé ïî÷òû';
-$html_contact_list = 'Ñïèñîê êîíòàêòîâ ';
-$html_contact_del = 'èç êîíòàêòíîãî ëèñòà';
+$html_contacts = 'ÐšÐ¾Ð½Ñ‚Ð°ÐºÑ‚Ñ‹';
+$html_modify = 'Ð˜Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ';
+$html_back = 'ÐÐ°Ð·Ð°Ð´';
+$html_contact_add = 'Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ ÐºÐ¾Ð½Ñ‚Ð°ÐºÑ‚';
+$html_contact_mod = 'Ð˜Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ ÐºÐ¾Ð½Ñ‚Ð°ÐºÑ‚';
+$html_contact_first = 'Ð˜Ð¼Ñ';
+$html_contact_last = 'Ð¤Ð°Ð¼Ð¸Ð»Ð¸Ñ';
+$html_contact_nick = 'ÐŸÑÐµÐ²Ð´Ð¾Ð½Ð¸Ð¼';
+$html_contact_mail = 'ÐÐ´Ñ€ÐµÑ ÑÐ»ÐµÐºÑ‚Ñ€Ð¾Ð½Ð½Ð¾Ð¹ Ð¿Ð¾Ñ‡Ñ‚Ñ‹';
+$html_contact_list = 'Ð¡Ð¿Ð¸ÑÐ¾Ðº ÐºÐ¾Ð½Ñ‚Ð°ÐºÑ‚Ð¾Ð² ';
+$html_contact_del = 'Ð¸Ð· ÐºÐ¾Ð½Ñ‚Ð°ÐºÑ‚Ð½Ð¾Ð³Ð¾ Ð»Ð¸ÑÑ‚Ð°';
 
-$html_contact_err1 = 'Ìàêñèìàëüíîå ÷èñëî êîíòàêòîâ ';
-$html_contact_err2 = 'Âû íå ìîæåòå äîáàâèòü íîâûé êîíòàêò';
-$html_contact_err3 = 'Ó âàñ íåò ïðàâ äîñòóïà ê êîíòàêòíîìó ëèñòó';
-$html_del_msg = 'Ñòåðåòü âûáðàííûå ïèñüìà?';
-$html_down_mail = 'Çàãðóçèòü';
+$html_contact_err1 = 'ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ ÐºÐ¾Ð½Ñ‚Ð°ÐºÑ‚Ð¾Ð² ';
+$html_contact_err2 = 'Ð’Ñ‹ Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚Ðµ Ð´Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð½Ð¾Ð²Ñ‹Ð¹ ÐºÐ¾Ð½Ñ‚Ð°ÐºÑ‚';
+$html_contact_err3 = 'Ð£ Ð²Ð°Ñ Ð½ÐµÑ‚ Ð¿Ñ€Ð°Ð² Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð° Ðº ÐºÐ¾Ð½Ñ‚Ð°ÐºÑ‚Ð½Ð¾Ð¼Ñƒ Ð»Ð¸ÑÑ‚Ñƒ';
+$html_del_msg = 'Ð¡Ñ‚ÐµÑ€ÐµÑ‚ÑŒ Ð²Ñ‹Ð±Ñ€Ð°Ð½Ð½Ñ‹Ðµ Ð¿Ð¸ÑÑŒÐ¼Ð°?';
+$html_down_mail = 'Ð—Ð°Ð³Ñ€ÑƒÐ·Ð¸Ñ‚ÑŒ';
 
-$original_msg = '-- Èñõîäíîå ïèñüìî --';
-$to_empty = 'Ïîëå \'Êîìó\' íå äîëæíî áûòü ïóñòûì !';
+$original_msg = '-- Ð˜ÑÑ…Ð¾Ð´Ð½Ð¾Ðµ Ð¿Ð¸ÑÑŒÐ¼Ð¾ --';
+$to_empty = 'ÐŸÐ¾Ð»Ðµ \'ÐšÐ¾Ð¼Ñƒ\' Ð½Ðµ Ð´Ð¾Ð»Ð¶Ð½Ð¾ Ð±Ñ‹Ñ‚ÑŒ Ð¿ÑƒÑÑ‚Ñ‹Ð¼ !';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = 'Íå âîçìîæíî óñòàíîâèòü SMTP ñîåäèíåíèå';
-$html_smtp_error_unexpected = 'Íåîæèäàííûé îòâåò SMTP:';
+$html_smtp_error_no_conn = 'ÐÐµ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ SMTP ÑÐ¾ÐµÐ´Ð¸Ð½ÐµÐ½Ð¸Ðµ';
+$html_smtp_error_unexpected = 'ÐÐµÐ¾Ð¶Ð¸Ð´Ð°Ð½Ð½Ñ‹Ð¹ Ð¾Ñ‚Ð²ÐµÑ‚ SMTP:';
 
 // IMAP messages (class_local.php)
-$lang_could_not_connect = 'Íåâîçìîæíî ïîäêëþ÷èòüñÿ ê ñåðâåðó';
+$lang_could_not_connect = 'ÐÐµÐ²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒÑÑ Ðº ÑÐµÑ€Ð²ÐµÑ€Ñƒ';
 
-$html_file_upload_attack = 'Âîçìîæíàÿ àòòàêà ñ ïîìîùüþ çàãðóçêè ôàéëà';
-$html_invalid_email_address = 'Íåâåðíûé àäðåñ ýëåêòðîííîé ïî÷òû';
-$html_invalid_msg_per_page = 'Íåâåðíîå êîëè÷åñòâî ïèñåì íà ñòðàíèöå';
-$html_invalid_wrap_msg = 'Íåâåðíàÿ øèðèíà ñòðîêè ñòðîêè (â ñèìâîëàõ)';
-$html_seperate_msg_win = 'Ñîîáùåíèå â îòäåëüíîì îêíå';
+$html_file_upload_attack = 'Ð’Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð°Ñ Ð°Ñ‚Ñ‚Ð°ÐºÐ° Ñ Ð¿Ð¾Ð¼Ð¾Ñ‰ÑŒÑŽ Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ¸ Ñ„Ð°Ð¹Ð»Ð°';
+$html_invalid_email_address = 'ÐÐµÐ²ÐµÑ€Ð½Ñ‹Ð¹ Ð°Ð´Ñ€ÐµÑ ÑÐ»ÐµÐºÑ‚Ñ€Ð¾Ð½Ð½Ð¾Ð¹ Ð¿Ð¾Ñ‡Ñ‚Ñ‹';
+$html_invalid_msg_per_page = 'ÐÐµÐ²ÐµÑ€Ð½Ð¾Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð¿Ð¸ÑÐµÐ¼ Ð½Ð° ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ðµ';
+$html_invalid_wrap_msg = 'ÐÐµÐ²ÐµÑ€Ð½Ð°Ñ ÑˆÐ¸Ñ€Ð¸Ð½Ð° ÑÑ‚Ñ€Ð¾ÐºÐ¸ ÑÑ‚Ñ€Ð¾ÐºÐ¸ (Ð² ÑÐ¸Ð¼Ð²Ð¾Ð»Ð°Ñ…)';
+$html_seperate_msg_win = 'Ð¡Ð¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ Ð² Ð¾Ñ‚Ð´ÐµÐ»ÑŒÐ½Ð¾Ð¼ Ð¾ÐºÐ½Ðµ';
 
 // Exceptions
-$html_err_file_contacts = 'Ôàéë êîíòàêòîâ íå ìîæåò áûòü îòêðûò äëÿ çàïèñè.';
+$html_err_file_contacts = 'Ð¤Ð°Ð¹Ð» ÐºÐ¾Ð½Ñ‚Ð°ÐºÑ‚Ð¾Ð² Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚ Ð´Ð»Ñ Ð·Ð°Ð¿Ð¸ÑÐ¸.';
 ?>

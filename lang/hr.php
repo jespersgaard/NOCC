@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/hr.php,v 1.24 2005/05/01 20:45:56 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/hr.php,v 1.25 2005/06/20 16:30:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,7 +12,7 @@
  * Translation by Vid Strpic <strpic@bofhlet.net>
  */
 
-$charset = 'ISO-8859-2';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -59,14 +59,14 @@ $html_theme = 'Tema';
 // index.php
 
 $html_lang = 'Jezik';
-$html_welcome = 'Dobrodo&#353;li';
-$html_login = 'Korisni&#269;ko ime';
-$html_passwd = '&#352;ifra';
+$html_welcome = 'Dobrodošli';
+$html_login = 'Korisničko ime';
+$html_passwd = 'Šifra';
 $html_submit = 'Prijava';
-$html_help = 'Pomo&#263;';
+$html_help = 'Pomoć';
 $html_server = 'Server';
-$html_wrong = 'Korisni&#269;ko ime ili &#353;ifra su neispravni';
-$html_retry = 'Poku&#353;aj ponovo';
+$html_wrong = 'Korisničko ime ili šifra su neispravni';
+$html_retry = 'Pokušaj ponovo';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
@@ -130,7 +130,7 @@ $html_of = 'of';  //to translate
 $html_to = 'to';  //to translate
 $html_view_header = 'Vidi zaglavlje';
 $html_remove_header = 'Sakrij zaglavlje';
-$html_inbox = 'Pristigla po&#353;ta';
+$html_inbox = 'Pristigla pošta';
 $html_new_msg = 'Nova poruka';
 $html_reply = 'Odgovori';
 $html_reply_short = 'Re';
@@ -138,14 +138,14 @@ $html_reply_all = 'Odgovori svima';
 $html_forward = 'Proslijedi';
 $html_forward_short = 'Fw';
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
-$html_delete = 'Obri&#353;i';
+$html_delete = 'Obriši';
 $html_new = 'Nova';
-$html_mark = 'Obri&#353;i';
-$html_att = 'Prilo&#382;ena datoteka';
-$html_atts = 'Prilo&#382;ene datoteke';
+$html_mark = 'Obriši';
+$html_att = 'Priložena datoteka';
+$html_atts = 'Priložene datoteke';
 $html_att_unknown = '[nepoznat]';
-$html_attach = 'Prilo&#382;i';
-$html_attach_forget = 'Morate prilo&#382;iti datoteku prije slanja poruke !';
+$html_attach = 'Priloži';
+$html_attach_forget = 'Morate priložiti datoteku prije slanja poruke !';
 $html_attach_delete = 'Ukloni odabrane datoteke';
 $html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sort by';
@@ -154,8 +154,8 @@ $html_subject = 'Naslov';
 $html_date = 'Datum';
 $html_sent = 'Poslano';
 $html_wrote = 'wrote';
-$html_size = 'Veli&#269;ina';
-$html_totalsize = 'Ukupna veli&#269;ina';
+$html_size = 'Veličina';
+$html_totalsize = 'Ukupna veličina';
 $html_kb = 'Kb';
 $html_bytes = 'bytes';
 $html_filename = 'Ime datoteke';
@@ -163,7 +163,7 @@ $html_to = 'Za';
 $html_cc = 'Kopija';
 $html_bcc = 'Nevidljiva kopija';
 $html_nosubject = 'Bez naslova';
-$html_send = 'Po&#353;alji';
+$html_send = 'Pošalji';
 $html_cancel = 'Odustani';
 $html_no_mail = 'Nema novih poruka.';
 $html_logout = 'Izlaz';

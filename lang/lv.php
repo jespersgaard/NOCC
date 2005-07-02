@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/lv.php,v 1.17 2005/05/01 20:45:56 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/lv.php,v 1.18 2005/06/20 16:30:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -8,11 +8,11 @@
  * See the enclosed file COPYING for license information (GPL).  If you
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
- * Configuration file for the english language
+ * Configuration file for the latvian language
  * 
  */
 
-$charset = 'ISO-8859-13';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -39,50 +39,50 @@ $default_time_format = '%I:%M %p';
 
 // Here is the configuration for the HTML
 
-$err_user_empty = 'Lietotâjvârda lauks ir tukğs';
-$err_passwd_empty = 'Paroles lauks ir tukğs';
+$err_user_empty = 'LietotÄjvÄrda lauks ir tukÅ¡s';
+$err_passwd_empty = 'Paroles lauks ir tukÅ¡s';
 
 
 // html message
 
-$alt_delete = 'Izdzçst izvçlçtâs vçstules';
-$alt_delete_one = 'Izdzçst vçstuli';
-$alt_new_msg = 'Jaunas vçstules';
-$alt_reply = 'Atbildçt vçstules autoram';
-$alt_reply_all = 'Atbildçt visiem';
-$alt_forward = 'Pârsûtît';
-$alt_next = 'Nâkoğâ vçstule';
-$alt_prev = 'Iepriekğçjâ vçstule';
-$html_on = 'ieslçgt';
+$alt_delete = 'IzdzÄ“st izvÄ“lÄ“tÄs vÄ“stules';
+$alt_delete_one = 'IzdzÄ“st vÄ“stuli';
+$alt_new_msg = 'Jaunas vÄ“stules';
+$alt_reply = 'AtbildÄ“t vÄ“stules autoram';
+$alt_reply_all = 'AtbildÄ“t visiem';
+$alt_forward = 'PÄrsÅ«tÄ«t';
+$alt_next = 'NÄkoÅ¡Ä vÄ“stule';
+$alt_prev = 'IepriekÅ¡Ä“jÄ vÄ“stule';
+$html_on = 'ieslÄ“gt';
 $html_theme = 'Izskats';
 
 // index.php
 
 $html_lang = 'Valoda';
-$html_welcome = 'Laipni lûgti';
-$html_login = 'Lietotâjvârds';
+$html_welcome = 'Laipni lÅ«gti';
+$html_login = 'LietotÄjvÄrds';
 $html_passwd = 'Parole';
-$html_submit = 'Ievadît';
-$html_help = 'Palîdzîba';
+$html_submit = 'IevadÄ«t';
+$html_help = 'PalÄ«dzÄ«ba';
 $html_server = 'Serveris';
-$html_wrong = 'Lietotâjvârds un parole nav pareizi';
-$html_retry = 'Mçìinât vçlreiz';
+$html_wrong = 'LietotÄjvÄrds un parole nav pareizi';
+$html_retry = 'MÄ“Ä£inÄt vÄ“lreiz';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
 
 $html_msgperpage = 'Messages per page'; // to translate
-$html_preferences = 'Uzstâdîjumi';
-$html_full_name = 'Pilns vârds';
+$html_preferences = 'UzstÄdÄ«jumi';
+$html_full_name = 'Pilns vÄrds';
 $html_email_address = 'E-pasta adrese';
-$html_ccself = 'Cc pağam';
-$html_hide_addresses = 'Slçpt adreses';
-$html_outlook_quoting = 'Outlook-stila citçğana';
-$html_reply_to = 'Atbildçt (kam)';
+$html_ccself = 'Cc paÅ¡am';
+$html_hide_addresses = 'SlÄ“pt adreses';
+$html_outlook_quoting = 'Outlook-stila citÄ“Å¡ana';
+$html_reply_to = 'AtbildÄ“t (kam)';
 $html_use_signature = 'Izmantot parakstu';
 $html_signature = 'Paraksts';
 $html_reply_leadin = 'Reply Leadin'; // to translate
-$html_prefs_updated = 'Uzstâdîjumi saglabâti';
+$html_prefs_updated = 'UzstÄdÄ«jumi saglabÄti';
 $html_manage_folders_link = 'Manage IMAP Folders'; // to translate
 $html_manage_filters_link = 'Manage Email Filters'; // to translate
 $html_use_graphical_smilies = 'Use graphical smilies'; //to translate
@@ -128,60 +128,60 @@ $html_other_folders = 'Folder List'; // to translate
 $html_page = 'Page'; // to translate
 $html_of = 'of'; // to translate
 $html_to = 'to'; // to translate
-$html_view_header = 'Apskatît galveni';
-$html_remove_header = 'Paslçpt galveni';
+$html_view_header = 'ApskatÄ«t galveni';
+$html_remove_header = 'PaslÄ“pt galveni';
 $html_inbox = 'Inbox';
-$html_new_msg = 'Rakstît';
-$html_reply = 'Atbildçt';
+$html_new_msg = 'RakstÄ«t';
+$html_reply = 'AtbildÄ“t';
 $html_reply_short = 'Re';
-$html_reply_all = 'Atbildçt visiem';
-$html_forward = 'Pârsûtît';
+$html_reply_all = 'AtbildÄ“t visiem';
+$html_forward = 'PÄrsÅ«tÄ«t';
 $html_forward_short = 'Fw';
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
-$html_delete = 'Dzçst';
+$html_delete = 'DzÄ“st';
 $html_new = 'Jauns';
-$html_mark = 'Dzçst';
+$html_mark = 'DzÄ“st';
 $html_att = 'Pielikums';
 $html_atts = 'Pielikumi';
-$html_att_unknown = '[nezinâms]';
+$html_att_unknown = '[nezinÄms]';
 $html_attach = 'Piespraust';
-$html_attach_forget = 'Jums ir jâpiesprauş fails pirms sûtîğanas !';
-$html_attach_delete = 'Novâkt izvçlçto';
+$html_attach_forget = 'Jums ir jÄpiesprauÅ¾ fails pirms sÅ«tÄ«Å¡anas !';
+$html_attach_delete = 'NovÄkt izvÄ“lÄ“to';
 $html_attach_none = 'You must select a file to attach!';  //to translate
-$html_sort_by = 'Kârtot pçc';
+$html_sort_by = 'KÄrtot pÄ“c';
 $html_from = 'No';
-$html_subject = 'Tçma';
+$html_subject = 'TÄ“ma';
 $html_date = 'Datums';
-$html_sent = 'Sûtît';
-$html_wrote = 'rakstîja';
-$html_size = 'Izmçrs';
-$html_totalsize = 'Kopçjais izmçrs';
+$html_sent = 'SÅ«tÄ«t';
+$html_wrote = 'rakstÄ«ja';
+$html_size = 'IzmÄ“rs';
+$html_totalsize = 'KopÄ“jais izmÄ“rs';
 $html_kb = 'Kb';
 $html_bytes = 'bytes';
 $html_filename = 'Faila nosaukums';
 $html_to = 'Kam';
 $html_cc = 'Cc';
 $html_bcc = 'Bcc';
-$html_nosubject = 'bez tçmas';
-$html_send = 'Sûtît';
+$html_nosubject = 'bez tÄ“mas';
+$html_send = 'SÅ«tÄ«t';
 $html_cancel = 'Atcelt';
-$html_no_mail = 'Vçstuïu nav.';
+$html_no_mail = 'VÄ“stuÄ¼u nav.';
 $html_logout = 'Beigt darbu';
-$html_msg = 'Vçstule';
-$html_msgs = 'Vçstules';
-$html_configuration = 'Serveris nav pareizi nokonfigurçts !';
-$html_priority = 'Prioritâte';
+$html_msg = 'VÄ“stule';
+$html_msgs = 'VÄ“stules';
+$html_configuration = 'Serveris nav pareizi nokonfigurÄ“ts !';
+$html_priority = 'PrioritÄte';
 $html_low = 'Zema';
-$html_normal = 'Normâla';
+$html_normal = 'NormÄla';
 $html_high = 'Augsta';
 $html_receipt = 'Request a return receipt'; // to translate
-$html_select = 'Izvçlçties';
+$html_select = 'IzvÄ“lÄ“ties';
 $html_select_all = 'Invert Selection';  //to translate
-$html_loading_image = 'Bilde tiek ielâdçta';
-$html_send_confirmed = 'Vçstule tika pieòemta nosûtîğanai';
-$html_no_sendaction = 'Rîcîba nav norâdîta. Pamçìiniet ieslçgt Java-script.';
-$html_error_occurred = 'Kïûda';
-$html_prefs_file_error = 'Nevar atvçrt uzstâdîjumu failu ierakstîğanai.';
+$html_loading_image = 'Bilde tiek ielÄdÄ“ta';
+$html_send_confirmed = 'VÄ“stule tika pieÅ†emta nosÅ«tÄ«Å¡anai';
+$html_no_sendaction = 'RÄ«cÄ«ba nav norÄdÄ«ta. PamÄ“Ä£iniet ieslÄ“gt Java-script.';
+$html_error_occurred = 'KÄ¼Å«da';
+$html_prefs_file_error = 'Nevar atvÄ“rt uzstÄdÄ«jumu failu ierakstÄ«Å¡anai.';
 $html_wrap = 'Wrap outgoing messages to :'; // to translate
 $html_wrap_none = 'None'; //to translate
 $html_usenet_separator = 'Usenet separator ("-- \n") Before signature'; // to translate
@@ -211,11 +211,11 @@ $html_del_msg = 'Delete selected messages ?'; // to translate
 $html_down_mail = 'Download'; // to translate
 
 $original_msg = '-- Original Message --';
-$to_empty = ' \'Kam\' laukumu nedrîkst atstât tukğu !';
+$to_empty = ' \'Kam\' laukumu nedrÄ«kst atstÄt tukÅ¡u !';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = "Nevar atvçrt savienojumu";
-$html_smtp_error_unexpected = "Negaidîta atbilde:";
+$html_smtp_error_no_conn = "Nevar atvÄ“rt savienojumu";
+$html_smtp_error_unexpected = "NegaidÄ«ta atbilde:";
 
 // IMAP messages (class_local.php)
 $lang_could_not_connect = 'Could not connect to server'; // to translate

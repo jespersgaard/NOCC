@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.45 2005/05/01 20:45:56 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.46 2005/06/20 16:30:09 goddess_skuld Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha AT free DOT fr>
  * Copyright 2000 Olivier Cahagne <wolruf AT free DOT fr>
@@ -11,11 +11,11 @@
  * Configuration file for the german language
  * Translation by
  * 	David Ferch <dferch AT tk-online DOT net>
- *	Benjamin Br�uer <ben1 AT gmx DOT de>
+ *	Benjamin Bräuer <ben1 AT gmx DOT de>
  *	Alexander Schremmer <alex AT alexanderweb DOT de>
  */
 
-$charset = 'ISO-8859-1';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -48,13 +48,13 @@ $err_passwd_empty = 'Kein Passwort eingegeben';
 
 // html message
 
-$alt_delete = 'Markierte Nachrichten l&ouml;schen';
-$alt_delete_one = 'Nachricht l&ouml;schen';
+$alt_delete = 'Markierte Nachrichten löschen';
+$alt_delete_one = 'Nachricht löschen';
 $alt_new_msg = 'Neue Nachrichten';
 $alt_reply = 'Antwort an Absender';
 $alt_reply_all = 'Antwort an alle';
 $alt_forward = 'Weiterleitung';
-$alt_next = 'N&auml;chste';
+$alt_next = 'Nächste';
 $alt_prev = 'Vorige';
 $html_on = 'an';
 $html_theme = 'Theme';
@@ -76,7 +76,7 @@ $html_remember = "Remember settings"; //to translate
 
 $html_msgperpage = 'Nachrichten pro Seite';
 $html_preferences = 'Einstellungen';
-$html_full_name = 'Vollst&auml;ndiger Name';
+$html_full_name = 'Vollständiger Name';
 $html_email_address = 'E-Mail Adresse';
 $html_ccself = 'Kopie der gesendeten Nachrichten an die eigene Adresse schicken';
 $html_hide_addresses = 'Adressen verstecken';
@@ -101,24 +101,24 @@ $html_folder_subscribe = 'Abonniere';
 $html_folder_rename = 'Umbenennen:';
 $html_folder_create = 'Erstelle neuen Ordner';
 $html_folder_remove = 'Abbestellen:';
-$html_folder_delete = 'L&ouml;sche';
+$html_folder_delete = 'Lösche';
 
 // filters.php
-$html_filter_remove = 'L&ouml;schen';
+$html_filter_remove = 'Löschen';
 $html_filter_body = 'Body';
 $html_filter_subject = 'Betreff';
-$html_filter_to = 'Empf&auml;ngerfeld (To)';
+$html_filter_to = 'Empfängerfeld (To)';
 $html_filter_cc = 'Cc-Feld';
 $html_filter_from = 'Absenderfeld (From)';
-$html_filter_change_tip = 'Um einen Filter zu &auml;ndern, k&ouml;nnen Sie diesen einfach &uuml;berschreiben.';
+$html_filter_change_tip = 'Um einen Filter zu ändern, können Sie diesen einfach überschreiben.';
 $html_reapply_filters = 'Alle Filter erneut anwenden';
-$html_filter_contains = 'enth&auml;lt';
+$html_filter_contains = 'enthält';
 $html_filter_name = 'Filter Name';
 $html_filter_action = 'Filter Aktion';
 $html_filter_moveto = 'Verschiebe nach';
 
 // Other pages
-$html_select_one = '--Ausw&auml;hlen--';
+$html_select_one = '--Auswählen--';
 $html_and = 'Und';
 $html_new_msg_in = 'Neue Nachrichten in';
 $html_or = 'oder';
@@ -141,15 +141,15 @@ $html_reply_all = 'Antwort an alle';
 $html_forward = 'Weiterleitung';
 $html_forward_short = 'Fwd';
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
-$html_delete = 'L&ouml;schen';
+$html_delete = 'Löschen';
 $html_new = 'Neu';
-$html_mark = 'L&ouml;schen';
+$html_mark = 'Löschen';
 $html_att = 'Anhang';
-$html_atts = 'Anh&auml;nge';
+$html_atts = 'Anhänge';
 $html_att_unknown = '[unbekannt]';
-$html_attach = 'Anh&auml;ngen';
-$html_attach_forget = 'Sie m&uuml;ssen die Datei vor dem Senden der Nachricht anh&auml;ngen !';
-$html_attach_delete = 'Ausgew&auml;hlte entfernen';
+$html_attach = 'Anhängen';
+$html_attach_forget = 'Sie müssen die Datei vor dem Senden der Nachricht anhängen !';
+$html_attach_delete = 'Ausgewählte entfernen';
 $html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sortieren nach';
 $html_from = 'Von';
@@ -157,8 +157,8 @@ $html_subject = 'Betreff';
 $html_date = 'Datum';
 $html_sent = 'Gesendet';
 $html_wrote = 'schrieb';
-$html_size = 'Gr&ouml;sse';
-$html_totalsize = 'Gesamtgr&ouml;sse';
+$html_size = 'Grösse';
+$html_totalsize = 'Gesamtgrösse';
 $html_kb = 'KB';
 $html_bytes = 'Byte';
 $html_filename = 'Datei';
@@ -173,18 +173,18 @@ $html_logout = 'Abmelden';
 $html_msg = 'Nachricht';
 $html_msgs = 'Nachrichten';
 $html_configuration = 'This server is not well set up !';
-$html_priority = 'Priorit&auml;t';
+$html_priority = 'Priorität';
 $html_low = 'Niedrig';
 $html_normal = 'Normal';
 $html_high = 'Hoch';
-$html_receipt = 'Lesebest&auml;tigung anfordern';
+$html_receipt = 'Lesebestätigung anfordern';
 $html_select = 'Auswahl';
 $html_select_all = 'Invertiere Auswahl';
 $html_loading_image = 'Lade Bild';
 $html_send_confirmed = 'Ihre Mail wurde verschickt.';
 $html_no_sendaction = 'Keine Aktion angegeben. Versuchen Sie es mit eingeschaltetem JavaScript.';
 $html_error_occurred = 'Ein Fehler ist aufgetreten';
-$html_prefs_file_error = 'Kann Ihre Einstellungen-Datei nicht zum Schreiben &ouml;ffnen.';
+$html_prefs_file_error = 'Kann Ihre Einstellungen-Datei nicht zum Schreiben öffnen.';
 $html_wrap = 'Umbrechen der ausgehenden Nachrichten nach x Zeichen:';
 $html_wrap_none = 'None'; //to translate
 $html_usenet_separator = 'Usenet-Signaturtrenner ("-- \n") benutzen';
@@ -194,12 +194,12 @@ $html_unread = 'ungelesen';
 $html_mail_sent = 'Message successfully sent'; // to translate
 
 // Contacts manager
-$html_add = 'Hinzuf&uuml;gen';
+$html_add = 'Hinzufügen';
 $html_contacts = 'Kontakte';
-$html_modify = '&Auml;ndere';
-$html_back = 'Zur&uuml;ck';
-$html_contact_add = 'F&uuml;ge neuen Kontakt hinzu';
-$html_contact_mod = '&Auml;ndere einen Kontakt';
+$html_modify = 'Ändere';
+$html_back = 'Zurück';
+$html_contact_add = 'Füge neuen Kontakt hinzu';
+$html_contact_mod = 'Ändere einen Kontakt';
 $html_contact_first = 'Vorname';
 $html_contact_last = 'Nachname';
 $html_contact_nick = 'Spitzname';
@@ -208,16 +208,16 @@ $html_contact_list = 'Kontaktliste von ';
 $html_contact_del = 'von der Kontaktliste';
 
 $html_contact_err1 = 'Die Maximalanzahl der Kontakte ist ';
-$html_contact_err2 = 'Sie k&ouml;nnen keinen neuen Kontakt hinzuf&uuml;gen';
+$html_contact_err2 = 'Sie können keinen neuen Kontakt hinzufügen';
 $html_contact_err3 = 'Sie haben keine Rechte, um auf die Kontaktliste zuzugreifen';
-$html_del_msg = 'Sollen die markierten Nachrichten gel&ouml;scht werden?';
+$html_del_msg = 'Sollen die markierten Nachrichten gelöscht werden?';
 $html_down_mail = 'Download';
 
 $original_msg = '-- Original Nachricht--';
 $to_empty = 'Das \'An\' Feld darf nicht leer sein !';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = 'Konnte Verbindung nicht &ouml;ffnen';
+$html_smtp_error_no_conn = 'Konnte Verbindung nicht öffnen';
 $html_smtp_error_unexpected = 'Unerwartete Antwort:';
 
 // IMAP messages (class_local.php)
@@ -225,11 +225,11 @@ $lang_could_not_connect = 'Verbindung zum Server fehlgeschlagen';
 $lang_invalid_msg_num = 'Bad Message Number';  //to translate
 
 $html_file_upload_attack = 'Die hochgeladene Datei konnte nicht gefunden werden.';
-$html_invalid_email_address = 'Ung&uuml;ltige E-mail Addresse';
-$html_invalid_msg_per_page = 'Ung&uuml;tige Anzahl von Nachrichten pro Seite.';
-$html_invalid_wrap_msg = 'Ung&uuml;tiger Nachrichtenumbruch';
-$html_seperate_msg_win = 'Nachricht in neuem Fenster &ouml;ffnen';
+$html_invalid_email_address = 'Ungültige E-mail Addresse';
+$html_invalid_msg_per_page = 'Ungütige Anzahl von Nachrichten pro Seite.';
+$html_invalid_wrap_msg = 'Ungütiger Nachrichtenumbruch';
+$html_seperate_msg_win = 'Nachricht in neuem Fenster öffnen';
 
 // Exceptions
-$html_err_file_contacts = 'Kann die Kontaktdatei nicht zum Schreiben &ouml;ffnen.';
+$html_err_file_contacts = 'Kann die Kontaktdatei nicht zum Schreiben öffnen.';
 ?>

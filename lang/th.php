@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/th.php,v 1.18 2005/05/01 20:45:56 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/th.php,v 1.19 2005/06/20 16:30:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,7 +12,7 @@
  * 
  */
 
-$charset = 'windows-874';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -39,50 +39,50 @@ $default_time_format = '%I:%M %p';
 
 // Here is the configuration for the HTML
 
-$err_user_empty = 'ชื่อผู้ใช้ไม่ได้กรอก';
-$err_passwd_empty = 'รหัสผ่านไม่ได้กรอก';
+$err_user_empty = 'เธเธทเนเธญเธเธนเนเนเธเนเนเธกเนเนเธ”เนเธเธฃเธญเธ';
+$err_passwd_empty = 'เธฃเธซเธฑเธชเธเนเธฒเธเนเธกเนเนเธ”เนเธเธฃเธญเธ';
 
 
 // html message
 
-$alt_delete = 'ลบจดหมายที่เลือก';
-$alt_delete_one = 'ลบ';
-$alt_new_msg = 'จดหมายใหม่';
-$alt_reply = 'ตอบกลับ';
-$alt_reply_all = 'ตอบกลับทุกคน';
-$alt_forward = 'ส่งต่อ';
-$alt_next = 'จดหมายต่อไป';
-$alt_prev = 'จดหมายก่อน';
-$html_on = 'เปิด';
-$html_theme = 'รูปแบบ';
+$alt_delete = 'เธฅเธเธเธ”เธซเธกเธฒเธขเธ—เธตเนเน€เธฅเธทเธญเธ';
+$alt_delete_one = 'เธฅเธ';
+$alt_new_msg = 'เธเธ”เธซเธกเธฒเธขเนเธซเธกเน';
+$alt_reply = 'เธ•เธญเธเธเธฅเธฑเธ';
+$alt_reply_all = 'เธ•เธญเธเธเธฅเธฑเธเธ—เธธเธเธเธ';
+$alt_forward = 'เธชเนเธเธ•เนเธญ';
+$alt_next = 'เธเธ”เธซเธกเธฒเธขเธ•เนเธญเนเธ';
+$alt_prev = 'เธเธ”เธซเธกเธฒเธขเธเนเธญเธ';
+$html_on = 'เน€เธเธดเธ”';
+$html_theme = 'เธฃเธนเธเนเธเธ';
 
 // index.php
 
-$html_lang = 'ภาษา';
-$html_welcome = 'ยินดีต้อนรับสู่';
-$html_login = 'ชื่อผู้ใช้';
-$html_passwd = 'รหัสผ่าน';
-$html_submit = 'ยืนยัน';
-$html_help = 'ช่วยเหลือ';
-$html_server = 'ระบบ';
-$html_wrong = 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง';
-$html_retry = 'ลองใหม่';
+$html_lang = 'เธ เธฒเธฉเธฒ';
+$html_welcome = 'เธขเธดเธเธ”เธตเธ•เนเธญเธเธฃเธฑเธเธชเธนเน';
+$html_login = 'เธเธทเนเธญเธเธนเนเนเธเน';
+$html_passwd = 'เธฃเธซเธฑเธชเธเนเธฒเธ';
+$html_submit = 'เธขเธทเธเธขเธฑเธ';
+$html_help = 'เธเนเธงเธขเน€เธซเธฅเธทเธญ';
+$html_server = 'เธฃเธฐเธเธ';
+$html_wrong = 'เธเธทเนเธญเธเธนเนเนเธเนเธซเธฃเธทเธญเธฃเธซเธฑเธชเธเนเธฒเธเนเธกเนเธ–เธนเธเธ•เนเธญเธ';
+$html_retry = 'เธฅเธญเธเนเธซเธกเน';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
 
 $html_msgperpage = 'Messages per page';  //to translate
-$html_preferences = 'ตั้งค่า';
-$html_full_name = 'ชื่อเต็ม';
-$html_email_address = 'อีเมล์';
-$html_ccself = 'สำเนา';
-$html_hide_addresses = 'ซ่อนที่อยู่';
-$html_outlook_quoting = 'รูปแบบ Outlook';
-$html_reply_to = 'ตอบกลับถึง';
-$html_use_signature = 'ใช้ลายเซ็นต์';
-$html_signature = 'ลายเซ็นต์';
+$html_preferences = 'เธ•เธฑเนเธเธเนเธฒ';
+$html_full_name = 'เธเธทเนเธญเน€เธ•เนเธก';
+$html_email_address = 'เธญเธตเน€เธกเธฅเน';
+$html_ccself = 'เธชเธณเน€เธเธฒ';
+$html_hide_addresses = 'เธเนเธญเธเธ—เธตเนเธญเธขเธนเน';
+$html_outlook_quoting = 'เธฃเธนเธเนเธเธ Outlook';
+$html_reply_to = 'เธ•เธญเธเธเธฅเธฑเธเธ–เธถเธ';
+$html_use_signature = 'เนเธเนเธฅเธฒเธขเน€เธเนเธเธ•เน';
+$html_signature = 'เธฅเธฒเธขเน€เธเนเธเธ•เน';
 $html_reply_leadin = 'Reply Leadin';  //to translate
-$html_prefs_updated = 'การตั้งค่าได้ปรับปรุงแล้ว';
+$html_prefs_updated = 'เธเธฒเธฃเธ•เธฑเนเธเธเนเธฒเนเธ”เนเธเธฃเธฑเธเธเธฃเธธเธเนเธฅเนเธง';
 $html_manage_folders_link = 'Manage IMAP Folders';  //to translate
 $html_manage_filters_link = 'Manage Email Filters';  //to translate
 $html_use_graphical_smilies = 'Use graphical smilies'; //to translate
@@ -128,60 +128,60 @@ $html_other_folders = 'Folder List';  //to translate
 $html_page = 'Page';  //to translate
 $html_of = 'of';  //to translate
 $html_to = 'to';  //to translate
-$html_view_header = 'แสดงรายละเอียด';
-$html_remove_header = 'ซ่อนรายละเอียด';
-$html_inbox = 'กล่องจดหมาย';
-$html_new_msg = 'เขียนจดหมาย';
-$html_reply = 'ตอบกลับ';
+$html_view_header = 'เนเธชเธ”เธเธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”';
+$html_remove_header = 'เธเนเธญเธเธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”';
+$html_inbox = 'เธเธฅเนเธญเธเธเธ”เธซเธกเธฒเธข';
+$html_new_msg = 'เน€เธเธตเธขเธเธเธ”เธซเธกเธฒเธข';
+$html_reply = 'เธ•เธญเธเธเธฅเธฑเธ';
 $html_reply_short = 'Re';  //to translate
-$html_reply_all = 'ตอบกลับทุกคน';
-$html_forward = 'ส่งต่อ';
+$html_reply_all = 'เธ•เธญเธเธเธฅเธฑเธเธ—เธธเธเธเธ';
+$html_forward = 'เธชเนเธเธ•เนเธญ';
 $html_forward_short = 'Fw';  //to translate
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
-$html_delete = 'ลบ';
-$html_new = 'ใหม่';
-$html_mark = 'ลบ';
-$html_att = 'แนบไฟล์';
-$html_atts = 'แนบหลายไฟล์';
-$html_att_unknown = '[ไม่รู้จัก]';
-$html_attach = 'แนบ';
-$html_attach_forget = 'คุณต้องแนบไฟล์ก่อนที่จะส่งจดหมาย !';
-$html_attach_delete = 'ลบไฟล์แนบที่เลือก';
+$html_delete = 'เธฅเธ';
+$html_new = 'เนเธซเธกเน';
+$html_mark = 'เธฅเธ';
+$html_att = 'เนเธเธเนเธเธฅเน';
+$html_atts = 'เนเธเธเธซเธฅเธฒเธขเนเธเธฅเน';
+$html_att_unknown = '[เนเธกเนเธฃเธนเนเธเธฑเธ]';
+$html_attach = 'เนเธเธ';
+$html_attach_forget = 'เธเธธเธ“เธ•เนเธญเธเนเธเธเนเธเธฅเนเธเนเธญเธเธ—เธตเนเธเธฐเธชเนเธเธเธ”เธซเธกเธฒเธข !';
+$html_attach_delete = 'เธฅเธเนเธเธฅเนเนเธเธเธ—เธตเนเน€เธฅเธทเธญเธ';
 $html_attach_none = 'You must select a file to attach!';  //to translate
-$html_sort_by = 'จัดเรียงโดย';
-$html_from = 'จาก';
-$html_subject = 'หัวเรื่อง';
-$html_date = 'วัน';
-$html_sent = 'ส่ง';
-$html_wrote = 'เขียนเมื่อ';
-$html_size = 'ขนาด';
-$html_totalsize = 'ขนาดทั้งหมด';
+$html_sort_by = 'เธเธฑเธ”เน€เธฃเธตเธขเธเนเธ”เธข';
+$html_from = 'เธเธฒเธ';
+$html_subject = 'เธซเธฑเธงเน€เธฃเธทเนเธญเธ';
+$html_date = 'เธงเธฑเธ';
+$html_sent = 'เธชเนเธ';
+$html_wrote = 'เน€เธเธตเธขเธเน€เธกเธทเนเธญ';
+$html_size = 'เธเธเธฒเธ”';
+$html_totalsize = 'เธเธเธฒเธ”เธ—เธฑเนเธเธซเธกเธ”';
 $html_kb = 'Kb';  //to translate
 $html_bytes = 'bytes';  //to translate
-$html_filename = 'ชื่อไฟล์';
-$html_to = 'ถึง';
-$html_cc = 'สำเนา';
-$html_bcc = 'สำเนาซ่อน';
-$html_nosubject = 'ไม่มีหัวเรื่อง';
-$html_send = 'ส่ง';
-$html_cancel = 'ยกเลิก';
-$html_no_mail = 'ไม่มีข้อความ';
-$html_logout = 'ออก';
-$html_msg = 'ข้อความ';
-$html_msgs = 'หลายข้อความ';
-$html_configuration = 'ระบบนี้ยังตั้งค่าไม่สมบูรณ์';
-$html_priority = 'ความสำคัญ';
-$html_low = 'ต่ำ';
-$html_normal = 'ปกติ';
-$html_high = 'สูง';
+$html_filename = 'เธเธทเนเธญเนเธเธฅเน';
+$html_to = 'เธ–เธถเธ';
+$html_cc = 'เธชเธณเน€เธเธฒ';
+$html_bcc = 'เธชเธณเน€เธเธฒเธเนเธญเธ';
+$html_nosubject = 'เนเธกเนเธกเธตเธซเธฑเธงเน€เธฃเธทเนเธญเธ';
+$html_send = 'เธชเนเธ';
+$html_cancel = 'เธขเธเน€เธฅเธดเธ';
+$html_no_mail = 'เนเธกเนเธกเธตเธเนเธญเธเธงเธฒเธก';
+$html_logout = 'เธญเธญเธ';
+$html_msg = 'เธเนเธญเธเธงเธฒเธก';
+$html_msgs = 'เธซเธฅเธฒเธขเธเนเธญเธเธงเธฒเธก';
+$html_configuration = 'เธฃเธฐเธเธเธเธตเนเธขเธฑเธเธ•เธฑเนเธเธเนเธฒเนเธกเนเธชเธกเธเธนเธฃเธ“เน';
+$html_priority = 'เธเธงเธฒเธกเธชเธณเธเธฑเธ';
+$html_low = 'เธ•เนเธณ';
+$html_normal = 'เธเธเธ•เธด';
+$html_high = 'เธชเธนเธ';
 $html_receipt = 'Request a return receipt';  //to translate
-$html_select = 'เลือก';
+$html_select = 'เน€เธฅเธทเธญเธ';
 $html_select_all = 'Invert Selection';  //to translate
-$html_loading_image = 'กำลังโหลดภาพ';
-$html_send_confirmed = 'จดหมายท่านได้ถูกส่งไปแล้ว';
-$html_no_sendaction = 'ไม่มีการกระทำใดๆ ให้ลองเปิดการใช้ JavaScript';
-$html_error_occurred = 'เกิดข้อผิดพลาดขึ้น';
-$html_prefs_file_error = 'ไม่สามารถตั้งค่าได้';
+$html_loading_image = 'เธเธณเธฅเธฑเธเนเธซเธฅเธ”เธ เธฒเธ';
+$html_send_confirmed = 'เธเธ”เธซเธกเธฒเธขเธ—เนเธฒเธเนเธ”เนเธ–เธนเธเธชเนเธเนเธเนเธฅเนเธง';
+$html_no_sendaction = 'เนเธกเนเธกเธตเธเธฒเธฃเธเธฃเธฐเธ—เธณเนเธ”เน เนเธซเนเธฅเธญเธเน€เธเธดเธ”เธเธฒเธฃเนเธเน JavaScript';
+$html_error_occurred = 'เน€เธเธดเธ”เธเนเธญเธเธดเธ”เธเธฅเธฒเธ”เธเธถเนเธ';
+$html_prefs_file_error = 'เนเธกเนเธชเธฒเธกเธฒเธฃเธ–เธ•เธฑเนเธเธเนเธฒเนเธ”เน';
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
 $html_wrap_none = 'None'; //to translate
 $html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
@@ -210,12 +210,12 @@ $html_contact_err3 = 'You don\'t have access rights to contact list'; //to trans
 $html_del_msg = 'Delete selected messages ?';  //to translate
 $html_down_mail = 'Download';  //to translate
 
-$original_msg = '-- ข้อความต้นฉบับ --';
-$to_empty = 'The \'ถึง\' ห้ามเว้นว่างไว้ !';
+$original_msg = '-- เธเนเธญเธเธงเธฒเธกเธ•เนเธเธเธเธฑเธ --';
+$to_empty = 'The \'เธ–เธถเธ\' เธซเนเธฒเธกเน€เธงเนเธเธงเนเธฒเธเนเธงเน !';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = 'ไม่สามารถติดต่อได้';
-$html_smtp_error_unexpected = 'ไม่มีการตอบสนอง:';
+$html_smtp_error_no_conn = 'เนเธกเนเธชเธฒเธกเธฒเธฃเธ–เธ•เธดเธ”เธ•เนเธญเนเธ”เน';
+$html_smtp_error_unexpected = 'เนเธกเนเธกเธตเธเธฒเธฃเธ•เธญเธเธชเธเธญเธ:';
 
 // IMAP messages (class_local.php)
 $lang_could_not_connect = 'Could not connect to server';  //to translate

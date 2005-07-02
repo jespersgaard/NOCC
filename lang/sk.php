@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/sk.php,v 1.31 2005/05/01 20:45:56 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sk.php,v 1.32 2005/06/20 16:30:09 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,7 +12,7 @@
  * Translation by Peter Sochna <sochna@telecom.sk>
  */
 
-$charset = 'ISO-8859-2';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -45,16 +45,16 @@ $err_passwd_empty = 'Nezadali ste heslo';
 
 // html message
 
-$alt_delete = 'Vymazaª oznaËenÈ spr·vy';
-$alt_delete_one = 'Vymazaªù spr·vu';
-$alt_new_msg = 'Nov· spr·vy';
-$alt_reply = 'Odpovedaª autorovi';
-$alt_reply_all = 'Odpovedaª vπetk˝m';
-$alt_forward = 'Preposlaª';
-$alt_next = 'œalπia spr·va';
-$alt_prev = 'Predoπl· spr·va';
+$alt_delete = 'Vymaza≈• oznaƒçen√© spr√°vy';
+$alt_delete_one = 'Vymaza≈•¬ù spr√°vu';
+$alt_new_msg = 'Nov√° spr√°vy';
+$alt_reply = 'Odpoveda≈• autorovi';
+$alt_reply_all = 'Odpoveda≈• v≈°etk√Ωm';
+$alt_forward = 'Preposla≈•';
+$alt_next = 'ƒéal≈°ia spr√°va';
+$alt_prev = 'Predo≈°l√° spr√°va';
 $html_on = 'on';  //to translate
-$html_theme = 'TÈma';
+$html_theme = 'T√©ma';
 
 // index.php
 
@@ -62,27 +62,27 @@ $html_lang = 'Jazyk';
 $html_welcome = 'Vitajte v ';
 $html_login = 'Prihlasovacie meno';
 $html_passwd = 'Heslo';
-$html_submit = 'Prihl·siª';
+$html_submit = 'Prihl√°si≈•';
 $html_help = 'Pomoc';
 $html_server = 'Server';  //to translate
-$html_wrong = 'Bolo zadanÈ zlÈ prihlasovacie meno alebo heslo';
-$html_retry = 'Zopakovaª';
+$html_wrong = 'Bolo zadan√© zl√© prihlasovacie meno alebo heslo';
+$html_retry = 'Zopakova≈•';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
 
 $html_msgperpage = 'Messages per page';  //to translate
 $html_preferences = 'Nastavenia';
-$html_full_name = 'CelÈ meno';
-$html_email_address = 'E-mailov· Adresa';
-$html_ccself = 'Automaticky si poslaª kÛpiu';
-$html_hide_addresses = 'Skryª adresy';
-$html_outlook_quoting = 'Form·tovanie v πt˝le Outlook';
-$html_reply_to = 'Odpovedaª';
-$html_use_signature = 'Pouæiª podpis';
+$html_full_name = 'Cel√© meno';
+$html_email_address = 'E-mailov√° Adresa';
+$html_ccself = 'Automaticky si posla≈• k√≥piu';
+$html_hide_addresses = 'Skry≈• adresy';
+$html_outlook_quoting = 'Form√°tovanie v ≈°t√Ωle Outlook';
+$html_reply_to = 'Odpoveda≈•';
+$html_use_signature = 'Pou≈æi≈• podpis';
 $html_signature = 'Podpis';
 $html_reply_leadin = 'Reply Leadin';
-$html_prefs_updated = 'Nastavenia uloæenÈ';
+$html_prefs_updated = 'Nastavenia ulo≈æen√©';
 $html_manage_folders_link = 'Manage IMAP Folders';  //to translate
 $html_manage_filters_link = 'Manage Email Filters';  //to translate
 $html_use_graphical_smilies = 'Use graphical smilies'; //to translate
@@ -128,60 +128,60 @@ $html_other_folders = 'Folder List';  //to translate
 $html_page = 'Page';  //to translate
 $html_of = 'of';  //to translate
 $html_to = 'to';  //to translate
-$html_view_header = 'Zobraziª hlaviËku';
-$html_remove_header = 'Skryª hlaviËku';
-$html_inbox = 'PrijatÈ spr·vy';
-$html_new_msg = 'Poslaª spr·vu';
-$html_reply = 'Odpovedaª';
+$html_view_header = 'Zobrazi≈• hlaviƒçku';
+$html_remove_header = 'Skry≈• hlaviƒçku';
+$html_inbox = 'Prijat√© spr√°vy';
+$html_new_msg = 'Posla≈• spr√°vu';
+$html_reply = 'Odpoveda≈•';
 $html_reply_short = 'Re';
-$html_reply_all = 'Odpovedaª vπetk˝m';
-$html_forward = 'Preposlaª';
+$html_reply_all = 'Odpoveda≈• v≈°etk√Ωm';
+$html_forward = 'Preposla≈•';
 $html_forward_short = 'Fw';
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
-$html_delete = 'Vymazaª';
-$html_new = 'Nov˝';
-$html_mark = 'Vymazaª';
+$html_delete = 'Vymaza≈•';
+$html_new = 'Nov√Ω';
+$html_mark = 'Vymaza≈•';
 $html_att = 'Attachment';
 $html_atts = 'Attachmenty';
-$html_att_unknown = '[nezn·my]';
-$html_attach = 'Pripojiª attachment';
-$html_attach_forget = 'Pred odoslanÌm spr·vy musÌte pripojiª v·π attachment !';
-$html_attach_delete = 'Odstr·Ú oznaËenÈ';
+$html_att_unknown = '[nezn√°my]';
+$html_attach = 'Pripoji≈• attachment';
+$html_attach_forget = 'Pred odoslan√≠m spr√°vy mus√≠te pripoji≈• v√°≈° attachment !';
+$html_attach_delete = 'Odstr√°≈à oznaƒçen√©';
 $html_attach_none = 'You must select a file to attach!';  //to translate
-$html_sort_by = 'Zorad podµa';
-$html_from = 'Odosielateµ';
+$html_sort_by = 'Zorad podƒæa';
+$html_from = 'Odosielateƒæ';
 $html_subject = 'Nadpis';
-$html_date = 'D·tum';
-$html_sent = 'PoslanÈ';
-$html_wrote = 'napÌsal';
-$html_size = 'Velkosª';
-$html_totalsize = 'Celkov· velkosª';
+$html_date = 'D√°tum';
+$html_sent = 'Poslan√©';
+$html_wrote = 'nap√≠sal';
+$html_size = 'Velkos≈•';
+$html_totalsize = 'Celkov√° velkos≈•';
 $html_kb = 'Kb';
 $html_bytes = 'bytov';
-$html_filename = 'S˙bor';
-$html_to = 'Adres·t';
-$html_cc = 'KÛpia';
-$html_bcc = 'Tajn· kÛpia';
-$html_nosubject = 'Æiaden nadpis';
-$html_send = 'Poslaª';
-$html_cancel = 'Zruπiª';
-$html_no_mail = 'Æiadne spr·vy.';
-$html_logout = 'Odhl·senie';
-$html_msg = 'Spr·va';
-$html_msgs = 'Spr·vy';
-$html_configuration = 'Tento server nie je spr·vne nakonfigurovan˝ !';
+$html_filename = 'S√∫bor';
+$html_to = 'Adres√°t';
+$html_cc = 'K√≥pia';
+$html_bcc = 'Tajn√° k√≥pia';
+$html_nosubject = '≈Ωiaden nadpis';
+$html_send = 'Posla≈•';
+$html_cancel = 'Zru≈°i≈•';
+$html_no_mail = '≈Ωiadne spr√°vy.';
+$html_logout = 'Odhl√°senie';
+$html_msg = 'Spr√°va';
+$html_msgs = 'Spr√°vy';
+$html_configuration = 'Tento server nie je spr√°vne nakonfigurovan√Ω !';
 $html_priority = 'Priorita';
-$html_low = 'NÌzka';
-$html_normal = 'Norm·lna';
-$html_high = 'Vysok·';
+$html_low = 'N√≠zka';
+$html_normal = 'Norm√°lna';
+$html_high = 'Vysok√°';
 $html_receipt = 'Request a return receipt';
-$html_select = 'OznaË';
+$html_select = 'Oznaƒç';
 $html_select_all = 'Invert Selection';  //to translate
-$html_loading_image = 'Nahr·vam obr·zok';
-$html_send_confirmed = 'Spr·va bola akceptovan· na odoslanie.';
-$html_no_sendaction = 'Nemoæno vykonaª. Sk˙ste zapn˙t podporu Javaskript vo vaπom prehliadaËi.';
+$html_loading_image = 'Nahr√°vam obr√°zok';
+$html_send_confirmed = 'Spr√°va bola akceptovan√° na odoslanie.';
+$html_no_sendaction = 'Nemo≈æno vykona≈•. Sk√∫ste zapn√∫t podporu Javaskript vo va≈°om prehliadaƒçi.';
 $html_error_occurred = 'Nastala chyba';
-$html_prefs_file_error = 'Nemoæno otvoriª s˙bor nastavenÌ pre z·pis.';
+$html_prefs_file_error = 'Nemo≈æno otvori≈• s√∫bor nastaven√≠ pre z√°pis.';
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
 $html_wrap_none = 'None'; //to translate
 $html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
@@ -211,11 +211,11 @@ $html_del_msg = 'Delete selected messages ?';  //to translate
 $html_down_mail = 'Download';  //to translate
 
 $original_msg = '-- Original Message --';  //to translate
-$to_empty = 'PolÌËko \'Adres·t\' nesmie byª pr·zdne !';
+$to_empty = 'Pol√≠ƒçko \'Adres√°t\' nesmie by≈• pr√°zdne !';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = 'Nemoæno urobiª spojenie';
-$html_smtp_error_unexpected = 'NeoËak·van· odpoved:';
+$html_smtp_error_no_conn = 'Nemo≈æno urobi≈• spojenie';
+$html_smtp_error_unexpected = 'Neoƒçak√°van√° odpoved:';
 
 // IMAP messages (class_local.php)
 $lang_could_not_connect = 'Could not connect to server';  //to translate

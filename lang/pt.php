@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.46 2005/05/01 20:45:56 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.47 2005/06/20 16:30:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,7 +13,7 @@
  * Few updates by Paulo Matos <paulo.matos@fct.unl.pt>
  */
 
-$charset = 'ISO-8859-1';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -40,8 +40,8 @@ $default_time_format = '%H:%M %p';
 
 // Here is the configuration for the HTML
 
-$err_user_empty = 'O identificador n&atilde;o foi preenchido';
-$err_passwd_empty = 'A senha n&atilde;o foi preenchida';
+$err_user_empty = 'O identificador não foi preenchido';
+$err_passwd_empty = 'A senha não foi preenchida';
 
 
 // html message
@@ -52,14 +52,14 @@ $alt_new_msg = 'Mensagens novas';
 $alt_reply = 'Responder ao autor';
 $alt_reply_all = 'Responder a todos';
 $alt_forward = 'Reencaminhar';
-$alt_next = 'Pr&oacute;xima';
+$alt_next = 'Próxima';
 $alt_prev = 'Anterior';
 $html_on = 'em';
 $html_theme = 'Tema';
 
 // index.php
 
-$html_lang = 'L&iacute;ngua';
+$html_lang = 'Língua';
 $html_welcome = 'Benvindo ao';
 $html_login = 'Identificador';
 $html_passwd = 'Senha';
@@ -72,18 +72,18 @@ $html_remember = "Remember settings"; //to translate
 
 // prefs.php
 
-$html_msgperpage = 'Mensagens por p&aacute;gina';
-$html_preferences = 'Prefer&ecirc;ncias';
+$html_msgperpage = 'Mensagens por página';
+$html_preferences = 'Preferências';
 $html_full_name = 'Nome completo';
-$html_email_address = 'Endere&ccedil;o E-mail';
-$html_ccself = 'Cc pr&oacute;prio';
-$html_hide_addresses = 'Esconder Endere&ccedil;os';
+$html_email_address = 'Endereço E-mail';
+$html_ccself = 'Cc próprio';
+$html_hide_addresses = 'Esconder Endereços';
 $html_outlook_quoting = 'Outlook-style quoting';
 $html_reply_to = 'Responder para';
 $html_use_signature = 'Utilizar assinatura';
 $html_signature = 'Assinatura';
 $html_reply_leadin = 'Responder com prefixo'; 
-$html_prefs_updated = 'Prefer&ecirc;ncias actualizadas';
+$html_prefs_updated = 'Preferências actualizadas';
 $html_manage_folders_link = 'Gerir Pastas IMAP'; 
 $html_manage_filters_link = 'Gerir Filtros de Email';
 $html_use_graphical_smilies = 'Use graphical smilies'; //to translate
@@ -103,12 +103,12 @@ $html_folder_delete = 'Delete';  //to translate
 
 // filters.php
 $html_filter_remove = 'Apagar';
-$html_filter_body = 'Conte&uacute;do da Mensagem';
+$html_filter_body = 'Conteúdo da Mensagem';
 $html_filter_subject = 'Assunto da Mensaagem';
 $html_filter_to = 'Campo \'Para\'';
 $html_filter_cc = 'Campo \'Cc\'';
 $html_filter_from = 'Campo \'De\'';
-$html_filter_change_tip = 'Para alterar um filtro grav&aacute;-lo novamente.';
+$html_filter_change_tip = 'Para alterar um filtro gravá-lo novamente.';
 $html_reapply_filters = 'Reapply all filters';  //to translate
 $html_filter_contains = 'contains';  //to translate
 $html_filter_name = 'Filter Name';  //to translate
@@ -123,14 +123,14 @@ $html_or = 'ou';
 $html_move = 'Mover';
 $html_copy = 'Copiar';
 $html_messages_to = 'mensagens seleccionadas para';
-$html_gotopage = 'Ir para P&aacute;gina';
+$html_gotopage = 'Ir para Página';
 $html_gotofolder = 'Ir para a Pasta';
 $html_other_folders = 'Lista de Pastas';
-$html_page = 'P&aacute;gina';
+$html_page = 'Página';
 $html_of = 'of';  //to translate
 $html_to = 'para';
-$html_view_header = 'Ver cabe&ccedil;alhos';
-$html_remove_header = 'Esconder cabe&ccedil;alhos';
+$html_view_header = 'Ver cabeçalhos';
+$html_remove_header = 'Esconder cabeçalhos';
 $html_inbox = 'Correio';
 $html_new_msg = 'Escrever';
 $html_reply = 'Responder';
@@ -166,23 +166,23 @@ $html_bcc = 'Bcc';
 $html_nosubject = 'Sem assunto';
 $html_send = 'Enviar';
 $html_cancel = 'Cancelar';
-$html_no_mail = 'N&atilde;o h&aacute; mensagens novas.';
+$html_no_mail = 'Não há mensagens novas.';
 $html_logout = 'Sair';
 $html_msg = 'Mensagem';
 $html_msgs = 'Mensagens';
-$html_configuration = 'Este servidor n&atilde;o est&aacute; correctamente configurado !';
+$html_configuration = 'Este servidor não está correctamente configurado !';
 $html_priority = 'Prioridade';
 $html_low = 'Baixa';
 $html_normal = 'Normal';  //to translate
 $html_high = 'Alta';
-$html_receipt = 'Requer confirma&ccedil;&atilde;o';
+$html_receipt = 'Requer confirmação';
 $html_select = 'Seleccionar';
 $html_select_all = 'Invert Selection';  //to translate
 $html_loading_image = 'Carregando imagem';
 $html_send_confirmed = 'A mensagem foi aceite para envio';
-$html_no_sendaction = 'Ac&ccedil;&atilde;o n&atilde;o indicada. Tente activar o JavaScript.';
+$html_no_sendaction = 'Acção não indicada. Tente activar o JavaScript.';
 $html_error_occurred = 'Ocorreu um erro';
-$html_prefs_file_error = 'N&atilde;o foi poss&iacute;vel abrir o ficheiro de preferen&ccedil;as para escrita.';
+$html_prefs_file_error = 'Não foi possível abrir o ficheiro de preferenças para escrita.';
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
 $html_wrap_none = 'None'; //to translate
 $html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
@@ -215,15 +215,15 @@ $original_msg = '-- Mensagem Original --';
 $to_empty = 'O campo \'Para\' tem de ser preenchido !';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = 'N&atilde;o foi poss&iacute;vel estabelecer liga��o ao servidor de SMTP';
+$html_smtp_error_no_conn = 'Não foi possível estabelecer ligação ao servidor de SMTP';
 $html_smtp_error_unexpected = 'Resposta inesperada do servidor de SMTP:';
 
 // IMAP messages (class_local.php)
-$lang_could_not_connect = 'N&atilde;o foi poss&iacute;vel estabelecer liga��o ao servidor';
+$lang_could_not_connect = 'Não foi possível estabelecer ligação ao servidor';
 $lang_invalid_msg_num = 'Bad Message Number';  //to translate
 
-$html_file_upload_attack = 'Poss&iacute;vel ataque de \'upload\' de ficheiros';
-$html_invalid_email_address = 'Endere�o de e-mail inv&aacute;lido';
+$html_file_upload_attack = 'Possível ataque de \'upload\' de ficheiros';
+$html_invalid_email_address = 'Endereço de e-mail inválido';
 $html_invalid_msg_per_page = 'Invalid number of messages per page';  //to translate
 $html_invalid_wrap_msg = 'Invalid message wrap width';  //to translate
 $html_seperate_msg_win = 'Mensagens em janela separada';

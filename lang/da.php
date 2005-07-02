@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/da.php,v 1.29 2005/05/01 20:45:56 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/da.php,v 1.30 2005/06/20 16:30:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,7 +12,7 @@
  * Translation by Christian Knudsen <chr@epun.dk>
  */
 
-$charset = 'ISO-8859-1';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -51,7 +51,7 @@ $alt_new_msg = 'Nye meddelelser';
 $alt_reply = 'Svar meddelelse';
 $alt_reply_all = 'Svar alle';
 $alt_forward = 'Videresend';
-$alt_next = 'Næste';
+$alt_next = 'NÃ¦ste';
 $alt_prev = 'Forrige';
 $html_on = 'til';
 $html_theme = 'Tema';
@@ -63,10 +63,10 @@ $html_welcome = 'Velkommen til';
 $html_login = 'Brugernavn';
 $html_passwd = 'Kodeord';
 $html_submit = 'Log ind';
-$html_help = 'Hjælp';
+$html_help = 'HjÃ¦lp';
 $html_server = 'Server';
 $html_wrong = 'Brugernavn eller kodeord er forkert';
-$html_retry = 'Prøv igen';
+$html_retry = 'PrÃ¸v igen';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
@@ -144,9 +144,9 @@ $html_mark = 'Slet';
 $html_att = 'Vedlagt fil';
 $html_atts = 'Vedlagte filer';
 $html_att_unknown = '[ukendt]';
-$html_attach = 'Vedlæg';
-$html_attach_forget = 'Du er nødt til at vedlægge filen, før du sender meddelelsen !';
-$html_attach_delete = 'Fjern markerede vedlæg';
+$html_attach = 'VedlÃ¦g';
+$html_attach_forget = 'Du er nÃ¸dt til at vedlÃ¦gge filen, fÃ¸r du sender meddelelsen !';
+$html_attach_delete = 'Fjern markerede vedlÃ¦g';
 $html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sort by';  //to translate
 $html_from = 'Fra';
@@ -154,8 +154,8 @@ $html_subject = 'Emne';
 $html_date = 'Dato';
 $html_sent = 'Sendt';
 $html_wrote = 'wrote';  //to translate
-$html_size = 'Størrelse';
-$html_totalsize = 'Total Størrelse';
+$html_size = 'StÃ¸rrelse';
+$html_totalsize = 'Total StÃ¸rrelse';
 $html_kb = 'Kb';
 $html_bytes = 'bytes';  //to translate
 $html_filename = 'Filnavn';
@@ -164,7 +164,7 @@ $html_cc = 'Cc';
 $html_bcc = 'Bcc';
 $html_nosubject = 'Intet emne';
 $html_send = 'Send';  //to translate
-$html_cancel = 'Annullér';
+$html_cancel = 'AnnullÃ©r';
 $html_no_mail = 'Ingen meddelelser';
 $html_logout = 'Log ud';
 $html_msg = 'Meddelelse';
@@ -210,7 +210,7 @@ $html_del_msg = 'Delete selected messages ?';  //to translate
 $html_down_mail = 'Download';  //to translate
 
 $original_msg = '-- Oprindelig Meddelelse --';
-$to_empty = 'Feltet \'Til\' må ikke være tomt !';
+$to_empty = 'Feltet \'Til\' mÃ¥ ikke vÃ¦re tomt !';
 
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Unable to open SMTP connection';  //to translate

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nn.php,v 1.25 2005/05/01 20:45:56 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/nn.php,v 1.26 2005/06/20 16:30:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,7 +12,7 @@
  * Translation by Ove Ruben R Olsen <ruben@noia.no>
  */
 
-$charset = 'ISO-8859-1';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -39,8 +39,8 @@ $default_time_format = '%I:%M %p';
 
 // Here is the configuration for the HTML
 
-$err_user_empty = 'Felt for Brukarnamn må fyllast ut';
-$err_passwd_empty = 'Felt for Tilgangskode må fyllast ut';
+$err_user_empty = 'Felt for Brukarnamn mÃ¥ fyllast ut';
+$err_passwd_empty = 'Felt for Tilgangskode mÃ¥ fyllast ut';
 
 
 // html message
@@ -48,7 +48,7 @@ $err_passwd_empty = 'Felt for Tilgangskode må fyllast ut';
 $alt_delete = 'Fjern avmerka meldingar';
 $alt_delete_one = 'Fjern meldinga';
 $alt_new_msg = 'Nye meldingar';
-$alt_reply = 'Svar på melding';
+$alt_reply = 'Svar pÃ¥ melding';
 $alt_reply_all = 'Svar til alle';
 $alt_forward = 'Videresend';
 $alt_next = 'Neste';
@@ -58,15 +58,15 @@ $html_theme = 'Bunad';
 
 // index.php
 
-$html_lang = 'Målføre';
+$html_lang = 'MÃ¥lfÃ¸re';
 $html_welcome = 'Velkommen til';
 $html_login = 'Brukarnamn';
 $html_passwd = 'Kjenneord';
-$html_submit = 'Log på';
+$html_submit = 'Log pÃ¥';
 $html_help = 'Hjelp';
 $html_server = 'Server';  //to translate
 $html_wrong = 'Feil brukernamn eller kjenneord';
-$html_retry = 'Prøv på ny';
+$html_retry = 'PrÃ¸v pÃ¥ ny';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
@@ -145,17 +145,17 @@ $html_att = 'Vedlegg';
 $html_atts = 'Vedlagte filar';
 $html_att_unknown = '[ukjent vedlegg]';
 $html_attach = 'Vedlegg';
-$html_attach_forget = 'Det er naudsynt å vedlegga fila, før du sendar meldinga!';
+$html_attach_forget = 'Det er naudsynt Ã¥ vedlegga fila, fÃ¸r du sendar meldinga!';
 $html_attach_delete = 'Fjern markerete vedlegg';
 $html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sort by';  //to translate
-$html_from = 'Frå';
+$html_from = 'FrÃ¥';
 $html_subject = 'Emne';
 $html_date = 'Dato';
 $html_sent = 'Sendt';
 $html_wrote = 'wrote';  //to translate
-$html_size = 'Størrelse';
-$html_totalsize = 'Total størrelse';
+$html_size = 'StÃ¸rrelse';
+$html_totalsize = 'Total stÃ¸rrelse';
 $html_kb = 'Kb';  //to translate
 $html_bytes = 'bytes';  //to translate
 $html_filename = 'Filnamn';
@@ -211,7 +211,7 @@ $html_del_msg = 'Delete selected messages ?';  //to translate
 $html_down_mail = 'Download';  //to translate
 
 $original_msg = '-- Opphaveleg melding --';
-$to_empty = 'Feltet \'Mottakar\' må væra fyllt ut!' ;
+$to_empty = 'Feltet \'Mottakar\' mÃ¥ vÃ¦ra fyllt ut!' ;
 
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Unable to open SMTP connection';  //to translate

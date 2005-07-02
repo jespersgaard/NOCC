@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/sv.php,v 1.27 2005/05/01 20:45:56 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sv.php,v 1.28 2005/06/20 16:30:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,7 +12,7 @@
  * Translation by Robert Niska <r.niska@redbox.d2g.nu>
  */
 
-$charset = 'ISO-8859-1';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -39,8 +39,8 @@ $default_time_format = '%I:%M %p';
 
 // Here is the configuration for the HTML
 
-$err_user_empty = 'Login fältet är tomt';
-$err_passwd_empty = 'Lösenords fältet är tomt';
+$err_user_empty = 'Login fÃ¤ltet Ã¤r tomt';
+$err_passwd_empty = 'LÃ¶senords fÃ¤ltet Ã¤r tomt';
 
 
 // html message
@@ -51,22 +51,22 @@ $alt_new_msg = 'Nya Meddelanden';
 $alt_reply = 'Svara';
 $alt_reply_all = 'Svara alla';
 $alt_forward = 'Vidarebefodra';
-$alt_next = 'Nästa';
-$alt_prev = 'Föregående';
-$html_on = 'På';
+$alt_next = 'NÃ¤sta';
+$alt_prev = 'FÃ¶regÃ¥ende';
+$html_on = 'PÃ¥';
 $html_theme = 'Tema';
 
 // index.php
 
-$html_lang = 'Språk';
-$html_welcome = 'Välkommen till';
-$html_login = 'Användarnamn';
-$html_passwd = 'Lösenord';
+$html_lang = 'SprÃ¥k';
+$html_welcome = 'VÃ¤lkommen till';
+$html_login = 'AnvÃ¤ndarnamn';
+$html_passwd = 'LÃ¶senord';
 $html_submit = 'Logga in';
-$html_help = 'Hjälp';
+$html_help = 'HjÃ¤lp';
 $html_server = 'Server';  //to translate
-$html_wrong = 'Användarnamnet eller lösenordet är fel';
-$html_retry = 'Försök igen';
+$html_wrong = 'AnvÃ¤ndarnamnet eller lÃ¶senordet Ã¤r fel';
+$html_retry = 'FÃ¶rsÃ¶k igen';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
@@ -129,7 +129,7 @@ $html_page = 'Page';  //to translate
 $html_of = 'of';  //to translate
 $html_to = 'to';  //to translate
 $html_view_header = 'Visa huvud';
-$html_remove_header = 'Dölj huvud';
+$html_remove_header = 'DÃ¶lj huvud';
 $html_inbox = 'Inkorg';
 $html_new_msg = 'Skriv';
 $html_reply = 'Svara';
@@ -143,14 +143,14 @@ $html_new = 'Nytt';
 $html_mark = 'Ta bort';
 $html_att = 'Bifogat';
 $html_atts = 'Bifogade';
-$html_att_unknown = '[okänd]';
+$html_att_unknown = '[okÃ¤nd]';
 $html_attach = 'Bifoga';
-$html_attach_forget = 'Du måste bifoga din fil innan du skickar meddelandet !';
+$html_attach_forget = 'Du mÃ¥ste bifoga din fil innan du skickar meddelandet !';
 $html_attach_delete = 'Ta bort vald';
 $html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sort by';  //to translate
-$html_from = 'Från';
-$html_subject = 'Ämne';
+$html_from = 'FrÃ¥n';
+$html_subject = 'Ã„mne';
 $html_date = 'Datum';
 $html_sent = 'Skicka';
 $html_wrote = 'wrote';  //to translate
@@ -162,7 +162,7 @@ $html_filename = 'Filnamn';
 $html_to = 'Till';
 $html_cc = 'Cc';  //to translate
 $html_bcc = 'Bcc';  //to translate
-$html_nosubject = 'Inget ämne';
+$html_nosubject = 'Inget Ã¤mne';
 $html_send = 'Skicka';
 $html_cancel = 'Avbryt';
 $html_no_mail = 'Inget meddelande.';
@@ -211,7 +211,7 @@ $html_del_msg = 'Delete selected messages ?';  //to translate
 $html_down_mail = 'Download';  //to translate
 
 $original_msg = '-- Original Meddelande --';
-$to_empty = 'Mottagar fältet kan inte vara tomt !';
+$to_empty = 'Mottagar fÃ¤ltet kan inte vara tomt !';
 
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Unable to open SMTP connection';  //to translate

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ru-iso.php,v 1.29 2005/05/01 20:45:56 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ru-iso.php,v 1.30 2005/06/20 16:30:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,7 +13,7 @@
  * Additional translation Anton Jakimov <t0xa@ls2.lv>
  */
 
-$charset = 'iso-8859-5';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -40,34 +40,34 @@ $default_time_format = '%H:%M';
 
 // Here is the configuration for the HTML
 
-$err_user_empty = 'Ω’ ““’‘’› €ﬁ”ÿ›';
-$err_passwd_empty = 'Ω’ ““’‘’› ﬂ–‡ﬁ€Ï';
+$err_user_empty = '–ù–µ –≤–≤–µ–¥–µ–Ω –ª–æ–≥–∏–Ω';
+$err_passwd_empty = '–ù–µ –≤–≤–µ–¥–µ–Ω –ø–∞—Ä–æ–ª—å';
 
 
 // html message
 
-$alt_delete = '√‘–€ÿ‚Ï “Î—‡–››Î’ ·ﬁﬁ—È’›ÿÔ';
-$alt_delete_one = '√‘–€ÿ‚Ï ·ﬁﬁ—È’›ÿ’';
-$alt_new_msg = 'Ωﬁ“Î’ ·ﬁﬁ—È’›ÿÔ';
-$alt_reply = 'æ‚“’‚ÿ‚Ï –“‚ﬁ‡„';
-$alt_reply_all = 'æ‚“’‚ÿ‚Ï “·’‹';
-$alt_forward = 'ø’‡’·€–‚Ï';
-$alt_next = '¡€’‘„ÓÈ’’';
-$alt_prev = 'ø‡’‘Î‘„È’’';
-$html_on = '≤⁄€.';
-$html_theme = '¥ÿ◊–Ÿ›';
+$alt_delete = '–£–¥–∞–ª–∏—Ç—å –≤—ã–±—Ä–∞–Ω–Ω—ã–µ —Å–æ–æ–±—â–µ–Ω–∏—è';
+$alt_delete_one = '–£–¥–∞–ª–∏—Ç—å —Å–æ–æ–±—â–µ–Ω–∏–µ';
+$alt_new_msg = '–ù–æ–≤—ã–µ —Å–æ–æ–±—â–µ–Ω–∏—è';
+$alt_reply = '–û—Ç–≤–µ—Ç–∏—Ç—å –∞–≤—Ç–æ—Ä—É';
+$alt_reply_all = '–û—Ç–≤–µ—Ç–∏—Ç—å –≤—Å–µ–º';
+$alt_forward = '–ü–µ—Ä–µ—Å–ª–∞—Ç—å';
+$alt_next = '–°–ª–µ–¥—É—é—â–µ–µ';
+$alt_prev = '–ü—Ä–µ–¥—ã–¥—É—â–µ–µ';
+$html_on = '–í–∫–ª.';
+$html_theme = '–î–∏–∑–∞–π–Ω';
 
 // index.php
 
-$html_lang = 'œ◊Î⁄';
-$html_welcome = '¥ﬁ—‡ﬁ ﬂﬁ÷–€ﬁ“–‚Ï “';
-$html_login = '∏‹Ô';
-$html_passwd = 'ø–‡ﬁ€Ï';
-$html_submit = '≤ﬁŸ‚ÿ';
-$html_help = 'øﬁ‹ﬁÈÏ';
-$html_server = '¡’‡“’‡';
-$html_wrong = 'ªﬁ”ÿ› ÿ€ÿ ﬂ–‡ﬁ€Ï ›’ “’‡›Î';
-$html_retry = '≤’‡›„‚Ï·Ô';
+$html_lang = '–Ø–∑—ã–∫';
+$html_welcome = '–î–æ–±—Ä–æ –ø–æ–∂–∞–ª–æ–≤–∞—Ç—å –≤';
+$html_login = '–ò–º—è';
+$html_passwd = '–ü–∞—Ä–æ–ª—å';
+$html_submit = '–í–æ–π—Ç–∏';
+$html_help = '–ü–æ–º–æ—â—å';
+$html_server = '–°–µ—Ä–≤–µ—Ä';
+$html_wrong = '–õ–æ–≥–∏–Ω –∏–ª–∏ –ø–∞—Ä–æ–ª—å –Ω–µ –≤–µ—Ä–Ω—ã';
+$html_retry = '–í–µ—Ä–Ω—É—Ç—å—Å—è';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
@@ -129,47 +129,47 @@ $html_other_folders = 'Folder List';  //to translate
 $html_page = 'Page';  //to translate
 $html_of = 'of';  //to translate
 $html_to = 'to';  //to translate
-$html_view_header = 'ø‡ﬁ·‹ﬁ‚‡’‚Ï ◊–”ﬁ€ﬁ“ﬁ⁄ ﬂÿ·Ï‹–';
-$html_remove_header = '√—‡–‚Ï ◊–”ﬁ€ﬁ“ﬁ⁄ ﬂÿ·Ï‹–';
-$html_inbox = '≤Âﬁ‘ÔÈÿ’';
-$html_new_msg = 'Ω–ﬂÿ·–‚Ï';
-$html_reply = 'æ‚“’‚ÿ‚Ï';
+$html_view_header = '–ü—Ä–æ—Å–º–æ—Ç—Ä–µ—Ç—å –∑–∞–≥–æ–ª–æ–≤–æ–∫ –ø–∏—Å—å–º–∞';
+$html_remove_header = '–£–±—Ä–∞—Ç—å –∑–∞–≥–æ–ª–æ–≤–æ–∫ –ø–∏—Å—å–º–∞';
+$html_inbox = '–í—Ö–æ–¥—è—â–∏–µ';
+$html_new_msg = '–ù–∞–ø–∏—Å–∞—Ç—å';
+$html_reply = '–û—Ç–≤–µ—Ç–∏—Ç—å';
 $html_reply_short = 'Re';  //to translate
-$html_reply_all = 'æ‚“’‚ÿ‚Ï “·’‹';
-$html_forward = 'ø’‡’·€–‚Ï';
+$html_reply_all = '–û—Ç–≤–µ—Ç–∏—Ç—å –≤—Å–µ–º';
+$html_forward = '–ü–µ—Ä–µ—Å–ª–∞—Ç—å';
 $html_forward_short = 'Fw';  //to translate
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
-$html_delete = '√‘–€ÿ‚Ï';
-$html_new = 'Ωﬁ“ﬁ’';
-$html_mark = '√‘–€ÿ‚Ï';
-$html_att = 'ø‡ÿ⁄‡’ﬂ€’››ÎŸ ‰–Ÿ€';
-$html_atts = 'ø‡ÿ⁄‡’ﬂ€’››Î’ ‰–Ÿ€Î';
-$html_att_unknown = '[›’ÿ◊“’·‚›ﬁ]';
-$html_attach = 'ø‡ÿ⁄‡’ﬂÿ‚Ï ‰–Ÿ€';
-$html_attach_forget = '≤Î ‘ﬁ€÷›Î ﬂ‡ÿ⁄‡’ﬂÿ‚Ï ‰–Ÿ€ ‘ﬁ ﬁ‚ﬂ‡–“⁄ÿ ·ﬁﬁ—È’›ÿÔ!';
-$html_attach_delete = '√‘–€ÿ‚Ï “Î—‡–››Î’';
+$html_delete = '–£–¥–∞–ª–∏—Ç—å';
+$html_new = '–ù–æ–≤–æ–µ';
+$html_mark = '–£–¥–∞–ª–∏—Ç—å';
+$html_att = '–ü—Ä–∏–∫—Ä–µ–ø–ª–µ–Ω–Ω—ã–π —Ñ–∞–π–ª';
+$html_atts = '–ü—Ä–∏–∫—Ä–µ–ø–ª–µ–Ω–Ω—ã–µ —Ñ–∞–π–ª—ã';
+$html_att_unknown = '[–Ω–µ–∏–∑–≤–µ—Å—Ç–Ω–æ]';
+$html_attach = '–ü—Ä–∏–∫—Ä–µ–ø–∏—Ç—å —Ñ–∞–π–ª';
+$html_attach_forget = '–í—ã –¥–æ–ª–∂–Ω—ã –ø—Ä–∏–∫—Ä–µ–ø–∏—Ç—å —Ñ–∞–π–ª –¥–æ –æ—Ç–ø—Ä–∞–≤–∫–∏ —Å–æ–æ–±—â–µ–Ω–∏—è!';
+$html_attach_delete = '–£–¥–∞–ª–∏—Ç—å –≤—ã–±—Ä–∞–Ω–Ω—ã–µ';
 $html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sort by';  //to translate
-$html_from = 'æ‚';
-$html_subject = '¬’‹–';
-$html_date = '≤‡’‹Ô';
-$html_sent = 'æ‚ﬂ‡–“ÿ‚Ï';
+$html_from = '–û—Ç';
+$html_subject = '–¢–µ–º–∞';
+$html_date = '–í—Ä–µ–º—è';
+$html_sent = '–û—Ç–ø—Ä–∞–≤–∏—Ç—å';
 $html_wrote = 'wrote';
-$html_size = '¿–◊‹’‡';
-$html_totalsize = 'æ—ÈÿŸ ‡–◊‹’‡';
+$html_size = '–†–∞–∑–º–µ—Ä';
+$html_totalsize = '–û–±—â–∏–π —Ä–∞–∑–º–µ—Ä';
 $html_kb = 'Kb';  //to translate
 $html_bytes = 'bytes';  //to translate
-$html_filename = '∏‹Ô ‰–Ÿ€–';
-$html_to = '∫ﬁ‹„';
-$html_cc = '∫ﬁﬂÿÔ';
+$html_filename = '–ò–º—è —Ñ–∞–π–ª–∞';
+$html_to = '–ö–æ–º—É';
+$html_cc = '–ö–æ–ø–∏—è';
 $html_bcc = 'Bcc';  //to translate
 $html_nosubject = 'no subject';  //to translate
-$html_send = 'æ‚ﬂ‡–“ÿ‚Ï';
-$html_cancel = 'æ‚‹’›ÿ‚Ï';
-$html_no_mail = '¡ﬁﬁ—È’›ÿŸ ›’‚';
-$html_logout = '≤ÎŸ‚ÿ';
-$html_msg = '¡ﬁﬁ—È’›ÿ’';
-$html_msgs = '¡ﬁﬁ—È’›ÿÔ';
+$html_send = '–û—Ç–ø—Ä–∞–≤–∏—Ç—å';
+$html_cancel = '–û—Ç–º–µ–Ω–∏—Ç—å';
+$html_no_mail = '–°–æ–æ–±—â–µ–Ω–∏–π –Ω–µ—Ç';
+$html_logout = '–í—ã–π—Ç–∏';
+$html_msg = '–°–æ–æ–±—â–µ–Ω–∏–µ';
+$html_msgs = '–°–æ–æ–±—â–µ–Ω–∏—è';
 $html_configuration = 'This server is not well set up !';  //to translate
 $html_priority = 'Priority';  //to translate
 $html_low = 'Low';  //to translate
@@ -212,7 +212,7 @@ $html_del_msg = 'Delete selected messages ?';  //to translate
 $html_down_mail = 'Download';  //to translate
 
 $original_msg = '-- Original Message --';  //to translate
-$to_empty = 'øﬁ€’ \'∫ﬁ‹„\' ›’ ‘ﬁ€÷›ﬁ —Î‚Ï ﬂ„·‚Î‹ !';
+$to_empty = '–ü–æ–ª–µ \'–ö–æ–º—É\' –Ω–µ –¥–æ–ª–∂–Ω–æ –±—ã—Ç—å –ø—É—Å—Ç—ã–º !';
 
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Unable to open SMTP connection';  //to translate

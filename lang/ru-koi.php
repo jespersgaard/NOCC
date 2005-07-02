@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ru-koi.php,v 1.31 2005/05/01 20:45:56 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ru-koi.php,v 1.32 2005/06/20 16:30:09 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,7 +13,7 @@
  * Additional translation Anton Jakimov <t0xa@ls2.lv>
  */
 
-$charset = 'KOI8-R';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -40,39 +40,39 @@ $default_time_format = '%H:%M';
 
 // Here is the configuration for the HTML
 
-$err_user_empty = 'Не введен логин';
-$err_passwd_empty = 'Не введен пароль';
+$err_user_empty = 'п²п╣ п╡п╡п╣п╢п╣п╫ п╩п╬пЁп╦п╫';
+$err_passwd_empty = 'п²п╣ п╡п╡п╣п╢п╣п╫ п©п╟я─п╬п╩я▄';
 
 
 // html message
 
-$alt_delete = 'Удалить выбранные сообщения';
-$alt_delete_one = 'Удалить сообщение';
-$alt_new_msg = 'Новые сообщения';
-$alt_reply = 'Ответить автору';
-$alt_reply_all = 'Ответить всем';
-$alt_forward = 'Переслать';
-$alt_next = 'Следующее';
-$alt_prev = 'Предыдущее';
-$html_on = 'Вкл.';
-$html_theme = 'Дизайн';
+$alt_delete = 'пёп╢п╟п╩п╦я┌я▄ п╡я▀п╠я─п╟п╫п╫я▀п╣ я│п╬п╬п╠я┴п╣п╫п╦я▐';
+$alt_delete_one = 'пёп╢п╟п╩п╦я┌я▄ я│п╬п╬п╠я┴п╣п╫п╦п╣';
+$alt_new_msg = 'п²п╬п╡я▀п╣ я│п╬п╬п╠я┴п╣п╫п╦я▐';
+$alt_reply = 'п·я┌п╡п╣я┌п╦я┌я▄ п╟п╡я┌п╬я─я┐';
+$alt_reply_all = 'п·я┌п╡п╣я┌п╦я┌я▄ п╡я│п╣п╪';
+$alt_forward = 'п÷п╣я─п╣я│п╩п╟я┌я▄';
+$alt_next = 'п║п╩п╣п╢я┐я▌я┴п╣п╣';
+$alt_prev = 'п÷я─п╣п╢я▀п╢я┐я┴п╣п╣';
+$html_on = 'п▓п╨п╩.';
+$html_theme = 'п■п╦п╥п╟п╧п╫';
 
 // index.php
 
-$html_lang = 'Язык';
-$html_welcome = 'Добро пожаловать в';
-$html_login = 'Имя';
-$html_passwd = 'Пароль';
-$html_submit = 'Войти';
-$html_help = 'Помощь';
-$html_server = 'Сервер';
-$html_wrong = 'Логин или пароль не верны';
-$html_retry = 'Вернуться';
+$html_lang = 'п╞п╥я▀п╨';
+$html_welcome = 'п■п╬п╠я─п╬ п©п╬п╤п╟п╩п╬п╡п╟я┌я▄ п╡';
+$html_login = 'п≤п╪я▐';
+$html_passwd = 'п÷п╟я─п╬п╩я▄';
+$html_submit = 'п▓п╬п╧я┌п╦';
+$html_help = 'п÷п╬п╪п╬я┴я▄';
+$html_server = 'п║п╣я─п╡п╣я─';
+$html_wrong = 'п⌡п╬пЁп╦п╫ п╦п╩п╦ п©п╟я─п╬п╩я▄ п╫п╣ п╡п╣я─п╫я▀';
+$html_retry = 'п▓п╣я─п╫я┐я┌я▄я│я▐';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
 
-$html_msgperpage = 'Сообщений на страницу';
+$html_msgperpage = 'п║п╬п╬п╠я┴п╣п╫п╦п╧ п╫п╟ я│я┌я─п╟п╫п╦я├я┐';
 $html_preferences = 'Preferences';  //to translate
 $html_full_name = 'Full name';  //to translate
 $html_email_address = 'E-mail Address';  //to translate
@@ -82,106 +82,106 @@ $html_outlook_quoting = 'Outlook-style quoting';  //to translate
 $html_reply_to = 'Reply to';  //to translate
 $html_use_signature = 'Use signature';  //to translate
 $html_signature = 'Signature';  //to translate
-$html_reply_leadin = 'Заголовок ответа';
+$html_reply_leadin = 'п≈п╟пЁп╬п╩п╬п╡п╬п╨ п╬я┌п╡п╣я┌п╟';
 $html_prefs_updated = 'Preferences updated';  //to translate
-$html_manage_folders_link = 'Настройка папок IMAP';
-$html_manage_filters_link = 'Настройка фильтров';
+$html_manage_folders_link = 'п²п╟я│я┌я─п╬п╧п╨п╟ п©п╟п©п╬п╨ IMAP';
+$html_manage_filters_link = 'п²п╟я│я┌я─п╬п╧п╨п╟ я└п╦п╩я▄я┌я─п╬п╡';
 $html_use_graphical_smilies = 'Use graphical smilies'; //to translate
 $html_sent_folder = 'Copy sent mails into a dedicated folder'; //to translate
 
 // folders.php
-$html_folders_create_failed = 'Невозможно создать папку!';
-$html_folders_sub_failed = 'Нельзя подписаться на папку!';
-$html_folders_unsub_failed = 'Нельзя отписаться от папки!';
-$html_folders_rename_failed = 'Папка не может быть переименована!';
-$html_folders_updated = 'Папки обновлены';
-$html_folder_subscribe = 'Подписаться на';
-$html_folder_rename = 'Переименовать';
-$html_folder_create = 'Создать новую папку';
-$html_folder_remove = 'Отписаться от';
+$html_folders_create_failed = 'п²п╣п╡п╬п╥п╪п╬п╤п╫п╬ я│п╬п╥п╢п╟я┌я▄ п©п╟п©п╨я┐!';
+$html_folders_sub_failed = 'п²п╣п╩я▄п╥я▐ п©п╬п╢п©п╦я│п╟я┌я▄я│я▐ п╫п╟ п©п╟п©п╨я┐!';
+$html_folders_unsub_failed = 'п²п╣п╩я▄п╥я▐ п╬я┌п©п╦я│п╟я┌я▄я│я▐ п╬я┌ п©п╟п©п╨п╦!';
+$html_folders_rename_failed = 'п÷п╟п©п╨п╟ п╫п╣ п╪п╬п╤п╣я┌ п╠я▀я┌я▄ п©п╣я─п╣п╦п╪п╣п╫п╬п╡п╟п╫п╟!';
+$html_folders_updated = 'п÷п╟п©п╨п╦ п╬п╠п╫п╬п╡п╩п╣п╫я▀';
+$html_folder_subscribe = 'п÷п╬п╢п©п╦я│п╟я┌я▄я│я▐ п╫п╟';
+$html_folder_rename = 'п÷п╣я─п╣п╦п╪п╣п╫п╬п╡п╟я┌я▄';
+$html_folder_create = 'п║п╬п╥п╢п╟я┌я▄ п╫п╬п╡я┐я▌ п©п╟п©п╨я┐';
+$html_folder_remove = 'п·я┌п©п╦я│п╟я┌я▄я│я▐ п╬я┌';
 $html_folder_delete = 'Delete';  //to translate
 
 // filters.php
-$html_filter_remove = 'Удалить';
-$html_filter_body = 'Тело сообщения';
-$html_filter_subject = 'Тема';
-$html_filter_to = 'Кому';
-$html_filter_cc = 'Копия';
-$html_filter_from = 'Автор';
-$html_filter_change_tip = 'Для изменения фильтра попросту перепишите его.';
-$html_reapply_filters = 'Отфильтровать';
+$html_filter_remove = 'пёп╢п╟п╩п╦я┌я▄';
+$html_filter_body = 'п╒п╣п╩п╬ я│п╬п╬п╠я┴п╣п╫п╦я▐';
+$html_filter_subject = 'п╒п╣п╪п╟';
+$html_filter_to = 'п п╬п╪я┐';
+$html_filter_cc = 'п п╬п©п╦я▐';
+$html_filter_from = 'п░п╡я┌п╬я─';
+$html_filter_change_tip = 'п■п╩я▐ п╦п╥п╪п╣п╫п╣п╫п╦я▐ я└п╦п╩я▄я┌я─п╟ п©п╬п©я─п╬я│я┌я┐ п©п╣я─п╣п©п╦я┬п╦я┌п╣ п╣пЁп╬.';
+$html_reapply_filters = 'п·я┌я└п╦п╩я▄я┌я─п╬п╡п╟я┌я▄';
 $html_filter_contains = 'contains';  //to translate
 $html_filter_name = 'Filter Name';  //to translate
 $html_filter_action = 'Filter Action';  //to translate
 $html_filter_moveto = 'Move to';  //to translate
 
 // Other pages
-$html_select_one = '--Выберите--';
-$html_and = 'И';
-$html_new_msg_in = 'Новые сообщения в';
-$html_or = 'или';
-$html_move = 'Переместить';
-$html_copy = 'Скопировать';
-$html_messages_to = 'выбранные сообщения в';
-$html_gotopage = 'Перейти';
-$html_gotofolder = 'Перейти к папке';
-$html_other_folders = 'Список папок';
-$html_page = 'Страница';
-$html_of = 'из';
+$html_select_one = '--п▓я▀п╠п╣я─п╦я┌п╣--';
+$html_and = 'п≤';
+$html_new_msg_in = 'п²п╬п╡я▀п╣ я│п╬п╬п╠я┴п╣п╫п╦я▐ п╡';
+$html_or = 'п╦п╩п╦';
+$html_move = 'п÷п╣я─п╣п╪п╣я│я┌п╦я┌я▄';
+$html_copy = 'п║п╨п╬п©п╦я─п╬п╡п╟я┌я▄';
+$html_messages_to = 'п╡я▀п╠я─п╟п╫п╫я▀п╣ я│п╬п╬п╠я┴п╣п╫п╦я▐ п╡';
+$html_gotopage = 'п÷п╣я─п╣п╧я┌п╦';
+$html_gotofolder = 'п÷п╣я─п╣п╧я┌п╦ п╨ п©п╟п©п╨п╣';
+$html_other_folders = 'п║п©п╦я│п╬п╨ п©п╟п©п╬п╨';
+$html_page = 'п║я┌я─п╟п╫п╦я├п╟';
+$html_of = 'п╦п╥';
 $html_to = 'to';  //to translate
-$html_view_header = 'Просмотреть заголовок письма';
-$html_remove_header = 'Убрать заголовок письма';
-$html_inbox = 'Входящие';
-$html_new_msg = 'Написать';
-$html_reply = 'Ответить';
+$html_view_header = 'п÷я─п╬я│п╪п╬я┌я─п╣я┌я▄ п╥п╟пЁп╬п╩п╬п╡п╬п╨ п©п╦я│я▄п╪п╟';
+$html_remove_header = 'пёп╠я─п╟я┌я▄ п╥п╟пЁп╬п╩п╬п╡п╬п╨ п©п╦я│я▄п╪п╟';
+$html_inbox = 'п▓я┘п╬п╢я▐я┴п╦п╣';
+$html_new_msg = 'п²п╟п©п╦я│п╟я┌я▄';
+$html_reply = 'п·я┌п╡п╣я┌п╦я┌я▄';
 $html_reply_short = 'Re';  //to translate
-$html_reply_all = 'Ответить всем';
-$html_forward = 'Переслать';
+$html_reply_all = 'п·я┌п╡п╣я┌п╦я┌я▄ п╡я│п╣п╪';
+$html_forward = 'п÷п╣я─п╣я│п╩п╟я┌я▄';
 $html_forward_short = 'Fw';  //to translate
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
-$html_delete = 'Удалить';
-$html_new = 'Новое';
-$html_mark = 'Удалить';
-$html_att = 'Прикрепленный файл';
-$html_atts = 'Прикрепленные файлы';
-$html_att_unknown = '[неизвестно]';
-$html_attach = 'Прикрепить файл';
-$html_attach_forget = 'Вы должны прикрепить файл до отправки сообщения!';
-$html_attach_delete = 'Удалить выбранные';
+$html_delete = 'пёп╢п╟п╩п╦я┌я▄';
+$html_new = 'п²п╬п╡п╬п╣';
+$html_mark = 'пёп╢п╟п╩п╦я┌я▄';
+$html_att = 'п÷я─п╦п╨я─п╣п©п╩п╣п╫п╫я▀п╧ я└п╟п╧п╩';
+$html_atts = 'п÷я─п╦п╨я─п╣п©п╩п╣п╫п╫я▀п╣ я└п╟п╧п╩я▀';
+$html_att_unknown = '[п╫п╣п╦п╥п╡п╣я│я┌п╫п╬]';
+$html_attach = 'п÷я─п╦п╨я─п╣п©п╦я┌я▄ я└п╟п╧п╩';
+$html_attach_forget = 'п▓я▀ п╢п╬п╩п╤п╫я▀ п©я─п╦п╨я─п╣п©п╦я┌я▄ я└п╟п╧п╩ п╢п╬ п╬я┌п©я─п╟п╡п╨п╦ я│п╬п╬п╠я┴п╣п╫п╦я▐!';
+$html_attach_delete = 'пёп╢п╟п╩п╦я┌я▄ п╡я▀п╠я─п╟п╫п╫я▀п╣';
 $html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sort by';  //to translate
-$html_from = 'От';
-$html_subject = 'Тема';
-$html_date = 'Время';
-$html_sent = 'Отправить';
-$html_wrote = '(на)писал';
-$html_size = 'Размер';
-$html_totalsize = 'Общий размер';
-$html_kb = 'Кбайт';
-$html_bytes = 'байт';
-$html_filename = 'Имя файла';
-$html_to = 'Кому';
-$html_cc = 'Копия';
+$html_from = 'п·я┌';
+$html_subject = 'п╒п╣п╪п╟';
+$html_date = 'п▓я─п╣п╪я▐';
+$html_sent = 'п·я┌п©я─п╟п╡п╦я┌я▄';
+$html_wrote = '(п╫п╟)п©п╦я│п╟п╩';
+$html_size = 'п═п╟п╥п╪п╣я─';
+$html_totalsize = 'п·п╠я┴п╦п╧ я─п╟п╥п╪п╣я─';
+$html_kb = 'п п╠п╟п╧я┌';
+$html_bytes = 'п╠п╟п╧я┌';
+$html_filename = 'п≤п╪я▐ я└п╟п╧п╩п╟';
+$html_to = 'п п╬п╪я┐';
+$html_cc = 'п п╬п©п╦я▐';
 $html_bcc = 'Bcc';  //to translate
 $html_nosubject = 'no subject';  //to translate
-$html_send = 'Отправить';
-$html_cancel = 'Отменить';
-$html_no_mail = 'Сообщений нет';
-$html_logout = 'Выйти';
-$html_msg = 'Сообщение';
-$html_msgs = 'Сообщений';
-$html_configuration = 'Сей сервер плохо настроен!';
-$html_priority = 'Приоритет';
-$html_low = 'низкий';
-$html_normal = 'обычный';
-$html_high = 'высокий';
-$html_receipt = 'Запросить подтверждение получения';
-$html_select = 'Выбрать';
+$html_send = 'п·я┌п©я─п╟п╡п╦я┌я▄';
+$html_cancel = 'п·я┌п╪п╣п╫п╦я┌я▄';
+$html_no_mail = 'п║п╬п╬п╠я┴п╣п╫п╦п╧ п╫п╣я┌';
+$html_logout = 'п▓я▀п╧я┌п╦';
+$html_msg = 'п║п╬п╬п╠я┴п╣п╫п╦п╣';
+$html_msgs = 'п║п╬п╬п╠я┴п╣п╫п╦п╧';
+$html_configuration = 'п║п╣п╧ я│п╣я─п╡п╣я─ п©п╩п╬я┘п╬ п╫п╟я│я┌я─п╬п╣п╫!';
+$html_priority = 'п÷я─п╦п╬я─п╦я┌п╣я┌';
+$html_low = 'п╫п╦п╥п╨п╦п╧';
+$html_normal = 'п╬п╠я▀я┤п╫я▀п╧';
+$html_high = 'п╡я▀я│п╬п╨п╦п╧';
+$html_receipt = 'п≈п╟п©я─п╬я│п╦я┌я▄ п©п╬п╢я┌п╡п╣я─п╤п╢п╣п╫п╦п╣ п©п╬п╩я┐я┤п╣п╫п╦я▐';
+$html_select = 'п▓я▀п╠я─п╟я┌я▄';
 $html_select_all = 'Invert Selection';  //to translate
-$html_loading_image = 'Загрузка картинки';
-$html_send_confirmed = 'Сообщение принято к доставке';
-$html_no_sendaction = 'Не задано действие. Попробуйте включить Javascript.';
-$html_error_occurred = 'Произошла ошибка.';
+$html_loading_image = 'п≈п╟пЁя─я┐п╥п╨п╟ п╨п╟я─я┌п╦п╫п╨п╦';
+$html_send_confirmed = 'п║п╬п╬п╠я┴п╣п╫п╦п╣ п©я─п╦п╫я▐я┌п╬ п╨ п╢п╬я│я┌п╟п╡п╨п╣';
+$html_no_sendaction = 'п²п╣ п╥п╟п╢п╟п╫п╬ п╢п╣п╧я│я┌п╡п╦п╣. п÷п╬п©я─п╬п╠я┐п╧я┌п╣ п╡п╨п╩я▌я┤п╦я┌я▄ Javascript.';
+$html_error_occurred = 'п÷я─п╬п╦п╥п╬я┬п╩п╟ п╬я┬п╦п╠п╨п╟.';
 $html_prefs_file_error = 'Unable to open preferences file for writing.';  //to translate
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
 $html_wrap_none = 'None'; //to translate
@@ -212,21 +212,21 @@ $html_del_msg = 'Delete selected messages ?';  //to translate
 $html_down_mail = 'Download';  //to translate
 
 $original_msg = '-- Original Message --';  //to translate
-$to_empty = 'Поле \'Кому\' не должно быть пустым !';
+$to_empty = 'п÷п╬п╩п╣ \'п п╬п╪я┐\' п╫п╣ п╢п╬п╩п╤п╫п╬ п╠я▀я┌я▄ п©я┐я│я┌я▀п╪ !';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = 'Невозможно открыть соединение';
-$html_smtp_error_unexpected = 'Странный ответ сервера:';
+$html_smtp_error_no_conn = 'п²п╣п╡п╬п╥п╪п╬п╤п╫п╬ п╬я┌п╨я─я▀я┌я▄ я│п╬п╣п╢п╦п╫п╣п╫п╦п╣';
+$html_smtp_error_unexpected = 'п║я┌я─п╟п╫п╫я▀п╧ п╬я┌п╡п╣я┌ я│п╣я─п╡п╣я─п╟:';
 
 // IMAP messages (class_local.php)
-$lang_could_not_connect = 'Не могу подключится к серверу';
+$lang_could_not_connect = 'п²п╣ п╪п╬пЁя┐ п©п╬п╢п╨п╩я▌я┤п╦я┌я│я▐ п╨ я│п╣я─п╡п╣я─я┐';
 $lang_invalid_msg_num = 'Bad Message Number';  //to translate
 
-$html_file_upload_attack = 'Подозрение на атаку через file upload';
-$html_invalid_email_address = 'Неправильный e-mail адрес';
+$html_file_upload_attack = 'п÷п╬п╢п╬п╥я─п╣п╫п╦п╣ п╫п╟ п╟я┌п╟п╨я┐ я┤п╣я─п╣п╥ file upload';
+$html_invalid_email_address = 'п²п╣п©я─п╟п╡п╦п╩я▄п╫я▀п╧ e-mail п╟п╢я─п╣я│';
 $html_invalid_msg_per_page = 'Invalid number of messages per page';  //to translate
 $html_invalid_wrap_msg = 'Invalid message wrap width';  //to translate
-$html_seperate_msg_win = 'Сообщения в отдельном окне';
+$html_seperate_msg_win = 'п║п╬п╬п╠я┴п╣п╫п╦я▐ п╡ п╬я┌п╢п╣п╩я▄п╫п╬п╪ п╬п╨п╫п╣';
 
 // Exceptions
 $html_err_file_contacts = 'Unable to open contacts file for writing.'; //to translate

@@ -1,7 +1,8 @@
 NOCC 0.9.8    ?? ??, 2005
 
+    * Convert Nocc to UTF-8 support (Arnaud Boudou).
     * Replying to HTML mails now convert HTML special chars to standard chars
-      (Arnaud Boudou)
+      (Arnaud Boudou).
 
 NOCC 0.9.7    July 01, 2005
 

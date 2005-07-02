@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/kr.php,v 1.27 2005/05/01 20:45:56 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/kr.php,v 1.28 2005/06/20 16:30:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,7 +12,7 @@
  * Translation by Roh,Kyoung-Min <rohbin@dreamwiz.com>
  */
 
-$charset = 'euc-kr';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -39,34 +39,34 @@ $default_time_format = '%I:%M %p';
 
 // Here is the configuration for the HTML
 
-$err_user_empty = '¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ½Ê½Ã¿ä';
-$err_passwd_empty = 'ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ½Ê½Ã¿ä';
+$err_user_empty = 'ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì‹­ì‹œìš”';
+$err_passwd_empty = 'ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì‹­ì‹œìš”';
 
 
 // html message
 
-$alt_delete = 'Áö¿ï±Û¼±ÅÃ';
-$alt_delete_one = 'ÆíÁöÁö¿ì±â';
-$alt_new_msg = 'ÆíÁö¾²±â';
-$alt_reply = '´äÀå';
-$alt_reply_all = 'ÀüÃ¼´äÀå';
-$alt_forward = 'Àü´Ş';
-$alt_next = '´ÙÀ½ ±Û';
-$alt_prev = 'ÀÌÀü ±Û';
-$html_on = '¼±ÅÃ';
-$html_theme = 'Å×¸¶';
+$alt_delete = 'ì§€ìš¸ê¸€ì„ íƒ';
+$alt_delete_one = 'í¸ì§€ì§€ìš°ê¸°';
+$alt_new_msg = 'í¸ì§€ì“°ê¸°';
+$alt_reply = 'ë‹µì¥';
+$alt_reply_all = 'ì „ì²´ë‹µì¥';
+$alt_forward = 'ì „ë‹¬';
+$alt_next = 'ë‹¤ìŒ ê¸€';
+$alt_prev = 'ì´ì „ ê¸€';
+$html_on = 'ì„ íƒ';
+$html_theme = 'í…Œë§ˆ';
 
 // index.php
 
-$html_lang = '¾ğ¾î';
-$html_welcome = '¾î¼­¿À¼¼¿ä! ';
-$html_login = 'Á¢¼Ó¾ÆÀÌµğ';
-$html_passwd = 'ºñ¹Ğ¹øÈ£';
-$html_submit = '·Î±×ÀÎ';
-$html_help = 'µµ¿ò¸»';
-$html_server = '¼­¹ö';
-$html_wrong = '¾ÆÀÌµğ°¡ ¾ø°Å³ª ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù';
-$html_retry = '´Ù½ÃÀÔ·Â';
+$html_lang = 'ì–¸ì–´';
+$html_welcome = 'ì–´ì„œì˜¤ì„¸ìš”! ';
+$html_login = 'ì ‘ì†ì•„ì´ë””';
+$html_passwd = 'ë¹„ë°€ë²ˆí˜¸';
+$html_submit = 'ë¡œê·¸ì¸';
+$html_help = 'ë„ì›€ë§';
+$html_server = 'ì„œë²„';
+$html_wrong = 'ì•„ì´ë””ê°€ ì—†ê±°ë‚˜ ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤';
+$html_retry = 'ë‹¤ì‹œì…ë ¥';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
@@ -129,45 +129,45 @@ $html_of = 'of';  //to translate
 $html_to = 'to';  //to translate
 $html_view_header = 'View header';  //to translate
 $html_remove_header = 'Hide header';  //to translate
-$html_inbox = '¹ŞÀºÆíÁöÇÔ';
-$html_new_msg = '»õ±Û';
-$html_reply = '´äÀå';
+$html_inbox = 'ë°›ì€í¸ì§€í•¨';
+$html_new_msg = 'ìƒˆê¸€';
+$html_reply = 'ë‹µì¥';
 $html_reply_short = 'Re';  //to translate
-$html_reply_all = 'ÀüÃ¼´äÀå';
-$html_forward = 'Àü´Ş';
+$html_reply_all = 'ì „ì²´ë‹µì¥';
+$html_forward = 'ì „ë‹¬';
 $html_forward_short = 'Fw';  //to translate
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
-$html_delete = '»èÁ¦';
-$html_new = '¾ÈÀĞÀºÆíÁö';
-$html_mark = '»èÁ¦';
-$html_att = 'Ã·ºÎ';
-$html_atts = 'Ã·ºÎ';
+$html_delete = 'ì‚­ì œ';
+$html_new = 'ì•ˆì½ì€í¸ì§€';
+$html_mark = 'ì‚­ì œ';
+$html_att = 'ì²¨ë¶€';
+$html_atts = 'ì²¨ë¶€';
 $html_att_unknown = '[unknown]';  //to translate
-$html_attach = 'Ã·ºÎÇÏ±â';
-$html_attach_forget = 'ÆÄÀÏÀ» Ã·ºÎÇÏ¼Å¾ß ÆíÁö¸¦ º¸³¾¼ö ÀÖ½À´Ï´Ù.';
-$html_attach_delete = '»èÁ¦';
+$html_attach = 'ì²¨ë¶€í•˜ê¸°';
+$html_attach_forget = 'íŒŒì¼ì„ ì²¨ë¶€í•˜ì…”ì•¼ í¸ì§€ë¥¼ ë³´ë‚¼ìˆ˜ ìˆìŠµë‹ˆë‹¤.';
+$html_attach_delete = 'ì‚­ì œ';
 $html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sort by';  //to translate
-$html_from = 'º¸³½ÀÌ';
-$html_subject = 'Á¦¸ñ';
-$html_date = '³¯Â¥';
+$html_from = 'ë³´ë‚¸ì´';
+$html_subject = 'ì œëª©';
+$html_date = 'ë‚ ì§œ';
 $html_sent = 'Send';  //to translate
 $html_wrote = 'wrote';  //to translate
-$html_size = 'Å©±â';
+$html_size = 'í¬ê¸°';
 $html_totalsize = 'Total Size';  //to translate
 $html_kb = 'Kb';  //to translate
 $html_bytes = 'bytes';  //to translate
-$html_filename = 'ÆÄÀÏ¸í';
-$html_to = '¹Ş´Â»ç¶÷';
-$html_cc = 'ÂüÁ¶';
-$html_bcc = 'ºñ¹ĞÂüÁ¶';
-$html_nosubject = 'Á¦¸ñ¾øÀ½';
-$html_send = 'º¸³»±â';
-$html_cancel = 'Ãë¼Ò';
-$html_no_mail = 'ÆíÁöÇÕÀÌ ºñ¾îÀÖ½À´Ï´Ù';
-$html_logout = '·Î±×¾Æ¿ô';
-$html_msg = ' ÅëÀÇ ÆíÁö°¡ ÀÖ½À´Ï´Ù';
-$html_msgs = ' ÅëÀÇ ÆíÁö°¡ ÀÖ½À´Ï´Ù';
+$html_filename = 'íŒŒì¼ëª…';
+$html_to = 'ë°›ëŠ”ì‚¬ëŒ';
+$html_cc = 'ì°¸ì¡°';
+$html_bcc = 'ë¹„ë°€ì°¸ì¡°';
+$html_nosubject = 'ì œëª©ì—†ìŒ';
+$html_send = 'ë³´ë‚´ê¸°';
+$html_cancel = 'ì·¨ì†Œ';
+$html_no_mail = 'í¸ì§€í•©ì´ ë¹„ì–´ìˆìŠµë‹ˆë‹¤';
+$html_logout = 'ë¡œê·¸ì•„ì›ƒ';
+$html_msg = ' í†µì˜ í¸ì§€ê°€ ìˆìŠµë‹ˆë‹¤';
+$html_msgs = ' í†µì˜ í¸ì§€ê°€ ìˆìŠµë‹ˆë‹¤';
 $html_configuration = 'This server is not well set up !';  //to translate
 $html_priority = 'Priority';  //to translate
 $html_low = 'Low';  //to translate
@@ -209,8 +209,8 @@ $html_contact_err3 = 'You don\'t have access rights to contact list'; //to trans
 $html_del_msg = 'Delete selected messages ?';  //to translate
 $html_down_mail = 'Download';  //to translate
 
-$original_msg = '-- ¿øº» ³»¿ë --';
-$to_empty = 'ÀÌ¸ŞÀÏ(email) ÁÖ¼Ò¸¦ ÀÔ·ÂÇÏ¼Å¾ß ÇÕ´Ï´Ù.';
+$original_msg = '-- ì›ë³¸ ë‚´ìš© --';
+$to_empty = 'ì´ë©”ì¼(email) ì£¼ì†Œë¥¼ ì…ë ¥í•˜ì…”ì•¼ í•©ë‹ˆë‹¤.';
 
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Unable to open SMTP connection';  //to translate

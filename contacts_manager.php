@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.13 2004/10/04 18:23:29 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.14 2005/01/06 19:28:27 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -14,6 +14,11 @@ require_once ('proxy.php');
 require_once ('./conf.php');
 require_once ('./functions.php');
 require_once ('./common.php');
+
+if(isset($charset))
+    header ("Content-type: text/html; Charset=$charset");
+else
+    header ("Content-type: text/html");
 
 $pop = new nocc_imap($ev);
 if (NoccException::isException($ev)) {

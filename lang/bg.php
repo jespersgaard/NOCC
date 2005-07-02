@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/bg.php,v 1.28 2005/05/01 20:45:56 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/bg.php,v 1.29 2005/06/20 16:30:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,7 +12,7 @@
  * Translation by Evgeni Gechev <etg@setcom.bg>
  */
 
-$charset = 'windows-1251';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -39,50 +39,50 @@ $default_time_format = '%H:%M';
 
 // Here is the configuration for the HTML
 
-$err_user_empty = 'Не е въведено име';
-$err_passwd_empty = 'Не е въведена парола';
+$err_user_empty = 'РќРµ Рµ РІСЉРІРµРґРµРЅРѕ РёРјРµ';
+$err_passwd_empty = 'РќРµ Рµ РІСЉРІРµРґРµРЅР° РїР°СЂРѕР»Р°';
 
 
 // html message
 
-$alt_delete = 'Изтрий маркираните писма';
-$alt_delete_one = 'Изтрий писмото';
-$alt_new_msg = 'Нови писма';
-$alt_reply = 'Отговори на автора';
-$alt_reply_all = 'Отговори на всички';
-$alt_forward = 'Препрати';
-$alt_next = 'Следващо писмо';
-$alt_prev = 'Предишно писмо';
+$alt_delete = 'РР·С‚СЂРёР№ РјР°СЂРєРёСЂР°РЅРёС‚Рµ РїРёСЃРјР°';
+$alt_delete_one = 'РР·С‚СЂРёР№ РїРёСЃРјРѕС‚Рѕ';
+$alt_new_msg = 'РќРѕРІРё РїРёСЃРјР°';
+$alt_reply = 'РћС‚РіРѕРІРѕСЂРё РЅР° Р°РІС‚РѕСЂР°';
+$alt_reply_all = 'РћС‚РіРѕРІРѕСЂРё РЅР° РІСЃРёС‡РєРё';
+$alt_forward = 'РџСЂРµРїСЂР°С‚Рё';
+$alt_next = 'РЎР»РµРґРІР°С‰Рѕ РїРёСЃРјРѕ';
+$alt_prev = 'РџСЂРµРґРёС€РЅРѕ РїРёСЃРјРѕ';
 $html_on = 'on';  //to translate
-$html_theme = 'Дизайн';
+$html_theme = 'Р”РёР·Р°Р№РЅ';
 
 // index.php
 
-$html_lang = 'Език';
-$html_welcome = 'Добре дошли!<br/>';
-$html_login = 'Име';
-$html_passwd = 'Парола';
-$html_submit = 'Потвърждение';
-$html_help = 'Помощ';
-$html_server = 'Сървър';
-$html_wrong = 'Името или паролата са грешни';
-$html_retry = 'Опитай отново';
+$html_lang = 'Р•Р·РёРє';
+$html_welcome = 'Р”РѕР±СЂРµ РґРѕС€Р»Рё!<br/>';
+$html_login = 'РРјРµ';
+$html_passwd = 'РџР°СЂРѕР»Р°';
+$html_submit = 'РџРѕС‚РІСЉСЂР¶РґРµРЅРёРµ';
+$html_help = 'РџРѕРјРѕС‰';
+$html_server = 'РЎСЉСЂРІСЉСЂ';
+$html_wrong = 'РРјРµС‚Рѕ РёР»Рё РїР°СЂРѕР»Р°С‚Р° СЃР° РіСЂРµС€РЅРё';
+$html_retry = 'РћРїРёС‚Р°Р№ РѕС‚РЅРѕРІРѕ';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
 
 $html_msgperpage = 'Messages per page';  //to translate
-$html_preferences = 'Настройки';
-$html_full_name = 'Име, Презиме, Фамилия';
-$html_email_address = 'E-mail адрес';
-$html_ccself = 'Копие към мен';
-$html_hide_addresses = 'Скрий адресите';
-$html_outlook_quoting = 'Outlook формат';
-$html_reply_to = 'Отговори на';
-$html_use_signature = 'Ползвай сигнатура';
-$html_signature = 'Сигнатура';
+$html_preferences = 'РќР°СЃС‚СЂРѕР№РєРё';
+$html_full_name = 'РРјРµ, РџСЂРµР·РёРјРµ, Р¤Р°РјРёР»РёСЏ';
+$html_email_address = 'E-mail Р°РґСЂРµСЃ';
+$html_ccself = 'РљРѕРїРёРµ РєСЉРј РјРµРЅ';
+$html_hide_addresses = 'РЎРєСЂРёР№ Р°РґСЂРµСЃРёС‚Рµ';
+$html_outlook_quoting = 'Outlook С„РѕСЂРјР°С‚';
+$html_reply_to = 'РћС‚РіРѕРІРѕСЂРё РЅР°';
+$html_use_signature = 'РџРѕР»Р·РІР°Р№ СЃРёРіРЅР°С‚СѓСЂР°';
+$html_signature = 'РЎРёРіРЅР°С‚СѓСЂР°';
 $html_reply_leadin = 'Reply Leadin';  //to translate
-$html_prefs_updated = 'Настройките са обновени';
+$html_prefs_updated = 'РќР°СЃС‚СЂРѕР№РєРёС‚Рµ СЃР° РѕР±РЅРѕРІРµРЅРё';
 $html_manage_folders_link = 'Manage IMAP Folders';  //to translate
 $html_manage_filters_link = 'Manage Email Filters';  //to translate
 $html_use_graphical_smilies = 'Use graphical smilies'; //to translate
@@ -128,58 +128,58 @@ $html_other_folders = 'Folder List';  //to translate
 $html_page = 'Page';  //to translate
 $html_of = 'of';  //to translate
 $html_to = 'to';  //to translate
-$html_view_header = 'Покажи служ. информация';
-$html_remove_header = 'Скрий служ. информация';
-$html_inbox = 'Получени писма';
-$html_new_msg = 'Изпрати писмо';
-$html_reply = 'Отговори';
-$html_reply_short = 'Отг.';
-$html_reply_all = 'Отговори на всички';
-$html_forward = 'Препрати';
-$html_forward_short = 'Препр.';
+$html_view_header = 'РџРѕРєР°Р¶Рё СЃР»СѓР¶. РёРЅС„РѕСЂРјР°С†РёСЏ';
+$html_remove_header = 'РЎРєСЂРёР№ СЃР»СѓР¶. РёРЅС„РѕСЂРјР°С†РёСЏ';
+$html_inbox = 'РџРѕР»СѓС‡РµРЅРё РїРёСЃРјР°';
+$html_new_msg = 'РР·РїСЂР°С‚Рё РїРёСЃРјРѕ';
+$html_reply = 'РћС‚РіРѕРІРѕСЂРё';
+$html_reply_short = 'РћС‚Рі.';
+$html_reply_all = 'РћС‚РіРѕРІРѕСЂРё РЅР° РІСЃРёС‡РєРё';
+$html_forward = 'РџСЂРµРїСЂР°С‚Рё';
+$html_forward_short = 'РџСЂРµРїСЂ.';
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
-$html_delete = 'Изтрий';
-$html_new = 'Ново';
-$html_mark = 'Маркирай';
-$html_att = 'Прикачен файл';
-$html_atts = 'Прикачени файлове';
+$html_delete = 'РР·С‚СЂРёР№';
+$html_new = 'РќРѕРІРѕ';
+$html_mark = 'РњР°СЂРєРёСЂР°Р№';
+$html_att = 'РџСЂРёРєР°С‡РµРЅ С„Р°Р№Р»';
+$html_atts = 'РџСЂРёРєР°С‡РµРЅРё С„Р°Р№Р»РѕРІРµ';
 $html_att_unknown = '[unknown]';  //to translate
-$html_attach = 'Прикачи';
-$html_attach_forget = 'Прикачи файла преди да изпратиш съобщението!';
-$html_attach_delete = 'Изтрий прикачения файл';
+$html_attach = 'РџСЂРёРєР°С‡Рё';
+$html_attach_forget = 'РџСЂРёРєР°С‡Рё С„Р°Р№Р»Р° РїСЂРµРґРё РґР° РёР·РїСЂР°С‚РёС€ СЃСЉРѕР±С‰РµРЅРёРµС‚Рѕ!';
+$html_attach_delete = 'РР·С‚СЂРёР№ РїСЂРёРєР°С‡РµРЅРёСЏ С„Р°Р№Р»';
 $html_attach_none = 'You must select a file to attach!';  //to translate
-$html_sort_by = 'Сортирай по';
-$html_from = 'От';
-$html_subject = 'Тема';
-$html_date = 'Дата';
-$html_sent = 'Изпратено';
-$html_wrote = 'написа';
-$html_size = 'Големина';
-$html_totalsize = 'Общо';
-$html_kb = 'КБ';
-$html_bytes = 'байта';
-$html_filename = 'име на файл';
-$html_to = 'За';
-$html_cc = 'Копие';
-$html_bcc = 'Невидимо копие';
-$html_nosubject = 'Без тема';
-$html_send = 'Изпрати';
-$html_cancel = 'Отказ';
-$html_no_mail = 'Няма писма';
-$html_logout = 'Изход';
-$html_msg = 'Писмо';
-$html_msgs = 'Писма';
-$html_configuration = 'Сървърът не е конфигуриран!';
-$html_priority = 'Приоритет';
-$html_low = 'Нисък';
-$html_normal = 'Нормален';
-$html_high = 'Висок';
+$html_sort_by = 'РЎРѕСЂС‚РёСЂР°Р№ РїРѕ';
+$html_from = 'РћС‚';
+$html_subject = 'РўРµРјР°';
+$html_date = 'Р”Р°С‚Р°';
+$html_sent = 'РР·РїСЂР°С‚РµРЅРѕ';
+$html_wrote = 'РЅР°РїРёСЃР°';
+$html_size = 'Р“РѕР»РµРјРёРЅР°';
+$html_totalsize = 'РћР±С‰Рѕ';
+$html_kb = 'РљР‘';
+$html_bytes = 'Р±Р°Р№С‚Р°';
+$html_filename = 'РёРјРµ РЅР° С„Р°Р№Р»';
+$html_to = 'Р—Р°';
+$html_cc = 'РљРѕРїРёРµ';
+$html_bcc = 'РќРµРІРёРґРёРјРѕ РєРѕРїРёРµ';
+$html_nosubject = 'Р‘РµР· С‚РµРјР°';
+$html_send = 'РР·РїСЂР°С‚Рё';
+$html_cancel = 'РћС‚РєР°Р·';
+$html_no_mail = 'РќСЏРјР° РїРёСЃРјР°';
+$html_logout = 'РР·С…РѕРґ';
+$html_msg = 'РџРёСЃРјРѕ';
+$html_msgs = 'РџРёСЃРјР°';
+$html_configuration = 'РЎСЉСЂРІСЉСЂСЉС‚ РЅРµ Рµ РєРѕРЅС„РёРіСѓСЂРёСЂР°РЅ!';
+$html_priority = 'РџСЂРёРѕСЂРёС‚РµС‚';
+$html_low = 'РќРёСЃСЉРє';
+$html_normal = 'РќРѕСЂРјР°Р»РµРЅ';
+$html_high = 'Р’РёСЃРѕРє';
 $html_receipt = 'Request a return receipt';  //to translate
-$html_select = 'Маркирай';
+$html_select = 'РњР°СЂРєРёСЂР°Р№';
 $html_select_all = 'Invert Selection';  //to translate
-$html_loading_image = 'Зареждане на картинка';
-$html_send_confirmed = 'Писмото е прието';
-$html_no_sendaction = 'Не е посочено действие. Опитай да разрешиш Javascript в браузера.';
+$html_loading_image = 'Р—Р°СЂРµР¶РґР°РЅРµ РЅР° РєР°СЂС‚РёРЅРєР°';
+$html_send_confirmed = 'РџРёСЃРјРѕС‚Рѕ Рµ РїСЂРёРµС‚Рѕ';
+$html_no_sendaction = 'РќРµ Рµ РїРѕСЃРѕС‡РµРЅРѕ РґРµР№СЃС‚РІРёРµ. РћРїРёС‚Р°Р№ РґР° СЂР°Р·СЂРµС€РёС€ Javascript РІ Р±СЂР°СѓР·РµСЂР°.';
 $html_error_occurred = 'An error occurred';  //to translate
 $html_prefs_file_error = 'Unable to open preferences file for writing.';  //to translate
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
@@ -210,12 +210,12 @@ $html_contact_err3 = 'You don\'t have access rights to contact list'; //to trans
 $html_del_msg = 'Delete selected messages ?';  //to translate
 $html_down_mail = 'Download';  //to translate
 
-$original_msg = '-- Оригинално писмо --';
-$to_empty = 'Полето \'За\' не трябва да е празно !';
+$original_msg = '-- РћСЂРёРіРёРЅР°Р»РЅРѕ РїРёСЃРјРѕ --';
+$to_empty = 'РџРѕР»РµС‚Рѕ \'Р—Р°\' РЅРµ С‚СЂСЏР±РІР° РґР° Рµ РїСЂР°Р·РЅРѕ !';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = 'Грешка! Не може да бъда осъществена връзка със сървъра ';
-$html_smtp_error_unexpected = 'Грешка! Непознат отговор от сървъра:';
+$html_smtp_error_no_conn = 'Р“СЂРµС€РєР°! РќРµ РјРѕР¶Рµ РґР° Р±СЉРґР° РѕСЃСЉС‰РµСЃС‚РІРµРЅР° РІСЂСЉР·РєР° СЃСЉСЃ СЃСЉСЂРІСЉСЂР° ';
+$html_smtp_error_unexpected = 'Р“СЂРµС€РєР°! РќРµРїРѕР·РЅР°С‚ РѕС‚РіРѕРІРѕСЂ РѕС‚ СЃСЉСЂРІСЉСЂР°:';
 
 // IMAP messages (class_local.php)
 $lang_could_not_connect = 'Could not connect to server';  //to translate

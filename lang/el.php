@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/el.php,v 1.28 2005/05/01 20:45:56 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/el.php,v 1.29 2005/06/20 16:30:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,7 +12,7 @@
  * Translation by Spyros Ioakim <sioakim@ace-hellas.gr>
  */
 
-$charset = 'ISO-8859-7';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -39,50 +39,50 @@ $default_time_format = '%I:%M %p';
 
 // Here is the configuration for the HTML
 
-$err_user_empty = 'Το πεδίο όνομα λογαριασμού είναι άδειο';
-$err_passwd_empty = 'Το πεδίο κωδικός είναι άδειο';
+$err_user_empty = 'Ξ¤ΞΏ Ο€ΞµΞ΄Ξ―ΞΏ ΟΞ½ΞΏΞΌΞ± Ξ»ΞΏΞ³Ξ±ΟΞΉΞ±ΟƒΞΌΞΏΟ ΞµΞ―Ξ½Ξ±ΞΉ Ξ¬Ξ΄ΞµΞΉΞΏ';
+$err_passwd_empty = 'Ξ¤ΞΏ Ο€ΞµΞ΄Ξ―ΞΏ ΞΊΟ‰Ξ΄ΞΉΞΊΟΟ‚ ΞµΞ―Ξ½Ξ±ΞΉ Ξ¬Ξ΄ΞµΞΉΞΏ';
 
 
 // html message
 
-$alt_delete = 'Διαγραφή επιλεγμένων μηνυμάτων';
-$alt_delete_one = 'Διαγραφή μηνύματος';
-$alt_new_msg = 'Νέα μηνύματα';
-$alt_reply = 'Απάντηση στον αποστολέα';
-$alt_reply_all = 'Απάντηση σε όλους';
-$alt_forward = 'Προώθηση';
-$alt_next = 'Επόμενο μήνυμα';
-$alt_prev = 'Προηγούμενο μήνυμα';
+$alt_delete = 'Ξ”ΞΉΞ±Ξ³ΟΞ±Ο†Ξ® ΞµΟ€ΞΉΞ»ΞµΞ³ΞΌΞ­Ξ½Ο‰Ξ½ ΞΌΞ·Ξ½Ο…ΞΌΞ¬Ο„Ο‰Ξ½';
+$alt_delete_one = 'Ξ”ΞΉΞ±Ξ³ΟΞ±Ο†Ξ® ΞΌΞ·Ξ½ΟΞΌΞ±Ο„ΞΏΟ‚';
+$alt_new_msg = 'ΞΞ­Ξ± ΞΌΞ·Ξ½ΟΞΌΞ±Ο„Ξ±';
+$alt_reply = 'Ξ‘Ο€Ξ¬Ξ½Ο„Ξ·ΟƒΞ· ΟƒΟ„ΞΏΞ½ Ξ±Ο€ΞΏΟƒΟ„ΞΏΞ»Ξ­Ξ±';
+$alt_reply_all = 'Ξ‘Ο€Ξ¬Ξ½Ο„Ξ·ΟƒΞ· ΟƒΞµ ΟΞ»ΞΏΟ…Ο‚';
+$alt_forward = 'Ξ ΟΞΏΟΞΈΞ·ΟƒΞ·';
+$alt_next = 'Ξ•Ο€ΟΞΌΞµΞ½ΞΏ ΞΌΞ®Ξ½Ο…ΞΌΞ±';
+$alt_prev = 'Ξ ΟΞΏΞ·Ξ³ΞΏΟΞΌΞµΞ½ΞΏ ΞΌΞ®Ξ½Ο…ΞΌΞ±';
 $html_on = 'on';  //to translate
-$html_theme = 'Θέμα';
+$html_theme = 'ΞΞ­ΞΌΞ±';
 
 // index.php
 
-$html_lang = 'Γλώσσα';
-$html_welcome = 'Καλώς ήρθατε στο';
-$html_login = 'Ονομα λογαριασμού';
-$html_passwd = 'Κωδικός';
+$html_lang = 'Ξ“Ξ»ΟΟƒΟƒΞ±';
+$html_welcome = 'ΞΞ±Ξ»ΟΟ‚ Ξ®ΟΞΈΞ±Ο„Ξµ ΟƒΟ„ΞΏ';
+$html_login = 'ΞΞ½ΞΏΞΌΞ± Ξ»ΞΏΞ³Ξ±ΟΞΉΞ±ΟƒΞΌΞΏΟ';
+$html_passwd = 'ΞΟ‰Ξ΄ΞΉΞΊΟΟ‚';
 $html_submit = 'Login';
-$html_help = 'Βοήθεια';
-$html_server = 'Διακομιστής';
-$html_wrong = 'Το όνομα λογαριασμού ή ο κωδικός είναι λάθος';
-$html_retry = 'Επανάληψη';
+$html_help = 'Ξ’ΞΏΞ®ΞΈΞµΞΉΞ±';
+$html_server = 'Ξ”ΞΉΞ±ΞΊΞΏΞΌΞΉΟƒΟ„Ξ®Ο‚';
+$html_wrong = 'Ξ¤ΞΏ ΟΞ½ΞΏΞΌΞ± Ξ»ΞΏΞ³Ξ±ΟΞΉΞ±ΟƒΞΌΞΏΟ Ξ® ΞΏ ΞΊΟ‰Ξ΄ΞΉΞΊΟΟ‚ ΞµΞ―Ξ½Ξ±ΞΉ Ξ»Ξ¬ΞΈΞΏΟ‚';
+$html_retry = 'Ξ•Ο€Ξ±Ξ½Ξ¬Ξ»Ξ·ΟΞ·';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
 
 $html_msgperpage = 'Messages per page';  //to translate
-$html_preferences = 'Προτιμήσεις';
-$html_full_name = 'Ονοματεπώνυμο';
-$html_email_address = 'E-mail διεύθυνση';
-$html_ccself = 'Αντίγραφο στον ευατό μου';
-$html_hide_addresses = 'Απόκρυψη διευθύνσεων';
-$html_outlook_quoting = 'Στυλ Outlook παραθέσεις';
-$html_reply_to = 'Απάντηση σε';
-$html_use_signature = 'Χρησιμοποίηση υπογραφής';
-$html_signature = 'Υπογραφή';
+$html_preferences = 'Ξ ΟΞΏΟ„ΞΉΞΌΞ®ΟƒΞµΞΉΟ‚';
+$html_full_name = 'ΞΞ½ΞΏΞΌΞ±Ο„ΞµΟ€ΟΞ½Ο…ΞΌΞΏ';
+$html_email_address = 'E-mail Ξ΄ΞΉΞµΟΞΈΟ…Ξ½ΟƒΞ·';
+$html_ccself = 'Ξ‘Ξ½Ο„Ξ―Ξ³ΟΞ±Ο†ΞΏ ΟƒΟ„ΞΏΞ½ ΞµΟ…Ξ±Ο„Ο ΞΌΞΏΟ…';
+$html_hide_addresses = 'Ξ‘Ο€ΟΞΊΟΟ…ΟΞ· Ξ΄ΞΉΞµΟ…ΞΈΟΞ½ΟƒΞµΟ‰Ξ½';
+$html_outlook_quoting = 'Ξ£Ο„Ο…Ξ» Outlook Ο€Ξ±ΟΞ±ΞΈΞ­ΟƒΞµΞΉΟ‚';
+$html_reply_to = 'Ξ‘Ο€Ξ¬Ξ½Ο„Ξ·ΟƒΞ· ΟƒΞµ';
+$html_use_signature = 'Ξ§ΟΞ·ΟƒΞΉΞΌΞΏΟ€ΞΏΞ―Ξ·ΟƒΞ· Ο…Ο€ΞΏΞ³ΟΞ±Ο†Ξ®Ο‚';
+$html_signature = 'Ξ¥Ο€ΞΏΞ³ΟΞ±Ο†Ξ®';
 $html_reply_leadin = 'Reply Leadin';  //to translate
-$html_prefs_updated = 'Οι Προτιμήσεις σας ανανεώθηκαν';
+$html_prefs_updated = 'ΞΞΉ Ξ ΟΞΏΟ„ΞΉΞΌΞ®ΟƒΞµΞΉΟ‚ ΟƒΞ±Ο‚ Ξ±Ξ½Ξ±Ξ½ΞµΟΞΈΞ·ΞΊΞ±Ξ½';
 $html_manage_folders_link = 'Manage IMAP Folders';  //to translate
 $html_manage_filters_link = 'Manage Email Filters';  //to translate
 $html_use_graphical_smilies = 'Use graphical smilies'; //to translate
@@ -128,60 +128,60 @@ $html_other_folders = 'Folder List';  //to translate
 $html_page = 'Page';  //to translate
 $html_of = 'of';  //to translate
 $html_to = 'to';  //to translate
-$html_view_header = 'Προβολή λεπτομερειών';
-$html_remove_header = 'Απόκρυψη λεπτομερειών';
+$html_view_header = 'Ξ ΟΞΏΞ²ΞΏΞ»Ξ® Ξ»ΞµΟ€Ο„ΞΏΞΌΞµΟΞµΞΉΟΞ½';
+$html_remove_header = 'Ξ‘Ο€ΟΞΊΟΟ…ΟΞ· Ξ»ΞµΟ€Ο„ΞΏΞΌΞµΟΞµΞΉΟΞ½';
 $html_inbox = 'Inbox';
-$html_new_msg = 'Σύνθεση';
-$html_reply = 'Απάντηση';
+$html_new_msg = 'Ξ£ΟΞ½ΞΈΞµΟƒΞ·';
+$html_reply = 'Ξ‘Ο€Ξ¬Ξ½Ο„Ξ·ΟƒΞ·';
 $html_reply_short = 'Re';
-$html_reply_all = 'Απάντηση σε όλους';
-$html_forward = 'Προώθηση';
+$html_reply_all = 'Ξ‘Ο€Ξ¬Ξ½Ο„Ξ·ΟƒΞ· ΟƒΞµ ΟΞ»ΞΏΟ…Ο‚';
+$html_forward = 'Ξ ΟΞΏΟΞΈΞ·ΟƒΞ·';
 $html_forward_short = 'Fw';
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
-$html_delete = 'Διαγραφή';
-$html_new = 'Νέο';
-$html_mark = 'Διαγραφή';
-$html_att = 'Συνημμένο';
-$html_atts = 'Συνημμένα';
-$html_att_unknown = '[άγνωστο]';
-$html_attach = 'Επισύναψη';
-$html_attach_forget = 'Πρέπει να συννάψετε το αρχείο πρίν στείλετε το μήνυμα !';
-$html_attach_delete = 'Διαγραφή μαρκαρισμένων συνημμένων';
+$html_delete = 'Ξ”ΞΉΞ±Ξ³ΟΞ±Ο†Ξ®';
+$html_new = 'ΞΞ­ΞΏ';
+$html_mark = 'Ξ”ΞΉΞ±Ξ³ΟΞ±Ο†Ξ®';
+$html_att = 'Ξ£Ο…Ξ½Ξ·ΞΌΞΌΞ­Ξ½ΞΏ';
+$html_atts = 'Ξ£Ο…Ξ½Ξ·ΞΌΞΌΞ­Ξ½Ξ±';
+$html_att_unknown = '[Ξ¬Ξ³Ξ½Ο‰ΟƒΟ„ΞΏ]';
+$html_attach = 'Ξ•Ο€ΞΉΟƒΟΞ½Ξ±ΟΞ·';
+$html_attach_forget = 'Ξ ΟΞ­Ο€ΞµΞΉ Ξ½Ξ± ΟƒΟ…Ξ½Ξ½Ξ¬ΟΞµΟ„Ξµ Ο„ΞΏ Ξ±ΟΟ‡ΞµΞ―ΞΏ Ο€ΟΞ―Ξ½ ΟƒΟ„ΞµΞ―Ξ»ΞµΟ„Ξµ Ο„ΞΏ ΞΌΞ®Ξ½Ο…ΞΌΞ± !';
+$html_attach_delete = 'Ξ”ΞΉΞ±Ξ³ΟΞ±Ο†Ξ® ΞΌΞ±ΟΞΊΞ±ΟΞΉΟƒΞΌΞ­Ξ½Ο‰Ξ½ ΟƒΟ…Ξ½Ξ·ΞΌΞΌΞ­Ξ½Ο‰Ξ½';
 $html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sort by';  //to translate
-$html_from = 'Από';
-$html_subject = 'Θέμα';
-$html_date = 'Ημ/νία';
-$html_sent = 'Αποστολή';
+$html_from = 'Ξ‘Ο€Ο';
+$html_subject = 'ΞΞ­ΞΌΞ±';
+$html_date = 'Ξ—ΞΌ/Ξ½Ξ―Ξ±';
+$html_sent = 'Ξ‘Ο€ΞΏΟƒΟ„ΞΏΞ»Ξ®';
 $html_wrote = 'wrote';
-$html_size = 'Μέγεθος';
-$html_totalsize = 'Συνολικό μέγεθος';
+$html_size = 'ΞΞ­Ξ³ΞµΞΈΞΏΟ‚';
+$html_totalsize = 'Ξ£Ο…Ξ½ΞΏΞ»ΞΉΞΊΟ ΞΌΞ­Ξ³ΞµΞΈΞΏΟ‚';
 $html_kb = 'Kb';
 $html_bytes = 'bytes';
-$html_filename = 'Ονομα αρχείου';
-$html_to = 'Πρός';
-$html_cc = 'Αντίγραφο προς';
-$html_bcc = 'Κρυφό Αντίγραφο προς';
-$html_nosubject = 'Χωρίς Θέμα';
-$html_send = 'Αποστολή';
-$html_cancel = 'Ακυρο';
-$html_no_mail = 'Δεν υπάρχουν μηνύματα.';
-$html_logout = 'Εξοδος';
-$html_msg = 'Μήνυμα';
-$html_msgs = 'Μηνύματα';
-$html_configuration = 'Αυτός ο διακομιστής δεν έχει οριστεί σωστά !';
-$html_priority = 'Προταιραιότητα';
-$html_low = 'Χαμηλή';
-$html_normal = 'Κανονική';
-$html_high = 'Υψηλή';
+$html_filename = 'ΞΞ½ΞΏΞΌΞ± Ξ±ΟΟ‡ΞµΞ―ΞΏΟ…';
+$html_to = 'Ξ ΟΟΟ‚';
+$html_cc = 'Ξ‘Ξ½Ο„Ξ―Ξ³ΟΞ±Ο†ΞΏ Ο€ΟΞΏΟ‚';
+$html_bcc = 'ΞΟΟ…Ο†Ο Ξ‘Ξ½Ο„Ξ―Ξ³ΟΞ±Ο†ΞΏ Ο€ΟΞΏΟ‚';
+$html_nosubject = 'Ξ§Ο‰ΟΞ―Ο‚ ΞΞ­ΞΌΞ±';
+$html_send = 'Ξ‘Ο€ΞΏΟƒΟ„ΞΏΞ»Ξ®';
+$html_cancel = 'Ξ‘ΞΊΟ…ΟΞΏ';
+$html_no_mail = 'Ξ”ΞµΞ½ Ο…Ο€Ξ¬ΟΟ‡ΞΏΟ…Ξ½ ΞΌΞ·Ξ½ΟΞΌΞ±Ο„Ξ±.';
+$html_logout = 'Ξ•ΞΎΞΏΞ΄ΞΏΟ‚';
+$html_msg = 'ΞΞ®Ξ½Ο…ΞΌΞ±';
+$html_msgs = 'ΞΞ·Ξ½ΟΞΌΞ±Ο„Ξ±';
+$html_configuration = 'Ξ‘Ο…Ο„ΟΟ‚ ΞΏ Ξ΄ΞΉΞ±ΞΊΞΏΞΌΞΉΟƒΟ„Ξ®Ο‚ Ξ΄ΞµΞ½ Ξ­Ο‡ΞµΞΉ ΞΏΟΞΉΟƒΟ„ΞµΞ― ΟƒΟ‰ΟƒΟ„Ξ¬ !';
+$html_priority = 'Ξ ΟΞΏΟ„Ξ±ΞΉΟΞ±ΞΉΟΟ„Ξ·Ο„Ξ±';
+$html_low = 'Ξ§Ξ±ΞΌΞ·Ξ»Ξ®';
+$html_normal = 'ΞΞ±Ξ½ΞΏΞ½ΞΉΞΊΞ®';
+$html_high = 'Ξ¥ΟΞ·Ξ»Ξ®';
 $html_receipt = 'Request a return receipt';  //to translate
-$html_select = 'Διαλέξτε';
+$html_select = 'Ξ”ΞΉΞ±Ξ»Ξ­ΞΎΟ„Ξµ';
 $html_select_all = 'Invert Selection';  //to translate
-$html_loading_image = 'Φορτώνω την εικόνα';
-$html_send_confirmed = 'Το μήνυμα σας θα αποσταλεί.';
-$html_no_sendaction = 'Δεν επιλέχθηκε εντολή. Δοκιμάστε να ενεργοποιήσετε τηνJavaScript.';
-$html_error_occurred = 'Ενα σφάλμα συνέβη';
-$html_prefs_file_error = 'Δεν μπορώ να γράψω στο αρχείο προτιμήσεων.';
+$html_loading_image = 'Ξ¦ΞΏΟΟ„ΟΞ½Ο‰ Ο„Ξ·Ξ½ ΞµΞΉΞΊΟΞ½Ξ±';
+$html_send_confirmed = 'Ξ¤ΞΏ ΞΌΞ®Ξ½Ο…ΞΌΞ± ΟƒΞ±Ο‚ ΞΈΞ± Ξ±Ο€ΞΏΟƒΟ„Ξ±Ξ»ΞµΞ―.';
+$html_no_sendaction = 'Ξ”ΞµΞ½ ΞµΟ€ΞΉΞ»Ξ­Ο‡ΞΈΞ·ΞΊΞµ ΞµΞ½Ο„ΞΏΞ»Ξ®. Ξ”ΞΏΞΊΞΉΞΌΞ¬ΟƒΟ„Ξµ Ξ½Ξ± ΞµΞ½ΞµΟΞ³ΞΏΟ€ΞΏΞΉΞ®ΟƒΞµΟ„Ξµ Ο„Ξ·Ξ½JavaScript.';
+$html_error_occurred = 'Ξ•Ξ½Ξ± ΟƒΟ†Ξ¬Ξ»ΞΌΞ± ΟƒΟ…Ξ½Ξ­Ξ²Ξ·';
+$html_prefs_file_error = 'Ξ”ΞµΞ½ ΞΌΟ€ΞΏΟΟ Ξ½Ξ± Ξ³ΟΞ¬ΟΟ‰ ΟƒΟ„ΞΏ Ξ±ΟΟ‡ΞµΞ―ΞΏ Ο€ΟΞΏΟ„ΞΉΞΌΞ®ΟƒΞµΟ‰Ξ½.';
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
 $html_wrap_none = 'None'; //to translate
 $html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
@@ -210,12 +210,12 @@ $html_contact_err3 = 'You don\'t have access rights to contact list'; //to trans
 $html_del_msg = 'Delete selected messages ?';  //to translate
 $html_down_mail = 'Download';  //to translate
 
-$original_msg = '-- Πρωτότυπο Μήνυμα --';
-$to_empty = 'Το πεδίο \'Πρός\' δεν πρέπει να είναι άδειο !';
+$original_msg = '-- Ξ ΟΟ‰Ο„ΟΟ„Ο…Ο€ΞΏ ΞΞ®Ξ½Ο…ΞΌΞ± --';
+$to_empty = 'Ξ¤ΞΏ Ο€ΞµΞ΄Ξ―ΞΏ \'Ξ ΟΟΟ‚\' Ξ΄ΞµΞ½ Ο€ΟΞ­Ο€ΞµΞΉ Ξ½Ξ± ΞµΞ―Ξ½Ξ±ΞΉ Ξ¬Ξ΄ΞµΞΉΞΏ !';
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = 'Δεν μπορώ να ανοίξω σύνδεση';
-$html_smtp_error_unexpected = 'Αγνωστη απάντηση:';
+$html_smtp_error_no_conn = 'Ξ”ΞµΞ½ ΞΌΟ€ΞΏΟΟ Ξ½Ξ± Ξ±Ξ½ΞΏΞ―ΞΎΟ‰ ΟƒΟΞ½Ξ΄ΞµΟƒΞ·';
+$html_smtp_error_unexpected = 'Ξ‘Ξ³Ξ½Ο‰ΟƒΟ„Ξ· Ξ±Ο€Ξ¬Ξ½Ο„Ξ·ΟƒΞ·:';
 
 // IMAP messages (class_local.php)
 $lang_could_not_connect = 'Could not connect to server';  //to translate

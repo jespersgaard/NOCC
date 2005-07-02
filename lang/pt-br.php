@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pt-br.php,v 1.27 2005/05/01 20:45:56 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pt-br.php,v 1.28 2005/06/20 16:30:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,7 +12,7 @@
  * Translation by Giovani Zamboni <zambaxtz@terra.com.br>
  */
 
-$charset = 'ISO-8859-1';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -39,7 +39,7 @@ $default_time_format = '%H:%M';
 
 // Here is the configuration for the HTML
 
-$err_user_empty = 'O campo <b>Usu&aacute;rio</b> esta vazio';
+$err_user_empty = 'O campo <b>Usu√°rio</b> esta vazio';
 $err_passwd_empty = 'O campo <b>Senha</b> esta vazio';
 
 
@@ -49,9 +49,9 @@ $alt_delete = 'Excluir as mensagens selecionadas';
 $alt_delete_one = 'Excluir a mensagem';
 $alt_new_msg = 'Nova mensagens';
 $alt_reply = 'Responder ao autor';
-$alt_reply_all = 'Responder ‡ todos';
+$alt_reply_all = 'Responder √† todos';
 $alt_forward = 'Encaminhar';
-$alt_next = 'PrÛxima mensagem';
+$alt_next = 'Pr√≥xima mensagem';
 $alt_prev = 'Mensagem anterior';
 $html_on = 'on';  //to translate
 $html_theme = 'Tema';
@@ -60,12 +60,12 @@ $html_theme = 'Tema';
 
 $html_lang = 'Linguagem';
 $html_welcome = 'Bem vindo ao ';
-$html_login = 'Usu·rio';
+$html_login = 'Usu√°rio';
 $html_passwd = 'Senha';
 $html_submit = 'Enviar';
 $html_help = 'Ajuda';
 $html_server = 'Servidor';
-$html_wrong = 'O usu·rio ou a senha est„o incorretos';
+$html_wrong = 'O usu√°rio ou a senha est√£o incorretos';
 $html_retry = 'Repetir';
 $html_remember = "Remember settings"; //to translate
 
@@ -128,13 +128,13 @@ $html_other_folders = 'Folder List';  //to translate
 $html_page = 'Page';  //to translate
 $html_of = 'of';  //to translate
 $html_to = 'to';  //to translate
-$html_view_header = 'Ver cabeÁalho';
-$html_remove_header = 'Esconder cabeÁalho';
+$html_view_header = 'Ver cabe√ßalho';
+$html_remove_header = 'Esconder cabe√ßalho';
 $html_inbox = 'Caixa de Entrada';
 $html_new_msg = 'Novo e-mail';
 $html_reply = 'Responder';
 $html_reply_short = 'Res';
-$html_reply_all = 'Responder ‡ todos';
+$html_reply_all = 'Responder √† todos';
 $html_forward = 'Encaminhar';
 $html_forward_short = 'Enc';
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
@@ -145,7 +145,7 @@ $html_att = 'Anexo';
 $html_atts = 'Anexos';
 $html_att_unknown = '[Desconhecido]';
 $html_attach = 'Anexar arquivo';
-$html_attach_forget = 'VocÍ precisa anexar seus arquivos antes de enviar esta mensagem !';
+$html_attach_forget = 'Voc√™ precisa anexar seus arquivos antes de enviar esta mensagem !';
 $html_attach_delete = 'Remover anexos selecionados';
 $html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sort by';  //to translate
@@ -169,7 +169,7 @@ $html_no_mail = 'Sem mensagens.';
 $html_logout = 'Sair';
 $html_msg = 'Mensagem';
 $html_msgs = 'Mensagens';
-$html_configuration = 'Este servidor ainda n„o esta bem configurado !';
+$html_configuration = 'Este servidor ainda n√£o esta bem configurado !';
 $html_priority = 'Priority';  //to translate
 $html_low = 'Low';  //to translate
 $html_normal = 'Normal';  //to translate
@@ -211,7 +211,7 @@ $html_del_msg = 'Delete selected messages ?';  //to translate
 $html_down_mail = 'Download';  //to translate
 
 $original_msg = '-- Mensagem Original --';
-$to_empty = 'Campo \'Para\' n„o pode estar vazio !';
+$to_empty = 'Campo \'Para\' n√£o pode estar vazio !';
 
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Unable to open SMTP connection';  //to translate

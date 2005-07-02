@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.196 2004/11/25 17:33:51 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.197 2005/05/09 13:08:14 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -384,7 +384,7 @@ function GetPart(&$attach_tab, &$this_part, $part_no, &$display_rfc822)
         $charset = '';
         if ($this_part->ifparameters)
             while ($obj = array_pop($this_part->parameters))
-                if ($obj->attribute == 'CHARSET')
+                if (strtolower($obj->attribute) == 'charset')
                 {
                     $charset = $obj->value;
                     break;
@@ -446,7 +446,7 @@ function GetSinglePart(&$attach_tab, &$this_part, &$header, &$body)
     $charset = '';
     if ($this_part->ifparameters)
         while ($obj = array_pop($this_part->parameters))
-            if ($obj->attribute == 'CHARSET')
+            if (strtolower($obj->attribute) == 'charset')
             {
                 $charset = $obj->value;
                 break;

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/he.php,v 1.27 2005/05/01 20:45:56 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/he.php,v 1.28 2005/06/20 16:30:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -15,7 +15,7 @@
 // While it could be claimed that using UTF-8 is the Right Thing , it is still
 // not common enough. ISO-8859-8 can be read basically anywhere. This is not 
 // the case with UTF-8 .
-$charset = 'ISO-8859-8-i';
+$charset = 'UTF-8';
 
 // Configuration for the days and months
 
@@ -42,34 +42,34 @@ $default_time_format = '%I:%M %p';
 
 // Here is the configuration for the HTML
 
-$err_user_empty = 'ωγδ ων δξωϊξω ψιχ';
-$err_passwd_empty = 'ωγδ δριρξδ ψιχ';
+$err_user_empty = 'Χ©Χ“Χ” Χ©Χ Χ”ΧΧ©ΧªΧΧ© Χ¨Χ™Χ§';
+$err_passwd_empty = 'Χ©Χ“Χ” Χ”Χ΅Χ™Χ΅ΧΧ” Χ¨Χ™Χ§';
 
 
 // html message
 
-$alt_delete = 'ξηιχϊ δδεγςεϊ δξρεξπεϊ';
-$alt_delete_one = 'ξηιχϊ δδεγςδ';
-$alt_new_msg = 'δεγςδ ηγωδ';
-$alt_reply = 'ϊωεαδ';
-$alt_reply_all = 'ϊωεαδ μλμ';
-$alt_forward = 'δςαψδ';
-$alt_next = 'δδεγςδ δαΰδ';
-$alt_prev = 'δδεγςεϊ δαΰεϊ';
-$html_on = 'αζξο';
+$alt_delete = 'ΧΧ—Χ™Χ§Χª Χ”Χ”Χ•Χ“ΧΆΧ•Χª Χ”ΧΧ΅Χ•ΧΧ Χ•Χª';
+$alt_delete_one = 'ΧΧ—Χ™Χ§Χª Χ”Χ”Χ•Χ“ΧΆΧ”';
+$alt_new_msg = 'Χ”Χ•Χ“ΧΆΧ” Χ—Χ“Χ©Χ”';
+$alt_reply = 'ΧªΧ©Χ•Χ‘Χ”';
+$alt_reply_all = 'ΧªΧ©Χ•Χ‘Χ” ΧΧ›Χ';
+$alt_forward = 'Χ”ΧΆΧ‘Χ¨Χ”';
+$alt_next = 'Χ”Χ”Χ•Χ“ΧΆΧ” Χ”Χ‘ΧΧ”';
+$alt_prev = 'Χ”Χ”Χ•Χ“ΧΆΧ•Χª Χ”Χ‘ΧΧ•Χª';
+$html_on = 'Χ‘Χ–ΧΧ';
 $html_theme = 'Theme';  //to translate
 
 // index.php
 
-$html_lang = 'ωτδ';
-$html_welcome = 'αψελιν δαΰιν';
-$html_login = 'ων δξωϊξω';
-$html_passwd = 'ριρξδ';
-$html_submit = 'δϊηαψεϊ';
-$html_help = 'ςζψδ';
-$html_server = 'ωψϊ';
-$html_wrong = 'ων δξωϊξω ΰε δριρξδ ωβειιν';
-$html_retry = 'πριεο περσ';
+$html_lang = 'Χ©Χ¤Χ”';
+$html_welcome = 'Χ‘Χ¨Χ•Χ›Χ™Χ Χ”Χ‘ΧΧ™Χ';
+$html_login = 'Χ©Χ Χ”ΧΧ©ΧªΧΧ©';
+$html_passwd = 'Χ΅Χ™Χ΅ΧΧ”';
+$html_submit = 'Χ”ΧªΧ—Χ‘Χ¨Χ•Χª';
+$html_help = 'ΧΆΧ–Χ¨Χ”';
+$html_server = 'Χ©Χ¨Χª';
+$html_wrong = 'Χ©Χ Χ”ΧΧ©ΧªΧΧ© ΧΧ• Χ”Χ΅Χ™Χ΅ΧΧ” Χ©Χ’Χ•Χ™Χ™Χ';
+$html_retry = 'Χ Χ΅Χ™Χ•Χ Χ Χ•Χ΅Χ£';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
@@ -130,48 +130,48 @@ $html_other_folders = 'Folder List';  //to translate
 $html_page = 'Page';  //to translate
 $html_of = 'of';  //to translate
 $html_to = 'to';  //to translate
-$html_view_header = 'δφβϊ λεϊψεϊ';
-$html_remove_header = 'δρϊψϊ λεϊψεϊ';
-$html_inbox = 'ϊιαϊ δγεΰψ';
-$html_new_msg = 'λϊιαδ';
-$html_reply = 'ϊωεαδ';
+$html_view_header = 'Χ”Χ¦Χ’Χª Χ›Χ•ΧªΧ¨Χ•Χª';
+$html_remove_header = 'Χ”Χ΅ΧªΧ¨Χª Χ›Χ•ΧªΧ¨Χ•Χª';
+$html_inbox = 'ΧªΧ™Χ‘Χª Χ”Χ“Χ•ΧΧ¨';
+$html_new_msg = 'Χ›ΧªΧ™Χ‘Χ”';
+$html_reply = 'ΧªΧ©Χ•Χ‘Χ”';
 # please leave 'Re' and 'Fwd' as they are, otherwise they mess the subject line
 # [tzafrir]
 $html_reply_short = 'Re';
-$html_reply_all = 'ϊωεαδ μλμ';
-$html_forward = 'δςαψδ';
+$html_reply_all = 'ΧªΧ©Χ•Χ‘Χ” ΧΧ›Χ';
+$html_forward = 'Χ”ΧΆΧ‘Χ¨Χ”';
 $html_forward_short = 'Fw';
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
-$html_delete = 'ξηιχδ';
-$html_new = 'ηγω';
-$html_mark = 'ξηιχδ';
-$html_att = 'φιψεσ χεαυ';
-$html_atts = 'ξφεψτιν';
-$html_att_unknown = '[μΰ ιγες]';
-$html_attach = 'φιψεσ';
-$html_attach_forget = 'ηιιαιν μφψσ χεαυ μτπι ωμιηϊ δδεγςδ!';
-$html_attach_delete = 'αιθεμ δξρεξπιν';
+$html_delete = 'ΧΧ—Χ™Χ§Χ”';
+$html_new = 'Χ—Χ“Χ©';
+$html_mark = 'ΧΧ—Χ™Χ§Χ”';
+$html_att = 'Χ¦Χ™Χ¨Χ•Χ£ Χ§Χ•Χ‘Χ¥';
+$html_atts = 'ΧΧ¦Χ•Χ¨Χ¤Χ™Χ';
+$html_att_unknown = '[ΧΧ Χ™Χ“Χ•ΧΆ]';
+$html_attach = 'Χ¦Χ™Χ¨Χ•Χ£';
+$html_attach_forget = 'Χ—Χ™Χ™Χ‘Χ™Χ ΧΧ¦Χ¨Χ£ Χ§Χ•Χ‘Χ¥ ΧΧ¤Χ Χ™ Χ©ΧΧ™Χ—Χª Χ”Χ”Χ•Χ“ΧΆΧ”!';
+$html_attach_delete = 'Χ‘Χ™ΧΧ•Χ Χ”ΧΧ΅Χ•ΧΧ Χ™Χ';
 $html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sort by';  //to translate
-$html_from = 'ξΰϊ';
-$html_subject = 'πεωΰ';
-$html_date = 'ϊΰψικ';
+$html_from = 'ΧΧΧª';
+$html_subject = 'Χ Χ•Χ©Χ';
+$html_date = 'ΧªΧΧ¨Χ™Χ';
 $html_sent = 'Send';
-$html_size = 'βεγμ';
-$html_totalsize = 'ρδ\' βεγμ';
-$html_kb = 'χ\'α';
-$html_bytes = 'αϊιν';
-$html_filename = 'ων δχεαυ';
-$html_to = 'ΰμ';
-$html_cc = 'δςϊχ';
+$html_size = 'Χ’Χ•Χ“Χ';
+$html_totalsize = 'Χ΅Χ”\' Χ’Χ•Χ“Χ';
+$html_kb = 'Χ§\'Χ‘';
+$html_bytes = 'Χ‘ΧªΧ™Χ';
+$html_filename = 'Χ©Χ Χ”Χ§Χ•Χ‘Χ¥';
+$html_to = 'ΧΧ';
+$html_cc = 'Χ”ΧΆΧªΧ§';
 $html_bcc = 'Bcc';  //to translate
-$html_nosubject = '[μμΰ πεωΰ]';
-$html_send = 'ωμιηδ';
-$html_cancel = 'αιθεμ';
+$html_nosubject = '[ΧΧΧ Χ Χ•Χ©Χ]';
+$html_send = 'Χ©ΧΧ™Χ—Χ”';
+$html_cancel = 'Χ‘Χ™ΧΧ•Χ';
 $html_no_mail = 'No message.';  //to translate
-$html_logout = 'ιφιΰδ';
-$html_msg = 'δεγςδ';
-$html_msgs = 'δεγςεϊ';
+$html_logout = 'Χ™Χ¦Χ™ΧΧ”';
+$html_msg = 'Χ”Χ•Χ“ΧΆΧ”';
+$html_msgs = 'Χ”Χ•Χ“ΧΆΧ•Χª';
 $html_configuration = 'This server is not well set up !';  //to translate
 $html_priority = 'Priority';  //to translate
 $html_low = 'Low';  //to translate
@@ -214,8 +214,8 @@ $html_down_mail = 'Download';  //to translate
 
 # I think some people will rather leave this one untranslated as well...
 #$original_msg = '-- Original Message --';
-$original_msg = '-- δεγςδ ξχεψιϊ --';
-$to_empty = 'μωγδ δ-\'ΰμ\' ΰρεψ μδιεϊ ψιχ!';
+$original_msg = '-- Χ”Χ•Χ“ΧΆΧ” ΧΧ§Χ•Χ¨Χ™Χª --';
+$to_empty = 'ΧΧ©Χ“Χ” Χ”-\'ΧΧ\' ΧΧ΅Χ•Χ¨ ΧΧ”Χ™Χ•Χª Χ¨Χ™Χ§!';
 
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Unable to open SMTP connection';  //to translate
