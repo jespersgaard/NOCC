@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.133 2005/05/19 17:44:52 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.134 2005/05/23 11:37:41 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -251,7 +251,9 @@ $conf->quota_enable=false;
 // Quota types.
 // Possible values are STORAGE or MESSAGE
 $conf->quota_type="STORAGE";
-                                                                                
+
+// Default encoding charset to use to display email which does not include one.
+$conf->default_charset = 'UTF-8';                                                                                
 /*
 ###################     End of Configuration     ####################
 */

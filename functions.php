@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.197 2005/05/09 13:08:14 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.198 2005/07/02 14:03:59 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -205,9 +205,18 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
 
         $body_charset =  ($tmp['charset'] == "default") ? detect_charset($body) : $tmp['charset'];
         // Convert US-ASCII to ISO-8859-1 for systems which have difficulties with.
-        if ($body_charset == "US-ASCII" || $body_charset == "") {
+        if (strtolower($body_charset) == "us-ascii") {
            $body_charset = "ISO-8859-1";
-         }
+        }
+        // Use default charset if no charset is provided by the displayed mail.
+        // If no default charset is defined, use UTF-8.
+        if ($body_charset == "" || $body_charset == null) {
+           if (isset($conf->default_charset) && $conf->default_charset != "") {
+             $body_charset = $conf->default_charset;
+           } else {
+             $body_charset = "UTF-8";
+           }
+        }
         $body_converted = ( function_exists('iconv') ) ? @iconv( $body_charset, $GLOBALS['charset'], $body) : FALSE;
         $body = ($body_converted===FALSE) ? $body : $body_converted;
         $tmp['charset'] = ($body_converted===FALSE) ? $body_charset : $GLOBALS['charset'];
