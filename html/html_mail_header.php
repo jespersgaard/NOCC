@@ -1,4 +1,4 @@
-<!-- start of $Id: html_mail_header.php,v 1.34 2002/05/30 14:07:21 rossigee Exp $ -->
+<!-- start of $Id: html_mail_header.php,v 1.35 2003/01/22 05:15:02 rossigee Exp $ -->
 <?php
 
 global $conf;
@@ -36,6 +36,22 @@ if ($conf->use_verbose && $verbose == '0') {
     if($content['att'] != '') {
         echo $content['att'];
     }
+    echo '<tr><td align="right" class="mail">' . $html_encoding . '</td><td bgcolor="'.$glob_theme->mail_properties.'" class="mail">';
+    echo '<form name="encoding" action="action.php" type="POST">';
+    echo '<input type="hidden" name="action" value="' . $_REQUEST['action'] . '"/>';
+    echo '<input type="hidden" name="mail" value="' . $_REQUEST['mail'] . '"/>';
+    echo '<input type="hidden" name="verbose" value="' . $_REQUEST['verbose'] . '"/>';
+    echo '<select name="user_charset">';
+    for ($i = 0; $i < sizeof($charset_array); $i++) {
+      echo '<option value="'.$charset_array[$i]->charset.'"';
+      if ($_REQUEST['user_charset'] == $charset_array[$i]->charset
+          || ((!isset($_REQUEST['user_charset']) || $_REQUEST['user_charset'] == '') && strtolower($content['charset']) == strtolower($charset_array[$i]->charset)))
+        echo ' selected="selected"';
+      echo '>'.$charset_array[$i]->label.'</option>';
+    }
+    echo '</select>&nbsp;&nbsp<input name="submit" class="button" type="submit" value="' . $html_submit . '" />';
+    echo '</form>';
+    echo '</td></tr>';
 }
 
 else {
@@ -50,4 +66,4 @@ echo '<tr><td colspan="2" bgcolor="'.$glob_theme->mail_color.'" class="mail">'.$
 
 ?>
 
-<!-- end of $Id: html_mail_header.php,v 1.34 2002/05/30 14:07:21 rossigee Exp $ -->
+<!-- end of $Id: html_mail_header.php,v 1.35 2003/01/22 05:15:02 rossigee Exp $ -->

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.47 2005/07/01 11:05:16 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.48 2005/07/01 15:31:24 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -207,6 +207,7 @@ if(isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
 }
 
 require_once ('./conf_lang.php');
+require_once ('./conf_charset.php');
 require_once ('./themes/'.$_SESSION['nocc_theme'].'/colors.php');
 
 // allow PHP script to consume more memory than default setting for

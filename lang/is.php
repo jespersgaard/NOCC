@@ -187,6 +187,7 @@ $html_mark_as = 'Mark as'; //to translate
 $html_read = 'read'; //to translate
 $html_unread = 'unread'; //to translate
 $html_mail_sent = 'Message successfully sent'; // to translate
+$html_encoding = 'Character encoding'; // to translate
 
 // Contacts manager
 $html_add = 'Add';  //to translate

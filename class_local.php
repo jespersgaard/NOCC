@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.36 2004/11/08 17:02:54 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.37 2005/05/19 17:44:52 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -262,9 +262,9 @@ class nocc_imap
         $result[0]->text=''; $result[0]->charset='US-ASCII';
         for ($j = 0; $j < count($source); $j++ ) {
             $element_charset =  ($source[$j]->charset == "default") ? detect_charset($source[$j]->text) : $source[$j]->charset;
-            $element_converted = ( function_exists('iconv') ) ? @iconv( $element_charset, $output_charset, $source[$j]->text) : FALSE;
-            $result[$j]->text = ($element_converted===FALSE) ? $source[$j]->text : $element_converted;
-            $result[$j]->charset = ($element_converted===FALSE) ? $element_charset : $output_charset;
+            $element_converted = @iconv( $element_charset, $output_charset, $source[$j]->text);
+            $result[$j]->text = $element_converted;
+            $result[$j]->charset = $output_charset;
         }
         return $result;
     }

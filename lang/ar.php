@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ar.php,v 1.39 2005/05/01 20:45:56 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ar.php,v 1.40 2005/06/20 16:30:09 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -188,6 +188,7 @@ $html_mark_as = 'Mark as'; //to translate
 $html_read = 'read'; //to translate
 $html_unread = 'unread'; //to translate
 $html_mail_sent = 'Message successfully sent'; // to translate
+$html_encoding = 'Character encoding'; // to translate
 
 // Contacts manager
 $html_add = 'Add';  //to translate

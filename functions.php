@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.198 2005/07/02 14:03:59 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.199 2005/07/03 20:43:02 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -211,13 +211,19 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
         // Use default charset if no charset is provided by the displayed mail.
         // If no default charset is defined, use UTF-8.
         if ($body_charset == "" || $body_charset == null) {
-           if (isset($conf->default_charset) && $conf->default_charset != "") {
-             $body_charset = $conf->default_charset;
-           } else {
-             $body_charset = "UTF-8";
-           }
+          if (isset($conf->default_charset) && $conf->default_charset != "") {
+            $body_charset = $conf->default_charset;
+          } else {
+            $body_charset = "UTF-8";
+          }
         }
-        $body_converted = ( function_exists('iconv') ) ? @iconv( $body_charset, $GLOBALS['charset'], $body) : FALSE;
+
+        // If user has selected another charset, we'll use it
+        if (isset($_REQUEST['user_charset']) && $_REQUEST['user_charset'] != '') {
+          $body_charset = $_REQUEST['user_charset'];
+        }
+
+        $body_converted = @iconv( $body_charset, $GLOBALS['charset'], $body);
         $body = ($body_converted===FALSE) ? $body : $body_converted;
         $tmp['charset'] = ($body_converted===FALSE) ? $body_charset : $GLOBALS['charset'];
     }
@@ -277,7 +283,8 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
         'verbose' => $verbose,
         'prev' => $prev_msg,
         'next' => $next_msg,
-        'msgnum' => $mail
+        'msgnum' => $mail,
+        'charset' => $body_charset
     );
     return ($content);
 }
