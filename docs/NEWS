@@ -1,5 +1,7 @@
 NOCC 0.9.8    ?? ??, 2005
 
+    * Enforce $conf->crlf option in order to avoid mixed "\r\n" and "\n" line
+      break (Arnaud Boudou, bug #1228430).
     * Added option to select the character to use for login<char>domain login
       style (Arnaud Boudou).
     * Fix french translation (Arnaud Boudou).

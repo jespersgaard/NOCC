@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.64 2005/02/10 11:56:02 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.65 2005/07/03 20:43:02 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -167,6 +167,11 @@ class mime_mail
             $this->add_attachment($this->body,  '',  'text/plain', '8bit', $this->charset);
             $mime .= 'MIME-Version: 1.0' . $this->crlf . $this->build_body();
         }
+
+        // We enforce $conf->crlf option as mixed "\r\n" (coming from NOCC
+        // textarea while writing mail)  and "\n" line break may confuse some
+        // MTA or mail() PHP function.
+        $mime = str_replace("\r\n", $conf->crlf, $mime);
 
         // Whether or not to use SMTP or sendmail
         // depends on the config file (conf.php)
