@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.164 2005/05/19 17:44:51 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.165 2005/07/01 15:31:24 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -153,7 +153,7 @@ switch($action)
         if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
             $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . html_entity_decode(strip_tags($content['body'], ''));
         else {
-            if (isset($user_prefs->reply_leadin) && ($user_prefs->reply_leadin != ''))
+            if (isset($conf->enable_reply_leadin) && $conf->enable_reply_leadin == true && isset($user_prefs->reply_leadin) && ($user_prefs->reply_leadin != ''))
             {
                 $parsed_leadin = NOCCUserPrefs::parseLeadin($user_prefs->reply_leadin, $content);
                 $mail_body = mailquote(html_entity_decode(strip_tags($content['body'], '')), $parsed_leadin, '');

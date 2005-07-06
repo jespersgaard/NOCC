@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.199 2005/07/03 20:43:02 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.200 2005/07/04 17:12:27 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -782,7 +782,7 @@ function display_address(&$address)
 
 /* ----------------------------------------------------- */
 
-function mailquote(&$body, &$from, &$html_wrote)
+function mailquote(&$body, &$from, $html_wrote)
 {
     $user_prefs = $_SESSION['nocc_user_prefs'];
 

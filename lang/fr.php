@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.85 2005/07/02 14:04:00 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.86 2005/07/04 17:12:28 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -81,7 +81,7 @@ $html_outlook_quoting = 'Citation à la Outlook';
 $html_reply_to = 'Répondre à';
 $html_use_signature = 'Utiliser la signature';
 $html_signature = 'Signature';
-$html_reply_leadin = 'Reply Leadin';  //to translate
+$html_reply_leadin = 'Entête de réponse';
 $html_prefs_updated = 'Préférences mises à jour';
 $html_manage_folders_link = 'Gestion des dossiers IMAP';
 $html_manage_filters_link = 'Gestion des filtres email';

@@ -1,5 +1,10 @@
 NOCC 0.9.8    ?? ??, 2005
 
+    * Fix french translation (Arnaud Boudou).
+    * Fix issue with use of user's reply leading (Arnaud Boudou).
+    * Fix issue where allow_reply_leading configuration property was not taken
+      in account if set to false, and a reply leading was previously set in
+      users preferences (Arnaud Boudou).
     * Add possibility for the user to override incoming mail charset. Iconv is
       now mandatory (Arnaud Boudou, RFE #408167).
     * Add new configuration option in order to use a default encoding charset
