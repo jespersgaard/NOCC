@@ -1,5 +1,7 @@
 NOCC 0.9.8    ?? ??, 2005
 
+    * Added option to select the character to use for login<char>domain login
+      style (Arnaud Boudou).
     * Fix french translation (Arnaud Boudou).
     * Fix issue with use of user's reply leading (Arnaud Boudou).
     * Fix issue where allow_reply_leading configuration property was not taken

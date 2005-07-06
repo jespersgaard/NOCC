@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.134 2005/05/23 11:37:41 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.135 2005/07/03 20:43:02 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -51,8 +51,10 @@ $conf->domains[$i]->domain = '';
 $conf->domains[$i]->in = '';
 $conf->domains[$i]->smtp = '';
 $conf->domains[$i]->smtp_port = 25;
-// Uncomment for 'user@domain.com' style logins
+// Uncomment for 'user<char>domain.com' style logins
 //$conf->domains[$i]->login_with_domain = 1;
+// Uncomment and select character to use for login_with_domain option
+//$conf->domains[$i]->login_with_domain_character = '@';
 // Fill in if you require login suffixes for your mail server
 $conf->domains[$i]->login_suffix = '';
 // Select SMTP AUTH method.
