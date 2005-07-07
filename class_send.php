@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.66 2005/07/06 20:39:15 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.67 2005/07/07 10:22:46 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -184,7 +184,7 @@ class mime_mail
                 $ev = @mail($rcpt_to, $this->subject, '', $mime);
                 
             $user_prefs = $_SESSION['nocc_user_prefs'];
-            if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder){
+            if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder && isset($user_prefs->sent_folder_name) && $user_prefs->sent_folder_name !=null && $user_prefs->sent_folder_name != ""){
                 // Copy email to Sent folder
                 $pop = new nocc_imap($ev);
                 if (NoccException::isException($ev)) {
@@ -216,7 +216,7 @@ class mime_mail
                 $smtp_return = $smtp->send();
                 $copy_return = 1;
                 $user_prefs = $_SESSION['nocc_user_prefs'];
-                if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder){
+                if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder && isset($user_prefs->sent_folder_name) && $user_prefs->sent_folder_name !=null && $user_prefs->sent_folder_name != ""){
                     // Copy email to Sent folder
                     $pop = new nocc_imap($ev);
                     if (NoccException::isException($ev)) {
