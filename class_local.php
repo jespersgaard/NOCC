@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.37 2005/05/19 17:44:52 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.38 2005/07/04 17:12:27 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -231,9 +231,9 @@ class nocc_imap
         return $exists;
     }
 
-    function copytosentfolder(&$maildata, &$ev, &$conf) {
-        if (!(imap_append($this->conn, '{'.$this->server.'}'.$this->namespace.$conf->sent_folder, $maildata, "\\Seen"))) {
-            $ev = new NoccException("could not copy mail into $conf->sent_folder folder: ".imap_last_error());
+    function copytosentfolder(&$maildata, &$ev, &$sent_folder_name) {
+        if (!(imap_append($this->conn, '{'.$this->server.'}'.$this->namespace.$sent_folder_name, $maildata, "\\Seen"))) {
+            $ev = new NoccException("could not copy mail into $sent_folder_name folder: ".imap_last_error());
             return false;
         }
         return true;

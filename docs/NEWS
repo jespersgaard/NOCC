@@ -1,5 +1,7 @@
 NOCC 0.9.8    ?? ??, 2005
 
+    * Sent Folder can now be setup by user and is no more a global option
+      (Arnaud Boudou).
     * Enforce $conf->crlf option in order to avoid mixed "\r\n" and "\n" line
       break (Arnaud Boudou, bug #1228430).
     * Added option to select the character to use for login<char>domain login

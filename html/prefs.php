@@ -1,4 +1,29 @@
-<!-- start of $Id: prefs.php,v 1.32 2004/10/21 11:27:37 goddess_skuld Exp $ -->
+<!-- start of $Id: prefs.php,v 1.34 2005/07/06 07:48:10 goddess_skuld Exp $ -->
+<?php
+$all_mailboxes = $pop->getmailboxes($ev);
+
+$big_list = array();
+if (is_array($all_mailboxes)) {
+  reset($all_mailboxes);
+  while (list($junk, $val) = each($all_mailboxes)) {
+    list($junk,$name) = split($pop->server .'}', $pop->utf7_decode($val->name));
+    if (strlen($name) <= 32) {
+      array_push($big_list, $name);
+    }
+  }
+}
+
+$select_list = array();
+if (count($big_list) > 1) {
+  for ($i = 0; $i < count($big_list); $i++) {
+    if (isset($user_prefs->sent_folder_name) && $_SESSION['imap_namespace'] . $user_prefs->sent_folder_name == $big_list[$i]) {
+      array_push($select_list, "\t<option value=\"".$big_list[$i]."\" selected=\"selected\">".$big_list[$i]."</option>\n");
+    } else {
+      array_push($select_list, "\t<option value=\"".$big_list[$i]."\">".$big_list[$i]."</option>\n");
+    }
+  }
+}
+?>
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td bgcolor="<?php echo $glob_theme->inside_color ?>">
@@ -21,7 +46,7 @@
                 </tr>
                 <?php } ?>
                 <tr>
-                    <td align="right" class="prefs" valign="top"><?php echo $html_msgperpage ?></td>
+                    <td align="right" class="prefs" valign="top"><?php echo $html_msgperpage ?> : </td>
                     <td align="left" class="prefs" valign="top">
                         <input type="text" name="msg_per_page" value="<?php echo (isset($user_prefs->msg_per_page)) ? $user_prefs->msg_per_page : $conf->msg_per_page ?>" size="3" maxlength="3"/>
                     </td>
@@ -100,7 +125,8 @@
                 <tr>
                     <td align="right" class="prefs" valign="top">&nbsp;</td>
                     <td align="left" class="prefs">
-                      <input type="checkbox" name="sent_folder" id="sent_folder" value="on" <?php if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder) echo "checked"; ?> /><label for="sent_folder"><?php echo $html_sent_folder ?></label>
+                      <input type="checkbox" name="sent_folder" id="sent_folder" value="on" <?php if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder) echo "checked"; ?> /><label for="sent_folder"><?php echo $html_sent_folder ?></label> : 
+                       <select name="sent_folder_name"><?php echo join('', $select_list) ?></select>
                     </td>
                 </tr>
                 <?php } ?>
@@ -139,4 +165,4 @@
     ?>
 
 </table>
-<!-- end of $Id: prefs.php,v 1.32 2004/10/21 11:27:37 goddess_skuld Exp $ -->
+<!-- end of $Id: prefs.php,v 1.34 2005/07/06 07:48:10 goddess_skuld Exp $ -->

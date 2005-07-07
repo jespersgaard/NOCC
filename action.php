@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.165 2005/07/01 15:31:24 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.166 2005/07/06 07:48:09 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -447,6 +447,8 @@ switch($action)
             $user_prefs->sig_sep = isset($_REQUEST['sig_sep']);
 	    $user_prefs->graphical_smilies = isset($_REQUEST['graphical_smilies']);
             $user_prefs->sent_folder = isset($_REQUEST['sent_folder']);
+            if (isset($_REQUEST['sent_folder_name']))
+                $user_prefs->sent_folder_name = safestrip(str_replace($_SESSION['imap_namespace'], "", $_REQUEST['sent_folder_name']));
 
             // Commit preferences
             $user_prefs->commit($ev);
@@ -489,10 +491,10 @@ switch($action)
         }
         if ($action == 'login') {
             // Create Sent folder if IMAP connection and it doesn't exists.
-            if($pop->is_imap() && !($pop->exists($conf->sent_folder, $ev))) {
-                $pop->createmailbox($conf->sent_folder, $ev);
+            if($pop->is_imap() && !($pop->exists($user_prefs->sent_folder_name, $ev))) {
+                $pop->createmailbox($user_prefs->sent_folder_name, $ev);
                 //if(NoccException::isException($ev)) {}
-                $pop->subscribe($conf->sent_folder, $ev, true);
+                $pop->subscribe($user_prefs->sent_folder_name, $ev, true);
                 //if(NoccException::isException($ev)) {}
             }
             // Subscribe to INBOX, usefull if it's not already done.

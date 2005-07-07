@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.65 2005/07/03 20:43:02 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.66 2005/07/06 20:39:15 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -191,7 +191,8 @@ class mime_mail
                     return($ev);
                 }
                 if ($pop->is_imap()) {
-                    $copy_return = $pop->copytosentfolder($mime, $ev, $conf);
+                    $mime = "To: $rcpt_to" . $conf->crlf . "Subject: " . $this->subject . $conf->crlf . $mime;
+                    $copy_return = $pop->copytosentfolder($mime, $ev, $user_prefs->sent_folder_name);
                     if (NoccException::isException($ev)) {
                         return($ev);
                     }
@@ -222,7 +223,7 @@ class mime_mail
                         return($ev);
                     }
                     if ($pop->is_imap()) {
-                        $copy_return = $pop->copytosentfolder($smtp->data, $ev, $conf);
+                        $copy_return = $pop->copytosentfolder($smtp->data, $ev, $user_prefs->sent_folder_name);
                         if (NoccException::isException($ev)) {
                             return($ev);
                         }
