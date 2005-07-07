@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.166 2005/07/06 07:48:09 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.167 2005/07/07 10:22:45 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -491,7 +491,7 @@ switch($action)
         }
         if ($action == 'login') {
             // Create Sent folder if IMAP connection and it doesn't exists.
-            if($pop->is_imap() && !($pop->exists($user_prefs->sent_folder_name, $ev))) {
+            if($pop->is_imap() && isset($user_prefs->sent_folder_name) && $user_prefs->sent_folder_name != null && $user_prefs->sent_folder_name != "" && !($pop->exists($user_prefs->sent_folder_name, $ev))) {
                 $pop->createmailbox($user_prefs->sent_folder_name, $ev);
                 //if(NoccException::isException($ev)) {}
                 $pop->subscribe($user_prefs->sent_folder_name, $ev, true);
