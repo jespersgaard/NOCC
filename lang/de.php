@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.47 2005/07/02 14:03:59 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.48 2005/07/04 17:12:28 goddess_skuld Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha AT free DOT fr>
  * Copyright 2000 Olivier Cahagne <wolruf AT free DOT fr>
@@ -21,7 +21,7 @@ $charset = 'UTF-8';
 
 // What language to use
 // see '/usr/share/locale/' for more information
-$lang_locale = 'de_DE';
+$lang_locale = 'de_DE.UTF-8';
 
 // Text Alignment
 // Can be right-to-left (rtl) which is needed for proper Arabic, Hebrew

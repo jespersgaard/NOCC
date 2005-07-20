@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ro.php,v 1.25 2005/07/02 14:04:16 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ro.php,v 1.26 2005/07/04 17:12:29 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -19,7 +19,7 @@ $charset = 'UTF-8';
 
 // What language to use
 // see '/usr/share/locale/' for more information
-$lang_locale = 'ro_RO';
+$lang_locale = 'ro_RO.UTF-8';
 
 // Text Alignment
 // Can be right-to-left (rtl) which is needed for proper Arabic, Hebrew

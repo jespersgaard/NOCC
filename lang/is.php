@@ -16,7 +16,7 @@ $charset = 'UTF-8';
 
 // What language to use
 // see '/usr/share/locale/' for more information
-$lang_locale = 'is_IS';
+$lang_locale = 'is_IS.UTF-8';
 
 // Text Alignment
 // Can be right-to-left (rtl) which is needed for proper Arabic, Hebrew

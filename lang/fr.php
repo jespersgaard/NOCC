@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.86 2005/07/04 17:12:28 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.87 2005/07/06 07:48:10 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -18,7 +18,7 @@ $charset = 'UTF-8';
 
 // What language to use (Here, french FRANCE --> fr_FR)
 // see '/usr/share/locale/' for more information
-$lang_locale = 'fr_FR';
+$lang_locale = 'fr_FR.UTF-8';
 
 // Text Alignment
 // Can be right-to-left (rtl) which is needed for proper Arabic, Hebrew
@@ -156,7 +156,7 @@ $html_sent = 'Envoyé le';
 $html_wrote = 'a écrit';
 $html_size = 'Taille';
 $html_totalsize = 'Taille Totale';
-$html_kb = 'Ko';
+$html_kb = 'ko';
 $html_bytes = 'octets';
 $html_filename = 'Fichier';
 $html_to = 'A';
@@ -207,7 +207,7 @@ $html_contact_del = 'de la liste de contacts';
 
 $html_contact_err1 = 'Le nombre maximal de contact est ';
 $html_contact_err2 = 'Vous ne pouvez pas ajouter un nouveau contact';
-$html_contact_err3 = 'Vous n\'avez pas le droit d\'acceder à la liste des contacts';
+$html_contact_err3 = 'Vous n\'avez pas le droit d\'accéder à la liste des contacts';
 $html_del_msg = 'Supprimer le(s) message(s) sélectionné(s) ?';
 $html_down_mail = 'Télécharger';
 

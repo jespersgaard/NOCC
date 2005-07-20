@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ar.php,v 1.40 2005/06/20 16:30:09 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ar.php,v 1.41 2005/07/04 17:12:28 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -18,7 +18,7 @@ $charset = 'UTF-8';
 
 // What language to use
 // see '/usr/share/locale/' for more information
-$lang_locale = 'ar_AR';
+$lang_locale = 'ar_AR.UTF-8';
 
 // Text Alignment
 // Can be right-to-left (rtl) which is needed for proper Arabic, Hebrew

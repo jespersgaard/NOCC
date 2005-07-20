@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/th.php,v 1.20 2005/07/02 14:04:16 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/th.php,v 1.21 2005/07/04 17:12:29 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -18,7 +18,7 @@ $charset = 'UTF-8';
 
 // What language to use (Here, thai TH --> th_TH)
 // see '/usr/share/locale/' for more information
-$lang_locale = 'th_TH';
+$lang_locale = 'th_TH.UTF-8';
 
 // Text Alignment
 // Can be right-to-left (rtl) which is needed for proper Arabic, Hebrew
