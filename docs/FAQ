@@ -1,6 +1,6 @@
 Frequently Asked Questions for Nocc
 -----------------------------------
-Last updated: $Date: 2004/08/04 17:09:36 $
+Last updated: $Date: 2004/09/11 16:05:13 $
 
  Q. Nocc keeps me asking for a correct login/password.
 
@@ -158,3 +158,10 @@ Last updated: $Date: 2004/08/04 17:09:36 $
     We need help to identify more platforms where this bug occurs, you can
     find a reproducible testcase here:
     http://sf.net/tracker/?func=detail&aid=511302&group_id=12177&atid=112177
+
+-----------------------------------
+
+ Q. NOCC pages are displayed incomplete f.ex. preferences page
+ 
+ A. Try to raise memory_limit variable in php.ini
+    memory_limit = 16M is perfect for NOCC
