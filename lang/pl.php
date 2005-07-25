@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.48 2005/07/04 17:12:28 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.49 2005/07/20 09:45:50 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,7 +9,8 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
  * Configuration file for the Polish language
- * Translation by Ryszard Janiszewski <dex7@akacje.net> 
+ * Translation by Ryszard Janiszewski <dex7@akacje.net>
+ *            and Tomasz Mateja <tommat@pimpek.one.pl>
  */
 
 $charset = 'UTF-8';
@@ -67,7 +68,7 @@ $html_help = 'Pomoc';
 $html_server = 'Serwer';
 $html_wrong = 'Nazwa konta lub hasło jest niepoprawne';
 $html_retry = 'Ponów';
-$html_remember = "Remember settings"; //to translate
+$html_remember = "Zapamiętaj ustawienia";
 
 // prefs.php
 
@@ -86,7 +87,7 @@ $html_prefs_updated = 'Zapisano nowe ustawienia';
 $html_manage_folders_link = 'Zarządzaj Folderami IMAP';
 $html_manage_filters_link = 'Reguły wiadomości';
 $html_use_graphical_smilies = 'Używaj emotikon';
-$html_sent_folder = 'Copy sent mails into a dedicated folder'; //to translate
+$html_sent_folder = 'Kopiuj wysłane wiadomości do wyznaczonego folderu';
 
 // folders.php
 $html_folders_create_failed = 'Nie można uworzyć folderu!';
@@ -137,7 +138,7 @@ $html_reply_short = 'ODP';
 $html_reply_all = 'Odpowiedz wszystkim';
 $html_forward = 'Prześlij dalej';
 $html_forward_short = 'PD';
-$html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
+$html_forward_info = 'Przesłana dalej wiadomość będzie wysłana jako załącznik.';
 $html_delete = 'Skasuj';
 $html_new = 'Nowe';
 $html_mark = 'Zaznacz';
@@ -147,7 +148,7 @@ $html_att_unknown = '[nieznany]';
 $html_attach = 'Dołącz';
 $html_attach_forget = 'Zanim wyślesz wiadomość musisz dołaczyć załącznik(i)!';
 $html_attach_delete = 'Skasuj zaznaczone';
-$html_attach_none = 'You must select a file to attach!';  //to translate
+$html_attach_none = 'Musisz zaznaczyć plik do wysłania!';
 $html_sort_by = 'Sortuj według';
 $html_from = 'Nadawca';
 $html_subject = 'Temat';
@@ -183,13 +184,13 @@ $html_no_sendaction = 'Nie określona akcja. Spróbuj włączyć Javascript.';
 $html_error_occurred = 'Wystąpił błąd';
 $html_prefs_file_error = 'Nie można otworzyć pliku z ustawieniami do zapisu.';
 $html_wrap = 'Zawijaj linie w poczcie wychodzącej do długości (znaków):';
-$html_wrap_none = 'None'; //to translate
+$html_wrap_none = 'Nie zawijaj';
 $html_usenet_separator = 'Użyj separatora ("-- \n") Przed sygnaturą';
 $html_mark_as = 'Zaznacz jako';
 $html_read = 'Przeczytane';
 $html_unread = 'Nie przeczytane';
-$html_mail_sent = 'Message successfully sent'; // to translate
-$html_encoding = 'Character encoding'; // to translate
+$html_mail_sent = 'Wiadomość została wysłana';
+$html_encoding = 'Kodowanie znaków';
 
 // Contacts manager
 $html_add = 'Dodaj';
@@ -220,7 +221,7 @@ $html_smtp_error_unexpected = 'Nieoczekiwana odpowiedź SMTP';
 
 // IMAP messages (class_local.php)
 $lang_could_not_connect = 'Nie można połaczyć się z serwerem';
-$lang_invalid_msg_num = 'Bad Message Number';  //to translate
+$lang_invalid_msg_num = 'Zły numer wiadomości';
 
 $html_file_upload_attack = 'Możliwy atak poprzez upload plików';
 $html_invalid_email_address = 'Niewłaściwy adres e-mail';
