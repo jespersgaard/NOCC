@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.22 2004/03/04 20:05:29 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.23 2005/07/02 14:03:59 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -19,16 +19,10 @@ class lang {
 
 $i = 0;
 
-// Arabic (UTF-8)
+// Arabic
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'ar';
 $lang_array[$i]->label = 'Arabic';
-
-// Arabic (Windows-1256)
-//$i++;
-//$lang_array[$i] = new lang();
-//$lang_array[$i]->filename = 'ar-win';
-//$lang_array[$i]->label = 'Arabic (Windows-1256)';
 
 // Bulgarian
 $i++;
@@ -185,18 +179,6 @@ $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'ru';
 $lang_array[$i]->label = 'Russian';
-
-// Russian
-//$i++;
-//$lang_array[$i] = new lang();
-//$lang_array[$i]->filename = 'ru-koi';
-//$lang_array[$i]->label = 'Russian (Unix)';
-
-// Russian
-//$i++;
-//$lang_array[$i] = new lang();
-//$lang_array[$i]->filename = 'ru-iso';
-//$lang_array[$i]->label = 'Russian (ISO)';
 
 // Swedish
 $i++;
