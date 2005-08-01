@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.39 2005/07/07 10:22:45 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.40 2005/07/17 18:28:57 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -284,9 +284,9 @@ class nocc_imap
         }
         reset($folders);
 
-        $html_select = "<select name=\"$value\">\n";
+        $html_select = "<select class=\"button\" name=\"$value\">\n";
         foreach($folders as $folder) {
-            $html_select .= "\t<option ".($folder == $selected ? "selected" : "")." value=\"$folder\">$folder</option>\n";
+            $html_select .= "\t<option ".($folder == $selected ? "selected=\"selected\"" : "")." value=\"$folder\">$folder</option>\n";
         }
         $html_select .= "</select>\n";
         return $html_select;

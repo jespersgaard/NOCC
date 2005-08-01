@@ -1,66 +1,595 @@
-A.menu:link {
-	color: #0000FF; 
-	text-decoration:none;
-}
-A.menu:visited {
-	color: #0000FF; 
-	text-decoration:none;
-}
-A.menu:hover {
-	color: #0000FF; 
-	text-decoration:underline;
-}
 .sw {
-	COLOR: #ffffff; 
-	FONT-FAMILY: arial,verdana,sans-serif; 
-	FONT-SIZE: 10px;
+  color: #FFFFFF; 
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10px;
 }
+
 .s {
-	FONT-FAMILY: arial,verdana,sans-serif; 
-	FONT-SIZE: 10px
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10px
 }
+
 .inbox {
-	FONT-FAMILY: arial,verdana,sans-serif; 
-	FONT-SIZE: 12px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
 }
+
+.inbox img {
+  height: 17px;
+  width: 17px;
+}
+
+.new {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.inboxHeader {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.inboxHeaderSorted {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #FFFFCC;
+  border: 1px dashed #222222;
+}
+
+.inboxStatus {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  border-top: 1px dashed #222222;
+}
+
 .prefs {
-	FONT-FAMILY: arial,verdana,sans-serif; 
-	FONT-SIZE: 12px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
 }
+
 .mail {
-	FONT-FAMILY: arial,verdana,sans-serif; 
-	FONT-SIZE: 13px;
+  font-family: monospace;
+  font-size: 13px;
+  background-color: #FFFFFF;
+  text-align: left;
 }
+
 .titlew {
-	FONT-FAMILY: arial,verdana,sans-serif; 
-	FONT-SIZE: 14px;
-	COLOR: #ffffff;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #FFFFFF;
 }
+
+.menuOpts {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #FFFFFF;
+}
+
 .login {
-	FONT-FAMILY: arial,verdana,sans-serif; 
-	FONT-SIZE: 18px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 18px;
 }
+
 .f {
-	FONT-FAMILY: arial,verdana,sans-serif
+  font-family: Verdana, Arial, Helvetica, sans-serif;
 }
+
 .menu {
-	FONT-FAMILY: arial,verdana,sans-serif; 
-	FONT-SIZE: 11px;
-	TEXT-DECORATION: none;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  text-decoration: none;
+  text-align: center;
+  width: 120px;
+  background-color: #99CCFF;
+}
+
+.menu a:link    {
+  color: #0000FF;
+  text-decoration:none;
+}
+
+.menu a:visited {
+  color: #0000FF;
+  text-decoration:none;
+}
+
+.menu a:hover   {
+  color: #0000FF;
+  text-decoration:underline;
+}
+
+.menuSelected {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  text-decoration: none;
+  text-align: center;
+  width: 120px;
+  background-color: #FFC061;
+  border: 1px dashed #222222;
+}
+
+.menuSelected a:link    {
+  color: #0000FF;
+  text-decoration:none;
+}
+
+.menuSelected a:visited {
+  color: #0000FF;
+  text-decoration:none;
+}
+
+.menuSelected a:hover   {
+  color: #0000FF;
+  text-decoration:underline;
+}
+
+.menuSmall {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  text-decoration: none;
+  text-align: center;
+  width: 80px;
+  background-color: #99CCFF;
+}
+
+.menuSmall a:link    {
+  color: #0000FF;
+  text-decoration:none;
+}
+
+.menuSmall a:visited {
+  color: #0000FF;
+  text-decoration:none;
+}
+
+.menuSmall a:hover   {
+  color: #0000FF;
+  text-decoration:underline;
+}
+
+.menuSmallSelected {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  text-decoration: none;
+  text-align: center;
+  width: 80px;
+  background-color: #FFC061;
+  border: 1px dashed #222222;
+}
+
+.menuSmallSelected a:link    {
+  color: #0000FF;
+  text-decoration:none;
+}
+
+.menuSmallSelected a:visited {
+  color: #0000FF;
+  text-decoration:none;
+}
+
+.menuSmallSelected a:hover   {
+  color: #0000FF;
+  text-decoration:underline;
+}
+
+.menuBlank {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  text-decoration: none;
+  text-align: center;
+  background-color: #99CCFF;
 }
 
 .button {
-   font-family: arial,verdana,arial,sans-serif;
-   font-size: 12px;
-   background-color: #002266; 
-   color: white;
-   list-style-type: disc;
-   list-style-position: inside;
-   font-weight: normal;
-   line-height: 12pt;
-   border-style: outset;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  background-color: #002266; 
+  color: white;
 }
 
 label {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.currentInbox {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #FFFFFF;
+  font-weight: bold;    
+}
+
+.rss:link{
+  background: url(./img/rss.png) bottom right no-repeat;
+  text-indent: -999em;
+  text-decoration: none;
+}
+
+.rss:hover{
+  background: url(./img/rss.png) bottom right no-repeat;
+  text-indent: -999em;
+  text-decoration: none;
+}
+
+.rss:visited{
+  background: url(./img/rss.png) bottom right no-repeat;
+  text-indent: -999em;
+  text-decoration: none;
+}
+
+.rssText {
+  visibility: hidden;
+}
+
+.currentQuota {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #FFFFFF;
+  font-weight: bold;    
+}
+
+.maxQuota {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #FFFFFF;
+  font-weight: bold;    
+}
+
+img {
+  border: 0px;
+}
+
+body {
+  color: #000000;
+  background-color: #FFFFFF;
+}
+
+textarea {
+  font-family: monospace;
+}
+
+a:link {
+  color: #0033CC;
+  text-decoration:none;
+}    
+
+a:visited {
+  color: #0033CC;
+  text-decoration:none;
+}    
+
+a:hover {
+  color: #0033CC;
+  text-decoration:underline;
+}    
+
+table {
+  border: 1px;
+  border-spacing: 0px;
+  width: 100%;
+}
+
+div.global {
+  width: 100%;
+}
+
+div.header {
+  padding-bottom: 5px;
+  vertical-align: middle;
+}
+
+div.menuInbox {
+  background-color: #F0F0F0;
+}
+
+div.menuMail {
+  background-color: #F0F0F0;
+}
+
+div.menuPrefs {
+  background-color: #F0F0F0;
+}
+
+div.messageSummary {
+  background-color: #002266;
+}
+
+div.topNavigation {
+  background-color: #002266;
+}
+
+div.topNavigation img {
+  width: 12px;
+  height: 12px;
+}
+
+div.messageList {
+  background-color: #FFFFFF;
+}
+
+div.bottomNavigation {
+  background-color: #002266;
+}
+
+div.bottomNavigation img {
+  width: 12px;
+  height: 12px;
+}
+
+div.footer {
+  padding-top: 5px;
+  text-align: center;
+}
+
+img.headerLogo {
+  height: 47px;
+  width: 153px;
+}
+
+img.footerLogo {
+  height: 31px;
+  width: 88px;
+  border: 0px;
+}
+
+img.sort {
+  border: 0px;
+  width: 11px;
+  height: 11px;
+}
+
+.error {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.errorTable {
+  border: 1px solid #DD2222;
+  background-color: #DD2222;
+  width: 400px;
+}
+
+.errorTitle {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  background: url(./img/error.png) top left no-repeat;
+}
+
+.errorText {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  background-color: #CCCCCC;
+  text-align: center;
+  padding: 2px;
+}
+
+.loginContent {
+  width: 428px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.loginForm {
+  border: 1px solid #000000;
+  text-align: center;
+}
+
+.loginForm table {
+  background-color: #CCCCCC;
+  border: 0px;
+  padding: 0px;
+  width: 100%;
+}
+
+.loginTitle {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.send {
+  border: 0px;
+  text-align: center;
+  width: 100%;
+  padding: 0px;
+  background-color: #F0F0F0;
+}
+
+.send table {
+  width: 100%;
+  padding: 0px;
+  border: 0px;
+}
+
+.sendButtons {
+  vertical-align: middle;
+  width: 50%;
+  text-align: center;
+}
+
+.sendLabel {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  width: 15%;
+  text-align: right;
+}
+
+.sendData {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  text-align: left;
+}
+
+.mailData {
+  border: 0px;
+  text-align: center;
+  padding: 0px;
+  width: 100%;
+  background-color: #F0F0F0;
+}
+
+.mailData table {
+  border: 0px;
+  padding: 2px;
+  width: 100%;
+}
+
+.mailSwitchHeaders {
+ font-family: Verdana, Arial, Helvetica, sans-serif;
+ font-size: 11px;
+}
+
+.mailHeaderLabel {
+ font-family: Verdana, Arial, Helvetica, sans-serif;
+ font-size: 11px;
+ text-align: right;
+}
+
+.mailHeaderData {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  background-color: #99CCFF;
+  text-align: left;
+}
+
+.contactsTitle {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  background-color: #99CCFF;
+}
+
+.contactsSubTitle {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  color: #0033CC;
+}
+
+.contactsAdd table {
+  border: 0px;
+  text-align: center;
+  padding: 3px;
+  background-color: #F0F0F0;
+}
+
+.contactsAddLabel {
+ font-family: Verdana, Arial, Helvetica, sans-serif;
+ font-size: 11px;
+ text-align: right;
+}
+
+.contactsAddData {
+ font-family: Verdana, Arial, Helvetica, sans-serif;
+ font-size: 11px;
+ text-align: left;
+}
+
+.contactsList {
+}
+
+.contactsListHeader {
+  text-align: center;
+  background-color: #99CCFF;
+  font-weight: bold;
+  font-size: 11px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.contactsListOdd {
+  font-size: 11px;
+  color: #000000;
+  background-color: #F0F0F0;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.contactsListEven {
+  font-size: 11px;
+  color: #FFFFFF;
+  background-color: #002266;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.contactsAddLink {
+  font-size: 11px;
+  color: #000000;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: #0033CC;
+  text-align: center;
+  font-weight: bold;
+}
+
+.prefs {
+  border: 0px;
+  text-align: center;
+  padding: 0px;
+  width: 100%;
+  background-color: #F0F0F0;
+}
+
+.prefs table {
+  border: 0px;
+  padding: 0px;
+  background-color: #F0F0F0;
+  width: 100%;
+}
+
+.prefsLabel {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  text-align: right;
+  width: 20%;
+}
+
+.prefsData {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  text-align: left;
+}
+
+.IMAPPrefs {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  text-align: right;
+  font-weight: bold;
+  background-color: #F0F0F0;
+  padding: 3px;
+}
+
+.navigation {
+  height: 12px;
+  width: 12px;
 }

@@ -1,5 +1,7 @@
 NOCC 0.9.8    ?? ??, 2005
 
+    * NOCC is now XTHML 1.1 Strict compliant (Arnaud Boudou).
+    * Improved CSS customization (Arnaud Boudou).
     * Sent Folder can now be setup by user and is no more a global option
       (Arnaud Boudou).
     * Enforce $conf->crlf option in order to avoid mixed "\r\n" and "\n" line

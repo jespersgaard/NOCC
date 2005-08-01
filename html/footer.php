@@ -1,3 +1,4 @@
+<!-- start of $Id: footer.php,v 1.52 2005/05/01 20:45:56 goddess_skuld Exp $ -->
 <?php
 $custom_footer = './themes/' . $_SESSION['nocc_theme'] . '/footer.php';
 if(file_exists($custom_footer)) {
@@ -5,15 +6,15 @@ if(file_exists($custom_footer)) {
 }
 else {
 ?>
-    </td>
-</tr>
-<tr>
-    <td align="center" colspan="2"><a href="http://nocc.sourceforge.net" target="_blank"><img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/button.png" border="0" height="31" width="88" alt="Powered by NOCC" /></a></td>
-</tr>
-</table>
-
-</body>
+          <div class="footer">
+              <a href="javascript:void(0);" onclick="window.open('http://nocc.sourceforge.net');">
+                <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/button.png" class="footerLogo" alt="Powered by NOCC" />
+              </a>
+          </div>
+        </div>
+    </body>
 </html>
 <?php
 }
 ?>
+<!-- end of $Id: footer.php,v 1.52 2005/05/01 20:45:56 goddess_skuld Exp $ -->

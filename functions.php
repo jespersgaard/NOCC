@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.200 2005/07/04 17:12:27 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.201 2005/07/06 07:48:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -93,7 +93,7 @@ function inbox(&$pop, $skip = 0, &$ev)
                 $new_mail_from_header = '&nbsp;';
         }
         if ($new_mail_from_header == '')
-            $newmail = '<img src="themes/' . $_SESSION['nocc_theme'] . '/img/new.gif" alt="" height="17" width="17" />';
+            $newmail = '<img width="12" height="12" src="themes/' . $_SESSION['nocc_theme'] . '/img/new.gif" alt=""/>';
         else
             $newmail = '&nbsp;';
         $timestamp = chop($ref_contenu_message->udate);
@@ -119,7 +119,6 @@ function inbox(&$pop, $skip = 0, &$ev)
 function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
 {
     global $conf;
-    global $glob_theme;
     global $lang_locale;
     global $no_locale_date_format;
     global $html_att, $html_atts;
@@ -237,10 +236,10 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
             case 0:
                 break;
             case 1:
-                $link_att = '<tr><td align="right" valign="top" class="mail">' . $html_att . '</td><td bgcolor="' . $glob_theme->mail_properties . '" class="mail">' . link_att($mail, $attach_tab, $conf->display_part_no) . '</td></tr>';
+                $link_att = '<tr><td class="mailHeaderLabel right">' . $html_att . ' :</td><td class="mailHeaderData">' . link_att($mail, $attach_tab, $conf->display_part_no) . '</td></tr>';
                 break;
             default:
-                $link_att = '<tr><td align="right" valign="top" class="mail">' . $html_atts . '</td><td bgcolor="' . $glob_theme->mail_properties . '" class="mail">' . link_att($mail, $attach_tab, $conf->display_part_no) . '</td></tr>';
+                $link_att = '<tr><td class="mailHeaderLabel right">' . $html_atts . ' :</td><td class="mailHeaderData">' . link_att($mail, $attach_tab, $conf->display_part_no) . '</td></tr>';
                 break;
         }
     }
@@ -512,13 +511,13 @@ function remove_stuff(&$body, &$mime)
         $body = preg_replace("|<([^>]*)&{.*}([^>]*)>|i", "<&{;}\\3>", $body);
         $body = eregi_replace("href=\"mailto:([a-zA-Z0-9+-=%&:_.~?@]+[#a-zA-Z0-9+]*)\"","<A HREF=\"$PHP_SELF?action=write&amp;mail_to=\\1\"", $body);
         $body = eregi_replace("href=mailto:([a-zA-Z0-9+-=%&:_.~?@]+[#a-zA-Z0-9+]*)","<A HREF=\"$PHP_SELF?action=write&amp;mail_to=\\1\"", $body);
-        $body = eregi_replace("href=\"([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)\"","<a href=\"\\1\" target=\"_blank\"", $body);
-        $body = eregi_replace("href=([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)","<a href=\"\\1\" target=\"_blank\"", $body);
+        $body = eregi_replace("href=\"([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)\"","<a href=\"javascript:void(0);\" onclick=\"window.open('\\1');\"", $body);
+        $body = eregi_replace("href=([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)","<a href=\"javascript:void(0);\" onclick=\"window.open('\\1');\"", $body);
     }
     elseif (eregi('plain', $mime))
     {
         $body = htmlspecialchars($body);
-        $body = eregi_replace("(http|https|ftp)://([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)","<a href=\"\\1://\\2\" target=\"_blank\">\\1://\\2</a>", $body);
+        $body = eregi_replace("(http|https|ftp)://([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)","<a href=\"javascript:void(0);\" onclick=\"window.open('\\1://\\2');\">\\1://\\2</a>", $body);
         // Bug #511302: Comment out following line if you have the 'Invalid Range End' problem
         // New rewritten preg_replace should fix the problem, bug #522389
         // $body = eregi_replace("([#a-zA-Z0-9+-._]*)@([#a-zA-Z0-9+-_.]*)\.([a-zA-Z]+)","<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1@\\2.\\3\">\\1@\\2.\\3</a>", $body);
@@ -534,20 +533,18 @@ function remove_stuff(&$body, &$mime)
 
 function link_att(&$mail, $attach_tab, &$display_part_no)
 {
+    global $html_kb;
     sort($attach_tab);
-    $link = '<table border="0">';
+    $link = '';
     while ($tmp = array_shift($attach_tab))
-        //if ($tmp['id'] == '')
         if (!empty($tmp['name']))
         {
             $mime = str_replace('/', '-', $tmp['mime']);
-            $link .= '<tr>';
             if ($display_part_no == true)
-                $link .= '<td class="inbox">' . $tmp['number'] . '</td>';
+                $link .= $tmp['number'] . '&nbsp;&nbsp;';
             $att_name = nocc_imap::mime_header_decode($tmp['name']);
-            $link .= '<td class="inbox"><a href="download.php?mail=' . $mail . '&amp;part=' . $tmp['number'] . '&amp;transfer=' . $tmp['transfer'] . '&amp;filename=' . urlencode($att_name[0]->text) . '&amp;mime=' . $mime . '">' . htmlentities($att_name[0]->text) . '</a></td><td class="inbox">' . $tmp['mime'] . '</td><td class="inbox">' . $tmp['size'] . ' kb</td></tr>';
+            $link .= '<a href="download.php?mail=' . $mail . '&amp;part=' . $tmp['number'] . '&amp;transfer=' . $tmp['transfer'] . '&amp;filename=' . urlencode($att_name[0]->text) . '&amp;mime=' . $mime . '">' . htmlentities($att_name[0]->text) . '</a>&nbsp;&nbsp;' . $tmp['mime'] . '&nbsp;&nbsp;' . $tmp['size'] . ' ' . $html_kb;
         }
-    $link .= '</table>';
     return ($link);
 }
 

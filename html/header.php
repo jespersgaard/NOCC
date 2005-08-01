@@ -16,9 +16,10 @@ if(file_exists($custom_header)) {
 }
 else {
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang; ?>" lang="<?php echo $lang; ?>">
-    <head><title>NOCC - Webmail</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang; ?>">
+    <head>
+        <title>NOCC - Webmail</title>
         <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
         <link href="themes/<?php echo $_SESSION['nocc_theme']; ?>/style.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript">
@@ -36,29 +37,26 @@ else {
   }
   $rss_url = "rss.php";
   $rss_url .= '?nocc_lang=' . $_SESSION['nocc_lang'];
-  $rss_url .= '&nocc_smtp_server=' . $_SESSION['nocc_smtp_server'];
-  $rss_url .= '&nocc_smtp_port=' . $_SESSION['nocc_smtp_port'];
-  $rss_url .= '&nocc_theme=' . $_SESSION['nocc_theme'];
-  $rss_url .= '&nocc_domain=' . $_SESSION['nocc_domain'];
-  $rss_url .= '&imap_namespace=' . $_SESSION['imap_namespace'];
-  $rss_url .= '&nocc_servr=' . $_SESSION['nocc_servr'];
-  $rss_url .= '&nocc_folder=' . $_SESSION['nocc_folder'];
-  $rss_url .= '&smtp_auth=' . $_SESSION['smtp_auth'];
+  $rss_url .= '&amp;nocc_smtp_server=' . $_SESSION['nocc_smtp_server'];
+  $rss_url .= '&amp;nocc_smtp_port=' . $_SESSION['nocc_smtp_port'];
+  $rss_url .= '&amp;nocc_theme=' . $_SESSION['nocc_theme'];
+  $rss_url .= '&amp;nocc_domain=' . $_SESSION['nocc_domain'];
+  $rss_url .= '&amp;imap_namespace=' . $_SESSION['imap_namespace'];
+  $rss_url .= '&amp;nocc_servr=' . $_SESSION['nocc_servr'];
+  $rss_url .= '&amp;nocc_folder=' . $_SESSION['nocc_folder'];
+  $rss_url .= '&amp;smtp_auth=' . $_SESSION['smtp_auth'];
   
 ?>
         </script>
         <link rel="alternate" type="application/rss+xml" title="RSS - NOCC" href="<?php echo $rss_url ?>" />
     </head>
-    <body dir="<?php echo $lang_dir; ?>" alink="<?php echo $glob_theme->alink_color; ?>" bgcolor="<?php echo $glob_theme->bgcolor; ?>" link="<?php echo $glob_theme->link_color ?>" text="<?php echo $glob_theme->text_color ?>" vlink="<?php echo $glob_theme->vlink_color; ?>">
-        <table border="0" width="100%">
-            <tr>
-                <td align="left" valign="middle" colspan="2">
-                    <img src="themes/<?php echo $_SESSION['nocc_theme']; ?>/img/logo.gif" width="153" height="47" alt="Logo" />
-                    &nbsp;&nbsp;<font class="login"><b><?php echo htmlspecialchars($header_display_address); ?></b></font>
-                </td>
-            </tr>
-            <tr>
-                <td align="center" valign="top">
+    <body dir="<?php echo $lang_dir; ?>">
+        <div class="global">
+          <div class="header">
+            <img src="themes/<?php echo $_SESSION['nocc_theme']; ?>/img/logo.gif" class="headerLogo" alt="Logo" />
+            &nbsp;&nbsp;<span class="login bold"><?php echo htmlspecialchars($header_display_address); ?></span>
+          </div>
 <?php
 }
 ?>
+<!-- end of $Id: header.php,v 1.52 2005/05/01 20:45:56 goddess_skuld Exp $ -->

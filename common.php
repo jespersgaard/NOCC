@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.49 2005/07/04 17:12:27 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.50 2005/07/06 08:16:32 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -104,10 +104,10 @@ if(isset($_SESSION['nocc_user']) && !isset($_SESSION['nocc_login']))
 // Check allowed chars for login
 if ($_SESSION['nocc_login'] != '' && isset($conf->allowed_char) && $conf->allowed_char != '' && !ereg($conf->allowed_char, $_SESSION['nocc_login'])) {
     $ev = new NoccException($html_wrong);
-    if(isset($_REQUEST['theme'])) {
-        $_SESSION['nocc_theme'] = safestrip($_REQUEST['theme']);
-        require ('./themes/' . $_SESSION['nocc_theme'] . '/colors.php');
-    }
+    //if(isset($_REQUEST['theme'])) {
+    //    $_SESSION['nocc_theme'] = safestrip($_REQUEST['theme']);
+    //    require ('./themes/' . $_SESSION['nocc_theme'] . '/colors.php');
+    //}
     require ('./html/header.php');
     require ('./html/error.php');
     require ('./html/footer.php');
@@ -129,10 +129,10 @@ if (isset($_REQUEST['domainnum']))
     $domainnum = $_REQUEST['domainnum'];
     if (!isset($conf->domains[$domainnum])) {
        $ev = new NoccException($lang_could_not_connect);
-       if(isset($_REQUEST['theme'])) {
-         $_SESSION['nocc_theme'] = safestrip($_REQUEST['theme']);
-         require ('./themes/' . $_SESSION['nocc_theme'] . '/colors.php');
-       }
+       //if(isset($_REQUEST['theme'])) {
+       //  $_SESSION['nocc_theme'] = safestrip($_REQUEST['theme']);
+       //  require ('./themes/' . $_SESSION['nocc_theme'] . '/colors.php');
+       //}
        require ('./html/header.php');
        require ('./html/error.php');
        require ('./html/footer.php');
@@ -212,7 +212,7 @@ if(isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
 
 require_once ('./conf_lang.php');
 require_once ('./conf_charset.php');
-require_once ('./themes/'.$_SESSION['nocc_theme'].'/colors.php');
+//require_once ('./themes/'.$_SESSION['nocc_theme'].'/colors.php');
 
 // allow PHP script to consume more memory than default setting for
 // big attachments

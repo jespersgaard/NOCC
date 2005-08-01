@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/help.php,v 1.13 2002/05/22 14:23:43 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/help.php,v 1.14 2002/05/30 14:07:21 rossigee Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -20,7 +20,7 @@ $lang = $_SESSION['nocc_lang'];
 <meta content="text/html; charset=<?php echo $charset ?>" http-equiv="Content-Type" />
 <link href="themes/<?php echo $_SESSION['nocc_theme'] ?>/style.css" rel="stylesheet" type="text/css" />
 </head>
-<body alink="<?php echo $glob_theme->alink_color?>" bgcolor="<?php echo $glob_theme->bgcolor ?>" link="<?php echo $glob_theme->link_color ?>" text="<?php echo $glob_theme->text_color ?>" vlink="<?php echo $glob_theme->vlink_color ?>">
+<body dir="<?php echo $lang_dir; ?>">
 
 </body>
 </html>

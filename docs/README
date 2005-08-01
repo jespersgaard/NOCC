@@ -73,8 +73,9 @@ Requirements
   Mandatory Items
   ---------------
 
-   * PHP 4.1.0 or later with IMAP support (--with-imap) -- SEE NEXT SECTION
-  
+   * PHP 4.1.0 or later with IMAP (--with-imap) and iconv (--with-iconv)
+     support. -- SEE NEXT SECTION
+ 
    * A Web server supported by PHP (i.e. Apache for most people)
   
    * An IMAP or POP3 server to connect to.
@@ -87,8 +88,8 @@ Requirements
   Notes on PHP
   ------------
 
-   * PHP needs to be compiled with IMAP support. (--with-imap at the configure
-     stage).
+   * PHP needs to be compiled with IMAP and iconv support (--with-imap and
+     --with-iconv) at the configure stage).
      You'll find information on IMAP support for PHP at
      'http://www.php.net/manual/ref.imap.php'.
 
@@ -178,39 +179,27 @@ some version of NOCC and it worked, we'd like to have a matrix of what works
 for every release and be able to update it with users' setups):
 
     * servers: (Nocc should work with any server, however, these have been
-specifically tested and are known to work)
-      - Apache with PHP compiled as module or CGI.
-      - Apache 1.3.12, 1.3.14, 1.3.17, 1.3.19, 2.0.14 (Win32), 2.0.47 to 2.0.54.
-      - Microsoft IIS 4.0, IIS 5.0 w/CGI, IIS 5.0 w/ISAPI.
-      - O'Reilly WebSite Pro 2.x & 3.
-      - Xitami.
-      - PHP 4.1.1 to 5.0.3
-      - PHP running through a wrapper: suEXEC.
-      - various OS including GNU/Linux, FreeBSD, NetBSD, OpenBSD, Win2k and 
-        MacOS X.
+      specifically tested and are known to work)
+      - Apache 1.3.33, 2.0.54.
+      - PHP 5.0.4
+      - FreeBSD 5.0.4
+      - MacOS X 10.4.2
 
-    * browsers: (256 colors setups are ok)
-      - Netscape 4.x, 7.x for Unix and Windows.
-      - IE 4.x to 6.x for Windows.
-      - Lynx 2.8.3, Konqueror, Opera, WebTV 3.0.
-      - Mozilla 1.x for Linux and Windows.
-      - Camino 0.8.x for MacOS X.
-      - Safari 1.x to 2.0 for MacOS X.
-      - Firefox 0.5.x to 1.0.x.
+    * browsers: (Nocc should work with any browser which support CSS and XHTML,
+      however, these have been tested and work)     
+      - Internet Explorer 6.0 for Windows.
+      - Camino 0.9 alpha2 for MacOS X.
+      - Safari 2.0.2 for MacOS X.
+      - Firefox 1.0.4, 1.1 alpha 2.
       - cookies needed as of 0.9.5.
 
     * mail servers: (Nocc should work with any IMAP/POP3 server, however,
-these have been tested and work)
-      - UCB POP3 1.831beta.
-      - QPopper 4.0.x.
-      - MS Exchange 5.5 Build 2650-24 Service Pack 3.
-      - Default RedHat 6.1 IMAP daemon v.12.250 (perhaps Cyrus IMAPd ?).
-      - Courier-IMAP 3.0.x to 4.0.2.
+      these have been tested and work)
+      - Courier-IMAP 2.2.0, 4.0.3.
 
-        * MTA: (Nocc should work with any MTA, however, these have been tested
-and work)
-     - Sendmail.
-     - Postfix.
+    * MTA: (Nocc should work with any MTA, however, these have been tested
+      and work)
+      - Postfix.
 
    NOCC has been used for many months at:
 

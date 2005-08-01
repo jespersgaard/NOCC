@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/user_filters.php,v 1.6 2004/06/22 10:36:00 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/user_filters.php,v 1.7 2004/06/30 17:52:43 goddess_skuld Exp $
  *
  * Copyright 2002 Mike Rylander <mrylander@mail.com>
  *
@@ -124,13 +124,13 @@ class NOCCUserFilters {
         function html_filter_select() {
         
                 $output = '';
-                $pre = '<select name="filter" width="80" size="5">'."\n";
+                $pre = '<select class="button" name="filter" size="5">'."\n";
                 $post = '</select>'."\n";
         
                 foreach($this->filterset as $name => $filter) {
                         $search = $filter['SEARCH'];
                         $action = $filter['ACTION'];
-                        $output .= "\t<option value=\"$name\"><b>$name</b> : &lt;$search -> $action&gt; </option>\n";
+                        $output .= "\t<option value=\"$name\">$name : &lt;$search -> $action&gt; </option>\n";
                 }
 
                 if ($output) {

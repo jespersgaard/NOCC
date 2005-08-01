@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.167 2005/07/07 10:22:45 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.168 2005/07/07 10:43:17 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -320,7 +320,6 @@ switch($action)
 
         require ('./html/header.php');
         require ('./html/menu_prefs.php');
-        //require ('./html/prefs.php');
         if ($pop->is_imap())
             require ('./html/folders.php');
         require ('./html/menu_prefs.php');
@@ -410,8 +409,8 @@ switch($action)
 
         require ('./html/header.php');
         require ('./html/menu_prefs.php');
-        //require ('./html/prefs.php');
         require ('./html/filter_prefs.php');
+        require ('./html/menu_prefs.php');
         require ('./html/footer.php');
 
         $pop->close();
@@ -601,7 +600,7 @@ switch($action)
         require ('./html/header.php');
         require ('./html/menu_inbox.php');
         require ('./html/html_top_table.php');
-        require ('./html/menu_inbox_opts.php');
+        //require ('./html/menu_inbox_opts.php');
 
         // Include this once for each line of the message index
         while ($tmp = array_shift($tab_mail)) {

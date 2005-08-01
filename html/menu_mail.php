@@ -1,38 +1,34 @@
-<!-- start of $Id: menu_mail.php,v 1.31 2003/12/21 15:40:20 goddess_skuld Exp $ -->
-<table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
+<!-- start of $Id: menu_mail.php,v 1.32 2005/01/08 22:12:21 goddess_skuld Exp $ -->
+<div class="menuMail">
+  <table>
     <tr>
-        <td bgcolor="<?php echo $glob_theme->inside_color ?>">
-            <table border="0" cellpadding="2" cellspacing="1" bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%">
-                <tr>
-                    <td class="menu" align="center" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="<?php echo $_SERVER['PHP_SELF'] ?>" class="menu"><?php if ($_SESSION['nocc_folder'] != INBOX) { echo $_SESSION['nocc_folder']; } else { echo $html_inbox; } ?></a>
-                    </td>
-                    <td class="menu" align="center" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=write" class="menu"><?php echo $html_new_msg ?></a>
-                    </td>
-                    <td class="menu" align="center" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=reply&amp;mail=<?php echo $content['msgnum'] ?>" class="menu"><?php echo $html_reply ?></a>
-                    </td>
-                    <td class="menu" align="center" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=reply_all&amp;mail=<?php echo $content['msgnum'] ?>" class="menu"><?php echo $html_reply_all ?></a>
-                    </td>
-                    <td class="menu" align="center" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=forward&amp;mail=<?php echo $content['msgnum'] ?>" class="menu"><?php echo $html_forward ?></a>
-                    </td>
-                    <td class="menu" align="center" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="down_mail.php?mail=<?php echo $content['msgnum'] ?>&<?php echo session_name() . "=" . session_id(); ?>" class="menu" target="_blank"><?php echo $html_down_mail ?></a>
-                    </td>
-                    <td class="menu" align="center" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="delete.php?delete_mode=1&mail=<?php echo $content['msgnum'] ?>&amp;only_one=1" class="menu" onClick="if (confirm('<?php echo $html_del_msg ?>')) return true; else return false;"><?php echo $html_delete ?></a>
-                    </td>
-                    <?php if ($conf->enable_logout) { ?>
-                    <td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="logout.php" class="menu"><?php echo $html_logout ?></a>
-                    </td>
-                    <?php } ?>
-                </tr>
-            </table>
-        </td>
+      <td class="menu">
+        <a href="<?php echo $_SERVER['PHP_SELF'] ?>"><?php if ($_SESSION['nocc_folder'] != INBOX) { echo $_SESSION['nocc_folder']; } else { echo $html_inbox; } ?></a>
+      </td>
+      <td class="menu">
+        <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=write"><?php echo $html_new_msg ?></a>
+      </td>
+      <td class="menu">
+        <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=reply&amp;mail=<?php echo $content['msgnum'] ?>"><?php echo $html_reply ?></a>
+      </td>
+      <td class="menu">
+        <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=reply_all&amp;mail=<?php echo $content['msgnum'] ?>"><?php echo $html_reply_all ?></a>
+      </td>
+      <td class="menu">
+        <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=forward&amp;mail=<?php echo $content['msgnum'] ?>"><?php echo $html_forward ?></a>
+      </td>
+      <td class="menu">
+        <a href="javascript:void(0);" onclick="window.open('down_mail.php?mail=<?php echo $content['msgnum'] ?>&amp;<?php echo session_name() . "=" . session_id(); ?>');"><?php echo $html_down_mail ?></a>
+      </td>
+      <td class="menu">
+        <a href="delete.php?delete_mode=1&amp;mail=<?php echo $content['msgnum'] ?>&amp;only_one=1" onclick="if (confirm('<?php echo $html_del_msg ?>')) return true; else return false;"><?php echo $html_delete ?></a>
+      </td>
+      <?php if ($conf->enable_logout) { ?>
+      <td class="menu">
+        <a href="logout.php"><?php echo $html_logout ?></a>
+      </td>
+      <?php } ?>
     </tr>
-</table>
-<!-- end of $Id: menu_mail.php,v 1.31 2003/12/21 15:40:20 goddess_skuld Exp $ -->
+  </table>
+</div>
+<!-- end of $Id: menu_mail.php,v 1.32 2005/01/08 22:12:21 goddess_skuld Exp $ -->

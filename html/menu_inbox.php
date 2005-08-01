@@ -1,64 +1,60 @@
-<!-- start of $Id: menu_inbox.php,v 1.51 2005/01/08 22:08:30 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.52 2005/05/01 20:45:56 goddess_skuld Exp $ -->
 <?php
-$color_inbox = $color = $glob_theme->menu_color;
 $action = "";
 if(isset($_REQUEST['action']))
     $action = safestrip($_REQUEST['action']);
 if ($action == '' || $action == 'login' || $action == 'cookie') 
 {
-    $color_inbox = $glob_theme->menu_color_on; 
-    $line = '<a href="'.$_SERVER['PHP_SELF'].'?action=write" class="menu">'.$html_new_msg.'</a>';
+  $class = "menu";
+  $classInbox = "menuSelected";
+  $line = '<a href="'.$_SERVER['PHP_SELF'].'?action=write">'.$html_new_msg.'</a>';
+} else {
+  $class = "menuSelected";
+  $classInbox = "menu";
 }
-else
-    $color =  $glob_theme->menu_color_on;
 if ($action == 'write')
-    $line = '<font color="'.$glob_theme->link_color.'">'.$html_new_msg.'</font>';
+  $line = $html_new_msg;
 elseif ($action == 'reply')
 {
-    $line = '<font color="'.$glob_theme->link_color.'">'.$html_reply.'</font>';
+  $line = $html_reply;
 }
 elseif ($action == 'reply_all')
 {
-    $line = '<font color="'.$glob_theme->link_color.'">'.$html_reply_all.'</font>';
+  $line = $html_reply_all;
 }
 elseif ($action == 'forward')
 {
-    $line = '<font color="'.$glob_theme->link_color.'">'.$html_forward.'</font>';
+  $line = $html_forward;
 }
 ?>
-<table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
-    <tr>
-        <td bgcolor="<?php echo $glob_theme->inside_color ?>">
-            <table border="0" cellpadding="2" cellspacing="1" bgcolor="<?php echo $glob_theme->inside_color ?>" width="100%">
+            <div class="menuInbox"> 
+              <table>
                 <tr>
-                    <td class="menu" align="center" width="120" bgcolor="<?php echo $color_inbox ?>">
-<a href="<?php echo $_SERVER['PHP_SELF'] ?>" class="menu"><?php if ($_SESSION['nocc_folder'] != INBOX) { echo $_SESSION['nocc_folder']; } else { echo $html_inbox; } ?></a>
-                    </td>
-                    <td class="menu" align="center" width="120" bgcolor="<?php echo $color ?>">
-                        <?php echo $line ?>
-                    </td>
-                    <td class="menu" align="center" width="*" bgcolor="<?php echo $glob_theme->menu_color ?>">
-			<?php if ($_GET["successfulsend"]) { echo ($html_mail_sent); } ?>
-                        <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/spacer.gif" height="1" width="1" alt="" />
-                    </td>
-                    <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
-                      <td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="javascript:void(0);" class="menu" onClick="window.open('contacts_manager.php?<?php echo session_name() . '=' .   session_id() ?>','','scrollbars=yes,resizable=yes,width=600,height=400')"><?php echo $html_contacts ?></a>
-                      </td>
-                    <?php } ?>
-                    <?php if($conf->prefs_dir) { ?>
-                    <td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="action.php?action=setprefs" class="menu"><?php echo $html_preferences ?></a>
-                    </td>
-                    <?php } ?>
-                    <?php if ($conf->enable_logout) { ?>
-                    <td class="menu" align="center" width="80" bgcolor="<?php echo $glob_theme->menu_color ?>">
-                        <a href="logout.php" class="menu"><?php echo $html_logout ?></a>
-                    </td>
-                    <?php } ?>
+                  <td class="<?php echo $classInbox; ?>">
+                    <a href="<?php echo $_SERVER['PHP_SELF'] ?>"><?php if ($_SESSION['nocc_folder'] != INBOX) { echo $_SESSION['nocc_folder']; } else { echo $html_inbox; } ?></a>
+                  </td>
+                  <td class="<?php echo $class; ?>">
+                    <?php echo $line ?>
+                  </td>
+                  <td class="menuBlank">
+                    <?php if ($_GET["successfulsend"]) { echo ($html_mail_sent); } ?>
+                  </td>
+                  <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
+                  <td class="menu">
+                    <a href="javascript:void(0);" onclick="window.open('contacts_manager.php?<?php echo session_name() . '=' .   session_id() ?>','','scrollbars=yes,resizable=yes,width=600,height=400')"><?php echo $html_contacts ?></a>
+                  </td>
+                  <?php } ?>
+                  <?php if($conf->prefs_dir) { ?>
+                  <td class="menuSmall">
+                    <a href="action.php?action=setprefs"><?php echo $html_preferences ?></a>
+                  </td>
+                  <?php } ?>
+                  <?php if ($conf->enable_logout) { ?>
+                  <td class="menuSmall">
+                    <a href="logout.php"><?php echo $html_logout ?></a>
+                  </td>
+                  <?php } ?>
                 </tr>
-            </table>
-        </td>
-    </tr>
-</table>
-<!-- end of $Id: menu_inbox.php,v 1.51 2005/01/08 22:08:30 goddess_skuld Exp $ -->
+              </table>
+            </div>
+<!-- end of $Id: menu_inbox.php,v 1.52 2005/05/01 20:45:56 goddess_skuld Exp $ -->

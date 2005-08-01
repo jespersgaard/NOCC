@@ -1,16 +1,18 @@
+<!-- start of $Id: menu_inbox_status.php,v 1.31 2004/08/06 13:59:46 goddess_skuld Exp $ -->
 <?php if($list_of_folders != "") { ?>
-<tr>
- <td colspan="7">
-<table border="0" align="center" cellpadding="5" cellspacing="0" width="100%">
-    <tr bgcolor="<?php echo $glob_theme->inbox_text_color ?>">
-        <td align="right" class="inbox">
-            <?php echo $html_new_msg_in ?>
-        </td>
-        <td align="left" class="inbox">
-            <?php echo $list_of_folders ?>
-        </td>
-    </tr>
-</table>
- </td>
-</tr>
+                      <tr>
+                        <td colspan="4">
+                          <table class="inboxStatus">
+                            <tr>
+                               <td class="right">
+                                 <?php echo $html_new_msg_in ?>
+                               </td>
+                               <td class="left">
+                                 <?php echo $list_of_folders ?>
+                               </td>
+                             </tr>
+                           </table>
+                         </td>
+                       </tr>
 <?php } ?>
+<!-- end of $Id: menu_inbox_status.php,v 1.31 2004/08/06 13:59:46 goddess_skuld Exp $ -->

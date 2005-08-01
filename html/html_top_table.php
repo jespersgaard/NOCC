@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.74 2005/05/11 10:44:42 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.75 2005/05/19 17:44:53 goddess_skuld Exp $ -->
 <?php
 
 require_once 'class_local.php';
@@ -23,20 +23,20 @@ if($pages > 1) {
     $this_page = $skip + 1;
     if($pskip > -1 ) {
         $prev = "<a href=\"".$_SERVER['PHP_SELF']."?skip=$pskip\">";
-        $prev .= "<img src=\"themes/".$_SESSION['nocc_theme']."/img/left_arrow.gif\" border=\"0\" /></a>\n";
+        $prev .= "<img class=\"navigation\" src=\"themes/".$_SESSION['nocc_theme']."/img/left_arrow.gif\" alt=\"".$alt_prev."\"/></a>\n";
     }
     if($nskip < $pages) {
         $next = "<a href=\"".$_SERVER['PHP_SELF']."?skip=$nskip\">";
-        $next .= "<img src=\"themes/".$_SESSION['nocc_theme']."/img/right_arrow.gif\" border=\"0\" /></a>\n";
+        $next .= "<img class=\"navigation\" src=\"themes/".$_SESSION['nocc_theme']."/img/right_arrow.gif\" alt=\"".$alt_next."\"/></a>\n";
     }
 
-    $page_line = "<form method=\"post\" action=\"".$_SERVER['PHP_SELF']."\">";
-    $page_line .= "$html_page <select name=\"skip\">\n";
+    $page_line = "<form method=\"post\" action=\"".$_SERVER['PHP_SELF']."\"><div>";
+    $page_line .= "$html_page <select class=\"button\" name=\"skip\">\n";
     $selected = '';
     for ($i = 0; $i < $pages; $i++) { 
         $current_skip = $i + 1;
         if ($i == $skip) {
-            $selected = "selected";
+            $selected = "selected=\"selected\"";
         } else {
             $selected = "";
         }
@@ -44,104 +44,104 @@ if($pages > 1) {
     }
     $page_line .= "</select> $html_of $pages ";
     $page_line .= "<input type=\"submit\" class=\"button\" name=\"submit\" value=\"$html_gotopage\" />";
-    $page_line .= "</form>";
+    $page_line .= "</div></form>";
 }
 
 $fldr_line = "";
 $reapply_filters = '';
 if ($pop->is_imap()) {
-    $fldr_line = "<form method=\"POST\" action=\"".$_SERVER['PHP_SELF']."\">$html_other_folders:  \n";
+    $fldr_line = "<form method=\"post\" action=\"".$_SERVER['PHP_SELF']."\"><div>$html_other_folders:  \n";
     $fldr_line .= $pop->html_folder_select('folder', $_SESSION['nocc_folder']);
     $fldr_line .= "<input type=\"submit\" class=\"button\" name=\"submit\" value=\"$html_gotofolder\" />";
-    $fldr_line .= "</form>";
+    $fldr_line .= "</div></form>";
     if($pop->folder == 'INBOX') {
-        $reapply_filters = '<form method="POST" action="'.$_SERVER['PHP_SELF'].
-            "\">$html_reapply_filters<input type=\"checkbox\" name=\"reapply_filters\" value=\"1\">".
-            '<input class="button" type="submit" value="'.$html_submit.'"></form>';
+        $reapply_filters = '<form method="post" action="'.$_SERVER['PHP_SELF'].
+            "\"><div>$html_reapply_filters<input type=\"checkbox\" name=\"reapply_filters\" value=\"1\" />".
+            '<input class="button" type="submit" value="'.$html_submit.'" /></div></form>';
     }
 }
 
 ?>
-<table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
-<tr><td bgcolor="<?php echo $glob_theme->inside_color ?>">
-
-<table width="100%" cellpadding="2" cellspacing="1" border="0" bgcolor="<?php echo $glob_theme->inside_color ?>">
-    <tr bgcolor="<?php echo $glob_theme->tr_color ?>">
-        <td <?php if ($conf->have_ucb_pop_server || $pop->is_imap()) echo 'colspan="5"'; else echo 'colspan="4"'; ?> align="left" class="titlew">
-            <b><?php if ($_SESSION['nocc_folder'] != INBOX) { echo $_SESSION['nocc_folder']; } else { echo $html_inbox; } ?></b>
-            <a class="titlew" href="<?php echo $rss_url ?>">(RSS)</a>
-            &nbsp;
-            <?php
-              if (isset($conf->quota_enable) && $conf->quota_enable == true) { 
-                if ($conf->quota_type == 'STORAGE') {
-                  echo $_SESSION['quota'][$conf->quota_type]['usage'] . $html_kb . ' / ' . $_SESSION['quota'][$conf->quota_type]['limit'] . $html_kb;
-                } else {
-                  echo $_SESSION['quota'][$conf->quota_type]['usage'] . $html_msgs . ' / ' . $_SESSION['quota'][$conf->quota_type]['limit'] . $html_msgs;
-                }
-              }
-            ?>
-        </td>
-        <td align="right" class="titlew" colspan="2">
-            <?php echo $num_msg ?> <?php if ($num_msg == 1) {echo $html_msg;} else {echo $html_msgs;}?>
-        </td>
-    </tr>
-    <tr bgcolor="<?php echo $glob_theme->inside_color ?>">
-        <td colspan="2" align="left" class="inbox">
-            <?php echo $fldr_line ?>
-        </td>
-        <td colspan="2" align="center" class="inbox">
-            <?php echo $reapply_filters ?>
-        </td>
-        <?php if ($conf->have_ucb_pop_server || $pop->is_imap()) { ?>
-            <td colspan="2" align="right" class="inbox">
-        <?php } else { ?>
-            <td align="right" class="inbox">
-        <?php } ?>
-            <?php echo $page_line ?>
-        </td>
-        <td align="right" class="inbox">
-            <?php echo $prev ?>
-            <?php echo $next ?>
-        </td>
-    </tr>
-    <tr bgcolor="<?php echo $glob_theme->inbox_text_color ?>">
-        <td align="center" class="inbox">
-            <?php echo $html_select ?>
-        </td>
-        <?php if ($conf->have_ucb_pop_server || $pop->is_imap()) { ?>
-        <td align="center" class="inbox">
-            <?php echo $html_new ?>
-        </td>
-        <?php } ?>
-        <td align="center" class="inbox">&nbsp;</td>
-        <td align="center" class="inbox" <?php if ($_SESSION['nocc_sort'] == 2) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
-            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>">
-            <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_from; ?>" /></a>
-            &nbsp;
-            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>">
-            <?php echo $html_from ?></a>
-        </td>
-        <td align="center" class="inbox" <?php if ($_SESSION['nocc_sort'] == 3) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
-            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>">
-            <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_subject; ?>" /></a>
-            &nbsp;
-            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>">
-            <?php echo $html_subject ?></a>
-        </td>
-        <td align="center" class="inbox" <?php if ($_SESSION['nocc_sort'] == 1) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
-            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>">
-            <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_date; ?>" /></a>
-            &nbsp;
-            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>">
-            <?php echo $html_date ?></a>
-        </td>
-        <td align="right" class="inbox" <?php if ($_SESSION['nocc_sort'] == 6) echo 'bgcolor="'.$glob_theme->sort_color.'"' ?>>
-            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>">
-            <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.gif" border="0" width="12" height="12" alt="<?php echo $html_sort_by." ".$html_size; ?>" /></a>
-            &nbsp;
-            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>">
-            <?php echo $html_size ?></a>
-            <form method="post" action="delete.php" name="delete_form">
-        </td>
-    </tr>
-<!-- start of $Id: html_top_table.php,v 1.74 2005/05/11 10:44:42 goddess_skuld Exp $ -->
+                <div class="messageSummary">
+                  <table>
+                    <tr>
+                      <td class="left">
+                        <?php if ($_SESSION['nocc_folder'] != INBOX) { ?>
+                        <span class="currentInbox"><?php echo $_SESSION['nocc_folder']; ?></span> 
+                        <?php } else { ?>
+                        <span class="currentInbox"><?php echo $html_inbox; ?></span>
+                        <?php } ?>
+                        <a class="rss" href="<?php echo $rss_url ?>"><span class="rssText">(RSS)</span></a>
+                        &nbsp;
+                        <?php
+                          if (isset($conf->quota_enable) && $conf->quota_enable == true) { 
+                            if ($conf->quota_type == 'STORAGE') {
+                              echo '<span class="currentQuota">' . $_SESSION['quota'][$conf->quota_type]['usage'] . $html_kb . '</span><span class="maxQuota"> / ' . $_SESSION['quota'][$conf->quota_type]['limit'] . $html_kb . '</span>';
+                            } else {
+                              echo '<span class="currentQuota">' . $_SESSION['quota'][$conf->quota_type]['usage'] . $html_msgs . '</span><span class="maxQuota"> / ' . $_SESSION['quota'][$conf->quota_type]['limit'] . $html_msgs . '</span>';
+                            }
+                          }
+                        ?>
+                      </td>
+                      <td class="titlew right">
+                        <?php echo $num_msg ?> <?php if ($num_msg == 1) {echo $html_msg;} else {echo $html_msgs;}?>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="topNavigation">
+                  <table>
+                    <tr>
+                      <td class="inbox left">
+                        <?php echo $fldr_line ?>
+                      </td>
+                      <td class="inbox center">
+                        <?php echo $reapply_filters ?>
+                      </td>
+                      <?php if ($conf->have_ucb_pop_server || $pop->is_imap()) { ?>
+                      <td class="inbox right">
+                      <?php } else { ?>
+                      <td class="inbox right">
+                      <?php } ?>
+                        <?php echo $page_line ?>
+                      </td>
+                      <td class="inbox right">
+                        <?php echo $prev ?>
+                        <?php echo $next ?>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="messageList">
+                  <!-- Message list bloc -->
+                  <form method="post" action="delete.php" id="delete_form">
+                    <div>
+                    <?php include('menu_inbox_opts.php'); ?>
+                      <table>
+                        <tr>
+                          <td class="inboxHeader<?php if ($_SESSION['nocc_sort'] == 2) echo 'Sorted' ?>">
+                            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>">
+                              <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.gif" class="sort" alt="<?php echo $html_sort_by." ".$html_from; ?>" /></a>
+                            &nbsp;
+                            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>"><?php echo $html_from ?></a>
+                          </td>
+                          <td class="inboxHeader<?php if ($_SESSION['nocc_sort'] == 3) echo 'Sorted' ?>">
+                            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>">
+                              <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.gif" class="sort" alt="<?php echo $html_sort_by." ".$html_subject; ?>" /></a>
+                            &nbsp;
+                            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>"><?php echo $html_subject ?></a>
+                          </td>
+                          <td class="inboxHeader<?php if ($_SESSION['nocc_sort'] == 1) echo 'Sorted' ?>">
+                            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>">
+                              <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.gif" class="sort" alt="<?php echo $html_sort_by." ".$html_date; ?>" /></a>
+                            &nbsp;
+                            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>"><?php echo $html_date ?></a>
+                          </td>
+                          <td class="inboxHeader<?php if ($_SESSION['nocc_sort'] == 6) echo 'Sorted' ?>">
+                            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>">
+                              <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.gif" class="sort" alt="<?php echo $html_sort_by." ".$html_size; ?>" /></a>
+                            &nbsp;
+                            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>"><?php echo $html_size ?></a>
+                          </td>
+                        </tr>
+<!-- end of $Id: html_top_table.php,v 1.75 2005/05/19 17:44:53 goddess_skuld Exp $ -->
