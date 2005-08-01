@@ -1,5 +1,7 @@
 NOCC 0.9.8    ?? ??, 2005
 
+    * Add possibility to go back to previous page in case of unrecoverable 
+      error (Arnaud Boudou).
     * NOCC is now XTHML 1.1 Strict compliant (Arnaud Boudou).
     * Improved CSS customization (Arnaud Boudou).
     * Sent Folder can now be setup by user and is no more a global option

@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs_error.php,v 1.1 2001/11/08 13:23:33 rossigee Exp $ -->
+<!-- start of $Id: prefs_error.php,v 1.2 2005/08/01 08:11:17 goddess_skuld Exp $ -->
 <div class="error">
   <table class="errorTable">
     <tr class="errorTitle">
@@ -7,8 +7,15 @@
     <tr class="errorText">
       <td>
         <p><?php echo $ev->getMessage(); ?></p>
+        <p>
+        <?php if (isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] != null ) { ?>
+          <a href="<?php echo $_SERVER['HTTP_REFERER']; ?>"><?php echo $html_back ?></a>
+        <?php } else { ?>
+          <a href="<?php echo $conf->webmail_url; ?>"><?php echo $html_back ?></a>
+        <?php } ?>
+        </p>
       </td>
     </tr>
   </table>
 </div>
-<!-- end of $Id: prefs_error.php,v 1.1 2001/11/08 13:23:33 rossigee Exp $ -->
+<!-- end of $Id: prefs_error.php,v 1.2 2005/08/01 08:11:17 goddess_skuld Exp $ -->
