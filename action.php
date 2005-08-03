@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.168 2005/07/07 10:43:17 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.169 2005/08/01 08:11:08 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -600,7 +600,6 @@ switch($action)
         require ('./html/header.php');
         require ('./html/menu_inbox.php');
         require ('./html/html_top_table.php');
-        //require ('./html/menu_inbox_opts.php');
 
         // Include this once for each line of the message index
         while ($tmp = array_shift($tab_mail)) {

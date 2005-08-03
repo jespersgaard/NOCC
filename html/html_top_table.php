@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.76 2005/08/01 08:11:16 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.77 2005/08/03 07:10:41 goddess_skuld Exp $ -->
 <?php
 
 require_once 'class_local.php';
@@ -125,6 +125,12 @@ if ($pop->is_imap()) {
                             &nbsp;
                             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>"><?php echo $html_from ?></a>
                           </td>
+                          <td class="inboxHeader<?php if ($_SESSION['nocc_sort'] == 4) echo 'Sorted' ?>">
+                            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=4&amp;sortdir=<?php echo $new_sortdir ?>">
+                              <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.png" class="sort" alt="<?php echo $html_sort_by." ".$html_to; ?>" /></a>
+                            &nbsp;
+                            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=4&amp;sortdir=<?php echo $new_sortdir ?>"><?php echo $html_to ?></a>
+                          </td>
                           <td class="inboxHeader<?php if ($_SESSION['nocc_sort'] == 3) echo 'Sorted' ?>">
                             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>">
                               <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.png" class="sort" alt="<?php echo $html_sort_by." ".$html_subject; ?>" /></a>
@@ -144,4 +150,4 @@ if ($pop->is_imap()) {
                             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>"><?php echo $html_size ?></a>
                           </td>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.76 2005/08/01 08:11:16 goddess_skuld Exp $ -->
+<!-- end of $Id: html_top_table.php,v 1.77 2005/08/03 07:10:41 goddess_skuld Exp $ -->

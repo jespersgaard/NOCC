@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.202 2005/08/01 08:11:14 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.203 2005/08/03 07:10:40 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -42,7 +42,7 @@ function inbox(&$pop, $skip = 0, &$ev)
 
     for ($i = $start_msg; $i < $end_msg; $i++)
     {
-        $subject = $from = '';
+        $subject = $from = $to = '';
         $msgnum = $sorted[$i];
         $ref_contenu_message = $pop->headerinfo($pop->msgno($msgnum), $ev);
         if(NoccException::isException($ev)) return;
@@ -54,6 +54,11 @@ function inbox(&$pop, $skip = 0, &$ev)
         $from_array = nocc_imap::mime_header_decode($ref_contenu_message->fromaddress);
         for ($j = 0; $j < count($from_array); $j++)
             $from .= $from_array[$j]->text;
+        $to_array = nocc_imap::mime_header_decode($ref_contenu_message->toaddress);
+        for ($j = 0; $j < count($to_array); $j++) {
+            $to = $to . $to_array[$j]->text . ", ";
+        }
+        $to = substr($to, 0, strlen($to)-2);
         $msg_size = 0;
         if ($pop->is_imap())
             $msg_size = get_mail_size($struct_msg);
@@ -102,7 +107,8 @@ function inbox(&$pop, $skip = 0, &$ev)
         $msg_list[$i] =  Array(
                 'new' => $newmail, 
                 'number' => $pop->msgno($msgnum),
-                'attach' => $attach, 
+                'attach' => $attach,
+                'to' => $to,
                 'from' => $from,
                 'subject' => $subject, 
                 'date' => $date,
@@ -774,7 +780,15 @@ function display_address(&$address)
         return $address;
 
     // Return up to the first '<', or end of string if not found
-    return substr($address, 0, $bracketpos - 1);
+    //return substr($address, 0, $bracketpos - 1);
+    $formatted_address = '';
+    while (!($bracketpos === false)) {
+      $formatted_address = substr($address, 0, $bracketpos - 1);
+      $formatted_address .= substr($address, strpos($address, ">")+1);
+      $address = $formatted_address;
+      $bracketpos = strpos($address, "<");
+    }
+    return $address;
 }
 
 /* ----------------------------------------------------- */
