@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.201 2005/07/06 07:48:09 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.202 2005/08/01 08:11:14 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -65,7 +65,7 @@ function inbox(&$pop, $skip = 0, &$ev)
             if ($struct_msg->subtype == 'ALTERNATIVE' || $struct_msg->subtype == 'RELATED')
                 $attach = '&nbsp;';
             else
-                $attach = '<img src="themes/' . $_SESSION['nocc_theme'] . '/img/attach.gif" alt="" />';
+                $attach = '<img src="themes/' . $_SESSION['nocc_theme'] . '/img/attach.png" alt="" />';
         }
         else
             $attach = '&nbsp;';
@@ -93,7 +93,7 @@ function inbox(&$pop, $skip = 0, &$ev)
                 $new_mail_from_header = '&nbsp;';
         }
         if ($new_mail_from_header == '')
-            $newmail = '<img width="12" height="12" src="themes/' . $_SESSION['nocc_theme'] . '/img/new.gif" alt=""/>';
+            $newmail = '<img src="themes/' . $_SESSION['nocc_theme'] . '/img/new.png" alt=""/>';
         else
             $newmail = '&nbsp;';
         $timestamp = chop($ref_contenu_message->udate);

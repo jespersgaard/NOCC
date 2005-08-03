@@ -1,5 +1,6 @@
 NOCC 0.9.8    ?? ??, 2005
 
+    * Use PNG image files instead of GIF (Arnaud Boudou).
     * Add possibility to go back to previous page in case of unrecoverable 
       error (Arnaud Boudou).
     * NOCC is now XTHML 1.1 Strict compliant (Arnaud Boudou).

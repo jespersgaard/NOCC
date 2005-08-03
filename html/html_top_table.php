@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.75 2005/05/19 17:44:53 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.76 2005/08/01 08:11:16 goddess_skuld Exp $ -->
 <?php
 
 require_once 'class_local.php';
@@ -23,11 +23,11 @@ if($pages > 1) {
     $this_page = $skip + 1;
     if($pskip > -1 ) {
         $prev = "<a href=\"".$_SERVER['PHP_SELF']."?skip=$pskip\">";
-        $prev .= "<img class=\"navigation\" src=\"themes/".$_SESSION['nocc_theme']."/img/left_arrow.gif\" alt=\"".$alt_prev."\"/></a>\n";
+        $prev .= "<img class=\"navigation\" src=\"themes/".$_SESSION['nocc_theme']."/img/left_arrow.png\" alt=\"".$alt_prev."\"/></a>\n";
     }
     if($nskip < $pages) {
         $next = "<a href=\"".$_SERVER['PHP_SELF']."?skip=$nskip\">";
-        $next .= "<img class=\"navigation\" src=\"themes/".$_SESSION['nocc_theme']."/img/right_arrow.gif\" alt=\"".$alt_next."\"/></a>\n";
+        $next .= "<img class=\"navigation\" src=\"themes/".$_SESSION['nocc_theme']."/img/right_arrow.png\" alt=\"".$alt_next."\"/></a>\n";
     }
 
     $page_line = "<form method=\"post\" action=\"".$_SERVER['PHP_SELF']."\"><div>";
@@ -121,27 +121,27 @@ if ($pop->is_imap()) {
                         <tr>
                           <td class="inboxHeader<?php if ($_SESSION['nocc_sort'] == 2) echo 'Sorted' ?>">
                             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>">
-                              <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.gif" class="sort" alt="<?php echo $html_sort_by." ".$html_from; ?>" /></a>
+                              <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.png" class="sort" alt="<?php echo $html_sort_by." ".$html_from; ?>" /></a>
                             &nbsp;
                             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>"><?php echo $html_from ?></a>
                           </td>
                           <td class="inboxHeader<?php if ($_SESSION['nocc_sort'] == 3) echo 'Sorted' ?>">
                             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>">
-                              <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.gif" class="sort" alt="<?php echo $html_sort_by." ".$html_subject; ?>" /></a>
+                              <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.png" class="sort" alt="<?php echo $html_sort_by." ".$html_subject; ?>" /></a>
                             &nbsp;
                             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>"><?php echo $html_subject ?></a>
                           </td>
                           <td class="inboxHeader<?php if ($_SESSION['nocc_sort'] == 1) echo 'Sorted' ?>">
                             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>">
-                              <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.gif" class="sort" alt="<?php echo $html_sort_by." ".$html_date; ?>" /></a>
+                              <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.png" class="sort" alt="<?php echo $html_sort_by." ".$html_date; ?>" /></a>
                             &nbsp;
                             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>"><?php echo $html_date ?></a>
                           </td>
                           <td class="inboxHeader<?php if ($_SESSION['nocc_sort'] == 6) echo 'Sorted' ?>">
                             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>">
-                              <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.gif" class="sort" alt="<?php echo $html_sort_by." ".$html_size; ?>" /></a>
+                              <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.png" class="sort" alt="<?php echo $html_sort_by." ".$html_size; ?>" /></a>
                             &nbsp;
                             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>"><?php echo $html_size ?></a>
                           </td>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.75 2005/05/19 17:44:53 goddess_skuld Exp $ -->
+<!-- end of $Id: html_top_table.php,v 1.76 2005/08/01 08:11:16 goddess_skuld Exp $ -->

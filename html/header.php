@@ -53,10 +53,10 @@ else {
     <body dir="<?php echo $lang_dir; ?>">
         <div class="global">
           <div class="header">
-            <img src="themes/<?php echo $_SESSION['nocc_theme']; ?>/img/logo.gif" class="headerLogo" alt="Logo" />
+            <img src="themes/<?php echo $_SESSION['nocc_theme']; ?>/img/logo.png" class="headerLogo" alt="Logo" />
             &nbsp;&nbsp;<span class="login bold"><?php echo htmlspecialchars($header_display_address); ?></span>
           </div>
 <?php
 }
 ?>
-<!-- end of $Id: header.php,v 1.52 2005/05/01 20:45:56 goddess_skuld Exp $ -->
+<!-- end of $Id: header.php,v 1.54 2005/08/01 08:11:16 goddess_skuld Exp $ -->
