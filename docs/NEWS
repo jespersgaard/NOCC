@@ -1,5 +1,6 @@
 NOCC 1.0    ?? ??, 2005
 
+    * Add Catalan language file (David Gimeno i Ayuso).
     * Use PNG image files instead of GIF (Arnaud Boudou).
     * Add possibility to go back to previous page in case of unrecoverable 
       error (Arnaud Boudou).

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.23 2005/07/02 14:03:59 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.24 2005/08/01 10:53:26 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -29,6 +29,12 @@ $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'bg';
 $lang_array[$i]->label = 'Bulgarian';
+
+// Catalan
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'ca';
+$lang_array[$i]->label = 'Català';
 
 // Chinese
 $i++;
