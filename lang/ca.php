@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ca.php,v 1.81 2005/06/20 16:30:09 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ca.php,v 1.1 2005/08/03 17:02:29 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -230,4 +230,3 @@ $html_seperate_msg_win = 'Missatge a finestres separades';
 // Exceptions
 $html_err_file_contacts = 'No s\'ha pogut obrir el fitxer de contactes per escriure-hi.';
 ?>
-
