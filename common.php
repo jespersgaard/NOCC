@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.50 2005/07/06 08:16:32 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.51 2005/08/01 08:11:14 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -14,7 +14,7 @@ require_once("user_filters.php");
 require_once("html_entity_decode.php");
 
 $conf->nocc_name = 'NOCC';
-$conf->nocc_version = '0.9.8-dev';
+$conf->nocc_version = '1.0-dev';
 $conf->nocc_url = 'http://nocc.sourceforge.net/';
 
 if ($_REQUEST["action"] == 'login') {
