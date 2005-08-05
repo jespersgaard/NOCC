@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.203 2005/08/03 07:10:40 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.204 2005/08/03 17:48:08 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -17,6 +17,7 @@ require_once 'class_local.php';
 function inbox(&$pop, $skip = 0, &$ev)
 {
     global $conf;
+    global $charset;
 
     $user_prefs = $_SESSION['nocc_user_prefs'];
 
@@ -51,6 +52,7 @@ function inbox(&$pop, $skip = 0, &$ev)
         $subject_array = nocc_imap::mime_header_decode($ref_contenu_message->subject);
         for ($j = 0; $j < count($subject_array); $j++)
             $subject .= $subject_array[$j]->text;
+ 
         $from_array = nocc_imap::mime_header_decode($ref_contenu_message->fromaddress);
         for ($j = 0; $j < count($from_array); $j++)
             $from .= $from_array[$j]->text;
@@ -277,9 +279,9 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
         'cc' => $cc,
         'reply_to' => $reply_to,
         'subject' => $subject,
-        'date' => htmlentities($date),
-        'time' => htmlentities($time),
-        'complete_date' => htmlentities($date),
+        'date' => $date,
+        'time' => $time,
+        'complete_date' => $date,
         'att' => $link_att,
         'body' => $pop->graphicalsmilies($body),
         'body_mime' => htmlentities($tmp['mime']),
