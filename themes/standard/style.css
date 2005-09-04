@@ -287,7 +287,6 @@ a:hover {
 table {
   border: 1px;
   border-spacing: 0px;
-  width: 100%;
 }
 
 div.global {
@@ -303,12 +302,24 @@ div.menuInbox {
   background-color: #F0F0F0;
 }
 
+div.menuInbox table {
+  width: 100%;
+}
+
 div.menuMail {
   background-color: #F0F0F0;
 }
 
+div.menuMail table {
+  width: 100%;
+}
+
 div.menuPrefs {
   background-color: #F0F0F0;
+}
+
+div.menuPrefs table {
+  width: 100%;
 }
 
 div.messageSummary {
@@ -459,7 +470,6 @@ img.sort {
 .mailData table {
   border: 0px;
   padding: 2px;
-  width: 100%;
 }
 
 .mailSwitchHeaders {
@@ -504,6 +514,7 @@ img.sort {
   text-align: center;
   padding: 3px;
   background-color: #F0F0F0;
+  width: 100%;
 }
 
 .contactsAddLabel {
@@ -519,6 +530,10 @@ img.sort {
 }
 
 .contactsList {
+}
+
+.contactsList table {
+  width: 100%;
 }
 
 .contactsListHeader {
