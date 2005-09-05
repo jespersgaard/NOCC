@@ -1,7 +1,7 @@
-<!-- start of $Id: menu_inbox_status.php,v 1.31 2004/08/06 13:59:46 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_inbox_status.php,v 1.7 2005/08/01 08:11:17 goddess_skuld Exp $ -->
 <?php if($list_of_folders != "") { ?>
                       <tr>
-                        <td colspan="4">
+                        <td colspan="5">
                           <table class="inboxStatus">
                             <tr>
                                <td class="right">
@@ -15,4 +15,4 @@
                          </td>
                        </tr>
 <?php } ?>
-<!-- end of $Id: menu_inbox_status.php,v 1.31 2004/08/06 13:59:46 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_inbox_status.php,v 1.7 2005/08/01 08:11:17 goddess_skuld Exp $ -->

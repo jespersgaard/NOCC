@@ -1,7 +1,7 @@
-<!-- start of $Id: no_mail.php,v 1.4 2004/08/06 13:44:28 goddess_skuld Exp $ -->
+<!-- start of $Id: no_mail.php,v 1.5 2005/08/01 08:11:17 goddess_skuld Exp $ -->
 <tr>
-  <td colspan="4" class="inbox center">
+  <td colspan="5" class="inbox center">
     <?php echo $html_no_mail ?>
   </td>
 </tr>
-<!-- end of $Id: no_mail.php,v 1.4 2004/08/06 13:44:28 goddess_skuld Exp $ -->
+<!-- end of $Id: no_mail.php,v 1.5 2005/08/01 08:11:17 goddess_skuld Exp $ -->

@@ -47,6 +47,10 @@
   border-top: 1px dashed #DDDDDD;
 }
 
+.inboxStatus table {
+  width: 100%;
+}
+
 .prefs {
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 12px;
@@ -337,6 +341,10 @@ div.topNavigation img {
 
 div.messageList {
   background-color: #000080;
+}
+
+div.messageList table {
+  width: 100%
 }
 
 div.bottomNavigation {
