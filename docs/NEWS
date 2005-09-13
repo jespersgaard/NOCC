@@ -1,5 +1,6 @@
 NOCC 1.0    ?? ??, 2005
 
+    * Fix issue with message wrapping (Arnaud Boudou).
     * Add "To" header into mail list view (Arnaud Boudou, RFE #494191).
     * Add Catalan language file (David Gimeno i Ayuso).
     * Use PNG image files instead of GIF (Arnaud Boudou).

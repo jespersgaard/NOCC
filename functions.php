@@ -880,6 +880,7 @@ function wrap_outgoing_msg ($txt, $length, $newline)
 	$msg .= $tbl[$i] . $newline;
       else
 	{
+          unset( $buffer);
 	  $words = explode (" ", $tbl[$i]);
 	  for ($j = 0; $j < count ($words); ++$j)
 	    {
