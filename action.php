@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.169 2005/08/01 08:11:08 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.170 2005/08/03 17:48:07 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -77,7 +77,8 @@ switch($action)
             if ($conf->display_img_attach && (eregi('image', $tmp['mime']) && ($tmp['number'] != '')))
             {
                 // if it's an image, display it
-                $img_type = array_pop(explode('/', $tmp['mime']));
+                $exploded = explode('/', $tmp['mime']);
+                $img_type = array_pop($exploded);
                 if (eregi('JPEG', $img_type) || eregi('JPG', $img_type) || eregi('GIF', $img_type) || eregi ('PNG', $img_type))
                 {
                     echo '<hr />';
@@ -159,7 +160,10 @@ switch($action)
                 $mail_body = mailquote(html_entity_decode(strip_tags($content['body'], '')), $parsed_leadin, '');
             }
             else
-                $mail_body = mailquote(html_entity_decode(strip_tags($content['body'], '')), $content['from'], $html_wrote);
+            {
+                $stripped_content = html_entity_decode(strip_tags($content['body'], ''));
+                $mail_body = mailquote($stripped_content, $content['from'], $html_wrote);
+            }
         }
 
         // Add signature
@@ -204,8 +208,10 @@ switch($action)
         // Set body
         if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
             $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . strip_tags2($content['body'], '');
-        else
-            $mail_body = mailquote(strip_tags2($content['body'], ''), $content['from'], $html_wrote);
+        else {
+            $stripped_content = strip_tags2($content['body'], '');
+            $mail_body = mailquote($stripped_content, $content['from'], $html_wrote);
+        }
 
         // Add signature
         add_signature($mail_body);
@@ -446,8 +452,10 @@ switch($action)
             $user_prefs->sig_sep = isset($_REQUEST['sig_sep']);
 	    $user_prefs->graphical_smilies = isset($_REQUEST['graphical_smilies']);
             $user_prefs->sent_folder = isset($_REQUEST['sent_folder']);
-            if (isset($_REQUEST['sent_folder_name']))
-                $user_prefs->sent_folder_name = safestrip(str_replace($_SESSION['imap_namespace'], "", $_REQUEST['sent_folder_name']));
+            if (isset($_REQUEST['sent_folder_name'])) {
+                $replace = str_replace($_SESSION['imap_namespace'], "", $_REQUEST['sent_folder_name']);
+                $user_prefs->sent_folder_name = safestrip($replace);
+            }
 
             // Commit preferences
             $user_prefs->commit($ev);
