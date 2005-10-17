@@ -79,7 +79,7 @@
 .menuOpts {
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 13px;
-  color: #FFFFFF;
+  color: #000000;
 }
 
 .login {
@@ -483,7 +483,7 @@ img.sort {
   text-align: center;
   padding: 0px;
   width: 100%;
-  background-color: #F7F7F7;
+  background-color: #FFFFFF;
 }
 
 .mailData table {
@@ -491,15 +491,32 @@ img.sort {
   padding: 2px;
 }
 
+.mailNav {
+  border: 0px;
+  text-align: center;
+  padding: 0px;
+  width: 100%;
+  background-color: #F7F7F7;
+}
+
+.mailNav table {
+  width: 100%;
+  border: 0px;
+  padding: 2px;
+}
+
 .mailSwitchHeaders {
  font-family: Verdana, Arial, Helvetica, sans-serif;
  font-size: 11px;
+ text-align: left;
+ background-color: #F7F7F7;
 }
 
 .mailHeaderLabel {
  font-family: Verdana, Arial, Helvetica, sans-serif;
  font-size: 11px;
  text-align: right;
+ background-color: #F7F7F7;
 }
 
 .mailHeaderData {

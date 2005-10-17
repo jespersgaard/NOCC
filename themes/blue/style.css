@@ -472,7 +472,7 @@ img.sort {
   text-align: center;
   padding: 0px;
   width: 100%;
-  background-color: #000080;
+  background-color: #002266;
 }
 
 .mailData table {
@@ -480,15 +480,32 @@ img.sort {
   padding: 2px;
 }
 
+.mailNav {
+  border: 0px;
+  text-align: center;
+  padding: 0px;
+  width: 100%;
+  background-color: #000080;
+}
+
+.mailNav table {
+  width: 100%;
+  border: 0px;
+  padding: 2px;
+}
+
 .mailSwitchHeaders {
  font-family: Verdana, Arial, Helvetica, sans-serif;
  font-size: 11px;
+ text-align: left;
+ background-color: #000080;
 }
 
 .mailHeaderLabel {
  font-family: Verdana, Arial, Helvetica, sans-serif;
  font-size: 11px;
  text-align: right;
+ background-color: #000080;
 }
 
 .mailHeaderData {
