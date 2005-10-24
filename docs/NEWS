@@ -1,5 +1,6 @@
 NOCC 1.0    ?? ??, 2005
 
+    * Improve RSS feed with subfolders (Arnaud Boudou).
     * Add compatibility with PHP 5.0.5 (Arnaud Boudou, bug #1291160).
     * Fix issue with message wrapping (Arnaud Boudou).
     * Add "To" header into mail list view (Arnaud Boudou, RFE #494191).

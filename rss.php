@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.2 2005/05/19 11:37:14 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.3 2005/07/02 14:25:39 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -90,7 +90,7 @@ $tab_mail = $tab_mail_bak;
 <?php
 while ($tmp = array_shift($tab_mail)) {
 ?>
-<item rdf:about="<?php echo $conf->webmail_url . 'action.php?action=aff_mail&amp;mail='.$tmp['number'].'&amp;verbose=0&amp;rss=true' ?>">
+<item rdf:about="<?php echo $conf->webmail_url . 'action.php?action=aff_mail&amp;mail='.$tmp['number'].'&amp;verbose=0&amp;rss=true&amp;nocc_folder='.$_SESSION['nocc_folder'] ?>">
 <title><?php echo htmlspecialchars(htmlentities($tmp['subject'])) ?></title>
 <link><?php echo $conf->webmail_url . 'action.php?action=aff_mail&amp;mail=' . $tmp['number'] . '&amp;verbose=0&amp;rss=true' ?></link>
 <description>

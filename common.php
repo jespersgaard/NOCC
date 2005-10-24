@@ -29,6 +29,7 @@ session_start();
 // Initialise session array
 if ($_REQUEST['action'] == 'cookie' || $_REQUEST['rss'] == 'true'){
   list($_SESSION['nocc_user'], $_SESSION['nocc_passwd'], $_SESSION['nocc_lang'], $_SESSION['nocc_smtp_server'], $_SESSION['nocc_smtp_port'], $_SESSION['nocc_theme'], $_SESSION['nocc_domain'], $_SESSION['imap_namespace'], $_SESSION['nocc_servr'], $_SESSION['nocc_folder'], $_SESSION['smtp_auth']) = explode(" ", base64_decode($_COOKIE['NoccIdent']));
+  $_SESSION['nocc_folder'] = $_REQUEST['nocc_folder'];
   
 }
 
