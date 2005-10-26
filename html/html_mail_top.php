@@ -1,4 +1,4 @@
-<!-- start of $Id: html_mail_top.php,v 1.10 2005/08/01 08:11:16 goddess_skuld Exp $ -->
+<!-- start of $Id: html_mail_top.php,v 1.11 2005/10/17 16:19:25 goddess_skuld Exp $ -->
 <div class="mailNav">
    <table>
 <?php
@@ -50,10 +50,13 @@ if ($content['subject'] == '')
       echo ' selected="selected"';
     echo '>'.$charset_array[$i]->label.'</option>';
   }
+  echo '</select>&nbsp;&nbsp<input name="submit" class="button" type="submit" value="' . $html_submit . '" />';
+  echo '</div></form>';
+  echo '</td></tr>';
 }
 ?>
    </table>
 </div>
 <div class="mailData">
    <table>
-<!-- end of $Id: html_mail_top.php,v 1.10 2005/08/01 08:11:16 goddess_skuld Exp $ -->
+<!-- end of $Id: html_mail_top.php,v 1.11 2005/10/17 16:19:25 goddess_skuld Exp $ -->
