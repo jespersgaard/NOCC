@@ -189,8 +189,9 @@ for every release and be able to update it with users' setups):
       however, these have been tested and work)     
       - Internet Explorer 6.0 for Windows.
       - Camino 0.9 alpha2 for MacOS X.
-      - Safari 2.0.2 for MacOS X.
+      - Safari 2.0.1 to 2.0.2 for MacOS X.
       - Firefox from 1.0.4 to 1.5 beta 2.
+      - Opera 8.5.
       - cookies needed as of 0.9.5.
 
     * mail servers: (Nocc should work with any IMAP/POP3 server, however,
