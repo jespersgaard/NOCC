@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.170 2005/08/03 17:48:07 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.171 2005/09/14 18:57:08 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -511,7 +511,7 @@ switch($action)
             // If needed, store a cookie with all needed parameters
             if ($remember == "true") {
               $cookie_string = $_SESSION['nocc_user'];
-              $cookie_string .= " " . $_SESSION['nocc_passwd'];
+              $cookie_string .= " " . decpass($_SESSION['nocc_passwd'], $_COOKIE['NoccKey']);
               $cookie_string .= " " . $_SESSION['nocc_lang'];
               $cookie_string .= " " . $_SESSION['nocc_smtp_server'];
               $cookie_string .= " " . $_SESSION['nocc_smtp_port'];

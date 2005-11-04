@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.41 2005/08/01 08:11:13 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.42 2005/08/01 19:41:09 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -15,6 +15,7 @@
 
 require_once 'exception.php';
 require_once 'detect_cyr_charset.php';
+require_once 'crypt.php';
 
 class result
 {
@@ -43,7 +44,8 @@ class nocc_imap
         $this->server = $_SESSION['nocc_servr'];
         $this->folder = $_SESSION['nocc_folder'];
         $this->login = $_SESSION['nocc_login'];
-        $this->passwd = $_SESSION['nocc_passwd'];
+        /* decrypt password */
+        $this->passwd = decr($_SESSION['nocc_passwd'], $_COOKIE['NoccKey']);
         $this->namespace = $_SESSION['imap_namespace'];
 
         // $ev is set if there is a problem with the connection

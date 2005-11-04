@@ -1,5 +1,7 @@
 NOCC 1.0    ?? ??, 2005
 
+    * Encrypt session stored passwords (Arnaud Boudou & Olivier Jourdat,
+      RFE #811901, bug #1348164).
     * Improve RSS feed with subfolders (Arnaud Boudou).
     * Add compatibility with PHP 5.0.5 (Arnaud Boudou, bug #1291160).
     * Fix issue with message wrapping (Arnaud Boudou).

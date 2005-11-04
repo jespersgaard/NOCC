@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.51 2005/08/01 08:11:14 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.53 2005/10/24 09:26:04 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -12,16 +12,21 @@
 
 require_once("user_filters.php");
 require_once("html_entity_decode.php");
+require_once("crypt.php");
 
 $conf->nocc_name = 'NOCC';
 $conf->nocc_version = '1.0-dev';
 $conf->nocc_url = 'http://nocc.sourceforge.net/';
 
+$pwd_to_encrypt = false;
 if ($_REQUEST["action"] == 'login') {
   session_name("NOCCSESSID");
   session_start();
   session_unset();
   session_destroy();
+  $pwd_to_encrypt = true;
+  /* key generation */
+  genkey(30, 'NoccKey');
 }
 
 session_name("NOCCSESSID");
@@ -30,7 +35,9 @@ session_start();
 if ($_REQUEST['action'] == 'cookie' || $_REQUEST['rss'] == 'true'){
   list($_SESSION['nocc_user'], $_SESSION['nocc_passwd'], $_SESSION['nocc_lang'], $_SESSION['nocc_smtp_server'], $_SESSION['nocc_smtp_port'], $_SESSION['nocc_theme'], $_SESSION['nocc_domain'], $_SESSION['imap_namespace'], $_SESSION['nocc_servr'], $_SESSION['nocc_folder'], $_SESSION['smtp_auth']) = explode(" ", base64_decode($_COOKIE['NoccIdent']));
   $_SESSION['nocc_folder'] = $_REQUEST['nocc_folder'];
-  
+  $pwd_to_encrypt = true;
+  /* key generation */
+  genkey(30, 'NoccKey');
 }
 
 // Useful for debugging sessions
@@ -59,6 +66,13 @@ if(isset($_REQUEST['user']) && !isset($_SESSION['nocc_loggedin'])) {
 }
 if(isset($_REQUEST['passwd']))
     $_SESSION['nocc_passwd'] = safestrip($_REQUEST['passwd']);
+
+if ($pwd_to_encrypt == true) {
+    /* encrypt session password */
+    /* store into session encrypted password */
+    $_SESSION['nocc_passwd'] = encr($_SESSION['nocc_passwd'], $_COOKIE['NoccKey']);
+}
+
 if(isset($_REQUEST['lang']))
     $_SESSION['nocc_lang'] = safestrip($_REQUEST['lang']);
 if(isset($_REQUEST['sort']))

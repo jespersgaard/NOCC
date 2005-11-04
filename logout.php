@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/logout.php,v 1.31 2004/08/06 14:56:56 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/logout.php,v 1.32 2005/05/01 20:45:55 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -18,6 +18,8 @@ session_name("NOCCSESSID");
 session_destroy();
 //destroy authentification cookie
 setcookie ("NoccIdent");
+//destroy encryption key cookie
+setcookie ("NoccKey");
 require_once './proxy.php';
 Header('Location: ' . $conf->base_url . 'index.php?theme=' . $old_theme);
 ?>
