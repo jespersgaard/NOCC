@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.54 2005/11/04 14:22:28 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.55 2005/11/04 15:57:45 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -76,10 +76,10 @@ $_COOKIE['NoccKey'] = $key;
 if ($pwd_to_encrypt == true) {
     /* encrypt session password */
     /* store into session encrypted password */
-    $_SESSION['nocc_passwd'] = encr($_SESSION['nocc_passwd'], $key);
+    $_SESSION['nocc_passwd'] = encpass($_SESSION['nocc_passwd'], $key);
 } else {
-    $_SESSION['nocc_passwd'] = decr($_SESSION['nocc_passwd'], $oldkey);
-    $_SESSION['nocc_passwd'] = encr($_SESSION['nocc_passwd'], $key);
+    $_SESSION['nocc_passwd'] = decpass($_SESSION['nocc_passwd'], $oldkey);
+    $_SESSION['nocc_passwd'] = encpass($_SESSION['nocc_passwd'], $key);
 }
 
 if(isset($_REQUEST['lang']))
