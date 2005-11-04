@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.3 2005/07/02 14:25:39 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.4 2005/10/24 09:26:04 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,6 +12,8 @@
  * File for RSS stream
  */
 
+  require_once('crypt.php');
+
   session_name("NOCCSESSID");
   session_start();
 
@@ -20,6 +22,9 @@
     header('HTTP/1.0 401 Unauthorized');
     exit;
   }
+
+  genkey(30, 'NoccKey');
+  $from_rss = true;
 
   $_SESSION['nocc_user'] = $_SERVER['PHP_AUTH_USER'];
   $_SESSION['nocc_passwd'] = $_SERVER['PHP_AUTH_PW'];

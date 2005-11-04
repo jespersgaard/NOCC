@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.53 2005/10/24 09:26:04 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.54 2005/11/04 14:22:28 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -25,8 +25,10 @@ if ($_REQUEST["action"] == 'login') {
   session_unset();
   session_destroy();
   $pwd_to_encrypt = true;
-  /* key generation */
-  genkey(30, 'NoccKey');
+}
+
+if ($from_rss == true) {
+    $pwd_to_encrypt = true;
 }
 
 session_name("NOCCSESSID");
@@ -36,8 +38,6 @@ if ($_REQUEST['action'] == 'cookie' || $_REQUEST['rss'] == 'true'){
   list($_SESSION['nocc_user'], $_SESSION['nocc_passwd'], $_SESSION['nocc_lang'], $_SESSION['nocc_smtp_server'], $_SESSION['nocc_smtp_port'], $_SESSION['nocc_theme'], $_SESSION['nocc_domain'], $_SESSION['imap_namespace'], $_SESSION['nocc_servr'], $_SESSION['nocc_folder'], $_SESSION['smtp_auth']) = explode(" ", base64_decode($_COOKIE['NoccIdent']));
   $_SESSION['nocc_folder'] = $_REQUEST['nocc_folder'];
   $pwd_to_encrypt = true;
-  /* key generation */
-  genkey(30, 'NoccKey');
 }
 
 // Useful for debugging sessions
@@ -64,13 +64,22 @@ if(isset($_REQUEST['user']) && !isset($_SESSION['nocc_loggedin'])) {
     unset($_SESSION['nocc_login']);
     $_SESSION['nocc_user'] = safestrip($_REQUEST['user']);
 }
-if(isset($_REQUEST['passwd']))
+if(isset($_REQUEST['passwd'])) {
     $_SESSION['nocc_passwd'] = safestrip($_REQUEST['passwd']);
+    $pwd_to_encrypt = true;
+}
 
+$oldkey = $_COOKIE['NoccKey'];
+$key = genkey(rand(30,35), 'NoccKey');
+setcookie('NoccKey', $key);
+$_COOKIE['NoccKey'] = $key;
 if ($pwd_to_encrypt == true) {
     /* encrypt session password */
     /* store into session encrypted password */
-    $_SESSION['nocc_passwd'] = encr($_SESSION['nocc_passwd'], $_COOKIE['NoccKey']);
+    $_SESSION['nocc_passwd'] = encr($_SESSION['nocc_passwd'], $key);
+} else {
+    $_SESSION['nocc_passwd'] = decr($_SESSION['nocc_passwd'], $oldkey);
+    $_SESSION['nocc_passwd'] = encr($_SESSION['nocc_passwd'], $key);
 }
 
 if(isset($_REQUEST['lang']))
