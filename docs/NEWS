@@ -1,5 +1,6 @@
 NOCC 1.0    ?? ??, 2005
 
+    * Add Japanese language file (patch #1349062, Tadashi Jokagi).
     * Encrypt session stored passwords (Arnaud Boudou & Olivier Jourdat,
       RFE #811901, bug #1348164).
     * Improve RSS feed with subfolders (Arnaud Boudou).
