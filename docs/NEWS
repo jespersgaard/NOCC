@@ -1,6 +1,7 @@
 NOCC 1.0    ?? ??, 2005
 
-    * Add Japanese language file (patch #1349062, Tadashi Jokagi).
+    * Sort IMAP folder names (Arnaud Boudou, bug #1351980).
+    * Add Japanese language file (Tadashi Jokagi, patch #1349062).
     * Encrypt session stored passwords (Arnaud Boudou & Olivier Jourdat,
       RFE #811901, bug #1348164).
     * Improve RSS feed with subfolders (Arnaud Boudou).

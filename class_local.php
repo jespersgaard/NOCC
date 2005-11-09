@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.43 2005/11/04 14:22:28 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.44 2005/11/04 17:30:57 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -195,14 +195,18 @@ class nocc_imap
         if(!is_array($mailboxes)) {
             $ev = new NoccException("imap_getmailboxes did not return an array: ".imap_last_error());
             return;
+        } else {
+            sort($mailboxes);
         }
         return $mailboxes;
     }
 
     function getsubscribed(&$ev) {
         $subscribed = imap_getsubscribed($this->conn, '{'.$this->server.'}', '*');
-        if(is_array($subscribed))
+        if(is_array($subscribed)) {
+            sort($subscribed);
             return $subscribed;
+        }
         
         $error = imap_last_error();
         if(empty($error))
