@@ -1,5 +1,7 @@
-NOCC 1.0    ?? ??, 2005
+NOCC 1.0.0    ?? ??, 2006
 
+    * Add option to automatically choose mail domain to use with HTTP host
+      (Edwin Meester, patch #1268985).
     * Sort IMAP folder names (Arnaud Boudou, bug #1351980).
     * Add Japanese language file (Tadashi Jokagi, patch #1349062).
     * Encrypt session stored passwords (Arnaud Boudou & Olivier Jourdat,

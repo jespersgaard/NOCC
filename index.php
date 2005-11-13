@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.103 2005/05/01 20:45:55 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.104 2005/08/01 08:11:14 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -120,6 +120,15 @@ function updatePage()
                           //Add fill-in domain
                           if( isset($conf->typed_domain_login) )
                             echo '@ <input class="button" type="text" name="fillindomain">';
+                          else if ( isset($conf->vhost_domain_login) && $conf->vhost_domain_login == true ) {
+                            $i = 0;
+                            while (!empty($conf->domains[$i]->in))
+                            {
+                              if (strpos($_SERVER["HTTP_HOST"],$conf->domains[$i]->domain))
+                                echo "<input type=\"hidden\" name=\"domainnum\" value=\"" . $i . "\" />\n";
+                                $i++;
+                            }
+                          }    
                           else
                           {
                             echo '@ <select class="button" name="domainnum">';

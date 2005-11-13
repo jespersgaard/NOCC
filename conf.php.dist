@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.136 2005/07/06 08:16:32 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.137 2005/07/07 10:22:46 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -88,6 +88,11 @@ $conf->domains[$i]->imap_namespace = "INBOX.";
 //$conf->domains[$i]->login_suffix = '';
 //$conf->domains[$i]->smtp_auth_method = '';
 //$conf->domains[$i]->imap_namespace = "INBOX.";
+
+// If you use many mail domains, the one used will be we one of the HTTP host,
+// and the user won't be asked for the domain to connect.
+// Set to true to enable.
+$conf->vhost_domain_login = false;
 
 // Is the user allowed to change his "From:" address? (true/false)
 $conf->allow_address_change = true;
