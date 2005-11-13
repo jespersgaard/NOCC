@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.171 2005/09/14 18:57:08 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.172 2005/11/04 14:22:28 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -55,6 +55,22 @@ switch($action)
 
         $attach_tab = array();
         $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
+        // Display embedded HTML images
+        $tmp_attach_tab = $attach_tab;
+	$i = 0;
+        while ($tmp = array_pop($tmp_attach_tab)) {
+          if ($conf->display_img_attach && (eregi('image', $tmp['mime']) && ($tmp['number'] != '')))
+          {
+            $exploded = explode('/', $tmp['mime']);
+            $img_type = array_pop($exploded);
+            if (eregi('JPEG', $img_type) || eregi('JPG', $img_type) || eregi('GIF', $img_type) || eregi ('PNG', $img_type))
+            {
+              $new_img_src = 'src="get_img.php?mail=' . $_REQUEST['mail'].'&amp;num=' . $tmp['number'] . '&amp;mime=' . $img_type . '&amp;transfer=' . $tmp['transfer'] . '"';
+              $content['body'] = eregi_replace("src=\"cid:".$tmp['name']."@([a-zA-Z0-9+-=%&:_.~?]*)\"", $new_img_src, $content['body']);
+              $content['body'] = eregi_replace("src=cid:".$tmp['name']."@([a-zA-Z0-9+-=@%&:_.~?]*)", $new_img_src, $content['body']);
+            }
+          }
+        }
         if (NoccException::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');

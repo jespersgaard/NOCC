@@ -1,5 +1,6 @@
 NOCC 1.0.0    ?? ??, 2006
 
+    * Render images embedded within HTML emails (Arnaud Boudou, patch #501449).
     * Add option to automatically choose mail domain to use with HTTP host
       (Edwin Meester, patch #1268985).
     * Sort IMAP folder names (Arnaud Boudou, bug #1351980).
