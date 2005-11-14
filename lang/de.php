@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.48 2005/07/04 17:12:28 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.49 2005/07/20 09:45:50 goddess_skuld Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha AT free DOT fr>
  * Copyright 2000 Olivier Cahagne <wolruf AT free DOT fr>
@@ -70,7 +70,7 @@ $html_help = 'Hilfe';
 $html_server = 'Server';
 $html_wrong = 'Der Nutzername oder das Passwort sind falsch';
 $html_retry = 'Nochmal';
-$html_remember = "Remember settings"; //to translate
+$html_remember = "Einstellungen speichern";
 
 // prefs.php
 
@@ -89,7 +89,7 @@ $html_prefs_updated = 'Einstellungen gespeichert';
 $html_manage_folders_link = 'IMAP Ordner verwalten';
 $html_manage_filters_link = 'E-Mail Filter verwalten';
 $html_use_graphical_smilies = 'Benutze graphische Emoticons';
-$html_sent_folder = 'Copy sent mails into a dedicated folder'; //to translate
+$html_sent_folder = 'Kopiere gesendete Email in das angegebene Verzeichnis';
 
 // folders.php
 $html_folders_create_failed = 'Der Ordner konnte nicht angelegt werden!';
@@ -140,7 +140,7 @@ $html_reply_short = 'Re';
 $html_reply_all = 'Antwort an alle';
 $html_forward = 'Weiterleitung';
 $html_forward_short = 'Fwd';
-$html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
+$html_forward_info = 'Die weiterzuleitende Nachricht wird als Anhang mit dieser Email verschickt.';
 $html_delete = 'Löschen';
 $html_new = 'Neu';
 $html_mark = 'Löschen';
@@ -150,7 +150,7 @@ $html_att_unknown = '[unbekannt]';
 $html_attach = 'Anhängen';
 $html_attach_forget = 'Sie müssen die Datei vor dem Senden der Nachricht anhängen !';
 $html_attach_delete = 'Ausgewählte entfernen';
-$html_attach_none = 'You must select a file to attach!';  //to translate
+$html_attach_none = 'Als Anhang müssen Sie eine Datei auswählen!';
 $html_sort_by = 'Sortieren nach';
 $html_from = 'Von';
 $html_subject = 'Betreff';
@@ -186,13 +186,13 @@ $html_no_sendaction = 'Keine Aktion angegeben. Versuchen Sie es mit eingeschalte
 $html_error_occurred = 'Ein Fehler ist aufgetreten';
 $html_prefs_file_error = 'Kann Ihre Einstellungen-Datei nicht zum Schreiben öffnen.';
 $html_wrap = 'Umbrechen der ausgehenden Nachrichten nach x Zeichen:';
-$html_wrap_none = 'None'; //to translate
+$html_wrap_none = 'Keine';
 $html_usenet_separator = 'Usenet-Signaturtrenner ("-- \n") benutzen';
 $html_mark_as = 'Markiere als';
 $html_read = 'gelesen';
 $html_unread = 'ungelesen';
-$html_mail_sent = 'Message successfully sent'; // to translate
-$html_encoding = 'Character encoding'; // to translate
+$html_mail_sent = 'Die Mail wurde erfolgreich abgesendet!';
+$html_encoding = 'Zeichensatz-Kodierung';
 
 // Contacts manager
 $html_add = 'Hinzufügen';
@@ -223,7 +223,7 @@ $html_smtp_error_unexpected = 'Unerwartete Antwort:';
 
 // IMAP messages (class_local.php)
 $lang_could_not_connect = 'Verbindung zum Server fehlgeschlagen';
-$lang_invalid_msg_num = 'Bad Message Number';  //to translate
+$lang_invalid_msg_num = 'Fehlerhafte Nachrichten-Nummer';
 
 $html_file_upload_attack = 'Die hochgeladene Datei konnte nicht gefunden werden.';
 $html_invalid_email_address = 'Ungültige E-mail Addresse';
