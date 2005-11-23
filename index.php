@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.108 2005/11/23 20:20:19 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.109 2005/11/23 20:27:10 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -187,13 +187,13 @@ function updatePage()
                       echo '<input class="button" type="text" name="server" value="mail.example.com" size="15" /><br /><input class="button" type="text" size="4" name="port" value="143" />';
                       echo '<select class="button" name="servtype" onchange="updatePort()">';
                       echo '<option value="imap">IMAP</option>';
-                      echo '<option value="notls">IMAP without TLS negociation</option>';
-                      echo '<option value="ssl">IMAP with SSL</option>';
-                      echo '<option value="ssl/novalidate-cert">IMAP with SSL and without valid certificate</option>';
+                      echo '<option value="notls">IMAP (no TLS)</option>';
+                      echo '<option value="ssl">IMAP SSL</option>';
+                      echo '<option value="ssl/novalidate-cert">IMAP SSL (self signed)</option>';
                       echo '<option value="pop3">POP3</option>';
-                      echo '<option value="pop3/notls">POP3 without TLS negociation</option>';
-                      echo '<option value="pop3/ssl">POP3 with SSL</option>';
-                      echo '<option value="pop3/ssl/novalidate-cert">POP3 with SSL and without valid certificate</option>';
+                      echo '<option value="pop3/notls">POP3 (no TLS)</option>';
+                      echo '<option value="pop3/ssl">POP3 SSL</option>';
+                      echo '<option value="pop3/ssl/novalidate-cert">POP3 SSL (self signed)</option>';
                       echo '</select>';
                       echo '</td>';
                       echo '</tr>';
