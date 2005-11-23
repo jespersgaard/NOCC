@@ -1,6 +1,6 @@
 Frequently Asked Questions for Nocc
 -----------------------------------
-Last updated: $Date: 2005/07/25 11:50:08 $
+Last updated: $Date: 2005/08/01 08:11:15 $
 
  Q. Nocc keeps me asking for a correct login/password.
 
@@ -155,3 +155,21 @@ Last updated: $Date: 2005/07/25 11:50:08 $
  
  A. Try to raise memory_limit variable in php.ini
     memory_limit = 16M is perfect for NOCC
+
+-----------------------------------
+
+ Q. When trying to connect to a POP3 or IMAP server, I get the following error
+    message: "Could not connect to server: Certificate failure for localhost:
+    unable to get local issuer certificate:"
+
+ A. If you connect to a POP3 or IMAP server, add "/notls" to the server string
+    into conf.php. I.e: localhost:143/notls
+    If you connect to a POP3/SSL or IMAP/SSL server, add "/novalidate-cert" to
+    the server string into conf.php. I.e: localhost:993/ssl/novalidate-cert
+
+----------------------------------
+
+ Q. When connecting to a POP3 or POPS server while quota are enabled into
+    conf.php, I get an blank page.
+
+ A. Disable quota into conf.php file. It only works with IMAP connections.

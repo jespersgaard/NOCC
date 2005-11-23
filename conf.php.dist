@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.137 2005/07/07 10:22:46 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.138 2005/11/13 18:28:24 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -29,11 +29,13 @@ $conf->default_smtp_port = 25;
 //
 // $conf->domains[$i]->in = 'mail.sourceforge.net:110/pop3';
 //  imap or pop3 server name + port + protocol (only if not imap)
-//  [server_name]:[port number]/[protocol]
+//  [server_name]:[port number]/[protocol]/[options]
 //  ex for an imap server : mail.sourceforge.net:143
+//  ex for an imap server with explicit TLS/SSL negociation desactivated : mail.sourceforge.net:143/notls (may be useful for some courier-imap installation).
 //  ex for an ssl imap server : mail.sourceforge.net:993/ssl
 //  ex for an ssl imap server with a self-signed certificate : mail.sourceforge.net:993/ssl/novalidate-cert
 //  ex for a pop3 server  : mail.sourceforge.net:110/pop3
+//  ex for a pop3 server with explicit TLS/SSL negociation desactivated : mail.sourceforge.net:110/pop3/notls (may be useful for some courier-imap installation).
 //  ex for an ssl pop3 server : mail.sourceforge.net:995/pop3/ssl
 //  ex for an ssl pop3 server with a self-signed certificate : mail.sourceforge.net:995/pop3/ssl/novalidate-cert
 //  protocol can only be pop3

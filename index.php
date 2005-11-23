@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.106 2005/11/23 13:53:28 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.107 2005/11/23 15:02:52 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -29,6 +29,10 @@ function updatePort ()
     {
         document.nocc_webmail_login.port.value = 143;
     }
+    else if (document.nocc_webmail_login.servtype.options[document.nocc_webmail_login.servtype.selectedIndex].value == 'notls')
+    {
+        document.nocc_webmail_login.port.value = 143;
+    }
     else if (document.nocc_webmail_login.servtype.options[document.nocc_webmail_login.servtype.selectedIndex].value == 'ssl') 
     {
         document.nocc_webmail_login.port.value = 993;
@@ -38,6 +42,10 @@ function updatePort ()
         document.nocc_webmail_login.port.value = 993;
     }
     else if (document.nocc_webmail_login.servtype.options[document.nocc_webmail_login.servtype.selectedIndex].value == 'pop3')
+    {
+        document.nocc_webmail_login.port.value = 110;
+    }
+    else if (document.nocc_webmail_login.servtype.options[document.nocc_webmail_login.servtype.selectedIndex].value == 'pop3/notls')
     {
         document.nocc_webmail_login.port.value = 110;
     }
