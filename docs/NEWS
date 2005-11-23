@@ -1,5 +1,6 @@
 NOCC 1.0.0    ?? ??, 2006
 
+    * Fix Javascript issues (Arnaud Boudou).
     * Updated german translation (strongbows, patch #1353859).
     * Render images embedded within HTML emails (Arnaud Boudou, patch #501449).
     * Add option to automatically choose mail domain to use with HTTP host

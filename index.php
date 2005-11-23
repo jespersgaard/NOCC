@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.104 2005/08/01 08:11:14 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.105 2005/11/13 18:28:24 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -82,7 +82,7 @@ function updatePage()
 // -->
 </script>
 
-            <form action="action.php" method="post" id="nocc_webmail_login">
+            <form action="action.php" method="post" name="nocc_webmail_login" id="nocc_webmail_login">
             <div class="loginContent">
               <input type="hidden" name="folder" value="INBOX" />
               <input type="hidden" name="action" value="login" />

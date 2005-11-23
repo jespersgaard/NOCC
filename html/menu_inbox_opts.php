@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox_opts.php,v 1.15 2004/06/20 09:39:32 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_inbox_opts.php,v 1.16 2005/08/01 08:11:16 goddess_skuld Exp $ -->
                     <table>
                       <tr>
                         <td colspan="4">
@@ -32,11 +32,11 @@
                                 <?php
                                   }
                                 ?>
-                                <input type="submit" name="delete_mode" class="button" value="<?php echo $html_delete; ?>" onclick="if (confirm(\'<?php echo $html_del_msg; ?>\')) return true; else return false;"/>
+                                <input type="submit" name="delete_mode" class="button" value="<?php echo $html_delete; ?>" onclick="if (confirm('<?php echo $html_del_msg; ?>')) return true; else return false;"/>
                               </td>
                             </tr>
                           </table>
                         </td>
                       </tr>
                     </table>
-<!-- end of $Id: menu_inbox_opts.php,v 1.15 2004/06/20 09:39:32 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_inbox_opts.php,v 1.16 2005/08/01 08:11:16 goddess_skuld Exp $ -->
