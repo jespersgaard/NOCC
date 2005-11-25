@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.73 2004/11/25 17:33:52 goddess_skuld Exp $ -->
+<!-- start of $Id: send.php,v 1.74 2005/08/01 08:11:17 goddess_skuld Exp $ -->
 <?php
 // Default e-mail address on send form
 $mail_from = get_default_from_address();
@@ -35,7 +35,7 @@ $mail_from = get_default_from_address();
        </td>
      </tr>
      <tr>
-     <?php if (isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
+     <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
        <td class="sendLabel">
          <a href="javascript:void(0);" onclick="window.open('contacts.php?field=mail_to&<?php echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_to ?></a> :
        </td>
@@ -47,7 +47,7 @@ $mail_from = get_default_from_address();
        </td>
      </tr>
      <tr>
-     <?php if (isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
+     <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
        <td class="sendLabel">
          <a href="javascript:void(0);" onclick="window.open('contacts.php?field=mail_cc&<?php echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_cc ?></a> :
 
@@ -60,7 +60,7 @@ $mail_from = get_default_from_address();
        </td>
      </tr>
      <tr>
-     <?php if (isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
+     <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
        <td class="sendLabel">
          <a href="javascript:void(0);" onclick="window.open('contacts.php?field=mail_bcc&<?php echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_bcc ?></a> :
        </td>
@@ -202,4 +202,4 @@ function validate(f)
 
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.73 2004/11/25 17:33:52 goddess_skuld Exp $ -->
+<!-- end of $Id: send.php,v 1.74 2005/08/01 08:11:17 goddess_skuld Exp $ -->

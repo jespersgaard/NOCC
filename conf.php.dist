@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.138 2005/11/13 18:28:24 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.139 2005/11/23 20:20:19 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -104,7 +104,7 @@ $conf->allow_address_change = true;
 // And 'c:\\temp' on Win32 (note that we must escape "\")
 $conf->tmpdir = '';
 
-// Preferences data directory
+// Preferences and contacts data directory
 // IMPORTANT: This directory must exist and be writable by the user
 // the webserver is running as (e.g. 'apache', or 'nobody'). For
 // Apache, see the User directive in the httpd.conf file.
