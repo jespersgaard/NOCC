@@ -1,5 +1,6 @@
 NOCC 1.0.0    ?? ??, 2006
 
+    * Update Italian translation (daiceman, patch #1369275).
     * Doesn't display link to contacts list if $conf->prefs_dir is empty (Arnaud
       Boudou).
     * Fix Javascript issues (Arnaud Boudou).

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.45 2005/07/04 17:12:28 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.46 2005/07/20 09:45:50 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -67,7 +67,7 @@ $html_help = 'Aiuto';
 $html_server = 'Server';
 $html_wrong = 'Login o password non corretti';
 $html_retry = 'Riprova';
-$html_remember = "Remember settings"; //to translate
+$html_remember = 'Ricorda Impostazioni';
 
 // prefs.php
 
@@ -86,7 +86,7 @@ $html_prefs_updated = 'Preferenze aggiornate';
 $html_manage_folders_link = 'Configura Cartelle IMAP';
 $html_manage_filters_link = 'Configura Filtri Email';
 $html_use_graphical_smilies = 'Usa smilies grafici';
-$html_sent_folder = 'Copy sent mails into a dedicated folder'; //to translate
+$html_sent_folder = 'Copia email inviate in cartella predefinita';
 
 // folders.php
 $html_folders_create_failed = 'La cartella non può essere creata!';
@@ -137,7 +137,7 @@ $html_reply_short = 'Re';
 $html_reply_all = 'Rispondi a tutti';
 $html_forward = 'Inoltra';
 $html_forward_short = 'Fw';
-$html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
+$html_forward_info = 'Il messaggio inoltrato sara` inviato come allegato a questo messaggio';
 $html_delete = 'Elimina';
 $html_new = 'Nuovo';
 $html_mark = 'Elimina';
@@ -147,7 +147,7 @@ $html_att_unknown = '[sconosciuto]';
 $html_attach = 'Allega';
 $html_attach_forget = 'Devi allegare il file prima di inviare il messaggio !';
 $html_attach_delete = 'Elimina i files selezionati';
-$html_attach_none = 'You must select a file to attach!';  //to translate
+$html_attach_none = 'Devi selezionare un file da allegare!';
 $html_sort_by = 'Ordina per';
 $html_from = 'da';
 $html_subject = 'Oggetto';
@@ -188,8 +188,8 @@ $html_usenet_separator = 'Separatore ("-- \n") prima della firma';
 $html_mark_as = 'Contrassegna come';
 $html_read = 'letto';
 $html_unread = 'non letto';
-$html_mail_sent = 'Message successfully sent'; // to translate
-$html_encoding = 'Character encoding'; // to translate
+$html_mail_sent = 'Messaggio inviato correttamente';
+$html_encoding = 'Encoding caratteri';
 
 // Contacts manager
 $html_add = 'Nuovo';
@@ -220,9 +220,9 @@ $html_smtp_error_unexpected = 'Risposta inattesa dal server SMTP:';
 
 // IMAP messages (class_local.php)
 $lang_could_not_connect = 'Non è possibile connettersi al server';
-$lang_invalid_msg_num = 'Bad Message Number';  //to translate
+$lang_invalid_msg_num = 'Numero messaggio errato';
 
-$html_file_upload_attack = 'Possibile file upload attack'; //to translate
+$html_file_upload_attack = 'Possibile attacco di upload di files';
 $html_invalid_email_address = 'Indirizzo e-mail non valido';
 $html_invalid_msg_per_page = 'Numero di messaggi per pagina non valido';
 $html_invalid_wrap_msg = 'Ampiezza testo a capo non valida';
