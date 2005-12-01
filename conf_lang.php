@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.25 2005/08/03 17:02:41 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.26 2005/11/05 21:06:17 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -36,17 +36,17 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'ca';
 $lang_array[$i]->label = 'Català';
 
-// Chinese
+// Chinese (Traditionnal)
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'zh-tw';
-$lang_array[$i]->label = 'Chinese (Taiwan)';
+$lang_array[$i]->label = 'Chinese (Traditionnal)';
 
-// Chinese Simplified
+// Chinese (Simplified)
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'zh-gb';
-$lang_array[$i]->label = 'Chinese Simplified';
+$lang_array[$i]->label = 'Chinese (Simplified)';
 
 // Czech
 $i++;
@@ -54,7 +54,7 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'cs';
 $lang_array[$i]->label = 'Cesky';
 
-// Svenska
+// Danish
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'da';
@@ -120,7 +120,7 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'is';
 $lang_array[$i]->label = 'Icelandic';
 
-// Italiano
+// Italian
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'it';
@@ -144,7 +144,7 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'lv';
 $lang_array[$i]->label = 'Latviesu';
 
-// Magyar
+// Hungarian
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'hu';
@@ -174,7 +174,7 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'pt';
 $lang_array[$i]->label = 'Português';
 
-// Portuguese Brazil
+// Brazilian Portuguese
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'pt-br';
@@ -198,19 +198,19 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'sv';
 $lang_array[$i]->label = 'Svenska';
 
-// Slovenian
+// Slovene
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'sl';
 $lang_array[$i]->label = 'Slovensko';
 
-// Slovenski
+// Slovak
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'sk';
 $lang_array[$i]->label = 'Slovensky';
 
-// Srpski Jezik
+// Serbian
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'sr';
