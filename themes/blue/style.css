@@ -334,6 +334,10 @@ div.topNavigation {
   background-color: #002266;
 }
 
+div.topNavigation table {
+  width: 100%;
+}
+
 div.topNavigation img {
   width: 12px;
   height: 12px;
@@ -349,6 +353,10 @@ div.messageList table {
 
 div.bottomNavigation {
   background-color: #002266;
+}
+
+div.bottomNavigation table {
+  width: 100%;
 }
 
 div.bottomNavigation img {
