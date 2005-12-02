@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.23 2005/07/02 14:03:59 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf_charset.php,v 1.1 2005/07/04 17:12:27 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -114,11 +114,13 @@ $charset_array[$i]->charset = 'EUC-CN';
 $charset_array[$i]->label = 'Chinese, simplified - Unix (EUC-CN)';
 
 // Chinese, traditional - BIG5 (BIG5)
+$i++;
 $charset_array[$i] = new charset();
 $charset_array[$i]->charset = 'BIG5';
 $charset_array[$i]->label = 'Chinese, traditional - BIG5 (BIG5)';
 
 // Chinese, traditional - BIG5 (BIG5-HKSCS)
+$i++;
 $charset_array[$i] = new charset();
 $charset_array[$i]->charset = 'BIG5-HKSCS';
 $charset_array[$i]->label = 'Chinese, traditional - BIG5 (BIG5-HKSCS)';
