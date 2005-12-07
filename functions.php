@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.207 2005/09/13 19:19:36 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.208 2005/09/14 18:57:08 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -50,14 +50,36 @@ function inbox(&$pop, $skip = 0, &$ev)
         if(NoccException::isException($ev)) return;
         $struct_msg = $pop->fetchstructure($pop_msgno_msgnum, $ev);
         if(NoccException::isException($ev)) return;
-        $subject_array = nocc_imap::mime_header_decode($ref_contenu_message->subject);
-        for ($j = 0; $j < count($subject_array); $j++)
+
+        // Get message charset
+	$msg_charset = '';
+	if ($struct_msg->ifparameters) {
+	  while ($obj = array_pop($struct_msg->parameters))
+	    if (strtolower($obj->attribute) == 'charset') {
+	      $msg_charset = $obj->value;
+	      break;
+	    }
+	}
+	if ($msg_charset == '') {
+	  $msg_charset = 'ISO-8859-1';
+	}
+
+	// Get subject
+        $subject_header = str_replace('x-unknown', $msg_charset, $ref_contenu_message->subject);
+        $subject_array = nocc_imap::mime_header_decode($subject_header);
+        
+	for ($j = 0; $j < count($subject_array); $j++)
             $subject .= $subject_array[$j]->text;
- 
-        $from_array = nocc_imap::mime_header_decode($ref_contenu_message->fromaddress);
+
+	// Get from
+	$from_header = str_replace('x-unknown', $msg_charset, $ref_contenu_message->fromaddress);
+        $from_array = nocc_imap::mime_header_decode($from_header);
         for ($j = 0; $j < count($from_array); $j++)
             $from .= $from_array[$j]->text;
-        $to_array = nocc_imap::mime_header_decode($ref_contenu_message->toaddress);
+
+	// Get to
+	$to_header = str_replace('x-unknown', $msg_charset, $ref_contenu_message->toaddress);
+        $to_array = nocc_imap::mime_header_decode($to_header);
         for ($j = 0; $j < count($to_array); $j++) {
             $to = $to . $to_array[$j]->text . ", ";
         }
@@ -212,19 +234,18 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
         if ($tmp['transfer'] == 'BASE64')
             $body = base64_decode($body);
         $body = remove_stuff($body, $tmp['mime']);
-
         $body_charset =  ($tmp['charset'] == "default") ? detect_charset($body) : $tmp['charset'];
         // Convert US-ASCII to ISO-8859-1 for systems which have difficulties with.
         if (strtolower($body_charset) == "us-ascii") {
            $body_charset = "ISO-8859-1";
         }
         // Use default charset if no charset is provided by the displayed mail.
-        // If no default charset is defined, use UTF-8.
+        // If no default charset is defined, use ISO-8859-1.
         if ($body_charset == "" || $body_charset == null) {
           if (isset($conf->default_charset) && $conf->default_charset != "") {
             $body_charset = $conf->default_charset;
           } else {
-            $body_charset = "UTF-8";
+            $body_charset = "ISO-8859-1";
           }
         }
 
@@ -254,25 +275,60 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
                 break;
         }
     }
-    $subject_array = nocc_imap::mime_header_decode($ref_contenu_message->subject);
+
+    //Get message charset
+    $struct_msg = $pop->fetchstructure($mail, $ev);
+    if(NoccException::isException($ev)) return;
+    $msg_charset = '';
+    if ($struct_msg->ifparameters) {
+      while ($obj = array_pop($struct_msg->parameters)) {
+        if (strtolower($obj->attribute) == 'charset') {
+          $msg_charset = $obj->value;
+          break;
+        }
+      }
+    }
+    if ($msg_charset == '') {
+      $msg_charset = 'ISO-8859-1';
+    }
+
+    // Get subject
+    $subject_header = str_replace('x-unknown', $msg_charset, $ref_contenu_message->subject);
+    $subject_array = nocc_imap::mime_header_decode($subject_header);
     for ($j = 0; $j < count($subject_array); $j++)
         $subject .= $subject_array[$j]->text;
-    $from_array = nocc_imap::mime_header_decode($ref_contenu_message->fromaddress);
+
+    // Get from
+    $from_header = str_replace('x-unknown', $msg_charset, $ref_contenu_message->fromaddress);
+    $from_array = nocc_imap::mime_header_decode($from_header);
     for ($j = 0; $j < count($from_array); $j++)
         $from .= $from_array[$j]->text;
-    $to_array = nocc_imap::mime_header_decode($ref_contenu_message->toaddress);
+
+    // Get to
+    $to_header = str_replace('x-unknown', $msg_charset, $ref_contenu_message->toaddress);
+    $to_array = nocc_imap::mime_header_decode($to_header);
     for ($j = 0; $j < count($to_array); $j++)
         $to .= $to_array[$j]->text;
     $to = str_replace(',', ', ', $to);
-    $cc_array = isset($ref_contenu_message->ccaddress) ? nocc_imap::mime_header_decode($ref_contenu_message->ccaddress) : 0;
+    
+    // Get cc
+    $cc_header = isset($ref_contenu_message->ccaddress) ? $ref_contenu_message->ccaddress : '';
+    $cc_header = str_replace('x-unknown', $msg_charset, $cc_header);
+    $cc_array = isset($ref_contenu_message->ccaddress) ? nocc_imap::mime_header_decode($cc_header) : 0;
     if ($cc_array != 0) {
         for ($j = 0; $j < count($cc_array); $j++)
             $cc .= $cc_array[$j]->text;
     }
     $cc = str_replace(',', ', ', $cc);
-    $reply_to_array = isset($ref_contenu_message->reply_toaddress) ? nocc_imap::mime_header_decode($ref_contenu_message->reply_toaddress) : 0;
-    for ($j = 0; $j < count($reply_to_array); $j++)
-        $reply_to .= $reply_to_array[$j]->text;
+
+    // Get reply to
+    $replay_to_header = isset($ref_contenu_message->reply_toaddress) ? $ref_contenu_message->reply_toaddress : '';
+    $reply_to_header = str_replace('x-unknown', $msg_charset, $reply_to_header);
+    $reply_to_array = isset($ref_contenu_message->reply_toaddress) ? nocc_imap::mime_header_decode($reply_to_header) : 0;
+    if ($reply_to_array != 0) {
+        for ($j = 0; $j < count($reply_to_array); $j++)
+            $reply_to .= $reply_to_array[$j]->text;
+    }
     $timestamp = chop($ref_contenu_message->udate);
     $date = format_date($timestamp, $lang);
     $time = format_time($timestamp, $lang);
