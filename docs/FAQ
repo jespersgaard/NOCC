@@ -1,6 +1,6 @@
 Frequently Asked Questions for Nocc
 -----------------------------------
-Last updated: $Date: 2005/08/01 08:11:15 $
+Last updated: $Date: 2005/11/23 20:20:19 $
 
  Q. Nocc keeps me asking for a correct login/password.
 
@@ -173,3 +173,12 @@ Last updated: $Date: 2005/08/01 08:11:15 $
     conf.php, I get an blank page.
 
  A. Disable quota into conf.php file. It only works with IMAP connections.
+
+----------------------------------
+
+ Q. When displaying an email or the inbox content, the charset is not correctly
+    detected causing bad body or subject display.
+
+ A. Check the mail contains the "MIME-Version : 1.0" header. If not, the charset
+    can't be detected du to PHP IMAP module imap_fetchstructure function
+    limitation.
