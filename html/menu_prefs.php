@@ -1,9 +1,9 @@
-<!-- start of $Id: menu_prefs.php,v 1.23 2005/01/08 21:29:31 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_prefs.php,v 1.24 2005/08/01 08:11:17 goddess_skuld Exp $ -->
 <div class="menuPrefs">
   <table> 
     <tr>
       <td class="menu">
-        <a href="<?php echo $_SERVER['PHP_SELF'] ?>" class="menu"><?php if ($_SESSION['nocc_folder'] != INBOX) { echo $_SESSION['nocc_folder']; } else { echo $html_inbox; } ?></a>
+        <a href="<?php echo $_SERVER['PHP_SELF'] ?>" class="menu"><?php if ($_SESSION['nocc_folder'] != 'INBOX') { echo $_SESSION['nocc_folder']; } else { echo $html_inbox; } ?></a>
       </td>
       <td class="menu">
         <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=write" class="menu"><?php echo $html_new_msg ?></a>
@@ -26,4 +26,4 @@
     </tr>
   </table>
 </div>
-<!-- end of $Id: menu_prefs.php,v 1.23 2005/01/08 21:29:31 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_prefs.php,v 1.24 2005/08/01 08:11:17 goddess_skuld Exp $ -->

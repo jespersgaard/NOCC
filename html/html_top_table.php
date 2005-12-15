@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.77 2005/08/03 07:10:41 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.78 2005/08/03 17:48:09 goddess_skuld Exp $ -->
 <?php
 
 require_once 'class_local.php';
@@ -66,7 +66,7 @@ if ($pop->is_imap()) {
                   <table>
                     <tr>
                       <td class="left">
-                        <?php if ($_SESSION['nocc_folder'] != INBOX) { ?>
+                        <?php if ($_SESSION['nocc_folder'] != 'INBOX') { ?>
                         <span class="currentInbox"><?php echo $_SESSION['nocc_folder']; ?></span> 
                         <?php } else { ?>
                         <span class="currentInbox"><?php echo $html_inbox; ?></span>
@@ -150,4 +150,4 @@ if ($pop->is_imap()) {
                             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>"><?php echo $html_size ?></a>
                           </td>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.77 2005/08/03 07:10:41 goddess_skuld Exp $ -->
+<!-- end of $Id: html_top_table.php,v 1.78 2005/08/03 17:48:09 goddess_skuld Exp $ -->

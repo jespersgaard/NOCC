@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox.php,v 1.52 2005/05/01 20:45:56 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.53 2005/08/01 08:11:16 goddess_skuld Exp $ -->
 <?php
 $action = "";
 if(isset($_REQUEST['action']))
@@ -31,13 +31,13 @@ elseif ($action == 'forward')
               <table>
                 <tr>
                   <td class="<?php echo $classInbox; ?>">
-                    <a href="<?php echo $_SERVER['PHP_SELF'] ?>"><?php if ($_SESSION['nocc_folder'] != INBOX) { echo $_SESSION['nocc_folder']; } else { echo $html_inbox; } ?></a>
+                    <a href="<?php echo $_SERVER['PHP_SELF'] ?>"><?php if ($_SESSION['nocc_folder'] != 'INBOX') { echo $_SESSION['nocc_folder']; } else { echo $html_inbox; } ?></a>
                   </td>
                   <td class="<?php echo $class; ?>">
                     <?php echo $line ?>
                   </td>
                   <td class="menuBlank">
-                    <?php if ($_GET["successfulsend"]) { echo ($html_mail_sent); } ?>
+                    <?php if (isset($_GET["successfulsend"]) && $_GET["successfulsend"]) { echo ($html_mail_sent); } ?>
                   </td>
                   <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
                   <td class="menu">
@@ -57,4 +57,4 @@ elseif ($action == 'forward')
                 </tr>
               </table>
             </div>
-<!-- end of $Id: menu_inbox.php,v 1.52 2005/05/01 20:45:56 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_inbox.php,v 1.53 2005/08/01 08:11:16 goddess_skuld Exp $ -->

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.56 2005/11/04 17:30:57 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.57 2005/11/13 20:33:13 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -9,6 +9,9 @@
  *
  * Stuff that is always checked or run or initialised for every hit.
  */
+
+// Define variables
+if (!isset($from_rss)) { $from_rss=false; }
 
 require_once("user_filters.php");
 require_once("html_entity_decode.php");
@@ -19,7 +22,7 @@ $conf->nocc_version = '1.0-dev';
 $conf->nocc_url = 'http://nocc.sourceforge.net/';
 
 $pwd_to_encrypt = false;
-if ($_REQUEST["action"] == 'login') {
+if (isset ($_REQUEST["action"]) && $_REQUEST["action"] == 'login') {
   session_name("NOCCSESSID");
   session_start();
   session_unset();
@@ -32,11 +35,14 @@ if ($from_rss == true) {
 }
 
 session_name("NOCCSESSID");
-session_start();
+if ($from_rss == false) {
+    session_start();
+}
+
 // Initialise session array
-if ($_REQUEST['action'] == 'cookie' || $_REQUEST['rss'] == 'true'){
+if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'cookie' || isset($_REQUEST['rss']) && $_REQUEST['rss'] == 'true'){
   list($_SESSION['nocc_user'], $_SESSION['nocc_passwd'], $_SESSION['nocc_lang'], $_SESSION['nocc_smtp_server'], $_SESSION['nocc_smtp_port'], $_SESSION['nocc_theme'], $_SESSION['nocc_domain'], $_SESSION['imap_namespace'], $_SESSION['nocc_servr'], $_SESSION['nocc_folder'], $_SESSION['smtp_auth']) = explode(" ", base64_decode($_COOKIE['NoccIdent']));
-  $_SESSION['nocc_folder'] = $_REQUEST['nocc_folder'];
+  $_SESSION['nocc_folder'] = isset($_REQUEST['nocc_folder']) ? $_REQUEST['nocc_folder'] : 'INBOX';
   $pwd_to_encrypt = true;
 }
 
@@ -122,7 +128,7 @@ if(isset($_SESSION['nocc_user']) && !isset($_SESSION['nocc_login']))
     $_SESSION['nocc_login'] = $_SESSION['nocc_user'];
 
 // Check allowed chars for login
-if ($_SESSION['nocc_login'] != '' && isset($conf->allowed_char) && $conf->allowed_char != '' && !ereg($conf->allowed_char, $_SESSION['nocc_login'])) {
+if (isset($_SESSION['nocc_login']) && $_SESSION['nocc_login'] != '' && isset($conf->allowed_char) && $conf->allowed_char != '' && !ereg($conf->allowed_char, $_SESSION['nocc_login'])) {
     $ev = new NoccException($html_wrong);
     //if(isset($_REQUEST['theme'])) {
     //    $_SESSION['nocc_theme'] = safestrip($_REQUEST['theme']);

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.17 2005/08/01 08:11:14 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.18 2005/08/31 19:29:07 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -71,14 +71,8 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
   <?php
       exit;
     }
-  ?>
     
-  <?php
-    if (!isset($_GET['action']))
-    {
-      $_GET['action'] = "";
-    }
-    $action = $_GET['action'];
+    $action = isset($_GET['action']) ? $_GET['action'] : '';
     switch($action){
       case "add_prompt":
         if (isset($_GET['id']))
@@ -153,6 +147,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
     </form>
   </div>
   <?php
+	;
         break;
 
       case "add":
@@ -203,6 +198,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
   <?php
         ;
         break;
+
       case "delete":
         $new_contacts = array ();
         for ($i = 0; $i < count ($contacts); ++$i)
@@ -255,8 +251,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
     <br/>
     <a href="<?php echo $_SERVER['PHP_SELF'];; ?>?action=add_prompt&amp;<?php echo $query_str ?>"><?php echo $html_contact_add ?></a>
   </div>
-  <?
-      ;
+  <?php
     } // switch
   ?>
 </body>

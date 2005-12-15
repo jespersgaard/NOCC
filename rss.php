@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.4 2005/10/24 09:26:04 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.5 2005/11/04 15:57:45 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,6 +13,7 @@
  */
 
   require_once('crypt.php');
+  require_once('user_prefs.php');
 
   session_name("NOCCSESSID");
   session_start();
@@ -39,6 +40,15 @@
   $_SESSION['nocc_folder'] = $_REQUEST['nocc_folder'];
   $_SESSION['smtp_auth'] = $_REQUEST['smtp_auth'];
 
+  if(!isset($_SESSION['nocc_user_prefs'])) {
+      $_SESSION['nocc_user_prefs'] = NOCCUserPrefs::read($user_key, $ev);
+      if(NoccException::isException($ev)) {
+              echo "<p>User prefs error ($user_key): ".$ev->getMessage()."</p>";
+              exit(1);
+      }
+      echo ('bouh');
+  }
+
   require_once './conf.php';
   require_once './common.php';
   require_once './class_local.php';
@@ -52,7 +62,7 @@
 
   $tab_mail = array();
   if ($pop->num_msg() > 0) {
-    $tab_mail = inbox($pop, $skip, $ev);
+    $tab_mail = inbox($pop, 0, $ev);
     $tab_mail_bak = $tab_mail;
   }
 

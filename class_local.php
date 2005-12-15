@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.44 2005/11/04 17:30:57 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.45 2005/11/09 09:02:55 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -265,11 +265,13 @@ class nocc_imap
         $output_charset = $GLOBALS['charset'];
         $source = imap_mime_header_decode($header);
         $result[] = new result;
-        $result[0]->text=''; $result[0]->charset='US-ASCII';
+        $result[0]->text='';
+        $result[0]->charset='ISO-8859-1';
         for ($j = 0; $j < count($source); $j++ ) {
             $element_charset =  ($source[$j]->charset == "default") ? detect_charset($source[$j]->text) : $source[$j]->charset;
             if ($element_charset == 'x-unknown')
-              $element_charset = $GLOBALS['charset'];
+              $element_charset = 'ISO-8859-1';
+
             $element_converted = @iconv( $element_charset, $output_charset, $source[$j]->text);
             $result[$j]->text = $element_converted;
             $result[$j]->charset = $output_charset;

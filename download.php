@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.36 2002/06/27 22:17:52 rossigee Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.37 2003/12/21 15:40:20 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,8 +13,6 @@
 
 if(!isset($HTTP_USER_AGENT))
     $HTTP_USER_AGENT = $_SERVER['HTTP_USER_AGENT'];
-if (eregi('MSIE', $HTTP_USER_AGENT) || eregi('Internet Explorer', $HTTP_USER_AGENT))
-    session_cache_limiter('public');
 
 require_once './conf.php';
 require_once './common.php';
@@ -25,13 +23,41 @@ $filename = $_REQUEST['filename'];
 $mail = $_REQUEST['mail'];
 $transfer = $_REQUEST['transfer'];
 $part = $_REQUEST['part'];
+$filename = base64_decode($filename);
+$filename = ereg_replace('[\\/:\*\?"<>\|;]', '_', str_replace('&#32;', ' ', $filename));
+$isIE = $isIE6 = 0;
 
-header('Content-Type: application/x-unknown-' . $mime);
-// IE 5.5 is weird, the line is not correct but it works
-if (eregi('MSIE', $HTTP_USER_AGENT) && eregi('5.5', $HTTP_USER_AGENT))
-    header('Content-Disposition: filename=' . urldecode($filename));
-else
-    header('Content-Disposition: attachment; filename=' . urldecode($filename));
+// Set correct http headers.
+// Thanks to Squirrelmail folks :-)
+if (strstr($HTTP_USER_AGENT, 'compatible; MSIE ') !== false &&
+  strstr($HTTP_USER_AGENT, 'Opera') === false) {
+    $isIE = 1;
+}
+
+if (strstr($HTTP_USER_AGENT, 'compatible; MSIE 6') !== false &&
+  strstr($HTTP_USER_AGENT, 'Opera') === false) {
+    $isIE6 = 1;
+}
+
+if ($isIE) {
+    $filename=rawurlencode($filename);
+    header ("Pragma: public");
+    header ("Cache-Control: no-store, max-age=0, no-cache, must-revalidate"); // HTTP/1.1
+    header ("Cache-Control: post-check=0, pre-check=0", false);
+    header ("Cache-Control: private");
+
+    //set the inline header for IE, we'll add the attachment header later if we need it
+    header ("Content-Disposition: inline; filename=$filename");
+}
+
+header ("Content-Type: application/octet-stream; name=\"$filename\"");
+header ("Content-Disposition: attachment; filename=\"$filename\"");
+
+if ($isIE && !$isIE6) {
+    header ("Content-Type: application/download; name=\"$filename\"");
+} else {
+    header ("Content-Type: application/octet-stream; name=\"$filename\"");
+}
 
 $ev = "";
 $pop = new nocc_imap($ev);

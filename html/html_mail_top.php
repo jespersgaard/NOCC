@@ -1,4 +1,4 @@
-<!-- start of $Id: html_mail_top.php,v 1.11 2005/10/17 16:19:25 goddess_skuld Exp $ -->
+<!-- start of $Id: html_mail_top.php,v 1.12 2005/10/26 13:42:45 goddess_skuld Exp $ -->
 <div class="mailNav">
    <table>
 <?php
@@ -45,7 +45,7 @@ if ($content['subject'] == '')
   echo '<select class="button" name="user_charset">';
   for ($i = 0; $i < sizeof($charset_array); $i++) {
     echo '<option value="'.$charset_array[$i]->charset.'"';
-    if ($_REQUEST['user_charset'] == $charset_array[$i]->charset
+    if (isset($_REQUEST['user_charset']) && $_REQUEST['user_charset'] == $charset_array[$i]->charset
         || ((!isset($_REQUEST['user_charset']) || $_REQUEST['user_charset'] == '') && strtolower($content['charset']) == strtolower($charset_array[$i]->charset)))
       echo ' selected="selected"';
     echo '>'.$charset_array[$i]->label.'</option>';
@@ -59,4 +59,4 @@ if ($content['subject'] == '')
 </div>
 <div class="mailData">
    <table>
-<!-- end of $Id: html_mail_top.php,v 1.11 2005/10/17 16:19:25 goddess_skuld Exp $ -->
+<!-- end of $Id: html_mail_top.php,v 1.12 2005/10/26 13:42:45 goddess_skuld Exp $ -->

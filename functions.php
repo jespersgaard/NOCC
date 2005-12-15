@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.208 2005/09/14 18:57:08 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.209 2005/12/07 08:59:19 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -322,7 +322,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
     $cc = str_replace(',', ', ', $cc);
 
     // Get reply to
-    $replay_to_header = isset($ref_contenu_message->reply_toaddress) ? $ref_contenu_message->reply_toaddress : '';
+    $reply_to_header = isset($ref_contenu_message->reply_toaddress) ? $ref_contenu_message->reply_toaddress : '';
     $reply_to_header = str_replace('x-unknown', $msg_charset, $reply_to_header);
     $reply_to_array = isset($ref_contenu_message->reply_toaddress) ? nocc_imap::mime_header_decode($reply_to_header) : 0;
     if ($reply_to_array != 0) {
@@ -609,8 +609,13 @@ function link_att(&$mail, $attach_tab, &$display_part_no)
             $mime = str_replace('/', '-', $tmp['mime']);
             if ($display_part_no == true)
                 $link .= $tmp['number'] . '&nbsp;&nbsp;';
-            $att_name = nocc_imap::mime_header_decode($tmp['name']);
-            $link .= '<a href="download.php?mail=' . $mail . '&amp;part=' . $tmp['number'] . '&amp;transfer=' . $tmp['transfer'] . '&amp;filename=' . urlencode($att_name[0]->text) . '&amp;mime=' . $mime . '">' . htmlentities($att_name[0]->text) . '</a>&nbsp;&nbsp;' . $tmp['mime'] . '&nbsp;&nbsp;' . $tmp['size'] . ' ' . $html_kb;
+            $att_name_array = nocc_imap::mime_header_decode($tmp['name']);
+            for ($i=0; $i<count($att_name_array); $i++) {
+              $att_name .= $att_name_array[$i]->text;
+            }
+            $att_name_dl = $att_name;
+            $att_name = htmlentities($att_name, ENT_COMPAT, 'UTF-8');
+            $link .= '<a href="download.php?mail=' . $mail . '&amp;part=' . $tmp['number'] . '&amp;transfer=' . $tmp['transfer'] . '&amp;filename=' . base64_encode($att_name_dl) . '&amp;mime=' . $mime . '">' . $att_name . '</a>&nbsp;&nbsp;' . $tmp['mime'] . '&nbsp;&nbsp;' . $tmp['size'] . ' ' . $html_kb;
         }
     return ($link);
 }
@@ -992,7 +997,7 @@ function get_per_page() {
     return $msg_per_page;
 }
 
-// ==================================== Contact List ===========================================
+// ============================ Contact List ==================================
 
 function load_list ($path)
 {

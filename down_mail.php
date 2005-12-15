@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/down_mail.php,v 1.3 2005/11/04 15:57:45 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/down_mail.php,v 1.4 2005/11/04 17:30:57 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,8 +9,6 @@
  * did not receive this file, see http://wwW.fsf.org/copyleft/gpl.html.
  */
 
-if (eregi('MSIE', $_SERVER['HTTP_USER_AGENT']) || eregi('Internet Explorer', $_SERVER['HTTP_USER_AGENT']))
-	session_cache_limiter('public');
 session_name("NOCCSESSID");
 session_start();
 require_once ('./conf.php');
@@ -20,7 +18,7 @@ $passwd = safestrip($_SESSION['nocc_passwd']);
 $passwd = decpass($passwd, $_COOKIE['NoccKey']);
 $passwd = safestrip($passwd);
 
-header('Content-Type: text/plain');
+//header('Content-Type: text/plain');
 
 
 $pop = imap_open('{'.$_SESSION['nocc_servr'].'}'.$_SESSION['nocc_folder'], $_SESSION['nocc_user'], $passwd);
@@ -44,13 +42,38 @@ $file .= "\r\n\r\n";
 
 imap_close($pop);
 
+$isIE = $isIE6 = 0;
 
-// IE 5.5 is weird, the line is not correct but it works
-if (eregi('MSIE', $_SERVER['HTTP_USER_AGENT']) && eregi('5.5', $_SERVER['HTTP_USER_AGENT']))
-	header('Content-Disposition: filename=' . $url);
-else
-	header('Content-Disposition: attachment; filename=' . $url);
+// Set correct http headers.
+// Thanks to Squirrelmail folks :-)
+if (strstr($HTTP_USER_AGENT, 'compatible; MSIE ') !== false &&
+  strstr($HTTP_USER_AGENT, 'Opera') === false) {
+    $isIE = 1;
+}
 
+if (strstr($HTTP_USER_AGENT, 'compatible; MSIE 6') !== false &&
+  strstr($HTTP_USER_AGENT, 'Opera') === false) {
+    $isIE6 = 1;
+}
+
+if ($isIE) {
+    $url=rawurlencode($url);
+    header ("Pragma: public");
+    header ("Cache-Control: no-store, max-age=0, no-cache, must-revalidate"); // HTTP/1.1
+    header ("Cache-Control: post-check=0, pre-check=0", false);
+    header ("Cache-Control: private");
+
+    //set the inline header for IE, we'll add the attachment header later if we need it
+    header ("Content-Disposition: inline; filename=$url");
+}
+
+header ("Content-Disposition: attachment; filename=\"$url\"");
+
+if ($isIE && !$isIE6) {
+    header ("Content-Type: text/plain; name=\"$filename\"");
+} else {
+    header ("Content-Type: text/plain; name=\"$filename\"");
+}
 
 header('Content-Length: ' . strlen($file));
 

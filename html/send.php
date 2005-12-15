@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.74 2005/08/01 08:11:17 goddess_skuld Exp $ -->
+<!-- start of $Id: send.php,v 1.75 2005/11/25 06:39:47 goddess_skuld Exp $ -->
 <?php
 // Default e-mail address on send form
 $mail_from = get_default_from_address();
@@ -138,7 +138,7 @@ $mail_from = get_default_from_address();
            echo '</table>';
          }
          else {
-           if ($_GET["action"] == 'forward') {
+           if (isset($_GET["action"]) && $_GET["action"] == 'forward') {
              echo '<span class="inbox">' . $html_forward_info . '</span>';
            } else {
              echo '&nbsp;';
@@ -202,4 +202,4 @@ function validate(f)
 
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.74 2005/08/01 08:11:17 goddess_skuld Exp $ -->
+<!-- end of $Id: send.php,v 1.75 2005/11/25 06:39:47 goddess_skuld Exp $ -->
