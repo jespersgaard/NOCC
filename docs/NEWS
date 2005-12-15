@@ -1,5 +1,7 @@
 NOCC 1.0.0    ?? ??, 2006
 
+    * Clean PHP code (Arnaud Boudou).
+    * Fix issues with attachment downloading (Arnaud Boudou).
     * Update Italian translation (daiceman, patch #1369275).
     * Doesn't display link to contacts list if $conf->prefs_dir is empty (Arnaud
       Boudou).
