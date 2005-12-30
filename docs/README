@@ -187,11 +187,11 @@ for every release and be able to update it with users' setups):
 
     * browsers: (Nocc should work with any browser which support CSS and XHTML,
       however, these have been tested and work)     
-      - Internet Explorer 6.0 for Windows.
-      - Camino 0.8.4, 0.9 alpha2 and 1.0 beta1.
+      - Internet Explorer 6.0.x for Windows.
+      - Camino 0.8.4, 0.9 alpha2 to 1.0 beta2.
       - Safari 2.0.1 to 2.0.2.
       - Firefox from 1.0.4 to 1.5.
-      - Opera 8.5.
+      - Opera 8.5, 9.0 beta.
       - cookies needed as of 0.9.5.
 
     * mail servers: (Nocc should work with any IMAP/POP3 server, however,
