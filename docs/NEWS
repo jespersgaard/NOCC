@@ -1,4 +1,8 @@
-NOCC 1.0.0    ?? ??, 2006
+NOCC 1.1    ?? ??, 2006
+
+    * Use standardized RSS icon (Arnaud Boudou).
+
+NOCC 1.0    January 01, 2006
 
     * Clean PHP code (Arnaud Boudou).
     * Fix issues with attachment downloading (Arnaud Boudou).

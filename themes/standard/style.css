@@ -225,19 +225,19 @@ label {
 }
 
 .rss:link{
-  background: url(./img/rss.png) bottom right no-repeat;
+  background: url(./img/rss.png) bottom center no-repeat;
   text-indent: -999em;
   text-decoration: none;
 }
 
 .rss:hover{
-  background: url(./img/rss.png) bottom right no-repeat;
+  background: url(./img/rss.png) bottom center no-repeat;
   text-indent: -999em;
   text-decoration: none;
 }
 
 .rss:visited{
-  background: url(./img/rss.png) bottom right no-repeat;
+  background: url(./img/rss.png) bottom center no-repeat;
   text-indent: -999em;
   text-decoration: none;
 }
