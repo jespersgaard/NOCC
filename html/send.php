@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.75 2005/11/25 06:39:47 goddess_skuld Exp $ -->
+<!-- start of $Id: send.php,v 1.76 2005/12/15 20:10:47 goddess_skuld Exp $ -->
 <?php
 // Default e-mail address on send form
 $mail_from = get_default_from_address();
@@ -7,9 +7,16 @@ $mail_from = get_default_from_address();
 <div class="send">
 <!-- If 'file_uploads=Off', we must set formtype to "normal" otherwise it won't work -->
 <form name="sendform" enctype="<?php echo (ini_get("file_uploads")) ? "multipart/form-data" : "normal" ?>" method="post" onsubmit="return(validate(this));" action="send.php">
-<?php if(isset($forward_msgnum)) { ?>
+
+<?php 
+  if(isset($broken_forwarding) && !($broken_forwarding)) {
+      if(isset($forward_msgnum)) { 
+?>
 <input type="hidden" name="forward_msgnum" value="<?php echo $forward_msgnum ?>" />
-  <?php } ?>
+  <?php 
+      }
+  } 
+  ?>
     <table>
       <tr>
         <td>&nbsp;</td>
@@ -138,11 +145,15 @@ $mail_from = get_default_from_address();
            echo '</table>';
          }
          else {
-           if (isset($_GET["action"]) && $_GET["action"] == 'forward') {
-             echo '<span class="inbox">' . $html_forward_info . '</span>';
-           } else {
-             echo '&nbsp;';
-           }
+           if (isset($broken_forwarding) && !($broken_forwarding)) {
+             if (isset($_GET["action"]) && $_GET["action"] == 'forward') {
+               echo '<span class="inbox">' . $html_forward_info . '</span>';
+             } else {
+               echo '&nbsp;';
+             }
+          } else {
+            echo '&nbsp;';
+          }
          }
        ?>
        </td>
@@ -202,4 +213,4 @@ function validate(f)
 
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.75 2005/11/25 06:39:47 goddess_skuld Exp $ -->
+<!-- end of $Id: send.php,v 1.76 2005/12/15 20:10:47 goddess_skuld Exp $ -->

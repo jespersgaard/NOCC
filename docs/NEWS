@@ -1,5 +1,7 @@
 NOCC 1.1    ?? ??, 2006
 
+    * Fix issue where conf setting broken_forwarding was not used (Arnaud
+      Boudou, bug #1409322).
     * Use standardized RSS icon (Arnaud Boudou).
 
 NOCC 1.0    January 01, 2006

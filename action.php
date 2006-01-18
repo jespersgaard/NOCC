@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.174 2005/11/22 15:38:39 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.175 2005/12/15 20:10:46 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -269,6 +269,18 @@ switch($action)
         // Add signature
         add_signature($mail_body);
 
+        if (isset($conf->broken_forwarding) && $conf->broken_forwarding) {
+            // Set body
+            if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
+                $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . strip_tags2($content['body'], '');
+            else {
+              $stripped_content = strip_tags2($content['body'], '');
+              $mail_body = mailquote($stripped_content, $content['from'], $html_wrote);
+            }
+            $broken_forwarding = true;
+        } else {
+            $broken_forwarding = false;
+        }
         // Let send.php know to attach the original message
         $forward_msgnum = $_REQUEST['mail'];
 
