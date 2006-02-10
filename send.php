@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.134 2005/07/03 20:43:02 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.135 2005/09/14 18:57:08 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -121,8 +121,10 @@ switch($_REQUEST['sendaction'])
         }
         $trim_mail_bcc = trim($mail_bcc);
         $mail->bcc = cut_address($trim_mail_bcc, $charset);
-        if ($mail_subject != '')
-            $mail->subject = trim($mail_subject);
+        if ($mail_subject != '') {
+            $mail_subject = trim($mail_subject);
+            $mail->subject = '=?UTF-8?B?' . base64_encode($mail_subject) . '?=';
+        }
 
         // Append advertisement tag, if set
 	// Wrap outgoing message if needed

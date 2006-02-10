@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.68 2005/07/07 10:53:23 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.69 2006/02/10 17:19:35 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -135,8 +135,7 @@ class mime_mail
                 $mime .= 'To: ' . join(', ', $this->to) . $this->crlf;
             if (!empty($this->subject))
             {
-                //$mime .= 'Subject: ' . $this->subject . $this->crlf;
-                $mime .= 'Subject: ' . '=?UTF-8?B?' . base64_encode($this->subject) . '?=' . $this->crlf;
+                $mime .= 'Subject: ' . $this->subject . $this->crlf;
             }
         }
         if (!empty($this->from))
