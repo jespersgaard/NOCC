@@ -1,5 +1,6 @@
 NOCC 1.1    ?? ??, 2006
 
+    * Fix issue with attachment names display (Arnaud Boudou, bug #1421767).
     * Fix issue where conf setting broken_forwarding was not used (Arnaud
       Boudou, bug #1409322).
     * Use standardized RSS icon (Arnaud Boudou).

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.209 2005/12/07 08:59:19 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.210 2005/12/15 20:10:47 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -609,13 +609,14 @@ function link_att(&$mail, $attach_tab, &$display_part_no)
             $mime = str_replace('/', '-', $tmp['mime']);
             if ($display_part_no == true)
                 $link .= $tmp['number'] . '&nbsp;&nbsp;';
+            unset($att_name);
             $att_name_array = nocc_imap::mime_header_decode($tmp['name']);
             for ($i=0; $i<count($att_name_array); $i++) {
               $att_name .= $att_name_array[$i]->text;
             }
             $att_name_dl = $att_name;
             $att_name = htmlentities($att_name, ENT_COMPAT, 'UTF-8');
-            $link .= '<a href="download.php?mail=' . $mail . '&amp;part=' . $tmp['number'] . '&amp;transfer=' . $tmp['transfer'] . '&amp;filename=' . base64_encode($att_name_dl) . '&amp;mime=' . $mime . '">' . $att_name . '</a>&nbsp;&nbsp;' . $tmp['mime'] . '&nbsp;&nbsp;' . $tmp['size'] . ' ' . $html_kb;
+            $link .= '<a href="download.php?mail=' . $mail . '&amp;part=' . $tmp['number'] . '&amp;transfer=' . $tmp['transfer'] . '&amp;filename=' . base64_encode($att_name_dl) . '&amp;mime=' . $mime . '">' . $att_name . '</a>&nbsp;&nbsp;' . $tmp['mime'] . '&nbsp;&nbsp;' . $tmp['size'] . ' ' . $html_kb . '<br/>';
         }
     return ($link);
 }
