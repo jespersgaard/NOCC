@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.211 2006/02/10 16:49:32 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.212 2006/02/11 09:00:39 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -698,6 +698,7 @@ function get_reply_all(&$from, &$to, &$cc)
 // We need that to build a correct list of all the recipient when we send a message
 function cut_address(&$addr, &$charset)
 {
+    global $charset;
     // Strip slashes from input
     $addr = safestrip($addr);
 
@@ -755,7 +756,7 @@ function cut_address(&$addr, &$charset)
         {
             $name = '';
             if ($pos != 0)
-                $name = '=?UTF-8?B?'.base64_encode(substr($addresses[$i], 0, $pos - 1)).'?= ';
+                $name = '=?'.$charset.'?B?'.base64_encode(substr($addresses[$i], 0, $pos - 1)).'?= ';
             $addr = substr($addresses[$i], $pos);
             $addresses[$i] = '"'.$name.'" '.$addr.'';
         }
