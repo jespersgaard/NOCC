@@ -1,7 +1,10 @@
-<!-- start of $Id: html_mail_top.php,v 1.12 2005/10/26 13:42:45 goddess_skuld Exp $ -->
+<!-- start of $Id: html_mail_top.php,v 1.13 2005/12/15 20:10:47 goddess_skuld Exp $ -->
 <div class="mailNav">
    <table>
 <?php
+  if (!isset($conf->loaded))
+    die('Hacking attempt');
+
 // Show/hide header link
 $verbose = (isset($_REQUEST['verbose']) && $_REQUEST['verbose'] == 1) ? '1' : '0';
 if ($conf->use_verbose)
@@ -59,4 +62,4 @@ if ($content['subject'] == '')
 </div>
 <div class="mailData">
    <table>
-<!-- end of $Id: html_mail_top.php,v 1.12 2005/10/26 13:42:45 goddess_skuld Exp $ -->
+<!-- end of $Id: html_mail_top.php,v 1.13 2005/12/15 20:10:47 goddess_skuld Exp $ -->

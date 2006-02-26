@@ -1,4 +1,8 @@
-<!-- start of $Id: menu_prefs.php,v 1.24 2005/08/01 08:11:17 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_prefs.php,v 1.25 2005/12/15 20:10:47 goddess_skuld Exp $ -->
+<?php
+  if (!isset($conf->loaded))
+    die('Hacking attempt');
+?>
 <div class="menuPrefs">
   <table> 
     <tr>
@@ -26,4 +30,4 @@
     </tr>
   </table>
 </div>
-<!-- end of $Id: menu_prefs.php,v 1.24 2005/08/01 08:11:17 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_prefs.php,v 1.25 2005/12/15 20:10:47 goddess_skuld Exp $ -->

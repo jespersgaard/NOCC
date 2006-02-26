@@ -1,5 +1,7 @@
-<!-- start of $Id: folders.php,v 1.13 2005/07/06 07:48:10 goddess_skuld Exp $ -->
+<!-- start of $Id: folders.php,v 1.14 2005/08/01 08:11:15 goddess_skuld Exp $ -->
 <?php
+  if (!isset($conf->loaded))
+    die('Hacking attempt');
 
 $renameoldbox = $pop->html_folder_select('renameoldbox', '');
 $removeoldbox = $pop->html_folder_select('removeoldbox', '');
@@ -106,4 +108,4 @@ if (count($big_list) > 1) {
   &nbsp;|&nbsp;
   <a href="action.php?action=managefilters"><?php echo $html_manage_filters_link ?></a>
 </div>
-<!-- end of $Id: folders.php,v 1.13 2005/07/06 07:48:10 goddess_skuld Exp $ -->
+<!-- end of $Id: folders.php,v 1.14 2005/08/01 08:11:15 goddess_skuld Exp $ -->

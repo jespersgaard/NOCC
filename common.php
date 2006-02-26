@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.58 2005/12/15 20:10:46 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.59 2006/01/02 17:38:10 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -115,6 +115,8 @@ else {
 }
 
 // Import language translation variables
+$lang = str_replace('..','',$lang);
+$lang = str_replace('/','',$lang);
 require ('./lang/'. $lang.'.php');
 
 // Start with default smtp server/port, override later

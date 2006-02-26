@@ -1,4 +1,8 @@
-<!-- start of $Id: menu_mail.php,v 1.33 2005/08/01 08:11:17 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_mail.php,v 1.34 2005/12/15 20:10:47 goddess_skuld Exp $ -->
+<?php
+  if (!isset($conf->loaded))
+    die('Hacking attempt');
+?>
 <div class="menuMail">
   <table>
     <tr>
@@ -31,4 +35,4 @@
     </tr>
   </table>
 </div>
-<!-- end of $Id: menu_mail.php,v 1.33 2005/08/01 08:11:17 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_mail.php,v 1.34 2005/12/15 20:10:47 goddess_skuld Exp $ -->

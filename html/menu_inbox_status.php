@@ -1,4 +1,8 @@
-<!-- start of $Id: menu_inbox_status.php,v 1.7 2005/08/01 08:11:17 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_inbox_status.php,v 1.8 2005/09/05 14:53:21 goddess_skuld Exp $ -->
+<?php
+  if (!isset($conf->loaded))
+    die('Hacking attempt');
+?>
 <?php if($list_of_folders != "") { ?>
                       <tr>
                         <td colspan="5">
@@ -15,4 +19,4 @@
                          </td>
                        </tr>
 <?php } ?>
-<!-- end of $Id: menu_inbox_status.php,v 1.7 2005/08/01 08:11:17 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_inbox_status.php,v 1.8 2005/09/05 14:53:21 goddess_skuld Exp $ -->

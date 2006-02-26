@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.140 2005/11/25 06:39:47 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.141 2005/12/07 08:59:19 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,6 +13,10 @@
 // ################### This is the main configuration for NOCC ########## //
 
 // ==> Required parameters
+
+// Will be checked by html/*.php file. If it's not available, these files won't
+// be loaded.
+$conf->loaded = true;
 
 // Default smtp server and smtp_port (default is 25)
 // If a domain has no smtp server, this one will be used
@@ -110,7 +114,10 @@ $conf->tmpdir = '';
 // Apache, see the User directive in the httpd.conf file.
 // See README for more about this.
 // This should be something like 'profiles/' on Unix System
-// or 'prefs\\' on Win32 (note that we must escape "\")
+// or 'prefs\\' on Win32 (note that we must escape "\").
+// You should not use a subfolder within your Nocc installation, as it will
+// be readable by everybody, and will contain sensible information as email
+// addresses and names.
 // If left empty, preferences will be disabled.
 $conf->prefs_dir = '';
 

@@ -1,6 +1,12 @@
 <?php
+  if (!isset($conf->loaded))
+    die('Hacking attempt');
 
-require_once 'proxy.php';
+if (file_exists('proxy.php'))
+    require_once 'proxy.php';
+else
+    exit();
+
 if(isset($charset))
     header ("Content-type: text/html; Charset=$charset");
 else
@@ -10,7 +16,7 @@ else
 // prefs.php to find it's prefs file.
 $header_display_address = get_default_from_address();
 
-$custom_header = './themes/' . $_SESSION['nocc_theme'] . '/header.php';
+$custom_header = './themes/' . str_replace('..','',htmlentities($_SESSION['nocc_theme'])) . '/header.php';
 if(file_exists($custom_header)) {
     include($custom_header);
 }
@@ -21,7 +27,7 @@ else {
     <head>
         <title>NOCC - Webmail</title>
         <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
-        <link href="themes/<?php echo $_SESSION['nocc_theme']; ?>/style.css" rel="stylesheet" type="text/css" />
+        <link href="themes/<?php echo str_replace('..','',htmlentities($_SESSION['nocc_theme'])); ?>/style.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript">
             function OpenHelpWindow(theURL,winName,features)
             {
@@ -59,4 +65,4 @@ else {
 <?php
 }
 ?>
-<!-- end of $Id: header.php,v 1.54 2005/08/01 08:11:16 goddess_skuld Exp $ -->
+<!-- end of $Id: header.php,v 1.55 2005/08/03 07:10:41 goddess_skuld Exp $ -->

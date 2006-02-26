@@ -1,4 +1,8 @@
-<!-- start of $Id: html_bottom_table.php,v 1.32 2005/08/01 08:11:16 goddess_skuld Exp $ -->
+<!-- start of $Id: html_bottom_table.php,v 1.33 2005/08/02 09:32:48 goddess_skuld Exp $ -->
+<?php
+  if (!isset($conf->loaded))
+    die('Hacking attempt');
+?>
                       </table>
                     </div>
                   </form>
@@ -31,4 +35,4 @@ function SelectAll() {
 }
 //-->
 </script>
-<!-- end of $Id: html_bottom_table.php,v 1.32 2005/08/01 08:11:16 goddess_skuld Exp $ -->
+<!-- end of $Id: html_bottom_table.php,v 1.33 2005/08/02 09:32:48 goddess_skuld Exp $ -->

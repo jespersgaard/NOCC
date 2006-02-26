@@ -1,5 +1,8 @@
-<!-- start of $Id: menu_inbox.php,v 1.53 2005/08/01 08:11:16 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.54 2005/12/15 20:10:47 goddess_skuld Exp $ -->
 <?php
+  if (!isset($conf->loaded))
+    die('Hacking attempt');
+
 $action = "";
 if(isset($_REQUEST['action']))
     $action = safestrip($_REQUEST['action']);
@@ -57,4 +60,4 @@ elseif ($action == 'forward')
                 </tr>
               </table>
             </div>
-<!-- end of $Id: menu_inbox.php,v 1.53 2005/08/01 08:11:16 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_inbox.php,v 1.54 2005/12/15 20:10:47 goddess_skuld Exp $ -->

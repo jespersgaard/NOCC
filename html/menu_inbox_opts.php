@@ -1,4 +1,8 @@
-<!-- start of $Id: menu_inbox_opts.php,v 1.17 2005/11/23 13:53:28 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_inbox_opts.php,v 1.18 2005/12/01 15:20:14 goddess_skuld Exp $ -->
+<?php
+  if (!isset($conf->loaded))
+    die('Hacking attempt');
+?>
                     <table>
                       <tr>
                         <td colspan="4">
@@ -39,4 +43,4 @@
                         </td>
                       </tr>
                     </table>
-<!-- end of $Id: menu_inbox_opts.php,v 1.17 2005/11/23 13:53:28 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_inbox_opts.php,v 1.18 2005/12/01 15:20:14 goddess_skuld Exp $ -->

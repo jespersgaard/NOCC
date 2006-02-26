@@ -31,6 +31,7 @@ Requirements
 
    * PHP needs to be compiled with IMAP and iconv support (--with-imap and 
      --with-iconv) at the configure stage).
+     register_globals directive must be set to 'Off'.
      You'll find information on IMAP support for PHP at
      'http://www.php.net/manual/ref.imap.php'.
 

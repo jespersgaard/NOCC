@@ -1,4 +1,8 @@
-<!-- start of $Id: prefs_error.php,v 1.2 2005/08/01 08:11:17 goddess_skuld Exp $ -->
+<!-- start of $Id: prefs_error.php,v 1.3 2005/08/01 11:05:49 goddess_skuld Exp $ -->
+<?php
+  if (!isset($conf->loaded))
+    die('Hacking attempt');
+?>
 <div class="error">
   <table class="errorTable">
     <tr class="errorTitle">
@@ -18,4 +22,4 @@
     </tr>
   </table>
 </div>
-<!-- end of $Id: prefs_error.php,v 1.2 2005/08/01 08:11:17 goddess_skuld Exp $ -->
+<!-- end of $Id: prefs_error.php,v 1.3 2005/08/01 11:05:49 goddess_skuld Exp $ -->

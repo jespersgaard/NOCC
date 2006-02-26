@@ -1,3 +1,7 @@
-<!-- start of $Id: send_error.php,v 1.4 2001/11/08 13:23:33 rossigee Exp $ -->
+<!-- start of $Id: send_error.php,v 1.5 2001/12/03 09:57:35 nicocha Exp $ -->
+<?php
+  if (!isset($conf->loaded))
+    die('Hacking attempt');
+?>
 <p class="inbox"><?php echo $html_error_occurred . ' : ' . $ev->getMessage(); ?></p>
-<!-- end of $Id: send_error.php,v 1.4 2001/11/08 13:23:33 rossigee Exp $ -->
+<!-- end of $Id: send_error.php,v 1.5 2001/12/03 09:57:35 nicocha Exp $ -->

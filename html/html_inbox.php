@@ -1,6 +1,8 @@
-<!-- start of $Id: html_inbox.php,v 1.47 2005/08/01 08:11:16 goddess_skuld Exp $ -->
-
+<!-- start of $Id: html_inbox.php,v 1.48 2005/08/03 17:48:09 goddess_skuld Exp $ -->
 <?php
+  if (!isset($conf->loaded))
+    die('Hacking attempt');
+
   if ($conf->have_ucb_pop_server || $pop->is_imap()) {
     if ($tmp['new'] != '' && $tmp['new'] != null && $tmp['new'] != "&nbsp;") {
       $inbox_class = "inbox new";
@@ -36,4 +38,4 @@
                           <?php echo $tmp['size'] ?> <?php echo $html_kb ?>
                         </td>
                       </tr>
-<!-- end of $Id: html_inbox.php,v 1.47 2005/08/01 08:11:16 goddess_skuld Exp $ -->
+<!-- end of $Id: html_inbox.php,v 1.48 2005/08/03 17:48:09 goddess_skuld Exp $ -->

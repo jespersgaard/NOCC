@@ -1,5 +1,7 @@
-<!-- start of $Id: html_top_table.php,v 1.78 2005/08/03 17:48:09 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.79 2005/12/15 20:10:47 goddess_skuld Exp $ -->
 <?php
+  if (!isset($conf->loaded))
+    die('Hacking attempt');
 
 require_once 'class_local.php';
 require_once 'conf.php';
@@ -150,4 +152,4 @@ if ($pop->is_imap()) {
                             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>"><?php echo $html_size ?></a>
                           </td>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.78 2005/08/03 17:48:09 goddess_skuld Exp $ -->
+<!-- end of $Id: html_top_table.php,v 1.79 2005/12/15 20:10:47 goddess_skuld Exp $ -->

@@ -1,5 +1,8 @@
-<!-- start of $Id: prefs.php,v 1.35 2005/07/07 10:22:46 goddess_skuld Exp $ -->
+<!-- start of $Id: prefs.php,v 1.36 2005/08/01 08:11:17 goddess_skuld Exp $ -->
 <?php
+  if (!isset($conf->loaded))
+    die('Hacking attempt');
+
 $all_mailboxes = $pop->getmailboxes($ev);
 
 $big_list = array();
@@ -164,4 +167,4 @@ if (count($big_list) > 1) {
    <?php
      }
    ?>
-<!-- end of $Id: prefs.php,v 1.35 2005/07/07 10:22:46 goddess_skuld Exp $ -->
+<!-- end of $Id: prefs.php,v 1.36 2005/08/01 08:11:17 goddess_skuld Exp $ -->

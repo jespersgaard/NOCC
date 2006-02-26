@@ -1,5 +1,7 @@
 NOCC 1.1    ?? ??, 2006
 
+    * register_globals php directive must now be set to 'Off' (Arnaud Boudou).
+    * Fix many vunerabilities (Arnaud Boudou, bug #1438276).
     * Fix issue with outgoing mail From, To, CC and BCC encoding (Arnaud Boudou).
     * Fix issue with outgoing mail subject encoding (Arnaud Boudou).
     * Fix issue with attachment names display (Arnaud Boudou, bug #1421767).

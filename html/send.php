@@ -1,5 +1,8 @@
-<!-- start of $Id: send.php,v 1.76 2005/12/15 20:10:47 goddess_skuld Exp $ -->
+<!-- start of $Id: send.php,v 1.77 2006/01/18 21:03:31 goddess_skuld Exp $ -->
 <?php
+  if (!isset($conf->loaded))
+    die('Hacking attempt');
+
 // Default e-mail address on send form
 $mail_from = get_default_from_address();
 
@@ -213,4 +216,4 @@ function validate(f)
 
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.76 2005/12/15 20:10:47 goddess_skuld Exp $ -->
+<!-- end of $Id: send.php,v 1.77 2006/01/18 21:03:31 goddess_skuld Exp $ -->
