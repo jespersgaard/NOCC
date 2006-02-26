@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox_opts.php,v 1.18 2005/12/01 15:20:14 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_inbox_opts.php,v 1.19 2006/02/26 09:32:53 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -9,16 +9,16 @@
                           <table>
                             <tr>
                               <td class="menuOpts left">
-                                <input type="button" class="button" value="<?php echo $html_select_all; ?>" onselect="SelectAll()" onclick="SelectAll()" />
+                                <input type="button" class="button" value="<?php echo htmlentities($html_select_all, ENT_COMPAT, 'UTF-8'); ?>" onselect="SelectAll()" onclick="SelectAll()" />
                               </td>
                               <td class="menuOpts center">
                               <?php
                                 if ($pop->is_imap()) {
                                   $html_target_select = $pop->html_folder_select('target_folder', '');
                               ?>
-                                <input type="submit" class="button" name="move_mode" value="<?php echo $html_move; ?>" /> <?php echo $html_or; ?>
-                                <input type="submit" class="button" name="copy_mode" value="<?php echo $html_copy; ?>" />
-                                <?php echo $html_messages_to; ?>
+                                <input type="submit" class="button" name="move_mode" value="<?php echo htmlentities($html_move, ENT_COMPAT, 'UTF-8'); ?>" /> <?php echo htmlentities($html_or, ENT_COMPAT, 'UTF-8'); ?>
+                                <input type="submit" class="button" name="copy_mode" value="<?php echo htmlentities($html_copy, ENT_COMPAT, 'UTF-8'); ?>" />
+                                <?php echo htmlentities($html_messages_to, ENT_COMPAT, 'UTF-8'); ?>
                                 <?php echo $html_target_select; ?>
                               <?php
                                 }
@@ -28,10 +28,10 @@
                                 <?php
                                   if ($pop->is_imap()) {
                                 ?>
-                                <input type="submit" name="mark_read_mode" class="button" value="<?php echo $html_mark_as; ?>" />
+                                <input type="submit" name="mark_read_mode" class="button" value="<?php echo htmlentities($html_mark_as, ENT_COMPAT, 'UTF-8'); ?>" />
                                 <select class="button" name="mark_mode">
-                                  <option value="read"><?php echo $html_read; ?></option>
-                                  <option value="unread"><?php echo $html_unread; ?></option>
+                                  <option value="read"><?php echo htmlentities($html_read, ENT_COMPAT, 'UTF-8'); ?></option>
+                                  <option value="unread"><?php echo htmlentities($html_unread, ENT_COMPAT, 'UTF-8'); ?></option>
                                 </select>
                                 <?php
                                   }
@@ -43,4 +43,4 @@
                         </td>
                       </tr>
                     </table>
-<!-- end of $Id: menu_inbox_opts.php,v 1.18 2005/12/01 15:20:14 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_inbox_opts.php,v 1.19 2006/02/26 09:32:53 goddess_skuld Exp $ -->
