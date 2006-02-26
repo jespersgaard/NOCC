@@ -1,4 +1,4 @@
-<!-- start of $Id: folders.php,v 1.14 2005/08/01 08:11:15 goddess_skuld Exp $ -->
+<!-- start of $Id: folders.php,v 1.15 2006/02/26 09:32:53 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -37,36 +37,36 @@ if (count($big_list) > 1) {
           <td class="prefsLabel"></td>
           <td class="prefsData">
             <input type="radio" name="do" value="create_folder"/>
-            <?php echo $html_folder_create ?> <input class="button" type="text" name="createnewbox" size="15" maxlength="32"/>
+            <?php echo htmlentities($html_folder_create, ENT_COMPAT, 'UTF-8') ?> <input class="button" type="text" name="createnewbox" size="15" maxlength="32"/>
           </td>
         </tr>
         <tr>
           <td class="prefsLabel"></td>
           <td class="prefsData">
             <input type="radio" name="do" value="rename_folder"/>
-            <?php echo $html_folder_rename ?> <?php echo $renameoldbox ?>
-            <?php echo $html_to ?> <input class="button" type="text" name="renamenewbox" size="15" maxlength="32"/>
+            <?php echo htmlentities($html_folder_rename, ENT_COMPAT, 'UTF-8') ?> <?php echo $renameoldbox ?>
+            <?php echo htmlentities($html_to, ENT_COMPAT, 'UTF-8') ?> <input class="button" type="text" name="renamenewbox" size="15" maxlength="32"/>
           </td>
         </tr>
         <tr>
           <td class="prefsLabel"></td>
           <td class="prefsData">
             <input type="radio" name="do" value="subscribe_folder"/>
-            <?php echo $html_folder_subscribe ?> <select class="button" name="subscribenewbox"> <?php echo join('', $select_list) ?> </select>
+            <?php echo htmlentities($html_folder_subscribe, ENT_COMPAT, 'UTF-8') ?> <select class="button" name="subscribenewbox"> <?php echo join('', $select_list) ?> </select>
           </td>
         </tr>
         <tr>
           <td class="prefsLabel"></td>
           <td class="prefsData">
             <input type="radio" name="do" value="remove_folder"/>
-            <?php echo $html_folder_remove ?> <?php echo $removeoldbox ?>
+            <?php echo htmlentities($html_folder_remove, ENT_COMPAT, 'UTF-8') ?> <?php echo $removeoldbox ?>
           </td>
         </tr>
         <tr>
           <td class="prefsLabel"></td>
           <td class="prefsData">
             <input type="radio" name="do" value="delete_folder"/>
-            <?php echo $html_folder_delete ?> <select class="button" name="deletebox"> <?php echo join('', $select_list) ?> </select>
+            <?php echo htmlentities($html_folder_delete, ENT_COMPAT, 'UTF-8') ?> <select class="button" name="deletebox"> <?php echo join('', $select_list) ?> </select>
           </td>
         </tr>
         <tr>
@@ -77,11 +77,11 @@ if (count($big_list) > 1) {
             <div class="error">
               <table class="errorTable">
                 <tr class="errorTitle">
-                  <td><?php echo $html_error_occurred ?></td>
+                  <td><?php echo htmlentities($html_error_occurred) ?></td>
                 </tr>
                 <tr class="errorText">
                   <td>
-                    <p><?php echo $ev->getMessage(); ?></p>
+                    <p><?php echo htmlentities($ev->getMessage(), ENT_COMPAT, 'UTF-8'); ?></p>
                   </td>
                 </tr>
               </table>
@@ -89,13 +89,13 @@ if (count($big_list) > 1) {
           <?php
             } else {
               if(isset($_REQUEST['submit_folders']))
-                echo '<br />'.$html_folders_updated;
+                echo '<br />'.htmlentities($html_folders_updated, ENT_COMPAT, 'UTF-8');
             }
           ?>
           <br /><br />
-            <input type="submit" class="button" value="<?php echo $html_submit ?>" />
+            <input type="submit" class="button" value="<?php echo htmlentities($html_submit, ENT_COMPAT, 'UTF-8') ?>" />
             &nbsp;&nbsp;
-            <input type="reset" class="button" value="<?php echo $html_cancel ?>" />
+            <input type="reset" class="button" value="<?php echo htmlentities($html_cancel, ENT_COMPAT, 'UTF-8') ?>" />
           </td>
         </tr>
       </table>
@@ -104,8 +104,8 @@ if (count($big_list) > 1) {
 </div>
 
 <div class="IMAPPrefs">
-  <a href="action.php?action=setprefs"><?php echo $html_preferences ?></a>
+  <a href="action.php?action=setprefs"><?php echo htmlentities($html_preferences, ENT_COMPAT, 'UTF-8') ?></a>
   &nbsp;|&nbsp;
-  <a href="action.php?action=managefilters"><?php echo $html_manage_filters_link ?></a>
+  <a href="action.php?action=managefilters"><?php echo htmlentities($html_manage_filters_link, ENT_COMPAT, 'UTF-8') ?></a>
 </div>
-<!-- end of $Id: folders.php,v 1.14 2005/08/01 08:11:15 goddess_skuld Exp $ -->
+<!-- end of $Id: folders.php,v 1.15 2006/02/26 09:32:53 goddess_skuld Exp $ -->

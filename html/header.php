@@ -26,7 +26,7 @@ else {
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang; ?>">
     <head>
         <title>NOCC - Webmail</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
+        <meta http-equiv="Content-Type" content="text/html; charset=<?php echo htmlentities($charset, ENT_COMPAT, 'UTF-8'); ?>" />
         <link href="themes/<?php echo str_replace('..','',htmlentities($_SESSION['nocc_theme'])); ?>/style.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript">
             function OpenHelpWindow(theURL,winName,features)
@@ -54,9 +54,9 @@ else {
   
 ?>
         </script>
-        <link rel="alternate" type="application/rss+xml" title="RSS - NOCC" href="<?php echo $rss_url ?>" />
+        <link rel="alternate" type="application/rss+xml" title="RSS - NOCC" href="<?php echo htmlentities($rss_url, ENT_COMPAT, 'UTF-8') ?>" />
     </head>
-    <body dir="<?php echo $lang_dir; ?>">
+    <body dir="<?php echo htmlentities($lang_dir, ENT_COMPAT, 'UTF-8'); ?>">
         <div class="global">
           <div class="header">
             <img src="themes/<?php echo $_SESSION['nocc_theme']; ?>/img/logo.png" class="headerLogo" alt="Logo" />
@@ -65,4 +65,4 @@ else {
 <?php
 }
 ?>
-<!-- end of $Id: header.php,v 1.55 2005/08/03 07:10:41 goddess_skuld Exp $ -->
+<!-- end of $Id: header.php,v 1.56 2006/02/26 09:32:53 goddess_skuld Exp $ -->
