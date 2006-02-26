@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/check.php,v 1.12 2005/07/04 17:12:27 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/check.php,v 1.13 2005/08/01 08:11:13 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -38,4 +38,12 @@ if (!extension_loaded('iconv'))
     echo '<font color="red"><b>The Iconv module does not seem to be installed on this PHP setup, please see NOCC\'s documentation.</b></font><br /><br /><div align="center"><img src="themes/standard/img/button.png" width="88" height="31" alt="Powered by NOCC" /></div>';
     exit;
 }
+
+/*
+if (ini_get('register_globals') == true)
+{
+    echo '<font color="red"><b>Please set register_globals to Off within your php.ini file.</b></font><br /><br /><div align="center"><img src="themes/standard/img/button.png" width="88" height="31" alt="Powered by NOCC" /></div>';
+    exit;
+}
+*/
 ?>
