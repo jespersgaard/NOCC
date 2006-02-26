@@ -1,6 +1,7 @@
 NOCC 1.1    ?? ??, 2006
 
-    * Patch #1438393 : strict UTF-8 charset issue (Roman Korolyov)
+    * Patch #1438939 : get_default_from_address in conf.php (Roman Korolyov).
+    * Patch #1438393 : strict UTF-8 charset issue (Roman Korolyov).
     * register_globals php directive must now be set to 'Off' (Arnaud Boudou).
     * Bug #1438276 : Multiple vunerabilities (Arnaud Boudou).
     * Fix issue with outgoing mail From, To, CC and BCC encoding (Arnaud Boudou).
