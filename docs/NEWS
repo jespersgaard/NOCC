@@ -1,4 +1,7 @@
-NOCC 1.1    ?? ??, 2006
+NOCC 1.2    ?? ??, 2006
+
+
+NOCC 1.1    February 28, 2006
 
     * Patch #1438939 : get_default_from_address in conf.php (Roman Korolyov).
     * Patch #1438393 : strict UTF-8 charset issue (Roman Korolyov).

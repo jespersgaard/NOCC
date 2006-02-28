@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.59 2006/01/02 17:38:10 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.60 2006/02/26 09:32:53 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -18,7 +18,7 @@ require_once("html_entity_decode.php");
 require_once("crypt.php");
 
 $conf->nocc_name = 'NOCC';
-$conf->nocc_version = '1.1-dev';
+$conf->nocc_version = '1.2-dev';
 $conf->nocc_url = 'http://nocc.sourceforge.net/';
 
 $pwd_to_encrypt = false;
