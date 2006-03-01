@@ -1,6 +1,6 @@
 Frequently Asked Questions for Nocc
 -----------------------------------
-Last updated: $Date: 2005/11/23 20:20:19 $
+Last updated: $Date: 2005/12/07 09:10:15 $
 
  Q. Nocc keeps me asking for a correct login/password.
 
@@ -182,3 +182,18 @@ Last updated: $Date: 2005/11/23 20:20:19 $
  A. Check the mail contains the "MIME-Version : 1.0" header. If not, the charset
     can't be detected du to PHP IMAP module imap_fetchstructure function
     limitation.
+
+----------------------------------
+
+ Q. My web hosting service is using the register_globals setting set to on, so I
+    can't use Nocc.
+
+ A. Create a .htaccess file at Nocc's root directory with the following line:
+      php_flag register_globals offphp_flag register_globals off
+    If your host does not allow you to use any .htaccess file, you will have to
+    delete in the check.php file the lines beginning with 
+      if (ini_get('register_globals') == true)
+    and finishing just before
+      ?>
+    But remember : running Nocc with register_globals set to on may expose you
+    to unwanted vulnerabilities.
