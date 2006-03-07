@@ -1,4 +1,4 @@
-<!-- start of $Id: html_bottom_table.php,v 1.34 2006/02/26 09:32:53 goddess_skuld Exp $ -->
+<!-- start of $Id: html_bottom_table.php,v 1.35 2006/02/26 11:07:52 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -13,11 +13,11 @@
                     <tr>
                       <td class="inbox">&nbsp;</td>
                       <td class="inbox right">
-	                <?php echo htmlentities($page_line, ENT_COMPAT, 'UTF-8') ?>
+	                <?php echo $page_line ?>
                       </td>
                       <td class="inbox right">
-                        <?php echo htmlentities($prev, ENT_COMPAT, 'UTF-8') ?>
-                        <?php echo htmlentities($next, ENT_COMPAT, 'UTF-8') ?>
+                        <?php echo $prev ?>
+                        <?php echo $next ?>
                       </td>
                     </tr>
                   </table>
@@ -35,4 +35,4 @@ function SelectAll() {
 }
 //-->
 </script>
-<!-- end of $Id: html_bottom_table.php,v 1.34 2006/02/26 09:32:53 goddess_skuld Exp $ -->
+<!-- end of $Id: html_bottom_table.php,v 1.35 2006/02/26 11:07:52 goddess_skuld Exp $ -->
