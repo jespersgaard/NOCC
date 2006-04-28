@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.49 2004/06/20 09:39:31 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.50 2005/05/04 18:33:53 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -79,14 +79,10 @@ if (isset($_REQUEST['only_one'])) {
                 $pop->delete($i, $ev);
             }
             if (isset($_REQUEST['mark_read_mode']) && $_REQUEST['mark_mode'] == 'read') {
-                if ($target_folder != $folder) {
-                    $pop->mail_mark_read($i, $ev);
-                }
+                $pop->mail_mark_read($i, $ev);
             }
             if (isset($_REQUEST['mark_read_mode']) && $_REQUEST['mark_mode'] == 'unread') {
-                if ($target_folder != $folder) {
-                    $pop->mail_mark_unread($i, $ev);
-                }
+                $pop->mail_mark_unread($i, $ev);
             }
         }
     }
