@@ -16,7 +16,7 @@
 // |          Aidan Lister <aidan@php.net>                                |
 // +----------------------------------------------------------------------+
 //
-// $Id: html_entity_decode.php,v 1.7 2005/01/26 04:55:13 aidan Exp $
+// $Id: html_entity_decode.php,v 1.1 2005/07/01 15:31:24 goddess_skuld Exp $
 
 
 if (!defined('ENT_NOQUOTES')) {
@@ -40,33 +40,34 @@ if (!defined('ENT_QUOTES')) {
  * @link        http://php.net/function.html_entity_decode
  * @author      David Irvine <dave@codexweb.co.za>
  * @author      Aidan Lister <aidan@php.net>
- * @version     $Revision: 1.7 $
+ * @version     $Revision: 1.1 $
  * @since       PHP 4.3.0
  * @internal    Setting the charset will not do anything
  * @require     PHP 4.0.0 (user_error)
  */
-if (!function_exists('html_entity_decode')) {
-    function html_entity_decode($string, $quote_style = ENT_COMPAT, $charset = null)
-    {
-        if (!is_int($quote_style)) {
-            user_error('html_entity_decode() expects parameter 2 to be long, ' .
-                gettype($quote_style) . ' given', E_USER_WARNING);
-            return;
-        }
-
-        $trans_tbl = get_html_translation_table(HTML_ENTITIES);
-        $trans_tbl = array_flip($trans_tbl);
-
-        // Add single quote to translation table;
-        $trans_tbl['&#039;'] = '\'';
-
-        // Not translating double quotes
-        if ($quote_style & ENT_NOQUOTES) {
-            // Remove double quote from translation table
-            unset($trans_tbl['&quot;']);
-        }
-
-        return strtr($string, $trans_tbl);
+function enh_html_entity_decode($string, $quote_style = ENT_COMPAT, $charset = null)
+{
+    if (!is_int($quote_style)) {
+        user_error('html_entity_decode() expects parameter 2 to be long, ' .
+            gettype($quote_style) . ' given', E_USER_WARNING);
+        return;
     }
+
+    $trans_tbl = get_html_translation_table(HTML_ENTITIES);
+    $trans_tbl = array_flip($trans_tbl);
+
+    // Add single quote to translation table;
+    $trans_tbl['&#039;'] = '\'';
+    // Set single space to translation table, automatic translation returns
+    // incorrect character
+    $trans_tbl['&nbsp;'] = ' ';
+
+    // Not translating double quotes
+    if ($quote_style & ENT_NOQUOTES) {
+        // Remove double quote from translation table
+        unset($trans_tbl['&quot;']);
+    }
+
+    return strtr($string, $trans_tbl);
 }
-?>
+//}

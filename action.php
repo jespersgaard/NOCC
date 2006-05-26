@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.175 2005/12/15 20:10:46 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.176 2006/01/18 21:03:31 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -170,16 +170,16 @@ switch($action)
 
         // Set body
         if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
-            $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . html_entity_decode(strip_tags($content['body'], ''));
+            $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . enh_html_entity_decode(strip_tags($content['body'], ''));
         else {
             if (isset($conf->enable_reply_leadin) && $conf->enable_reply_leadin == true && isset($user_prefs->reply_leadin) && ($user_prefs->reply_leadin != ''))
             {
                 $parsed_leadin = NOCCUserPrefs::parseLeadin($user_prefs->reply_leadin, $content);
-                $mail_body = mailquote(html_entity_decode(strip_tags($content['body'], '')), $parsed_leadin, '');
+                $mail_body = mailquote(enh_html_entity_decode(strip_tags($content['body'], '')), $parsed_leadin, '');
             }
             else
             {
-                $stripped_content = html_entity_decode(strip_tags($content['body'], ''));
+                $stripped_content = enh_html_entity_decode(strip_tags($content['body'], ''));
                 $mail_body = mailquote($stripped_content, $content['from'], $html_wrote);
             }
         }
@@ -223,12 +223,21 @@ switch($action)
             $mail_subject = $content['subject'];
         else
             $mail_subject = $html_reply_short.': '.$content['subject'];
+
         // Set body
         if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
-            $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . strip_tags2($content['body'], '');
+            $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . enh_html_entity_decode(strip_tags($content['body'], ''));
         else {
-            $stripped_content = strip_tags2($content['body'], '');
-            $mail_body = mailquote($stripped_content, $content['from'], $html_wrote);
+            if (isset($conf->enable_reply_leadin) && $conf->enable_reply_leadin == true && isset($user_prefs->reply_leadin) && ($user_prefs->reply_leadin != ''))
+            {
+                $parsed_leadin = NOCCUserPrefs::parseLeadin($user_prefs->reply_leadin, $content);
+                $mail_body = mailquote(enh_html_entity_decode(strip_tags($content['body'], '')), $parsed_leadin, '');
+            }
+            else
+            {
+                $stripped_content = enh_html_entity_decode(strip_tags($content['body'], ''));
+                $mail_body = mailquote($stripped_content, $content['from'], $html_wrote);
+            }
         }
 
         // Add signature

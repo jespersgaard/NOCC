@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.212 2006/02/11 09:00:39 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.213 2006/02/26 12:18:37 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -880,7 +880,9 @@ function mailquote(&$body, &$from, $html_wrote)
       $tbl = explode ("\r\n", $body);
       // For each line
       for ($i = 0, $buffer = ''; $i < count ($tbl); ++$i)
-	{	// Number of "> "
+	{
+	  unset($buffer);
+	  // Number of "> "
 	  $q = substr_count($tbl[$i], "> ");
 
 	  $tbl[$i] = rtrim ($tbl[$i]);
@@ -907,7 +909,7 @@ function mailquote(&$body, &$from, $html_wrote)
 		      $buffer = $words[$j] . " ";
 		    }
 		}
-	      if ($q != substr_count($tbl[$i + 1], "> "))
+	      //if ($q != substr_count($tbl[$i + 1], "> "))
 		$msg .= str_pad(rtrim ($buffer), strlen (rtrim ($buffer)) + $length, "> ", STR_PAD_LEFT) . $crlf;
 	    }
 	}
