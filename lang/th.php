@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/th.php,v 1.21 2005/07/04 17:12:29 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/th.php,v 1.22 2005/07/20 09:45:50 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -213,6 +213,10 @@ $html_down_mail = 'Download';  //to translate
 
 $original_msg = '-- ข้อความต้นฉบับ --';
 $to_empty = 'The \'ถึง\' ห้ามเว้นว่างไว้ !';
+
+// Images warning
+$html_images_warning = 'For your security, distant images are not displayed.'; // to translate
+$html_images_display = 'Display images'; // to translate
 
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'ไม่สามารถติดต่อได้';

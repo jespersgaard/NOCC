@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.87 2005/07/06 07:48:10 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.88 2005/07/20 09:45:50 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -213,6 +213,10 @@ $html_down_mail = 'Télécharger';
 
 $original_msg = '-- Message Original --';
 $to_empty = 'Le champ \'A\' ne doit pas être vide !';
+
+// Images warning
+$html_images_warning = 'Pour votre sécurité, les images distantes sont désactivées.';
+$html_images_display = 'Afficher les images';
 
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Impossible d\'ouvrir la connexion';

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.176 2006/01/18 21:03:31 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.177 2006/05/26 19:11:13 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -55,6 +55,11 @@ switch($action)
 
         $attach_tab = array();
         $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
+	// Display or hide distant HTML images
+	if (!isset($_REQUEST['display_images']) || $_REQUEST['display_images'] != 1) {
+	  $content['body'] = ereg_replace('src="[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]"', 'src="none"', $content['body']);
+	  $content['body'] = ereg_replace('src=[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]', 'src="none"', $content['body']);
+        }
         // Display embedded HTML images
         $tmp_attach_tab = $attach_tab;
 	$i = 0;

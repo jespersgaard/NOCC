@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.22 2005/07/04 17:12:28 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.23 2005/07/20 09:45:50 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -213,6 +213,10 @@ $html_down_mail = 'Download';  //to translate
 
 $original_msg = '-- Original Message --';  //to translate
 $to_empty = 'The \'To\' field must not be empty !';  //to translate
+
+// Images warning
+$html_images_warning = 'For your security, distant images are not displayed.'; // to translate
+$html_images_display = 'Display images'; // to translate
 
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'نمىتوانم اتصال SMTP را باز کنم';

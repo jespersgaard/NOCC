@@ -212,6 +212,10 @@ $html_down_mail = 'Download';  //to translate
 $original_msg = '-- Upphaflega bréf --'; 
 $to_empty = '\'Til\' reiturinn má ekki vera auður!';
 
+// Images warning
+$html_images_warning = 'For your security, distant images are not displayed.'; // to translate
+$html_images_display = 'Display images'; // to translate
+
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Ómögulegt að opna tengingu';
 $html_smtp_error_unexpected = 'Ófyrirsjáanleg viðbrögð:';

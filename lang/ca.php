@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ca.php,v 1.1 2005/08/03 17:02:29 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ca.php,v 1.2 2005/08/03 17:08:11 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -212,6 +212,10 @@ $html_down_mail = 'Descarregar';
 
 $original_msg = '-- Missatge original --';
 $to_empty = 'El camp \'A\' no pot ser buit!';
+
+// Images warning
+$html_images_warning = 'For your security, distant images are not displayed.'; // to translate
+$html_images_display = 'Display images'; // to translate
 
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'No s\'ha pogut obrir la connexió SMTP';

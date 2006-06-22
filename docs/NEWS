@@ -1,5 +1,6 @@
 NOCC 1.2    ?? ??, 2006
 
+    * Disable distant pictures display by default (Arnaud Boudou).
     * Fix HTML entities translation and replies formating (Arnaud Boudou).
     * Bug #1477984 : Mark as (Un)read, how can one see it works? (Arnaud
       Boudou).
