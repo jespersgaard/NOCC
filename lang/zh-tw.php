@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-tw.php,v 1.34 2005/07/20 09:45:50 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-tw.php,v 1.35 2006/06/22 16:23:40 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -215,8 +215,8 @@ $original_msg = '-- 原始內容 --';
 $to_empty = '此 \'收件人\' 之位置不能沒有 !';
 
 // Images warning
-$html_images_warning = 'For your security, distant images are not displayed.'; // to translate
-$html_images_display = 'Display images'; // to translate
+$html_images_warning = 'For your security, remote pictures are not displayed.'; // to translate
+$html_images_display = 'Display pictures'; // to translate
 
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Unable to open SMTP connection';  //to translate

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.50 2005/11/14 11:50:17 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.51 2006/06/22 16:23:40 goddess_skuld Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha AT free DOT fr>
  * Copyright 2000 Olivier Cahagne <wolruf AT free DOT fr>
@@ -218,8 +218,8 @@ $original_msg = '-- Original Nachricht--';
 $to_empty = 'Das \'An\' Feld darf nicht leer sein !';
 
 // Images warning
-$html_images_warning = 'For your security, distant images are not displayed.'; // to translate
-$html_images_display = 'Display images'; // to translate
+$html_images_warning = 'For your security, remote pictures are not displayed.'; // to translate
+$html_images_display = 'Display pictures'; // to translate
 
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Konnte Verbindung nicht öffnen';

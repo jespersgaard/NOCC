@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.11 2005/07/04 17:12:29 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.12 2006/06/22 16:23:40 goddess_skuld Exp $ 
  *
  * Copyright 2004 Nicolas Chalanset <nicocha at free.fr>
  * Copyright 2004 Olivier Cahagne <wolruf at free.fr>
@@ -217,8 +217,8 @@ $original_msg = '-- 0rig!nal M3ss4g3 --';
 $to_empty = 'Th3 \'T0\' f!3ld must n0t b3 3mpty !';
 
 // Images warning
-$html_images_warning = 'F0r y0ur s3cur!ty, d!st4nt !m4g3s 4r3 n0t d!spl4y3d.';
-$html_images_display = 'D!spl4y !m4g3s';
+$html_images_warning = 'F0r y0ur s3cur!ty, r3m0t3s p!ctur3s 4r3 n0t d!spl4y3d.';
+$html_images_display = 'D!spl4y p!ctur3s';
 
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Un4bl3 t0 0p3n SMTP c0nn3ct!0n';
