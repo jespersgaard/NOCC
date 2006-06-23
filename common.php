@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.60 2006/02/26 09:32:53 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.61 2006/02/28 12:43:18 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -224,6 +224,20 @@ if(isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
         }
     }
     $user_prefs = $_SESSION['nocc_user_prefs'];
+
+    // Set lang from user prefs
+    if (isset($user_prefs->lang)) {
+      $_SESSION['nocc_lang'] = $user_prefs->lang;
+      $lang = $_SESSION['nocc_lang'];
+      $lang = str_replace('..','',$lang);
+      $lang = str_replace('/','',$lang);
+      require ('./lang/'. $lang.'.php');
+    }
+
+    // Set theme from user prefs
+    if ($conf->use_theme == true && isset($user_prefs->theme)) {
+      $_SESSION['nocc_theme'] = $user_prefs->theme;
+    }
 
     // Filters
     if (!empty($conf->prefs)) {

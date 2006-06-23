@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.177 2006/05/26 19:11:13 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.178 2006/06/22 16:23:40 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -499,6 +499,10 @@ switch($action)
             if (isset($_REQUEST['sent_folder_name'])) {
                 $replace = str_replace($_SESSION['imap_namespace'], "", $_REQUEST['sent_folder_name']);
                 $user_prefs->sent_folder_name = safestrip($replace);
+            if (isset($_REQUEST['lang']))
+              $user_prefs->lang = $_REQUEST['lang'];
+            if (isset($_REQUEST['theme']))
+              $user_prefs->theme = $_REQUEST['theme'];
             }
 
             // Commit preferences

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.10 2004/10/21 11:27:37 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.11 2005/07/07 10:22:46 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -27,6 +27,8 @@ class NOCCUserPrefs {
 	var $graphical_smilies;
         var $sent_folder;
         var $sent_folder_name;
+        var $lang;
+        var $theme;
 
 	// Set when preferences have not been commit
 	var $dirty_flag;
@@ -108,6 +110,12 @@ class NOCCUserPrefs {
                         if($key == 'sent_folder_name')
                                 $prefs->sent_folder_name = $value;
 
+                        if($key == 'lang')
+                                $prefs->lang = $value;
+
+                        if($key == 'theme')
+                                $prefs->theme = $value;
+
 		}
 		fclose($file);
 
@@ -159,6 +167,8 @@ class NOCCUserPrefs {
 		fwrite($file, "graphical_smilies=".$this->graphical_smilies."\n");
                 fwrite($file, "sent_folder=".$this->sent_folder."\n");
                 fwrite($file, "sent_folder_name=".str_replace($_SESSION['imap_namespace'], "", $this->sent_folder_name)."\n");
+                fwrite($file, "lang=".$this->lang."\n");
+                fwrite($file, "theme=".$this->theme."\n");
 		fclose($file);
 
 		$this->dirty_flag = 0;

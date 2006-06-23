@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.37 2006/02/26 09:32:53 goddess_skuld Exp $ -->
+<!-- start of $Id: prefs.php,v 1.38 2006/02/26 11:07:52 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -122,6 +122,46 @@ if (count($big_list) > 1) {
              <select class="button" name="sent_folder_name"><?php echo join('', $select_list) ?></select>
            </td>
          </tr>
+         <tr>
+           <td class="prefsLabel"><?php echo $html_lang ?> :</td>
+           <td class="prefsData">
+             <select class="button" name="lang">
+               <?php
+                 for ($i = 0; $i < sizeof($lang_array); $i++)
+                 if (file_exists('lang/'.$lang_array[$i]->filename.'.php'))
+                 {
+                   echo '<option value="'.$lang_array[$i]->filename.'"';
+                   if ($_SESSION['nocc_lang'] == $lang_array[$i]->filename)
+                     echo ' selected="selected"';
+                   echo '>'.$lang_array[$i]->label.'</option>';
+                 }
+               ?>
+             </select>
+           </td>
+         </tr>
+         <?php if ($conf->use_theme == true) { ?>
+         <tr>
+           <td class="prefsLabel"><?php echo $html_theme ?> :</td>
+           <td class="prefsData">
+             <select class="button" name="theme">
+             <?php
+               $handle = opendir('./themes');
+               while (($file = readdir($handle)) != false)
+               {
+                 if (($file != '.') && ($file != '..'))
+                 {
+                   echo '<option value="'.$file.'"';
+                   if ($file == $_SESSION['nocc_theme'])
+                     echo ' selected="selected"';
+                   echo '>'.$file.'</option>';
+                 }
+               }
+               closedir($handle);
+             ?>
+             </select>
+           </td>
+         </tr>
+         <?php } ?>
          <?php } ?>
          <tr>
            <td colspan="2" class="center">
@@ -167,4 +207,4 @@ if (count($big_list) > 1) {
    <?php
      }
    ?>
-<!-- end of $Id: prefs.php,v 1.37 2006/02/26 09:32:53 goddess_skuld Exp $ -->
+<!-- end of $Id: prefs.php,v 1.38 2006/02/26 11:07:52 goddess_skuld Exp $ -->
