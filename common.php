@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.62 2006/06/23 07:54:37 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.63 2006/07/01 08:10:19 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -226,7 +226,7 @@ if(isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
     $user_prefs = $_SESSION['nocc_user_prefs'];
 
     // Set lang from user prefs
-    if (isset($user_prefs->lang)) {
+    if (isset($user_prefs->lang) && $user_prefs->lang != '') {
       $_SESSION['nocc_lang'] = $user_prefs->lang;
       $lang = $_SESSION['nocc_lang'];
       $lang = str_replace('..','',$lang);
