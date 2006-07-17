@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.51 2006/06/22 16:23:40 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.52 2006/06/23 12:43:31 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -216,8 +216,8 @@ $original_msg = '--- Wiadomość oryginalna ---';
 $to_empty = 'Pole \'Do\' nie może być puste!';
 
 // Images warning
-$html_images_warning = 'For your security, remote pictures are not displayed.'; // to translate
-$html_images_display = 'Display pictures'; // to translate
+$html_images_warning = 'Dla twojego bezpieczeństwa, zdalne obrazy nie są wyświetlane.';
+$html_images_display = 'Wyświetl obrazy';
 
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Nie można utworzyć połączenia SMTP';
