@@ -1,11 +1,11 @@
-<!-- start of $Id: html_mail_top.php,v 1.15 2006/06/22 16:23:40 goddess_skuld Exp $ -->
+<!-- start of $Id: html_mail_top.php,v 1.16 2006/06/22 19:46:03 goddess_skuld Exp $ -->
 <div class="mailNav">
    <table>
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
 
-$has_images = eregi('src="[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]"', $content['body']) || eregi('src=[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]', $content['body']);
+$has_images = eregi('src="none"', $content['body']);
 $display_images = (isset($_REQUEST['display_images']) && $_REQUEST['display_images'] == 1) ? '1' : '0';
 
 // Show/hide header link
@@ -77,4 +77,4 @@ if ($has_images && $display_images != 1) {
 </div>
 <div class="mailData">
    <table>
-<!-- end of $Id: html_mail_top.php,v 1.15 2006/06/22 16:23:40 goddess_skuld Exp $ -->
+<!-- end of $Id: html_mail_top.php,v 1.16 2006/06/22 19:46:03 goddess_skuld Exp $ -->
