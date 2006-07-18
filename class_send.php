@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.69 2006/02/10 17:19:35 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.70 2006/02/10 17:28:44 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -216,6 +216,9 @@ class mime_mail
                 $smtp->subject = $this->subject;
                 $smtp->data = $mime;
                 $smtp_return = $smtp->send();
+		if (NoccException::isException($smtp_return)) {
+                    return($smtp_return);
+                }
                 $copy_return = 1;
                 $user_prefs = $_SESSION['nocc_user_prefs'];
                 if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder && isset($user_prefs->sent_folder_name) && $user_prefs->sent_folder_name !=null && $user_prefs->sent_folder_name != ""){

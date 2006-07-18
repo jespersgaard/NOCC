@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.31 2004/09/14 10:52:26 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.32 2005/11/04 17:30:57 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -217,25 +217,30 @@ class smtp
         $smtp = $this->smtp_open();
         if(NoccException::isException($smtp))
             return $smtp;
+	unset ($ev);
         $ev = $this->smtp_helo($smtp);
         if(NoccException::isException($ev))
             return $ev;
+	unset ($ev);
         $ev = $this->smtp_auth($smtp);
         if(NoccException::isException($ev))
             return $ev;
+	unset ($ev);
         $ev = $this->smtp_mail_from($smtp);
         if(NoccException::isException($ev))
             return $ev;
+	unset ($ev);
         $ev = $this->smtp_rcpt_to($smtp);
         if(NoccException::isException($ev))
             return $ev;
+	unset ($ev);
         $ev = $this->smtp_data($smtp);
         if(NoccException::isException($ev))
             return $ev;
+	unset ($ev);
         $ev = $this->smtp_quit($smtp);
         if(NoccException::isException($ev))
             return $ev;
-        return (true);
     }
 }
 ?>
