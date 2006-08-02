@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.50 2005/05/04 18:33:53 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.51 2006/04/28 07:18:32 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -33,6 +33,9 @@ $folder = $_SESSION['nocc_folder'];
 $target_folder = "";
 if (isset($_REQUEST['target_folder']))
     $target_folder = $_REQUEST['target_folder'];
+
+if (isset($_REQUEST['bottom_target_folder']))
+    $target_folder = $_REQUEST['bottom_target_folder'];
 
 if (isset($_REQUEST['only_one'])) {
     $mail = $_REQUEST['mail'];
@@ -67,12 +70,22 @@ if (isset($_REQUEST['only_one'])) {
                     $pop->mail_move($i, $target_folder, $ev);
                 }
             }
+            if (isset($_REQUEST['bottom_move_mode'])) {
+                if ($bottom_target_folder != $folder) {
+                    $pop->mail_move($i, $target_folder, $ev);
+                }
+            }
             if (isset($_REQUEST['copy_mode'])) {
                 if ($target_folder != $folder) {
                     $pop->mail_copy($i, $target_folder, $ev);
                 }
             }
-            if (isset($_REQUEST['delete_mode'])) {
+            if (isset($_REQUEST['bottom_copy_mode'])) {
+                if ($bottom_target_folder != $folder) {
+                    $pop->mail_copy($i, $target_folder, $ev);
+                }
+            }
+            if (isset($_REQUEST['delete_mode']) || isset($_REQUEST['bottom_delete_mode'])) {
                 // If messages are opened in a new windows, we will reload the opener window
                 // i.e. the one with messages list
                 $_SESSION['message_deleted'] = "true";
@@ -81,7 +94,13 @@ if (isset($_REQUEST['only_one'])) {
             if (isset($_REQUEST['mark_read_mode']) && $_REQUEST['mark_mode'] == 'read') {
                 $pop->mail_mark_read($i, $ev);
             }
+            if (isset($_REQUEST['bottom_mark_read_mode']) && $_REQUEST['bottom_mark_mode'] == 'read') {
+                $pop->mail_mark_read($i, $ev);
+            }
             if (isset($_REQUEST['mark_read_mode']) && $_REQUEST['mark_mode'] == 'unread') {
+                $pop->mail_mark_unread($i, $ev);
+            }
+            if (isset($_REQUEST['bottom_mark_read_mode']) && $_REQUEST['bottom_mark_mode'] == 'unread') {
                 $pop->mail_mark_unread($i, $ev);
             }
         }
