@@ -1,5 +1,6 @@
 NOCC 1.3    ?? ??, 200?
 
+    * Patch #1537220 : LANG and THEME may change also pop users (Vadim).
     * Add mail controls (delete, select all, etc.) to the bottom of the INBOX
       page (Arnaud Boudou).
     * Bug #1524044 :  SMTP Auth Failures mishandled (Arnaud Boudou).

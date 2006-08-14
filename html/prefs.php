@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.38 2006/02/26 11:07:52 goddess_skuld Exp $ -->
+<!-- start of $Id: prefs.php,v 1.39 2006/06/23 07:54:37 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -122,6 +122,7 @@ if (count($big_list) > 1) {
              <select class="button" name="sent_folder_name"><?php echo join('', $select_list) ?></select>
            </td>
          </tr>
+         <?php } ?>
          <tr>
            <td class="prefsLabel"><?php echo $html_lang ?> :</td>
            <td class="prefsData">
@@ -161,7 +162,6 @@ if (count($big_list) > 1) {
              </select>
            </td>
          </tr>
-         <?php } ?>
          <?php } ?>
          <tr>
            <td colspan="2" class="center">
@@ -207,4 +207,4 @@ if (count($big_list) > 1) {
    <?php
      }
    ?>
-<!-- end of $Id: prefs.php,v 1.38 2006/02/26 11:07:52 goddess_skuld Exp $ -->
+<!-- end of $Id: prefs.php,v 1.39 2006/06/23 07:54:37 goddess_skuld Exp $ -->
