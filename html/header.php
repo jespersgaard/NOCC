@@ -38,6 +38,7 @@ else {
   // (message list), in order to refresh the mail list after a successful 
   // deletion. It does not works with Safari
   if($_SESSION['message_deleted'] == "true"){
+    echo ("\n          if (window.opener != null)");
     echo ("\n            window.opener.location.href = window.opener.location;\n");
     $_SESSION['message_deleted'] = "false";
   }
@@ -65,4 +66,4 @@ else {
 <?php
 }
 ?>
-<!-- end of $Id: header.php,v 1.56 2006/02/26 09:32:53 goddess_skuld Exp $ -->
+<!-- end of $Id: header.php,v 1.57 2006/02/26 11:07:52 goddess_skuld Exp $ -->
