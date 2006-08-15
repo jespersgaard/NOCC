@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.109 2005/11/23 20:27:10 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.110 2005/11/23 21:23:43 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -242,6 +242,9 @@ function updatePage()
                       echo '</tr>';
                     }
                   ?>
+                  <?php
+                    if (isset($conf->prefs_dir) && $conf->prefs_dir != '') {
+                  ?>
                   <tr>
                     <td class="f right"><?php echo $html_remember ?></td>
                     <td>&nbsp;</td>
@@ -249,6 +252,7 @@ function updatePage()
                        <input type="checkbox" name="remember" value="true" />
                     </td>
                   </tr>
+                  <?php } ?>
                   <tr>
                     <td colspan="3" class="f center">
                       <input name="enter" class="button" type="submit" value="<?php echo $html_submit ?>" />

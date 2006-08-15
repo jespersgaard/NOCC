@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.180 2006/07/17 17:19:11 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.181 2006/08/14 07:00:26 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -551,23 +551,15 @@ switch($action)
             }
             // If needed, store a cookie with all needed parameters
             if ($remember == "true") {
-              $cookie_string = $_SESSION['nocc_user'];
-              $cookie_string .= " " . decpass($_SESSION['nocc_passwd'], $_COOKIE['NoccKey']);
-              $cookie_string .= " " . $_SESSION['nocc_lang'];
-              $cookie_string .= " " . $_SESSION['nocc_smtp_server'];
-              $cookie_string .= " " . $_SESSION['nocc_smtp_port'];
-              $cookie_string .= " " . $_SESSION['nocc_theme'];
-              $cookie_string .= " " . $_SESSION['nocc_domain'];
-              $cookie_string .= " " . $_SESSION['imap_namespace'];
-              $cookie_string .= " " . $_SESSION['nocc_servr'];
-              $cookie_string .= " " . $_SESSION['nocc_folder'];
-              $cookie_string .= " " . $_SESSION['smtp_auth'];
-
-              //encode cookie string to base64
-              $cookie_string = base64_encode($cookie_string);
-
+              saveSession($ev);
+              if (NoccException::isException($ev)) {
+                  require ('./html/header.php');
+                  require ('./html/error.php');
+                  require ('./html/footer.php');
+                  break;
+              }              
               //store cookie for thirty days
-              setcookie ("NoccIdent", $cookie_string, time()+60*60*24*30);
+              setcookie ('NoccIdent', $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'], time()+60*60*24*30);
             }
 
         }

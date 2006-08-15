@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.142 2006/02/26 09:32:53 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.143 2006/02/26 12:24:16 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -118,8 +118,12 @@ $conf->tmpdir = '';
 // You should not use a subfolder within your Nocc installation, as it will
 // be readable by everybody, and will contain sensible information as email
 // addresses and names.
-// If left empty, preferences will be disabled.
+// If left empty, preferences, contacts and session saving will be disabled.
 $conf->prefs_dir = '';
+
+// Master key for session password encryption. Longer is better.
+// It must not be left empty.
+$conf->master_key = '';
 
 // Default folder to go first
 $conf->default_folder = 'INBOX';

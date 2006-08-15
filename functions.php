@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.213 2006/02/26 12:18:37 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.214 2006/05/26 19:11:13 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -1053,4 +1053,69 @@ function unhtmlentities ($string)
    return strtr ($string, $trans_tbl);
 }
 
+// Save session informations.
+function saveSession(&$ev)
+{
+  global $conf;
+  if (!empty($conf->prefs_dir)) {
+    // generate string with session information
+    unset ($cookie_string);
+    $cookie_string = $_SESSION['nocc_user'];
+    $cookie_string .= " " . $_SESSION['nocc_passwd'];
+    $cookie_string .= " " . $_SESSION['nocc_lang'];
+    $cookie_string .= " " . $_SESSION['nocc_smtp_server'];
+    $cookie_string .= " " . $_SESSION['nocc_smtp_port'];
+    $cookie_string .= " " . $_SESSION['nocc_theme'];
+    $cookie_string .= " " . $_SESSION['nocc_domain'];
+    $cookie_string .= " " . $_SESSION['imap_namespace'];
+    $cookie_string .= " " . $_SESSION['nocc_servr'];
+    $cookie_string .= " " . $_SESSION['nocc_folder'];
+    $cookie_string .= " " . $_SESSION['smtp_auth'];
+
+    // encode cookie string to base64
+    $cookie_string = base64_encode($cookie_string);
+
+    // save string to file
+    $filename = $conf->prefs_dir . '/' . $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'] . '.session';
+    if (file_exists($filename) && !is_writable($filename)) {
+      $ev = new NoccException($html_session_file_error);
+      return;
+    }
+    if (!is_writable($conf->prefs_dir)) {
+      $ev = new NoccException($html_session_file_error);
+      return;
+    }
+    $file = fopen($filename, 'w');
+    if (!$file) {
+      $ev = new NoccException($html_session_file_error);
+      return;
+    }
+    fwrite ($file, $cookie_string . "\n");
+    fclose ($file);
+  }
+}
+
+// Restore session informations.
+function loadSession(&$ev, &$key)
+{
+  global $conf;
+
+  if (empty($conf->prefs_dir)) {
+    return '';
+  }
+
+  $filename = $conf->prefs_dir . '/' . $key . '.session';
+  if (!file_exists($filename)) {
+    return '';
+  }
+
+  $file = fopen($filename, 'r');
+  if (!$file) {
+    $ev = new NoccException("Could not open $filename for reading user session");
+    return '';
+  }
+
+  $line = trim(fgets($file, 1024));
+  return $line;
+}
 ?>

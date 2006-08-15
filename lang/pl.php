@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.52 2006/06/23 12:43:31 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.53 2006/07/17 16:08:04 ajetam Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -235,4 +235,5 @@ $html_seperate_msg_win = 'Wiadomości w osobnym oknie';
 
 // Exceptions
 $html_err_file_contacts = 'Brak dostępu do zapisu listy kontaktów.';
+$html_session_file_error = 'Unable to open session file for writing.';  //to translate
 ?>

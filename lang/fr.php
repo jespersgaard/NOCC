@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.88 2005/07/20 09:45:50 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.89 2006/06/22 16:23:40 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -234,4 +234,5 @@ $html_seperate_msg_win = 'Messages dans des fenêtres séparées';
 
 // Exceptions
 $html_err_file_contacts = 'Impossible d\'ouvrir le fichier des contacts';
+$html_session_file_error = 'Impossible d\'ouvrir le fichier des sessions';
 ?>

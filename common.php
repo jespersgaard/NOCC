@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.63 2006/07/01 08:10:19 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.64 2006/07/09 19:47:16 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -41,9 +41,16 @@ if ($from_rss == false) {
 
 // Initialise session array
 if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'cookie' || isset($_REQUEST['rss']) && $_REQUEST['rss'] == 'true'){
-  list($_SESSION['nocc_user'], $_SESSION['nocc_passwd'], $_SESSION['nocc_lang'], $_SESSION['nocc_smtp_server'], $_SESSION['nocc_smtp_port'], $_SESSION['nocc_theme'], $_SESSION['nocc_domain'], $_SESSION['imap_namespace'], $_SESSION['nocc_servr'], $_SESSION['nocc_folder'], $_SESSION['smtp_auth']) = explode(" ", base64_decode($_COOKIE['NoccIdent']));
+  $session = loadSession($ev, $_COOKIE['NoccIdent']);
+  if (NoccException::isException($ev)) {
+    require ('./html/header.php');
+    require ('./html/error.php');
+    require ('./html/footer.php');
+    break;
+  }
+  list($_SESSION['nocc_user'], $_SESSION['nocc_passwd'], $_SESSION['nocc_lang'], $_SESSION['nocc_smtp_server'], $_SESSION['nocc_smtp_port'], $_SESSION['nocc_theme'], $_SESSION['nocc_domain'], $_SESSION['imap_namespace'], $_SESSION['nocc_servr'], $_SESSION['nocc_folder'], $_SESSION['smtp_auth']) = explode(" ", base64_decode($session));
   $_SESSION['nocc_folder'] = isset($_REQUEST['nocc_folder']) ? $_REQUEST['nocc_folder'] : 'INBOX';
-  $pwd_to_encrypt = true;
+  $pwd_to_encrypt = false;
 }
 
 // Useful for debugging sessions
@@ -78,10 +85,7 @@ if(isset($_REQUEST['passwd'])) {
 if ($pwd_to_encrypt == true) {
     /* encrypt session password */
     /* store into session encrypted password */
-    $key = genkey(rand(30,35), 'NoccKey');
-    setcookie('NoccKey', $key);
-    $_COOKIE['NoccKey'] = $key;
-    $_SESSION['nocc_passwd'] = encpass($_SESSION['nocc_passwd'], $key);
+    $_SESSION['nocc_passwd'] = encpass($_SESSION['nocc_passwd'], $conf->master_key);
 }
 
 if(isset($_REQUEST['lang']))

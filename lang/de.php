@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.51 2006/06/22 16:23:40 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.52 2006/06/23 12:43:31 goddess_skuld Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha AT free DOT fr>
  * Copyright 2000 Olivier Cahagne <wolruf AT free DOT fr>
@@ -237,4 +237,5 @@ $html_seperate_msg_win = 'Nachricht in neuem Fenster öffnen';
 
 // Exceptions
 $html_err_file_contacts = 'Kann die Kontaktdatei nicht zum Schreiben öffnen.';
+$html_session_file_error = 'Unable to open session file for writing.';  //to translate
 ?>

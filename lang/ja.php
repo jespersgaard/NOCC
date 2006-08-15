@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ja.php,v 1.2 2006/06/22 16:23:40 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ja.php,v 1.3 2006/06/23 12:43:31 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -234,4 +234,5 @@ $html_seperate_msg_win = '分離ウィンドウのメッセージ';
 
 // Exceptions
 $html_err_file_contacts = 'アドレス帳を書き込むためにファイルを開けませんでした。';
+$html_session_file_error = 'Unable to open session file for writing.';  //to translate
 ?>

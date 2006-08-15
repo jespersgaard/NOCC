@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.5 2005/11/04 15:57:45 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.6 2005/12/15 20:10:47 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -24,7 +24,6 @@
     exit;
   }
 
-  genkey(30, 'NoccKey');
   $from_rss = true;
 
   $_SESSION['nocc_user'] = $_SERVER['PHP_AUTH_USER'];

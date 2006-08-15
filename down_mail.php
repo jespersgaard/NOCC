@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/down_mail.php,v 1.4 2005/11/04 17:30:57 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/down_mail.php,v 1.5 2005/12/15 20:10:47 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -15,7 +15,7 @@ require_once ('./conf.php');
 require_once ('./functions.php');
 require_once ('./crypt.php');
 $passwd = safestrip($_SESSION['nocc_passwd']);
-$passwd = decpass($passwd, $_COOKIE['NoccKey']);
+$passwd = decpass($passwd, $conf->master_key);
 $passwd = safestrip($passwd);
 
 //header('Content-Type: text/plain');
