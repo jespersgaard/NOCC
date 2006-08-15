@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.6 2005/12/15 20:10:47 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.7 2006/08/15 10:51:47 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -18,26 +18,19 @@
   session_name("NOCCSESSID");
   session_start();
 
-  if (!isset($_SERVER['PHP_AUTH_USER'])) {
-    header('WWW-Authenticate: Basic realm="My Realm"');
-    header('HTTP/1.0 401 Unauthorized');
-    exit;
-  }
-
   $from_rss = true;
 
-  $_SESSION['nocc_user'] = $_SERVER['PHP_AUTH_USER'];
-  $_SESSION['nocc_passwd'] = $_SERVER['PHP_AUTH_PW'];
-  
-  $_SESSION['nocc_lang'] = $_REQUEST['nocc_lang'];
-  $_SESSION['nocc_smtp_server'] = $_REQUEST['nocc_smtp_server'];
-  $_SESSION['nocc_smtp_port'] = $_REQUEST['nocc_smtp_port'];
-  $_SESSION['nocc_theme'] = $_REQUEST['nocc_theme'];
-  $_SESSION['nocc_domain'] = $_REQUEST['nocc_domain'];
-  $_SESSION['imap_namespace'] = $_REQUEST['imap_namespace'];
-  $_SESSION['nocc_servr'] = $_REQUEST['nocc_servr'];
-  $_SESSION['nocc_folder'] = $_REQUEST['nocc_folder'];
-  $_SESSION['smtp_auth'] = $_REQUEST['smtp_auth'];
+  $_SESSION['nocc_user'] = base64_decode($_REQUEST['nocc_user']);
+  $_SESSION['nocc_passwd'] = base64_decode($_REQUEST['nocc_passwd']);
+  $_SESSION['nocc_lang'] = base64_decode($_REQUEST['nocc_lang']);
+  $_SESSION['nocc_smtp_server'] = base64_decode($_REQUEST['nocc_smtp_server']);
+  $_SESSION['nocc_smtp_port'] = base64_decode($_REQUEST['nocc_smtp_port']);
+  $_SESSION['nocc_theme'] = base64_decode($_REQUEST['nocc_theme']);
+  $_SESSION['nocc_domain'] = base64_decode($_REQUEST['nocc_domain']);
+  $_SESSION['imap_namespace'] = base64_decode($_REQUEST['imap_namespace']);
+  $_SESSION['nocc_servr'] = base64_decode($_REQUEST['nocc_servr']);
+  $_SESSION['nocc_folder'] = base64_decode($_REQUEST['nocc_folder']);
+  $_SESSION['smtp_auth'] = base64_decode($_REQUEST['smtp_auth']);
 
   if(!isset($_SESSION['nocc_user_prefs'])) {
       $_SESSION['nocc_user_prefs'] = NOCCUserPrefs::read($user_key, $ev);
@@ -45,7 +38,6 @@
               echo "<p>User prefs error ($user_key): ".$ev->getMessage()."</p>";
               exit(1);
       }
-      echo ('bouh');
   }
 
   require_once './conf.php';
@@ -70,22 +62,21 @@
     exit;
   }
 
-  header('Content-Type: text/xml; charset='.$charset);
+  header('Content-Type: application/rss+xml; charset='.$charset);
   echo "<?xml version=\"1.0\" encoding=\"$charset\" ?>\n";
 ?>
   <rdf:RDF
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:admin="http://webns.net/mvcb/"
     xmlns:content="http://purl.org/rss/1.0/modules/content/"
-    xmlns="http://purl.org/rss/1.0/"
->
+    xmlns="http://purl.org/rss/1.0/">
 
-<channel rdf:about="<?php echo $conf->webmail_url ?>">
-<title>NOCC Webmail - <?php echo $_SESSION['nocc_folder'] ?></title>
-<description>Your mailbox</description>
-<link><?php echo $conf->webmail_url ?></link>
+  <channel rdf:about="<?php echo $conf->webmail_url ?>">
+  <title>NOCC Webmail - <?php echo $_SESSION['nocc_folder'] ?></title>
+  <description>Your mailbox</description>
+  <link><?php echo $conf->webmail_url ?></link>
 
-<admin:generatorAgent rdf:resource="http://nocc.sourceforge.net/" />
+  <admin:generatorAgent rdf:resource="http://nocc.sourceforge.net/" />
 
 <items>
 <rdf:Seq>
@@ -108,7 +99,8 @@ while ($tmp = array_shift($tab_mail)) {
 <title><?php echo htmlspecialchars(htmlentities($tmp['subject'])) ?></title>
 <link><?php echo $conf->webmail_url . 'action.php?action=aff_mail&amp;mail=' . $tmp['number'] . '&amp;verbose=0&amp;rss=true' ?></link>
 <description>
-<?php echo htmlspecialchars(str_replace("themes/", $conf->webmail_url . "themes/", $tmp['attach'])) ?> <?php echo $html_size . ": " . $tmp['size'] . " " . $html_kb ?> <br /><br />
+<![CDATA[
+<?php echo str_replace("themes/", $conf->webmail_url . "themes/", $tmp['attach']) ?> <?php echo $html_size . ": " . $tmp['size'] . " " . $html_kb ?> <br /><br />
 <?php
   $attach_tab = array();
   $content = aff_mail($pop, $attach_tab, $tmp['number'], 0, $ev);
@@ -116,8 +108,9 @@ while ($tmp = array_shift($tab_mail)) {
     require ('./html/error.php');
     exit;
   }
-  echo htmlspecialchars(substr($content['body'], 0, 200) . '...');  
+  echo substr($content['body'], 0, 200) . '...';  
 ?>
+  ]]>
   </description>
 </item>
 <?php

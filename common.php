@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.64 2006/07/09 19:47:16 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.65 2006/08/15 10:51:46 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -30,17 +30,13 @@ if (isset ($_REQUEST["action"]) && $_REQUEST["action"] == 'login') {
   $pwd_to_encrypt = true;
 }
 
-if ($from_rss == true) {
-    $pwd_to_encrypt = true;
-}
-
 session_name("NOCCSESSID");
 if ($from_rss == false) {
     session_start();
 }
 
 // Initialise session array
-if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'cookie' || isset($_REQUEST['rss']) && $_REQUEST['rss'] == 'true'){
+if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'cookie'){
   $session = loadSession($ev, $_COOKIE['NoccIdent']);
   if (NoccException::isException($ev)) {
     require ('./html/header.php');

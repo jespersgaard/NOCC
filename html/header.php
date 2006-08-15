@@ -43,15 +43,17 @@ else {
     $_SESSION['message_deleted'] = "false";
   }
   $rss_url = "rss.php";
-  $rss_url .= '?nocc_lang=' . $_SESSION['nocc_lang'];
-  $rss_url .= '&amp;nocc_smtp_server=' . $_SESSION['nocc_smtp_server'];
-  $rss_url .= '&amp;nocc_smtp_port=' . $_SESSION['nocc_smtp_port'];
-  $rss_url .= '&amp;nocc_theme=' . $_SESSION['nocc_theme'];
-  $rss_url .= '&amp;nocc_domain=' . $_SESSION['nocc_domain'];
-  $rss_url .= '&amp;imap_namespace=' . $_SESSION['imap_namespace'];
-  $rss_url .= '&amp;nocc_servr=' . $_SESSION['nocc_servr'];
-  $rss_url .= '&amp;nocc_folder=' . $_SESSION['nocc_folder'];
-  $rss_url .= '&amp;smtp_auth=' . $_SESSION['smtp_auth'];
+  $rss_url .= '?nocc_lang=' . base64_encode($_SESSION['nocc_lang']);
+  $rss_url .= '&amp;nocc_smtp_server=' . base64_encode($_SESSION['nocc_smtp_server']);
+  $rss_url .= '&amp;nocc_smtp_port=' . base64_encode($_SESSION['nocc_smtp_port']);
+  $rss_url .= '&amp;nocc_theme=' . base64_encode($_SESSION['nocc_theme']);
+  $rss_url .= '&amp;nocc_domain=' . base64_encode($_SESSION['nocc_domain']);
+  $rss_url .= '&amp;imap_namespace=' . base64_encode($_SESSION['imap_namespace']);
+  $rss_url .= '&amp;nocc_servr=' . base64_encode($_SESSION['nocc_servr']);
+  $rss_url .= '&amp;nocc_folder=' . base64_encode($_SESSION['nocc_folder']);
+  $rss_url .= '&amp;smtp_auth=' . base64_encode($_SESSION['smtp_auth']);
+  $rss_url .= '&amp;nocc_user=' . base64_encode($_SESSION['nocc_user']);
+  $rss_url .= '&amp;nocc_passwd=' . base64_encode($_SESSION['nocc_passwd']);
   
 ?>
         </script>
@@ -66,4 +68,4 @@ else {
 <?php
 }
 ?>
-<!-- end of $Id: header.php,v 1.57 2006/02/26 11:07:52 goddess_skuld Exp $ -->
+<!-- end of $Id: header.php,v 1.58 2006/08/15 07:50:58 goddess_skuld Exp $ -->
