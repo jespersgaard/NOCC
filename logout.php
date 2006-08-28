@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/logout.php,v 1.33 2005/11/04 14:22:28 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/logout.php,v 1.34 2006/08/15 10:51:47 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,8 +9,10 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
 
+session_name("NOCCSESSID");
+session_start();
 require_once './conf.php';
-require_once './common.php';
+//require_once './common.php';
 
 $old_theme = $_SESSION['nocc_theme'];
 clear_attachments();
