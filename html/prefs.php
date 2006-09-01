@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.39 2006/06/23 07:54:37 goddess_skuld Exp $ -->
+<!-- start of $Id: prefs.php,v 1.40 2006/08/14 07:00:27 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -56,36 +56,36 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="cc_self" id="cc_self" value="on" <?php if(isset($user_prefs->cc_self) && $user_prefs->cc_self) echo "checked"; ?> /><label for="cc_self"><?php echo htmlentities($html_ccself, ENT_COMPAT, 'UTF-8') ?></label>
+             <input type="checkbox" name="cc_self" id="cc_self" value="on" <?php if(isset($user_prefs->cc_self) && $user_prefs->cc_self) echo 'checked="checked"'; ?> /><label for="cc_self"><?php echo htmlentities($html_ccself, ENT_COMPAT, 'UTF-8') ?></label>
            </td>
          </tr>
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="hide_addresses" id="hide_addresses" value="on" <?php if(isset($user_prefs->hide_addresses) && $user_prefs->hide_addresses) echo "checked"; ?> /><label for="hide_addresses"><?php echo htmlentities($html_hide_addresses, ENT_COMPAT, 'UTF-8') ?></label>
+             <input type="checkbox" name="hide_addresses" id="hide_addresses" value="on" <?php if(isset($user_prefs->hide_addresses) && $user_prefs->hide_addresses) echo 'checked="checked"'; ?> /><label for="hide_addresses"><?php echo htmlentities($html_hide_addresses, ENT_COMPAT, 'UTF-8') ?></label>
            </td>
          </tr>
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="outlook_quoting" id="outlook_quoting" value="on" <?php if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting) echo "checked"; ?> /><label for="outlook_quoting"><?php echo htmlentities($html_outlook_quoting, ENT_COMPAT, 'UTF-8') ?></label>
+             <input type="checkbox" name="outlook_quoting" id="outlook_quoting" value="on" <?php if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting) echo 'checked="checked"'; ?> /><label for="outlook_quoting"><?php echo htmlentities($html_outlook_quoting, ENT_COMPAT, 'UTF-8') ?></label>
            </td>
          </tr>
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
              <label><?php echo htmlentities($html_wrap, ENT_COMPAT, 'UTF-8') ?></label>
-             <input type="radio" name="wrap_msg" value="80" <?php if($user_prefs->wrap_msg == 80) echo "checked"; ?> />80
+             <input type="radio" name="wrap_msg" value="80" <?php if($user_prefs->wrap_msg == 80) echo 'checked="checked"'; ?> />80
              &nbsp;&nbsp;
-             <input type="radio" name="wrap_msg" value="72" <?php if($user_prefs->wrap_msg == 72) echo "checked"; ?> />72
+             <input type="radio" name="wrap_msg" value="72" <?php if($user_prefs->wrap_msg == 72) echo 'checked="checked"'; ?> />72
              &nbsp;&nbsp;
-             <label><input name="wrap_msg" type="radio" value="0" <?php if($user_prefs->wrap_msg == '') echo "checked"; ?> /><?php echo htmlentities($html_wrap_none, ENT_COMPAT, 'UTF-8') ?></label>
+             <label><input name="wrap_msg" type="radio" value="0" <?php if($user_prefs->wrap_msg == '') echo 'checked="checked"'; ?> /><?php echo htmlentities($html_wrap_none, ENT_COMPAT, 'UTF-8') ?></label>
            </td>
          </tr>
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="seperate_msg_win" id="seperate_msg_win" value="on" <?php if(isset($user_prefs->seperate_msg_win) && $user_prefs->seperate_msg_win) echo "checked"; ?> /><label for="seperate_msg_win"><?php echo htmlentities($html_seperate_msg_win, ENT_COMPAT, 'UTF-8') ?></label>
+             <input type="checkbox" name="seperate_msg_win" id="seperate_msg_win" value="on" <?php if(isset($user_prefs->seperate_msg_win) && $user_prefs->seperate_msg_win) echo 'checked="checked"'; ?> /><label for="seperate_msg_win"><?php echo htmlentities($html_seperate_msg_win, ENT_COMPAT, 'UTF-8') ?></label>
            </td>
          </tr>
          <?php if($conf->enable_reply_leadin) { ?>
@@ -105,20 +105,20 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="sig_sep" id="sig_sep" value="on" <?php if(isset($user_prefs->sig_sep) && $user_prefs->sig_sep) echo "checked"; ?> /><label for="sig_sep"><?php echo htmlentities($html_usenet_separator, ENT_COMPAT, 'UTF-8') ?></label>
+             <input type="checkbox" name="sig_sep" id="sig_sep" value="on" <?php if(isset($user_prefs->sig_sep) && $user_prefs->sig_sep) echo 'checked="checked"'; ?> /><label for="sig_sep"><?php echo htmlentities($html_usenet_separator, ENT_COMPAT, 'UTF-8') ?></label>
            </td>
          </tr>
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="graphical_smilies" id="graphical_smilies" value="on" <?php if (isset($user_prefs->graphical_smilies) && $user_prefs->graphical_smilies) echo "checked"; ?> /><label for="graphical_smilies"><?php echo htmlentities($html_use_graphical_smilies, ENT_COMPAT, 'UTF-8') ?></label>
+             <input type="checkbox" name="graphical_smilies" id="graphical_smilies" value="on" <?php if (isset($user_prefs->graphical_smilies) && $user_prefs->graphical_smilies) echo 'checked="checked"'; ?> /><label for="graphical_smilies"><?php echo htmlentities($html_use_graphical_smilies, ENT_COMPAT, 'UTF-8') ?></label>
            </td>
          </tr>
          <?php if($pop->is_imap()) { ?>
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="sent_folder" id="sent_folder" value="on" <?php if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder) echo "checked"; ?> /><label for="sent_folder"><?php echo htmlentities($html_sent_folder, ENT_COMPAT, 'UTF-8') ?></label> : 
+             <input type="checkbox" name="sent_folder" id="sent_folder" value="on" <?php if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder) echo 'checked="checked"'; ?> /><label for="sent_folder"><?php echo htmlentities($html_sent_folder, ENT_COMPAT, 'UTF-8') ?></label> : 
              <select class="button" name="sent_folder_name"><?php echo join('', $select_list) ?></select>
            </td>
          </tr>
@@ -207,4 +207,4 @@ if (count($big_list) > 1) {
    <?php
      }
    ?>
-<!-- end of $Id: prefs.php,v 1.39 2006/06/23 07:54:37 goddess_skuld Exp $ -->
+<!-- end of $Id: prefs.php,v 1.40 2006/08/14 07:00:27 goddess_skuld Exp $ -->

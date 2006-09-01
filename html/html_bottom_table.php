@@ -1,4 +1,4 @@
-<!-- start of $Id: html_bottom_table.php,v 1.37 2006/08/02 18:18:25 goddess_skuld Exp $ -->
+<!-- start of $Id: html_bottom_table.php,v 1.38 2006/08/02 19:33:36 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -6,7 +6,6 @@
                       </table>
                     </div>
 		    <?php include('menu_inbox_bottom_opts.php'); ?>
-                  </form>
                   <!-- end of Message list bloc -->
                 </div>
                 <div class="bottomNavigation">
@@ -36,4 +35,4 @@ function SelectAll() {
 }
 //-->
 </script>
-<!-- end of $Id: html_bottom_table.php,v 1.37 2006/08/02 18:18:25 goddess_skuld Exp $ -->
+<!-- end of $Id: html_bottom_table.php,v 1.38 2006/08/02 19:33:36 goddess_skuld Exp $ -->

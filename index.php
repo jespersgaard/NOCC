@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.110 2005/11/23 21:23:43 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.111 2006/08/15 10:51:47 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -25,75 +25,75 @@ require ('./html/header.php');
 <!--
 function updatePort () 
 {
-    if (document.nocc_webmail_login.servtype.options[document.nocc_webmail_login.servtype.selectedIndex].value == 'imap') 
+    if (document.getElementById("nocc_webmail_login").servtype.options[document.getElementById("nocc_webmail_login").servtype.selectedIndex].value == 'imap') 
     {
-        document.nocc_webmail_login.port.value = 143;
+        document.getElementById("nocc_webmail_login").port.value = 143;
     }
-    else if (document.nocc_webmail_login.servtype.options[document.nocc_webmail_login.servtype.selectedIndex].value == 'notls')
+    else if (document.getElementById("nocc_webmail_login").servtype.options[document.getElementById("nocc_webmail_login").servtype.selectedIndex].value == 'notls')
     {
-        document.nocc_webmail_login.port.value = 143;
+        document.getElementById("nocc_webmail_login").port.value = 143;
     }
-    else if (document.nocc_webmail_login.servtype.options[document.nocc_webmail_login.servtype.selectedIndex].value == 'ssl') 
+    else if (document.getElementById("nocc_webmail_login").servtype.options[document.getElementById("nocc_webmail_login").servtype.selectedIndex].value == 'ssl') 
     {
-        document.nocc_webmail_login.port.value = 993;
+        document.getElementById("nocc_webmail_login").port.value = 993;
     }
-    else if (document.nocc_webmail_login.servtype.options[document.nocc_webmail_login.servtype.selectedIndex].value == 'ssl/novalidate-cert') 
+    else if (document.getElementById("nocc_webmail_login").servtype.options[document.getElementById("nocc_webmail_login").servtype.selectedIndex].value == 'ssl/novalidate-cert') 
     {
-        document.nocc_webmail_login.port.value = 993;
+        document.getElementById("nocc_webmail_login").port.value = 993;
     }
-    else if (document.nocc_webmail_login.servtype.options[document.nocc_webmail_login.servtype.selectedIndex].value == 'pop3')
+    else if (document.getElementById("nocc_webmail_login").servtype.options[document.getElementById("nocc_webmail_login").servtype.selectedIndex].value == 'pop3')
     {
-        document.nocc_webmail_login.port.value = 110;
+        document.getElementById("nocc_webmail_login").port.value = 110;
     }
-    else if (document.nocc_webmail_login.servtype.options[document.nocc_webmail_login.servtype.selectedIndex].value == 'pop3/notls')
+    else if (document.getElementById("nocc_webmail_login").servtype.options[document.getElementById("nocc_webmail_login").servtype.selectedIndex].value == 'pop3/notls')
     {
-        document.nocc_webmail_login.port.value = 110;
+        document.getElementById("nocc_webmail_login").port.value = 110;
     }
-    else if (document.nocc_webmail_login.servtype.options[document.nocc_webmail_login.servtype.selectedIndex].value == 'pop3/ssl')
+    else if (document.getElementById("nocc_webmail_login").servtype.options[document.getElementById("nocc_webmail_login").servtype.selectedIndex].value == 'pop3/ssl')
     {
-        document.nocc_webmail_login.port.value = 995;
+        document.getElementById("nocc_webmail_login").port.value = 995;
     }
-    else if (document.nocc_webmail_login.servtype.options[document.nocc_webmail_login.servtype.selectedIndex].value == 'pop3/ssl/novalidate-cert')
+    else if (document.getElementById("nocc_webmail_login").servtype.options[document.getElementById("nocc_webmail_login").servtype.selectedIndex].value == 'pop3/ssl/novalidate-cert')
     {
-        document.nocc_webmail_login.port.value = 995;
+        document.getElementByI("nocc_webmail_login").port.value = 995;
     }
 }
 
 function updateLang() 
 {
-    if (document.nocc_webmail_login.user.value == "" && document.nocc_webmail_login.passwd.value == "")
+    if (document.getElementById("nocc_webmail_login").user.value == "" && document.getElementById("nocc_webmail_login").passwd.value == "")
     {
-        var lang_page = "index.php?lang=" + document.nocc_webmail_login.lang[document.nocc_webmail_login.lang.selectedIndex].value;
+        var lang_page = "index.php?lang=" + document.getElementById("nocc_webmail_login").lang[document.getElementById("nocc_webmail_login").lang.selectedIndex].value;
         self.location = lang_page;
     }
 }
 
 function updateTheme() 
 {
-    if (document.nocc_webmail_login.user.value == "" && document.nocc_webmail_login.passwd.value == "")
+    if (document.getElementById("nocc_webmail_login").user.value == "" && document.getElementById("nocc_webmail_login").passwd.value == "")
     {
-        var lang_page = "index.php?theme=" + document.nocc_webmail_login.theme[document.nocc_webmail_login.theme.selectedIndex].value;
+        var lang_page = "index.php?theme=" + document.getElementById("nocc_webmail_login").theme[document.getElementById("nocc_webmail_login").theme.selectedIndex].value;
         self.location = lang_page;
     }
 }
 
 function updatePage() 
 {
-    if (document.nocc_webmail_login.user.value == "" && document.nocc_webmail_login.passwd.value == "")
+    if (document.getElementById("nocc_webmail_login").user.value == "" && document.getElementById("nocc_webmail_login").passwd.value == "")
     {
-        if (document.nocc_webmail_login.theme && document.nocc_webmail_login.lang) {
-            var lang_page = "index.php?theme=" + document.nocc_webmail_login.theme[document.nocc_webmail_login.theme.selectedIndex].value + "&lang=" + document.nocc_webmail_login.lang[document.nocc_webmail_login.lang.selectedIndex].value;
+        if (document.getElementById("nocc_webmail_login").theme && document.getElementById("nocc_webmail_login").lang) {
+            var lang_page = "index.php?theme=" + document.getElementById("nocc_webmail_login").theme[document.getElementById("nocc_webmail_login").theme.selectedIndex].value + "&lang=" + document.getElementById("nocc_webmail_login").lang[document.getElementById("nocc_webmail_login").lang.selectedIndex].value;
             self.location = lang_page;
         }
-        if (!document.nocc_webmail_login.theme && document.nocc_webmail_login.lang) {
-            var lang_page = "index.php?lang=" + document.nocc_webmail_login.lang[document.nocc_webmail_login.lang.selectedIndex].value;
+        if (!document.getElementById("nocc_webmail_login").theme && document.getElementById("nocc_webmail_login").lang) {
+            var lang_page = "index.php?lang=" + document.getElementById("nocc_webmail_login").lang[document.getElementById("nocc_webmail_login").lang.selectedIndex].value;
             self.location = lang_page;
         }
-        if (document.nocc_webmail_login.theme && !document.nocc_webmail_login.lang) {
-            var lang_page = "index.php?theme=" + document.nocc_webmail_login.theme[document.nocc_webmail_login.theme.selectedIndex].value;
+        if (document.getElementById("nocc_webmail_login").theme && !document.getElementById("nocc_webmail_login").lang) {
+            var lang_page = "index.php?theme=" + document.getElementById("nocc_webmail_login").theme[document.getElementById("nocc_webmail_login").theme.selectedIndex].value;
             self.location = lang_page;
         }
-        if (!document.nocc_webmail_login.theme && !document.nocc_webmail_login.lang) {
+        if (!document.getElementById("nocc_webmail_login").theme && !document.getElementById("nocc_webmail_login").lang) {
             var lang_page = "index.php";
             self.location = lang_page;
         }
@@ -104,7 +104,7 @@ function updatePage()
 // -->
 </script>
 
-            <form action="action.php" method="post" name="nocc_webmail_login" id="nocc_webmail_login">
+            <form action="action.php" method="post" id="nocc_webmail_login">
             <div class="loginContent">
               <input type="hidden" name="folder" value="INBOX" />
               <input type="hidden" name="action" value="login" />
@@ -267,8 +267,8 @@ function updatePage()
             </form>
             <script type="text/javascript">
             <!--
-                document.nocc_webmail_login.user.focus();
-                document.nocc_webmail_login.passwd.value='';
+                document.getElementById("nocc_webmail_login").user.focus();
+                document.getElementById("nocc_webmail_login").passwd.value='';
             // -->
             </script>
 <?php

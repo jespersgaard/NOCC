@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.77 2006/01/18 21:03:31 goddess_skuld Exp $ -->
+<!-- start of $Id: send.php,v 1.78 2006/02/26 09:32:53 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -9,7 +9,7 @@ $mail_from = get_default_from_address();
 ?>
 <div class="send">
 <!-- If 'file_uploads=Off', we must set formtype to "normal" otherwise it won't work -->
-<form name="sendform" enctype="<?php echo (ini_get("file_uploads")) ? "multipart/form-data" : "normal" ?>" method="post" onsubmit="return(validate(this));" action="send.php">
+<form id="sendform" enctype="<?php echo (ini_get("file_uploads")) ? "multipart/form-data" : "normal" ?>" method="post" onsubmit="return(validate(this));" action="send.php">
 
 <?php 
   if(isset($broken_forwarding) && !($broken_forwarding)) {
@@ -47,7 +47,7 @@ $mail_from = get_default_from_address();
      <tr>
      <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
        <td class="sendLabel">
-         <a href="javascript:void(0);" onclick="window.open('contacts.php?field=mail_to&<?php echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_to ?></a> :
+         <a href="javascript:void(0);" onclick="window.open('contacts.php?field=mail_to&amp;<?php echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_to ?></a> :
        </td>
      <?php } else { ?>
        <td class="sendLabel"><?php echo $html_to ?> : </td>
@@ -59,7 +59,7 @@ $mail_from = get_default_from_address();
      <tr>
      <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
        <td class="sendLabel">
-         <a href="javascript:void(0);" onclick="window.open('contacts.php?field=mail_cc&<?php echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_cc ?></a> :
+         <a href="javascript:void(0);" onclick="window.open('contacts.php?field=mail_cc&amp;<?php echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_cc ?></a> :
 
        </td>
      <?php } else { ?>
@@ -72,7 +72,7 @@ $mail_from = get_default_from_address();
      <tr>
      <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
        <td class="sendLabel">
-         <a href="javascript:void(0);" onclick="window.open('contacts.php?field=mail_bcc&<?php echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_bcc ?></a> :
+         <a href="javascript:void(0);" onclick="window.open('contacts.php?field=mail_bcc&amp;<?php echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_bcc ?></a> :
        </td>
      <?php } else { ?>
        <td class="sendLabel"><?php echo $html_bcc ?> : </td>
@@ -216,4 +216,4 @@ function validate(f)
 
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.77 2006/01/18 21:03:31 goddess_skuld Exp $ -->
+<!-- end of $Id: send.php,v 1.78 2006/02/26 09:32:53 goddess_skuld Exp $ -->

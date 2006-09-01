@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts.php,v 1.11 2005/07/02 14:25:39 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts.php,v 1.12 2005/08/01 08:11:14 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -41,16 +41,16 @@ $_SESSION['nocc_loggedin'] = 1;
 <script type="text/javascript">
 
 
-function action (bt, email)
+function toggleemail (bt, email)
 {
-  var field = window.opener.document.sendform.<?php echo $_GET["field"]; ?>.value;
+  var field = window.opener.document.getElementById("sendform").<?php echo $_GET["field"]; ?>.value;
 
   if (bt.value == '<?php echo unhtmlentities($html_add) ?>')
   {
     if (field == '')
-      window.opener.document.sendform.<?php echo $_GET["field"]; ?>.value = email;
+      window.opener.document.getElementById("sendform").<?php echo $_GET["field"]; ?>.value = email;
     else
-      window.opener.document.sendform.<?php echo $_GET["field"]; ?>.value = field + "," + email;
+      window.opener.document.getElementById("sendform").<?php echo $_GET["field"]; ?>.value = field + "," + email;
   }
   else
   {
@@ -63,7 +63,7 @@ function action (bt, email)
       if (tbl[i] != email)
         f += tbl[i];
     }
-    window.opener.document.sendform.<?php echo $_GET["field"]; ?>.value = f;
+    window.opener.document.getElementById("sendform").<?php echo $_GET["field"]; ?>.value = f;
   }
 }
 
@@ -123,7 +123,7 @@ function toggle (bt)
         <td><?php echo ($tab[1]) ? $tab[1] : "&nbsp;"; ?></td>
         <td><?php echo ($tab[2]) ? $tab[2] : "&nbsp;"; ?></td>
         <td><?php echo $tab[3]; ?></td>
-        <td><input type="button" name="Submit" value="<?php echo unhtmlentities($html_add) ?>" class="button" onclick="action (this, '<?php echo trim($tab[3]); ?>');toggle (this);"/></td>
+        <td><input type="button" name="Submit" id="<?php echo 'btn'.$i ?>" value="<?php echo unhtmlentities($html_add) ?>" class="button" onclick="toggleemail (document.getElementById('<?php echo 'btn'.$i ?>'), '<?php echo trim($tab[3]); ?>');toggle (document.getElementById('<?php echo 'btn'.$i ?>'));"/></td>
       </tr>
       <?php
         }

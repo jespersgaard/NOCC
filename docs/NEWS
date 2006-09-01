@@ -1,5 +1,6 @@
 NOCC 1.3    ?? ??, 200?
 
+    * Bug #1550133 : Some pages do not validate as XHTML 1.1 (Arnaud Boudou).
     * Bug #1549545 : Extra slash introduced by Back link on error page (Arnaud
       Boudou).
     * Bug #1547166 : errorpage: wrong images URL's and misbehaving back button
