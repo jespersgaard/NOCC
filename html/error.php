@@ -1,4 +1,4 @@
-<!-- start of $Id: error.php,v 1.4 2006/02/26 09:32:53 goddess_skuld Exp $ -->
+<!-- start of $Id: error.php,v 1.5 2006/08/28 18:22:15 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -12,10 +12,10 @@
       <td>
         <p><?php echo htmlentities($ev->getMessage(), ENT_COMPAT, 'UTF-8'); ?></p>
         <p>
-        <a href="<?php echo $conf->webmail_url; ?>/logout.php"><?php echo htmlentities($html_back, ENT_COMPAT, 'UTF-8') ?></a>
+        <a href="<?php echo $conf->webmail_url; ?>logout.php"><?php echo htmlentities($html_back, ENT_COMPAT, 'UTF-8') ?></a>
         </p>
       </td>
     </tr>
   </table>
 </div>
-<!-- end of $Id: error.php,v 1.4 2006/02/26 09:32:53 goddess_skuld Exp $ -->
+<!-- end of $Id: error.php,v 1.5 2006/08/28 18:22:15 goddess_skuld Exp $ -->

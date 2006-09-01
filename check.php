@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/check.php,v 1.15 2006/02/26 09:36:23 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/check.php,v 1.16 2006/08/15 10:51:46 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -36,6 +36,12 @@ if (!empty($conf->prefs_dir) && !is_dir($conf->prefs_dir))
 if (!isset($conf->master_key) || $conf->master_key == '')
 {
     echo '<font color="red"><b>"$conf->master_key" must be set in "conf.php" in order for NOCC to run.</b></font><br /><br /><div align="center"><img src="themes/standard/img/button.png" width="88" height="31" alt="Powered by NOCC" /></div>';
+    exit;
+}
+
+if (!isset($conf->webmail_url) || $conf->webmail_url == '')
+{
+    echo '<font color="red"><b>"$conf->webmail_url" must be set in "conf.php" in order for NOCC to run.</b></font><br /><br /><div align="center"><img src="themes/standard/img/button.png" width="88" height="31" alt="Powered by NOCC" /></div>';
     exit;
 }
 

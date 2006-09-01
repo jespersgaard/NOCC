@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.143 2006/02/26 12:24:16 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.144 2006/08/15 10:51:46 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -128,6 +128,11 @@ $conf->master_key = '';
 // Default folder to go first
 $conf->default_folder = 'INBOX';
 
+// Webmail url (i.e. http://www.example.com/webmail/), used by RSS feed and
+// error pages. This is a mandatory setting.
+// Don't forget the trailing "/"
+$conf->webmail_url = 'http://www.example.com/webmail/';
+
 // ===> End of required parameters
 
 // The following parameters can be changed but it's not necessary to
@@ -225,7 +230,6 @@ $conf->status_line = '1';
 // to the next line !
 $conf->ad = "___________________________________\r\nNOCC, http://nocc.sourceforge.net";
 
-
 // PHP error reporting for this application
 error_reporting($conf->debug_level);
 
@@ -255,10 +259,6 @@ $conf->allowed_char='';
 // OS independent, this is a MTA problem
 // not ours.
 $conf->crlf = "\r\n";
-
-// Webmail url (i.e. http://www.example.com/webmail/), used by RSS feed.
-// Don't forget the trailing "/"
-$conf->webmail_url = "http://www.example.com/webmail/";
 
 // Enable quota checks.
 // Works only with c-client2000 or more recent, and IMAP inbox
