@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.51 2006/04/28 07:18:32 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.52 2006/08/02 19:33:35 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -31,10 +31,10 @@ $url = "action.php";
 // Work out folder and target_folder
 $folder = $_SESSION['nocc_folder'];
 $target_folder = "";
-if (isset($_REQUEST['target_folder']))
+if (isset($_REQUEST['target_folder']) && $_REQUEST['target_folder'] != $folder)
     $target_folder = $_REQUEST['target_folder'];
 
-if (isset($_REQUEST['bottom_target_folder']))
+if (isset($_REQUEST['bottom_target_folder']) && $_REQUEST['bottom_target_folder'] != $folder)
     $target_folder = $_REQUEST['bottom_target_folder'];
 
 if (isset($_REQUEST['only_one'])) {
