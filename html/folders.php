@@ -1,4 +1,4 @@
-<!-- start of $Id: folders.php,v 1.15 2006/02/26 09:32:53 goddess_skuld Exp $ -->
+<!-- start of $Id: folders.php,v 1.16 2006/02/26 11:07:52 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -45,7 +45,7 @@ if (count($big_list) > 1) {
           <td class="prefsData">
             <input type="radio" name="do" value="rename_folder"/>
             <?php echo htmlentities($html_folder_rename, ENT_COMPAT, 'UTF-8') ?> <?php echo $renameoldbox ?>
-            <?php echo htmlentities($html_to, ENT_COMPAT, 'UTF-8') ?> <input class="button" type="text" name="renamenewbox" size="15" maxlength="32"/>
+            <?php echo htmlentities($html_folder_to, ENT_COMPAT, 'UTF-8') ?> <input class="button" type="text" name="renamenewbox" size="15" maxlength="32"/>
           </td>
         </tr>
         <tr>
@@ -108,4 +108,4 @@ if (count($big_list) > 1) {
   &nbsp;|&nbsp;
   <a href="action.php?action=managefilters"><?php echo htmlentities($html_manage_filters_link, ENT_COMPAT, 'UTF-8') ?></a>
 </div>
-<!-- end of $Id: folders.php,v 1.15 2006/02/26 09:32:53 goddess_skuld Exp $ -->
+<!-- end of $Id: folders.php,v 1.16 2006/02/26 11:07:52 goddess_skuld Exp $ -->

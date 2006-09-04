@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.13 2006/06/23 12:43:32 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.14 2006/08/15 10:51:53 goddess_skuld Exp $ 
  *
  * Copyright 2004 Nicolas Chalanset <nicocha at free.fr>
  * Copyright 2004 Olivier Cahagne <wolruf at free.fr>
@@ -101,6 +101,7 @@ $html_folder_rename = 'R3n4m3';
 $html_folder_create = 'Cr3at3 n3w f0ld3r c4ll3d';
 $html_folder_remove = 'Unsubscr!b3 fr0m';
 $html_folder_delete = 'D3l3t3';
+$html_folder_to = 't0';
 
 // filters.php
 $html_filter_remove = 'D3l3t3';
@@ -129,7 +130,6 @@ $html_gotofolder = 'G0 t0 F0lder';
 $html_other_folders = 'F0ld3r List';
 $html_page = 'Pag3';
 $html_of = '0f';
-$html_to = 't0';
 $html_view_header = 'V!3w h34der';
 $html_remove_header = 'H!d3 h34d3r';
 $html_inbox = '!nb0x';

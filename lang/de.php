@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.52 2006/06/23 12:43:31 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.53 2006/08/15 10:51:51 goddess_skuld Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha AT free DOT fr>
  * Copyright 2000 Olivier Cahagne <wolruf AT free DOT fr>
@@ -102,6 +102,7 @@ $html_folder_rename = 'Umbenennen:';
 $html_folder_create = 'Erstelle neuen Ordner';
 $html_folder_remove = 'Abbestellen:';
 $html_folder_delete = 'Lösche';
+$html_folder_to = 'to'; //to translate
 
 // filters.php
 $html_filter_remove = 'Löschen';
@@ -130,7 +131,6 @@ $html_gotofolder = 'Gehe zu Ordner';
 $html_other_folders = 'Ordner Liste';
 $html_page = 'Seite';
 $html_of = 'von';
-$html_to = 'to';  // damn, this is used in two completly different places/meanings
 $html_view_header = 'Header anzeigen';
 $html_remove_header = 'Header verbergen';
 $html_inbox = 'Inbox';

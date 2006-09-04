@@ -97,6 +97,7 @@ $html_folder_rename = 'Rename';  //to translate
 $html_folder_create = 'Create new folder called';  //to translate
 $html_folder_remove = 'Unsubscribe from';  //to translate
 $html_folder_delete = 'Delete';  //to translate
+$html_folder_to = 'to'; //to translate
 
 // filters.php
 $html_filter_remove = 'Delete';  //to translate
@@ -125,7 +126,6 @@ $html_gotofolder = 'Go to Folder';  //to translate
 $html_other_folders = 'Folder List';  //to translate
 $html_page = 'Page';  //to translate
 $html_of = 'of';  //to translate
-$html_to = 'to';  //to translate
 $html_view_header = 'Sjá haus';
 $html_remove_header = 'Fela haus';
 $html_inbox = 'Innpóstur';

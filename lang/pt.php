@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.52 2006/06/23 12:43:31 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.53 2006/08/15 10:51:52 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -114,6 +114,7 @@ $html_filter_contains = 'contains';  //to translate
 $html_filter_name = 'Filter Name';  //to translate
 $html_filter_action = 'Filter Action';  //to translate
 $html_filter_moveto = 'Move to';  //to translate
+$html_folder_to = 'para'; //to translate
 
 // Other pages
 $html_select_one = '--Escolha--';
@@ -128,7 +129,6 @@ $html_gotofolder = 'Ir para a Pasta';
 $html_other_folders = 'Lista de Pastas';
 $html_page = 'Página';
 $html_of = 'of';  //to translate
-$html_to = 'para';
 $html_view_header = 'Ver cabeçalhos';
 $html_remove_header = 'Esconder cabeçalhos';
 $html_inbox = 'Correio';

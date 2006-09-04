@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ja.php,v 1.3 2006/06/23 12:43:31 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ja.php,v 1.4 2006/08/15 10:51:51 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -78,10 +78,10 @@ $html_email_address = '電子メールアドレス';
 $html_ccself = '自分を Cc に';
 $html_hide_addresses = 'アドレスを隠す';
 $html_outlook_quoting = 'Outlook スタイルの引用';
-$html_reply_to = 'Reply to';
+$html_reply_to = 'Reply to'; //to translate
 $html_use_signature = '署名を使う';
 $html_signature = '署名';
-$html_reply_leadin = 'Reply Leadin';
+$html_reply_leadin = 'Reply Leadin'; //to translate
 $html_prefs_updated = '設定を更新しました。';
 $html_manage_folders_link = 'IMAP フォルダー管理';
 $html_manage_filters_link = '電子メールフィルター管理';
@@ -99,6 +99,7 @@ $html_folder_rename = '名称変更';
 $html_folder_create = '新しいフォルダー名:';
 $html_folder_remove = 'フォルダー購読をやめる フォルダー:';
 $html_folder_delete = '削除';
+$html_folder_to = 'to'; //to translate
 
 // filters.php
 $html_filter_remove = '削除';
@@ -107,16 +108,16 @@ $html_filter_subject = 'メッセージ件名';
 $html_filter_to = 'To フィールド';
 $html_filter_cc = 'Cc フィールド';
 $html_filter_from = 'From フィールド';
-$html_filter_change_tip = 'To change a filter simply overwrite it.';
+$html_filter_change_tip = 'To change a filter simply overwrite it.'; //to translate
 $html_reapply_filters = 'すべてのフィルターを再適用する';
 $html_filter_contains = '含む';
 $html_filter_name = 'フィルター名';
 $html_filter_action = 'フィルター操作';
-$html_filter_moveto = 'Move to';
+$html_filter_moveto = 'Move to'; //to translate
 
 // Other pages
 $html_select_one = '--ひとつ選択--';
-$html_and = 'And';
+$html_and = 'And'; //to translate
 $html_new_msg_in = '新規メッセージがあるフォルダー:';
 $html_or = 'または';
 $html_move = '移動';
@@ -126,17 +127,16 @@ $html_gotopage = 'ページ移動';
 $html_gotofolder = 'フォルダーに移動';
 $html_other_folders = 'フォルダー一覧';
 $html_page = 'ページ';
-$html_of = 'of';
-$html_to = 'to';
+$html_of = 'of'; //to translate
 $html_view_header = 'ヘッダーを表示';
 $html_remove_header = 'ヘッダーを隠す';
 $html_inbox = '受信箱';
 $html_new_msg = '作成';
 $html_reply = '返信';
-$html_reply_short = 'Re';
+$html_reply_short = 'Re'; //to translate
 $html_reply_all = '全員に返信';
 $html_forward = '転送';
-$html_forward_short = 'Fw';
+$html_forward_short = 'Fw'; //to translate
 $html_forward_info = '転送されたメッセージはひとつの添付として送信されるでしょう。';
 $html_delete = '削除';
 $html_new = '新規';
@@ -153,15 +153,15 @@ $html_from = '差出人';
 $html_subject = '件名';
 $html_date = '日付';
 $html_sent = '送信';
-$html_wrote = 'wrote';
+$html_wrote = 'wrote'; //to translate
 $html_size = 'サイズ';
 $html_totalsize = '総容量';
 $html_kb = 'キロバイト';
 $html_bytes = 'バイト';
 $html_filename = 'ファイル名';
 $html_to = '宛先';
-$html_cc = 'Cc';
-$html_bcc = 'Bcc';
+$html_cc = 'Cc'; //to translate
+$html_bcc = 'Bcc'; //to translate
 $html_nosubject = '件名なし';
 $html_send = '送信';
 $html_cancel = '取り消し';
@@ -183,7 +183,7 @@ $html_no_sendaction = '操作が指定されていません。JavaScript を有�
 $html_error_occurred = 'エラーが発生しました';
 $html_prefs_file_error = '設定ファイルを書き込むために開けません。';
 $html_wrap = '送信メールをワードラップ:';
-$html_wrap_none = 'None';
+$html_wrap_none = 'None'; //to translate
 $html_usenet_separator = '署名の前に Usenet セパレーター ("-- \n")';
 $html_mark_as = 'マークを';
 $html_read = '既読';
@@ -211,7 +211,7 @@ $html_contact_err3 = 'アドレス帳へのアクセス権限を持っていま�
 $html_del_msg = '選択メッセージを削除しますか?';
 $html_down_mail = 'ダウンロード';
 
-$original_msg = '-- Original Message --';
+$original_msg = '-- Original Message --'; //to translate
 $to_empty = '「To」 フィールドは空に出来ません!';
 
 // Images warning

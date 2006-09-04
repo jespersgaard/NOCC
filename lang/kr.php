@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/kr.php,v 1.33 2006/06/23 12:43:31 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/kr.php,v 1.34 2006/08/15 10:51:51 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -98,6 +98,7 @@ $html_folder_rename = 'Rename';  //to translate
 $html_folder_create = 'Create new folder called';  //to translate
 $html_folder_remove = 'Unsubscribe from';  //to translate
 $html_folder_delete = 'Delete';  //to translate
+$html_folder_to = 'to'; //to translate
 
 // filters.php
 $html_filter_remove = 'Delete';  //to translate
@@ -126,7 +127,6 @@ $html_gotofolder = 'Go to Folder';  //to translate
 $html_other_folders = 'Folder List';  //to translate
 $html_page = 'Page';  //to translate
 $html_of = 'of';  //to translate
-$html_to = 'to';  //to translate
 $html_view_header = 'View header';  //to translate
 $html_remove_header = 'Hide header';  //to translate
 $html_inbox = '받은편지함';

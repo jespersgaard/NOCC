@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.47 2006/06/23 12:43:31 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.48 2006/08/15 10:51:52 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -102,6 +102,7 @@ $html_folder_rename = 'Hernoem';
 $html_folder_create = 'Creeer nieuwe map genaamd';
 $html_folder_remove = 'Uitschrijven van';
 $html_folder_delete = 'Verwijder';
+$html_folder_to = 'naar';
 
 // filters.php
 $html_filter_remove = 'Verwijder';
@@ -130,7 +131,6 @@ $html_gotofolder = 'Ga naar map';
 $html_other_folders = 'Mappen lijst';
 $html_page = 'Pagina';
 $html_of = 'of';
-$html_to = 'naar';
 $html_view_header = 'Headers inzien';
 $html_remove_header = 'Headers verbergen';
 $html_inbox = 'Postvak In';

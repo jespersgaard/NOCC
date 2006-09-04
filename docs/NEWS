@@ -1,5 +1,6 @@
 NOCC 1.3    ?? ??, 200?
 
+    * Bug #1551529 : $html_to occurs twice in language files (Arnaud Boudou).
     * Bug #1550843 : Move and Copy buttons of top row in Inbox don't work
       (Arnaud Boudou).
     * Bug #1550133 : Some pages do not validate as XHTML 1.1 (Arnaud Boudou).

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.25 2006/06/23 12:43:31 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.26 2006/08/15 10:51:51 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -99,6 +99,7 @@ $html_folder_rename = 'تغيير نام';
 $html_folder_create = 'ساختن شاخه جديد صدا شد';
 $html_folder_remove = 'Unsubscribe from';  //to translate
 $html_folder_delete = 'Delete';  //to translate
+$html_folder_to = 'ﺐﻫ';
 
 // filters.php
 $html_filter_remove = 'Delete';  //to translate
@@ -127,7 +128,6 @@ $html_gotofolder = 'برو به شاخه';
 $html_other_folders = 'ليست شاخه ها';
 $html_page = 'صفحه';
 $html_of = '';
-$html_to = 'به';
 $html_view_header = 'سرآيند را نشان بده';
 $html_remove_header = 'سرآيند را پنهان کن';
 $html_inbox = 'Inbox';  //to translate

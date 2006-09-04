@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.41 2006/06/23 12:43:31 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.42 2006/08/15 10:51:52 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -99,6 +99,7 @@ $html_folder_rename = 'Переименовать';
 $html_folder_create = 'Создать новую папку с именем';
 $html_folder_remove = 'Отписаться от';
 $html_folder_delete = 'Удалить';
+$html_folder_to = 'до';
 
 // filters.php
 $html_filter_remove = 'Удалить';
@@ -127,7 +128,6 @@ $html_gotofolder = 'Перейти в папку';
 $html_other_folders = 'Список папок';
 $html_page = 'Страница';
 $html_of = 'из';
-$html_to = 'до';
 $html_view_header = 'Просмотреть заголовок письма';
 $html_remove_header = 'Убрать заголовок письма';
 $html_inbox = 'Входящие';
