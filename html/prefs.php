@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.40 2006/08/14 07:00:27 goddess_skuld Exp $ -->
+<!-- start of $Id: prefs.php,v 1.41 2006/09/01 20:28:19 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -79,7 +79,7 @@ if (count($big_list) > 1) {
              &nbsp;&nbsp;
              <input type="radio" name="wrap_msg" value="72" <?php if($user_prefs->wrap_msg == 72) echo 'checked="checked"'; ?> />72
              &nbsp;&nbsp;
-             <label><input name="wrap_msg" type="radio" value="0" <?php if($user_prefs->wrap_msg == '') echo 'checked="checked"'; ?> /><?php echo htmlentities($html_wrap_none, ENT_COMPAT, 'UTF-8') ?></label>
+             <label><input name="wrap_msg" type="radio" value="0" <?php if(!isset($user_prefs->wrap_msg) || $user_prefs->wrap_msg == '' || $user_prefs->wrap_msg == '0') echo 'checked="checked"'; ?> /><?php echo htmlentities($html_wrap_none, ENT_COMPAT, 'UTF-8') ?></label>
            </td>
          </tr>
          <tr>
@@ -207,4 +207,4 @@ if (count($big_list) > 1) {
    <?php
      }
    ?>
-<!-- end of $Id: prefs.php,v 1.40 2006/08/14 07:00:27 goddess_skuld Exp $ -->
+<!-- end of $Id: prefs.php,v 1.41 2006/09/01 20:28:19 goddess_skuld Exp $ -->
