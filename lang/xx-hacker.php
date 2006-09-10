@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.14 2006/08/15 10:51:53 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.15 2006/09/04 07:58:43 goddess_skuld Exp $ 
  *
  * Copyright 2004 Nicolas Chalanset <nicocha at free.fr>
  * Copyright 2004 Olivier Cahagne <wolruf at free.fr>
@@ -92,7 +92,7 @@ $html_sent_folder = 'C0py s3nt m4!ls !nt0 4 d3d!c4t3d f0ld3r';
 
 // folders.php
 $html_folders_create_failed = 'F0ld3r c0u1d n0t b3 cr34t3d!';
-$html_folders_sub_failed = 'C0uld n0t subscr!b3d t0 f0ld3r!';
+$html_folders_sub_failed = 'C0uld n0t subscr!b3 t0 f0ld3r!';
 $html_folders_unsub_failed = 'C0uld n0t unsubscr!b3d fr0m f0ld3r!';
 $html_folders_rename_failed = 'F0ld3r c0uld n0t b3 r3n4m3d!';
 $html_folders_updated = 'F0ld3rs updat3d';
@@ -139,7 +139,7 @@ $html_reply_short = 'R3';
 $html_reply_all = 'R3ply 4ll';
 $html_forward = 'F0rw4rd';
 $html_forward_short = 'Fw';
-$html_forward_info = 'Th3 f0rw4rd3d m3ss4g3 w!ll b3 s3nd 4s 4n 4tt4chm3nt t0 th!s 0n3.';
+$html_forward_info = 'Th3 f0rw4rd3d m3ss4g3 w!ll b3 s3nt 4s 4n 4tt4chm3nt t0 th!s 0n3.';
 $html_delete = 'D3l3t3';
 $html_new = 'N3w';
 $html_mark = 'D3l3t3';
@@ -186,7 +186,7 @@ $html_error_occurred = '4n 3rr0r 0ccurr3d';
 $html_prefs_file_error = 'Un4bl3 t0 0p3n pr3f3r3nc3s f!l3 f0r wr!ting.';
 $html_wrap = 'Wrap 0utg0!ng messag3s t0 :';
 $html_wrap_none = 'N0n3';
-$html_usenet_separator = 'Us3n3t s3p4rat0r ("-- \n") B3f0r3 s!gn4tur3';
+$html_usenet_separator = 'Us3n3t s3p4rat0r ("-- \n") b3f0r3 s!gn4tur3';
 $html_mark_as = 'M4rk as';
 $html_read = 'r3ad';
 $html_unread = 'unr3ad';
@@ -201,13 +201,13 @@ $html_back = 'B4ck';
 $html_contact_add = 'Add n3w c0nt4ct';
 $html_contact_mod = 'M0d!fy a c0nt4ct';
 $html_contact_first = 'F!rst nam3';
-$html_contact_last = 'L4st Nam3';
+$html_contact_last = 'L4st nam3';
 $html_contact_nick = 'N!ck';
 $html_contact_mail = 'Ma!l';
 $html_contact_list = 'C0ntact l!st 0f ';
 $html_contact_del = 'fr0m th3 c0ntact l!st';
 
-$html_contact_err1 = 'Max!m4l numb3r 0f c0nt4ct !s ';
+$html_contact_err1 = 'Max!mum numb3r 0f c0nt4ct !s ';
 $html_contact_err2 = 'Y0u can\'t add a n3w c0ntact';
 $html_contact_err3 = 'Y0u d0n\'t hav3 4cc3ss r!ghts t0 c0nt4ct l!st';
 $html_del_msg = 'D3l3t3 s3l3ct3d m3ss4g3s ?';
