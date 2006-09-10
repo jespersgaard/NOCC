@@ -1,5 +1,6 @@
 NOCC 1.3    ?? ??, 200?
 
+    * Bug #1555543 : Some small spelling errors in en.php (Arnaud Boudou).
     * Bug #1552568 : Setting wrap None is not shown as selected (Arnaud Boudou).
     * Bug #1551529 : $html_to occurs twice in language files (Arnaud Boudou).
     * Bug #1550843 : Move and Copy buttons of top row in Inbox don't work

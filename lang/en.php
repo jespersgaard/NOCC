@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.87 2006/08/15 10:51:51 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.88 2006/09/04 07:58:42 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -90,7 +90,7 @@ $html_sent_folder = 'Copy sent mails into a dedicated folder';
 
 // folders.php
 $html_folders_create_failed = 'Folder could not be created!';
-$html_folders_sub_failed = 'Could not subscribed to folder!';
+$html_folders_sub_failed = 'Could not subscribe to folder!';
 $html_folders_unsub_failed = 'Could not unsubscribed from folder!';
 $html_folders_rename_failed = 'Folder could not be renamed!';
 $html_folders_updated = 'Folders updated';
@@ -137,7 +137,7 @@ $html_reply_short = 'Re';
 $html_reply_all = 'Reply all';
 $html_forward = 'Forward';
 $html_forward_short = 'Fw';
-$html_forward_info = 'The forwarded message will be send as an attachment to this one.';
+$html_forward_info = 'The forwarded message will be sent as an attachment to this one.';
 $html_delete = 'Delete';
 $html_new = 'New';
 $html_mark = 'Delete';
@@ -184,7 +184,7 @@ $html_error_occurred = 'An error occurred';
 $html_prefs_file_error = 'Unable to open preferences file for writing.';
 $html_wrap = 'Wrap outgoing messages to :';
 $html_wrap_none = 'None';
-$html_usenet_separator = 'Usenet separator ("-- \n") Before signature';
+$html_usenet_separator = 'Usenet separator ("-- \n") before signature';
 $html_mark_as = 'Mark as';
 $html_read = 'read';
 $html_unread = 'unread';
@@ -199,13 +199,13 @@ $html_back = 'Back';
 $html_contact_add = 'Add new contact';
 $html_contact_mod = 'Modify a contact';
 $html_contact_first = 'First name';
-$html_contact_last = 'Last Name';
+$html_contact_last = 'Last name';
 $html_contact_nick = 'Nick';
 $html_contact_mail = 'Mail';
 $html_contact_list = 'Contact list of ';
 $html_contact_del = 'from the contact list';
 
-$html_contact_err1 = 'Maximal number of contact is ';
+$html_contact_err1 = 'Maximum number of contact is ';
 $html_contact_err2 = 'You can\'t add a new contact';
 $html_contact_err3 = 'You don\'t have access rights to contact list';
 $html_del_msg = 'Delete selected messages ?';
