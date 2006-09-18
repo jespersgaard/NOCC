@@ -1,6 +1,6 @@
 Frequently Asked Questions for Nocc
 -----------------------------------
-Last updated: $Date: 2005/12/07 09:10:15 $
+Last updated: $Date: 2006/03/01 13:48:06 $
 
  Q. Nocc keeps me asking for a correct login/password.
 
@@ -163,9 +163,12 @@ Last updated: $Date: 2005/12/07 09:10:15 $
     unable to get local issuer certificate:"
 
  A. If you connect to a POP3 or IMAP server, add "/notls" to the server string
-    into conf.php. I.e: localhost:143/notls
+    into conf.php. I.e: 
+    $conf->domains[$i]->in = 'localhost:143/notls';
+    
     If you connect to a POP3/SSL or IMAP/SSL server, add "/novalidate-cert" to
-    the server string into conf.php. I.e: localhost:993/ssl/novalidate-cert
+    the server string into conf.php. I.e: 
+    $conf->domains[$i]->in = 'localhost:993/ssl/novalidate-cert';
 
 ----------------------------------
 
