@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.78 2006/02/26 09:32:53 goddess_skuld Exp $ -->
+<!-- start of $Id: send.php,v 1.79 2006/09/01 20:28:19 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -37,76 +37,75 @@ $mail_from = get_default_from_address();
         <td colspan="2">&nbsp;</td>
       </tr>
       <tr>
-        <td class="sendLabel"><?php echo $html_from ?> : </td>
+        <td class="sendLabel"><label for="mail_from"><?php echo $html_from ?>:</label></td>
         <td class="sendData">
           <?php if( isset($conf->allow_address_change) && $conf->allow_address_change ) { ?>
-          <input class="button" type="text" name="mail_from" size="60" value="<?php echo htmlspecialchars($mail_from) ?>" />
+          <input class="button" type="text" name="mail_from" id="mail_from" size="60" value="<?php echo htmlspecialchars($mail_from) ?>" />
          <?php } else { echo htmlspecialchars($mail_from); }?>
        </td>
      </tr>
      <tr>
      <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
        <td class="sendLabel">
-         <a href="javascript:void(0);" onclick="window.open('contacts.php?field=mail_to&amp;<?php echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_to ?></a> :
+         <label for="mail_to"><a href="javascript:void(0);" onclick="window.open('contacts.php?field=mail_to&amp;<?php echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_to ?></a>:</label>
        </td>
      <?php } else { ?>
-       <td class="sendLabel"><?php echo $html_to ?> : </td>
+       <td class="sendLabel"><label for="mail_to"><?php echo $html_to ?>:</label></td>
      <?php } ?>
        <td class="sendData">
-         <input class="button" type="text" name="mail_to" size="60" value="<?php echo (isset($mail_to) ? stripslashes(htmlspecialchars($mail_to)) : ''); ?>" />
+         <input class="button" type="text" name="mail_to" id="mail_to" size="60" value="<?php echo (isset($mail_to) ? stripslashes(htmlspecialchars($mail_to)) : ''); ?>" />
        </td>
      </tr>
      <tr>
      <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
        <td class="sendLabel">
-         <a href="javascript:void(0);" onclick="window.open('contacts.php?field=mail_cc&amp;<?php echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_cc ?></a> :
-
+         <label for="mail_cc"><a href="javascript:void(0);" onclick="window.open('contacts.php?field=mail_cc&amp;<?php echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_cc ?></a>:</label>
        </td>
      <?php } else { ?>
-       <td class="sendLabel"><?php echo $html_cc ?> : </td>
+       <td class="sendLabel"><label for="mail_cc"><?php echo $html_cc ?>:</label></td>
      <?php } ?>
        <td class="sendData">
-         <input class="button" type="text" name="mail_cc" size="60" value="<?php echo (isset($mail_cc) ? htmlspecialchars($mail_cc) : '') ?>" />
+         <input class="button" type="text" name="mail_cc" id="mail_cc" size="60" value="<?php echo (isset($mail_cc) ? htmlspecialchars($mail_cc) : '') ?>" />
        </td>
      </tr>
      <tr>
      <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
        <td class="sendLabel">
-         <a href="javascript:void(0);" onclick="window.open('contacts.php?field=mail_bcc&amp;<?php echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_bcc ?></a> :
+         <label for="mail_bcc"><a href="javascript:void(0);" onclick="window.open('contacts.php?field=mail_bcc&amp;<?php echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_bcc ?></a>:</label>
        </td>
      <?php } else { ?>
-       <td class="sendLabel"><?php echo $html_bcc ?> : </td>
+       <td class="sendLabel"><label for="mail_bcc"><?php echo $html_bcc ?>:</label></td>
      <?php } ?>
        <td class="sendData">
-         <input class="button" type="text" name="mail_bcc" size="60" value="<?php echo (isset($mail_bcc) ? htmlspecialchars($mail_bcc) : '') ?>" />
+         <input class="button" type="text" name="mail_bcc" id="mail_bcc" size="60" value="<?php echo (isset($mail_bcc) ? htmlspecialchars($mail_bcc) : '') ?>" />
        </td>
      </tr>
      <tr>
-       <td class="sendLabel"><?php echo $html_subject ?> : </td>
+       <td class="sendLabel"><label for="mail_subject"><?php echo $html_subject ?>:</label></td>
        <td class="sendData">
-         <input class="button" type="text" name="mail_subject" size="60" maxlength="200" value="<?php echo (isset($mail_subject) ? htmlspecialchars($mail_subject) : '') ?>" />
+         <input class="button" type="text" name="mail_subject" id="mail_subject" size="60" maxlength="200" value="<?php echo (isset($mail_subject) ? htmlspecialchars($mail_subject) : '') ?>" />
        </td>
      </tr>
      <!-- If 'file_uploads=Off', we mustn't present the ability to do attachments -->
      <?php if(ini_get("file_uploads")) { ?>
      <tr>
-       <td class="sendLabel"><?php echo $html_att ?> : </td>
+       <td class="sendLabel"><label for="mail_att"><?php echo $html_att ?>:</label></td>
        <td class="sendData">
-         <input class="button" type="file" name="mail_att" size="40" value="" />
+         <input class="button" type="file" name="mail_att" id="mail_att" size="40" value="" />
          <input type="submit" class="button" onclick="btnClicked=this" name="sendaction" value="<?php echo $html_attach ?>" />
        </td>
      </tr>
      <?php } ?>
      <tr>
-       <td class="sendLabel"><?php echo $html_receipt ?> : </td>
+       <td class="sendLabel"><label for="receipt"><?php echo $html_receipt ?>:</label></td>
        <td class="sendData">
-         <input name="receipt" type="checkbox" <?php if(isset($mail_receipt) && $mail_receipt) echo "checked"; ?>/>
+         <input name="receipt" id="receipt" type="checkbox" <?php if(isset($mail_receipt) && $mail_receipt) echo "checked"; ?>/>
        </td>
      </tr>
      <tr>
-       <td class="sendLabel"><?php echo $html_priority ?> : </td>
+       <td class="sendLabel"><label for="priority"><?php echo $html_priority ?>:</label></td>
        <td class="sendData">
-         <select class="button" name="priority">
+         <select class="button" name="priority" id="priority">
            <option value="2 (High)"><?php echo $html_high ?></option>
            <option value="3 (Normal)" selected="selected"><?php echo $html_normal ?></option>
            <option value="4 (Low)"><?php echo $html_low ?></option>
@@ -133,9 +132,9 @@ $mail_from = get_default_from_address();
              $att_name = nocc_imap::mime_header_decode($attach_array[$i]->file_name);
              echo '<tr>';
              echo '<td class="sendData">';
-             echo '<input type="checkbox" name="file-' . $i . '" />';
+             echo '<input type="checkbox" name="file-' . $i . '" id="file-' . $i . '" />';
              echo '</td>';
-             echo '<td class="sendData">' . htmlentities($att_name[0]->text) . '</td>';
+             echo '<td class="sendData"><label for="file-' . $i . '">' . htmlentities($att_name[0]->text) . '</label></td>';
              echo '<td class="sendData">' . $attach_array[$i]->file_size . '</td>';
              echo '</tr>';
            }
@@ -216,4 +215,4 @@ function validate(f)
 
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.78 2006/02/26 09:32:53 goddess_skuld Exp $ -->
+<!-- end of $Id: send.php,v 1.79 2006/09/01 20:28:19 goddess_skuld Exp $ -->

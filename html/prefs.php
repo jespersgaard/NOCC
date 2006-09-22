@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.41 2006/09/01 20:28:19 goddess_skuld Exp $ -->
+<!-- start of $Id: prefs.php,v 1.42 2006/09/05 14:26:52 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -34,21 +34,21 @@ if (count($big_list) > 1) {
       <input type="hidden" name="submit_prefs" value="set" />
       <table>
          <tr>
-           <td class="prefsLabel"><?php echo htmlentities($html_full_name, ENT_COMPAT, 'UTF-8') ?> : </td>
+           <td class="prefsLabel"><label for="full_name"><?php echo htmlentities($html_full_name, ENT_COMPAT, 'UTF-8') ?>:</label></td>
            <td class="prefsData">
              <input class="button"type="text" name="full_name" value="<?php echo (isset($user_prefs->full_name)) ? $user_prefs->full_name : "" ?>" size="40"/>
            </td>
          </tr>
          <?php if ($conf->allow_address_change) { ?>
          <tr>
-           <td class="prefsLabel"><?php echo htmlentities($html_email_address, ENT_COMPAT, 'UTF-8') ?> : </td>
+           <td class="prefsLabel"><label for="email_address"><?php echo htmlentities($html_email_address, ENT_COMPAT, 'UTF-8') ?>:</label></td>
            <td class="prefsData">
              <input class="button" type="text" name="email_address" value="<?php echo (isset($user_prefs->email_address)) ? $user_prefs->email_address : get_default_from_address() ?>" size="40"/>
            </td>
          </tr>
          <?php } ?>
          <tr>
-           <td class="prefsLabel"><?php echo htmlentities($html_msgperpage, ENT_COMPAT, 'UTF-8') ?> : </td>
+           <td class="prefsLabel"><label for="msg_per_page"><?php echo htmlentities($html_msgperpage, ENT_COMPAT, 'UTF-8') ?>:</label></td>
            <td class="prefsData">
              <input class="button" type="text" name="msg_per_page" value="<?php echo (isset($user_prefs->msg_per_page)) ? $user_prefs->msg_per_page : $conf->msg_per_page ?>" size="3" maxlength="3"/>
            </td>
@@ -90,7 +90,7 @@ if (count($big_list) > 1) {
          </tr>
          <?php if($conf->enable_reply_leadin) { ?>
          <tr>
-           <td class="prefsLabel"><?php echo htmlentities($html_reply_leadin, ENT_COMPAT, 'UTF-8') ?> : </td>
+           <td class="prefsLabel"><label for="reply_leadin"><?php echo htmlentities($html_reply_leadin, ENT_COMPAT, 'UTF-8') ?>:</label></td>
            <td class="prefsData">
              <input class="button" type="text" name="reply_leadin" value="<?php echo (isset($user_prefs->reply_leadin)) ? $user_prefs->reply_leadin : "" ?>" size="40"/>
            </td>
@@ -124,7 +124,7 @@ if (count($big_list) > 1) {
          </tr>
          <?php } ?>
          <tr>
-           <td class="prefsLabel"><?php echo $html_lang ?> :</td>
+           <td class="prefsLabel"><label for="lang"><?php echo $html_lang ?>:</label></td>
            <td class="prefsData">
              <select class="button" name="lang">
                <?php
@@ -142,7 +142,7 @@ if (count($big_list) > 1) {
          </tr>
          <?php if ($conf->use_theme == true) { ?>
          <tr>
-           <td class="prefsLabel"><?php echo $html_theme ?> :</td>
+           <td class="prefsLabel"><label for="theme"><?php echo $html_theme ?>:</label></td>
            <td class="prefsData">
              <select class="button" name="theme">
              <?php
@@ -207,4 +207,4 @@ if (count($big_list) > 1) {
    <?php
      }
    ?>
-<!-- end of $Id: prefs.php,v 1.41 2006/09/01 20:28:19 goddess_skuld Exp $ -->
+<!-- end of $Id: prefs.php,v 1.42 2006/09/05 14:26:52 goddess_skuld Exp $ -->
