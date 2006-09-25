@@ -1,5 +1,6 @@
 NOCC 1.3    ?? ??, 200?
 
+    * Bug #1565100 : Mixed EOL in html/send.php (Arnaud Boudou).
     * Bug #1565082 : Logout.php use empty theme (Arnaud Boudou).
     * RFE #1563453 : Use <label> for send.php (Tim Gerundt).
     * Bug #1555543 : Some small spelling errors in en.php (Arnaud Boudou).
