@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts.php,v 1.12 2005/08/01 08:11:14 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts.php,v 1.13 2006/09/01 20:28:18 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -104,11 +104,11 @@ function toggle (bt)
 
     <table>
       <tr class="contactsListHeader">
-        <td><?php echo $html_contact_first ?></td>
-        <td><?php echo $html_contact_last ?></td>
-        <td><?php echo $html_contact_nick ?></td>
-        <td><?php echo $html_contact_mail ?></td>
-        <td>&nbsp;</td>
+        <th><?php echo $html_contact_first ?></th>
+        <th><?php echo $html_contact_last ?></th>
+        <th><?php echo $html_contact_nick ?></th>
+        <th><?php echo $html_contact_mail ?></th>
+        <th>&nbsp;</td>
       </tr>
       <?php
         $path = $conf->prefs_dir . "/" .$_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'].".contacts";

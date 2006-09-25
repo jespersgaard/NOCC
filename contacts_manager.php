@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.19 2005/12/15 20:10:46 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.20 2006/09/01 20:28:19 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -221,11 +221,11 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
   <div class="contactsList">
     <table>
       <tr class="contactsListHeader">
-        <td><?php echo $html_contact_first ?></td>
-        <td><?php echo $html_contact_last ?></td>
-        <td><?php echo $html_contact_nick ?></td>
-        <td><?php echo $html_contact_mail ?></td>
-        <td colspan="2">&nbsp;</td>
+        <th><?php echo $html_contact_first ?></th>
+        <th><?php echo $html_contact_last ?></th>
+        <th><?php echo $html_contact_nick ?></th>
+        <th><?php echo $html_contact_mail ?></th>
+        <th colspan="2">&nbsp;</th>
       </tr>
       <?php
         for ($i = 0; $i < count ($contacts); ++$i)
