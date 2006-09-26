@@ -1,5 +1,6 @@
 NOCC 1.3    ?? ??, 200?
 
+    * Patch #1565371 : Add simple "print" CSS (Tim Gerundt).
     * Patch #1565084 : Add missing IDs to html/prefs.php (Tim Gerundt).
     * Patch #1564552 : Use <th> for table header cells (Tim Gerundt).
     * Bug #1565100 : Mixed EOL in html/send.php (Arnaud Boudou).

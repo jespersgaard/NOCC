@@ -28,6 +28,7 @@ else {
         <title>NOCC - Webmail</title>
         <meta http-equiv="Content-Type" content="text/html; charset=<?php echo htmlentities($charset, ENT_COMPAT, 'UTF-8'); ?>" />
         <link href="themes/<?php echo str_replace('..','',htmlentities($_SESSION['nocc_theme'])); ?>/style.css" rel="stylesheet" type="text/css" />
+        <link href="themes/<?php echo str_replace('..','',htmlentities($_SESSION['nocc_theme'])); ?>/print.css" rel="stylesheet" media="print" type="text/css" />
         <script type="text/javascript">
             function OpenHelpWindow(theURL,winName,features)
             {
@@ -68,4 +69,4 @@ else {
 <?php
 }
 ?>
-<!-- end of $Id: header.php,v 1.58 2006/08/15 07:50:58 goddess_skuld Exp $ -->
+<!-- end of $Id: header.php,v 1.59 2006/08/15 13:53:49 goddess_skuld Exp $ -->

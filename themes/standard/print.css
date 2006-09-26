@@ -1,0 +1,19 @@
+.menuOpts {
+  display:none;
+}
+
+div.menuInbox {
+  display:none;
+}
+
+div.menuMail {
+  display:none;
+}
+
+div.menuPrefs {
+  display:none;
+}
+
+.sendButtons {
+  display:none;
+}
