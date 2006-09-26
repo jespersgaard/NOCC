@@ -1,4 +1,4 @@
-<!-- start of $Id: html_mail_top.php,v 1.16 2006/06/22 19:46:03 goddess_skuld Exp $ -->
+<!-- start of $Id: html_mail_top.php,v 1.17 2006/07/17 17:19:11 goddess_skuld Exp $ -->
 <div class="mailNav">
    <table>
 <?php
@@ -30,20 +30,20 @@ echo "</td></tr>";
 
 // If not displaying verbose headers, display normal headers
 if ($conf->use_verbose && $verbose == '0') {
-  echo '<tr><td class="mailHeaderLabel">'.$html_from.' :</td><td class="mailHeaderData">'.htmlspecialchars($content['from']).'</td></tr>';
-  echo '<tr><td class="mailHeaderLabel">'.$html_to.' :</td><td class="mailHeaderData">'.htmlspecialchars($content['to']).'</td></tr>';
+  echo '<tr><th class="mailHeaderLabel">'.$html_from.':</th><td class="mailHeaderData">'.htmlspecialchars($content['from']).'</td></tr>';
+  echo '<tr><th class="mailHeaderLabel">'.$html_to.':</th><td class="mailHeaderData">'.htmlspecialchars($content['to']).'</td></tr>';
   if ($content['cc'] != '') {
-    echo '<tr><td class="mailHeaderLabel">'.$html_cc.' :</td><td class="mailHeaderData">'.htmlspecialchars($content['cc']).'</td></tr>';
+    echo '<tr><th class="mailHeaderLabel">'.$html_cc.':</th><td class="mailHeaderData">'.htmlspecialchars($content['cc']).'</td></tr>';
   }
 
 if ($content['subject'] == '')
     $content['subject'] = $html_nosubject;
-  echo '<tr><td class="mailHeaderLabel">'.$html_subject.' :</td><td class="mailHeaderData">'.htmlspecialchars($content['subject']).'</td></tr>';
-  echo '<tr><td class="mailHeaderLabel">'.$html_date.' :</td><td class="mailHeaderData">'.$content['date'].'</td></tr>';
+  echo '<tr><th class="mailHeaderLabel">'.$html_subject.':</th><td class="mailHeaderData">'.htmlspecialchars($content['subject']).'</td></tr>';
+  echo '<tr><th class="mailHeaderLabel">'.$html_date.':</th><td class="mailHeaderData">'.$content['date'].'</td></tr>';
   if($content['att'] != '') {
     echo $content['att'];
   }
-  echo '<tr><td class="mailHeaderLabel">' . $html_encoding . ' :</td><td class="mailHeaderData">';
+  echo '<tr><th class="mailHeaderLabel">' . $html_encoding . ':</th><td class="mailHeaderData">';
   echo '<form id="encoding" action="action.php" method="post"><div>';
   echo '<input type="hidden" name="action" value="' . $_REQUEST['action'] . '"/>';
   echo '<input type="hidden" name="mail" value="' . $_REQUEST['mail'] . '"/>';
@@ -77,4 +77,4 @@ if ($has_images && $display_images != 1) {
 </div>
 <div class="mailData">
    <table>
-<!-- end of $Id: html_mail_top.php,v 1.16 2006/06/22 19:46:03 goddess_skuld Exp $ -->
+<!-- end of $Id: html_mail_top.php,v 1.17 2006/07/17 17:19:11 goddess_skuld Exp $ -->

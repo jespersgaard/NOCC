@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.214 2006/05/26 19:11:13 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.215 2006/08/15 10:51:46 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -268,10 +268,10 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
             case 0:
                 break;
             case 1:
-                $link_att = '<tr><td class="mailHeaderLabel right">' . $html_att . ' :</td><td class="mailHeaderData">' . link_att($mail, $attach_tab, $conf->display_part_no) . '</td></tr>';
+                $link_att = '<tr><th class="mailHeaderLabel right">' . $html_att . ':</th><td class="mailHeaderData">' . link_att($mail, $attach_tab, $conf->display_part_no) . '</td></tr>';
                 break;
             default:
-                $link_att = '<tr><td class="mailHeaderLabel right">' . $html_atts . ' :</td><td class="mailHeaderData">' . link_att($mail, $attach_tab, $conf->display_part_no) . '</td></tr>';
+                $link_att = '<tr><th class="mailHeaderLabel right">' . $html_atts . ':</th><td class="mailHeaderData">' . link_att($mail, $attach_tab, $conf->display_part_no) . '</td></tr>';
                 break;
         }
     }

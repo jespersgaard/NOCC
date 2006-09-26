@@ -523,6 +523,7 @@ img.sort {
 .mailHeaderLabel {
  font-family: Verdana, Arial, Helvetica, sans-serif;
  font-size: 11px;
+ font-weight: normal;
  text-align: right;
  background-color: #F7F7F7;
 }
