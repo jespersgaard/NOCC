@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.79 2006/09/01 20:28:19 goddess_skuld Exp $ -->
+<!-- start of $Id: send.php,v 1.80 2006/09/22 19:17:02 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -215,4 +215,4 @@ function validate(f)
 
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.79 2006/09/01 20:28:19 goddess_skuld Exp $ -->
+<!-- end of $Id: send.php,v 1.80 2006/09/22 19:17:02 goddess_skuld Exp $ -->
