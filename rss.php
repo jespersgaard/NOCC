@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.9 2006/08/15 14:49:05 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.10 2006/09/27 09:33:32 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -132,7 +132,7 @@ while ($tmp = array_shift($tab_mail)) {
     </description>
     <content:encoded>
       <![CDATA[
-i       <?php echo str_replace("themes/", $conf->webmail_url . "themes/", $tmp['attach']) ?> <?php echo $html_size . ": " . $tmp['size'] . " " . $html_kb ?> <br /><br />
+        <?php echo str_replace("themes/", $conf->webmail_url . "themes/", $tmp['attach']) ?> <?php echo $html_size . ": " . $tmp['size'] . " " . $html_kb ?> <br /><br />
         <?php
           $attach_tab = array();
           $content = aff_mail($pop, $attach_tab, $tmp['number'], 0, $ev);
