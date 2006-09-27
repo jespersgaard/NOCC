@@ -1,4 +1,4 @@
-<!-- start of $Id: html_mail_top.php,v 1.17 2006/07/17 17:19:11 goddess_skuld Exp $ -->
+<!-- start of $Id: html_mail_top.php,v 1.18 2006/09/26 17:26:51 goddess_skuld Exp $ -->
 <div class="mailNav">
    <table>
 <?php
@@ -77,4 +77,4 @@ if ($has_images && $display_images != 1) {
 </div>
 <div class="mailData">
    <table>
-<!-- end of $Id: html_mail_top.php,v 1.17 2006/07/17 17:19:11 goddess_skuld Exp $ -->
+<!-- end of $Id: html_mail_top.php,v 1.18 2006/09/26 17:26:51 goddess_skuld Exp $ -->

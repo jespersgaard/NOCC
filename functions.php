@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.215 2006/08/15 10:51:46 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.216 2006/09/26 17:26:51 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
