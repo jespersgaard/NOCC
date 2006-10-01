@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.80 2006/02/26 09:32:53 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.81 2006/09/25 19:53:29 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -100,11 +100,7 @@ if ($pop->is_imap()) {
                       <td class="inbox center">
                         <?php echo $reapply_filters ?>
                       </td>
-                      <?php if ($conf->have_ucb_pop_server || $pop->is_imap()) { ?>
                       <td class="inbox right">
-                      <?php } else { ?>
-                      <td class="inbox right">
-                      <?php } ?>
                         <?php echo $page_line ?>
                       </td>
                       <td class="inbox right">
@@ -152,4 +148,4 @@ if ($pop->is_imap()) {
                             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>"><?php echo $html_size ?></a>
                           </th>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.80 2006/02/26 09:32:53 goddess_skuld Exp $ -->
+<!-- end of $Id: html_top_table.php,v 1.81 2006/09/25 19:53:29 goddess_skuld Exp $ -->
