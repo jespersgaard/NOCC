@@ -1,5 +1,7 @@
 NOCC 1.3    ?? ??, 200?
 
+    * Patch #1566239 : Remove unnecessary table from "html/html_mail_*.php" (Tim
+      Gerundt).
     * Bug #1566972 : Needless if statement in "html_top_table.php"? (Arnaud
       Boudou).
     * Bug #1565973 : More mixed EOL in some files (Arnaud Boudou).

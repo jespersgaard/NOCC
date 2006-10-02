@@ -1,4 +1,4 @@
-<!-- start of $Id: html_mail_top.php,v 1.18 2006/09/26 17:26:51 goddess_skuld Exp $ -->
+<!-- start of $Id: html_mail.php,v 1.19 2006/09/27 05:50:00 goddess_skuld Exp $ -->
 <div class="mailNav">
    <table>
 <?php
@@ -12,9 +12,9 @@ $display_images = (isset($_REQUEST['display_images']) && $_REQUEST['display_imag
 $verbose = (isset($_REQUEST['verbose']) && $_REQUEST['verbose'] == 1) ? '1' : '0';
 if ($conf->use_verbose)
   if($verbose == '1')
-    echo '<tr><td class="mailSwitchHeaders"><a href="' . $_SERVER['PHP_SELF'] . '?action=aff_mail&amp;mail=' . $content['msgnum'] . '&amp;verbose=0&display_images='.$display_images.'">' . $html_remove_header . '</a></td>';
+    echo '<tr><td class="mailSwitchHeaders"><a href="' . $_SERVER['PHP_SELF'] . '?action=aff_mail&amp;mail=' . $content['msgnum'] . '&amp;verbose=0&amp;display_images='.$display_images.'">' . $html_remove_header . '</a></td>';
   else
-    echo '<tr><td class="mailSwitchHeaders"><a href="' . $_SERVER['PHP_SELF'] . '?action=aff_mail&amp;mail=' . $content['msgnum'] . '&amp;verbose=1&display_images='.$display_images.'">' . $html_view_header . '</a></td>';
+    echo '<tr><td class="mailSwitchHeaders"><a href="' . $_SERVER['PHP_SELF'] . '?action=aff_mail&amp;mail=' . $content['msgnum'] . '&amp;verbose=1&amp;display_images='.$display_images.'">' . $html_view_header . '</a></td>';
 else
     echo '<tr><td>&nbsp;</td>';
 
@@ -76,5 +76,25 @@ if ($has_images && $display_images != 1) {
    </table>
 </div>
 <div class="mailData">
-   <table>
-<!-- end of $Id: html_mail_top.php,v 1.18 2006/09/26 17:26:51 goddess_skuld Exp $ -->
+<?php
+
+global $conf;
+
+  if (!isset($conf->loaded))
+    die('Hacking attempt');
+
+// If not displaying verbose headers, display normal headers
+if (!($conf->use_verbose && $verbose == '0')) {
+  if($content['att'] != '') {
+    echo '<table>';
+    echo $content['att'];
+    echo '</table>';
+  }
+  echo '<div class="mail"><pre>'.htmlspecialchars($content['header']).'</pre></div>';
+}
+
+echo '<div class="mail">'.$content['body'].'</div>';
+
+?>
+</div>
+<!-- end of $Id: html_mail.php,v 1.4 2005/08/01 08:11:16 goddess_skuld Exp $ -->

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.181 2006/08/14 07:00:26 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.182 2006/08/15 10:51:46 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -88,9 +88,7 @@ switch($action)
         // Here we display the message
         require ('./html/header.php');
         require ('./html/menu_mail.php');
-        require ('./html/html_mail_top.php');
-        require ('./html/html_mail_header.php'); 
-        require ('./html/html_mail_bottom.php');
+        require ('./html/html_mail.php');
         while ($tmp = array_pop($attach_tab))
         {
             // $attach_tab is the array of attachments
