@@ -1,5 +1,6 @@
 NOCC 1.3    ?? ??, 200?
 
+    * Patch #1569494 : Update of nl.php (openfan).
     * Patch #1566239 : Remove unnecessary table from "html/html_mail_*.php" (Tim
       Gerundt).
     * Bug #1566972 : Needless if statement in "html_top_table.php"? (Arnaud

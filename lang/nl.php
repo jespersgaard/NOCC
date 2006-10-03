@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.48 2006/08/15 10:51:52 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.49 2006/09/04 07:58:43 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -8,11 +8,12 @@
  * See the enclosed file COPYING for license information (GPL).  If you
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  *
- * Configuration file for the Netherlander language
+ * Configuration file for Dutch, the language of The Netherlands
  * Translation by Sander Schroevers and Pieterjan Goppel
  *  <lp_leeki@euronet.nl>
  *  Some adding by Mathijs Kolenberg <mack@solcon.nl>
  *  Some adding/modification by Silvan Jongerius <sjongerius@duxy.nl>
+ *  Some adding/modification by openfan <leprincevelours@yahoo.com>
  */
 
 $charset = 'UTF-8';
@@ -37,18 +38,16 @@ $no_locale_date_format = '%d-%m-%Y';
 
 // What format string should we pass to strftime() for messages sent
 // today?
-$default_time_format = '%I:%M %p';
-
+$default_time_format = '%H:%M';
 
 // Here is the configuration for the HTML
 
-$err_user_empty = 'Het inlog-veld is nog leeg';
-$err_passwd_empty = 'Het password-veld is nog leeg';
-
+$err_user_empty = 'Het inlogveld is nog leeg';
+$err_passwd_empty = 'Het wachtwoordveld is nog leeg';
 
 // html message
 
-$alt_delete = 'Verwijder de geselecteerde berichten';
+$alt_delete = 'Verwijder geselecteerde berichten';
 $alt_delete_one = 'Verwijder dit bericht';
 $alt_new_msg = 'Nieuwe berichten';
 $alt_reply = 'Antwoord de verzender';
@@ -57,90 +56,91 @@ $alt_forward = 'Doorzenden';
 $alt_next = 'Volgende';
 $alt_prev = 'Vorige';
 $html_on = 'aan';
-$html_theme = 'Schema';
+$html_theme = 'Weergave';
 
 // index.php
 
 $html_lang = 'Taal';
-$html_welcome = 'Welkom op';
-$html_login = 'Login';
+$html_welcome = 'Welkom bij';
+$html_login = 'Loginnaam';
 $html_passwd = 'Wachtwoord';
 $html_submit = 'Verzenden';
 $html_help = 'Help';
 $html_server = 'Server';
-$html_wrong = 'De login-naam of het wachtwoord is onjuist';
+$html_wrong = 'Loginnaam of Wachtwoord is onjuist';
 $html_retry = 'Probeer opnieuw';
-$html_remember = "Remember settings"; //to translate
+$html_remember = "Onthoud instellingen";
 
 // prefs.php
 
 $html_msgperpage = 'Berichten per pagina';
 $html_preferences = 'Instellingen';
 $html_full_name = 'Volledige Naam';
-$html_email_address = 'E-mail Adres';
-$html_ccself = 'Copie naar zelf';
-$html_hide_addresses = 'Adressen verbergen';
-$html_outlook_quoting = 'Outlook-quoting';
+$html_email_address = 'E-mailadres';
+$html_ccself = 'Cc naar eigen e-mailadres';
+$html_hide_addresses = 'E-mailadressen verbergen';
+$html_outlook_quoting = 'Oorspronkelijk bericht in Outlook-stijl aanhalen';
 $html_reply_to = 'Antwoord naar';
 $html_use_signature = 'Gebruik handtekening';
 $html_signature = 'Handtekening';
 $html_reply_leadin = 'Antwoord op inleiding';
 $html_prefs_updated = 'Instellingen opgeslagen';
-$html_manage_folders_link = 'Beheer IMAP mappen';
-$html_manage_filters_link = 'Beheer Email Filters';
-$html_use_graphical_smilies = 'Gebruik grafische smilies';
-$html_sent_folder = 'Copy sent mails into a dedicated folder'; //to translate
+$html_manage_folders_link = 'Beheer IMAP Mappen';
+$html_manage_filters_link = 'Beheer E-mail Filters';
+$html_use_graphical_smilies = 'Gebruik grafische smiley\'s';
+$html_sent_folder = 'Kopieer verzonden berichten naar map'; 
 
 // folders.php
+
 $html_folders_create_failed = 'Map kon niet worden gemaakt!';
-$html_folders_sub_failed = 'Kan niet inschrijven naar map!';
-$html_folders_unsub_failed = 'Kan niet uitschrijven van map!';
+$html_folders_sub_failed = 'Abonneren op map is mislukt!';
+$html_folders_unsub_failed = 'Niet meer abonneren op map is mislukt!';
 $html_folders_rename_failed = 'Map kan niet worden hernoemd!';
-$html_folders_updated = 'Mappen geupdate';
-$html_folder_subscribe = 'Inschrijven voor';
-$html_folder_rename = 'Hernoem';
-$html_folder_create = 'Creeer nieuwe map genaamd';
-$html_folder_remove = 'Uitschrijven van';
-$html_folder_delete = 'Verwijder';
-$html_folder_to = 'naar';
+$html_folders_updated = 'Mappen bijgewerkt';
+$html_folder_subscribe = 'Abonneren op map:';
+$html_folder_rename = 'Hernoem map:';
+$html_folder_create = 'Maak nieuwe map genaamd:';
+$html_folder_remove = 'Niet meer abonneren op map:';
+$html_folder_delete = 'Verwijder map:';
+$html_folder_to = 'naar:';
 
 // filters.php
 $html_filter_remove = 'Verwijder';
-$html_filter_body = 'Berichten Body';
-$html_filter_subject = 'Berichten onderwerp';
+$html_filter_body = 'Berichtinhoud';
+$html_filter_subject = 'Onderwerp veld';
 $html_filter_to = 'Naar veld';
 $html_filter_cc = 'Cc veld';
 $html_filter_from = 'Van veld';
-$html_filter_change_tip = 'Om een filter te veranderen simpel overschrijf.';
-$html_reapply_filters = 'Reapply alle filters';
-$html_filter_contains = 'Bevat';
-$html_filter_name = 'Filter Naam';
-$html_filter_action = 'Filter Actie';
-$html_filter_moveto = 'Verplaats naar';
+$html_filter_change_tip = 'Verander een filter door deze eenvoudigweg te overschrijven.';
+$html_reapply_filters = 'Opnieuw filters toepassen:';
+$html_filter_contains = 'bevat:';
+$html_filter_name = 'Naam filter';
+$html_filter_action = 'Actie filter';
+$html_filter_moveto = 'Verplaats naar map:';
 
 // Other pages
-$html_select_one = '--Selecteer een--';
+$html_select_one = '-- Selecteer --';
 $html_and = 'En';
-$html_new_msg_in = 'Nieuwe bericht in';
+$html_new_msg_in = 'Nieuw bericht in';
 $html_or = 'of';
 $html_move = 'Verplaats';
-$html_copy = 'Copieer';
-$html_messages_to = 'selecteer berichten naar';
+$html_copy = 'Kopieer';
+$html_messages_to = 'berichten naar';
 $html_gotopage = 'Ga naar pagina';
 $html_gotofolder = 'Ga naar map';
-$html_other_folders = 'Mappen lijst';
+$html_other_folders = 'Mappenlijst';
 $html_page = 'Pagina';
 $html_of = 'of';
-$html_view_header = 'Headers inzien';
-$html_remove_header = 'Headers verbergen';
+$html_view_header = 'Berichtkoppen tonen';
+$html_remove_header = 'Berichtkoppen verbergen';
 $html_inbox = 'Postvak In';
-$html_new_msg = 'Schrijven';
+$html_new_msg = 'Nieuw Bericht';
 $html_reply = 'Antwoorden';
-$html_reply_short = 'Betr.:';
-$html_reply_all = 'Antwoord allen';
+$html_reply_short = 'Betreft:';
+$html_reply_all = 'Antwoord Allen';
 $html_forward = 'Doorsturen';
-$html_forward_short = 'Fw';
-$html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
+$html_forward_short = 'Doorgestuurd:';
+$html_forward_info = 'Het doorgezonden bericht zal als bijlage van dit bericht verstuurd worden.'; 
 $html_delete = 'Verwijder';
 $html_new = 'Nieuw';
 $html_mark = 'Verwijder';
@@ -148,14 +148,14 @@ $html_att = 'Bijlage';
 $html_atts = 'Bijlagen';
 $html_att_unknown = '[onbekend]';
 $html_attach = 'Voeg toe';
-$html_attach_forget = 'Er moet een bestand als bijlage opgegeven worden voor verzending !';
+$html_attach_forget = 'Bijlage moet nog toegevoegd worden voor verzending!';
 $html_attach_delete = 'Verwijder selectie';
-$html_attach_none = 'You must select a file to attach!';  //to translate
+$html_attach_none = 'Selecteer eerst een bestand als bijlage!';
 $html_sort_by = 'Sorteer op';
 $html_from = 'Van';
 $html_subject = 'Onderwerp';
 $html_date = 'Datum';
-$html_sent = 'Verzenden';
+$html_sent = 'Verzonden';
 $html_wrote = 'Schreef';
 $html_size = 'Grootte';
 $html_totalsize = 'Totale grootte';
@@ -168,11 +168,11 @@ $html_bcc = 'Bcc';
 $html_nosubject = 'Geen onderwerp';
 $html_send = 'Verzenden';
 $html_cancel = 'Annuleren';
-$html_no_mail = 'Geen nieuwe berichten';
+$html_no_mail = 'Geen berichten';
 $html_logout = 'Uitloggen';
 $html_msg = 'Bericht';
 $html_msgs = 'Berichten';
-$html_configuration = 'Deze server is niet correct ingesteld';
+$html_configuration = 'Deze server is niet goed geconfigureerd';
 $html_priority = 'Prioriteit';
 $html_low = 'Laag';
 $html_normal = 'Normaal';
@@ -180,62 +180,62 @@ $html_high = 'Hoog';
 $html_receipt = 'Ontvangstbevestiging';
 $html_select = 'Selecteer';
 $html_select_all = 'Selectie omdraaien';
-$html_loading_image = 'Plaatje laden';
+$html_loading_image = 'Afbeelding laden';
 $html_send_confirmed = 'Het bericht is verzonden';
-$html_no_sendaction = 'Geen actie gespecificeerd. Evt. JavaScript aanzetten.';
+$html_no_sendaction = 'Geen actie gespecificeerd, zet eventueel JavaScript aan.';
 $html_error_occurred = 'Er is een fout opgetreden';
 $html_prefs_file_error = 'Het instellingenbestand kan niet worden geopend.';
-$html_wrap = 'Wrap uitgaande berichten naar :';
-$html_wrap_none = 'None'; //to translate
-$html_usenet_separator = 'Gebruik separator ("-- \n") voor de handtekening';
+$html_wrap = 'Terugloopbreedte voor uitgaande berichten:';
+$html_wrap_none = 'Geen terugloop'; 
+$html_usenet_separator = 'Gebruik scheidingslijn ("-- \n") voor handtekening';
 $html_mark_as = 'Markeer als';
-$html_read = 'Lees';
-$html_unread = 'niet gelezen';
-$html_mail_sent = 'Message successfully sent'; // to translate
-$html_encoding = 'Character encoding'; // to translate
+$html_read = 'Gelezen';
+$html_unread = 'Ongelezen';
+$html_mail_sent = 'Bericht succesvol verzonden'; 
+$html_encoding = 'Karakterset';
 
 // Contacts manager
-$html_add = 'Voeg toe';
-$html_contacts = 'Contacten';
-$html_modify = 'Verander';
+$html_add = 'Toevoegen';
+$html_contacts = 'Contactpersonen';
+$html_modify = 'Wijzig';
 $html_back = 'Terug';
-$html_contact_add = 'Voeg nieuw contact toe';
-$html_contact_mod = 'Verander een contact';
+$html_contact_add = 'Nieuw contactpersoon toevoegen';
+$html_contact_mod = 'Wijzig contactpersoon';
 $html_contact_first = 'Voornaam';
 $html_contact_last = 'Achternaam';
-$html_contact_nick = 'Nick';
-$html_contact_mail = 'email';
-$html_contact_list = 'Contact lijst van ';
-$html_contact_del = 'van de contact lijst';
+$html_contact_nick = 'Bijnaam';
+$html_contact_mail = 'E-mailadres';
+$html_contact_list = 'Contactlijst van ';
+$html_contact_del = 'van de contactlijst';
 
-$html_contact_err1 = 'Maximale nummer van contact is ';
-$html_contact_err2 = 'Je kan niet een nieuw contact toevoegen';
-$html_contact_err3 = 'Je hebt geen toegang  tot de contact lijst';
-$html_del_msg = 'Verwijder geselecteerde berichten ?';
+$html_contact_err1 = 'Het maximaal aantal contactpersonen is ';
+$html_contact_err2 = 'Er kan geen nieuw contactpersoon toegevoegd worden';
+$html_contact_err3 = 'Geen toegang tot de contactlijst';
+$html_del_msg = 'Verwijder geselecteerde berichten?';
 $html_down_mail = 'Download';
 
-$original_msg = '--Oorspronkelijk Bericht--';
-$to_empty = 'Het \'Aan\'-veld kan niet leeg zijn !';
+$original_msg = '-- Oorspronkelijk Bericht --';
+$to_empty = 'Het \'Aan\' veld kan niet leeg zijn!';
 
 // Images warning
-$html_images_warning = 'For your security, remote pictures are not displayed.'; // to translate
-$html_images_display = 'Display pictures'; // to translate
+$html_images_warning = 'Voor uw veiligheid worden afbeeldingen niet weergegeven.';
+$html_images_display = 'Toon afbeeldingen'; 
 
 // SMTP problems (class_smtp.php)
-$html_smtp_error_no_conn = 'Verbinding kan niet worden geopend';
+$html_smtp_error_no_conn = 'Verbinding kan niet worden gemaakt';
 $html_smtp_error_unexpected = 'Onverwacht antwoord:';
 
 // IMAP messages (class_local.php)
-$lang_could_not_connect = 'Verbinding met de server kan niet worden geinitialiseerd';
-$lang_invalid_msg_num = 'Bad Message Number';  //to translate
+$lang_could_not_connect = 'Verbinding kan niet worden gemaakt';
+$lang_invalid_msg_num = 'Ongeldig berichtnummer';  
 
-$html_file_upload_attack = 'Mogelijk bestandsupload aanval';
-$html_invalid_email_address = 'Ongeldig e-mail adres';
-$html_invalid_msg_per_page = 'Ongeldig nummer van de berichten per pagina';  
-$html_invalid_wrap_msg = 'Ongeldig bericht wrap breedte';
-$html_seperate_msg_win = 'Berichten in apart venster';
+$html_file_upload_attack = 'Mogelijk illegale poging om bestand te uploaden';
+$html_invalid_email_address = 'Ongeldig e-mailadres';
+$html_invalid_msg_per_page = 'Ongeldig aantal berichten per pagina';  
+$html_invalid_wrap_msg = 'Ongeldige terugloopbreedte van het bericht';
+$html_seperate_msg_win = 'Berichten in nieuw venster weergeven';
 
 // Exceptions
-$html_err_file_contacts = 'Niet mogelijk om de contactlijst te openen om naar te schrijven.';
-$html_session_file_error = 'Unable to open session file for writing.';  //to translate
+$html_err_file_contacts = 'Er kan niet naar de contactlijst geschreven worden.';
+$html_session_file_error = 'Er kan niet naar het sessiebestand geschreven worden.';
 ?>
