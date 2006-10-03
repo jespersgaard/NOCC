@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.144 2006/08/15 10:51:46 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.145 2006/09/01 16:46:22 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -63,6 +63,9 @@ $conf->domains[$i]->smtp_port = 25;
 //$conf->domains[$i]->login_with_domain_character = '@';
 // Fill in if you require login suffixes for your mail server
 $conf->domains[$i]->login_suffix = '';
+// Uncomment for login aliases and use the following syntax:
+// array('alias1' => 'real_login_1', 'alias2' => 'real_login_2');
+//$conf->domains[$i]->login_aliases = array();
 // Select SMTP AUTH method.
 // Supported AUTH methods are :
 // '' : no authentification method
@@ -82,6 +85,7 @@ $conf->domains[$i]->imap_namespace = "INBOX.";
 //$conf->domains[$i]->smtp_port = 25;
 //$conf->domains[$i]->login_with_domain = 1;
 //$conf->domains[$i]->login_suffix = '';
+//$conf->domains[$i]->login_aliases = array();
 //$conf->domains[$i]->smtp_auth_method = '';
 //$conf->domains[$i]->imap_namespace = "INBOX.";
 
@@ -92,6 +96,7 @@ $conf->domains[$i]->imap_namespace = "INBOX.";
 //$conf->domains[$i]->smtp_port = 25;
 //$conf->domains[$i]->login_with_domain = 1;
 //$conf->domains[$i]->login_suffix = '';
+//$conf->domains[$i]->login_aliases = array();
 //$conf->domains[$i]->smtp_auth_method = '';
 //$conf->domains[$i]->imap_namespace = "INBOX.";
 

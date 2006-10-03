@@ -1,21 +1,11 @@
 NOCC 1.3    ?? ??, 200?
 
-    * Patch #1569367 : Use top/bottomNavigation only if necessary (Tim Gerundt).
-    * Patch #1569494 : Update of nl.php (openfan).
-    * Patch #1566239 : Remove unnecessary table from "html/html_mail_*.php" (Tim
-      Gerundt).
-    * Bug #1566972 : Needless if statement in "html_top_table.php"? (Arnaud
+  Bugs
+    * Bug #1566972   : Needless if statement in "html_top_table.php"? (Arnaud
       Boudou).
     * Bug #1565973 : More mixed EOL in some files (Arnaud Boudou).
-    * Patch #1565779 : Use <th> for mail headers too (Tim Gerundt).
-    * Patch #1565759 : Use "sendData" class for mail_body in "html/send.php" too
-      (Tim Gerundt).
-    * Patch #1565371 : Add simple "print" CSS (Tim Gerundt).
-    * Patch #1565084 : Add missing IDs to html/prefs.php (Tim Gerundt).
-    * Patch #1564552 : Use <th> for table header cells (Tim Gerundt).
     * Bug #1565100 : Mixed EOL in html/send.php (Arnaud Boudou).
     * Bug #1565082 : Logout.php use empty theme (Arnaud Boudou).
-    * Patch #1563453 : Use <label> for send.php (Tim Gerundt).
     * Bug #1555543 : Some small spelling errors in en.php (Arnaud Boudou).
     * Bug #1552568 : Setting wrap None is not shown as selected (Arnaud Boudou).
     * Bug #1551529 : $html_to occurs twice in language files (Arnaud Boudou).
@@ -26,16 +16,33 @@ NOCC 1.3    ?? ??, 200?
       Boudou).
     * Bug #1547166 : errorpage: wrong images URL's and misbehaving back button
       (Arnaud Boudou).
-    * Improve RSS handling (Arnaud Boudou).
+    * Bug #1526431 : Java script error in IE on delete (Arnaud Boudou).
     * Bug #1524048 : Session Data Gets Mangled / NoccKey and NoccIdent (Arnaud
       Boudou).
-    * Bug #1526431 : Java script error in IE on delete (Arnaud Boudou).
+    * Bug #1524044 :  SMTP Auth Failures mishandled (Arnaud Boudou).
+    * Bug #1518887 : errors when enable preferences (Arnaud Boudou).
+
+  Patches
+    * Patch #1569369 : Use logon aliases (Tim Gerundt).
+    * Patch #1566239 : Remove unnecessary table from "html/html_mail_*.php" (Tim
+      Gerundt).
+    * Patch #1565779 : Use <th> for mail headers too (Tim Gerundt).
+    * Patch #1565759 : Use "sendData" class for mail_body in "html/send.php" too
+      (Tim Gerundt).
+    * Patch #1565371 : Add simple "print" CSS (Tim Gerundt).
+    * Patch #1565084 : Add missing IDs to html/prefs.php (Tim Gerundt).
+    * Patch #1564552 : Use <th> for table header cells (Tim Gerundt).
+    * Patch #1563453 : Use <label> for send.php (Tim Gerundt).
     * Patch #1537220 : LANG and THEME may change also pop users (Vadim).
+
+  Feature Requests
+    * RFE #1227895 : Address Translation (Tim Gerundt).
+
+  Misc
+    * Improve RSS handling (Arnaud Boudou).
     * Add mail controls (delete, select all, etc.) to the bottom of the INBOX
       page (Arnaud Boudou).
-    * Bug #1524044 :  SMTP Auth Failures mishandled (Arnaud Boudou).
     * Improve remote pictures handling (Arnaud Boudou).
-    * Bug #1518887 : errors when enable preferences (Arnaud Boudou).
 
 NOCC 1.2    July 01, 2006
 

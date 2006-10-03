@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.66 2006/08/15 13:53:49 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.67 2006/08/28 18:22:15 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -171,6 +171,11 @@ if (isset($_REQUEST['domainnum']))
     $_SESSION['nocc_smtp_server'] = $conf->domains[$domainnum]->smtp;
     $_SESSION['nocc_smtp_port'] = $conf->domains[$domainnum]->smtp_port;
     $_SESSION['imap_namespace'] = $conf->domains[$domainnum]->imap_namespace;
+
+    //Do we have login aliases?
+    if(isset($conf->domains[$domainnum]->login_aliases) && !empty($conf->domains[$domainnum]->login_aliases)){
+      $_SESSION['nocc_login'] = str_replace(array_keys($conf->domains[$domainnum]->login_aliases), array_values($conf->domains[$domainnum]->login_aliases), $_SESSION['nocc_login']);
+    }
 
     // Do we provide the domain with the login?
     if(isset($conf->domains[$domainnum]->login_with_domain)){
