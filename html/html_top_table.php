@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.81 2006/09/25 19:53:29 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.82 2006/10/01 08:54:20 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -91,6 +91,7 @@ if ($pop->is_imap()) {
                     </tr>
                   </table>
                 </div>
+                <?php if (($pop->is_imap()) || ($pages > 1)) { ?>
                 <div class="topNavigation">
                   <table>
                     <tr>
@@ -110,10 +111,10 @@ if ($pop->is_imap()) {
                     </tr>
                   </table>
                 </div>
+                <?php } ?>
                 <div class="messageList">
                   <!-- Message list bloc -->
                   <form method="post" action="delete.php" id="delete_form">
-                    <div>
                     <?php include('menu_inbox_opts.php'); ?>
                       <table>
                         <tr>
@@ -148,4 +149,4 @@ if ($pop->is_imap()) {
                             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>"><?php echo $html_size ?></a>
                           </th>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.81 2006/09/25 19:53:29 goddess_skuld Exp $ -->
+<!-- end of $Id: html_top_table.php,v 1.82 2006/10/01 08:54:20 goddess_skuld Exp $ -->
