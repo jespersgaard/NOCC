@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.54 2006/08/15 10:51:52 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.55 2006/09/04 07:58:43 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -150,6 +150,7 @@ $html_attach_forget = 'Zanim wyślesz wiadomość musisz dołaczyć załącznik(
 $html_attach_delete = 'Skasuj zaznaczone';
 $html_attach_none = 'Musisz zaznaczyć plik do wysłania!';
 $html_sort_by = 'Sortuj według';
+$html_sort = 'Sortuj';
 $html_from = 'Nadawca';
 $html_subject = 'Temat';
 $html_date = 'Data';

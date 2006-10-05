@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-tw.php,v 1.37 2006/08/15 10:51:53 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-tw.php,v 1.38 2006/09/04 07:58:43 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -149,6 +149,7 @@ $html_attach_forget = '你忘記加入附件 !';
 $html_attach_delete = '删除已選擇的';
 $html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sort by';  //to translate
+$html_sort = 'Sort'; //to translate
 $html_from = '由';
 $html_subject = '題目';
 $html_date = '日期';

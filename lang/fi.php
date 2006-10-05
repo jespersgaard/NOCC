@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fi.php,v 1.36 2006/08/15 10:51:51 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fi.php,v 1.37 2006/09/04 07:58:42 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -149,6 +149,7 @@ $html_attach_forget = 'Sinun täytyy liittää tiedosto(t) ennen lähetystä';
 $html_attach_delete = 'Poista valitut';
 $html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Järjestele';
+$html_sort = 'Sort'; //to translate
 $html_from = 'Keneltä';
 $html_subject = 'Aihe';
 $html_date = 'Päivä';

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.26 2006/08/15 10:51:51 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.27 2006/09/04 07:58:42 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -149,6 +149,7 @@ $html_attach_forget = 'شما بايد فايل خود را قبل از فرست
 $html_attach_delete = 'ضميمه هاى انتخاب شده را پاک کن';
 $html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'ترتيب بندى با';
+$html_sort = 'Sort'; //to translate
 $html_from = 'از';
 $html_subject = 'عنوان';
 $html_date = 'تاريخ';

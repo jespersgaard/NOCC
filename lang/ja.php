@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ja.php,v 1.4 2006/08/15 10:51:51 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ja.php,v 1.5 2006/09/04 07:58:43 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -149,6 +149,7 @@ $html_attach_forget = 'メッセージを送信する前に添付しなければ
 $html_attach_delete = '選択を削除';
 $html_attach_none = '添付するファイルを選択しなければなりません!';
 $html_sort_by = 'ソート 基準';
+$html_sort = 'Sort'; //to translate
 $html_from = '差出人';
 $html_subject = '件名';
 $html_date = '日付';

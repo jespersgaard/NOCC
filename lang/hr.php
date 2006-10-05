@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/hr.php,v 1.31 2006/08/15 10:51:51 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/hr.php,v 1.32 2006/09/04 07:58:42 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -148,12 +148,13 @@ $html_attach = 'Priloži';
 $html_attach_forget = 'Morate priložiti datoteku prije slanja poruke !';
 $html_attach_delete = 'Ukloni odabrane datoteke';
 $html_attach_none = 'You must select a file to attach!';  //to translate
-$html_sort_by = 'Sort by';
+$html_sort_by = 'Sort by'; //to translate
+$html_sort = 'Sort'; //to translate
 $html_from = 'Od';
 $html_subject = 'Naslov';
 $html_date = 'Datum';
 $html_sent = 'Poslano';
-$html_wrote = 'wrote';
+$html_wrote = 'wrote'; //to translate
 $html_size = 'Veličina';
 $html_totalsize = 'Ukupna veličina';
 $html_kb = 'Kb';

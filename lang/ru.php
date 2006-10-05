@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.42 2006/08/15 10:51:52 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.43 2006/09/04 07:58:43 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -147,6 +147,7 @@ $html_attach = 'Прикрепить файл';
 $html_attach_forget = 'Вы должны прикрепить файл до отправки сообщения!';
 $html_attach_delete = 'Удалить выбранные';
 $html_sort_by = 'Сортировать по';
+$html_sort = 'Сортировать';
 $html_from = 'От';
 $html_subject = 'Тема';
 $html_date = 'Время';

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/da.php,v 1.36 2006/08/15 10:51:51 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/da.php,v 1.37 2006/09/04 07:58:42 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -149,6 +149,7 @@ $html_attach_forget = 'Du er nødt til at vedlægge filen, før du sender meddel
 $html_attach_delete = 'Fjern markerede vedlæg';
 $html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sort by';  //to translate
+$html_sort = 'Sort'; //to translate
 $html_from = 'Fra';
 $html_subject = 'Emne';
 $html_date = 'Dato';

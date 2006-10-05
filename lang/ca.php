@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ca.php,v 1.5 2006/08/15 10:51:51 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ca.php,v 1.6 2006/09/04 07:58:42 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -149,6 +149,7 @@ $html_attach_forget = 'Heu d\'adjuntar el fitxer abans d\'enviar el vostre missa
 $html_attach_delete = 'Suprimir els seleccionats';
 $html_attach_none = 'Heu de seleccionar un fitxer per adjuntar!';
 $html_sort_by = 'Ordenar per';
+$html_sort = 'Ordenar';
 $html_from = 'De';
 $html_subject = 'Assumpte';
 $html_date = 'Data';

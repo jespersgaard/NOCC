@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pt-br.php,v 1.34 2006/08/15 10:51:52 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pt-br.php,v 1.35 2006/09/04 07:58:43 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -149,6 +149,7 @@ $html_attach_forget = 'Você precisa anexar seus arquivos antes de enviar esta m
 $html_attach_delete = 'Remover anexos selecionados';
 $html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Sort by';  //to translate
+$html_sort = 'Sort'; //to translate
 $html_from = 'De';
 $html_subject = 'Assunto';
 $html_date = 'Data';

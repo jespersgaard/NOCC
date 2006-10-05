@@ -147,6 +147,7 @@ $html_attach_forget = 'Þú verður að hengja skrána við áður en þú sendi
 $html_attach_delete = 'Eyða völdum skrám';
 $html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Raða eftir';
+$html_sort = 'Sort'; //to translate
 $html_from = 'Frá';
 $html_subject = 'Titill';
 $html_date = 'Dags.';

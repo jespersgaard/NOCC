@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.49 2006/09/04 07:58:43 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.50 2006/10/03 07:25:59 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -152,6 +152,7 @@ $html_attach_forget = 'Bijlage moet nog toegevoegd worden voor verzending!';
 $html_attach_delete = 'Verwijder selectie';
 $html_attach_none = 'Selecteer eerst een bestand als bijlage!';
 $html_sort_by = 'Sorteer op';
+$html_sort = 'Sorteer';
 $html_from = 'Van';
 $html_subject = 'Onderwerp';
 $html_date = 'Datum';
