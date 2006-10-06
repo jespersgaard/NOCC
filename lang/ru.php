@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.44 2006/10/05 15:30:26 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.45 2006/10/06 08:05:32 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -82,7 +82,7 @@ $html_outlook_quoting = 'Цитирование в стиле Outlook';
 $html_reply_to = 'Ответить';
 $html_use_signature = 'Использовать подпись';
 $html_signature = 'Подпись';
-$html_reply_leadin = 'Reply Leadin';
+$html_reply_leadin = 'Reply Leadin'; //to translate
 $html_prefs_updated = 'Настройки сохранены';
 $html_manage_folders_link = 'Управление папками IMAP';
 $html_manage_filters_link = 'Управление почтовыми фильтрами';
@@ -192,7 +192,7 @@ $html_mail_sent = 'Message successfully sent'; // to translate
 $html_encoding = 'Character encoding'; // to translate
 
 // Contacts manager
-$html_add = 'Add';
+$html_add = 'Add'; //to translate
 $html_contacts = 'Контакты';
 $html_modify = 'Изменить';
 $html_back = 'Назад';

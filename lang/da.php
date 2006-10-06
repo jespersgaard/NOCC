@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/da.php,v 1.38 2006/10/05 15:30:25 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/da.php,v 1.39 2006/10/06 08:05:32 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -64,7 +64,7 @@ $html_login = 'Brugernavn';
 $html_passwd = 'Kodeord';
 $html_submit = 'Log ind';
 $html_help = 'Hjælp';
-$html_server = 'Server';
+$html_server = 'Server'; //to translate
 $html_wrong = 'Brugernavn eller kodeord er forkert';
 $html_retry = 'Prøv igen';
 $html_remember = "Remember settings"; //to translate
@@ -158,12 +158,12 @@ $html_sent = 'Sendt';
 $html_wrote = 'wrote';  //to translate
 $html_size = 'Størrelse';
 $html_totalsize = 'Total Størrelse';
-$html_kb = 'Kb';
+$html_kb = 'kB'; //to translate
 $html_bytes = 'bytes';  //to translate
 $html_filename = 'Filnavn';
 $html_to = 'Til';
-$html_cc = 'Cc';
-$html_bcc = 'Bcc';
+$html_cc = 'Cc'; //to translate
+$html_bcc = 'Bcc'; //to translate
 $html_nosubject = 'Intet emne';
 $html_send = 'Send';  //to translate
 $html_cancel = 'Annullér';

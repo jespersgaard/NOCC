@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/he.php,v 1.36 2006/10/05 15:30:26 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/he.php,v 1.37 2006/10/06 08:05:32 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -138,10 +138,10 @@ $html_new_msg = 'כתיבה';
 $html_reply = 'תשובה';
 # please leave 'Re' and 'Fwd' as they are, otherwise they mess the subject line
 # [tzafrir]
-$html_reply_short = 'Re';
+$html_reply_short = 'Re'; //to translate
 $html_reply_all = 'תשובה לכל';
 $html_forward = 'העברה';
-$html_forward_short = 'Fw';
+$html_forward_short = 'Fw'; //to translate
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
 $html_delete = 'מחיקה';
 $html_new = 'חדש';
@@ -158,7 +158,7 @@ $html_sort = 'Sort'; //to translate
 $html_from = 'מאת';
 $html_subject = 'נושא';
 $html_date = 'תאריך';
-$html_sent = 'Send';
+$html_sent = 'Send'; //to translate
 $html_size = 'גודל';
 $html_totalsize = 'סה\' גודל';
 $html_kb = 'ק\'ב';
@@ -166,7 +166,7 @@ $html_bytes = 'בתים';
 $html_filename = 'שם הקובץ';
 $html_to = 'אל';
 $html_cc = 'העתק';
-$html_bcc = 'Bcc';  //to translate
+$html_bcc = 'Bcc'; //to translate
 $html_nosubject = '[ללא נושא]';
 $html_send = 'שליחה';
 $html_cancel = 'ביטול';

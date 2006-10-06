@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/el.php,v 1.37 2006/10/05 15:30:25 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/el.php,v 1.38 2006/10/06 08:05:32 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -62,7 +62,7 @@ $html_lang = 'Γλώσσα';
 $html_welcome = 'Καλώς ήρθατε στο';
 $html_login = 'Ονομα λογαριασμού';
 $html_passwd = 'Κωδικός';
-$html_submit = 'Login';
+$html_submit = 'Login'; //to translate
 $html_help = 'Βοήθεια';
 $html_server = 'Διακομιστής';
 $html_wrong = 'Το όνομα λογαριασμού ή ο κωδικός είναι λάθος';
@@ -131,13 +131,13 @@ $html_page = 'Page';  //to translate
 $html_of = 'of';  //to translate
 $html_view_header = 'Προβολή λεπτομερειών';
 $html_remove_header = 'Απόκρυψη λεπτομερειών';
-$html_inbox = 'Inbox';
+$html_inbox = 'Inbox'; //to translate
 $html_new_msg = 'Σύνθεση';
 $html_reply = 'Απάντηση';
-$html_reply_short = 'Re';
+$html_reply_short = 'Re'; //to translate
 $html_reply_all = 'Απάντηση σε όλους';
 $html_forward = 'Προώθηση';
-$html_forward_short = 'Fw';
+$html_forward_short = 'Fw'; //to translate
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
 $html_delete = 'Διαγραφή';
 $html_new = 'Νέο';
@@ -155,11 +155,11 @@ $html_from = 'Από';
 $html_subject = 'Θέμα';
 $html_date = 'Ημ/νία';
 $html_sent = 'Αποστολή';
-$html_wrote = 'wrote';
+$html_wrote = 'wrote'; //to translate
 $html_size = 'Μέγεθος';
 $html_totalsize = 'Συνολικό μέγεθος';
-$html_kb = 'Kb';
-$html_bytes = 'bytes';
+$html_kb = 'kB'; //to translate
+$html_bytes = 'bytes'; //to translate
 $html_filename = 'Ονομα αρχείου';
 $html_to = 'Πρός';
 $html_cc = 'Αντίγραφο προς';

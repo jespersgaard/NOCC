@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/es.php,v 1.52 2006/10/05 15:30:25 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/es.php,v 1.53 2006/10/06 08:05:32 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -71,7 +71,7 @@ $html_remember = "Remember settings"; //to translate
 
 // prefs.php
 
-$html_msgperpage = 'Messages per page';
+$html_msgperpage = 'Messages per page'; //to translate
 $html_preferences = 'Preferencias';
 $html_full_name = 'Nombre completo';
 $html_email_address = 'Dirección de E-mail';
@@ -81,7 +81,7 @@ $html_outlook_quoting = 'Quotes tipo Outlook';
 $html_reply_to = 'Responder a';
 $html_use_signature = 'Usar firma';
 $html_signature = 'Firma';
-$html_reply_leadin = 'Reply Leadin';
+$html_reply_leadin = 'Reply Leadin'; //to translate
 $html_prefs_updated = 'Preferencias actualizadas';
 $html_manage_folders_link = 'Manage IMAP Folders';  //to translate
 $html_manage_filters_link = 'Manage Email Filters';  //to translate
@@ -131,13 +131,13 @@ $html_page = 'Page';  //to translate
 $html_of = 'of';  //to translate
 $html_view_header = 'Ver cabezal';
 $html_remove_header = 'Ocultar cabezal';
-$html_inbox = 'Inbox';
+$html_inbox = 'Inbox'; //to translate
 $html_new_msg = 'Escribir';
 $html_reply = 'Responder';
 $html_reply_short = 'Re';
 $html_reply_all = 'Responder a todos';
 $html_forward = 'Remitir';
-$html_forward_short = 'Fw';
+$html_forward_short = 'Fw'; //to translate
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
 $html_delete = 'Borrar';
 $html_new = 'Nuevo';
@@ -155,15 +155,15 @@ $html_from = 'De';
 $html_subject = 'Tema';
 $html_date = 'Fecha';
 $html_sent = 'Enviar';
-$html_wrote = 'wrote';
+$html_wrote = 'wrote'; //to translate
 $html_size = 'Tamaño';
 $html_totalsize = 'Tamaño total';
-$html_kb = 'Kb';
-$html_bytes = 'bytes';
+$html_kb = 'kB'; //to translate
+$html_bytes = 'bytes'; //to translate
 $html_filename = 'Archivo';
 $html_to = 'A';
-$html_cc = 'Cc';
-$html_bcc = 'Bcc';
+$html_cc = 'Cc'; //to translate
+$html_bcc = 'Bcc'; //to translate
 $html_nosubject = 'Sin tema';
 $html_send = 'Enviar';
 $html_cancel = 'Cancelar';

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/cs.php,v 1.35 2006/10/05 15:30:25 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/cs.php,v 1.36 2006/10/06 08:05:32 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -64,14 +64,14 @@ $html_login = 'Jméno';
 $html_passwd = 'Heslo';
 $html_submit = 'Potvrdit';
 $html_help = 'Pomoc';
-$html_server = 'Server';
+$html_server = 'Server'; //to translate
 $html_wrong = 'Prihlašovací jméno a heslo nesouhlasí';
 $html_retry = 'Zkusit znovu';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
 
-$html_msgperpage = 'Messages per page';
+$html_msgperpage = 'Messages per page'; //to translate
 $html_preferences = 'Nastavení';
 $html_full_name = 'Celé jméno';
 $html_email_address = 'E-mailová adresa';
@@ -134,10 +134,10 @@ $html_remove_header = 'Skrýt hlavičku';
 $html_inbox = 'Doručená pošta';
 $html_new_msg = 'Nová zpráva';
 $html_reply = 'Odpovědět';
-$html_reply_short = 'Re';
+$html_reply_short = 'Re'; //to translate
 $html_reply_all = 'Odpovědět všem';
 $html_forward = 'Předat dál';
-$html_forward_short = 'Fw';
+$html_forward_short = 'Fw'; //to translate
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
 $html_delete = 'Vymazat';
 $html_new = 'Nová';
@@ -158,7 +158,7 @@ $html_sent = 'Odeslat';
 $html_wrote = 'odesláno';
 $html_size = 'Velikost';
 $html_totalsize = 'Celková velikost';
-$html_kb = 'Kb';
+$html_kb = 'kB'; //to translate
 $html_bytes = 'bajtů';
 $html_filename = 'Název souboru';
 $html_to = 'Komu';

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/sl.php,v 1.41 2006/10/05 15:30:26 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sl.php,v 1.42 2006/10/06 08:05:32 goddess_skuld Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2000 Olivier Cahagne <cahagn_o@epita.fr>
@@ -134,10 +134,10 @@ $html_remove_header = 'Skrij glavo';
 $html_inbox = 'Prejeto';
 $html_new_msg = 'Pii';
 $html_reply = 'Odgovori';
-$html_reply_short = 'Re';
+$html_reply_short = 'Re'; //to translate
 $html_reply_all = 'Odgovori vsem';
 $html_forward = 'Posreduj';
-$html_forward_short = 'Fw';
+$html_forward_short = 'Fw'; //to translate
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
 $html_delete = 'Brii';
 $html_new = 'Novo';
@@ -158,7 +158,7 @@ $html_sent = 'Poslano';
 $html_wrote = 'je napisal(-a)';
 $html_size = 'Velikost';
 $html_totalsize = 'Skupna velikost';
-$html_kb = 'Kb';
+$html_kb = 'kB'; //to translate
 $html_bytes = 'bajtov';
 $html_filename = 'Ime datoteke';
 $html_to = 'Za';

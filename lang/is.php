@@ -69,7 +69,7 @@ $html_remember = "Remember settings"; //to translate
 
 // prefs.php
 
-$html_msgperpage = 'Messages per page';
+$html_msgperpage = 'Messages per page'; //to translate
 $html_preferences = 'Valmöguleikar';
 $html_full_name = 'Fullt nafn';
 $html_email_address = 'Netfang';
@@ -156,7 +156,7 @@ $html_sent = 'Senda';
 $html_wrote = 'skrifaði';
 $html_size = 'Stærð';
 $html_totalsize = 'Heildarstærð';
-$html_kb = 'Kb';  //to translate
+$html_kb = 'kB';  //to translate
 $html_bytes = 'bæti';
 $html_filename = 'Skráarnafn';
 $html_to = 'Til';

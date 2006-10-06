@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.92 2006/10/05 15:30:25 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.93 2006/10/06 08:05:32 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -60,12 +60,12 @@ $html_theme = 'Thème';
 
 $html_lang = 'Langue';
 $html_welcome = 'Bienvenue à';
-$html_login = 'Login';
+$html_login = 'Identifiant';
 $html_passwd = 'Mot de passe';
 $html_submit = 'Valider';
 $html_help = 'Aide';
 $html_server = 'Serveur';
-$html_wrong = 'Le login ou le mot de passe ne sont pas valides';
+$html_wrong = 'L\'identifiant ou le mot de passe ne sont pas valides';
 $html_retry = 'Réessayer';
 $html_remember = "Conserver les paramètres";
 

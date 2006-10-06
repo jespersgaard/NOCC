@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.51 2006/10/05 15:30:26 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.52 2006/10/06 08:05:32 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -66,7 +66,7 @@ $html_login = 'Loginnaam';
 $html_passwd = 'Wachtwoord';
 $html_submit = 'Verzenden';
 $html_help = 'Help';
-$html_server = 'Server';
+$html_server = 'Server'; //to translate
 $html_wrong = 'Loginnaam of Wachtwoord is onjuist';
 $html_retry = 'Probeer opnieuw';
 $html_remember = "Onthoud instellingen";
@@ -160,12 +160,12 @@ $html_sent = 'Verzonden';
 $html_wrote = 'Schreef';
 $html_size = 'Grootte';
 $html_totalsize = 'Totale grootte';
-$html_kb = 'Kb';
-$html_bytes = 'bytes';
+$html_kb = 'kB'; //to translate
+$html_bytes = 'bytes'; //to translate
 $html_filename = 'Bestandsnaam';
 $html_to = 'Aan';
-$html_cc = 'Cc';
-$html_bcc = 'Bcc';
+$html_cc = 'Cc'; //to translate
+$html_bcc = 'Bcc'; //to translate
 $html_nosubject = 'Geen onderwerp';
 $html_send = 'Verzenden';
 $html_cancel = 'Annuleren';

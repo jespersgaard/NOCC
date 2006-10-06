@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ca.php,v 1.7 2006/10/05 15:30:25 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ca.php,v 1.8 2006/10/06 08:05:32 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -134,10 +134,10 @@ $html_remove_header = 'Amagar capçalera';
 $html_inbox = 'Entrada';
 $html_new_msg = 'Escriure';
 $html_reply = 'Contestar';
-$html_reply_short = 'Re';
+$html_reply_short = 'Re'; //to translate
 $html_reply_all = 'Contestar tothom';
 $html_forward = 'Reenviar';
-$html_forward_short = 'Fw';
+$html_forward_short = 'Fw'; //to translate
 $html_forward_info = 'El missatge reenviat s\'enviarà com a adjunt.';
 $html_delete = 'Esborrar';
 $html_new = 'Nou';
@@ -158,8 +158,8 @@ $html_sent = 'Enviar';
 $html_wrote = 'escrit';
 $html_size = 'Tamany';
 $html_totalsize = 'Tamany total';
-$html_kb = 'Kb';
-$html_bytes = 'bytes';
+$html_kb = 'kB'; //to translate
+$html_bytes = 'bytes'; //to translate
 $html_filename = 'Fitxer';
 $html_to = 'A';
 $html_cc = 'Còpia';

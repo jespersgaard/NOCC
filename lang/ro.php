@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ro.php,v 1.32 2006/10/05 15:30:26 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ro.php,v 1.33 2006/10/06 08:05:32 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -65,7 +65,7 @@ $html_login = 'Nume';
 $html_passwd = 'Parola';
 $html_submit = 'Trimit';
 $html_help = 'Ajutor';
-$html_server = 'Server';
+$html_server = 'Server'; //to translate
 $html_wrong = 'Numele sau parola sunt incorecte';
 $html_retry = 'Alta incercare';
 $html_remember = "Remember settings"; //to translate
@@ -132,7 +132,7 @@ $html_page = 'Page';  //to translate
 $html_of = 'of';  //to translate
 $html_view_header = 'Vizualizare header';
 $html_remove_header = 'Ascundere header';
-$html_inbox = 'Inbox';
+$html_inbox = 'Inbox'; // to translate
 $html_new_msg = 'Mesaj Nou';
 $html_reply = 'Raspuns';
 $html_reply_short = 'Re';  //to translate
@@ -159,7 +159,7 @@ $html_sent = 'Trimite';
 $html_wrote = 'a scris';
 $html_size = 'Marime';
 $html_totalsize = 'Marime Totala';
-$html_kb = 'Kb';  //to translate
+$html_kb = 'kB';  //to translate
 $html_bytes = 'bytes';  //to translate
 $html_filename = 'Nume fisier';
 $html_to = 'Catre';
@@ -177,7 +177,7 @@ $html_priority = 'Prioritate';
 $html_low = 'Mica';
 $html_normal = 'Normala';
 $html_high = 'Mare';
-$html_receipt = 'Request a return receipt';
+$html_receipt = 'Request a return receipt'; //to translate
 $html_select = 'Selectare';
 $html_select_all = 'Invert Selection';  //to translate
 $html_loading_image = 'Incarcare imagine';

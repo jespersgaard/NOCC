@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/tr.php,v 1.34 2006/10/05 15:30:26 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/tr.php,v 1.35 2006/10/06 08:05:32 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -155,11 +155,11 @@ $html_from = 'Gönderen';
 $html_subject = 'Konu';
 $html_date = 'Tarih';
 $html_sent = 'Gönder';
-$html_wrote = 'wrote';
+$html_wrote = 'wrote'; //to translate
 $html_size = 'Boyut';
 $html_totalsize = 'Toplam Boyut';
-$html_kb = 'Kb';
-$html_bytes = 'byte';
+$html_kb = 'kB'; //to translate
+$html_bytes = 'bytes'; //to translate
 $html_filename = 'Dosya Adı';
 $html_to = 'Alıcı';
 $html_cc = 'Cc';  //to translate

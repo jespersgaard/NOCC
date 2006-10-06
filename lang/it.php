@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.52 2006/10/05 15:30:26 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.53 2006/10/06 08:05:32 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -64,7 +64,7 @@ $html_login = 'Utente';
 $html_passwd = 'Password';
 $html_submit = 'Ok';
 $html_help = 'Aiuto';
-$html_server = 'Server';
+$html_server = 'Server'; //to translate
 $html_wrong = 'Login o password non corretti';
 $html_retry = 'Riprova';
 $html_remember = 'Ricorda Impostazioni';
@@ -134,10 +134,10 @@ $html_remove_header = 'Nascondi intestazione';
 $html_inbox = 'Posta in Arrivo';
 $html_new_msg = 'Scrivi';
 $html_reply = 'Rispondi';
-$html_reply_short = 'Re';
+$html_reply_short = 'Re'; //to translate
 $html_reply_all = 'Rispondi a tutti';
 $html_forward = 'Inoltra';
-$html_forward_short = 'Fw';
+$html_forward_short = 'Fw'; //to translate
 $html_forward_info = 'Il messaggio inoltrato sara` inviato come allegato a questo messaggio';
 $html_delete = 'Elimina';
 $html_new = 'Nuovo';
@@ -158,12 +158,12 @@ $html_sent = 'Invia';
 $html_wrote = 'scritto';
 $html_size = 'Dimensione';
 $html_totalsize = 'Dimensione Totale';
-$html_kb = 'Kb';
-$html_bytes = 'bytes'; 
-$html_filename = 'File';
+$html_kb = 'kB'; //to translate
+$html_bytes = 'bytes'; //to translate
+$html_filename = 'File'; //to translate
 $html_to = 'A';
-$html_cc = 'Cc';
-$html_bcc = 'Bcc';
+$html_cc = 'Cc'; //to translate
+$html_bcc = 'Bcc'; //to translate
 $html_nosubject = 'Senza Oggetto';
 $html_send = 'Invia';
 $html_cancel = 'Annulla';
@@ -211,7 +211,7 @@ $html_contact_err1 = 'Il numero massimo dei contatti è ';
 $html_contact_err2 = 'Non puoi aggiungere altri contatti';
 $html_contact_err3 = 'Non hai i privilegi necessari per accedere alla lista contatti';
 $html_del_msg = 'Eliminare i messaggi selezionati ?';
-$html_down_mail = 'Download';
+$html_down_mail = 'Download'; //to translate
 
 $original_msg = '-- Messaggio Originale --';
 $to_empty = 'Il campo \'A\' non può essere vuoto !';

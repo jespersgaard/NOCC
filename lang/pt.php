@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.55 2006/10/05 15:30:26 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.56 2006/10/06 08:05:32 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -78,7 +78,7 @@ $html_full_name = 'Nome completo';
 $html_email_address = 'Endereço E-mail';
 $html_ccself = 'Cc próprio';
 $html_hide_addresses = 'Esconder Endereços';
-$html_outlook_quoting = 'Outlook-style quoting';
+$html_outlook_quoting = 'Outlook-style quoting'; //to translate
 $html_reply_to = 'Responder para';
 $html_use_signature = 'Utilizar assinatura';
 $html_signature = 'Assinatura';
@@ -138,7 +138,7 @@ $html_reply = 'Responder';
 $html_reply_short = 'Re';
 $html_reply_all = 'Responder a todos';
 $html_forward = 'Reencaminhar';
-$html_forward_short = 'Fw';
+$html_forward_short = 'Fw'; //to translate
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
 $html_delete = 'Apagar';
 $html_new = 'Nova';
@@ -159,12 +159,12 @@ $html_sent = 'Enviar';
 $html_wrote = 'escreveu';
 $html_size = 'Tamanho';
 $html_totalsize = 'Tamanho Total';
-$html_kb = 'Kb';
-$html_bytes = 'bytes';
+$html_kb = 'kB'; //to translate
+$html_bytes = 'bytes'; //to translate
 $html_filename = 'Ficheiro';
 $html_to = 'Para';
-$html_cc = 'Cc';
-$html_bcc = 'Bcc';
+$html_cc = 'Cc'; //to translate
+$html_bcc = 'Bcc'; //to translate
 $html_nosubject = 'Sem assunto';
 $html_send = 'Enviar';
 $html_cancel = 'Cancelar';

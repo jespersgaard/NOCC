@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/hr.php,v 1.33 2006/10/05 15:30:26 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/hr.php,v 1.34 2006/10/06 08:05:32 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -64,7 +64,7 @@ $html_login = 'Korisničko ime';
 $html_passwd = 'Šifra';
 $html_submit = 'Prijava';
 $html_help = 'Pomoć';
-$html_server = 'Server';
+$html_server = 'Server'; //to translate
 $html_wrong = 'Korisničko ime ili šifra su neispravni';
 $html_retry = 'Pokušaj ponovo';
 $html_remember = "Remember settings"; //to translate
@@ -134,10 +134,10 @@ $html_remove_header = 'Sakrij zaglavlje';
 $html_inbox = 'Pristigla pošta';
 $html_new_msg = 'Nova poruka';
 $html_reply = 'Odgovori';
-$html_reply_short = 'Re';
+$html_reply_short = 'Re'; //to translate
 $html_reply_all = 'Odgovori svima';
 $html_forward = 'Proslijedi';
-$html_forward_short = 'Fw';
+$html_forward_short = 'Fw'; //to translate
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
 $html_delete = 'Obriši';
 $html_new = 'Nova';
@@ -158,8 +158,8 @@ $html_sent = 'Poslano';
 $html_wrote = 'wrote'; //to translate
 $html_size = 'Veličina';
 $html_totalsize = 'Ukupna veličina';
-$html_kb = 'Kb';
-$html_bytes = 'bytes';
+$html_kb = 'kB'; //to translate
+$html_bytes = 'bytes'; //to translate
 $html_filename = 'Ime datoteke';
 $html_to = 'Za';
 $html_cc = 'Kopija';

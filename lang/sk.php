@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/sk.php,v 1.40 2006/10/05 15:30:26 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sk.php,v 1.41 2006/10/06 08:05:32 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -81,7 +81,7 @@ $html_outlook_quoting = 'Formátovanie v štýle Outlook';
 $html_reply_to = 'Odpovedať';
 $html_use_signature = 'Použiť podpis';
 $html_signature = 'Podpis';
-$html_reply_leadin = 'Reply Leadin';
+$html_reply_leadin = 'Reply Leadin'; //to translate
 $html_prefs_updated = 'Nastavenia uložené';
 $html_manage_folders_link = 'Manage IMAP Folders';  //to translate
 $html_manage_filters_link = 'Manage Email Filters';  //to translate
@@ -134,10 +134,10 @@ $html_remove_header = 'Skryť hlavičku';
 $html_inbox = 'Prijaté správy';
 $html_new_msg = 'Poslať správu';
 $html_reply = 'Odpovedať';
-$html_reply_short = 'Re';
+$html_reply_short = 'Re'; //to translate
 $html_reply_all = 'Odpovedať všetkým';
 $html_forward = 'Preposlať';
-$html_forward_short = 'Fw';
+$html_forward_short = 'Fw'; //to translate
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
 $html_delete = 'Vymazať';
 $html_new = 'Nový';
@@ -158,7 +158,7 @@ $html_sent = 'Poslané';
 $html_wrote = 'napísal';
 $html_size = 'Velkosť';
 $html_totalsize = 'Celková velkosť';
-$html_kb = 'Kb';
+$html_kb = 'kB'; //to translate
 $html_bytes = 'bytov';
 $html_filename = 'Súbor';
 $html_to = 'Adresát';
@@ -176,7 +176,7 @@ $html_priority = 'Priorita';
 $html_low = 'Nízka';
 $html_normal = 'Normálna';
 $html_high = 'Vysoká';
-$html_receipt = 'Request a return receipt';
+$html_receipt = 'Request a return receipt'; //to translate
 $html_select = 'Označ';
 $html_select_all = 'Invert Selection';  //to translate
 $html_loading_image = 'Nahrávam obrázok';

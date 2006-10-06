@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fi.php,v 1.38 2006/10/05 15:30:25 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fi.php,v 1.39 2006/10/06 08:05:32 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -71,7 +71,7 @@ $html_remember = "Remember settings"; //to translate
 
 // prefs.php
 
-$html_msgperpage = 'Messages per page';
+$html_msgperpage = 'Messages per page'; //to translate
 $html_preferences = 'Asetukset';
 $html_full_name = 'Koko nimi';
 $html_email_address = 'Sähkäpostiosoitteet';
@@ -158,12 +158,12 @@ $html_sent = 'Lähetä';
 $html_wrote = 'kirjoitti';
 $html_size = 'Koko';
 $html_totalsize = 'Kokonais määrä';
-$html_kb = 'Kb';
+$html_kb = 'kB'; //to translate
 $html_bytes = 'tavua';
 $html_filename = 'Tiedostonimi';
 $html_to = 'Kenelle';
 $html_cc = 'Kopio';
-$html_bcc = 'Bcc';  //to translate
+$html_bcc = 'Bcc'; //to translate
 $html_nosubject = 'Ei viestin aihetta';
 $html_send = 'Lähetä';
 $html_cancel = 'Peruuta';
@@ -176,7 +176,7 @@ $html_priority = 'Kiireellisyys';
 $html_low = 'Matala';
 $html_normal = 'Tavallinen';
 $html_high = 'Korkea';
-$html_receipt = 'Request a return receipt';
+$html_receipt = 'Request a return receipt'; //to translate
 $html_select = 'Valitse';
 $html_select_all = 'Invert Selection';  //to translate
 $html_loading_image = 'Lataan kuvaa';

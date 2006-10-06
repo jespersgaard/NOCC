@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/lv.php,v 1.26 2006/10/05 15:30:26 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/lv.php,v 1.27 2006/10/06 08:05:32 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -131,13 +131,13 @@ $html_page = 'Page'; // to translate
 $html_of = 'of'; // to translate
 $html_view_header = 'Apskatīt galveni';
 $html_remove_header = 'Paslēpt galveni';
-$html_inbox = 'Inbox';
+$html_inbox = 'Inbox'; //to translate
 $html_new_msg = 'Rakstīt';
 $html_reply = 'Atbildēt';
-$html_reply_short = 'Re';
+$html_reply_short = 'Re'; //to translate
 $html_reply_all = 'Atbildēt visiem';
 $html_forward = 'Pārsūtīt';
-$html_forward_short = 'Fw';
+$html_forward_short = 'Fw'; //to translate
 $html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
 $html_delete = 'Dzēst';
 $html_new = 'Jauns';
@@ -158,12 +158,12 @@ $html_sent = 'Sūtīt';
 $html_wrote = 'rakstīja';
 $html_size = 'Izmērs';
 $html_totalsize = 'Kopējais izmērs';
-$html_kb = 'Kb';
-$html_bytes = 'bytes';
+$html_kb = 'kB'; //to translate
+$html_bytes = 'bytes'; //to translate
 $html_filename = 'Faila nosaukums';
 $html_to = 'Kam';
-$html_cc = 'Cc';
-$html_bcc = 'Bcc';
+$html_cc = 'Cc'; //to translate
+$html_bcc = 'Bcc'; //to translate
 $html_nosubject = 'bez tēmas';
 $html_send = 'Sūtīt';
 $html_cancel = 'Atcelt';

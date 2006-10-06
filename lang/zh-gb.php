@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-gb.php,v 1.36 2006/10/05 15:30:26 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-gb.php,v 1.37 2006/10/06 08:05:32 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -144,7 +144,7 @@ $html_new = '新';
 $html_mark = '置标';
 $html_att = '附件';
 $html_atts = '附件';
-$html_att_unknown = '[unknown]';
+$html_att_unknown = '[unknown]'; //to translate
 $html_attach = '附件';
 $html_attach_forget = '在发送邮件之前，你必须选一个文件!';
 $html_attach_delete = '删除选择';
@@ -158,12 +158,12 @@ $html_sent = '发送';
 $html_wrote = 'wrote';  //to translate
 $html_size = '大小';
 $html_totalsize = '总大小';
-$html_kb = 'Kb';  //to translate
+$html_kb = 'kB';  //to translate
 $html_bytes = '字节';
 $html_filename = '文件名';
 $html_to = 'To';  //to translate
 $html_cc = 'Cc';  //to translate
-$html_bcc = 'Bcc';
+$html_bcc = 'Bcc'; //to translate
 $html_nosubject = '没有主题';
 $html_send = '发送';
 $html_cancel = '取消';

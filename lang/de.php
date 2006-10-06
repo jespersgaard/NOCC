@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.55 2006/10/05 15:30:25 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.56 2006/10/06 08:05:32 goddess_skuld Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha AT free DOT fr>
  * Copyright 2000 Olivier Cahagne <wolruf AT free DOT fr>
@@ -67,7 +67,7 @@ $html_login = 'Login';
 $html_passwd = 'Passwort';
 $html_submit = 'Ok';
 $html_help = 'Hilfe';
-$html_server = 'Server';
+$html_server = 'Server'; //to translate
 $html_wrong = 'Der Nutzername oder das Passwort sind falsch';
 $html_retry = 'Nochmal';
 $html_remember = "Einstellungen speichern";
@@ -84,7 +84,7 @@ $html_outlook_quoting = 'Quoting im Outlook-Stil';
 $html_reply_to = 'Antwort an';
 $html_use_signature = 'Signatur benutzen';
 $html_signature = 'Signatur';
-$html_reply_leadin = 'Reply Leadin';
+$html_reply_leadin = 'Reply Leadin'; //to translate
 $html_prefs_updated = 'Einstellungen gespeichert';
 $html_manage_folders_link = 'IMAP Ordner verwalten';
 $html_manage_filters_link = 'E-Mail Filter verwalten';
@@ -107,7 +107,7 @@ $html_folder_to = 'to'; //to translate
 
 // filters.php
 $html_filter_remove = 'Löschen';
-$html_filter_body = 'Body';
+$html_filter_body = 'Body'; //to translate
 $html_filter_subject = 'Betreff';
 $html_filter_to = 'Empfängerfeld (To)';
 $html_filter_cc = 'Cc-Feld';
@@ -134,13 +134,13 @@ $html_page = 'Seite';
 $html_of = 'von';
 $html_view_header = 'Header anzeigen';
 $html_remove_header = 'Header verbergen';
-$html_inbox = 'Inbox';
+$html_inbox = 'Inbox'; //to translate
 $html_new_msg = 'Schreiben';
 $html_reply = 'Antworten';
-$html_reply_short = 'Re';
+$html_reply_short = 'Re'; //to translate
 $html_reply_all = 'Antwort an alle';
 $html_forward = 'Weiterleitung';
-$html_forward_short = 'Fwd';
+$html_forward_short = 'Fw'; //to translate
 $html_forward_info = 'Die weiterzuleitende Nachricht wird als Anhang mit dieser Email verschickt.';
 $html_delete = 'Löschen';
 $html_new = 'Neu';
@@ -174,7 +174,7 @@ $html_no_mail = 'Keine neue Nachrichten.';
 $html_logout = 'Abmelden';
 $html_msg = 'Nachricht';
 $html_msgs = 'Nachrichten';
-$html_configuration = 'This server is not well set up !';
+$html_configuration = 'This server is not well set up !'; //to translate
 $html_priority = 'Priorität';
 $html_low = 'Niedrig';
 $html_normal = 'Normal';
@@ -214,7 +214,7 @@ $html_contact_err1 = 'Die Maximalanzahl der Kontakte ist ';
 $html_contact_err2 = 'Sie können keinen neuen Kontakt hinzufügen';
 $html_contact_err3 = 'Sie haben keine Rechte, um auf die Kontaktliste zuzugreifen';
 $html_del_msg = 'Sollen die markierten Nachrichten gelöscht werden?';
-$html_down_mail = 'Download';
+$html_down_mail = 'Download'; //to translate
 
 $original_msg = '-- Original Nachricht--';
 $to_empty = 'Das \'An\' Feld darf nicht leer sein !';
