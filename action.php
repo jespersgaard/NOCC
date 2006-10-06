@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.182 2006/08/15 10:51:46 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.183 2006/10/02 07:51:44 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -484,6 +484,7 @@ switch($action)
             $user_prefs->cc_self = isset($_REQUEST['cc_self']);
             $user_prefs->hide_addresses = isset($_REQUEST['hide_addresses']);
             $user_prefs->outlook_quoting = isset($_REQUEST['outlook_quoting']);
+            $user_prefs->colored_quotes = isset($_REQUEST['colored_quotes']);
             $user_prefs->seperate_msg_win = isset($_REQUEST['seperate_msg_win']);
             if (isset($_REQUEST['reply_leadin']))
                 $user_prefs->reply_leadin = safestrip($_REQUEST['reply_leadin']);

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ja.php,v 1.5 2006/09/04 07:58:43 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ja.php,v 1.6 2006/10/05 15:30:26 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -87,6 +87,7 @@ $html_manage_folders_link = 'IMAP フォルダー管理';
 $html_manage_filters_link = '電子メールフィルター管理';
 $html_use_graphical_smilies = 'グラフィカルな絵文字を使用';
 $html_sent_folder = '専用のフォルダーに送信メールをコピーしました';
+$html_colored_quotes = 'Colored quotes'; //to translate
 
 // folders.php
 $html_folders_create_failed = 'フォルダーを作成できませんでした!';

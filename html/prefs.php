@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.43 2006/09/22 19:17:02 goddess_skuld Exp $ -->
+<!-- start of $Id: prefs.php,v 1.44 2006/09/25 19:57:10 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -69,6 +69,12 @@ if (count($big_list) > 1) {
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
              <input type="checkbox" name="outlook_quoting" id="outlook_quoting" value="on" <?php if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting) echo 'checked="checked"'; ?> /><label for="outlook_quoting"><?php echo htmlentities($html_outlook_quoting, ENT_COMPAT, 'UTF-8') ?></label>
+           </td>
+         </tr>
+         <tr>
+           <td class="prefsLabel">&nbsp;</td>
+           <td class="prefsData">
+             <input type="checkbox" name="colored_quotes" id="colored_quotes" value="on" <?php if(!isset($user_prefs->colored_quotes) || (isset($user_prefs->colored_quotes) && $user_prefs->colored_quotes)) echo 'checked="checked"'; ?> /><label for="colored_quotes"><?php echo htmlentities($html_colored_quotes, ENT_COMPAT, 'UTF-8') ?></label>
            </td>
          </tr>
          <tr>
@@ -207,4 +213,4 @@ if (count($big_list) > 1) {
    <?php
      }
    ?>
-<!-- end of $Id: prefs.php,v 1.43 2006/09/22 19:17:02 goddess_skuld Exp $ -->
+<!-- end of $Id: prefs.php,v 1.44 2006/09/25 19:57:10 goddess_skuld Exp $ -->

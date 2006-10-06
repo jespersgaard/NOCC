@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.51 2006/09/04 07:58:43 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.52 2006/10/05 15:30:26 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -87,6 +87,7 @@ $html_manage_folders_link = 'Configura Cartelle IMAP';
 $html_manage_filters_link = 'Configura Filtri Email';
 $html_use_graphical_smilies = 'Usa smilies grafici';
 $html_sent_folder = 'Copia email inviate in cartella predefinita';
+$html_colored_quotes = 'Colored quotes'; //to translate
 
 // folders.php
 $html_folders_create_failed = 'La cartella non può essere creata!';

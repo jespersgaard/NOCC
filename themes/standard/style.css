@@ -653,3 +653,21 @@ img.sort {
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 11px;
 }
+
+/* colored quotes */
+.quoteLevel1 {
+  color: navy;
+}
+.quoteLevel2 {
+  color: maroon;
+}
+.quoteLevel3 {
+  color: green;
+}
+.quoteLevel4 {
+  color: purple;
+}
+.quoteLevel5 {
+  color: teal;
+}
+
