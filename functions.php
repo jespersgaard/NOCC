@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.218 2006/10/06 08:05:32 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.219 2006/10/06 20:29:43 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -596,6 +596,14 @@ function remove_stuff(&$body, &$mime)
           $body = preg_replace('/^(&gt; *&gt; *&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel3">\\1\\2</span>\\3', $body);
           $body = preg_replace('/^(&gt; *&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel2">\\1\\2</span>\\3', $body);
           $body = preg_replace('/^(&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel1">\\1\\2</span>\\3', $body);
+        }
+        if (isset($user_prefs->display_struct) && $user_prefs->display_struct) {
+          $body = preg_replace('/(\s)\+\/-/', '\\1&plusmn;', $body); // +/-
+          $body = preg_replace('/(\w|\))\^([0-9]+)/', '\\1<sup>\\2</sup>', $body); // 10^6, a^2, (a+b)^2
+          $body = preg_replace('/(\s)(\*)([^*\r\n]+)(\*)([^*])/', '\\1<strong>\\2\\3\\4</strong>\\5', $body); // *strong*
+          $body = preg_replace('/(\s)(\/)([^\/\r\n<>]+)(\/)([^*])/', '\\1<em>\\2\\3\\4</em>\\5', $body); // /emphasis/
+          $body = preg_replace('/(\s)(_)([^_\r\n]+)(_)([^*])/', '\\1<span style="text-decoration:underline">\\2\\3\\4</span>\\5', $body); // _underline_
+          $body = preg_replace('/(\s)(\|)([^\|\r\n]+)(\|)([^*])/', '\\1<code>\\2\\3\\4</code>\\5', $body); // |code|
         }
         $body = nl2br($body);
         if (function_exists('wordwrap'))

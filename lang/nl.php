@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.52 2006/10/06 08:05:32 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.53 2006/10/06 09:47:35 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -90,6 +90,7 @@ $html_manage_filters_link = 'Beheer E-mail Filters';
 $html_use_graphical_smilies = 'Gebruik grafische smiley\'s';
 $html_sent_folder = 'Kopieer verzonden berichten naar map'; 
 $html_colored_quotes = 'Colored quotes'; //to translate
+$html_display_struct = 'Display structured text'; //to translate
 
 // folders.php
 $html_folders_create_failed = 'Map kon niet worden gemaakt!';

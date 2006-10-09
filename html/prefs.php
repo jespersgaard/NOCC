@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.44 2006/09/25 19:57:10 goddess_skuld Exp $ -->
+<!-- start of $Id: prefs.php,v 1.45 2006/10/06 08:05:32 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -120,6 +120,12 @@ if (count($big_list) > 1) {
              <input type="checkbox" name="graphical_smilies" id="graphical_smilies" value="on" <?php if (isset($user_prefs->graphical_smilies) && $user_prefs->graphical_smilies) echo 'checked="checked"'; ?> /><label for="graphical_smilies"><?php echo htmlentities($html_use_graphical_smilies, ENT_COMPAT, 'UTF-8') ?></label>
            </td>
          </tr>
+         <tr>
+           <td class="prefsLabel">&nbsp;</td>
+           <td class="prefsData">
+             <input type="checkbox" name="display_struct" id="display_struct" value="on" <?php if(isset($user_prefs->display_struct) && (isset($user_prefs->display_struct) && $user_prefs->display_struct)) echo 'checked="checked"'; ?> /><label for="display_struct"><?php echo htmlentities($html_display_struct, ENT_COMPAT, 'UTF-8') ?></label>
+           </td>
+         </tr>
          <?php if($pop->is_imap()) { ?>
          <tr>
            <td class="prefsLabel">&nbsp;</td>
@@ -213,4 +219,4 @@ if (count($big_list) > 1) {
    <?php
      }
    ?>
-<!-- end of $Id: prefs.php,v 1.44 2006/09/25 19:57:10 goddess_skuld Exp $ -->
+<!-- end of $Id: prefs.php,v 1.45 2006/10/06 08:05:32 goddess_skuld Exp $ -->

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.93 2006/10/06 08:05:32 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.94 2006/10/06 09:47:35 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -88,6 +88,7 @@ $html_manage_filters_link = 'Gestion des filtres email';
 $html_use_graphical_smilies = 'Utiliser les émoticons graphiques';
 $html_sent_folder = 'Copier les éléments envoyés dans un dossier dédié';
 $html_colored_quotes = 'Citations colorées';
+$html_display_struct = 'Afficher le texte structuré';
 
 // folders.php
 $html_folders_create_failed = 'Le dossier n\'a pas pu être créé!';

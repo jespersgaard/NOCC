@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.12 2006/06/23 07:54:37 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.13 2006/10/06 08:05:32 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -19,7 +19,8 @@ class NOCCUserPrefs {
 	var $cc_self;
 	var $hide_addresses;
 	var $outlook_quoting;
-        var $colored_quotes;
+	var $colored_quotes;
+	var $display_struct;
 	var $seperate_msg_win;
 	var $reply_leadin;
 	var $signature;
@@ -95,8 +96,9 @@ class NOCCUserPrefs {
 			if($key == 'outlook_quoting')
 				$prefs->outlook_quoting = ($value == 1 || $value == 'on');
 			if($key == 'colored_quotes')
-				$prefs->colored_quotes = ($value == 1 || $value
- == 'on');
+				$prefs->colored_quotes = ($value == 1 || $value == 'on');
+			if($key == 'display_struct')
+				$prefs->display_struct = ($value == 1 || $value == 'on');
 			if($key == 'seperate_msg_win')
 				$prefs->seperate_msg_win = ($value == 1 || $value == 'on');
 			if($key == 'signature')
@@ -163,11 +165,12 @@ class NOCCUserPrefs {
 		fwrite($file, "cc_self=".$this->cc_self."\n");
 		fwrite($file, "hide_addresses=".$this->hide_addresses."\n");
 		fwrite($file, "outlook_quoting=".$this->outlook_quoting."\n");
-                fwrite($file, "colored_quotes=".$this->colored_quotes."\n");
+		fwrite($file, "colored_quotes=".$this->colored_quotes."\n");
+		fwrite($file, "display_struct=".$this->display_struct."\n");
 		fwrite($file, "seperate_msg_win=".$this->seperate_msg_win."\n");
 		fwrite($file, "reply_leadin=".base64_encode($this->reply_leadin)."\n");
 		fwrite($file, "signature=".base64_encode($this->signature)."\n");
-        fwrite($file, "wrap_msg=".$this->wrap_msg."\n");
+		fwrite($file, "wrap_msg=".$this->wrap_msg."\n");
 		fwrite($file, "sig_sep=".$this->sig_sep."\n");
 		fwrite($file, "graphical_smilies=".$this->graphical_smilies."\n");
                 fwrite($file, "sent_folder=".$this->sent_folder."\n");
