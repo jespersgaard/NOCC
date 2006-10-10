@@ -269,6 +269,10 @@ body {
   background-color: #000080;
 }
 
+form {
+  margin: 0;
+}
+
 textarea {
   font-family: monospace;
 }

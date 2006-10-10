@@ -280,6 +280,10 @@ body {
   background-color: #FFFFFF;
 }
 
+form {
+  margin: 0;
+}
+
 textarea {
   font-family: monospace;
 }
