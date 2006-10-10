@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.10 2006/09/27 09:33:32 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.11 2006/09/27 09:47:33 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -140,7 +140,6 @@ while ($tmp = array_shift($tab_mail)) {
             require ('./html/error.php');
             exit;
           }
-          //echo htmlentities($content['body']);
           echo $content['body'];
         ?>
       ]]>

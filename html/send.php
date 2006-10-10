@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.81 2006/09/26 07:13:35 goddess_skuld Exp $ -->
+<!-- start of $Id: send.php,v 1.82 2006/09/26 17:19:20 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -134,7 +134,7 @@ $mail_from = get_default_from_address();
              echo '<td class="sendData">';
              echo '<input type="checkbox" name="file-' . $i . '" id="file-' . $i . '" />';
              echo '</td>';
-             echo '<td class="sendData"><label for="file-' . $i . '">' . htmlentities($att_name[0]->text) . '</label></td>';
+             echo '<td class="sendData"><label for="file-' . $i . '">' . htmlentities($att_name[0]->text, ENT_COMPAT, 'UTF-8') . '</label></td>';
              echo '<td class="sendData">' . $attach_array[$i]->file_size . '</td>';
              echo '</tr>';
            }
@@ -216,4 +216,4 @@ function validate(f)
 
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.81 2006/09/26 07:13:35 goddess_skuld Exp $ -->
+<!-- end of $Id: send.php,v 1.82 2006/09/26 17:19:20 goddess_skuld Exp $ -->
