@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.85 2006/10/06 20:38:53 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.86 2006/10/10 13:04:08 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -57,9 +57,9 @@ if ($pop->is_imap()) {
     $fldr_line .= "<input type=\"submit\" class=\"button\" name=\"submit\" value=\"$html_gotofolder\" />";
     $fldr_line .= "</div></form>";
     if($pop->folder == 'INBOX') {
-        $reapply_filters = '<form method="post" action="'.$_SERVER['PHP_SELF'].'\">'.
+        $reapply_filters = '<form method="post" action="'.$_SERVER['PHP_SELF'].'\"><div>'.
             '<label for="reapply_filters"><input type="checkbox" name="reapply_filters" id="reapply_filters" value="1" /> '.
-            $html_reapply_filters.'</label> <input class="button" type="submit" value="'.$html_submit.'" /></form>';
+            $html_reapply_filters.'</label> <input class="button" type="submit" value="'.$html_submit.'" /></div></form>';
     }
 }
 
@@ -149,4 +149,4 @@ if ($pop->is_imap()) {
                               <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.png" class="sort" alt="<?php echo $html_sort; ?>" title="<?php echo $html_sort_by." ".$html_size; ?>" /></a>
                           </th>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.85 2006/10/06 20:38:53 goddess_skuld Exp $ -->
+<!-- end of $Id: html_top_table.php,v 1.86 2006/10/10 13:04:08 goddess_skuld Exp $ -->

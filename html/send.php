@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.82 2006/09/26 17:19:20 goddess_skuld Exp $ -->
+<!-- start of $Id: send.php,v 1.83 2006/10/10 12:52:52 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -15,7 +15,7 @@ $mail_from = get_default_from_address();
   if(isset($broken_forwarding) && !($broken_forwarding)) {
       if(isset($forward_msgnum)) { 
 ?>
-<input type="hidden" name="forward_msgnum" value="<?php echo $forward_msgnum ?>" />
+<div><input type="hidden" name="forward_msgnum" value="<?php echo $forward_msgnum ?>" /></div>
   <?php 
       }
   } 
@@ -216,4 +216,4 @@ function validate(f)
 
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.82 2006/09/26 17:19:20 goddess_skuld Exp $ -->
+<!-- end of $Id: send.php,v 1.83 2006/10/10 12:52:52 goddess_skuld Exp $ -->
