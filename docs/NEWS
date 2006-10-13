@@ -1,6 +1,8 @@
 NOCC 1.3    ?? ??, 200?
 
   Bugs
+    * Bug #1576418 : imap_open(): Couldn't open stream in down_mail.php (Arnaud
+      Boudou).
     * Bug #1566972 : Needless if statement in "html_top_table.php"? (Arnaud
       Boudou).
     * Bug #1565973 : More mixed EOL in some files (Arnaud Boudou).

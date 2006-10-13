@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/down_mail.php,v 1.5 2005/12/15 20:10:47 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/down_mail.php,v 1.6 2006/08/15 10:51:46 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -21,7 +21,7 @@ $passwd = safestrip($passwd);
 //header('Content-Type: text/plain');
 
 
-$pop = imap_open('{'.$_SESSION['nocc_servr'].'}'.$_SESSION['nocc_folder'], $_SESSION['nocc_user'], $passwd);
+$pop = imap_open('{'.$_SESSION['nocc_servr'].'}'.$_SESSION['nocc_folder'], $_SESSION['nocc_login'], $passwd);
 $ref_contenu_message = imap_headerinfo($pop, $_GET['mail']);
 $header = imap_fetchheader($pop, $_GET['mail']);
 if (isset($ref_contenu_message->subject)) {
