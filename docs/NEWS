@@ -25,6 +25,7 @@ NOCC 1.3    ?? ??, 200?
     * Bug #1518887 : errors when enable preferences (Arnaud Boudou).
 
   Patches
+    * Patch #1575815 : Small change to structured text (Tim Gerundt).
     * Patch #1575206 : Optimize $alt_next and $alt_prev (Tim Gerundt).
     * Patch #1574359 : Use <label> for $reapply_filters in html_top_table.php
       (Tim Gerundt).
