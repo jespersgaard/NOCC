@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.53 2006/10/06 09:47:35 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.54 2006/10/09 08:05:23 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -53,8 +53,12 @@ $alt_new_msg = 'Nieuwe berichten';
 $alt_reply = 'Antwoord de verzender';
 $alt_reply_all = 'Antwoord allemaal';
 $alt_forward = 'Doorzenden';
-$alt_next = 'Volgende';
-$alt_prev = 'Vorige';
+$alt_next = 'Next'; //to translate
+$alt_prev = 'Previous'; //to translate
+$title_next_page = 'Next page'; //to translate
+$title_prev_page = 'Previous page'; //to translate
+$title_next_msg = 'Volgende';
+$title_prev_msg = 'Vorige';
 $html_on = 'aan';
 $html_theme = 'Weergave';
 

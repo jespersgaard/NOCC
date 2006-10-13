@@ -1,4 +1,4 @@
-<!-- start of $Id: html_mail.php,v 1.19 2006/09/27 05:50:00 goddess_skuld Exp $ -->
+<!-- start of $Id: html_mail.php,v 1.1 2006/10/02 07:51:44 goddess_skuld Exp $ -->
 <div class="mailNav">
    <table>
 <?php
@@ -21,11 +21,10 @@ else
 // Next/prev message links
 echo '<td class="right">';
 if (($content['prev'] != '') && ($content['prev'] != 0))
-  echo '<a href="' . $_SERVER['PHP_SELF'] . '?action=aff_mail&amp;mail=' . $content['prev'] . '&amp;verbose=' . $verbose . '"><img src="themes/' . $_SESSION['nocc_theme'] . '/img/left_arrow.png" alt="' . $alt_prev . '" title="' . $alt_prev
-. '" class="navigation" /></a>';
+  echo '<a href="' . $_SERVER['PHP_SELF'] . '?action=aff_mail&amp;mail=' . $content['prev'] . '&amp;verbose=' . $verbose . '"><img src="themes/' . $_SESSION['nocc_theme'] . '/img/left_arrow.png" alt="' . $alt_prev . '" title="' . $title_prev_msg . '" class="navigation" /></a>';
 echo "&nbsp;";
 if (($content['next'] != '') && ($content['next'] != 0))
-  echo '<a href="' . $_SERVER['PHP_SELF'] . '?action=aff_mail&amp;mail=' . $content['next'] . '&amp;verbose=' . $verbose . '"><img src="themes/' . $_SESSION['nocc_theme'] . '/img/right_arrow.png" alt="' . $alt_next . '" title="' . $alt_next . '" class="navigation" /></a>';
+  echo '<a href="' . $_SERVER['PHP_SELF'] . '?action=aff_mail&amp;mail=' . $content['next'] . '&amp;verbose=' . $verbose . '"><img src="themes/' . $_SESSION['nocc_theme'] . '/img/right_arrow.png" alt="' . $alt_next . '" title="' . $title_next_msg . '" class="navigation" /></a>';
 echo "</td></tr>";
 
 // If not displaying verbose headers, display normal headers
@@ -97,4 +96,4 @@ echo '<div class="mail">'.$content['body'].'</div>';
 
 ?>
 </div>
-<!-- end of $Id: html_mail.php,v 1.4 2005/08/01 08:11:16 goddess_skuld Exp $ -->
+<!-- end of $Id: html_mail.php,v 1.1 2006/10/02 07:51:44 goddess_skuld Exp $ -->

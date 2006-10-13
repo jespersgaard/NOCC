@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.86 2006/10/10 13:04:08 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.87 2006/10/11 10:44:42 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -25,11 +25,11 @@ if($pages > 1) {
     $this_page = $skip + 1;
     if($pskip > -1 ) {
         $prev = "<a href=\"".$_SERVER['PHP_SELF']."?skip=$pskip\">";
-        $prev .= "<img class=\"navigation\" src=\"themes/".$_SESSION['nocc_theme']."/img/left_arrow.png\" alt=\"".$alt_prev."\"/></a>\n";
+        $prev .= "<img class=\"navigation\" src=\"themes/".$_SESSION['nocc_theme']."/img/left_arrow.png\" alt=\"".$alt_prev."\" title=\"".$title_prev_page."\" /></a>\n";
     }
     if($nskip < $pages) {
         $next = "<a href=\"".$_SERVER['PHP_SELF']."?skip=$nskip\">";
-        $next .= "<img class=\"navigation\" src=\"themes/".$_SESSION['nocc_theme']."/img/right_arrow.png\" alt=\"".$alt_next."\"/></a>\n";
+        $next .= "<img class=\"navigation\" src=\"themes/".$_SESSION['nocc_theme']."/img/right_arrow.png\" alt=\"".$alt_next."\" title=\"".$title_next_page."\" /></a>\n";
     }
 
     $page_line = "<form method=\"post\" action=\"".$_SERVER['PHP_SELF']."\"><div>";
@@ -149,4 +149,4 @@ if ($pop->is_imap()) {
                               <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.png" class="sort" alt="<?php echo $html_sort; ?>" title="<?php echo $html_sort_by." ".$html_size; ?>" /></a>
                           </th>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.86 2006/10/10 13:04:08 goddess_skuld Exp $ -->
+<!-- end of $Id: html_top_table.php,v 1.87 2006/10/11 10:44:42 goddess_skuld Exp $ -->

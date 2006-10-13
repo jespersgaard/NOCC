@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.29 2006/10/06 08:05:32 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.30 2006/10/09 08:05:22 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -51,8 +51,12 @@ $alt_new_msg = 'پيغامهاى جديد';
 $alt_reply = 'جواب به نويسنده';
 $alt_reply_all = 'جواب به همه';
 $alt_forward = 'فرستادن پيغام';
-$alt_next = 'پيغام بعدى';
-$alt_prev = 'پيغام قبلى';
+$alt_next = 'Next'; //to translate
+$alt_prev = 'Previous'; //to translate
+$title_next_page = 'Next page'; //to translate
+$title_prev_page = 'Previous page'; //to translate
+$title_next_page = 'پيغام بعدى';
+$title_prev_page = 'پيغام قبلى';
 $html_on = 'on';  //to translate
 $html_theme = 'Theme';  //to translate
 

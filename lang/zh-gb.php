@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-gb.php,v 1.38 2006/10/06 09:47:36 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-gb.php,v 1.39 2006/10/09 08:05:23 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -51,8 +51,12 @@ $alt_new_msg = '新建邮件';
 $alt_reply = '回复作者';
 $alt_reply_all = '回复所有';
 $alt_forward = '转发';
-$alt_next = '下一个邮件';
-$alt_prev = '上一个邮件';
+$alt_next = 'Next'; //to translate
+$alt_prev = 'Previous'; //to translate
+$title_next_page = 'Next page'; //to translate
+$title_prev_page = 'Previous page'; //to translate
+$title_next_msg = '下一个邮件';
+$title_prev_msg = '上一个邮件';
 $html_on = '打开';
 $html_theme = '主题';
 

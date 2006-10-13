@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.19 2006/10/06 09:47:36 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.20 2006/10/09 08:05:23 goddess_skuld Exp $ 
  *
  * Copyright 2004 Nicolas Chalanset <nicocha at free.fr>
  * Copyright 2004 Olivier Cahagne <wolruf at free.fr>
@@ -53,8 +53,12 @@ $alt_new_msg = 'New m3ss4g3s';
 $alt_reply = 'R3ply t0 th3 4uth0r';
 $alt_reply_all = 'R3ply 4ll';
 $alt_forward = 'F0rw4rd';
-$alt_next = 'N3xt me55ag3';
-$alt_prev = 'Pr3v!0us m3ss4g3';
+$alt_next = 'N3xt';
+$alt_prev = 'Pr3v!0us';
+$title_next_page = 'N3xt p4g3';
+$title_prev_page = 'Pr3v!0us p4g3';
+$title_next_msg = 'N3xt me55ag3';
+$title_prev_msg = 'Pr3v!0us m3ss4g3';
 $html_on = '0n';
 $html_theme = 'Th3m3';
 

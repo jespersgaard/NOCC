@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/tr.php,v 1.36 2006/10/06 09:47:36 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/tr.php,v 1.37 2006/10/09 08:05:23 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -51,8 +51,12 @@ $alt_new_msg = 'Yeni mesaj';
 $alt_reply = 'Yazana cevapla';
 $alt_reply_all = 'Tümüne cevapla';
 $alt_forward = 'İlet';
-$alt_next = 'Sonraki mesaj';
-$alt_prev = 'Önceki Mesaj';
+$alt_next = 'Next'; //to translate
+$alt_prev = 'Previous'; //to translate
+$title_next_page = 'Next page'; //to translate
+$title_prev_page = 'Previous page'; //to translate
+$title_next_msg = 'Sonraki mesaj';
+$title_prev_msg = 'Önceki Mesaj';
 $html_on = 'on';  //to translate
 $html_theme = 'Biçim';
 

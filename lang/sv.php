@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/sv.php,v 1.38 2006/10/06 09:47:35 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/sv.php,v 1.39 2006/10/09 08:05:23 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -51,8 +51,12 @@ $alt_new_msg = 'Nya Meddelanden';
 $alt_reply = 'Svara';
 $alt_reply_all = 'Svara alla';
 $alt_forward = 'Vidarebefodra';
-$alt_next = 'Nästa';
-$alt_prev = 'Föregående';
+$alt_next = 'Next'; //to translate
+$alt_prev = 'Previous'; //to translate
+$title_next_page = 'Next page'; //to translate
+$title_prev_page = 'Previous page'; //to translate
+$title_next_msg = 'Nästa';
+$title_prev_msg = 'Föregående';
 $html_on = 'På';
 $html_theme = 'Tema';
 

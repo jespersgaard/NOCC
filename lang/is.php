@@ -49,8 +49,12 @@ $alt_new_msg = 'Ný bréf';
 $alt_reply = 'Svara sendanda';
 $alt_reply_all = 'Svara öllum';
 $alt_forward = 'Áframsenda';
-$alt_next = 'Næsta bréf';
-$alt_prev = 'Fyrra bréf';
+$alt_next = 'Next'; //to translate
+$alt_prev = 'Previous'; //to translate
+$title_next_page = 'Next page'; //to translate
+$title_prev_page = 'Previous page'; //to translate
+$title_next_msg = 'Næsta bréf';
+$title_prev_msg = 'Fyrra bréf';
 $html_on = 'á';
 $html_theme = 'Þema';
 
