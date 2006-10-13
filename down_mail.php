@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/down_mail.php,v 1.6 2006/08/15 10:51:46 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/down_mail.php,v 1.7 2006/10/13 19:03:43 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -70,9 +70,9 @@ if ($isIE) {
 header ("Content-Disposition: attachment; filename=\"$url\"");
 
 if ($isIE && !$isIE6) {
-    header ("Content-Type: text/plain; name=\"$filename\"");
+    header ("Content-Type: application/download; name=\"$url\"");
 } else {
-    header ("Content-Type: text/plain; name=\"$filename\"");
+    header ("Content-Type: application/octet-stream; name=\"$url\"");
 }
 
 header('Content-Length: ' . strlen($file));
