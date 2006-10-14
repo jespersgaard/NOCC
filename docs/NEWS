@@ -51,6 +51,7 @@ NOCC 1.3    ?? ??, 200?
 
   Feature Requests
     * RFE #1227895 : Address Translation (Tim Gerundt).
+    * RFE #473980  : Caching of folder contents (Arnaud Boudou).
 
   Misc
     * Improve RSS handling (Arnaud Boudou).

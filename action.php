@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.184 2006/10/06 08:05:32 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.185 2006/10/09 08:05:21 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -26,16 +26,18 @@ if(isset($_REQUEST['remember']))
     $remember = safestrip($_REQUEST['remember']);
 
 // Refresh quota usage
-if (isset($conf->quota_enable) && $conf->quota_enable == true) {
-  $pop = new nocc_imap($ev);
-  if (NoccException::isException($ev)) {
-   require ('./html/header.php');
-   require ('./html/error.php');
-   require ('./html/footer.php');
-   exit;
+if (!isset($_REQUEST['sort'])) {
+  if (isset($conf->quota_enable) && $conf->quota_enable == true) {
+    $pop = new nocc_imap($ev);
+    if (NoccException::isException($ev)) {
+     require ('./html/header.php');
+     require ('./html/error.php');
+     require ('./html/footer.php');
+     exit;
+    }
+    $quota = $pop->get_quota_usage($_SESSION['nocc_folder']);
+    $_SESSION['quota'] = $quota;
   }
-  $quota = $pop->get_quota_usage($_SESSION['nocc_folder']);
-  $_SESSION['quota'] = $quota;
 }
 
 // Act on 'action'
@@ -520,8 +522,6 @@ switch($action)
         require ('./html/header.php');
         require ('./html/menu_prefs.php');
         require ('./html/prefs.php');
-        //if ($pop->is_imap())
-        //    require ('./html/folders.php');
         require ('./html/menu_prefs.php');
         require ('./html/footer.php');
 
@@ -531,77 +531,79 @@ switch($action)
 
     default:
         $pop = new nocc_imap($ev);
+
         if (NoccException::isException($ev)) {
-	        if ($action == 'login' || $action == 'cookie') {
-	            session_name("NOCCSESSID");
-	            $_SESSION["nocc_login"] = "";
-	            $_SESSION["nocc_user_prefs"] = "";
-	            session_destroy();
-	            setcookie ("NoccIdent");
-	        }
-            require ('./html/header.php');
-            require ('./html/error.php');
-            require ('./html/footer.php');
-            break;
+	  if ($action == 'login' || $action == 'cookie') {
+	    session_name("NOCCSESSID");
+	    $_SESSION["nocc_login"] = "";
+	    $_SESSION["nocc_user_prefs"] = "";
+	    session_destroy();
+	    setcookie ("NoccIdent");
+	  }
+          require ('./html/header.php');
+          require ('./html/error.php');
+          require ('./html/footer.php');
+          break;
         }
         if ($action == 'login') {
-            // Subscribe to INBOX, usefull if it's not already done.
-            if($pop->is_imap()) {
-                $pop->subscribe($pop->folder, $ev, false);
-            }
-            // If needed, store a cookie with all needed parameters
-            if ($remember == "true") {
-              saveSession($ev);
-              if (NoccException::isException($ev)) {
-                  require ('./html/header.php');
-                  require ('./html/error.php');
-                  require ('./html/footer.php');
-                  break;
-              }              
-              //store cookie for thirty days
-              setcookie ('NoccIdent', $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'], time()+60*60*24*30);
-            }
-
+          // Subscribe to INBOX, usefull if it's not already done.
+          if($pop->is_imap()) {
+            $pop->subscribe($pop->folder, $ev, false);
+          }
+          // If needed, store a cookie with all needed parameters
+          if ($remember == "true") {
+            saveSession($ev);
+            if (NoccException::isException($ev)) {
+              require ('./html/header.php');
+              require ('./html/error.php');
+              require ('./html/footer.php');
+              break;
+            }              
+            //store cookie for thirty days
+            setcookie ('NoccIdent', $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'], time()+60*60*24*30);
+          }
         }
 
         // We may need to apply some filters to the INBOX...  this is still a work in progress.
-        if ($pop->is_imap()) {
+        if (!isset($_REQUEST['sort'])) {
+          if ($pop->is_imap()) {
             if ($pop->folder == 'INBOX') {
-                $user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
-                if (!empty($conf->prefs_dir)) {
-                    $filters = NOCCUserFilters::read($user_key, $ev);
-                    if(NoccException::isException($ev)) {
-                        error_log("Error reading filters for user '$user_key': ".$ev->getMessage());
-                        $filters = NULL;
-                        $ev = NULL;
-                    }
-
-                    $small_search = 'unseen ';
-                    if (isset($_REQUEST['reapply_filters']) && $_REQUEST['reapply_filters'] == 1) {
-                        $small_search = '';
-                    }
-		    if ($filters!=null) {
-                        foreach($filters->filterset as $name => $filter) {
-                            $filter_messages = $pop->search($small_search . $filter['SEARCH'],'',$ev);
-                            if (is_array($filter_messages)) {
-                                $filter_to_folder = array();
-                                foreach($filter_messages as $filt_msg_no) {
-                                    if ($filter['ACTION'] == 'DELETE') {
-                                        $pop->delete($filt_msg_no, $ev);
-                                    } elseif (preg_match("/^MOVE:(.+)$/", $filter['ACTION'], $filter_to_folder)) {
-                                        $pop->mail_move($filt_msg_no, $filter_to_folder[1], $ev);
-                                    }
-                                }
-                            }
-                        }
-		    }
-                }
-                $pop->expunge($ev);
+              $user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
+              if (!empty($conf->prefs_dir)) {
+                $filters = NOCCUserFilters::read($user_key, $ev);
                 if(NoccException::isException($ev)) {
-                        error_log("Error expunging mail for user '$user_key': ".$ev->getMessage());
-                        $ev = NULL;
+                  error_log("Error reading filters for user '$user_key': ".$ev->getMessage());
+                  $filters = NULL;
+                  $ev = NULL;
                 }
+
+                $small_search = 'unseen ';
+                if (isset($_REQUEST['reapply_filters']) && $_REQUEST['reapply_filters'] == 1) {
+                  $small_search = '';
+                }
+                if ($filters!=null) {
+                  foreach($filters->filterset as $name => $filter) {
+                    $filter_messages = $pop->search($small_search . $filter['SEARCH'],'',$ev);
+                    if (is_array($filter_messages)) {
+                      $filter_to_folder = array();
+                      foreach($filter_messages as $filt_msg_no) {
+                        if ($filter['ACTION'] == 'DELETE') {
+                          $pop->delete($filt_msg_no, $ev);
+                        } elseif (preg_match("/^MOVE:(.+)$/", $filter['ACTION'], $filter_to_folder)) {
+                          $pop->mail_move($filt_msg_no, $filter_to_folder[1], $ev);
+                        }
+                      }
+                    }
+                  }
+		}
+              }
+              $pop->expunge($ev);
+              if(NoccException::isException($ev)) {
+                error_log("Error expunging mail for user '$user_key': ".$ev->getMessage());
+                $ev = NULL;
+              }
             }
+          }
         }
 
 
@@ -611,40 +613,47 @@ switch($action)
         // Fetch message list
         $tab_mail = array();
         $skip = 0;
-        if(isset($_REQUEST['skip']))
-                $skip = $_REQUEST['skip'];
+        if (isset($_REQUEST['skip']))
+          $skip = $_REQUEST['skip'];
         if ($pop->num_msg() > 0)
-            $tab_mail = inbox($pop, $skip, $ev);
+          $tab_mail = inbox($pop, $skip, $ev);
 
         if (NoccException::isException($ev)) {
-            require ('./html/header.php');
-            require ('./html/error.php');
-            require ('./html/footer.php');
-            break;
+          require ('./html/header.php');
+          require ('./html/error.php');
+          require ('./html/footer.php');
+          break;
+        } else {
+          $_SESSION['tab_mail'] = $tab_mail;
         }
 
         if(count($tab_mail) < 1) {
-            // the mailbox is empty
-            $num_msg = 0;
-            require ('./html/header.php');
-            require ('./html/menu_inbox.php');
-            require ('./html/html_top_table.php');
-            include ('./html/no_mail.php');
-            require ('./html/html_bottom_table.php');
-            require ('./html/menu_inbox.php');
-            require ('./html/footer.php');
-            break;
+          // the mailbox is empty
+          $num_msg = 0;
+          require ('./html/header.php');
+          require ('./html/menu_inbox.php');
+          require ('./html/html_top_table.php');
+          include ('./html/no_mail.php');
+          require ('./html/html_bottom_table.php');
+          require ('./html/menu_inbox.php');
+          require ('./html/footer.php');
+          break;
         }
 
         // there are messages, we display
-        $num_msg = $pop->num_msg();
+        if (isset($_REQUEST['sort'])) {
+          $num_msg = $_SESSION['num_msg'];
+        } else {
+          $num_msg = $pop->num_msg();
+          $_SESSION['num_msg'] = $num_msg;
+        }
         require ('./html/header.php');
         require ('./html/menu_inbox.php');
         require ('./html/html_top_table.php');
 
         // Include this once for each line of the message index
         while ($tmp = array_shift($tab_mail)) {
-            require ('./html/html_inbox.php');
+          require ('./html/html_inbox.php');
         }
 
         $new_folders = array();
@@ -652,40 +661,54 @@ switch($action)
 
         // If we show it twice, the bottom folder select is sent, and might be wrong.
         if (($conf->status_line == 1) && $pop->is_imap()) {
+          if (isset($_REQUEST['sort'])) {
+            $subscribed = $_SESSION['subscribed'];
+          } else {
             // gather list of folders for menu_inbox_status
             $subscribed = $pop->getsubscribed($ev);
             if (NoccException::isException($ev)) {
-
-                require ('./html/header.php');
-                require ('./html/error.php');
-                require ('./html/footer.php');
-                break;
+              require ('./html/header.php');
+              require ('./html/error.php');
+              require ('./html/footer.php');
+              break;
+            } else {
+              $_SESSION['subscribed'] = $subscribed;
             }
+          }
 
-            foreach($subscribed as $folder) {
-                $folder_name = substr(strstr($folder->name, '}'), 1);
-                $tmp_pop = imap_open($folder->name, $pop->login, $pop->passwd, 'OP_READONLY');
+          foreach($subscribed as $folder) {
+            if (isset($_REQUEST['sort'])) {
+              $list_of_folders =  $_SESSION['list_of_folders'];
+            } else {
+              $folder_name = substr(strstr($folder->name, '}'), 1);
+              $tmp_pop = imap_open($folder->name, $pop->login, $pop->passwd, 'OP_READONLY');
 
-                $unseen_messages = imap_search($tmp_pop,'UNSEEN');
+              $unseen_messages = imap_search($tmp_pop,'UNSEEN');
 
-                imap_close($tmp_pop);
+              imap_close($tmp_pop);
                 
-                if (!($unseen_messages == false) && count($unseen_messages) > 0) {
-                    if (!in_array($folder_name, $new_folders)) {
-                        $unseen_count = count($unseen_messages);
-                        $list_of_folders .= ' <a href="'.$_SERVER['PHP_SELF'].'?folder='.$folder_name.'">'.$folder_name." ($unseen_count)".'</a>';
-                        array_push($new_folders, $folder_name);
-                    }
+              if (!($unseen_messages == false) && count($unseen_messages) > 0) {
+                if (!in_array($folder_name, $new_folders)) {
+                  $unseen_count = count($unseen_messages);
+                  $list_of_folders .= ' <a href="'.$_SERVER['PHP_SELF'].'?folder='.$folder_name.'">'.$folder_name." ($unseen_count)".'</a>';
+                  $_SESSION['list_of_folders'] = $list_of_folders;
+                  array_push($new_folders, $folder_name);
                 }
+              }
             }
-            require ('./html/menu_inbox_status.php');
+          }
+          require ('./html/menu_inbox_status.php');
         }
 
         require ('./html/html_bottom_table.php');
         require ('./html/menu_inbox.php');
         require ('./html/footer.php');
 
-        $pop->close();
+        // As sort action only works on cached list of mails and folders
+        // we don't have to close a never opened connection.
+        //if (!isset($_REQUEST['sort'])) {
+          $pop->close();
+        //}
 
         break;
 }
