@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.58 2006/10/09 08:05:22 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.59 2006/10/13 19:56:58 goddess_skuld Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha AT free DOT fr>
  * Copyright 2000 Olivier Cahagne <wolruf AT free DOT fr>
@@ -13,6 +13,7 @@
  * 	David Ferch <dferch AT tk-online DOT net>
  *	Benjamin Bräuer <ben1 AT gmx DOT de>
  *	Alexander Schremmer <alex AT alexanderweb DOT de>
+ *	Tim Gerundt <tim AT gerundt DOT de>
  */
 
 $charset = 'UTF-8';
@@ -54,12 +55,12 @@ $alt_new_msg = 'Neue Nachrichten';
 $alt_reply = 'Antwort an Absender';
 $alt_reply_all = 'Antwort an alle';
 $alt_forward = 'Weiterleitung';
-$alt_next = 'Next'; //to translate
-$alt_prev = 'Previous'; //to translate
-$title_next_page = 'Next page'; //to translate
-$title_prev_page = 'Previous page'; //to translate
-$title_next_msg = 'Nächste';
-$title_prev_msg = 'Vorige';
+$alt_next = 'Nächste';
+$alt_prev = 'Vorige';
+$title_next_page = 'Nächste Seite';
+$title_prev_page = 'Vorige Seite';
+$title_next_msg = 'Nächste Nachricht';
+$title_prev_msg = 'Vorige Nachricht';
 $html_on = 'an';
 $html_theme = 'Theme';
 
@@ -71,7 +72,7 @@ $html_login = 'Login';
 $html_passwd = 'Passwort';
 $html_submit = 'Ok';
 $html_help = 'Hilfe';
-$html_server = 'Server'; //to translate
+$html_server = 'Server';
 $html_wrong = 'Der Nutzername oder das Passwort sind falsch';
 $html_retry = 'Nochmal';
 $html_remember = "Einstellungen speichern";
@@ -88,14 +89,14 @@ $html_outlook_quoting = 'Quoting im Outlook-Stil';
 $html_reply_to = 'Antwort an';
 $html_use_signature = 'Signatur benutzen';
 $html_signature = 'Signatur';
-$html_reply_leadin = 'Reply Leadin'; //to translate
+$html_reply_leadin = 'Antwort-Einleitung';
 $html_prefs_updated = 'Einstellungen gespeichert';
 $html_manage_folders_link = 'IMAP Ordner verwalten';
 $html_manage_filters_link = 'E-Mail Filter verwalten';
 $html_use_graphical_smilies = 'Benutze graphische Emoticons';
 $html_sent_folder = 'Kopiere gesendete Email in das angegebene Verzeichnis';
-$html_colored_quotes = 'Colored quotes'; //to translate
-$html_display_struct = 'Display structured text'; //to translate
+$html_colored_quotes = 'Farbige Zitate';
+$html_display_struct = 'Strukturierten Text anzeigen';
 
 // folders.php
 $html_folders_create_failed = 'Der Ordner konnte nicht angelegt werden!';
@@ -108,11 +109,11 @@ $html_folder_rename = 'Umbenennen:';
 $html_folder_create = 'Erstelle neuen Ordner';
 $html_folder_remove = 'Abbestellen:';
 $html_folder_delete = 'Lösche';
-$html_folder_to = 'to'; //to translate
+$html_folder_to = 'nach';
 
 // filters.php
 $html_filter_remove = 'Löschen';
-$html_filter_body = 'Body'; //to translate
+$html_filter_body = 'Nachrichtentext';
 $html_filter_subject = 'Betreff';
 $html_filter_to = 'Empfängerfeld (To)';
 $html_filter_cc = 'Cc-Feld';
@@ -139,13 +140,13 @@ $html_page = 'Seite';
 $html_of = 'von';
 $html_view_header = 'Header anzeigen';
 $html_remove_header = 'Header verbergen';
-$html_inbox = 'Inbox'; //to translate
+$html_inbox = 'Posteingang';
 $html_new_msg = 'Schreiben';
 $html_reply = 'Antworten';
-$html_reply_short = 'Re'; //to translate
+$html_reply_short = 'Re';
 $html_reply_all = 'Antwort an alle';
 $html_forward = 'Weiterleitung';
-$html_forward_short = 'Fw'; //to translate
+$html_forward_short = 'Fw';
 $html_forward_info = 'Die weiterzuleitende Nachricht wird als Anhang mit dieser Email verschickt.';
 $html_delete = 'Löschen';
 $html_new = 'Neu';
@@ -179,7 +180,7 @@ $html_no_mail = 'Keine neue Nachrichten.';
 $html_logout = 'Abmelden';
 $html_msg = 'Nachricht';
 $html_msgs = 'Nachrichten';
-$html_configuration = 'This server is not well set up !'; //to translate
+$html_configuration = 'Dieser Server ist nicht richtig konfiguriert!';
 $html_priority = 'Priorität';
 $html_low = 'Niedrig';
 $html_normal = 'Normal';
@@ -219,14 +220,14 @@ $html_contact_err1 = 'Die Maximalanzahl der Kontakte ist ';
 $html_contact_err2 = 'Sie können keinen neuen Kontakt hinzufügen';
 $html_contact_err3 = 'Sie haben keine Rechte, um auf die Kontaktliste zuzugreifen';
 $html_del_msg = 'Sollen die markierten Nachrichten gelöscht werden?';
-$html_down_mail = 'Download'; //to translate
+$html_down_mail = 'Download';
 
 $original_msg = '-- Original Nachricht--';
 $to_empty = 'Das \'An\' Feld darf nicht leer sein !';
 
 // Images warning
-$html_images_warning = 'For your security, remote pictures are not displayed.'; // to translate
-$html_images_display = 'Display pictures'; // to translate
+$html_images_warning = 'Zu Ihrer Sicherheit werden externe Bilder nicht angezeigt.';
+$html_images_display = 'Bilder anzeigen';
 
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Konnte Verbindung nicht öffnen';
@@ -237,12 +238,12 @@ $lang_could_not_connect = 'Verbindung zum Server fehlgeschlagen';
 $lang_invalid_msg_num = 'Fehlerhafte Nachrichten-Nummer';
 
 $html_file_upload_attack = 'Die hochgeladene Datei konnte nicht gefunden werden.';
-$html_invalid_email_address = 'Ungültige E-mail Addresse';
-$html_invalid_msg_per_page = 'Ungütige Anzahl von Nachrichten pro Seite.';
-$html_invalid_wrap_msg = 'Ungütiger Nachrichtenumbruch';
+$html_invalid_email_address = 'Ungültige E-Mail-Adresse';
+$html_invalid_msg_per_page = 'Ungültige Anzahl von Nachrichten pro Seite.';
+$html_invalid_wrap_msg = 'Ungültiger Nachrichtenumbruch';
 $html_seperate_msg_win = 'Nachricht in neuem Fenster öffnen';
 
 // Exceptions
 $html_err_file_contacts = 'Kann die Kontaktdatei nicht zum Schreiben öffnen.';
-$html_session_file_error = 'Unable to open session file for writing.';  //to translate
+$html_session_file_error = 'Kann die Sitzungsdatei nicht zum Schreiben öffnen.';
 ?>

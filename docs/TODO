@@ -5,11 +5,9 @@ http://sf.net/tracker/?atid=362177&group_id=12177&func=browse
 
  - Change language files to use an array ($lang_text->...).
  - Create specific icons for attachments.
- - Colored quotes.
  - RFC 1894 support (Delivery Status Notification).
  - Dynamic Gzip support: allows live display compression, might speed up when
    connected through slow lines.
  - Switch to pure CSS for color backgrounds, get rid of tables, switch to divs.
     o use theme templates.
- - Printer-friendly e-mail formatting.
  - Webmail user documentation.
