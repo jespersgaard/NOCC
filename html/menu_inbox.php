@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox.php,v 1.55 2006/02/26 09:32:53 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.56 2006/02/26 11:07:52 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -40,7 +40,7 @@ elseif ($action == 'forward')
                     <?php echo $line ?>
                   </td>
                   <td class="menuBlank">
-                    <?php if (isset($_GET["successfulsend"]) && $_GET["successfulsend"]) { echo htmlentities($html_mail_sent, ENT_COMPAT, 'UTF-8'); } ?>
+                    <?php if (isset($_GET["successfulsend"]) && $_GET["successfulsend"]) { echo htmlentities($html_send_confirmed, ENT_COMPAT, 'UTF-8'); } ?>
                   </td>
                   <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
                   <td class="menu">
@@ -60,4 +60,4 @@ elseif ($action == 'forward')
                 </tr>
               </table>
             </div>
-<!-- end of $Id: menu_inbox.php,v 1.55 2006/02/26 09:32:53 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_inbox.php,v 1.56 2006/02/26 11:07:52 goddess_skuld Exp $ -->

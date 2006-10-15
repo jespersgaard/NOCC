@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ca.php,v 1.10 2006/10/09 08:05:22 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ca.php,v 1.11 2006/10/13 19:56:58 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -195,7 +195,7 @@ $html_usenet_separator = 'Separador Usenet ("-- \n") abans de la signatura';
 $html_mark_as = 'Marcar com';
 $html_read = 'llegit';
 $html_unread = 'per llegir';
-$html_mail_sent = 'S\'ha enviar el missatge amb èxit';
+$html_encoding = 'Character encoding'; // to translate
 
 // Contacts manager
 $html_add = 'Afegir';

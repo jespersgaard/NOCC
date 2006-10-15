@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.55 2006/10/09 08:05:23 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/it.php,v 1.56 2006/10/13 19:56:59 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -195,7 +195,6 @@ $html_usenet_separator = 'Separatore ("-- \n") prima della firma';
 $html_mark_as = 'Contrassegna come';
 $html_read = 'letto';
 $html_unread = 'non letto';
-$html_mail_sent = 'Messaggio inviato correttamente';
 $html_encoding = 'Encoding caratteri';
 
 // Contacts manager
