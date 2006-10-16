@@ -1,47 +1,52 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/down_mail.php,v 1.7 2006/10/13 19:03:43 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.38 2005/12/15 20:10:47 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
  *
  * See the enclosed file COPYING for license information (GPL).  If you
- * did not receive this file, see http://wwW.fsf.org/copyleft/gpl.html.
+ * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
+ *
+ * File for downloading the attachments
  */
 
-session_name("NOCCSESSID");
-session_start();
-require_once ('./conf.php');
-require_once ('./functions.php');
-require_once ('./crypt.php');
-$passwd = safestrip($_SESSION['nocc_passwd']);
-$passwd = decpass($passwd, $conf->master_key);
-$passwd = safestrip($passwd);
+if(!isset($HTTP_USER_AGENT))
+    $HTTP_USER_AGENT = $_SERVER['HTTP_USER_AGENT'];
 
-//header('Content-Type: text/plain');
+require_once './conf.php';
+require_once './common.php';
+require_once './class_local.php';
 
+$mail = $_REQUEST['mail'];
 
-$pop = imap_open('{'.$_SESSION['nocc_servr'].'}'.$_SESSION['nocc_folder'], $_SESSION['nocc_login'], $passwd);
-$ref_contenu_message = imap_headerinfo($pop, $_GET['mail']);
-$header = imap_fetchheader($pop, $_GET['mail']);
+$ev = '';
+$pop = new nocc_imap($ev);
+if (NoccException::isException($ev)) {
+    require ('./html/header.php');
+    require ('./html/error.php');
+    require ('./html/footer.php');
+    return;
+}
+
+$ref_contenu_message = $pop->headerinfo($mail, $ev);
+$header = $pop->fetchheader($mail, $ev);
 if (isset($ref_contenu_message->subject)) {
-    $subject_array = imap_mime_header_decode($ref_contenu_message->subject);
+    $subject_array = $pop->mime_header_decode($ref_contenu_message->subject);
     for ($subject = "", $j = 0; $j < count($subject_array); $j++)
-	    $subject .= $subject_array[$j]->text;
+            $subject .= $subject_array[$j]->text;
 }
 else {
     $subject="";
 }
 
-$url = ($subject) ? ereg_replace (" ", "_", $subject) . ".eml" : "no_subject.eml";
-
+$part = 1;
 $file = $header;
 $file .= "\r\n\r\n";
-$file .= imap_qprint(imap_fetchbody($pop, $_GET['mail'], 1));
+$file .= $pop->qprint($pop->fetchbody($mail, $part, $ev));
 $file .= "\r\n\r\n";
 
-imap_close($pop);
-
+$filename = $url = ($subject) ? ereg_replace (" ", "_", $subject) . ".eml" : "no_subject.eml";
 $isIE = $isIE6 = 0;
 
 // Set correct http headers.
@@ -57,25 +62,35 @@ if (strstr($HTTP_USER_AGENT, 'compatible; MSIE 6') !== false &&
 }
 
 if ($isIE) {
-    $url=rawurlencode($url);
+    $filename=rawurlencode($filename);
     header ("Pragma: public");
     header ("Cache-Control: no-store, max-age=0, no-cache, must-revalidate"); // HTTP/1.1
     header ("Cache-Control: post-check=0, pre-check=0", false);
     header ("Cache-Control: private");
 
     //set the inline header for IE, we'll add the attachment header later if we need it
-    header ("Content-Disposition: inline; filename=$url");
+    header ("Content-Disposition: inline; filename=$filename");
 }
 
-header ("Content-Disposition: attachment; filename=\"$url\"");
+header ("Content-Type: application/octet-stream; name=\"$filename\"");
+header ("Content-Disposition: attachment; filename=\"$filename\"");
 
 if ($isIE && !$isIE6) {
-    header ("Content-Type: application/download; name=\"$url\"");
+    header ("Content-Type: application/download; name=\"$filename\"");
 } else {
-    header ("Content-Type: application/octet-stream; name=\"$url\"");
+    header ("Content-Type: application/octet-stream; name=\"$filename\"");
 }
 
-header('Content-Length: ' . strlen($file));
+$file = $pop->fetchbody($mail, $part, $ev);
+if (NoccException::isException($ev)) {
+    require ('./html/header.php');
+    require ('./html/error.php');
+    require ('./html/footer.php');
+    return;
+}
 
-echo $file;
+$pop->close();
+
+header('Content-Length: ' . strlen($file));
+echo ($file);
 ?>
