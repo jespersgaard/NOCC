@@ -1,6 +1,6 @@
 Frequently Asked Questions for Nocc
 -----------------------------------
-Last updated: $Date: 2006/03/01 13:48:06 $
+Last updated: $Date: 2006/09/18 18:59:12 $
 
  Q. Nocc keeps me asking for a correct login/password.
 
@@ -200,3 +200,17 @@ Last updated: $Date: 2006/03/01 13:48:06 $
       ?>
     But remember : running Nocc with register_globals set to on may expose you
     to unwanted vulnerabilities.
+
+----------------------------------
+
+ Q. With NOCC hosted on a Windows server, all attachment downloaded from mails
+    with NOCC are garbled. After checking them, it appears they present 3 bytes
+    at the beginning of file that were not in the original file.
+
+ A. These three bytes are BOM, used for UTF-8 files to know how to read theses
+    files. But BOM is optionnal, and Windows version of PHP does not handle well
+    .php files with BOM.
+    Don't use notepad/wordpad to edit configuration files on Windows since they
+    may unexpectedly add the 3 BOM bytes. Always check the files you have
+    changed for BOM  bytes, remove them and resave them as UTF-8 without BOM
+    using an editor like Babelpad.
