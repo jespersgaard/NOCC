@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.38 2005/12/15 20:10:47 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/down_mail.php,v 1.9 2006/10/16 19:11:53 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -81,7 +81,6 @@ if ($isIE && !$isIE6) {
     header ("Content-Type: application/octet-stream; name=\"$filename\"");
 }
 
-$file = $pop->fetchbody($mail, $part, $ev);
 if (NoccException::isException($ev)) {
     require ('./html/header.php');
     require ('./html/error.php');
