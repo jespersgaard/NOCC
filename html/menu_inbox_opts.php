@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox_opts.php,v 1.19 2006/02/26 09:32:53 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_inbox_opts.php,v 1.20 2006/02/26 12:05:27 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -18,7 +18,7 @@
                               ?>
                                 <input type="submit" class="button" name="move_mode" value="<?php echo htmlentities($html_move, ENT_COMPAT, 'UTF-8'); ?>" /> <?php echo htmlentities($html_or, ENT_COMPAT, 'UTF-8'); ?>
                                 <input type="submit" class="button" name="copy_mode" value="<?php echo htmlentities($html_copy, ENT_COMPAT, 'UTF-8'); ?>" />
-                                <?php echo htmlentities($html_messages_to, ENT_COMPAT, 'UTF-8'); ?>
+                                <label for="target_folder"><?php echo htmlentities($html_messages_to, ENT_COMPAT, 'UTF-8'); ?></label>
                                 <?php echo $html_target_select; ?>
                               <?php
                                 }
@@ -43,4 +43,4 @@
                         </td>
                       </tr>
                     </table>
-<!-- end of $Id: menu_inbox_opts.php,v 1.19 2006/02/26 09:32:53 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_inbox_opts.php,v 1.20 2006/02/26 12:05:27 goddess_skuld Exp $ -->

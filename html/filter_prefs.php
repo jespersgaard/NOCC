@@ -46,14 +46,14 @@ echo htmlentities($html_filter_change_tip, ENT_COMPAT, 'UTF-8');
     </select>
   </td>
   <td class="prefsData">
-    <?php echo htmlentities($html_filter_contains, ENT_COMPAT, 'UTF-8') ?>
-    <input class="button" type="text" name="contains1" size="20" maxlength="80"/>
+    <label for="contains1"><?php echo htmlentities($html_filter_contains, ENT_COMPAT, 'UTF-8') ?></label>
+    <input class="button" type="text" id="contains1" name="contains1" size="20" maxlength="80"/>
   </td>
 </tr>
 <tr>
   <td class="prefsLabel">
-    <?php echo htmlentities($html_and, ENT_COMPAT, 'UTF-8') ?>&nbsp;
-    <select class="button" name="thing2">
+    <label for="thing2"><?php echo htmlentities($html_and, ENT_COMPAT, 'UTF-8') ?>&nbsp;</label>
+    <select class="button" id="thing2" name="thing2">
       <option value="-" selected="selected"><?php echo htmlentities($html_select_one, ENT_COMPAT, 'UTF-8') ?></option>
       <option value="BODY"><?php echo htmlentities($html_filter_body, ENT_COMPAT, 'UTF-8') ?></option>
       <option value="SUBJECT"><?php echo htmlentities($html_filter_subject, ENT_COMPAT, 'UTF-8') ?></option>
@@ -63,14 +63,14 @@ echo htmlentities($html_filter_change_tip, ENT_COMPAT, 'UTF-8');
     </select>
   </td>
   <td class="prefsData">
-    <?php echo htmlentities($html_filter_contains, ENT_COMPAT, 'UTF-8') ?>
-    <input class="button" type="text" name="contains2" size="20" maxlength="80"/>
+    <label for="contains2"><?php echo htmlentities($html_filter_contains, ENT_COMPAT, 'UTF-8') ?></label>
+    <input class="button" type="text" id="contains2" name="contains2" size="20" maxlength="80"/>
   </td>
 </tr>
 <tr>
   <td class="prefsLabel">
-    <?php echo htmlentities($html_and, ENT_COMPAT, 'UTF-8') ?>&nbsp;
-    <select class="button" name="thing3">
+    <label for="thing3"><?php echo htmlentities($html_and, ENT_COMPAT, 'UTF-8') ?>&nbsp;</label>
+    <select class="button" id="thing3" name="thing3">
       <option value="-" selected="selected"><?php echo htmlentities($html_select_one, ENT_COMPAT, 'UTF-8') ?></option>
       <option value="BODY"><?php echo htmlentities($html_filter_body, ENT_COMPAT, 'UTF-8') ?></option>
       <option value="SUBJECT"><?php echo htmlentities($html_filter_subject, ENT_COMPAT, 'UTF-8') ?></option>
@@ -80,16 +80,16 @@ echo htmlentities($html_filter_change_tip, ENT_COMPAT, 'UTF-8');
     </select>
   </td>
   <td class="prefsData">
-    <?php echo htmlentities($html_filter_contains, ENT_COMPAT, 'UTF-8') ?>
-    <input class="button" type="text" name="contains3" size="20" maxlength="80"/>
+    <label for="contains3"><?php echo htmlentities($html_filter_contains, ENT_COMPAT, 'UTF-8') ?></label>
+    <input class="button" type="text" id="contains3" name="contains3" size="20" maxlength="80"/>
   </td>
 </tr>
 <tr>
   <td class="prefsLabel">
-    <?php echo htmlentities($html_filter_name, ENT_COMPAT, 'UTF-8') ?>:
+    <label for="filtername"><?php echo htmlentities($html_filter_name, ENT_COMPAT, 'UTF-8') ?>:</label>
   </td>
   <td class="prefsData">
-    <input class="button" type="text" name="filtername" size="40" maxlength="80"/>
+    <input class="button" type="text" id="filtername" name="filtername" size="40" maxlength="80"/>
   </td>
 </tr>
 <tr>
@@ -97,10 +97,10 @@ echo htmlentities($html_filter_change_tip, ENT_COMPAT, 'UTF-8');
     <?php echo htmlentities($html_filter_action, ENT_COMPAT, 'UTF-8') ?>:
   </td>
   <td class="prefsData">
-    <input type="radio" name="filter_action" value="MOVE" checked="checked" /><?php echo htmlentities($html_filter_moveto, ENT_COMPAT, 'UTF-8') ?>
+    <input type="radio" id="filter_action_move" name="filter_action" value="MOVE" checked="checked" /><label for="filter_action_move"><?php echo htmlentities($html_filter_moveto, ENT_COMPAT, 'UTF-8') ?></label>
     <?php echo $filter_move_to ?>
     &nbsp;&nbsp;&nbsp;
-    <input type="radio" name="filter_action" value="DELETE"/><?php echo htmlentities($html_filter_remove, ENT_COMPAT, 'UTF-8') ?>
+    <input type="radio" id="filter_action_delete" name="filter_action" value="DELETE"/><label for="filter_action_delete"><?php echo htmlentities($html_filter_remove, ENT_COMPAT, 'UTF-8') ?></label>
   </td>
 </tr>
 <tr>
@@ -142,4 +142,4 @@ echo htmlentities($html_filter_change_tip, ENT_COMPAT, 'UTF-8');
 &nbsp;|&nbsp;
 <a href="action.php?action=managefolders"><?php echo htmlentities($html_manage_folders_link, ENT_COMPAT, 'UTF-8') ?></a>
 </div>
-<!-- end of $Id: filter_prefs.php,v 1.6 2005/08/01 08:11:15 goddess_skuld Exp $ -->
+<!-- end of $Id: filter_prefs.php,v 1.7 2006/02/26 09:32:53 goddess_skuld Exp $ -->

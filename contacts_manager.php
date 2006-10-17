@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.20 2006/09/01 20:28:19 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.21 2006/09/25 19:53:28 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -103,19 +103,19 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
         </tr>
         <?php if (count ($contacts) < $conf->contact_number_max || $_GET['modif']) { ?>
         <tr>
-          <td class="contactsAddLabel"><?php echo $html_contact_first ?> :</td>
+          <td class="contactsAddLabel"><label for="first"><?php echo $html_contact_first ?>:</label></td>
           <td class="contactsAddData"><input class="button" name="first" type="text" id="first" value="<?php if (isset($tab[0])) { echo $tab[0]; } ?>"/></td>
         </tr>
         <tr>
-          <td class="contactsAddLabel"><?php echo $html_contact_last ?> :</td>
+          <td class="contactsAddLabel"><label for="last"><?php echo $html_contact_last ?>:</label></td>
           <td class="contactsAddData"><input class="button" name="last" type="text" id="last" value="<?php if (isset($tab[1])) { echo $tab[1]; } ?>"/></td>
         </tr>
         <tr>
-          <td class="contactsAddLabel"><?php echo $html_contact_nick ?> :</td>
+          <td class="contactsAddLabel"><label for="nick"><?php echo $html_contact_nick ?>:</label></td>
           <td class="contactsAddData"><input class="button" name="nick" type="text" id="nick" value="<?php if (isset($tab[2])) { echo $tab[2]; } ?>"/></td>
         </tr>
         <tr>
-          <td class="contactsAddLabel"><?php echo $html_contact_mail ?> :</td>
+          <td class="contactsAddLabel"><label for="email"><?php echo $html_contact_mail ?>:</label></td>
           <td class="contactsAddData"><input class="button" name="email" type="text" id="email" value="<?php if (isset($tab[3])) { echo $tab[3]; } ?>"/></td>
         </tr>
         <tr>

@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.87 2006/10/11 10:44:42 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.88 2006/10/13 19:56:58 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -52,7 +52,7 @@ if($pages > 1) {
 $fldr_line = "";
 $reapply_filters = '';
 if ($pop->is_imap()) {
-    $fldr_line = "<form method=\"post\" action=\"".$_SERVER['PHP_SELF']."\"><div>$html_other_folders:  \n";
+    $fldr_line = "<form method=\"post\" action=\"".$_SERVER['PHP_SELF']."\"><div><label for=\"folder\">$html_other_folders:</label>  \n";
     $fldr_line .= $pop->html_folder_select('folder', $_SESSION['nocc_folder']);
     $fldr_line .= "<input type=\"submit\" class=\"button\" name=\"submit\" value=\"$html_gotofolder\" />";
     $fldr_line .= "</div></form>";
@@ -149,4 +149,4 @@ if ($pop->is_imap()) {
                               <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.png" class="sort" alt="<?php echo $html_sort; ?>" title="<?php echo $html_sort_by." ".$html_size; ?>" /></a>
                           </th>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.87 2006/10/11 10:44:42 goddess_skuld Exp $ -->
+<!-- end of $Id: html_top_table.php,v 1.88 2006/10/13 19:56:58 goddess_skuld Exp $ -->

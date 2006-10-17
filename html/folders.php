@@ -1,4 +1,4 @@
-<!-- start of $Id: folders.php,v 1.16 2006/02/26 11:07:52 goddess_skuld Exp $ -->
+<!-- start of $Id: folders.php,v 1.17 2006/09/04 07:58:42 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -36,37 +36,37 @@ if (count($big_list) > 1) {
         <tr>
           <td class="prefsLabel"></td>
           <td class="prefsData">
-            <input type="radio" name="do" value="create_folder"/>
-            <?php echo htmlentities($html_folder_create, ENT_COMPAT, 'UTF-8') ?> <input class="button" type="text" name="createnewbox" size="15" maxlength="32"/>
+            <input type="radio" id="do_create_folder" name="do" value="create_folder"/>
+            <label for="do_create_folder"><?php echo htmlentities($html_folder_create, ENT_COMPAT, 'UTF-8') ?></label> <input class="button" type="text" name="createnewbox" size="15" maxlength="32"/>
           </td>
         </tr>
         <tr>
           <td class="prefsLabel"></td>
           <td class="prefsData">
-            <input type="radio" name="do" value="rename_folder"/>
-            <?php echo htmlentities($html_folder_rename, ENT_COMPAT, 'UTF-8') ?> <?php echo $renameoldbox ?>
-            <?php echo htmlentities($html_folder_to, ENT_COMPAT, 'UTF-8') ?> <input class="button" type="text" name="renamenewbox" size="15" maxlength="32"/>
+            <input type="radio" id="do_rename_folder" name="do" value="rename_folder"/>
+            <label for="do_rename_folder"><?php echo htmlentities($html_folder_rename, ENT_COMPAT, 'UTF-8') ?></label> <?php echo $renameoldbox ?>
+            <label for="renamenewbox"><?php echo htmlentities($html_folder_to, ENT_COMPAT, 'UTF-8') ?></label> <input class="button" type="text" id="renamenewbox" name="renamenewbox" size="15" maxlength="32"/>
           </td>
         </tr>
         <tr>
           <td class="prefsLabel"></td>
           <td class="prefsData">
-            <input type="radio" name="do" value="subscribe_folder"/>
-            <?php echo htmlentities($html_folder_subscribe, ENT_COMPAT, 'UTF-8') ?> <select class="button" name="subscribenewbox"> <?php echo join('', $select_list) ?> </select>
+            <input type="radio" id="do_subscribe_folder" name="do" value="subscribe_folder"/>
+            <label for="do_subscribe_folder"><?php echo htmlentities($html_folder_subscribe, ENT_COMPAT, 'UTF-8') ?></label> <select class="button" name="subscribenewbox"> <?php echo join('', $select_list) ?> </select>
           </td>
         </tr>
         <tr>
           <td class="prefsLabel"></td>
           <td class="prefsData">
-            <input type="radio" name="do" value="remove_folder"/>
-            <?php echo htmlentities($html_folder_remove, ENT_COMPAT, 'UTF-8') ?> <?php echo $removeoldbox ?>
+            <input type="radio" id="do_remove_folder" name="do" value="remove_folder"/>
+            <label for="do_remove_folder"><?php echo htmlentities($html_folder_remove, ENT_COMPAT, 'UTF-8') ?></label> <?php echo $removeoldbox ?>
           </td>
         </tr>
         <tr>
           <td class="prefsLabel"></td>
           <td class="prefsData">
-            <input type="radio" name="do" value="delete_folder"/>
-            <?php echo htmlentities($html_folder_delete, ENT_COMPAT, 'UTF-8') ?> <select class="button" name="deletebox"> <?php echo join('', $select_list) ?> </select>
+            <input type="radio" id="do_delete_folder" name="do" value="delete_folder"/>
+            <label for="do_delete_folder"><?php echo htmlentities($html_folder_delete, ENT_COMPAT, 'UTF-8') ?></label> <select class="button" name="deletebox"> <?php echo join('', $select_list) ?> </select>
           </td>
         </tr>
         <tr>
@@ -108,4 +108,4 @@ if (count($big_list) > 1) {
   &nbsp;|&nbsp;
   <a href="action.php?action=managefilters"><?php echo htmlentities($html_manage_filters_link, ENT_COMPAT, 'UTF-8') ?></a>
 </div>
-<!-- end of $Id: folders.php,v 1.16 2006/02/26 11:07:52 goddess_skuld Exp $ -->
+<!-- end of $Id: folders.php,v 1.17 2006/09/04 07:58:42 goddess_skuld Exp $ -->
