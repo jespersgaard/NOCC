@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.45 2006/10/06 08:05:32 goddess_skuld Exp $ -->
+<!-- start of $Id: prefs.php,v 1.46 2006/10/09 08:05:22 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -80,12 +80,12 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <label><?php echo htmlentities($html_wrap, ENT_COMPAT, 'UTF-8') ?></label>
-             <input type="radio" name="wrap_msg" value="80" <?php if($user_prefs->wrap_msg == 80) echo 'checked="checked"'; ?> />80
+             <?php echo htmlentities($html_wrap, ENT_COMPAT, 'UTF-8') ?>
+             <input type="radio" name="wrap_msg" id="wrap_msg_80" value="80" <?php if($user_prefs->wrap_msg == 80) echo 'checked="checked"'; ?> /><label for="wrap_msg_80">80</label>
              &nbsp;&nbsp;
-             <input type="radio" name="wrap_msg" value="72" <?php if($user_prefs->wrap_msg == 72) echo 'checked="checked"'; ?> />72
+             <input type="radio" name="wrap_msg" id="wrap_msg_72" value="72" <?php if($user_prefs->wrap_msg == 72) echo 'checked="checked"'; ?> /><label for="wrap_msg_72">72</label>
              &nbsp;&nbsp;
-             <label><input name="wrap_msg" type="radio" value="0" <?php if(!isset($user_prefs->wrap_msg) || $user_prefs->wrap_msg == '' || $user_prefs->wrap_msg == '0') echo 'checked="checked"'; ?> /><?php echo htmlentities($html_wrap_none, ENT_COMPAT, 'UTF-8') ?></label>
+             <input type="radio" name="wrap_msg" id="wrap_msg_0" value="0" <?php if(!isset($user_prefs->wrap_msg) || $user_prefs->wrap_msg == '' || $user_prefs->wrap_msg == '0') echo 'checked="checked"'; ?> /><label for="wrap_msg_0"><?php echo htmlentities($html_wrap_none, ENT_COMPAT, 'UTF-8') ?></label>
            </td>
          </tr>
          <tr>
@@ -103,9 +103,9 @@ if (count($big_list) > 1) {
          </tr>
          <?php } ?>
          <tr>
-           <td class="prefsLabel"><?php echo htmlentities($html_signature, ENT_COMPAT, 'UTF-8') ?> : </td>
+           <td class="prefsLabel"><label for="signature"><?php echo htmlentities($html_signature, ENT_COMPAT, 'UTF-8') ?>:</label></td>
            <td class="prefsData">
-             <textarea class="button" name="signature" rows="5" cols="40"><?php echo (isset($user_prefs->signature)) ? $user_prefs->signature : "" ?></textarea>
+             <textarea class="button" name="signature" id="signature" rows="5" cols="40"><?php echo (isset($user_prefs->signature)) ? $user_prefs->signature : "" ?></textarea>
            </td>
          </tr>
          <tr>
@@ -219,4 +219,4 @@ if (count($big_list) > 1) {
    <?php
      }
    ?>
-<!-- end of $Id: prefs.php,v 1.45 2006/10/06 08:05:32 goddess_skuld Exp $ -->
+<!-- end of $Id: prefs.php,v 1.46 2006/10/09 08:05:22 goddess_skuld Exp $ -->
