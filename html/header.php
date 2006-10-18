@@ -5,7 +5,7 @@
 if (file_exists('proxy.php'))
     require_once 'proxy.php';
 else
-    exit();
+    die('proxy.php is missing');
 
 if(isset($charset))
     header ("Content-type: text/html; Charset=$charset");
@@ -69,4 +69,4 @@ else {
 <?php
 }
 ?>
-<!-- end of $Id: header.php,v 1.59 2006/08/15 13:53:49 goddess_skuld Exp $ -->
+<!-- end of $Id: header.php,v 1.60 2006/09/26 17:14:50 goddess_skuld Exp $ -->

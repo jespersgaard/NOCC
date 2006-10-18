@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.111 2006/08/15 10:51:47 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.112 2006/09/01 20:28:19 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -17,8 +17,6 @@ if ($_COOKIE['NoccIdent'] != '' && $_COOKIE['NoccIdent'] != null) {
   header("Location: ".$conf->base_url."action.php?action=cookie");
 }
 require_once './common.php';
-require_once './proxy.php';
-Header("Content-type: text/html; Charset=$charset");
 require ('./html/header.php');
 ?>
 <script type="text/javascript">
