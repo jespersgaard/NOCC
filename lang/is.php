@@ -91,6 +91,7 @@ $html_use_graphical_smilies = 'Use graphical smilies'; //to translate
 $html_sent_folder = 'Copy sent mails into a dedicated folder'; //to translate
 $html_colored_quotes = 'Colored quotes'; //to translate
 $html_display_struct = 'Display structured text'; //to translate
+$html_send_html_mail = 'Send mail in HTML format'; //to translate
 
 // folders.php
 $html_folders_create_failed = 'Folder could not be created!';  //to translate

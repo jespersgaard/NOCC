@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.70 2006/02/10 17:28:44 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.71 2006/07/18 11:02:33 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -159,14 +159,21 @@ class mime_mail
 	// Strip lonely "\r\n.\r\n" in order to avoid STMP errors
 	$mime = str_replace("\r\n.\r\n", "\r\n..\r\n", $mime);
 
+        $mail_format = '';
+        if ($_SESSION['html_mail_send']) {
+          $mail_format = 'text/html';
+        } else {
+          $mail_format = 'text/plain';
+        }
+
 	if (sizeof($this->parts) >= 1)
         {
-            $this->add_attachment($this->body,  '',  'text/plain', 'quoted-printable', $this->charset);
+            $this->add_attachment($this->body,  '',  $mail_format, 'quoted-printable', $this->charset);
             $mime .= 'MIME-Version: 1.0' . $this->crlf . $this->build_multipart();
         }
         else
         {
-            $this->add_attachment($this->body,  '',  'text/plain', '8bit', $this->charset);
+            $this->add_attachment($this->body,  '',  $mail_format, '8bit', $this->charset);
             $mime .= 'MIME-Version: 1.0' . $this->crlf . $this->build_body();
         }
 

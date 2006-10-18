@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.94 2006/10/13 19:56:58 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.95 2006/10/15 21:36:37 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -93,6 +93,7 @@ $html_use_graphical_smilies = 'Use graphical smilies';
 $html_sent_folder = 'Copy sent mails into a dedicated folder';
 $html_colored_quotes = 'Colored quotes';
 $html_display_struct = 'Display structured text';
+$html_send_html_mail = 'Send mail in HTML format';
 
 // folders.php
 $html_folders_create_failed = 'Folder could not be created!';

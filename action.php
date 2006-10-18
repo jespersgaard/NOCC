@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.185 2006/10/09 08:05:21 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.186 2006/10/14 08:56:42 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -124,6 +124,8 @@ switch($action)
         break;
 
     case 'write':
+        $_SESSION['html_mail_send'] = $user_prefs->html_mail_send;
+
     	if (isset($_REQUEST['mail_to']) && $_REQUEST['mail_to'] != "") {
 	  $mail_to = $_REQUEST['mail_to'];
 	}
@@ -492,10 +494,15 @@ switch($action)
             if (isset($_REQUEST['reply_leadin']))
                 $user_prefs->reply_leadin = safestrip($_REQUEST['reply_leadin']);
             if (isset($_REQUEST['signature']))
-                $user_prefs->signature = safestrip($_REQUEST['signature']);
+                if (isset($_REQUEST['html_mail_send']) && $_REQUEST['html_mail_send']) {
+                  $user_prefs->signature = $_REQUEST['signature'];
+                } else {
+                  $user_prefs->signature = safestrip($_REQUEST['signature']);
+                }
 	    if (isset($_REQUEST['wrap_msg']))
                 $user_prefs->wrap_msg = $_REQUEST['wrap_msg'];
             $user_prefs->sig_sep = isset($_REQUEST['sig_sep']);
+            $user_prefs->html_mail_send = isset($_REQUEST['html_mail_send']);
 	    $user_prefs->graphical_smilies = isset($_REQUEST['graphical_smilies']);
             $user_prefs->sent_folder = isset($_REQUEST['sent_folder']);
             if (isset($_REQUEST['sent_folder_name'])) {

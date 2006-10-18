@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.83 2006/10/10 12:52:52 goddess_skuld Exp $ -->
+<!-- start of $Id: send.php,v 1.84 2006/10/11 10:46:34 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -163,7 +163,19 @@ $mail_from = get_default_from_address();
      <tr>
        <td>&nbsp;</td>
        <td class="sendData">
+         <?php if (!$_SESSION['html_mail_send']) { ?>
          <textarea name="mail_body" cols="82" rows="20"><?php echo (isset($mail_body) ? htmlspecialchars($mail_body) : '') ?></textarea>
+         <?php
+           } else {
+             include("fckeditor/fckeditor.php") ;
+           
+             $oFCKeditor = new FCKeditor('mail_body') ;
+             $oFCKeditor->ToolbarSet = 'NOCC';
+             $oFCKeditor->BasePath = 'fckeditor/';
+             $oFCKeditor->Value = isset($mail_body) ? $mail_body : '';
+             $oFCKeditor->Create() ;
+           }
+         ?>
        </td>
      </tr>
    </table>
@@ -216,4 +228,4 @@ function validate(f)
 
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.83 2006/10/10 12:52:52 goddess_skuld Exp $ -->
+<!-- end of $Id: send.php,v 1.84 2006/10/11 10:46:34 goddess_skuld Exp $ -->

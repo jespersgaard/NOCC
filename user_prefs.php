@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.13 2006/10/06 08:05:32 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.14 2006/10/09 08:05:21 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -26,6 +26,7 @@ class NOCCUserPrefs {
 	var $signature;
         var $wrap_msg;
         var $sig_sep;
+        var $html_mail_send;
 	var $graphical_smilies;
         var $sent_folder;
         var $sent_folder_name;
@@ -109,6 +110,8 @@ class NOCCUserPrefs {
                                 $prefs->wrap_msg = $value;
 			if($key == 'sig_sep')
 				$prefs->sig_sep = ($value == 1 || $value == 'on');
+			if($key == 'html_mail_send')
+				$prefs->html_mail_send = ($value == 1 || $valeur == 'on');
 			if($key == 'graphical_smilies')
 				$prefs->graphical_smilies = ($value == 1 || $value == 'on');
                         if($key == 'sent_folder')
@@ -172,6 +175,7 @@ class NOCCUserPrefs {
 		fwrite($file, "signature=".base64_encode($this->signature)."\n");
 		fwrite($file, "wrap_msg=".$this->wrap_msg."\n");
 		fwrite($file, "sig_sep=".$this->sig_sep."\n");
+                fwrite($file, "html_mail_send=".$this->html_mail_send."\n");
 		fwrite($file, "graphical_smilies=".$this->graphical_smilies."\n");
                 fwrite($file, "sent_folder=".$this->sent_folder."\n");
                 fwrite($file, "sent_folder_name=".str_replace($_SESSION['imap_namespace'], "", $this->sent_folder_name)."\n");

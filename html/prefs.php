@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.46 2006/10/09 08:05:22 goddess_skuld Exp $ -->
+<!-- start of $Id: prefs.php,v 1.47 2006/10/17 08:57:26 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -105,15 +105,32 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel"><label for="signature"><?php echo htmlentities($html_signature, ENT_COMPAT, 'UTF-8') ?>:</label></td>
            <td class="prefsData">
+             <?php if (isset($user_prefs->html_mail_send) && $user_prefs->html_mail_send) { 
+               include("fckeditor/fckeditor.php") ;
+               $oFCKeditor = new FCKeditor('signature') ;
+               $oFCKeditor->ToolbarSet = 'NOCC';
+               $oFCKeditor->BasePath = 'fckeditor/';
+               $oFCKeditor->Value = isset($user_prefs->signature) ? $user_prefs->signature : "";
+               $oFCKeditor->Create() ;
+
+             } else { ?>
              <textarea class="button" name="signature" id="signature" rows="5" cols="40"><?php echo (isset($user_prefs->signature)) ? $user_prefs->signature : "" ?></textarea>
+             <?php } ?>
            </td>
          </tr>
+         <?php if (!isset($user_prefs->html_mail_send) || !($user_prefs->html_mail_send)) { ?>
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
              <input type="checkbox" name="sig_sep" id="sig_sep" value="on" <?php if(isset($user_prefs->sig_sep) && $user_prefs->sig_sep) echo 'checked="checked"'; ?> /><label for="sig_sep"><?php echo htmlentities($html_usenet_separator, ENT_COMPAT, 'UTF-8') ?></label>
            </td>
          </tr>
+         <?php } ?>
+         <tr>
+           <td class="prefsLabel">&nbsp;</td>
+           <td class="prefsData">
+             <input type="checkbox" name="html_mail_send" id="html_mail_send" value="on" <?php if(isset($user_prefs->html_mail_send) && $user_prefs->html_mail_send) echo 'checked="checked"'; ?> /><label for="html_mail_send"><?php echo htmlentities($html_send_html_mail, ENT_COMPAT, 'UTF-8') ?></label>
+           </td>
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
@@ -219,4 +236,4 @@ if (count($big_list) > 1) {
    <?php
      }
    ?>
-<!-- end of $Id: prefs.php,v 1.46 2006/10/09 08:05:22 goddess_skuld Exp $ -->
+<!-- end of $Id: prefs.php,v 1.47 2006/10/17 08:57:26 goddess_skuld Exp $ -->

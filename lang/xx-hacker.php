@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.21 2006/10/13 19:56:59 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.22 2006/10/15 21:36:38 goddess_skuld Exp $ 
  *
  * Copyright 2004 Nicolas Chalanset <nicocha at free.fr>
  * Copyright 2004 Olivier Cahagne <wolruf at free.fr>
@@ -95,6 +95,7 @@ $html_use_graphical_smilies = 'Us3 gr4ph!c4l sm!l!3s';
 $html_sent_folder = 'C0py s3nt m4!ls !nt0 4 d3d!c4t3d f0ld3r';
 $html_colored_quotes = 'C0l0r3d qu0t3s';
 $html_display_struct = 'D!spl4y structur3d t3xt';
+$html_send_html_mail = 'S3nd m4!l !n HTML f0rm4t';
 
 // folders.php
 $html_folders_create_failed = 'F0ld3r c0u1d n0t b3 cr34t3d!';

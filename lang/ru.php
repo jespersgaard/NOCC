@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.48 2006/10/13 19:56:59 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.49 2006/10/15 21:36:37 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -93,6 +93,7 @@ $html_manage_filters_link = 'Управление почтовыми фильт�
 $html_use_graphical_smilies = 'Использовать графические смайлики';
 $html_colored_quotes = 'Colored quotes'; //to translate
 $html_display_struct = 'Display structured text'; //to translate
+$html_send_html_mail = 'Send mail in HTML format'; //to translate
 
 // folders.php
 $html_folders_create_failed = 'Папка не может быть создана!';
