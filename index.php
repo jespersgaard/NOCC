@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.112 2006/09/01 20:28:19 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.113 2006/10/18 14:56:28 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -10,13 +10,13 @@
  */
 
 require_once './conf.php';
-require_once './check.php';
 //If a previous authentification cookie was set, we use it to bypass login
 //window.
 if ($_COOKIE['NoccIdent'] != '' && $_COOKIE['NoccIdent'] != null) {
   header("Location: ".$conf->base_url."action.php?action=cookie");
 }
 require_once './common.php';
+require_once './check.php';
 require ('./html/header.php');
 ?>
 <script type="text/javascript">
