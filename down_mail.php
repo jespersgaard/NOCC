@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/down_mail.php,v 1.9 2006/10/16 19:11:53 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/down_mail.php,v 1.10 2006/10/17 05:33:52 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -46,7 +46,7 @@ $file .= "\r\n\r\n";
 $file .= $pop->qprint($pop->fetchbody($mail, $part, $ev));
 $file .= "\r\n\r\n";
 
-$filename = $url = ($subject) ? ereg_replace (" ", "_", $subject) . ".eml" : "no_subject.eml";
+$filename = ($subject) ? ereg_replace('[\\/:\*\?"<>\|;]', '_', str_replace('&nbsp;', ' ', $subject)) . ".eml" : "no_subject.eml";
 $isIE = $isIE6 = 0;
 
 // Set correct http headers.
