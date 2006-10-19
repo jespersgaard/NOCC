@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.56 2006/10/15 21:36:37 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.57 2006/10/18 19:22:13 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -53,12 +53,12 @@ $alt_new_msg = 'Nieuwe berichten';
 $alt_reply = 'Antwoord de verzender';
 $alt_reply_all = 'Antwoord allemaal';
 $alt_forward = 'Doorzenden';
-$alt_next = 'Next'; //to translate
-$alt_prev = 'Previous'; //to translate
-$title_next_page = 'Next page'; //to translate
-$title_prev_page = 'Previous page'; //to translate
-$title_next_msg = 'Volgende';
-$title_prev_msg = 'Vorige';
+$alt_next = 'Volgende';
+$alt_prev = 'Vorige';
+$title_next_page = 'Volgende pagina';
+$title_prev_page = 'Vorige pagina';
+$title_next_msg = 'Volgend bericht';
+$title_prev_msg = 'Vorig bericht';
 $html_on = 'aan';
 $html_theme = 'Weergave';
 
@@ -70,7 +70,7 @@ $html_login = 'Loginnaam';
 $html_passwd = 'Wachtwoord';
 $html_submit = 'Verzenden';
 $html_help = 'Help';
-$html_server = 'Server'; //to translate
+$html_server = 'Server';
 $html_wrong = 'Loginnaam of Wachtwoord is onjuist';
 $html_retry = 'Probeer opnieuw';
 $html_remember = "Onthoud instellingen";
@@ -93,9 +93,9 @@ $html_manage_folders_link = 'Beheer IMAP Mappen';
 $html_manage_filters_link = 'Beheer E-mail Filters';
 $html_use_graphical_smilies = 'Gebruik grafische smiley\'s';
 $html_sent_folder = 'Kopieer verzonden berichten naar map'; 
-$html_colored_quotes = 'Colored quotes'; //to translate
-$html_display_struct = 'Display structured text'; //to translate
-$html_send_html_mail = 'Send mail in HTML format'; //to translate
+$html_colored_quotes = 'Gekleurd aanhalen';
+$html_display_struct = 'Toon gestructureerde tekst';
+$html_send_html_mail = 'Zend berichten in HTML formaat';
 
 // folders.php
 $html_folders_create_failed = 'Map kon niet worden gemaakt!';
@@ -166,12 +166,12 @@ $html_sent = 'Verzonden';
 $html_wrote = 'Schreef';
 $html_size = 'Grootte';
 $html_totalsize = 'Totale grootte';
-$html_kb = 'kB'; //to translate
-$html_bytes = 'bytes'; //to translate
+$html_kb = 'Kb';
+$html_bytes = 'bytes';
 $html_filename = 'Bestandsnaam';
 $html_to = 'Aan';
-$html_cc = 'Cc'; //to translate
-$html_bcc = 'Bcc'; //to translate
+$html_cc = 'Cc';
+$html_bcc = 'Bcc';
 $html_nosubject = 'Geen onderwerp';
 $html_send = 'Verzenden';
 $html_cancel = 'Annuleren';
