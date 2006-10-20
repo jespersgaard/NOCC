@@ -1,4 +1,4 @@
-<!-- start of $Id: html_mail.php,v 1.1 2006/10/02 07:51:44 goddess_skuld Exp $ -->
+<!-- start of $Id: html_mail.php,v 1.2 2006/10/13 19:56:58 goddess_skuld Exp $ -->
 <div class="mailNav">
    <table>
 <?php
@@ -12,14 +12,14 @@ $display_images = (isset($_REQUEST['display_images']) && $_REQUEST['display_imag
 $verbose = (isset($_REQUEST['verbose']) && $_REQUEST['verbose'] == 1) ? '1' : '0';
 if ($conf->use_verbose)
   if($verbose == '1')
-    echo '<tr><td class="mailSwitchHeaders"><a href="' . $_SERVER['PHP_SELF'] . '?action=aff_mail&amp;mail=' . $content['msgnum'] . '&amp;verbose=0&amp;display_images='.$display_images.'">' . $html_remove_header . '</a></td>';
+    echo '<tr><td class="mailSwitchHeaders dontPrint"><a href="' . $_SERVER['PHP_SELF'] . '?action=aff_mail&amp;mail=' . $content['msgnum'] . '&amp;verbose=0&amp;display_images='.$display_images.'">' . $html_remove_header . '</a></td>';
   else
-    echo '<tr><td class="mailSwitchHeaders"><a href="' . $_SERVER['PHP_SELF'] . '?action=aff_mail&amp;mail=' . $content['msgnum'] . '&amp;verbose=1&amp;display_images='.$display_images.'">' . $html_view_header . '</a></td>';
+    echo '<tr><td class="mailSwitchHeaders dontPrint"><a href="' . $_SERVER['PHP_SELF'] . '?action=aff_mail&amp;mail=' . $content['msgnum'] . '&amp;verbose=1&amp;display_images='.$display_images.'">' . $html_view_header . '</a></td>';
 else
     echo '<tr><td>&nbsp;</td>';
 
 // Next/prev message links
-echo '<td class="right">';
+echo '<td class="right dontPrint">';
 if (($content['prev'] != '') && ($content['prev'] != 0))
   echo '<a href="' . $_SERVER['PHP_SELF'] . '?action=aff_mail&amp;mail=' . $content['prev'] . '&amp;verbose=' . $verbose . '"><img src="themes/' . $_SESSION['nocc_theme'] . '/img/left_arrow.png" alt="' . $alt_prev . '" title="' . $title_prev_msg . '" class="navigation" /></a>';
 echo "&nbsp;";
@@ -96,4 +96,4 @@ echo '<div class="mail">'.$content['body'].'</div>';
 
 ?>
 </div>
-<!-- end of $Id: html_mail.php,v 1.1 2006/10/02 07:51:44 goddess_skuld Exp $ -->
+<!-- end of $Id: html_mail.php,v 1.2 2006/10/13 19:56:58 goddess_skuld Exp $ -->
