@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.145 2006/09/01 16:46:22 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.146 2006/10/03 12:46:45 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -64,7 +64,9 @@ $conf->domains[$i]->smtp_port = 25;
 // Fill in if you require login suffixes for your mail server
 $conf->domains[$i]->login_suffix = '';
 // Uncomment for login aliases and use the following syntax:
-// array('alias1' => 'real_login_1', 'alias2' => 'real_login_2');
+// login_aliases = array('alias1' => 'real_login_1','alias2' => 'real_login_2');
+// If you want to use an external file, use the following syntax:
+// login_aliases = '@/path/to/file/';
 //$conf->domains[$i]->login_aliases = array();
 // Select SMTP AUTH method.
 // Supported AUTH methods are :

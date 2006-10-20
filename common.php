@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.67 2006/08/28 18:22:15 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.68 2006/10/03 12:46:45 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -174,7 +174,14 @@ if (isset($_REQUEST['domainnum']))
 
     //Do we have login aliases?
     if(isset($conf->domains[$domainnum]->login_aliases) && !empty($conf->domains[$domainnum]->login_aliases)){
-      $_SESSION['nocc_login'] = str_replace(array_keys($conf->domains[$domainnum]->login_aliases), array_values($conf->domains[$domainnum]->login_aliases), $_SESSION['nocc_login']);
+      if (is_array($conf->domains[$domainnum]->login_aliases)) {
+        $_SESSION['nocc_login'] = str_replace(array_keys($conf->domains[$domainnum]->login_aliases), array_values($conf->domains[$domainnum]->login_aliases), $_SESSION['nocc_login']);
+      } else {
+        if (file_exists(substr($conf->domains[$domainnum]->login_aliases, 1))) {
+          include substr($conf->domains[$domainnum]->login_aliases, 1);
+          $_SESSION['nocc_login'] = str_replace(array_keys($login_alias), array_values($login_alias), $_SESSION['nocc_login']);
+        }
+      }
     }
 
     // Do we provide the domain with the login?
