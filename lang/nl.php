@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.57 2006/10/18 19:22:13 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.58 2006/10/19 19:18:29 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -244,4 +244,5 @@ $html_seperate_msg_win = 'Berichten in nieuw venster weergeven';
 // Exceptions
 $html_err_file_contacts = 'Er kan niet naar de contactlijst geschreven worden.';
 $html_session_file_error = 'Er kan niet naar het sessiebestand geschreven worden.';
+$html_login_not_allowed = 'This login is not allowed for connexion.'; //to translate
 ?>

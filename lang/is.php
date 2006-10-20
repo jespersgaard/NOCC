@@ -240,4 +240,5 @@ $html_seperate_msg_win = 'Messages in seperate window';  //to translate
 // Exceptions
 $html_err_file_contacts = 'Unable to open contacts file for writing.'; //to translate
 $html_session_file_error = 'Unable to open session file for writing.';  //to translate
+$html_login_not_allowed = 'This login is not allowed for connexion.'; //to translate
 ?>

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.68 2006/10/03 12:46:45 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.69 2006/10/20 09:56:17 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -171,6 +171,30 @@ if (isset($_REQUEST['domainnum']))
     $_SESSION['nocc_smtp_server'] = $conf->domains[$domainnum]->smtp;
     $_SESSION['nocc_smtp_port'] = $conf->domains[$domainnum]->smtp_port;
     $_SESSION['imap_namespace'] = $conf->domains[$domainnum]->imap_namespace;
+
+    // Check allowed logins
+    if(isset($conf->domains[$domainnum]->login_allowed) && !empty($conf->domains[$domainnum]->login_allowed)){
+      if (is_array($conf->domains[$domainnum]->login_allowed)) {
+        if (!array_key_exists($_SESSION['nocc_login'], $conf->domains[$domainnum]->login_allowed)) {
+          $ev = new NoccException($html_login_not_allowed);
+          require ('./html/header.php');
+          require ('./html/error.php');
+          require ('./html/footer.php');
+          exit;
+        }
+      } else {
+        if (file_exists(substr($conf->domains[$domainnum]->login_allowed, 1))) {
+          include substr($conf->domains[$domainnum]->login_allowed, 1);
+          if (!array_key_exists($_SESSION['nocc_login'], $login_allowed)) {
+            $ev = new NoccException($html_login_not_allowed);
+            require ('./html/header.php');
+            require ('./html/error.php');
+            require ('./html/footer.php');
+            exit;
+          }
+        }
+      }
+    }
 
     //Do we have login aliases?
     if(isset($conf->domains[$domainnum]->login_aliases) && !empty($conf->domains[$domainnum]->login_aliases)){

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.97 2006/10/15 21:36:37 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.98 2006/10/18 19:22:13 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -242,4 +242,5 @@ $html_seperate_msg_win = 'Messages dans des fenêtres séparées';
 // Exceptions
 $html_err_file_contacts = 'Impossible d\'ouvrir le fichier des contacts';
 $html_session_file_error = 'Impossible d\'ouvrir le fichier des sessions';
+$html_login_not_allowed = 'Cet identifiant n\'est pas autorisé à se connecter.';
 ?>

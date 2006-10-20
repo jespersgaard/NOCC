@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/bg.php,v 1.41 2006/10/15 21:36:37 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/bg.php,v 1.42 2006/10/18 19:22:13 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -241,4 +241,5 @@ $html_seperate_msg_win = 'Messages in separate window';  //to translate
 // Exceptions
 $html_err_file_contacts = 'Unable to open contacts file for writing.'; //to translate
 $html_session_file_error = 'Unable to open session file for writing.';  //to translate
+$html_login_not_allowed = 'This login is not allowed for connexion.'; //to translate
 ?>

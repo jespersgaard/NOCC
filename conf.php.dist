@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.146 2006/10/03 12:46:45 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.147 2006/10/20 09:56:17 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -67,7 +67,14 @@ $conf->domains[$i]->login_suffix = '';
 // login_aliases = array('alias1' => 'real_login_1','alias2' => 'real_login_2');
 // If you want to use an external file, use the following syntax:
 // login_aliases = '@/path/to/file/';
+// See login_alias.sample file for example.
 //$conf->domains[$i]->login_aliases = array();
+// Uncomment for allowed logins and use the following syntax:
+// login_allowed = array('login_1' => '', 'login_2' => '');
+// If you want to use an external file, use the following syntax:
+// login_allowed = '@/path/to/file/';
+// See login_allowed.sample file for example.
+//$conf->domains[$i]->login_allowed = array();
 // Select SMTP AUTH method.
 // Supported AUTH methods are :
 // '' : no authentification method
@@ -88,6 +95,7 @@ $conf->domains[$i]->imap_namespace = "INBOX.";
 //$conf->domains[$i]->login_with_domain = 1;
 //$conf->domains[$i]->login_suffix = '';
 //$conf->domains[$i]->login_aliases = array();
+//$conf->domains[$i]->login_allowed = array();
 //$conf->domains[$i]->smtp_auth_method = '';
 //$conf->domains[$i]->imap_namespace = "INBOX.";
 
@@ -99,6 +107,7 @@ $conf->domains[$i]->imap_namespace = "INBOX.";
 //$conf->domains[$i]->login_with_domain = 1;
 //$conf->domains[$i]->login_suffix = '';
 //$conf->domains[$i]->login_aliases = array();
+//$conf->domains[$i]->login_allowed = array();
 //$conf->domains[$i]->smtp_auth_method = '';
 //$conf->domains[$i]->imap_namespace = "INBOX.";
 
