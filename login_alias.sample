@@ -5,8 +5,8 @@
 //
 // The format of the file is :
 // $login_alias = array(
-//   'login1' => 'alias1',
-//   'login2' => 'alias2'
+//   'alias_1' => 'real_login_1',
+//   'alias_2' => 'real_login_2'
 // );
 //
 // Do know remove the first and last lines, but just change login / alias
@@ -15,8 +15,8 @@
 
 $login_alias = array(
 // change from here
-  'login1' => 'alias1',
-  'login2' => 'alias2'
+  'alias_1' => 'real_login_1',
+  'alias_2' => 'real_login_2'
 // do not change after here
 );
 
