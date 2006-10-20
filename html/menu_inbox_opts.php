@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox_opts.php,v 1.20 2006/02/26 12:05:27 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_inbox_opts.php,v 1.21 2006/10/17 09:32:46 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -36,6 +36,7 @@
                                 <?php
                                   }
                                 ?>
+                                <input type="submit" name="forward_mode" class="button" value="<?php echo $html_forward; ?>" />
                                 <input type="submit" name="delete_mode" class="button" value="<?php echo $html_delete; ?>" onclick="if (confirm('<?php echo $html_del_msg; ?>')) return true; else return false;"/>
                               </td>
                             </tr>
@@ -43,4 +44,4 @@
                         </td>
                       </tr>
                     </table>
-<!-- end of $Id: menu_inbox_opts.php,v 1.20 2006/02/26 12:05:27 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_inbox_opts.php,v 1.21 2006/10/17 09:32:46 goddess_skuld Exp $ -->

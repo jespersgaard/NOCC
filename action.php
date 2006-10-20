@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.186 2006/10/14 08:56:42 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.187 2006/10/18 19:22:04 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -272,33 +272,42 @@ switch($action)
             break;
         }
 
-        $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
-        if (NoccException::isException($ev)) {
+        $mail_list = explode('$', $_REQUEST['mail']);
+        $mail_body = '';
+        for ($mail_num = 0; $mail_num < count($mail_list); $mail_num++) {
+          //$content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
+          $content = aff_mail($pop, $attach_tab, $mail_list[$mail_num], $_REQUEST['verbose'], $ev);
+          if (NoccException::isException($ev)) {
             require ('./html/header.php');
             require ('./html/error.php');
             require ('./html/footer.php');
             break;
-        }
+          }
 
-        $mail_subject = $html_forward_short.': '.$content['subject'];
-    
-        // Add signature
-        add_signature($mail_body);
+          if (count($mail_list) == 1) {
+            $mail_subject = $html_forward_short.': '.$content['subject'];
+          } else {
+            $mail_subject = '';
+          }
 
-        if (isset($conf->broken_forwarding) && $conf->broken_forwarding) {
+          if (isset($conf->broken_forwarding) && $conf->broken_forwarding) {
             // Set body
             if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
-                $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . strip_tags2($content['body'], '');
+                $mail_body .= $original_msg . $conf->crlf . $html_from . ': ' . $content['from'] . $conf->crlf . $html_to . ': ' . $content['to'] . $conf->crlf . $html_sent.': ' . $content['complete_date'] . $conf->crlf . $html_subject . ': '. $content['subject'] . $conf->crlf . $conf->crlf . strip_tags2($content['body'], '') . $conf->crlf . $conf->crlf;
             else {
               $stripped_content = strip_tags2($content['body'], '');
-              $mail_body = mailquote($stripped_content, $content['from'], $html_wrote);
+              $mail_body .= mailquote($stripped_content, $content['from'], $html_wrote) . $conf->crlf . $conf->crlf;
             }
             $broken_forwarding = true;
-        } else {
+          } else {
             $broken_forwarding = false;
+          }
         }
         // Let send.php know to attach the original message
         $forward_msgnum = $_REQUEST['mail'];
+
+        // Add signature
+        add_signature($mail_body);
 
         require ('./html/header.php');
         require ('./html/menu_inbox.php');

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.52 2006/08/02 19:33:35 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.53 2006/09/02 07:05:27 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -62,6 +62,7 @@ if (isset($_REQUEST['only_one'])) {
         }
     }
 } else {
+    $msg_to_forward = '';
     for ($i = 1; $i <= $num_messages; $i++) {
 
         if (isset($_REQUEST['msg-'.$i])) {
@@ -85,6 +86,9 @@ if (isset($_REQUEST['only_one'])) {
                     $pop->mail_copy($i, $target_folder, $ev);
                 }
             }
+            if (isset($_REQUEST['forward_mode']) || isset($_REQUEST['bottom_forward_mode'])) {
+                $msg_to_forward .= '$'.$i;
+            }
             if (isset($_REQUEST['delete_mode']) || isset($_REQUEST['bottom_delete_mode'])) {
                 // If messages are opened in a new windows, we will reload the opener window
                 // i.e. the one with messages list
@@ -104,6 +108,10 @@ if (isset($_REQUEST['only_one'])) {
                 $pop->mail_mark_unread($i, $ev);
             }
         }
+    }
+    if ($msg_to_forward != '') {
+      $msg_to_forward = substr($msg_to_forward, 1);
+      $url = 'action.php?action=forward&mail='.$msg_to_forward;
     }
 }
 

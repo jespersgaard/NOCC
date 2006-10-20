@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.139 2006/10/18 19:45:40 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.140 2006/10/18 20:04:29 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -174,7 +174,9 @@ switch($_REQUEST['sendaction'])
 
         // Add original message as attachment?
         if(isset($_REQUEST['forward_msgnum']) && $_REQUEST['forward_msgnum'] != "") {
-            $forward_msgnum = $_REQUEST['forward_msgnum'];
+	  $mail_list = explode('$', $_REQUEST['forward_msgnum']);
+          for ($msg_num = 0; $msg_num < count($mail_list); $msg_num++) {
+            $forward_msgnum = $mail_list[$msg_num];
             $ev = "";
             $pop = new nocc_imap($ev);
             if (NoccException::isException($ev)) {
@@ -205,7 +207,12 @@ switch($_REQUEST['sendaction'])
             $origmsg .= $body;
 
             // Attach it
-            $mail->add_attachment($origmsg, 'orig_msg.eml',  'message/rfc822', '', '');
+            if (count($mail_list) == 1) {
+              $mail->add_attachment($origmsg, 'orig_msg.eml',  'message/rfc822', '', '');
+            } else {
+              $mail->add_attachment($origmsg, 'orig_msg_'.$msg_num.'.eml',  'message/rfc822', '', '');
+            }
+          }
         }
 
             if (!isset ($_SESSION['last_send']))
