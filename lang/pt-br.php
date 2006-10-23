@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pt-br.php,v 1.42 2006/10/18 19:22:13 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pt-br.php,v 1.43 2006/10/20 12:20:00 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -39,8 +39,8 @@ $default_time_format = '%H:%M';
 
 // Here is the configuration for the HTML
 
-$err_user_empty = 'O campo <b>Usuário</b> esta vazio';
-$err_passwd_empty = 'O campo <b>Senha</b> esta vazio';
+$err_user_empty = 'O campo <strong>Usuário</strong> esta vazio';
+$err_passwd_empty = 'O campo <strong>Senha</strong> esta vazio';
 
 
 // html message

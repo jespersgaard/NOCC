@@ -1,4 +1,4 @@
-<!-- start of $Id: html_mail.php,v 1.2 2006/10/13 19:56:58 goddess_skuld Exp $ -->
+<!-- start of $Id: html_mail.php,v 1.3 2006/10/20 08:59:39 goddess_skuld Exp $ -->
 <div class="mailNav">
    <table>
 <?php
@@ -79,9 +79,6 @@ if ($has_images && $display_images != 1) {
 
 global $conf;
 
-  if (!isset($conf->loaded))
-    die('Hacking attempt');
-
 // If not displaying verbose headers, display normal headers
 if (!($conf->use_verbose && $verbose == '0')) {
   if($content['att'] != '') {
@@ -96,4 +93,4 @@ echo '<div class="mail">'.$content['body'].'</div>';
 
 ?>
 </div>
-<!-- end of $Id: html_mail.php,v 1.2 2006/10/13 19:56:58 goddess_skuld Exp $ -->
+<!-- end of $Id: html_mail.php,v 1.3 2006/10/20 08:59:39 goddess_skuld Exp $ -->
