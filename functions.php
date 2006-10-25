@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.220 2006/10/09 08:05:21 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.221 2006/10/13 20:13:24 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -1068,6 +1068,15 @@ function unhtmlentities ($string)
    $trans_tbl = get_html_translation_table (HTML_ENTITIES);
    $trans_tbl = array_flip ($trans_tbl);
    return strtr ($string, $trans_tbl);
+}
+
+// Convert mail data (from, to, ...) to HTML
+function convertMailData2Html($maildata, $cutafter = 0) {
+  if (($cutafter > 0) && (strlen($maildata) > $cutafter)) {
+    $maildata = substr($maildata, 0, $cutafter) . '&hellip;';
+  }
+  $maildata = htmlspecialchars($maildata);
+  return str_replace('&amp;hellip;', '&hellip;', $maildata);
 }
 
 // Save session informations.
