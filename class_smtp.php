@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.33 2006/07/18 11:02:33 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.34 2006/08/15 10:51:46 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -53,9 +53,9 @@ class smtp
     
     function smtp_helo($smtp) 
     {
-        /* 'localhost' always works [Unk] */ 
-        fputs($smtp, "helo localhost\r\n"); 
-        $this->sessionlog .= "Sent: helo localhost";
+        /* 'localhost' not always works [Unk] */ 
+        fputs($smtp, "helo " . $_SERVER["SERVER_NAME"] . "\r\n"); 
+        $this->sessionlog .= "Sent: helo " . $_SERVER["SERVER_NAME"];
         $line = fgets($smtp, 1024); 
         $this->sessionlog .= "Rcvd: $line";
 
