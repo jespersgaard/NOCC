@@ -1,6 +1,7 @@
 NOCC 1.3    ?? ??, 200?
 
   Bugs
+    * Bug #1598813 : file "prefs_error.php" seems unneeded (Arnaud Boudou).
     * Bug #1581966 : Bold tag instead of strong tag in pt-br.php (Arnaud
       Boudou).
     * Bug #1579997 : Download mail, illegal characters in filename on save
