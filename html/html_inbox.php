@@ -1,4 +1,4 @@
-<!-- start of $Id: html_inbox.php,v 1.50 2006/10/05 15:37:25 goddess_skuld Exp $ -->
+<!-- start of $Id: html_inbox.php,v 1.51 2006/10/25 09:23:46 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -16,6 +16,8 @@
                       <tr>
                         <td class="<?php echo $inbox_class ?>">
                           <input type="checkbox" name="msg-<?php echo $tmp['number'] ?>" value="Y" />
+                        </td>
+                        <td class="<?php echo $inbox_class ?>">
                           <?php echo $tmp['new']; ?>
                           <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=write&amp;mail_to=<?php echo convertMailData2Html($tmp['from']) ?>" title="<?php echo convertMailData2Html($tmp['from']); ?>"><?php echo convertMailData2Html(display_address ($tmp['from'])); ?></a>
                           <?php echo $tmp['attach']; ?>
@@ -38,4 +40,4 @@
                           <?php echo $tmp['size'] ?> <?php echo $html_kb ?>
                         </td>
                       </tr>
-<!-- end of $Id: html_inbox.php,v 1.50 2006/10/05 15:37:25 goddess_skuld Exp $ -->
+<!-- end of $Id: html_inbox.php,v 1.51 2006/10/25 09:23:46 goddess_skuld Exp $ -->

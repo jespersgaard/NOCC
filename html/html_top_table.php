@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.88 2006/10/13 19:56:58 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.89 2006/10/17 09:32:46 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -118,7 +118,7 @@ if ($pop->is_imap()) {
                     <?php include('menu_inbox_opts.php'); ?>
                       <table>
                         <tr>
-                          <th class="inboxHeader<?php if ($_SESSION['nocc_sort'] == 2) echo 'Sorted' ?>">
+                          <th colspan="2" class="inboxHeader<?php if ($_SESSION['nocc_sort'] == 2) echo 'Sorted' ?>">
                             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>"><?php echo $html_from ?></a>
                             &nbsp;
                             <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>">
@@ -149,4 +149,4 @@ if ($pop->is_imap()) {
                               <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.png" class="sort" alt="<?php echo $html_sort; ?>" title="<?php echo $html_sort_by." ".$html_size; ?>" /></a>
                           </th>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.88 2006/10/13 19:56:58 goddess_skuld Exp $ -->
+<!-- end of $Id: html_top_table.php,v 1.89 2006/10/17 09:32:46 goddess_skuld Exp $ -->
