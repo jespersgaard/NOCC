@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.222 2006/10/25 09:23:46 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.223 2006/10/25 12:31:32 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -343,8 +343,8 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
         'complete_date' => $date,
         'att' => $link_att,
         'body' => $pop->graphicalsmilies($body),
-        'body_mime' => htmlentities($tmp['mime']),
-        'body_transfer' => htmlentities($tmp['transfer']),
+        'body_mime' => convertLang2Html($tmp['mime']),
+        'body_transfer' => convertLang2Html($tmp['transfer']),
         'header' => $header,
         'verbose' => $verbose,
         'prev' => $prev_msg,
@@ -632,7 +632,7 @@ function link_att(&$mail, $attach_tab, &$display_part_no)
               $att_name .= $att_name_array[$i]->text;
             }
             $att_name_dl = $att_name;
-            $att_name = htmlentities($att_name, ENT_COMPAT, 'UTF-8');
+            $att_name = convertLang2Html($att_name);
             $link .= '<a href="download.php?mail=' . $mail . '&amp;part=' . $tmp['number'] . '&amp;transfer=' . $tmp['transfer'] . '&amp;filename=' . base64_encode($att_name_dl) . '&amp;mime=' . $mime . '">' . $att_name . '</a>&nbsp;&nbsp;' . $tmp['mime'] . '&nbsp;&nbsp;' . $tmp['size'] . ' ' . $html_kb . '<br/>';
         }
     return ($link);
@@ -1143,5 +1143,11 @@ function loadSession(&$ev, &$key)
 
   $line = trim(fgets($file, 1024));
   return $line;
+}
+
+// Convert a language string to HTML
+function convertLang2Html($langstring) {
+  global $charset;
+  return htmlentities($langstring, ENT_COMPAT, $charset);
 }
 ?>

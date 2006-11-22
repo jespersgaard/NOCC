@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.21 2006/09/25 19:53:28 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.22 2006/10/17 09:32:46 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -61,11 +61,11 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
     <div class="error">
       <table class="errorTable">
         <tr class="errorTitle">
-          <td><?php echo $html_error_occurred ?></td>
+          <td><?php echo convertLang2Html($html_error_occurred); ?></td>
         </tr>
         <tr class="errorText">
           <td>
-            <p><?php echo $html_contact_err3; ?></p>
+            <p><?php echo convertLang2Html($html_contact_err3); ?></p>
           </td>
         </tr>
       </table>
@@ -87,7 +87,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
       <table>
         <tr>
           <td colspan="2" class="contactsTitle">
-            <?php echo $html_contact_list . " " . $_SESSION["nocc_user"]; ?>
+            <?php echo convertLang2Html($html_contact_list . " " . $_SESSION["nocc_user"]); ?>
           </td>
         </tr>
         <tr>
@@ -103,27 +103,27 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
         </tr>
         <?php if (count ($contacts) < $conf->contact_number_max || $_GET['modif']) { ?>
         <tr>
-          <td class="contactsAddLabel"><label for="first"><?php echo $html_contact_first ?>:</label></td>
+          <td class="contactsAddLabel"><label for="first"><?php echo convertLang2Html($html_contact_first) ?>:</label></td>
           <td class="contactsAddData"><input class="button" name="first" type="text" id="first" value="<?php if (isset($tab[0])) { echo $tab[0]; } ?>"/></td>
         </tr>
         <tr>
-          <td class="contactsAddLabel"><label for="last"><?php echo $html_contact_last ?>:</label></td>
+          <td class="contactsAddLabel"><label for="last"><?php echo convertLang2Html($html_contact_last) ?>:</label></td>
           <td class="contactsAddData"><input class="button" name="last" type="text" id="last" value="<?php if (isset($tab[1])) { echo $tab[1]; } ?>"/></td>
         </tr>
         <tr>
-          <td class="contactsAddLabel"><label for="nick"><?php echo $html_contact_nick ?>:</label></td>
+          <td class="contactsAddLabel"><label for="nick"><?php echo convertLang2Html($html_contact_nick) ?>:</label></td>
           <td class="contactsAddData"><input class="button" name="nick" type="text" id="nick" value="<?php if (isset($tab[2])) { echo $tab[2]; } ?>"/></td>
         </tr>
         <tr>
-          <td class="contactsAddLabel"><label for="email"><?php echo $html_contact_mail ?>:</label></td>
+          <td class="contactsAddLabel"><label for="email"><?php echo convertLang2Html($html_contact_mail) ?>:</label></td>
           <td class="contactsAddData"><input class="button" name="email" type="text" id="email" value="<?php if (isset($tab[3])) { echo $tab[3]; } ?>"/></td>
         </tr>
         <tr>
           <td colspan="2" class="center">
-            <input type="button" name="Submit2" value="<?php echo $html_cancel ?>" class="button" onclick="self.history.go (-1);"/>
+            <input type="button" name="Submit2" value="<?php echo convertLang2Html($html_cancel) ?>" class="button" onclick="self.history.go (-1);"/>
             <input type="hidden" name="modif" value="<?php echo $_GET['modif'] ?>"/>
             <input type="hidden" name="id" value="<?php if (!isset($_GET['id'])) {echo '0';} else {echo $_GET['id'];} ?>"/>
-            <input type="submit" name="Submit4" value="<?php echo ($_GET['modif']) ?  $html_modify : $html_add ?>" class="button"/></td>
+            <input type="submit" name="Submit4" value="<?php echo ($_GET['modif']) ? convertLang2Html($html_modify) : convertLang2Html($html_add) ?>" class="button"/></td>
         </tr>
         <?php } else  { ?>
         <tr>
@@ -131,12 +131,12 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
             <div class="error">
               <table class="errorTable">
                 <tr class="errorTitle">
-                  <td><?php echo $html_error_occurred ?></td>
+                  <td><?php echo convertLang2Html($html_error_occurred) ?></td>
                 </tr>
                 <tr class="errorText">
                   <td>
-                    <p><?php echo $html_contact_err1 ."\"" . $conf->contact_number_max . "\"" ?></p>
-                    <p><?php echo $html_contact_err2 ?>.</p>
+                    <p><?php echo convertLang2Html($html_contact_err1) ."\"" . convertLang2Html($conf->contact_number_max) . "\"" ?></p>
+                    <p><?php echo convertLang2Html($html_contact_err2) ?>.</p>
                     <p><a href="<?php echo $_SERVER['PHP_SELF']; ?>"><?php echo $html_back; ?></a></p>
                   </td>
                 </tr>
@@ -221,10 +221,10 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
   <div class="contactsList">
     <table>
       <tr class="contactsListHeader">
-        <th><?php echo $html_contact_first ?></th>
-        <th><?php echo $html_contact_last ?></th>
-        <th><?php echo $html_contact_nick ?></th>
-        <th><?php echo $html_contact_mail ?></th>
+        <th><?php echo convertLang2Html($html_contact_first) ?></th>
+        <th><?php echo convertLang2Html($html_contact_last) ?></th>
+        <th><?php echo convertLang2Html($html_contact_nick) ?></th>
+        <th><?php echo convertLang2Html($html_contact_mail) ?></th>
         <th colspan="2">&nbsp;</th>
       </tr>
       <?php
@@ -251,7 +251,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
   </div>
   <div class="contactsAddLink">
     <br/>
-    <a href="<?php echo $_SERVER['PHP_SELF'];; ?>?action=add_prompt&amp;<?php echo $query_str ?>"><?php echo $html_contact_add ?></a>
+    <a href="<?php echo $_SERVER['PHP_SELF'];; ?>?action=add_prompt&amp;<?php echo $query_str ?>"><?php echo convertLang2Html($html_contact_add) ?></a>
   </div>
   <?php
     } // switch

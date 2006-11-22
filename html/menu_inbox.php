@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox.php,v 1.56 2006/02/26 11:07:52 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.57 2006/10/15 21:36:37 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -34,30 +34,30 @@ elseif ($action == 'forward')
               <table>
                 <tr>
                   <td class="<?php echo $classInbox; ?>">
-                    <a href="<?php echo $_SERVER['PHP_SELF'] ?>"><?php if ($_SESSION['nocc_folder'] != 'INBOX') { echo $_SESSION['nocc_folder']; } else { echo htmlentities($html_inbox, ENT_COMPAT, 'UTF-8'); } ?></a>
+                    <a href="<?php echo $_SERVER['PHP_SELF'] ?>"><?php if ($_SESSION['nocc_folder'] != 'INBOX') { echo $_SESSION['nocc_folder']; } else { echo convertLang2Html($html_inbox); } ?></a>
                   </td>
                   <td class="<?php echo $class; ?>">
                     <?php echo $line ?>
                   </td>
                   <td class="menuBlank">
-                    <?php if (isset($_GET["successfulsend"]) && $_GET["successfulsend"]) { echo htmlentities($html_send_confirmed, ENT_COMPAT, 'UTF-8'); } ?>
+                    <?php if (isset($_GET["successfulsend"]) && $_GET["successfulsend"]) { echo convertLang2Html($html_send_confirmed); } ?>
                   </td>
                   <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
                   <td class="menu">
-                    <a href="javascript:void(0);" onclick="window.open('contacts_manager.php?<?php echo session_name() . '=' .   session_id() ?>','','scrollbars=yes,resizable=yes,width=600,height=400')"><?php echo htmlentities($html_contacts, ENT_COMPAT, 'UTF-8') ?></a>
+                    <a href="javascript:void(0);" onclick="window.open('contacts_manager.php?<?php echo session_name() . '=' .   session_id() ?>','','scrollbars=yes,resizable=yes,width=600,height=400')"><?php echo convertLang2Html($html_contacts) ?></a>
                   </td>
                   <?php } ?>
                   <?php if($conf->prefs_dir) { ?>
                   <td class="menuSmall">
-                    <a href="action.php?action=setprefs"><?php echo htmlentities($html_preferences, ENT_COMPAT, 'UTF-8') ?></a>
+                    <a href="action.php?action=setprefs"><?php echo convertLang2Html($html_preferences) ?></a>
                   </td>
                   <?php } ?>
                   <?php if ($conf->enable_logout) { ?>
                   <td class="menuSmall">
-                    <a href="logout.php"><?php echo htmlentities($html_logout, ENT_COMPAT, 'UTF-8') ?></a>
+                    <a href="logout.php"><?php echo convertLang2Html($html_logout) ?></a>
                   </td>
                   <?php } ?>
                 </tr>
               </table>
             </div>
-<!-- end of $Id: menu_inbox.php,v 1.56 2006/02/26 11:07:52 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_inbox.php,v 1.57 2006/10/15 21:36:37 goddess_skuld Exp $ -->

@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.47 2006/10/17 08:57:26 goddess_skuld Exp $ -->
+<!-- start of $Id: prefs.php,v 1.48 2006/10/18 19:22:13 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -34,21 +34,21 @@ if (count($big_list) > 1) {
       <input type="hidden" name="submit_prefs" value="set" />
       <table>
          <tr>
-           <td class="prefsLabel"><label for="full_name"><?php echo htmlentities($html_full_name, ENT_COMPAT, 'UTF-8') ?>:</label></td>
+           <td class="prefsLabel"><label for="full_name"><?php echo convertLang2Html($html_full_name) ?>:</label></td>
            <td class="prefsData">
              <input class="button"type="text" name="full_name" id="full_name" value="<?php echo (isset($user_prefs->full_name)) ? $user_prefs->full_name : "" ?>" size="40"/>
            </td>
          </tr>
          <?php if ($conf->allow_address_change) { ?>
          <tr>
-           <td class="prefsLabel"><label for="email_address"><?php echo htmlentities($html_email_address, ENT_COMPAT, 'UTF-8') ?>:</label></td>
+           <td class="prefsLabel"><label for="email_address"><?php echo convertLang2Html($html_email_address) ?>:</label></td>
            <td class="prefsData">
              <input class="button" type="text" name="email_address" id="email_address" value="<?php echo (isset($user_prefs->email_address)) ? $user_prefs->email_address : get_default_from_address() ?>" size="40"/>
            </td>
          </tr>
          <?php } ?>
          <tr>
-           <td class="prefsLabel"><label for="msg_per_page"><?php echo htmlentities($html_msgperpage, ENT_COMPAT, 'UTF-8') ?>:</label></td>
+           <td class="prefsLabel"><label for="msg_per_page"><?php echo convertLang2Html($html_msgperpage) ?>:</label></td>
            <td class="prefsData">
              <input class="button" type="text" name="msg_per_page" id="msg_per_page" value="<?php echo (isset($user_prefs->msg_per_page)) ? $user_prefs->msg_per_page : $conf->msg_per_page ?>" size="3" maxlength="3"/>
            </td>
@@ -56,54 +56,54 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="cc_self" id="cc_self" value="on" <?php if(isset($user_prefs->cc_self) && $user_prefs->cc_self) echo 'checked="checked"'; ?> /><label for="cc_self"><?php echo htmlentities($html_ccself, ENT_COMPAT, 'UTF-8') ?></label>
+             <input type="checkbox" name="cc_self" id="cc_self" value="on" <?php if(isset($user_prefs->cc_self) && $user_prefs->cc_self) echo 'checked="checked"'; ?> /><label for="cc_self"><?php echo convertLang2Html($html_ccself) ?></label>
            </td>
          </tr>
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="hide_addresses" id="hide_addresses" value="on" <?php if(isset($user_prefs->hide_addresses) && $user_prefs->hide_addresses) echo 'checked="checked"'; ?> /><label for="hide_addresses"><?php echo htmlentities($html_hide_addresses, ENT_COMPAT, 'UTF-8') ?></label>
+             <input type="checkbox" name="hide_addresses" id="hide_addresses" value="on" <?php if(isset($user_prefs->hide_addresses) && $user_prefs->hide_addresses) echo 'checked="checked"'; ?> /><label for="hide_addresses"><?php echo convertLang2Html($html_hide_addresses) ?></label>
            </td>
          </tr>
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="outlook_quoting" id="outlook_quoting" value="on" <?php if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting) echo 'checked="checked"'; ?> /><label for="outlook_quoting"><?php echo htmlentities($html_outlook_quoting, ENT_COMPAT, 'UTF-8') ?></label>
+             <input type="checkbox" name="outlook_quoting" id="outlook_quoting" value="on" <?php if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting) echo 'checked="checked"'; ?> /><label for="outlook_quoting"><?php echo convertLang2Html($html_outlook_quoting) ?></label>
            </td>
          </tr>
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="colored_quotes" id="colored_quotes" value="on" <?php if(!isset($user_prefs->colored_quotes) || (isset($user_prefs->colored_quotes) && $user_prefs->colored_quotes)) echo 'checked="checked"'; ?> /><label for="colored_quotes"><?php echo htmlentities($html_colored_quotes, ENT_COMPAT, 'UTF-8') ?></label>
+             <input type="checkbox" name="colored_quotes" id="colored_quotes" value="on" <?php if(!isset($user_prefs->colored_quotes) || (isset($user_prefs->colored_quotes) && $user_prefs->colored_quotes)) echo 'checked="checked"'; ?> /><label for="colored_quotes"><?php echo convertLang2Html($html_colored_quotes) ?></label>
            </td>
          </tr>
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <?php echo htmlentities($html_wrap, ENT_COMPAT, 'UTF-8') ?>
+             <?php echo convertLang2Html($html_wrap) ?>
              <input type="radio" name="wrap_msg" id="wrap_msg_80" value="80" <?php if($user_prefs->wrap_msg == 80) echo 'checked="checked"'; ?> /><label for="wrap_msg_80">80</label>
              &nbsp;&nbsp;
              <input type="radio" name="wrap_msg" id="wrap_msg_72" value="72" <?php if($user_prefs->wrap_msg == 72) echo 'checked="checked"'; ?> /><label for="wrap_msg_72">72</label>
              &nbsp;&nbsp;
-             <input type="radio" name="wrap_msg" id="wrap_msg_0" value="0" <?php if(!isset($user_prefs->wrap_msg) || $user_prefs->wrap_msg == '' || $user_prefs->wrap_msg == '0') echo 'checked="checked"'; ?> /><label for="wrap_msg_0"><?php echo htmlentities($html_wrap_none, ENT_COMPAT, 'UTF-8') ?></label>
+             <input type="radio" name="wrap_msg" id="wrap_msg_0" value="0" <?php if(!isset($user_prefs->wrap_msg) || $user_prefs->wrap_msg == '' || $user_prefs->wrap_msg == '0') echo 'checked="checked"'; ?> /><label for="wrap_msg_0"><?php echo convertLang2Html($html_wrap_none) ?></label>
            </td>
          </tr>
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="seperate_msg_win" id="seperate_msg_win" value="on" <?php if(isset($user_prefs->seperate_msg_win) && $user_prefs->seperate_msg_win) echo 'checked="checked"'; ?> /><label for="seperate_msg_win"><?php echo htmlentities($html_seperate_msg_win, ENT_COMPAT, 'UTF-8') ?></label>
+             <input type="checkbox" name="seperate_msg_win" id="seperate_msg_win" value="on" <?php if(isset($user_prefs->seperate_msg_win) && $user_prefs->seperate_msg_win) echo 'checked="checked"'; ?> /><label for="seperate_msg_win"><?php echo convertLang2Html($html_seperate_msg_win) ?></label>
            </td>
          </tr>
          <?php if($conf->enable_reply_leadin) { ?>
          <tr>
-           <td class="prefsLabel"><label for="reply_leadin"><?php echo htmlentities($html_reply_leadin, ENT_COMPAT, 'UTF-8') ?>:</label></td>
+           <td class="prefsLabel"><label for="reply_leadin"><?php echo convertLang2Html($html_reply_leadin) ?>:</label></td>
            <td class="prefsData">
              <input class="button" type="text" name="reply_leadin" id="reply_leadin" value="<?php echo (isset($user_prefs->reply_leadin)) ? $user_prefs->reply_leadin : "" ?>" size="40"/>
            </td>
          </tr>
          <?php } ?>
          <tr>
-           <td class="prefsLabel"><label for="signature"><?php echo htmlentities($html_signature, ENT_COMPAT, 'UTF-8') ?>:</label></td>
+           <td class="prefsLabel"><label for="signature"><?php echo convertLang2Html($html_signature) ?>:</label></td>
            <td class="prefsData">
              <?php if (isset($user_prefs->html_mail_send) && $user_prefs->html_mail_send) { 
                include("fckeditor/fckeditor.php") ;
@@ -122,38 +122,38 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="sig_sep" id="sig_sep" value="on" <?php if(isset($user_prefs->sig_sep) && $user_prefs->sig_sep) echo 'checked="checked"'; ?> /><label for="sig_sep"><?php echo htmlentities($html_usenet_separator, ENT_COMPAT, 'UTF-8') ?></label>
+             <input type="checkbox" name="sig_sep" id="sig_sep" value="on" <?php if(isset($user_prefs->sig_sep) && $user_prefs->sig_sep) echo 'checked="checked"'; ?> /><label for="sig_sep"><?php echo convertLang2Html($html_usenet_separator) ?></label>
            </td>
          </tr>
          <?php } ?>
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="html_mail_send" id="html_mail_send" value="on" <?php if(isset($user_prefs->html_mail_send) && $user_prefs->html_mail_send) echo 'checked="checked"'; ?> /><label for="html_mail_send"><?php echo htmlentities($html_send_html_mail, ENT_COMPAT, 'UTF-8') ?></label>
+             <input type="checkbox" name="html_mail_send" id="html_mail_send" value="on" <?php if(isset($user_prefs->html_mail_send) && $user_prefs->html_mail_send) echo 'checked="checked"'; ?> /><label for="html_mail_send"><?php echo convertLang2Html($html_send_html_mail) ?></label>
            </td>
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="graphical_smilies" id="graphical_smilies" value="on" <?php if (isset($user_prefs->graphical_smilies) && $user_prefs->graphical_smilies) echo 'checked="checked"'; ?> /><label for="graphical_smilies"><?php echo htmlentities($html_use_graphical_smilies, ENT_COMPAT, 'UTF-8') ?></label>
+             <input type="checkbox" name="graphical_smilies" id="graphical_smilies" value="on" <?php if (isset($user_prefs->graphical_smilies) && $user_prefs->graphical_smilies) echo 'checked="checked"'; ?> /><label for="graphical_smilies"><?php echo convertLang2Html($html_use_graphical_smilies) ?></label>
            </td>
          </tr>
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="display_struct" id="display_struct" value="on" <?php if(isset($user_prefs->display_struct) && (isset($user_prefs->display_struct) && $user_prefs->display_struct)) echo 'checked="checked"'; ?> /><label for="display_struct"><?php echo htmlentities($html_display_struct, ENT_COMPAT, 'UTF-8') ?></label>
+             <input type="checkbox" name="display_struct" id="display_struct" value="on" <?php if(isset($user_prefs->display_struct) && (isset($user_prefs->display_struct) && $user_prefs->display_struct)) echo 'checked="checked"'; ?> /><label for="display_struct"><?php echo convertLang2Html($html_display_struct) ?></label>
            </td>
          </tr>
          <?php if($pop->is_imap()) { ?>
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="sent_folder" id="sent_folder" value="on" <?php if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder) echo 'checked="checked"'; ?> /><label for="sent_folder"><?php echo htmlentities($html_sent_folder, ENT_COMPAT, 'UTF-8') ?></label> : 
+             <input type="checkbox" name="sent_folder" id="sent_folder" value="on" <?php if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder) echo 'checked="checked"'; ?> /><label for="sent_folder"><?php echo convertLang2Html($html_sent_folder) ?></label> : 
              <select class="button" name="sent_folder_name"><?php echo join('', $select_list) ?></select>
            </td>
          </tr>
          <?php } ?>
          <tr>
-           <td class="prefsLabel"><label for="lang"><?php echo $html_lang ?>:</label></td>
+           <td class="prefsLabel"><label for="lang"><?php echo convertLang2Html($html_lang) ?>:</label></td>
            <td class="prefsData">
              <select class="button" name="lang" id="lang">
                <?php
@@ -171,7 +171,7 @@ if (count($big_list) > 1) {
          </tr>
          <?php if ($conf->use_theme == true) { ?>
          <tr>
-           <td class="prefsLabel"><label for="theme"><?php echo $html_theme ?>:</label></td>
+           <td class="prefsLabel"><label for="theme"><?php echo convertLang2Html($html_theme) ?>:</label></td>
            <td class="prefsData">
              <select class="button" name="theme" id="theme">
              <?php
@@ -200,11 +200,11 @@ if (count($big_list) > 1) {
              <div class="error">
                <table class="errorTable">
                  <tr class="errorTitle">
-                   <td><?php echo htmlentities($html_error_occurred, ENT_COMPAT, 'UTF-8') ?></td>
+                   <td><?php echo convertLang2Html($html_error_occurred) ?></td>
                  </tr>
                  <tr class="errorText">
                    <td>
-                     <p><?php echo htmlentities($ev->getMessage(), ENT_COMPAT, 'UTF-8'); ?></p>
+                     <p><?php echo convertLang2Html($ev->getMessage()); ?></p>
                    </td>
                  </tr>
                </table>
@@ -212,13 +212,13 @@ if (count($big_list) > 1) {
            <?php
              } else {
                if(isset($_REQUEST['submit_prefs']))
-                 echo '<br />' . htmlentities($html_prefs_updated, ENT_COMPAT, 'UTF-8');
+                 echo '<br />' . convertLang2Html($html_prefs_updated);
              }
            ?>
              <br /><br />
-             <input type="submit" class="button" value="<?php echo htmlentities($html_submit, ENT_COMPAT, 'UTF-8') ?>" />
+             <input type="submit" class="button" value="<?php echo convertLang2Html($html_submit) ?>" />
               &nbsp;&nbsp;
-              <input type="reset" class="button" value="<?php echo htmlentities($html_cancel, ENT_COMPAT, 'UTF-8') ?>" />
+              <input type="reset" class="button" value="<?php echo convertLang2Html($html_cancel) ?>" />
            </td>
          </tr>
        </table>
@@ -229,11 +229,11 @@ if (count($big_list) > 1) {
    ?>
  </div>
  <div class="IMAPPrefs">
-   <a href="action.php?action=managefolders"><?php echo htmlentities($html_manage_folders_link, ENT_COMPAT, 'UTF-8') ?></a>
+   <a href="action.php?action=managefolders"><?php echo convertLang2Html($html_manage_folders_link) ?></a>
    &nbsp;|&nbsp;
-   <a href="action.php?action=managefilters"><?php echo htmlentities($html_manage_filters_link, ENT_COMPAT, 'UTF-8') ?></a>
+   <a href="action.php?action=managefilters"><?php echo convertLang2Html($html_manage_filters_link) ?></a>
  </div>
    <?php
      }
    ?>
-<!-- end of $Id: prefs.php,v 1.47 2006/10/17 08:57:26 goddess_skuld Exp $ -->
+<!-- end of $Id: prefs.php,v 1.48 2006/10/18 19:22:13 goddess_skuld Exp $ -->

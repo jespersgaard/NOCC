@@ -16,7 +16,7 @@ else
 // prefs.php to find it's prefs file.
 $header_display_address = get_default_from_address();
 
-$custom_header = './themes/' . str_replace('..','',htmlentities($_SESSION['nocc_theme'])) . '/header.php';
+$custom_header = './themes/' . str_replace('..','',convertLang2Html($_SESSION['nocc_theme'])) . '/header.php';
 if(file_exists($custom_header)) {
     include($custom_header);
 }
@@ -26,9 +26,9 @@ else {
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang; ?>">
     <head>
         <title>NOCC - Webmail</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=<?php echo htmlentities($charset, ENT_COMPAT, 'UTF-8'); ?>" />
-        <link href="themes/<?php echo str_replace('..','',htmlentities($_SESSION['nocc_theme'])); ?>/style.css" rel="stylesheet" type="text/css" />
-        <link href="themes/<?php echo str_replace('..','',htmlentities($_SESSION['nocc_theme'])); ?>/print.css" rel="stylesheet" media="print" type="text/css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=<?php echo convertLang2Html($charset); ?>" />
+        <link href="themes/<?php echo str_replace('..','',convertLang2Html($_SESSION['nocc_theme'])); ?>/style.css" rel="stylesheet" type="text/css" />
+        <link href="themes/<?php echo str_replace('..','',convertLang2Html($_SESSION['nocc_theme'])); ?>/print.css" rel="stylesheet" media="print" type="text/css" />
         <script type="text/javascript">
             function OpenHelpWindow(theURL,winName,features)
             {
@@ -58,9 +58,9 @@ else {
   
 ?>
         </script>
-        <link rel="alternate" type="application/rss+xml" title="RSS - NOCC" href="<?php echo htmlentities($rss_url, ENT_COMPAT, 'UTF-8') ?>" />
+        <link rel="alternate" type="application/rss+xml" title="RSS - NOCC" href="<?php echo convertLang2Html($rss_url) ?>" />
     </head>
-    <body dir="<?php echo htmlentities($lang_dir, ENT_COMPAT, 'UTF-8'); ?>">
+    <body dir="<?php echo convertLang2Html($lang_dir); ?>">
         <div class="global">
           <div class="header">
             <img src="themes/<?php echo $_SESSION['nocc_theme']; ?>/img/logo.png" class="headerLogo" alt="Logo" />
@@ -69,4 +69,4 @@ else {
 <?php
 }
 ?>
-<!-- end of $Id: header.php,v 1.60 2006/09/26 17:14:50 goddess_skuld Exp $ -->
+<!-- end of $Id: header.php,v 1.61 2006/10/18 14:56:29 goddess_skuld Exp $ -->

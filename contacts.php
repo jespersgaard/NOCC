@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts.php,v 1.13 2006/09/01 20:28:18 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts.php,v 1.14 2006/09/25 19:53:28 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -84,11 +84,11 @@ function toggle (bt)
   <div class="error">
     <table class="errorTable">
       <tr class="errorTitle">
-        <td><?php echo $html_error_occurred ?></td>
+        <td><?php echo convertLang2Html($html_error_occurred); ?></td>
       </tr>
       <tr class="errorText">
         <td>
-          <p><?php echo $html_contact_err3; ?></p>
+          <p><?php echo convertLang2Html($html_contact_err3); ?></p>
         </td>
       </tr>
     </table>
@@ -99,15 +99,15 @@ function toggle (bt)
   ?>
   <div class="contactsList">
     <p class="contactsTitle">
-      <?php echo $html_contact_list . " " . $_SESSION["nocc_user"]; ?>
+      <?php echo convertLang2Html($html_contact_list . " " . $_SESSION["nocc_user"]); ?>
     </p>
 
     <table>
       <tr class="contactsListHeader">
-        <th><?php echo $html_contact_first ?></th>
-        <th><?php echo $html_contact_last ?></th>
-        <th><?php echo $html_contact_nick ?></th>
-        <th><?php echo $html_contact_mail ?></th>
+        <th><?php echo convertLang2Html($html_contact_first) ?></th>
+        <th><?php echo convertLang2Html($html_contact_last) ?></th>
+        <th><?php echo convertLang2Html($html_contact_nick) ?></th>
+        <th><?php echo convertLang2Html($html_contact_mail) ?></th>
         <th>&nbsp;</td>
       </tr>
       <?php

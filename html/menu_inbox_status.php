@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox_status.php,v 1.9 2006/02/26 09:32:53 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_inbox_status.php,v 1.10 2006/02/26 12:05:28 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -9,7 +9,7 @@
                           <table class="inboxStatus">
                             <tr>
                                <td class="right">
-                                 <?php echo htmlentities($html_new_msg_in, ENT_COMPAT, 'UTF-8') ?>
+                                 <?php echo convertLang2Html($html_new_msg_in) ?>
                                </td>
                                <td class="left">
                                  <?php echo $list_of_folders ?>
@@ -19,4 +19,4 @@
                          </td>
                        </tr>
 <?php } ?>
-<!-- end of $Id: menu_inbox_status.php,v 1.9 2006/02/26 09:32:53 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_inbox_status.php,v 1.10 2006/02/26 12:05:28 goddess_skuld Exp $ -->

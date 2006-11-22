@@ -1,4 +1,4 @@
-<!-- start of $Id: folders.php,v 1.17 2006/09/04 07:58:42 goddess_skuld Exp $ -->
+<!-- start of $Id: folders.php,v 1.18 2006/10/17 09:32:46 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -37,36 +37,36 @@ if (count($big_list) > 1) {
           <td class="prefsLabel"></td>
           <td class="prefsData">
             <input type="radio" id="do_create_folder" name="do" value="create_folder"/>
-            <label for="do_create_folder"><?php echo htmlentities($html_folder_create, ENT_COMPAT, 'UTF-8') ?></label> <input class="button" type="text" name="createnewbox" size="15" maxlength="32"/>
+            <label for="do_create_folder"><?php echo convertLang2Html($html_folder_create) ?></label> <input class="button" type="text" name="createnewbox" size="15" maxlength="32"/>
           </td>
         </tr>
         <tr>
           <td class="prefsLabel"></td>
           <td class="prefsData">
             <input type="radio" id="do_rename_folder" name="do" value="rename_folder"/>
-            <label for="do_rename_folder"><?php echo htmlentities($html_folder_rename, ENT_COMPAT, 'UTF-8') ?></label> <?php echo $renameoldbox ?>
-            <label for="renamenewbox"><?php echo htmlentities($html_folder_to, ENT_COMPAT, 'UTF-8') ?></label> <input class="button" type="text" id="renamenewbox" name="renamenewbox" size="15" maxlength="32"/>
+            <label for="do_rename_folder"><?php echo convertLang2Html($html_folder_rename) ?></label> <?php echo $renameoldbox ?>
+            <label for="renamenewbox"><?php echo convertLang2Html($html_folder_to) ?></label> <input class="button" type="text" id="renamenewbox" name="renamenewbox" size="15" maxlength="32"/>
           </td>
         </tr>
         <tr>
           <td class="prefsLabel"></td>
           <td class="prefsData">
             <input type="radio" id="do_subscribe_folder" name="do" value="subscribe_folder"/>
-            <label for="do_subscribe_folder"><?php echo htmlentities($html_folder_subscribe, ENT_COMPAT, 'UTF-8') ?></label> <select class="button" name="subscribenewbox"> <?php echo join('', $select_list) ?> </select>
+            <label for="do_subscribe_folder"><?php echo convertLang2Html($html_folder_subscribe) ?></label> <select class="button" name="subscribenewbox"> <?php echo join('', $select_list) ?> </select>
           </td>
         </tr>
         <tr>
           <td class="prefsLabel"></td>
           <td class="prefsData">
             <input type="radio" id="do_remove_folder" name="do" value="remove_folder"/>
-            <label for="do_remove_folder"><?php echo htmlentities($html_folder_remove, ENT_COMPAT, 'UTF-8') ?></label> <?php echo $removeoldbox ?>
+            <label for="do_remove_folder"><?php echo convertLang2Html($html_folder_remove) ?></label> <?php echo $removeoldbox ?>
           </td>
         </tr>
         <tr>
           <td class="prefsLabel"></td>
           <td class="prefsData">
             <input type="radio" id="do_delete_folder" name="do" value="delete_folder"/>
-            <label for="do_delete_folder"><?php echo htmlentities($html_folder_delete, ENT_COMPAT, 'UTF-8') ?></label> <select class="button" name="deletebox"> <?php echo join('', $select_list) ?> </select>
+            <label for="do_delete_folder"><?php echo convertLang2Html($html_folder_delete) ?></label> <select class="button" name="deletebox"> <?php echo join('', $select_list) ?> </select>
           </td>
         </tr>
         <tr>
@@ -77,11 +77,11 @@ if (count($big_list) > 1) {
             <div class="error">
               <table class="errorTable">
                 <tr class="errorTitle">
-                  <td><?php echo htmlentities($html_error_occurred) ?></td>
+                  <td><?php echo convertLang2Html($html_error_occurred) ?></td>
                 </tr>
                 <tr class="errorText">
                   <td>
-                    <p><?php echo htmlentities($ev->getMessage(), ENT_COMPAT, 'UTF-8'); ?></p>
+                    <p><?php echo convertLang2Html($ev->getMessage()); ?></p>
                   </td>
                 </tr>
               </table>
@@ -89,13 +89,13 @@ if (count($big_list) > 1) {
           <?php
             } else {
               if(isset($_REQUEST['submit_folders']))
-                echo '<br />'.htmlentities($html_folders_updated, ENT_COMPAT, 'UTF-8');
+                echo '<br />'.convertLang2Html($html_folders_updated);
             }
           ?>
           <br /><br />
-            <input type="submit" class="button" value="<?php echo htmlentities($html_submit, ENT_COMPAT, 'UTF-8') ?>" />
+            <input type="submit" class="button" value="<?php echo convertLang2Html($html_submit) ?>" />
             &nbsp;&nbsp;
-            <input type="reset" class="button" value="<?php echo htmlentities($html_cancel, ENT_COMPAT, 'UTF-8') ?>" />
+            <input type="reset" class="button" value="<?php echo convertLang2Html($html_cancel) ?>" />
           </td>
         </tr>
       </table>
@@ -104,8 +104,8 @@ if (count($big_list) > 1) {
 </div>
 
 <div class="IMAPPrefs">
-  <a href="action.php?action=setprefs"><?php echo htmlentities($html_preferences, ENT_COMPAT, 'UTF-8') ?></a>
+  <a href="action.php?action=setprefs"><?php echo convertLang2Html($html_preferences) ?></a>
   &nbsp;|&nbsp;
-  <a href="action.php?action=managefilters"><?php echo htmlentities($html_manage_filters_link, ENT_COMPAT, 'UTF-8') ?></a>
+  <a href="action.php?action=managefilters"><?php echo convertLang2Html($html_manage_filters_link) ?></a>
 </div>
-<!-- end of $Id: folders.php,v 1.17 2006/09/04 07:58:42 goddess_skuld Exp $ -->
+<!-- end of $Id: folders.php,v 1.18 2006/10/17 09:32:46 goddess_skuld Exp $ -->
