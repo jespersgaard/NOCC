@@ -76,6 +76,7 @@ NOCC 1.3    ?? ??, 200?
     * RFE #473980  : Caching of folder contents (Arnaud Boudou).
 
   Misc
+    * Remove duplicate setting in configuration file (Arnaud Boudou).
     * Improve RSS handling (Arnaud Boudou).
     * Add mail controls (delete, select all, etc.) to the bottom of the INBOX
       page (Arnaud Boudou).

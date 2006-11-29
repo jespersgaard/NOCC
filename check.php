@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/check.php,v 1.17 2006/09/01 16:46:22 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/check.php,v 1.18 2006/10/18 15:33:59 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -52,11 +52,6 @@ if (!isset($conf->master_key) || $conf->master_key == '')
 {
   $ev = new NoccException("\"\$conf->master_key\" must be set in \"conf.php\" in
 order for NOCC to run.");
-}
-
-if (!isset($conf->webmail_url) || $conf->webmail_url == '')
-{
-  $ev = new NoccException("\"\$conf->webmail_url\" must be set in \"conf.php\" in order for NOCC to run.");
 }
 
 // Display error message

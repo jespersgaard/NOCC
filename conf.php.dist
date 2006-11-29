@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.147 2006/10/20 09:56:17 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.148 2006/10/20 12:19:59 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -144,11 +144,6 @@ $conf->master_key = '';
 // Default folder to go first
 $conf->default_folder = 'INBOX';
 
-// Webmail url (i.e. http://www.example.com/webmail/), used by RSS feed and
-// error pages. This is a mandatory setting.
-// Don't forget the trailing "/"
-$conf->webmail_url = 'http://www.example.com/webmail/';
-
 // ===> End of required parameters
 
 // The following parameters can be changed but it's not necessary to
@@ -217,7 +212,7 @@ $conf->default_theme = 'standard';
 $conf->debug_level = E_ALL & ~E_NOTICE;
 
 // Base URL where NOCC is hosted (only needed for Xitami servers, see #463390)
-// (NOTE: should end in a slash). Leave blank to prevent warnings if not used.
+// (NOTE: should end in a slash). Leave blank to detect it automagically.
 //$conf->base_url = 'http://www.yoursite.com/webmail/';
 $conf->base_url = '';
 
@@ -331,5 +326,20 @@ if (!extension_loaded('imap'))
         print('error loading imap library');
         exit;
     }
+}
+
+// Detect base url
+if (!isset($conf->base_url) || $conf->base_url == '') {
+  $path_info = pathinfo($_SERVER['SCRIPT_NAME']);
+  $dir_name = $path_info['dirname'].'/';
+
+  $conf->base_url = 'http';
+  if ($_SERVER['HTTPS']=='on')
+    $conf->base_url .=  's';
+  $conf->base_url .=  '://';
+  if ($_SERVER['SERVER_PORT']!='80')
+    $conf->base_url .=  $_SERVER['HTTP_HOST'].':'.$_SERVER['SERVER_PORT'].$dir_name;
+  else
+    $conf->base_url .=  $_SERVER['HTTP_HOST'].$dir_name;
 }
 ?>

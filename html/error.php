@@ -1,4 +1,4 @@
-<!-- start of $Id: error.php,v 1.6 2006/09/01 16:46:22 goddess_skuld Exp $ -->
+<!-- start of $Id: error.php,v 1.7 2006/11/22 14:27:17 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -12,10 +12,10 @@
       <td>
         <p><?php echo convertLang2Html($ev->getMessage()); ?></p>
         <p>
-        <a href="<?php echo $conf->webmail_url; ?>logout.php"><?php echo convertLang2Html($html_back) ?></a>
+        <a href="logout.php"><?php echo convertLang2Html($html_back) ?></a>
         </p>
       </td>
     </tr>
   </table>
 </div>
-<!-- end of $Id: error.php,v 1.6 2006/09/01 16:46:22 goddess_skuld Exp $ -->
+<!-- end of $Id: error.php,v 1.7 2006/11/22 14:27:17 goddess_skuld Exp $ -->
