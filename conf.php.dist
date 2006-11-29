@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.148 2006/10/20 12:19:59 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.149 2006/11/29 19:42:46 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -331,7 +331,10 @@ if (!extension_loaded('imap'))
 // Detect base url
 if (!isset($conf->base_url) || $conf->base_url == '') {
   $path_info = pathinfo($_SERVER['SCRIPT_NAME']);
-  $dir_name = $path_info['dirname'].'/';
+  if (substr($path_info['dirname'], -1, 1) == '/')
+    $dir_name = $path_info['dirname'];
+  else
+    $dir_name = $path_info['dirname'].'/';
 
   $conf->base_url = 'http';
   if ($_SERVER['HTTPS']=='on')
