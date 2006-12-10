@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.223 2006/10/25 12:31:32 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.224 2006/11/22 14:27:13 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -390,14 +390,11 @@ function GetPart(&$attach_tab, &$this_part, $part_no, &$display_rfc822)
                 {
                     if ($part_no != '')
                         $part_no = $part_no . '.';
-                    for ($i = 0; $i < count($this_part->parts); $i++)
-                    {
-                        // if it's an alternative, we skip the text part to only keep the HTML part
-                        if ($this_part->subtype == 'ALTERNATIVE')// && $read == true)
-                            GetPart($attach_tab, $this_part->parts[++$i], $part_no . ($i + 1), $display_rfc822);
-                        else 
-                            GetPart($attach_tab, $this_part->parts[$i], $part_no . ($i + 1), $display_rfc822);
-                    }
+                    // if it's an alternative, we skip the text part to only keep the HTML part
+                    if ($this_part->subtype == 'ALTERNATIVE')// && $read == true)
+                        GetPart($attach_tab, $this_part->parts[++$i], $part_no . ($i + 1), $display_rfc822);
+                    else 
+                        GetPart($attach_tab, $this_part->parts[$i], $part_no . ($i + 1), $display_rfc822);
                 }
                 break;
             case 2:
