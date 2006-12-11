@@ -58,7 +58,7 @@ else {
   
 ?>
         </script>
-        <link rel="alternate" type="application/rss+xml" title="RSS - NOCC" href="<?php echo convertLang2Html($rss_url) ?>" />
+        <link rel="alternate" type="application/rss+xml" title="RSS - NOCC" href="<?php echo $rss_url ?>" />
     </head>
     <body dir="<?php echo convertLang2Html($lang_dir); ?>">
         <div class="global">
@@ -69,4 +69,4 @@ else {
 <?php
 }
 ?>
-<!-- end of $Id: header.php,v 1.61 2006/10/18 14:56:29 goddess_skuld Exp $ -->
+<!-- end of $Id: header.php,v 1.62 2006/11/22 14:27:17 goddess_skuld Exp $ -->
