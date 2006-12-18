@@ -34,6 +34,7 @@ NOCC 1.3    ?? ??, 200?
     * Bug #1518887 : errors when enable preferences (Arnaud Boudou).
 
   Patches
+    * Patch #1613181 : Complete Czech translation (Ragimiri).
     * Patch #1600416 : Split 'from' column internally (Tim Gerundt).
     * Patch #1590397 : login_with_domain not checked correctly (Tim Gerundt).
     * Patch #1583460 : Add '...' after cutted mail data (Tim Gerundt).
