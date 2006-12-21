@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.34 2006/08/15 10:51:46 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.35 2006/11/16 13:35:14 ajetam Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -67,17 +67,19 @@ class smtp
   
     function smtp_ehlo($smtp) 
     {
-        /* Well, let's use "helo" for now.. Until we need the 
-          extra func's   [Unk] 
+        /*
+          A working EHLO command. Still, any received information is simply
+          ignored.
         */ 
-        fputs($smtp, "ehlo localhost\r\n"); 
-        $this->sessionlog .= "Sent: ehlo localhost";
-        $line = fgets($smtp, 1024);
-        $this->sessionlog .= "Rcvd: $line";
+        fputs($smtp, "ehlo " . $_SERVER["SERVER_NAME"] . "\r\n"); 
+        $this->sessionlog .= "Sent: ehlo " . $_SERVER["SERVER_NAME"];
+        while (empty($line) || substr($line, 3, 1) == '-') {
+            $line = fgets($smtp, 1024);
+            $this->sessionlog .= "Rcvd: $line";
 
-        if (substr($line, 0, 1) != '2')
-            return new NoccException($html_smtp_error_unexpected . ' : ' . $line); 
-
+            if (substr($line, 0, 1) != '2')
+                return new NoccException($html_smtp_error_unexpected . ' : ' . $line); 
+        }
         return (true);
     } 
     
@@ -219,7 +221,7 @@ class smtp
         if(NoccException::isException($smtp))
             return $smtp;
 	unset ($ev);
-        $ev = $this->smtp_helo($smtp);
+        $ev = $this->smtp_ehlo($smtp);
         if(NoccException::isException($ev))
             return $ev;
 	unset ($ev);
