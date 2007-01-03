@@ -1,16 +1,16 @@
 .sw {
   color: #FFFFFF; 
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 10px;
 }
 
 .s {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 10px
 }
 
 .inbox {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
 }
 
@@ -20,20 +20,20 @@
 }
 
 .new {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-weight: bold;
 }
 
 .inboxHeader {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-weight: bold;
   text-align: center;
 }
 
 .inboxHeaderSorted {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-weight: bold;
   text-align: center;
@@ -42,8 +42,8 @@
 }
 
 .inboxStatus {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
   border-top: 1px dashed #222222;
 }
 
@@ -52,7 +52,7 @@
 }
 
 .prefs {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
 }
 
@@ -64,29 +64,38 @@
 }
 
 .titlew {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
   color: #FFFFFF;
 }
 
 .menuOpts {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
   color: #000000;
 }
 
+.menuOpts input {
+  font-size: 13px;
+  overflow: visible;
+}
+
+.menuOpts select {
+  font-size: 13px;
+}
+
 .login {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
 }
 
 .f {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .menu {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
   text-decoration: none;
   text-align: center;
   width: 120px;
@@ -109,8 +118,8 @@
 }
 
 .menuSelected {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
   text-decoration: none;
   text-align: center;
   width: 120px;
@@ -134,8 +143,8 @@
 }
 
 .menuSmall {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
   text-decoration: none;
   text-align: center;
   width: 80px;
@@ -158,8 +167,8 @@
 }
 
 .menuSmallSelected {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
   text-decoration: none;
   text-align: center;
   width: 80px;
@@ -183,18 +192,16 @@
 }
 
 .menuBlank {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
   text-decoration: none;
   text-align: center;
   background-color: #99CCFF;
 }
 
 .button {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 11px;
-  background-color: #002266; 
-  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
 }
 
 label {
@@ -218,8 +225,8 @@ label {
 }
 
 .currentInbox {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
   color: #FFFFFF;
   font-weight: bold;    
 }
@@ -247,15 +254,15 @@ label {
 }
 
 .currentQuota {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
   color: #FFFFFF;
   font-weight: bold;    
 }
 
 .maxQuota {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
   color: #FFFFFF;
   font-weight: bold;    
 }
@@ -388,8 +395,8 @@ img.footerLogo {
 
 img.sort {
   border: 0px;
-  width: 11px;
-  height: 11px;
+  width: 12px;
+  height: 12px;
 }
 
 .error {
@@ -406,7 +413,7 @@ img.sort {
 }
 
 .errorTitle {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-weight: bold;
   color: #FFFFFF;
@@ -415,7 +422,7 @@ img.sort {
 }
 
 .errorText {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   background-color: #CCCCCC;
   text-align: center;
@@ -442,7 +449,7 @@ img.sort {
 }
 
 .loginTitle {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   text-align: center;
   font-weight: bold;
@@ -469,15 +476,15 @@ img.sort {
 }
 
 .sendLabel {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
   width: 15%;
   text-align: right;
 }
 
 .sendData {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
   text-align: left;
 }
 
@@ -509,31 +516,31 @@ img.sort {
 }
 
 .mailSwitchHeaders {
- font-family: Verdana, Arial, Helvetica, sans-serif;
- font-size: 11px;
+ font-family: Arial, Helvetica, sans-serif;
+ font-size: 12px;
  text-align: left;
  background-color: #F0F0F0;
 }
 
 .mailHeaderLabel {
- font-family: Verdana, Arial, Helvetica, sans-serif;
- font-size: 11px;
+ font-family: Arial, Helvetica, sans-serif;
+ font-size: 12px;
  font-weight: normal;
  text-align: right;
  background-color: #F0F0F0;
 }
 
 .mailHeaderData {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
   font-weight: bold;
   background-color: #99CCFF;
   text-align: left;
 }
 
 .contactsTitle {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
@@ -541,8 +548,8 @@ img.sort {
 }
 
 .contactsSubTitle {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
@@ -558,14 +565,14 @@ img.sort {
 }
 
 .contactsAddLabel {
- font-family: Verdana, Arial, Helvetica, sans-serif;
- font-size: 11px;
+ font-family: Arial, Helvetica, sans-serif;
+ font-size: 12px;
  text-align: right;
 }
 
 .contactsAddData {
- font-family: Verdana, Arial, Helvetica, sans-serif;
- font-size: 11px;
+ font-family: Arial, Helvetica, sans-serif;
+ font-size: 12px;
  text-align: left;
 }
 
@@ -580,28 +587,28 @@ img.sort {
   text-align: center;
   background-color: #99CCFF;
   font-weight: bold;
-  font-size: 11px;
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .contactsListOdd {
-  font-size: 11px;
+  font-size: 12px;
   color: #000000;
   background-color: #F0F0F0;
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .contactsListEven {
-  font-size: 11px;
+  font-size: 12px;
   color: #FFFFFF;
   background-color: #002266;
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .contactsAddLink {
-  font-size: 11px;
+  font-size: 12px;
   color: #000000;
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: #0033CC;
   text-align: center;
   font-weight: bold;
@@ -623,21 +630,21 @@ img.sort {
 }
 
 .prefsLabel {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
   text-align: right;
   width: 20%;
 }
 
 .prefsData {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
   text-align: left;
 }
 
 .IMAPPrefs {
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
   text-align: right;
   font-weight: bold;
   background-color: #F0F0F0;
@@ -654,8 +661,8 @@ img.sort {
   background-color: #FFFF80;
   text-align: center;
   color: #000000;
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
 }
 
 /* colored quotes */
