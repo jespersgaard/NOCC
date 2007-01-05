@@ -7,6 +7,7 @@ NOCC 1.4    ?? ??, 200?
   RFE
 
   Misc
+    * Disable unread icon for POP3 mailboxes (Arnaud Boudou).
     * Some small CSS changes (Arnaud Boudou).
 
 NOCC 1.3    January 01, 2007
