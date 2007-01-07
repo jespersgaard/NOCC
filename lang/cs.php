@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/cs.php,v 1.42 2006/10/20 12:20:00 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/cs.php,v 1.43 2006/12/18 18:47:31 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -52,10 +52,10 @@ $alt_new_msg = 'Nové zprávy';
 $alt_reply = 'Odpovědět autorovi';
 $alt_reply_all = 'Odpovědět všem';
 $alt_forward = 'Předat dál';
-$alt_next = 'Next'; //to translate
-$alt_prev = 'Previous'; //to translate
-$title_next_page = 'Next page'; //to translate
-$title_prev_page = 'Previous page'; //to translate
+$alt_next = 'Další';
+$alt_prev = 'Předchozí';
+$title_next_page = 'Další strana';
+$title_prev_page = 'Předchozí strana';
 $title_next_msg = 'Další zpráva';
 $title_prev_msg = 'Předchozí zpráva';
 $html_on = 'na';
@@ -69,14 +69,14 @@ $html_login = 'Jméno';
 $html_passwd = 'Heslo';
 $html_submit = 'Potvrdit';
 $html_help = 'Pomoc';
-$html_server = 'Server'; //to translate
+$html_server = 'Server';
 $html_wrong = 'Prihlašovací jméno a heslo nesouhlasí';
 $html_retry = 'Zkusit znovu';
 $html_remember = 'Pamatovat nastavení';
 
 // prefs.php
 
-$html_msgperpage = 'Messages per page'; //to translate
+$html_msgperpage = 'Zpráv na stránku';
 $html_preferences = 'Nastavení';
 $html_full_name = 'Celé jméno';
 $html_email_address = 'E-mailová adresa';
@@ -92,9 +92,9 @@ $html_manage_folders_link = 'Spravovat IMAP složky';
 $html_manage_filters_link = 'Spravovat poštovní filtry';
 $html_use_graphical_smilies = 'Používat grafické smajlíky';
 $html_sent_folder = 'Kopírovat odeslané dopisy do vyhrazení složky';
-$html_colored_quotes = 'Colored quotes'; //to translate
-$html_display_struct = 'Display structured text'; //to translate
-$html_send_html_mail = 'Send mail in HTML format'; //to translate
+$html_colored_quotes = 'Barevné uvozovky';
+$html_display_struct = 'Zobrazit strukturovaný text';
+$html_send_html_mail = 'Posílat zprávy v HTML';
 
 // folders.php
 $html_folders_create_failed = 'Složka nemohla být vytvořena!';
@@ -107,7 +107,7 @@ $html_folder_rename = 'Přejmenovat';
 $html_folder_create = 'Vytvořit novou složku';
 $html_folder_remove = 'Odhlásit z';
 $html_folder_delete = 'Smazat';
-$html_folder_to = 'to'; //to translate
+$html_folder_to = 'do';
 
 // filters.php
 $html_filter_remove = 'Smazat';
@@ -141,11 +141,11 @@ $html_remove_header = 'Skrýt hlavičku';
 $html_inbox = 'Doručená pošta';
 $html_new_msg = 'Nová zpráva';
 $html_reply = 'Odpovědět';
-$html_reply_short = 'Re'; //to translate
+$html_reply_short = 'Re';
 $html_reply_all = 'Odpovědět všem';
 $html_forward = 'Předat dál';
-$html_forward_short = 'Fw'; //to translate
-$html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
+$html_forward_short = 'Fw';
+$html_forward_info = 'Předaná zpráva bude odeslána jako příloha této zprávy.';
 $html_delete = 'Vymazat';
 $html_new = 'Nová';
 $html_mark = 'Vymazat';
@@ -165,7 +165,7 @@ $html_sent = 'Odeslat';
 $html_wrote = 'odesláno';
 $html_size = 'Velikost';
 $html_totalsize = 'Celková velikost';
-$html_kb = 'kB'; //to translate
+$html_kb = 'KiB';
 $html_bytes = 'bajtů';
 $html_filename = 'Název souboru';
 $html_to = 'Komu';
@@ -240,6 +240,6 @@ $html_seperate_msg_win = 'Zprávy v oddělených oknech';
 
 // Exceptions
 $html_err_file_contacts = 'Nelze otevřít soubor kontaktů pro zápis.';
-$html_session_file_error = 'Unable to open session file for writing.';  //to translate
-$html_login_not_allowed = 'This login is not allowed for connexion.'; //to translate
+$html_session_file_error = 'Nelze otevřít soubor seance pro zápis.';
+$html_login_not_allowed = 'Tento uživatel nemá dovoleno přihlašování.';
 ?>
