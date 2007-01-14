@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/wrong.php,v 1.15 2001/10/19 10:34:25 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/crypt.php,v 1.1 2005/11/04 14:23:27 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -70,7 +70,7 @@ function encpass($passwd, $rkey)
 {
   // Encrypts $passwd with $key and returns encrypted password
 
-  $encpasswd = encr($passwd,$rkey);
+  $encpasswd = encr(base64_encode($passwd),$rkey);
   return $encpasswd;
 }
 
@@ -79,7 +79,7 @@ function decpass($cipher, $rkey)
 {
   // Decrypts $cipher returns decrypted password.
 
-  $decpasswd = decr($cipher, $rkey);
+  $decpasswd = base64_decode(decr($cipher, $rkey));
   return $decpasswd;
 }
 
