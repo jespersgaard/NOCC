@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.13 2006/10/25 09:23:46 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.14 2006/11/29 19:42:46 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -41,9 +41,12 @@
   }
 
   require_once './conf.php';
+//  echo $_REQUEST['nocc_passwd'].'<br/>';
+//  echo $_SESSION['nocc_passwd'].'<br/>';
+//  echo decpass($_SESSION['nocc_passwd'], $conf->master_key).'<br/>';
+//  exit;
   require_once './common.php';
   require_once './class_local.php';
-  
   
   $pop = new nocc_imap($ev);
   if (NoccException::isException($ev)) {
