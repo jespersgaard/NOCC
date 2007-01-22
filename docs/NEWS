@@ -5,6 +5,8 @@ NOCC 1.4    ?? ??, 200?
       (Arnaud Boudou).
 
   Patches
+    * Patch #1639027 : RSS: Add nocc_login as parameter (Tim Gerundt).
+    * Patch #1639021 : RSS: Fix array_shift warning (Tim Gerundt).
     * Patch #1627141 : CS translation for 1.3 version (Ragimiri).
 
   RFE

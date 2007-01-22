@@ -55,7 +55,7 @@ else {
   $rss_url .= '&amp;smtp_auth=' . base64_encode($_SESSION['smtp_auth']);
   $rss_url .= '&amp;nocc_user=' . base64_encode($_SESSION['nocc_user']);
   $rss_url .= '&amp;nocc_passwd=' . base64_encode($_SESSION['nocc_passwd']);
-  
+  $rss_url .= '&amp;nocc_login=' . base64_encode($_SESSION['nocc_login']);  
 ?>
         </script>
         <link rel="alternate" type="application/rss+xml" title="RSS - NOCC" href="<?php echo $rss_url ?>" />
@@ -69,4 +69,4 @@ else {
 <?php
 }
 ?>
-<!-- end of $Id: header.php,v 1.62 2006/11/22 14:27:17 goddess_skuld Exp $ -->
+<!-- end of $Id: header.php,v 1.63 2006/12/11 08:45:40 goddess_skuld Exp $ -->

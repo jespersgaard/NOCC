@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.14 2006/11/29 19:42:46 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.15 2007/01/15 19:33:27 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -22,6 +22,7 @@
 
   $_SESSION['nocc_user'] = base64_decode($_REQUEST['nocc_user']);
   $_SESSION['nocc_passwd'] = base64_decode($_REQUEST['nocc_passwd']);
+  $_SESSION['nocc_login'] = base64_decode($_REQUEST['nocc_login']);
   $_SESSION['nocc_lang'] = base64_decode($_REQUEST['nocc_lang']);
   $_SESSION['nocc_smtp_server'] = base64_decode($_REQUEST['nocc_smtp_server']);
   $_SESSION['nocc_smtp_port'] = base64_decode($_REQUEST['nocc_smtp_port']);
@@ -41,10 +42,6 @@
   }
 
   require_once './conf.php';
-//  echo $_REQUEST['nocc_passwd'].'<br/>';
-//  echo $_SESSION['nocc_passwd'].'<br/>';
-//  echo decpass($_SESSION['nocc_passwd'], $conf->master_key).'<br/>';
-//  exit;
   require_once './common.php';
   require_once './class_local.php';
   
@@ -57,8 +54,8 @@
   $tab_mail = array();
   if ($pop->num_msg() > 0) {
     $tab_mail = inbox($pop, 0, $ev);
-    $tab_mail_bak = $tab_mail;
   }
+  $tab_mail_bak = $tab_mail;
 
   if (NoccException::isException($ev)) {
     require ('./html/error.php');
