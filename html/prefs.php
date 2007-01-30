@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.48 2006/10/18 19:22:13 goddess_skuld Exp $ -->
+<!-- start of $Id: prefs.php,v 1.49 2006/11/22 14:27:18 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -131,6 +131,7 @@ if (count($big_list) > 1) {
            <td class="prefsData">
              <input type="checkbox" name="html_mail_send" id="html_mail_send" value="on" <?php if(isset($user_prefs->html_mail_send) && $user_prefs->html_mail_send) echo 'checked="checked"'; ?> /><label for="html_mail_send"><?php echo convertLang2Html($html_send_html_mail) ?></label>
            </td>
+         </tr>
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
@@ -224,16 +225,16 @@ if (count($big_list) > 1) {
        </table>
      </div>
    </form>
-   <?php
-     if($pop->is_imap()) {
-   ?>
  </div>
+ <?php
+   if($pop->is_imap()) {
+ ?>
  <div class="IMAPPrefs">
    <a href="action.php?action=managefolders"><?php echo convertLang2Html($html_manage_folders_link) ?></a>
    &nbsp;|&nbsp;
    <a href="action.php?action=managefilters"><?php echo convertLang2Html($html_manage_filters_link) ?></a>
  </div>
-   <?php
-     }
-   ?>
-<!-- end of $Id: prefs.php,v 1.48 2006/10/18 19:22:13 goddess_skuld Exp $ -->
+ <?php
+   }
+ ?>
+<!-- end of $Id: prefs.php,v 1.49 2006/11/22 14:27:18 goddess_skuld Exp $ -->
