@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.114 2006/10/18 15:33:59 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.115 2007/01/30 14:32:16 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -121,16 +121,16 @@ function updatePage()
 <!-- abcdefghijklmnopqrstuvwxyz 01234567890 -->
 <!-- abcdefghijklmnopqrstuvwxyz 01234567890 -->
 <!-- abcdefghijklmnopqrstuvwxyz 01234567890 -->
-                  <td class='right' ><?php echo $html_login; ?></td>
+                  <td class='right' ><label for="user"><?php echo $html_login; ?></label></td>
                   <td>&nbsp;</td>
                   <td class="left">
-                  <input class="button" type="text" name="user" size="15" value="<?php if(isset($REMOTE_USER)) echo $REMOTE_USER; ?>"/>
+                    <input class="button" type="text" name="user" size="15" value="<?php if(isset($REMOTE_USER)) echo $REMOTE_USER; ?>"/>
                     <?php
                       if (count($conf->domains) > 1)
                       {
                         //Add fill-in domain
                         if( isset($conf->typed_domain_login) )
-                          echo '@ <input class="button" type="text" name="fillindomain">';
+                          echo '<label for="fillindomain">@</label> <input class="button" type="text" name="fillindomain">';
                         else if ( isset($conf->vhost_domain_login) && $conf->vhost_domain_login == true ) {
                           $i = 0;
                           while (!empty($conf->domains[$i]->in))
@@ -142,7 +142,7 @@ function updatePage()
                         }    
                         else
                         {
-                          echo '@ <select class="button" name="domainnum">';
+                          echo '<label for="domainnum">@</label> <select class="button" name="domainnum">';
                           $i = 0;
                           while (!empty($conf->domains[$i]->in))
                           {
@@ -160,20 +160,20 @@ function updatePage()
                   </td>
                 </tr>
                 <tr> 
-                  <td class="right"><?php echo $html_passwd ?></td>
+                  <td class="right"><label for="domainnum"><?php echo $html_passwd ?></label></td>
                   <td>&nbsp;</td>
                   <td class="left"> 
-                    <input class="button" type="password" name="passwd" size="15" />
+                    <input class="button" type="password" name="passwd" id="passwd" size="15" />
                   </td>
                 </tr>
                 <?php
                   if ($conf->domains[0]->in == '')
                   {
                     echo '<tr>';
-                    echo '<td class="right">'.$html_server.'</td>';
+                    echo '<td class="right"><label for="server">'.$html_server.'</label></td>';
                     echo '<td>&nbsp;</td>';
                     echo '<td class="left">';
-                    echo '<input class="button" type="text" name="server" value="mail.example.com" size="15" /><br /><input class="button" type="text" size="4" name="port" value="143" />';
+                    echo '<input class="button" type="text" name="server" id="server" value="mail.example.com" size="15" /><br /><input class="button" type="text" size="4" name="port" value="143" />';
                     echo '<select class="button" name="servtype" onchange="updatePort()">';
                     echo '<option value="imap">IMAP</option>';
                     echo '<option value="notls">IMAP (no TLS)</option>';
@@ -189,11 +189,11 @@ function updatePage()
                   }
                 ?>
                 <tr>
-                  <td class="right"><?php echo $html_lang ?></td>
+                  <td class="right"><label for="lang"><?php echo $html_lang ?></label></td>
                   <td>&nbsp;</td>
                   <td class="left">
                   <?php
-                    echo '<select class="button" name="lang" onchange="updatePage()">';
+                    echo '<select class="button" name="lang" id="lang" onchange="updatePage()">';
                     for ($i = 0; $i < sizeof($lang_array); $i++)
                       if (file_exists('lang/'.$lang_array[$i]->filename.'.php'))
                       {
@@ -210,10 +210,10 @@ function updatePage()
                   if ($conf->use_theme == true) 
                   {
                     echo '<tr>';
-                    echo '<td class="right">'.$html_theme.'</td>';
+                    echo '<td class="right"><label for="theme">'.$html_theme.'</label></td>';
                     echo '<td>&nbsp;</td>';
                     echo '<td class="left">';
-                    echo '<select class="button" name="theme" onchange="updatePage()">';
+                    echo '<select class="button" name="theme" id="theme" onchange="updatePage()">';
                     $handle = opendir('./themes');
                     while (($file = readdir($handle)) != false) 
                     {
@@ -235,10 +235,10 @@ function updatePage()
                   if (isset($conf->prefs_dir) && $conf->prefs_dir != '') {
                 ?>
                 <tr>
-                  <td class="right"><?php echo $html_remember ?></td>
+                  <td class="right"><label for="remember"><?php echo $html_remember ?></label></td>
                   <td>&nbsp;</td>
                   <td class="left">
-                     <input type="checkbox" name="remember" value="true" />
+                     <input type="checkbox" name="remember" id="remember" value="true" />
                   </td>
                 </tr>
                 <?php } ?>
