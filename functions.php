@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.225 2006/12/10 08:47:44 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.226 2007/01/05 21:43:54 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -81,6 +81,11 @@ function inbox(&$pop, $skip = 0, &$ev)
 	$to_header = str_replace('x-unknown', $msg_charset, $ref_contenu_message->toaddress);
         $to_array = nocc_imap::mime_header_decode($to_header);
         for ($j = 0; $j < count($to_array); $j++) {
+          if (!(strpos($to_array[$j]->text, '@')))
+            // If it's not an email address, we don't add the comma, the
+            // email address itself will be the next string
+            $to = $to . $to_array[$j]->text . " ";
+          else
             $to = $to . $to_array[$j]->text . ", ";
         }
         $to = substr($to, 0, strlen($to)-2);
@@ -754,14 +759,6 @@ function cut_address(&$addr, &$charset)
         }
     }
 
-    /* old way
-    // Replace commas with semicolons as address seperator
-    $addr = str_replace(',', ';', $addr);
-
-    // Break address line into individual addresses
-    $addresses = explode(';', $addr);
-    */
-
     // Loop through addresses
     for ($i = 0; $i < sizeof($addresses); $i++)
     {
@@ -769,12 +766,11 @@ function cut_address(&$addr, &$charset)
         $pos = strrpos($addresses[$i], '<');
         if (!is_int($pos))
             $addresses[$i] = '<'.$addresses[$i].'>';
-
         else
         {
             $name = '';
             if ($pos != 0)
-                $name = '=?'.$charset.'?B?'.base64_encode(substr($addresses[$i], 0, $pos - 1)).'?= ';
+                $name = '=?'.$charset.'?B?'.base64_encode(substr($addresses[$i], 0, $pos - 1)).'?=';
             $addr = substr($addresses[$i], $pos);
             $addresses[$i] = '"'.$name.'" '.$addr.'';
         }

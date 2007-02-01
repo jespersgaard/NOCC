@@ -17,6 +17,7 @@ NOCC 1.4    ?? ??, 200?
   RFE
 
   Misc
+    * Improve "To:" address display in message list (Arnaud Boudou).
     * Disable unread icon for POP3 mailboxes (Arnaud Boudou).
     * Some small CSS changes (Arnaud Boudou).
 
