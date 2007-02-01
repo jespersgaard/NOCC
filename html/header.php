@@ -55,18 +55,17 @@ else {
   $rss_url .= '&amp;smtp_auth=' . base64_encode($_SESSION['smtp_auth']);
   $rss_url .= '&amp;nocc_user=' . base64_encode($_SESSION['nocc_user']);
   $rss_url .= '&amp;nocc_passwd=' . base64_encode($_SESSION['nocc_passwd']);
-  $rss_url .= '&amp;nocc_login=' . base64_encode($_SESSION['nocc_login']);  
+  $rss_url .= '&amp;nocc_login=' . base64_encode($_SESSION['nocc_login']);
 ?>
         </script>
         <link rel="alternate" type="application/rss+xml" title="RSS - NOCC" href="<?php echo $rss_url ?>" />
     </head>
     <body dir="<?php echo convertLang2Html($lang_dir); ?>">
-        <div class="global">
-          <div class="header">
+        <div class="header">
             <img src="themes/<?php echo $_SESSION['nocc_theme']; ?>/img/logo.png" class="headerLogo" alt="Logo" />
             &nbsp;&nbsp;<span class="login bold"><?php echo htmlspecialchars($header_display_address); ?></span>
-          </div>
+        </div>
 <?php
 }
 ?>
-<!-- end of $Id: header.php,v 1.63 2006/12/11 08:45:40 goddess_skuld Exp $ -->
+<!-- end of $Id: header.php,v 1.64 2007/01/22 19:24:55 goddess_skuld Exp $ -->
