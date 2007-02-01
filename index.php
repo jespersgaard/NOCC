@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.115 2007/01/30 14:32:16 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.116 2007/01/31 08:28:30 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -121,22 +121,22 @@ function updatePage()
 <!-- abcdefghijklmnopqrstuvwxyz 01234567890 -->
 <!-- abcdefghijklmnopqrstuvwxyz 01234567890 -->
 <!-- abcdefghijklmnopqrstuvwxyz 01234567890 -->
-                  <td class='right' ><label for="user"><?php echo $html_login; ?></label></td>
+                  <td class="right"><label for="user"><?php echo $html_login; ?></label></td>
                   <td>&nbsp;</td>
                   <td class="left">
-                    <input class="button" type="text" name="user" size="15" value="<?php if(isset($REMOTE_USER)) echo $REMOTE_USER; ?>"/>
+                    <input class="button" type="text" name="user" id="user" size="15" value="<?php if(isset($REMOTE_USER)) echo $REMOTE_USER; ?>"/>
                     <?php
                       if (count($conf->domains) > 1)
                       {
                         //Add fill-in domain
                         if( isset($conf->typed_domain_login) )
-                          echo '<label for="fillindomain">@</label> <input class="button" type="text" name="fillindomain">';
+                          echo '<label for="fillindomain">@</label> <input class="button" type="text" name="fillindomain" id="fillindomain">';
                         else if ( isset($conf->vhost_domain_login) && $conf->vhost_domain_login == true ) {
                           $i = 0;
                           while (!empty($conf->domains[$i]->in))
                           {
                             if (strpos($_SERVER["HTTP_HOST"],$conf->domains[$i]->domain))
-                              echo "<input type=\"hidden\" name=\"domainnum\" value=\"" . $i . "\" />\n";
+                              echo '<input type="hidden" name="domainnum" id="domainnum" value="' . $i . '" />'."\n";
                               $i++;
                           }
                         }    
@@ -160,7 +160,7 @@ function updatePage()
                   </td>
                 </tr>
                 <tr> 
-                  <td class="right"><label for="domainnum"><?php echo $html_passwd ?></label></td>
+                  <td class="right"><label for="passwd"><?php echo $html_passwd ?></label></td>
                   <td>&nbsp;</td>
                   <td class="left"> 
                     <input class="button" type="password" name="passwd" id="passwd" size="15" />
