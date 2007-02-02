@@ -61,11 +61,12 @@ else {
         <link rel="alternate" type="application/rss+xml" title="RSS - NOCC" href="<?php echo $rss_url ?>" />
     </head>
     <body dir="<?php echo convertLang2Html($lang_dir); ?>">
-        <div class="header">
-            <img src="themes/<?php echo $_SESSION['nocc_theme']; ?>/img/logo.png" class="headerLogo" alt="Logo" />
-            &nbsp;&nbsp;<span class="login bold"><?php echo htmlspecialchars($header_display_address); ?></span>
+        <div id="header">
+            <img src="themes/<?php echo $_SESSION['nocc_theme']; ?>/img/logo.png" id="headerLogo" alt="Logo" />
+            <h1><?php echo htmlspecialchars($header_display_address); ?></h1>
         </div>
+        <div id="main">
 <?php
 }
 ?>
-<!-- end of $Id: header.php,v 1.64 2007/01/22 19:24:55 goddess_skuld Exp $ -->
+<!-- end of $Id: header.php,v 1.65 2007/02/01 07:28:59 goddess_skuld Exp $ -->

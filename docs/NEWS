@@ -5,6 +5,7 @@ NOCC 1.4    ?? ??, 200?
       (Arnaud Boudou).
 
   Patches
+    * Patch #1650207 : Optimize header and footer (Tim Gerundt).
     * Patch #1649280 : Remove "global" <div> (Tim Gerundt).
     * Patch #1648561 : Remove needless CSS classes (Tim Gerundt).
     * Patch #1648196 : Use <label> for login box (Tim Gerundt).

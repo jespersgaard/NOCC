@@ -73,11 +73,6 @@
   font-size: 13px;
 }
 
-.login {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
-}
-
 .menu {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
@@ -289,9 +284,33 @@ table {
   border-spacing: 0px;
 }
 
-div.header {
-  padding-bottom: 5px;
-  vertical-align: middle;
+#header h1 {
+  margin: 0;
+  margin-left: 158px;
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#headerLogo {
+  float: left;
+  width: 153px;
+  height: 47px;
+  padding: 0 5px 5px 0;
+}
+
+#main {
+  clear: left;
+}
+
+#footer {
+  padding-top: 5px;
+  text-align: center;
+}
+
+#footerLogo {
+  width: 88px;
+  height: 31px;
+  border: 0;
 }
 
 div.menuInbox {
@@ -356,22 +375,6 @@ div.bottomNavigation table {
 div.bottomNavigation img {
   width: 12px;
   height: 12px;
-}
-
-div.footer {
-  padding-top: 5px;
-  text-align: center;
-}
-
-img.headerLogo {
-  height: 47px;
-  width: 153px;
-}
-
-img.footerLogo {
-  height: 31px;
-  width: 88px;
-  border: 0px;
 }
 
 img.sort {
