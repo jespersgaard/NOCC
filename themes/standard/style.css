@@ -252,6 +252,7 @@ img {
 }
 
 body {
+  min-width: 40em;
   color: #000000;
   background-color: #FFFFFF;
 }
