@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.116 2007/01/31 08:28:30 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.117 2007/02/01 07:22:17 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -142,7 +142,7 @@ function updatePage()
                         }    
                         else
                         {
-                          echo '<label for="domainnum">@</label> <select class="button" name="domainnum">';
+                          echo '<label for="domainnum">@</label> <select class="button" name="domainnum" id="domainnum">';
                           $i = 0;
                           while (!empty($conf->domains[$i]->in))
                           {
@@ -154,7 +154,7 @@ function updatePage()
                       }
                       else
                       {
-                        echo '<input type="hidden" name="domainnum" value="0" />'."\n";
+                        echo '<input type="hidden" name="domainnum" value="0" id="domainnum" />'."\n";
                       }
                     ?>
                   </td>
