@@ -5,6 +5,7 @@ NOCC 1.4    ?? ??, 200?
       (Arnaud Boudou).
 
   Patches
+    * Patch #1663909 : Column order preference (Tim Gerundt).
     * Patch #1659330 : Optimize login box (Part 2) (Tim Gerundt).
     * Patch #1650480 : Use "min-width" for modern browsers (Tim Gerundt).
     * Patch #1650207 : Optimize header and footer (Tim Gerundt).
@@ -18,6 +19,7 @@ NOCC 1.4    ?? ??, 200?
     * Patch #1627141 : CS translation for 1.3 version (Ragimiri).
 
   RFE
+    * RFE #1639527 : Setting for mailbox column order (Tim Gerundt).
 
   Misc
     * Improve "To:" address display in message list (Arnaud Boudou).

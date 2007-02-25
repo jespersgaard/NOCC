@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/check.php,v 1.18 2006/10/18 15:33:59 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/check.php,v 1.19 2006/11/29 19:42:46 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -50,8 +50,12 @@ if (!empty($conf->prefs_dir) && !is_dir($conf->prefs_dir))
 
 if (!isset($conf->master_key) || $conf->master_key == '')
 {
-  $ev = new NoccException("\"\$conf->master_key\" must be set in \"conf.php\" in
-order for NOCC to run.");
+  $ev = new NoccException("\"\$conf->master_key\" must be set in \"conf.php\" in order for NOCC to run.");
+}
+
+if (!isset($conf->column_order) || $conf->column_order == '')
+{
+  $ev = new NoccException("\"\$conf->column_order\" must be set in \"conf.php\" in order for NOCC to run.");
 }
 
 // Display error message

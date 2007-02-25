@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.89 2006/10/17 09:32:46 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.90 2006/11/22 13:08:22 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -118,35 +118,24 @@ if ($pop->is_imap()) {
                     <?php include('menu_inbox_opts.php'); ?>
                       <table>
                         <tr>
-                          <th colspan="2" class="inboxHeader<?php if ($_SESSION['nocc_sort'] == 2) echo 'Sorted' ?>">
-                            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>"><?php echo $html_from ?></a>
-                            &nbsp;
-                            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=2&amp;sortdir=<?php echo $new_sortdir ?>">
-                              <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.png" class="sort" alt="<?php echo $html_sort; ?>" title="<?php echo $html_sort_by." ".$html_from; ?>" /></a>
-                          </th>
-                          <th class="inboxHeader<?php if ($_SESSION['nocc_sort'] == 4) echo 'Sorted' ?>">
-                            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=4&amp;sortdir=<?php echo $new_sortdir ?>"><?php echo $html_to ?></a>
-                            &nbsp;
-                            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=4&amp;sortdir=<?php echo $new_sortdir ?>">
-                              <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.png" class="sort" alt="<?php echo $html_sort; ?>" title="<?php echo $html_sort_by." ".$html_to; ?>" /></a>
-                          </th>
-                          <th class="inboxHeader<?php if ($_SESSION['nocc_sort'] == 3) echo 'Sorted' ?>">
-                            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>"><?php echo $html_subject ?></a>
-                            &nbsp;
-                            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=3&amp;sortdir=<?php echo $new_sortdir ?>">
-                              <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.png" class="sort" alt="<?php echo $html_sort; ?>" title="<?php echo $html_sort_by." ".$html_subject; ?>" /></a>
-                          </th>
-                          <th class="inboxHeader<?php if ($_SESSION['nocc_sort'] == 1) echo 'Sorted' ?>">
-                            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>"><?php echo $html_date ?></a>
-                            &nbsp;
-                            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=1&amp;sortdir=<?php echo $new_sortdir ?>">
-                              <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.png" class="sort" alt="<?php echo $html_sort; ?>" title="<?php echo $html_sort_by." ".$html_date; ?>" /></a>
-                          </th>
-                          <th class="inboxHeader<?php if ($_SESSION['nocc_sort'] == 6) echo 'Sorted' ?>">
-                            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>"><?php echo $html_size ?></a>
-                            &nbsp;
-                            <a href="<?php echo $_SERVER['PHP_SELF'] ?>?sort=6&amp;sortdir=<?php echo $new_sortdir ?>">
-                              <img src="themes/<?php echo $_SESSION['nocc_theme'] ?>/img/<?php echo $arrow ?>.png" class="sort" alt="<?php echo $html_sort; ?>" title="<?php echo $html_sort_by." ".$html_size; ?>" /></a>
-                          </th>
+                          <th class="inboxHeader"></th>
+                          <?php
+                            foreach ($conf->column_order as $column) { //For all columns...
+                              switch ($column) {
+                                case '1': $column_title = $html_from; break;
+                                case '2': $column_title = $html_to; break;
+                                case '3': $column_title = $html_subject; break;
+                                case '4': $column_title = $html_date; break;
+                                case '5': $column_title = $html_size; break;
+                              }
+                              echo '<th class="inboxHeader'; if ($_SESSION['nocc_sort'] == $column) echo 'Sorted'; echo '">';
+                              echo '<a href="'.$_SERVER['PHP_SELF'].'?sort='.$column.'&amp;sortdir='.$new_sortdir.'">'.$column_title.'</a>';
+                              echo '&nbsp;';
+                              echo '<a href="'.$_SERVER['PHP_SELF'].'?sort='.$column.'&amp;sortdir='.$new_sortdir.'">';
+                              echo '  <img src="themes/'.$_SESSION['nocc_theme'].'/img/'.$arrow.'.png" class="sort" alt="'.$html_sort.'" title="'.$html_sort_by.' '.$column_title.'" />';
+                              echo '</a>';
+                              echo '</th>';
+                            }
+                          ?>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.89 2006/10/17 09:32:46 goddess_skuld Exp $ -->
+<!-- end of $Id: html_top_table.php,v 1.90 2006/11/22 13:08:22 goddess_skuld Exp $ -->

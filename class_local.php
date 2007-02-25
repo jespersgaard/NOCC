@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.48 2006/10/17 09:32:46 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.49 2006/10/17 17:20:01 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -109,10 +109,17 @@ class nocc_imap
     }
 
     function sort(&$sort, &$sortdir, &$ev, $useuid) {
+        switch($sort) {
+          case '1': $imapsort = SORTFROM; break;
+          case '2': $imapsort = SORTTO; break;
+          case '3': $imapsort = SORTSUBJECT; break;
+          case '4': $imapsort = SORTARRIVAL; break;
+          case '5': $imapsort = SORTSIZE; break;
+        }
         if ($useuid) {
-            return imap_sort($this->conn, $sort, $sortdir, SE_UID|SE_NOPREFETCH);
+            return imap_sort($this->conn, $imapsort, $sortdir, SE_UID|SE_NOPREFETCH);
         } else {
-            return imap_sort($this->conn, $sort, $sortdir, SE_NOPREFETCH);
+            return imap_sort($this->conn, $imapsort, $sortdir, SE_NOPREFETCH);
         }
     }
 

@@ -1,4 +1,4 @@
-<!-- start of $Id: html_inbox.php,v 1.51 2006/10/25 09:23:46 goddess_skuld Exp $ -->
+<!-- start of $Id: html_inbox.php,v 1.52 2006/11/22 13:08:22 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -12,32 +12,38 @@
   } else {
     $inbox_class = "inbox";
   }
+  
+  echo '<tr>';
+  echo '<td class="'.$inbox_class.'">';
+  echo '  <input type="checkbox" name="msg-'.$tmp['number'].'" value="Y" />';
+  echo '</td>';
+  foreach ($conf->column_order as $column) { //For all columns...
+    echo '<td class="'.$inbox_class.'">';
+    switch ($column) {
+      case '1': //From...
+        echo $tmp['new'] . '&nbsp;';
+        echo '<a href="'.$_SERVER['PHP_SELF'].'?action=write&amp;mail_to='.convertMailData2Html($tmp['from']).'" title="'.convertMailData2Html($tmp['from']).'">'.convertMailData2Html(display_address($tmp['from'])).'</a>&nbsp;';
+        echo $tmp['attach'];
+        break;
+      case '2': //To...
+        echo convertMailData2Html(display_address($tmp['to']), 55);
+        break;
+      case '3': //Subject...
+        if(isset($user_prefs->seperate_msg_win) && $user_prefs->seperate_msg_win) {
+          echo '<a href="javascript:void(0);" onclick="window.open(\''.$_SERVER['PHP_SELF'].'?action=aff_mail&amp;mail='.$tmp['number'].'&amp;verbose=0&amp;\');" title="'; echo $tmp['subject']? convertMailData2Html($tmp['subject']) : $html_nosubject; echo '">'; echo $tmp['subject']? convertMailData2Html($tmp['subject'], 55) : $html_nosubject; echo '</a>';
+        } else {
+          echo '<a href="'.$_SERVER['PHP_SELF'].'?action=aff_mail&amp;mail='.$tmp['number'].'&amp;verbose=0&amp;" title="'; echo $tmp['subject']? convertMailData2Html($tmp['subject']) : $html_nosubject; echo '">'; echo $tmp['subject']? convertMailData2Html($tmp['subject'], 55) : $html_nosubject; echo '</a>';
+        }
+        break;
+      case '4': //Date...
+        echo $tmp['date'] . '&nbsp;' . $tmp['time'];
+        break;
+      case '5': //Size...
+        echo $tmp['size'] . $html_kb;
+        break;
+    }
+    echo '</td>';
+  }
+  echo '</tr>';
 ?>
-                      <tr>
-                        <td class="<?php echo $inbox_class ?>">
-                          <input type="checkbox" name="msg-<?php echo $tmp['number'] ?>" value="Y" />
-                        </td>
-                        <td class="<?php echo $inbox_class ?>">
-                          <?php echo $tmp['new']; ?>
-                          <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=write&amp;mail_to=<?php echo convertMailData2Html($tmp['from']) ?>" title="<?php echo convertMailData2Html($tmp['from']); ?>"><?php echo convertMailData2Html(display_address ($tmp['from'])); ?></a>
-                          <?php echo $tmp['attach']; ?>
-                        </td>
-                        <td class="<?php echo $inbox_class ?>">
-                          <?php echo convertMailData2Html(display_address($tmp['to']), 55); ?>
-                        </td>
-                        <td class="<?php echo $inbox_class ?>">
-                        <?php if(isset($user_prefs->seperate_msg_win) && $user_prefs->seperate_msg_win) { ?>
-                          <a href="javascript:void(0);" onclick="window.open('<?php echo $_SERVER['PHP_SELF'] ?>?action=aff_mail&amp;mail=<?php echo $tmp['number'] ?>&amp;verbose=0&amp;');" title="<?php echo $tmp['subject']? convertMailData2Html($tmp['subject']) : $html_nosubject; ?>"><?php echo $tmp['subject']? convertMailData2Html($tmp['subject'], 55) : $html_nosubject; ?></a>
-                        <?php } else { ?>
-                          <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=aff_mail&amp;mail=<?php echo $tmp['number'] ?>&amp;verbose=0&amp;" title="<?php echo $tmp['subject']? convertMailData2Html($tmp['subject']) : $html_nosubject; ?>"><?php echo $tmp['subject']? convertMailData2Html($tmp['subject'], 55) : $html_nosubject; ?></a>
-                        <?php } ?>
-                        </td>
-                        <td class="<?php echo $inbox_class ?>">
-                          <?php echo $tmp['date'] ?>
-                          <?php echo $tmp['time'] ?>
-                        </td>
-                        <td class="<?php echo $inbox_class ?>">
-                          <?php echo $tmp['size'] ?> <?php echo $html_kb ?>
-                        </td>
-                      </tr>
-<!-- end of $Id: html_inbox.php,v 1.51 2006/10/25 09:23:46 goddess_skuld Exp $ -->
+<!-- end of $Id: html_inbox.php,v 1.52 2006/11/22 13:08:22 goddess_skuld Exp $ -->
