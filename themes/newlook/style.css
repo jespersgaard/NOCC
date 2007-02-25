@@ -446,7 +446,21 @@ img.sort {
 }
 
 #loginBox table {
-  width: 100%;
+  margin: auto;
+  padding: 0.5em;
+}
+
+#loginBox th {
+  text-align: right;
+  font-weight: normal;
+}
+
+#loginBox td {
+  padding-left: 0.5em;
+  text-align: left;
+}
+
+#loginBox p {
   margin: 0;
   padding: 0.5em;
 }

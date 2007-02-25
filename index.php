@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.117 2007/02/01 07:22:17 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.118 2007/02/02 08:26:50 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -121,9 +121,8 @@ function updatePage()
 <!-- abcdefghijklmnopqrstuvwxyz 01234567890 -->
 <!-- abcdefghijklmnopqrstuvwxyz 01234567890 -->
 <!-- abcdefghijklmnopqrstuvwxyz 01234567890 -->
-                  <td class="right"><label for="user"><?php echo $html_login; ?></label></td>
-                  <td>&nbsp;</td>
-                  <td class="left">
+                  <th><label for="user"><?php echo $html_login; ?></label></th>
+                  <td>
                     <input class="button" type="text" name="user" id="user" size="15" value="<?php if(isset($REMOTE_USER)) echo $REMOTE_USER; ?>"/>
                     <?php
                       if (count($conf->domains) > 1)
@@ -160,9 +159,8 @@ function updatePage()
                   </td>
                 </tr>
                 <tr> 
-                  <td class="right"><label for="passwd"><?php echo $html_passwd ?></label></td>
-                  <td>&nbsp;</td>
-                  <td class="left"> 
+                  <th><label for="passwd"><?php echo $html_passwd ?></label></th>
+                  <td> 
                     <input class="button" type="password" name="passwd" id="passwd" size="15" />
                   </td>
                 </tr>
@@ -170,9 +168,8 @@ function updatePage()
                   if ($conf->domains[0]->in == '')
                   {
                     echo '<tr>';
-                    echo '<td class="right"><label for="server">'.$html_server.'</label></td>';
-                    echo '<td>&nbsp;</td>';
-                    echo '<td class="left">';
+                    echo '<th><label for="server">'.$html_server.'</label></th>';
+                    echo '<td>';
                     echo '<input class="button" type="text" name="server" id="server" value="mail.example.com" size="15" /><br /><input class="button" type="text" size="4" name="port" value="143" />';
                     echo '<select class="button" name="servtype" onchange="updatePort()">';
                     echo '<option value="imap">IMAP</option>';
@@ -189,9 +186,8 @@ function updatePage()
                   }
                 ?>
                 <tr>
-                  <td class="right"><label for="lang"><?php echo $html_lang ?></label></td>
-                  <td>&nbsp;</td>
-                  <td class="left">
+                  <th><label for="lang"><?php echo $html_lang ?></label></th>
+                  <td>
                   <?php
                     echo '<select class="button" name="lang" id="lang" onchange="updatePage()">';
                     for ($i = 0; $i < sizeof($lang_array); $i++)
@@ -210,9 +206,8 @@ function updatePage()
                   if ($conf->use_theme == true) 
                   {
                     echo '<tr>';
-                    echo '<td class="right"><label for="theme">'.$html_theme.'</label></td>';
-                    echo '<td>&nbsp;</td>';
-                    echo '<td class="left">';
+                    echo '<th><label for="theme">'.$html_theme.'</label></th>';
+                    echo '<td>';
                     echo '<select class="button" name="theme" id="theme" onchange="updatePage()">';
                     $handle = opendir('./themes');
                     while (($file = readdir($handle)) != false) 
@@ -235,19 +230,14 @@ function updatePage()
                   if (isset($conf->prefs_dir) && $conf->prefs_dir != '') {
                 ?>
                 <tr>
-                  <td class="right"><label for="remember"><?php echo $html_remember ?></label></td>
-                  <td>&nbsp;</td>
-                  <td class="left">
-                     <input type="checkbox" name="remember" id="remember" value="true" />
+                  <th></th>
+                  <td>
+                    <input type="checkbox" name="remember" id="remember" value="true" /><label for="remember"><?php echo $html_remember ?></label>
                   </td>
                 </tr>
                 <?php } ?>
-                <tr>
-                  <td colspan="3" class="center">
-                    <input name="enter" class="button" type="submit" value="<?php echo $html_submit ?>" />
-                  </td>
-                </tr>
               </table>
+              <p><input name="enter" class="button" type="submit" value="<?php echo $html_submit ?>" /></p>
             </div>
             </form>
             <script type="text/javascript">
