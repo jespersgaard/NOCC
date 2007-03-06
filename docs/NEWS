@@ -5,6 +5,7 @@ NOCC 1.4    ?? ??, 200?
       (Arnaud Boudou).
 
   Patches
+    * Patch #1674343 : Missing translation for Dutch (openfan).
     * Patch #1663909 : Column order preference (Tim Gerundt).
     * Patch #1659330 : Optimize login box (Part 2) (Tim Gerundt).
     * Patch #1650480 : Use "min-width" for modern browsers (Tim Gerundt).
