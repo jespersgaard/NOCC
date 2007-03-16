@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.90 2006/11/22 13:08:22 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.91 2007/02/25 14:05:26 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -130,12 +130,14 @@ if ($pop->is_imap()) {
                               }
                               echo '<th class="inboxHeader'; if ($_SESSION['nocc_sort'] == $column) echo 'Sorted'; echo '">';
                               echo '<a href="'.$_SERVER['PHP_SELF'].'?sort='.$column.'&amp;sortdir='.$new_sortdir.'">'.$column_title.'</a>';
-                              echo '&nbsp;';
-                              echo '<a href="'.$_SERVER['PHP_SELF'].'?sort='.$column.'&amp;sortdir='.$new_sortdir.'">';
-                              echo '  <img src="themes/'.$_SESSION['nocc_theme'].'/img/'.$arrow.'.png" class="sort" alt="'.$html_sort.'" title="'.$html_sort_by.' '.$column_title.'" />';
-                              echo '</a>';
+                              if ($_SESSION['nocc_sort'] == $column) {
+                                echo '&nbsp;';
+                                echo '<a href="'.$_SERVER['PHP_SELF'].'?sort='.$column.'&amp;sortdir='.$new_sortdir.'">';
+                                echo '  <img src="themes/'.$_SESSION['nocc_theme'].'/img/'.$arrow.'.png" class="sort" alt="'.$html_sort.'" title="'.$html_sort_by.' '.$column_title.'" />';
+                                echo '</a>';
+                              }
                               echo '</th>';
                             }
                           ?>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.90 2006/11/22 13:08:22 goddess_skuld Exp $ -->
+<!-- end of $Id: html_top_table.php,v 1.91 2007/02/25 14:05:26 goddess_skuld Exp $ -->
