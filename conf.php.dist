@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.150 2006/11/29 19:58:51 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.151 2007/02/25 14:05:26 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -193,7 +193,7 @@ $conf->display_text_attach = true;
 $conf->column_order = array('1', '2', '3', '4', '5');
 
 // By default the messages are sorted by date 
-$conf->default_sort = '1';
+$conf->default_sort = '4';
 
 // By default the most recent is in top ('1' --> sorting top to bottom,
 // '0' --> bottom to top)
