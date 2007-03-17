@@ -5,6 +5,8 @@ NOCC 1.4    ?? ??, 200?
       (Arnaud Boudou).
 
   Patches
+    * Patch #1682496 : Add "Unread" and "Attachment" as own column
+      (Tim Gerundt).
     * Patch #1681769 : Use only one sorted arrow (Tim Gerundt).
     * Patch #1674343 : Missing translation for Dutch (openfan).
     * Patch #1663909 : Column order preference (Tim Gerundt).

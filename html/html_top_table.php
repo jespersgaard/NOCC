@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.91 2007/02/25 14:05:26 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.92 2007/03/16 08:30:24 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -127,17 +127,21 @@ if ($pop->is_imap()) {
                                 case '3': $column_title = $html_subject; break;
                                 case '4': $column_title = $html_date; break;
                                 case '5': $column_title = $html_size; break;
+                                case '6': $column_title = ''; break;
+                                case '7': $column_title = ''; break;
                               }
                               echo '<th class="inboxHeader'; if ($_SESSION['nocc_sort'] == $column) echo 'Sorted'; echo '">';
-                              echo '<a href="'.$_SERVER['PHP_SELF'].'?sort='.$column.'&amp;sortdir='.$new_sortdir.'">'.$column_title.'</a>';
-                              if ($_SESSION['nocc_sort'] == $column) {
-                                echo '&nbsp;';
-                                echo '<a href="'.$_SERVER['PHP_SELF'].'?sort='.$column.'&amp;sortdir='.$new_sortdir.'">';
-                                echo '  <img src="themes/'.$_SESSION['nocc_theme'].'/img/'.$arrow.'.png" class="sort" alt="'.$html_sort.'" title="'.$html_sort_by.' '.$column_title.'" />';
-                                echo '</a>';
+                              if ($column_title != '') { //If we have a column title...
+                                echo '<a href="'.$_SERVER['PHP_SELF'].'?sort='.$column.'&amp;sortdir='.$new_sortdir.'">'.$column_title.'</a>';
+                                if ($_SESSION['nocc_sort'] == $column) {
+                                  echo '&nbsp;';
+                                  echo '<a href="'.$_SERVER['PHP_SELF'].'?sort='.$column.'&amp;sortdir='.$new_sortdir.'">';
+                                  echo '  <img src="themes/'.$_SESSION['nocc_theme'].'/img/'.$arrow.'.png" class="sort" alt="'.$html_sort.'" title="'.$html_sort_by.' '.$column_title.'" />';
+                                  echo '</a>';
+                                }
                               }
                               echo '</th>';
                             }
                           ?>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.91 2007/02/25 14:05:26 goddess_skuld Exp $ -->
+<!-- end of $Id: html_top_table.php,v 1.92 2007/03/16 08:30:24 goddess_skuld Exp $ -->

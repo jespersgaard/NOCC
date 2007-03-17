@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.151 2007/02/25 14:05:26 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.152 2007/03/16 08:35:23 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -190,7 +190,9 @@ $conf->display_text_attach = true;
 //  3 = Subject
 //  4 = Date
 //  5 = Size
-$conf->column_order = array('1', '2', '3', '4', '5');
+//  6 = Read/Unread
+//  7 = Attachment
+$conf->column_order = array('6', '1', '7', '2', '3', '4', '5');
 
 // By default the messages are sorted by date 
 $conf->default_sort = '4';

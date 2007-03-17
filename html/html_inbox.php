@@ -1,4 +1,4 @@
-<!-- start of $Id: html_inbox.php,v 1.52 2006/11/22 13:08:22 goddess_skuld Exp $ -->
+<!-- start of $Id: html_inbox.php,v 1.53 2007/02/25 14:05:26 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -21,9 +21,7 @@
     echo '<td class="'.$inbox_class.'">';
     switch ($column) {
       case '1': //From...
-        echo $tmp['new'] . '&nbsp;';
         echo '<a href="'.$_SERVER['PHP_SELF'].'?action=write&amp;mail_to='.convertMailData2Html($tmp['from']).'" title="'.convertMailData2Html($tmp['from']).'">'.convertMailData2Html(display_address($tmp['from'])).'</a>&nbsp;';
-        echo $tmp['attach'];
         break;
       case '2': //To...
         echo convertMailData2Html(display_address($tmp['to']), 55);
@@ -41,9 +39,15 @@
       case '5': //Size...
         echo $tmp['size'] . $html_kb;
         break;
+      case '6': //Read/Unread...
+        echo $tmp['new'];
+        break;
+      case '7': //Attachment...
+        echo $tmp['attach'];
+        break;
     }
     echo '</td>';
   }
   echo '</tr>';
 ?>
-<!-- end of $Id: html_inbox.php,v 1.52 2006/11/22 13:08:22 goddess_skuld Exp $ -->
+<!-- end of $Id: html_inbox.php,v 1.53 2007/02/25 14:05:26 goddess_skuld Exp $ -->
