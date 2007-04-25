@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.118 2007/02/02 08:26:50 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.119 2007/02/25 13:19:02 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -184,12 +184,13 @@ function updatePage()
                     echo '</td>';
                     echo '</tr>';
                   }
+                  if ($conf->hide_lang_select_from_login_page == false) {
                 ?>
                 <tr>
                   <th><label for="lang"><?php echo $html_lang ?></label></th>
                   <td>
+                  <select class="button" name="lang" id="lang" onchange="updatePage()">
                   <?php
-                    echo '<select class="button" name="lang" id="lang" onchange="updatePage()">';
                     for ($i = 0; $i < sizeof($lang_array); $i++)
                       if (file_exists('lang/'.$lang_array[$i]->filename.'.php'))
                       {
@@ -203,12 +204,15 @@ function updatePage()
                   </td>
                 </tr>
                 <?php
-                  if ($conf->use_theme == true) 
+                  }
+                  if ($conf->use_theme == true && $conf->hide_theme_select_from_login_page == false) 
                   {
-                    echo '<tr>';
-                    echo '<th><label for="theme">'.$html_theme.'</label></th>';
-                    echo '<td>';
-                    echo '<select class="button" name="theme" id="theme" onchange="updatePage()">';
+                ?>
+                <tr>
+                <th><label for="theme"><?php echo $html_theme ?></label></th>
+                <td>
+                <select class="button" name="theme" id="theme" onchange="updatePage()">
+                <?php
                     $handle = opendir('./themes');
                     while (($file = readdir($handle)) != false) 
                     {
@@ -221,12 +225,12 @@ function updatePage()
                       }
                     }
                     closedir($handle); 
-                    echo '</select>';
-                    echo '</td>';
-                    echo '</tr>';
-                  }
                 ?>
+                </select>
+                </td>
+                </tr>
                 <?php
+                  }
                   if (isset($conf->prefs_dir) && $conf->prefs_dir != '') {
                 ?>
                 <tr>

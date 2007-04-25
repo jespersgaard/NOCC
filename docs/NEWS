@@ -5,6 +5,7 @@ NOCC 1.4    ?? ??, 200?
       (Arnaud Boudou).
 
   Patches
+    * Patch #1706947 : Hide lang and theme select from login page (Tim Gerundt).
     * Patch #1682496 : Add "Unread" and "Attachment" as own column
       (Tim Gerundt).
     * Patch #1681769 : Use only one sorted arrow (Tim Gerundt).

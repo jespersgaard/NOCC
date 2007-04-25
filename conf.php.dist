@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.154 2007/04/25 09:29:52 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.155 2007/04/25 11:18:23 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -302,6 +302,12 @@ $conf->display_text_attach = true;
 
 // force default language to be set, rather than browser prefered language
 $conf->force_default_lang = false;
+
+// hide the language selection from the login page
+$conf->hide_lang_select_from_login_page = false;
+
+// hide the theme selection from the login page
+$conf->hide_theme_select_from_login_page = false;
 
 // How many messages to display in the inbox (devel only)
 $conf->max_msg_num = 1;
