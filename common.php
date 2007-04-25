@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.72 2006/11/06 09:01:13 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.73 2007/01/01 11:20:00 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -44,7 +44,7 @@ if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'cookie'){
     require ('./html/footer.php');
     break;
   }
-  list($_SESSION['nocc_user'], $_SESSION['nocc_passwd'], $_SESSION['nocc_lang'], $_SESSION['nocc_smtp_server'], $_SESSION['nocc_smtp_port'], $_SESSION['nocc_theme'], $_SESSION['nocc_domain'], $_SESSION['imap_namespace'], $_SESSION['nocc_servr'], $_SESSION['nocc_folder'], $_SESSION['smtp_auth']) = explode(" ", base64_decode($session));
+  list($_SESSION['nocc_user'], $_SESSION['nocc_passwd'], $_SESSION['nocc_lang'], $_SESSION['nocc_smtp_server'], $_SESSION['nocc_smtp_port'], $_SESSION['nocc_theme'], $_SESSION['nocc_domain'], $_SESSION['imap_namespace'], $_SESSION['nocc_servr'], $_SESSION['nocc_folder'], $_SESSION['smtp_auth'], $_SESSION['ucb_pop_server'], $_SESSION['quota_enable'], $_SESSION['quota_type']) = explode(" ", base64_decode($session));
   $_SESSION['nocc_folder'] = isset($_REQUEST['nocc_folder']) ? $_REQUEST['nocc_folder'] : 'INBOX';
   $pwd_to_encrypt = false;
 }
@@ -171,6 +171,9 @@ if (isset($_REQUEST['domainnum']))
     $_SESSION['nocc_smtp_server'] = $conf->domains[$domainnum]->smtp;
     $_SESSION['nocc_smtp_port'] = $conf->domains[$domainnum]->smtp_port;
     $_SESSION['imap_namespace'] = $conf->domains[$domainnum]->imap_namespace;
+    $_SESSION['ucb_pop_server'] = $conf->domains[$domainnum]->have_ucb_pop_server;
+    $_SESSION['quota_enable'] = $conf->domains[$domainnum]->quota_enable;
+    $_SESSION['quota_type'] = $conf->domains[$domainnum]->quota_type;
 
     // Check allowed logins
     if(isset($conf->domains[$domainnum]->login_allowed) && !empty($conf->domains[$domainnum]->login_allowed)){

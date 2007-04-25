@@ -1,9 +1,9 @@
-<!-- start of $Id: html_inbox.php,v 1.53 2007/02/25 14:05:26 goddess_skuld Exp $ -->
+<!-- start of $Id: html_inbox.php,v 1.54 2007/03/17 07:32:14 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
 
-  if ($conf->have_ucb_pop_server || $pop->is_imap()) {
+  if ($_SESSION['ucb_pop_server'] || $pop->is_imap()) {
     if ($tmp['new'] != '' && $tmp['new'] != null && $tmp['new'] != "&nbsp;") {
       $inbox_class = "inbox new";
     } else {
@@ -50,4 +50,4 @@
   }
   echo '</tr>';
 ?>
-<!-- end of $Id: html_inbox.php,v 1.53 2007/02/25 14:05:26 goddess_skuld Exp $ -->
+<!-- end of $Id: html_inbox.php,v 1.54 2007/03/17 07:32:14 goddess_skuld Exp $ -->

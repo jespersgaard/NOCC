@@ -26,6 +26,7 @@ NOCC 1.4    ?? ??, 200?
     * RFE #1639527 : Setting for mailbox column order (Tim Gerundt).
 
   Misc
+    * UCB POP server and quota are now per server settings (Arnaud Boudou).
     * Improve "To:" address display in message list (Arnaud Boudou).
     * Disable unread icon for POP3 mailboxes (Arnaud Boudou).
     * Some small CSS changes (Arnaud Boudou).

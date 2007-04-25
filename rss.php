@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.15 2007/01/15 19:33:27 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.16 2007/01/22 19:24:54 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -32,6 +32,9 @@
   $_SESSION['nocc_servr'] = base64_decode($_REQUEST['nocc_servr']);
   $_SESSION['nocc_folder'] = base64_decode($_REQUEST['nocc_folder']);
   $_SESSION['smtp_auth'] = base64_decode($_REQUEST['smtp_auth']);
+  $_SESSION['ucb_pop_server'] = base64_decode($_REQUEST['ucb_pop_server']);
+  $_SESSION['quota_enable'] = base64_decode($_REQUEST['quota_enable']);
+  $_SESSION['quota_type'] = base64_decode($_REQUEST['quota_type']);
 
   if(!isset($_SESSION['nocc_user_prefs'])) {
       $_SESSION['nocc_user_prefs'] = NOCCUserPrefs::read($user_key, $ev);

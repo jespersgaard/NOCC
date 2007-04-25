@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.92 2007/03/16 08:30:24 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.93 2007/03/17 07:32:14 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -76,11 +76,11 @@ if ($pop->is_imap()) {
                         <a class="rss" href="<?php echo $rss_url ?>"><span class="rssText">(RSS)</span></a>
                         &nbsp;
                         <?php
-                          if (isset($conf->quota_enable) && $conf->quota_enable == true) { 
-                            if ($conf->quota_type == 'STORAGE') {
-                              echo '<span class="currentQuota">' . $_SESSION['quota'][$conf->quota_type]['usage'] . $html_kb . '</span><span class="maxQuota"> / ' . $_SESSION['quota'][$conf->quota_type]['limit'] . $html_kb . '</span>';
+                          if (isset($_SESSION['quota_enable']) && $_SESSION['quota_enable'] == true) { 
+                            if ($_SESSION['quota_type'] == 'STORAGE') {
+                              echo '<span class="currentQuota">' . $_SESSION['quota'][$_SESSION['quota_type']]['usage'] . $html_kb . '</span><span class="maxQuota"> / ' . $_SESSION['quota'][$_SESSION['quota_type']]['limit'] . $html_kb . '</span>';
                             } else {
-                              echo '<span class="currentQuota">' . $_SESSION['quota'][$conf->quota_type]['usage'] . $html_msgs . '</span><span class="maxQuota"> / ' . $_SESSION['quota'][$conf->quota_type]['limit'] . $html_msgs . '</span>';
+                              echo '<span class="currentQuota">' . $_SESSION['quota'][$_SESSION['quota_type']]['usage'] . $html_msgs . '</span><span class="maxQuota"> / ' . $_SESSION['quota'][$_SESSION['quota_type']]['limit'] . $html_msgs . '</span>';
                             }
                           }
                         ?>
@@ -144,4 +144,4 @@ if ($pop->is_imap()) {
                             }
                           ?>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.92 2007/03/16 08:30:24 goddess_skuld Exp $ -->
+<!-- end of $Id: html_top_table.php,v 1.93 2007/03/17 07:32:14 goddess_skuld Exp $ -->

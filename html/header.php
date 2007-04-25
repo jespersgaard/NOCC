@@ -56,6 +56,9 @@ else {
   $rss_url .= '&amp;nocc_user=' . base64_encode($_SESSION['nocc_user']);
   $rss_url .= '&amp;nocc_passwd=' . base64_encode($_SESSION['nocc_passwd']);
   $rss_url .= '&amp;nocc_login=' . base64_encode($_SESSION['nocc_login']);
+  $rss_url .= '&amp;ucb_pop_server=' . base64_encode($_SESSION['ucb_pop_server']);
+  $rss_url .= '&amp;quota_enable=' . base64_encode($_SESSION['quota_enable']);
+  $rss_url .= '&amp;quota_type=' . base64_encode($_SESSION['quota_type']);
 ?>
         </script>
         <link rel="alternate" type="application/rss+xml" title="RSS - NOCC" href="<?php echo $rss_url ?>" />
@@ -69,4 +72,4 @@ else {
 <?php
 }
 ?>
-<!-- end of $Id: header.php,v 1.65 2007/02/01 07:28:59 goddess_skuld Exp $ -->
+<!-- end of $Id: header.php,v 1.66 2007/02/02 08:47:18 goddess_skuld Exp $ -->

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.226 2007/01/05 21:43:54 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.227 2007/02/01 10:24:23 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -108,7 +108,7 @@ function inbox(&$pop, $skip = 0, &$ev)
         // see if this is a new message. This is a
         // non-RFC standard line header.
         // Set this in conf.php
-        if ($conf->have_ucb_pop_server)
+        if ($_SESSION['ucb_pop_server'])
         {
             $header_msg = $pop->fetchheader($pop->msgno($msgnum), $ev);
             if(NoccException::isException($ev)) return;
@@ -1094,6 +1094,9 @@ function saveSession(&$ev)
     $cookie_string .= " " . $_SESSION['nocc_servr'];
     $cookie_string .= " " . $_SESSION['nocc_folder'];
     $cookie_string .= " " . $_SESSION['smtp_auth'];
+    $cookie_string .= " " . $_SESSION['ucb_pop_server'];
+    $cookie_string .= " " . $_SESSION['quota_enable'];
+    $cookie_string .= " " . $_SESSION['quota_type'];
 
     // encode cookie string to base64
     $cookie_string = base64_encode($cookie_string);
