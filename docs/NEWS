@@ -5,6 +5,8 @@ NOCC 1.4    ?? ??, 200?
       (Arnaud Boudou).
 
   Patches
+    * Patch #1712388 : Prevent problems with base_url under windows (Tim
+      Gerundt).
     * Patch #1706947 : Hide lang and theme select from login page (Tim Gerundt).
     * Patch #1682496 : Add "Unread" and "Attachment" as own column
       (Tim Gerundt).
