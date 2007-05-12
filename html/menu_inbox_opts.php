@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox_opts.php,v 1.22 2006/10/20 13:40:14 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_inbox_opts.php,v 1.23 2006/11/22 14:27:17 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -13,7 +13,7 @@
                               </td>
                               <td class="menuOpts center">
                               <?php
-                                if ($pop->is_imap()) {
+                                if ($pop->is_imap() && $pop->get_folder_count() > 1) {
                                   $html_target_select = $pop->html_folder_select('target_folder', '');
                               ?>
                                 <input type="submit" class="button" name="move_mode" value="<?php echo convertLang2Html($html_move); ?>" /> <?php echo convertLang2Html($html_or); ?>
@@ -44,4 +44,4 @@
                         </td>
                       </tr>
                     </table>
-<!-- end of $Id: menu_inbox_opts.php,v 1.22 2006/10/20 13:40:14 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_inbox_opts.php,v 1.23 2006/11/22 14:27:17 goddess_skuld Exp $ -->

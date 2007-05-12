@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.49 2006/10/17 17:20:01 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.50 2007/02/25 14:05:23 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -308,6 +308,9 @@ class nocc_imap
         return $html_select;
     }
 
+    function get_folder_count() {
+        return count($this->getsubscribed($ev));
+    }
 
     function get_page_count(&$conf) {
         if (($num_messages = $this->num_msg()) == 0) {

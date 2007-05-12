@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.93 2007/03/17 07:32:14 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.94 2007/04/25 09:29:53 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -52,10 +52,12 @@ if($pages > 1) {
 $fldr_line = "";
 $reapply_filters = '';
 if ($pop->is_imap()) {
-    $fldr_line = "<form method=\"post\" action=\"".$_SERVER['PHP_SELF']."\"><div><label for=\"folder\">$html_other_folders:</label>  \n";
-    $fldr_line .= $pop->html_folder_select('folder', $_SESSION['nocc_folder']);
-    $fldr_line .= "<input type=\"submit\" class=\"button\" name=\"submit\" value=\"$html_gotofolder\" />";
-    $fldr_line .= "</div></form>";
+    if ($pop->get_folder_count() > 1) {
+        $fldr_line = "<form method=\"post\" action=\"".$_SERVER['PHP_SELF']."\"><div><label for=\"folder\">$html_other_folders:</label>  \n";
+        $fldr_line .= $pop->html_folder_select('folder', $_SESSION['nocc_folder']);
+        $fldr_line .= "<input type=\"submit\" class=\"button\" name=\"submit\" value=\"$html_gotofolder\" />";
+        $fldr_line .= "</div></form>";
+    }
     if($pop->folder == 'INBOX') {
         $reapply_filters = '<form method="post" action="'.$_SERVER['PHP_SELF'].'\"><div>'.
             '<label for="reapply_filters"><input type="checkbox" name="reapply_filters" id="reapply_filters" value="1" /> '.
@@ -144,4 +146,4 @@ if ($pop->is_imap()) {
                             }
                           ?>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.93 2007/03/17 07:32:14 goddess_skuld Exp $ -->
+<!-- end of $Id: html_top_table.php,v 1.94 2007/04/25 09:29:53 goddess_skuld Exp $ -->
