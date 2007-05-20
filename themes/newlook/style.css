@@ -480,8 +480,8 @@ img.sort {
 }
 
 .sendButtons {
-  vertical-align: middle;
-  width: 50%;
+  margin: 0;
+  padding: 0.5em;
   text-align: center;
 }
 

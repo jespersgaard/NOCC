@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.85 2006/10/18 19:22:13 goddess_skuld Exp $ -->
+<!-- start of $Id: send.php,v 1.86 2006/11/22 14:27:18 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -20,22 +20,12 @@ $mail_from = get_default_from_address();
       }
   } 
   ?>
+    <p class="sendButtons">
+      <input type="submit" class="button" onclick="btnClicked=this" name="sendaction" value="<?php echo $html_send ?>" />
+      &nbsp;&nbsp;
+      <input type="reset" class="button" value="<?php echo $html_cancel ?>" />
+    </p>
     <table>
-      <tr>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td class="sendButtons">
-          <input type="submit" class="button" onclick="btnClicked=this" name="sendaction" value="<?php echo $html_send ?>" />
-          &nbsp;&nbsp;
-          <input type="reset" class="button" value="<?php echo $html_cancel ?>" />
-        </td>
-      </tr>
-    </table>
-    <table>
-      <tr>
-        <td colspan="2">&nbsp;</td>
-      </tr>
       <tr>
         <td class="sendLabel"><label for="mail_from"><?php echo $html_from ?>:</label></td>
         <td class="sendData">
@@ -179,18 +169,11 @@ $mail_from = get_default_from_address();
        </td>
      </tr>
    </table>
-    <table>
-      <tr>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td class="sendButtons">
-          <input type="submit" class="button" onclick="btnClicked=this" name="sendaction" value="<?php echo $html_send ?>" />
-          &nbsp;&nbsp;
-          <input type="reset" class="button" value="<?php echo $html_cancel ?>" />
-        </td>
-      </tr>
-    </table>                                                                    
+    <p class="sendButtons">
+      <input type="submit" class="button" onclick="btnClicked=this" name="sendaction" value="<?php echo $html_send ?>" />
+      &nbsp;&nbsp;
+      <input type="reset" class="button" value="<?php echo $html_cancel ?>" />
+    </p>
   </form>
 </div>
 
@@ -228,4 +211,4 @@ function validate(f)
 
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.85 2006/10/18 19:22:13 goddess_skuld Exp $ -->
+<!-- end of $Id: send.php,v 1.86 2006/11/22 14:27:18 goddess_skuld Exp $ -->
