@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.188 2006/10/20 13:40:14 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.189 2007/04/25 09:29:51 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -675,8 +675,9 @@ switch($action)
         $new_folders = array();
         $list_of_folders = "";
 
-        // If we show it twice, the bottom folder select is sent, and might be wrong.
-        if (($conf->status_line == 1) && $pop->is_imap()) {
+        // If we show it twice, the bottom folder select is sent, and might be
+        // wrong.
+        if ($pop->is_imap()) {
           if (isset($_REQUEST['sort'])) {
             $subscribed = $_SESSION['subscribed'];
           } else {
@@ -697,16 +698,12 @@ switch($action)
               $list_of_folders =  $_SESSION['list_of_folders'];
             } else {
               $folder_name = substr(strstr($folder->name, '}'), 1);
-              $tmp_pop = imap_open($folder->name, $pop->login, $pop->passwd, 'OP_READONLY');
 
-              $unseen_messages = imap_search($tmp_pop,'UNSEEN');
-
-              imap_close($tmp_pop);
-                
-              if (!($unseen_messages == false) && count($unseen_messages) > 0) {
+              $status = $pop->status($folder->name);
+              if (!($status == false) && ($status->unseen > 0)) {
                 if (!in_array($folder_name, $new_folders)) {
                   $unseen_count = count($unseen_messages);
-                  $list_of_folders .= ' <a href="'.$_SERVER['PHP_SELF'].'?folder='.$folder_name.'">'.$folder_name." ($unseen_count)".'</a>';
+                  $list_of_folders .= ' <a href="'.$_SERVER['PHP_SELF'].'?folder='.$folder_name.'">'.$folder_name." ($status->unseen)".'</a>';
                   $_SESSION['list_of_folders'] = $list_of_folders;
                   array_push($new_folders, $folder_name);
                 }

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.156 2007/04/25 13:04:21 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.157 2007/05/04 10:38:57 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -315,12 +315,6 @@ $conf->max_msg_num = 1;
 // This sets the number of messages per page to display from a imap folder or
 // pop mailbox
 $conf->msg_per_page = '25';
-
-// Set this to '1' to enable the status line for folders at the bottom of
-// the inbox page.
-// If you get slow page loads, set it to '0' to disable this (rather slow)
-// function.
-$conf->status_line = '1';
 
 // If you wanna make your own theme and force people to use that one, 
 // set $conf->use_theme to false and fill in the $conf->default_theme to 
