@@ -8,28 +8,6 @@
   width: 17px;
 }
 
-.new {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.inboxHeader {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.inboxHeaderSorted {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-  text-align: center;
-  background-color: #FFFFCC;
-  border: 1px dashed #222222;
-}
-
 .inboxStatus {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
@@ -448,6 +426,28 @@ img.sort {
 #loginBox p {
   margin: 0;
   padding: 0.5em;
+}
+
+#inboxTable {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+#inboxTable .new {
+  font-weight: bold;
+}
+
+#inboxTable th.sorted {
+  background-color: #FFFFCC;
+  border: 1px dashed #222222;
+}
+
+#inboxTable .column0 {
+  text-align: center;
+}
+
+#inboxTable .column5 {
+  text-align: right;
 }
 
 .send {

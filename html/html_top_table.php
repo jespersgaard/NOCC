@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.94 2007/04/25 09:29:53 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.95 2007/05/12 19:48:44 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -118,9 +118,9 @@ if ($pop->is_imap()) {
                   <!-- Message list bloc -->
                   <form method="post" action="delete.php" id="delete_form">
                     <?php include('menu_inbox_opts.php'); ?>
-                      <table>
+                      <table id="inboxTable">
                         <tr>
-                          <th class="inboxHeader"></th>
+                          <th class="column0"></th>
                           <?php
                             foreach ($conf->column_order as $column) { //For all columns...
                               switch ($column) {
@@ -132,7 +132,7 @@ if ($pop->is_imap()) {
                                 case '6': $column_title = ''; break;
                                 case '7': $column_title = ''; break;
                               }
-                              echo '<th class="inboxHeader'; if ($_SESSION['nocc_sort'] == $column) echo 'Sorted'; echo '">';
+                              echo '<th class="column'.$column; if ($_SESSION['nocc_sort'] == $column) echo ' sorted'; echo '">';
                               if ($column_title != '') { //If we have a column title...
                                 echo '<a href="'.$_SERVER['PHP_SELF'].'?sort='.$column.'&amp;sortdir='.$new_sortdir.'">'.$column_title.'</a>';
                                 if ($_SESSION['nocc_sort'] == $column) {
@@ -146,4 +146,4 @@ if ($pop->is_imap()) {
                             }
                           ?>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.94 2007/04/25 09:29:53 goddess_skuld Exp $ -->
+<!-- end of $Id: html_top_table.php,v 1.95 2007/05/12 19:48:44 goddess_skuld Exp $ -->

@@ -1,24 +1,21 @@
-<!-- start of $Id: html_inbox.php,v 1.54 2007/03/17 07:32:14 goddess_skuld Exp $ -->
+<!-- start of $Id: html_inbox.php,v 1.55 2007/04/25 09:29:53 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
 
+  $new_class = '';
   if ($_SESSION['ucb_pop_server'] || $pop->is_imap()) {
     if ($tmp['new'] != '' && $tmp['new'] != null && $tmp['new'] != "&nbsp;") {
-      $inbox_class = "inbox new";
-    } else {
-      $inbox_class = "inbox";
+      $new_class='new';
     }
-  } else {
-    $inbox_class = "inbox";
   }
   
-  echo '<tr>';
-  echo '<td class="'.$inbox_class.'">';
+ echo '<tr class="'.$new_class.'">';
+ echo '<td class="column0">';
   echo '  <input type="checkbox" name="msg-'.$tmp['number'].'" value="Y" />';
   echo '</td>';
   foreach ($conf->column_order as $column) { //For all columns...
-    echo '<td class="'.$inbox_class.'">';
+    echo '<td class="column'.$column; if ($_SESSION['nocc_sort'] == $column) echo ' sorted'; echo '">';
     switch ($column) {
       case '1': //From...
         echo '<a href="'.$_SERVER['PHP_SELF'].'?action=write&amp;mail_to='.convertMailData2Html($tmp['from']).'" title="'.convertMailData2Html($tmp['from']).'">'.convertMailData2Html(display_address($tmp['from'])).'</a>&nbsp;';
@@ -50,4 +47,4 @@
   }
   echo '</tr>';
 ?>
-<!-- end of $Id: html_inbox.php,v 1.54 2007/03/17 07:32:14 goddess_skuld Exp $ -->
+<!-- end of $Id: html_inbox.php,v 1.55 2007/04/25 09:29:53 goddess_skuld Exp $ -->
