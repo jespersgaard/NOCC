@@ -441,6 +441,11 @@ img.sort {
   text-align: right;
 }
 
+#inboxTable img {
+  height: 17px;
+  width: 17px;
+}
+
 #inboxStatus {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
