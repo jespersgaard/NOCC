@@ -1,10 +1,11 @@
-<!-- start of $Id: html_bottom_table.php,v 1.39 2006/09/01 20:28:19 goddess_skuld Exp $ -->
+<!-- start of $Id: html_bottom_table.php,v 1.40 2006/10/03 07:38:57 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
 ?>
                       </table>
-		    <?php include('menu_inbox_bottom_opts.php'); ?>
+                    <?php include('menu_inbox_status.php'); ?>
+                    <?php include('menu_inbox_bottom_opts.php'); ?>
                   <!-- end of Message list bloc -->
                 </div>
                 <?php if (($pop->is_imap()) || ($pages > 1)) { ?>
@@ -36,4 +37,4 @@ function SelectAll() {
 }
 //-->
 </script>
-<!-- end of $Id: html_bottom_table.php,v 1.39 2006/09/01 20:28:19 goddess_skuld Exp $ -->
+<!-- end of $Id: html_bottom_table.php,v 1.40 2006/10/03 07:38:57 goddess_skuld Exp $ -->

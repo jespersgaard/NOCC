@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.189 2007/04/25 09:29:51 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.190 2007/06/01 19:24:10 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -710,7 +710,6 @@ switch($action)
               }
             }
           }
-          require ('./html/menu_inbox_status.php');
         }
 
         require ('./html/html_bottom_table.php');
