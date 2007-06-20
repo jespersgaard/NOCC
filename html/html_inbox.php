@@ -1,4 +1,4 @@
-<!-- start of $Id: html_inbox.php,v 1.55 2007/04/25 09:29:53 goddess_skuld Exp $ -->
+<!-- start of $Id: html_inbox.php,v 1.56 2007/06/19 06:35:12 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -6,12 +6,12 @@
   $new_class = '';
   if ($_SESSION['ucb_pop_server'] || $pop->is_imap()) {
     if ($tmp['new'] != '' && $tmp['new'] != null && $tmp['new'] != "&nbsp;") {
-      $new_class='new';
+      $new_class = 'new';
     }
   }
   
- echo '<tr class="'.$new_class.'">';
- echo '<td class="column0">';
+  echo '<tr class="'.$new_class.'">';
+  echo '<td class="column0">';
   echo '  <input type="checkbox" name="msg-'.$tmp['number'].'" value="Y" />';
   echo '</td>';
   foreach ($conf->column_order as $column) { //For all columns...
@@ -47,4 +47,4 @@
   }
   echo '</tr>';
 ?>
-<!-- end of $Id: html_inbox.php,v 1.55 2007/04/25 09:29:53 goddess_skuld Exp $ -->
+<!-- end of $Id: html_inbox.php,v 1.56 2007/06/19 06:35:12 goddess_skuld Exp $ -->
