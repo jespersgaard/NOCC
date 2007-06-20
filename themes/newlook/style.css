@@ -450,7 +450,7 @@ img.sort {
   text-align: right;
 }
 
-#inboxTable img {
+#inboxTable td img {
   height: 17px;
   width: 17px;
 }
