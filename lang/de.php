@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.62 2006/10/18 19:22:13 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.63 2006/10/20 12:20:00 goddess_skuld Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha AT free DOT fr>
  * Copyright 2000 Olivier Cahagne <wolruf AT free DOT fr>
@@ -38,7 +38,7 @@ $no_locale_date_format = '%d.%m.%Y';
 
 // What format string should we pass to strftime() for messages sent
 // today?
-$default_time_format = '%I:%M %p';
+$default_time_format = '%H:%M';
 
 
 // Here is the configuration for the HTML
@@ -82,7 +82,7 @@ $html_remember = "Einstellungen speichern";
 $html_msgperpage = 'Nachrichten pro Seite';
 $html_preferences = 'Einstellungen';
 $html_full_name = 'Vollständiger Name';
-$html_email_address = 'E-Mail Adresse';
+$html_email_address = 'E-Mail-Adresse';
 $html_ccself = 'Kopie der gesendeten Nachrichten an die eigene Adresse schicken';
 $html_hide_addresses = 'Adressen verstecken';
 $html_outlook_quoting = 'Quoting im Outlook-Stil';
@@ -91,13 +91,13 @@ $html_use_signature = 'Signatur benutzen';
 $html_signature = 'Signatur';
 $html_reply_leadin = 'Antwort-Einleitung';
 $html_prefs_updated = 'Einstellungen gespeichert';
-$html_manage_folders_link = 'IMAP Ordner verwalten';
-$html_manage_filters_link = 'E-Mail Filter verwalten';
+$html_manage_folders_link = 'IMAP-Ordner verwalten';
+$html_manage_filters_link = 'E-Mail-Filter verwalten';
 $html_use_graphical_smilies = 'Benutze graphische Emoticons';
-$html_sent_folder = 'Kopiere gesendete Email in das angegebene Verzeichnis';
+$html_sent_folder = 'Kopiere gesendete E-Mail in das angegebene Verzeichnis';
 $html_colored_quotes = 'Farbige Zitate';
 $html_display_struct = 'Strukturierten Text anzeigen';
-$html_send_html_mail = 'Send mail in HTML format'; //to translate
+$html_send_html_mail = 'E-Mail im HTML-Format versenden';
 
 // folders.php
 $html_folders_create_failed = 'Der Ordner konnte nicht angelegt werden!';
@@ -148,7 +148,7 @@ $html_reply_short = 'Re';
 $html_reply_all = 'Antwort an alle';
 $html_forward = 'Weiterleitung';
 $html_forward_short = 'Fw';
-$html_forward_info = 'Die weiterzuleitende Nachricht wird als Anhang mit dieser Email verschickt.';
+$html_forward_info = 'Die weiterzuleitende Nachricht wird als Anhang mit dieser E-Mail verschickt.';
 $html_delete = 'Löschen';
 $html_new = 'Neu';
 $html_mark = 'Löschen';
@@ -246,5 +246,5 @@ $html_seperate_msg_win = 'Nachricht in neuem Fenster öffnen';
 // Exceptions
 $html_err_file_contacts = 'Kann die Kontaktdatei nicht zum Schreiben öffnen.';
 $html_session_file_error = 'Kann die Sitzungsdatei nicht zum Schreiben öffnen.';
-$html_login_not_allowed = 'This login is not allowed for connexion.'; //to translate
+$html_login_not_allowed = 'Diese Anmeldung ist nicht für die Verbindung zugelassen.';
 ?>
