@@ -5,6 +5,7 @@ NOCC 1.4    ?? ??, 200?
       (Arnaud Boudou).
 
   Patches
+    * Patch #1742563 : Add time to mail view (Tim Gerundt).
     * Patch #1738781 : Use more flexible inbox table (Tim Gerundt).
     * Patch #1717436 : Show folder select only with more folders (Tim Gerundt).
     * Patch #1712388 : Prevent problems with base_url under windows (Tim

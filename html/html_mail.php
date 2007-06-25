@@ -1,4 +1,4 @@
-<!-- start of $Id: html_mail.php,v 1.3 2006/10/20 08:59:39 goddess_skuld Exp $ -->
+<!-- start of $Id: html_mail.php,v 1.4 2006/10/23 08:47:55 goddess_skuld Exp $ -->
 <div class="mailNav">
    <table>
 <?php
@@ -38,7 +38,7 @@ if ($conf->use_verbose && $verbose == '0') {
 if ($content['subject'] == '')
     $content['subject'] = $html_nosubject;
   echo '<tr><th class="mailHeaderLabel">'.$html_subject.':</th><td class="mailHeaderData">'.htmlspecialchars($content['subject']).'</td></tr>';
-  echo '<tr><th class="mailHeaderLabel">'.$html_date.':</th><td class="mailHeaderData">'.$content['date'].'</td></tr>';
+  echo '<tr><th class="mailHeaderLabel">'.$html_date.':</th><td class="mailHeaderData">'.$content['date'].' '.$content['time'].'</td></tr>';
   if($content['att'] != '') {
     echo $content['att'];
   }
@@ -93,4 +93,4 @@ echo '<div class="mail">'.$content['body'].'</div>';
 
 ?>
 </div>
-<!-- end of $Id: html_mail.php,v 1.3 2006/10/20 08:59:39 goddess_skuld Exp $ -->
+<!-- end of $Id: html_mail.php,v 1.4 2006/10/23 08:47:55 goddess_skuld Exp $ -->
