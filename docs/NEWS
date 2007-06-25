@@ -32,6 +32,7 @@ NOCC 1.4    ?? ??, 200?
     * RFE #1639527 : Setting for mailbox column order (Tim Gerundt).
 
   Misc
+    * The 'complete_date' mail variable now includes the time too (Tim Gerundt).
     * Move "Inbox Status" outside <TABLE> for more structured HTML (Tim
       Gerundt).
     * Improve count of unseen messages into status line speed (Dirk Hoeschen).

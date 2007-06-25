@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.227 2007/02/01 10:24:23 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.228 2007/04/25 09:29:52 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -147,7 +147,7 @@ function inbox(&$pop, $skip = 0, &$ev)
                 'subject' => $subject, 
                 'date' => $date,
                 'time' => $time,
-                'complete_date' => $date, 
+                'complete_date' => $date . ' ' . $time,
                 'size' => $msg_size,
                 'sort' => $sort,
                 'sortdir' => $sortdir);
@@ -349,7 +349,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
         'subject' => $subject,
         'date' => $date,
         'time' => $time,
-        'complete_date' => $date,
+        'complete_date' => $date . ' ' . $time,
         'att' => $link_att,
         'body' => $pop->graphicalsmilies($body),
         'body_mime' => convertLang2Html($tmp['mime']),

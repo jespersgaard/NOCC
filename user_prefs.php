@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.14 2006/10/09 08:05:21 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.15 2006/10/18 19:22:04 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -224,12 +224,11 @@ class NOCCUserPrefs {
 	 */
 	function parseLeadin ($string, $content)
 	{
-		$col_time = strtotime($content['complete_date']);
-		$converted_date = date("D, j M Y", $col_time);
-		$string = str_replace('_DATE_', $converted_date, $string);
-		$string = str_replace("_FROM_", $content['from'], $string);
-		$string = str_replace("_TO_", $content['to'], $string);
-		$string = str_replace("_SUBJECT_", $content['subject'], $string);
+		$string = str_replace('_DATE_', $content['date'], $string);
+		$string = str_replace('_TIME_', $content['time'], $string);
+		$string = str_replace('_FROM_', $content['from'], $string);
+		$string = str_replace('_TO_', $content['to'], $string);
+		$string = str_replace('_SUBJECT_', $content['subject'], $string);
 		return ($string."\n");
 	}
 }
