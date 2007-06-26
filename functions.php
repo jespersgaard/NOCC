@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.228 2007/04/25 09:29:52 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.229 2007/06/25 22:05:47 gerundt Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -976,6 +976,24 @@ function wrap_outgoing_msg ($txt, $length, $newline)
 	  $msg .= rtrim ($buffer) . $newline;
 	}
     }
+  return $msg;
+}
+
+function escape_dots ($txt)
+{
+  $crlf = "\r\n";
+  $msg = '';
+
+  // cut message in segment
+  $tbl = explode ($crlf, $txt);
+
+  for ($i = 0; $i < count($tbl); ++$i) {
+    if($tbl[$i][0] == '.')
+      $tbl[$i] = "." . $tbl[$i];
+
+    $msg .= $tbl[$i] . $crlf;
+  }
+
   return $msg;
 }
 

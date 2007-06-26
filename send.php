@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.141 2006/10/20 13:40:14 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.142 2007/02/01 10:24:23 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -145,8 +145,8 @@ switch($_REQUEST['sendaction'])
             else
                 $mail->body = $conf->ad;
 
-	// Strip "\r\n.\r\n" to avoid cutting mail
-	$mail->body = str_replace($conf->crlf . "." . $conf->crlf, $conf->crlf . ".." . $conf->crlf, $mail->body);
+        // Handle dots for SMTP protocol
+        $mail->body = escape_dots($mail->body);
 
         // Getting the attachments
         if (isset($_SESSION['nocc_attach_array']))
