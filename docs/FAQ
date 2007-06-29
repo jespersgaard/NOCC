@@ -1,6 +1,6 @@
 Frequently Asked Questions for Nocc
 -----------------------------------
-Last updated: $Date: 2006/09/18 18:59:12 $
+Last updated: $Date: 2006/10/16 05:32:53 $
 
  Q. Nocc keeps me asking for a correct login/password.
 
@@ -192,7 +192,7 @@ Last updated: $Date: 2006/09/18 18:59:12 $
     can't use Nocc.
 
  A. Create a .htaccess file at Nocc's root directory with the following line:
-      php_flag register_globals offphp_flag register_globals off
+      php_flag register_globals off
     If your host does not allow you to use any .htaccess file, you will have to
     delete in the check.php file the lines beginning with 
       if (ini_get('register_globals') == true)
