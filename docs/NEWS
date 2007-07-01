@@ -1,4 +1,6 @@
-NOCC 1.4    ?? ??, 200?
+NOCC 1.5  ?? ??, ??
+
+NOCC 1.4  July 01, 2007
 
   Bugs
     * Bug #1629751 : Deleting mails reports "Could not connect to server" 

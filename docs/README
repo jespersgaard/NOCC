@@ -185,22 +185,21 @@ for every release and be able to update it with users' setups):
 
     * servers: (Nocc should work with any server, however, these have been
       specifically tested and are known to work)
-      - Apache 2.2.3.
-      - PHP 5.2.0.
-      - FreeBSD 6.2.
+      - Apache.
+      - PHP 5.2.3.
+      - FreeBSD.
+      - MacOS X.
 
     * browsers: (Nocc should work with any browser which support CSS and XHTML,
       however, these have been tested and work)     
-      - Internet Explorer 6.0.x for Windows.
-      - Camino 1.1 alpha 1.
-      - Safari 2.0.4.
-      - Firefox 2.0 and 2.0.0.1.
-      - Opera 9.1.
+      - Internet Explorer.
+      - Safari.
+      - Firefox.
       - cookies needed as of 0.9.5.
 
     * mail servers: (Nocc should work with any IMAP/POP3 server, however,
       these have been tested and work)
-      - Courier-IMAP 4.1.1.
+      - Courier-IMAP.
 
     * MTA: (Nocc should work with any MTA, however, these have been tested
       and work)
@@ -210,7 +209,7 @@ for every release and be able to update it with users' setups):
 
     * a company with approx. 150 unique users/day,
     * a school with also 150 unique users/day,
-    * several others, see http://nocc.sf.net/ .
+    * several others, see http://nocc.sourceforge.net/ .
 
   Tips
   ----
