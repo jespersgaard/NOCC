@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.119 2007/02/25 13:19:02 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.120 2007/04/25 13:04:21 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -53,7 +53,7 @@ function updatePort ()
     }
     else if (document.getElementById("nocc_webmail_login").servtype.options[document.getElementById("nocc_webmail_login").servtype.selectedIndex].value == 'pop3/ssl/novalidate-cert')
     {
-        document.getElementByI("nocc_webmail_login").port.value = 995;
+        document.getElementById("nocc_webmail_login").port.value = 995;
     }
 }
 

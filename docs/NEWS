@@ -1,5 +1,9 @@
 NOCC 1.5  ?? ??, ??
 
+  Misc
+    * Fix issues with server self provided details on login page
+      (Arnaud Boudou).
+
 NOCC 1.4  July 01, 2007
 
   Bugs

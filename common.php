@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.74 2007/04/25 09:29:52 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.75 2007/07/01 21:01:46 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -156,7 +156,7 @@ if ( isset($_REQUEST['fillindomain']) && isset( $conf->typed_domain_login ) )
 }
 
 // Were we provided with a domainnum to use
-if (isset($_REQUEST['domainnum']))
+if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server'])))
 {
     $domainnum = $_REQUEST['domainnum'];
     if (!isset($conf->domains[$domainnum])) {
@@ -291,4 +291,5 @@ require_once ('./conf_charset.php');
 if (isset($conf->memory_limit) && $conf->memory_limit != '') {
   ini_set ( "memory_limit", $conf->memory_limit);
 }
+
 ?>
