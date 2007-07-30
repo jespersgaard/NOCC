@@ -1,11 +1,8 @@
-<!-- start of $Id: menu_inbox_bottom_opts.php,v 1.4 2006/11/22 14:27:17 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_inbox_bottom_opts.php,v 1.5 2007/05/12 19:48:44 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
 ?>
-                    <table>
-                      <tr>
-                        <td colspan="4">
                           <table>
                             <tr>
                               <td class="menuOpts left">
@@ -41,8 +38,5 @@
                               </td>
                             </tr>
                           </table>
-                        </td>
-                      </tr>
-                    </table>
                   </form>
-<!-- end of $Id: menu_inbox_bottom_opts.php,v 1.4 2006/11/22 14:27:17 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_inbox_bottom_opts.php,v 1.5 2007/05/12 19:48:44 goddess_skuld Exp $ -->
