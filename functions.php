@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.229 2007/06/25 22:05:47 gerundt Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.230 2007/06/26 19:57:48 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -263,7 +263,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
           $body_charset = $_REQUEST['user_charset'];
         }
 
-        $body_converted = @iconv( $body_charset, $GLOBALS['charset'], $body);
+        $body_converted = os_iconv( $body_charset, $GLOBALS['charset'], $body);
         $body = ($body_converted===FALSE) ? $body : $body_converted;
         $tmp['charset'] = ($body_converted===FALSE) ? $body_charset : $GLOBALS['charset'];
     }
@@ -1167,5 +1167,34 @@ function loadSession(&$ev, &$key)
 function convertLang2Html($langstring) {
   global $charset;
   return htmlentities($langstring, ENT_COMPAT, $charset);
+}
+
+// Wrapper for iconv if GNU iconv is not used
+function os_iconv($input_charset, $output_charset, &$text) {
+  if (strlen($text) == 0) {
+    return $text;
+  }
+
+  if (PHP_OS == 'AIX') {
+    // AIX has its own small selection of names.
+    $input_charset = strtolower($input_charset);
+    if ($input_charset == 'x-unknown' || $input_charset == 'us-ascii')
+    {
+      $input_charset = 'ISO8859-1';
+    } else if (ereg('^iso[-_]?8859[-_]?([1-9][0-9]?)', $input_charset, $groups))
+    {
+      $input_charset = 'ISO8859-' . $groups[0];
+    } else if (ereg('^(windows|cp|ibm)[-_]?([0-9]+)$', $input_charset, $groups))
+    {
+      $input_charset = 'IBM-' . str_pad($groups[1], 3, '0', STR_PAD_LEFT);
+    }
+  } else {
+    // Assume default GNU iconv.
+    if ($input_charset == 'x-unknown') {
+      $input_charset = 'ISO-8859-1';
+    }
+  }
+
+  return @iconv($input_charset, $output_charset, $text);
 }
 ?>

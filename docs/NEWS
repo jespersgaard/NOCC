@@ -1,5 +1,9 @@
 NOCC 1.5  ?? ??, ??
 
+  Bugs
+    * Bug #1766528 : Blank headers because AIX iconv uses different names (Carey
+      Evans).
+
   Misc
     * Remove nested table from inbox opts menu (Tim Gerundt).
     * Change the way language list is displayed (Arnaud Boudou).

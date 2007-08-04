@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.51 2007/05/12 19:48:44 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.52 2007/06/01 19:24:11 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -277,10 +277,8 @@ class nocc_imap
         $result[0]->charset='ISO-8859-1';
         for ($j = 0; $j < count($source); $j++ ) {
             $element_charset =  ($source[$j]->charset == "default") ? detect_charset($source[$j]->text) : $source[$j]->charset;
-            if ($element_charset == 'x-unknown')
-              $element_charset = 'ISO-8859-1';
 
-            $element_converted = @iconv( $element_charset, $output_charset, $source[$j]->text);
+            $element_converted = os_iconv( $element_charset, $output_charset, $source[$j]->text);
             $result[$j]->text = $element_converted;
             $result[$j]->charset = $output_charset;
         }
