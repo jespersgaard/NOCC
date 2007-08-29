@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.28 2007/07/27 05:20:17 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf_lang.php,v 1.29 2007/07/28 06:54:10 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -22,13 +22,13 @@ $i = 0;
 // Arabic
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'ar';
-$lang_array[$i]->label = 'عربي';
+$lang_array[$i]->label = 'العربية';
 
 // Bulgarian
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'bg';
-$lang_array[$i]->label = 'Български език';
+$lang_array[$i]->label = 'Български';
 
 // Catalan
 $i++;
@@ -36,23 +36,11 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'ca';
 $lang_array[$i]->label = 'Català';
 
-// Chinese (Simplified)
-$i++;
-$lang_array[$i] = new lang();
-$lang_array[$i]->filename = 'zh-gb';
-$lang_array[$i]->label = '简体字';
-
-// Chinese (Traditionnal)
-$i++;
-$lang_array[$i] = new lang();
-$lang_array[$i]->filename = 'zh-tw';
-$lang_array[$i]->label = '正體字';
-
 // Czech
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'cs';
-$lang_array[$i]->label = 'Čeština';
+$lang_array[$i]->label = 'Česky';
 
 // Welsh
 $i++;
@@ -72,17 +60,17 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'de';
 $lang_array[$i]->label = 'Deutsch';
 
-// Dutch
-$i++;
-$lang_array[$i] = new lang();
-$lang_array[$i]->filename = 'nl';
-$lang_array[$i]->label = 'Nederlands';
-
 // English
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'en';
 $lang_array[$i]->label = 'English';
+
+// Greek
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'el';
+$lang_array[$i]->label = 'Ελληνικά';
 
 // Spanish
 $i++;
@@ -102,11 +90,6 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'fr';
 $lang_array[$i]->label = 'Français';
 
-// Greek
-$i++;
-$lang_array[$i] = new lang();
-$lang_array[$i]->filename = 'el';
-$lang_array[$i]->label = 'Ελληνικά';
 
 // Hebrew
 $i++;
@@ -132,18 +115,6 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'it';
 $lang_array[$i]->label = 'Italiano';
 
-// Japanese
-$i++;
-$lang_array[$i] = new lang();
-$lang_array[$i]->filename = 'ja';
-$lang_array[$i]->label = '日本語';
-
-// Korean
-$i++;
-$lang_array[$i] = new lang();
-$lang_array[$i]->filename = 'kr';
-$lang_array[$i]->label = '한국어';
-
 // Latvian
 $i++;
 $lang_array[$i] = new lang();
@@ -155,6 +126,12 @@ $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'hu';
 $lang_array[$i]->label = 'Magyar';
+
+// Dutch
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'nl';
+$lang_array[$i]->label = 'Nederlands';
 
 // Norwegian bokmål
 $i++;
@@ -184,7 +161,7 @@ $lang_array[$i]->label = 'Português';
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'pt-br';
-$lang_array[$i]->label = 'Português Brasil';
+$lang_array[$i]->label = 'Português Brasileiro';
 
 // Romanian
 $i++;
@@ -198,29 +175,23 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'ru';
 $lang_array[$i]->label = 'Русский';
 
-// Swedish
+// Slovak
 $i++;
 $lang_array[$i] = new lang();
-$lang_array[$i]->filename = 'sv';
-$lang_array[$i]->label = 'Svenska';
+$lang_array[$i]->filename = 'sk';
+$lang_array[$i]->label = 'Slovenčina';
 
 // Slovene
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'sl';
-$lang_array[$i]->label = 'Slovensko';
-
-// Slovak
-$i++;
-$lang_array[$i] = new lang();
-$lang_array[$i]->filename = 'sk';
-$lang_array[$i]->label = 'Slovensky';
+$lang_array[$i]->label = 'Slovenščina';
 
 // Serbian
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'sr';
-$lang_array[$i]->label = 'Srpski Jezik';
+$lang_array[$i]->label = 'Srpski';
 
 // Finnish
 $i++;
@@ -228,15 +199,46 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'fi';
 $lang_array[$i]->label = 'Suomi';
 
+// Swedish
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'sv';
+$lang_array[$i]->label = 'Svenska';
+
 // Thai
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'th';
-$lang_array[$i]->label = 'ภาษาไทย';
+$lang_array[$i]->label = 'ไทย';
 
 // Turkish
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'tr';
 $lang_array[$i]->label = 'Türkçe';
+
+// Japanese
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'ja';
+$lang_array[$i]->label = '日本語';
+
+// Korean
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'kr';
+$lang_array[$i]->label = '한국어';
+
+
+// Chinese (Simplified)
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'zh-gb';
+$lang_array[$i]->label = '中文';
+
+// Chinese (Traditionnal)
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'zh-tw';
+$lang_array[$i]->label = '古文 / 文言文';
 ?>
