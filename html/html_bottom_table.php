@@ -1,4 +1,4 @@
-<!-- start of $Id: html_bottom_table.php,v 1.40 2006/10/03 07:38:57 goddess_skuld Exp $ -->
+<!-- start of $Id: html_bottom_table.php,v 1.41 2007/06/20 21:53:20 gerundt Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -24,17 +24,4 @@
                   </table>
                 </div>
                 <?php } ?>
-<script type="text/javascript">
-<!--
-function SelectAll() {
-  var form = document.getElementById('delete_form');
-  for (var i = 0; i < form.elements.length; i++) {
-    if( form.elements[i].name.substr( 0, 4 ) == 'msg-') {
-      form.elements[i].checked =
-        !(form.elements[i].checked);
-    }
-  }
-}
-//-->
-</script>
-<!-- end of $Id: html_bottom_table.php,v 1.40 2006/10/03 07:38:57 goddess_skuld Exp $ -->
+<!-- end of $Id: html_bottom_table.php,v 1.41 2007/06/20 21:53:20 gerundt Exp $ -->

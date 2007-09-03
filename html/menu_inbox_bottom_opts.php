@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox_bottom_opts.php,v 1.5 2007/05/12 19:48:44 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_inbox_bottom_opts.php,v 1.6 2007/07/30 21:50:21 gerundt Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -6,7 +6,7 @@
                           <table>
                             <tr>
                               <td class="menuOpts left">
-                                <input type="button" class="button" value="<?php echo convertLang2Html($html_select_all); ?>" onselect="SelectAll()" onclick="SelectAll()" />
+                                <input type="button" class="button" value="<?php echo convertLang2Html($html_select_all); ?>" onselect="InvertCheckedMsgs()" onclick="InvertCheckedMsgs()" />
                               </td>
                               <td class="menuOpts center">
                               <?php
@@ -39,4 +39,4 @@
                             </tr>
                           </table>
                   </form>
-<!-- end of $Id: menu_inbox_bottom_opts.php,v 1.5 2007/05/12 19:48:44 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_inbox_bottom_opts.php,v 1.6 2007/07/30 21:50:21 gerundt Exp $ -->

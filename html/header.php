@@ -29,6 +29,7 @@ else {
         <meta http-equiv="Content-Type" content="text/html; charset=<?php echo convertLang2Html($charset); ?>" />
         <link href="themes/<?php echo str_replace('..','',convertLang2Html($_SESSION['nocc_theme'])); ?>/style.css" rel="stylesheet" type="text/css" />
         <link href="themes/<?php echo str_replace('..','',convertLang2Html($_SESSION['nocc_theme'])); ?>/print.css" rel="stylesheet" media="print" type="text/css" />
+        <script src="js/nocc.js" type="text/javascript"></script>
         <script type="text/javascript">
             function OpenHelpWindow(theURL,winName,features)
             {
@@ -72,4 +73,4 @@ else {
 <?php
 }
 ?>
-<!-- end of $Id: header.php,v 1.66 2007/02/02 08:47:18 goddess_skuld Exp $ -->
+<!-- end of $Id: header.php,v 1.67 2007/04/25 09:29:52 goddess_skuld Exp $ -->

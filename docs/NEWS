@@ -4,6 +4,9 @@ NOCC 1.5  ?? ??, ??
     * Bug #1766528 : Blank headers because AIX iconv uses different names (Carey
       Evans).
 
+  Patches
+    * Patch #1786808 : Move JavaScript code to own file (Tim Gerundt).
+
   Misc
     * Remove nested table from inbox opts menu (Tim Gerundt).
     * Change the way language list is displayed (Arnaud Boudou).

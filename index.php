@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.120 2007/04/25 13:04:21 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.121 2007/07/08 20:35:21 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -19,89 +19,6 @@ require_once './common.php';
 require_once './check.php';
 require ('./html/header.php');
 ?>
-<script type="text/javascript">
-<!--
-function updatePort () 
-{
-    if (document.getElementById("nocc_webmail_login").servtype.options[document.getElementById("nocc_webmail_login").servtype.selectedIndex].value == 'imap') 
-    {
-        document.getElementById("nocc_webmail_login").port.value = 143;
-    }
-    else if (document.getElementById("nocc_webmail_login").servtype.options[document.getElementById("nocc_webmail_login").servtype.selectedIndex].value == 'notls')
-    {
-        document.getElementById("nocc_webmail_login").port.value = 143;
-    }
-    else if (document.getElementById("nocc_webmail_login").servtype.options[document.getElementById("nocc_webmail_login").servtype.selectedIndex].value == 'ssl') 
-    {
-        document.getElementById("nocc_webmail_login").port.value = 993;
-    }
-    else if (document.getElementById("nocc_webmail_login").servtype.options[document.getElementById("nocc_webmail_login").servtype.selectedIndex].value == 'ssl/novalidate-cert') 
-    {
-        document.getElementById("nocc_webmail_login").port.value = 993;
-    }
-    else if (document.getElementById("nocc_webmail_login").servtype.options[document.getElementById("nocc_webmail_login").servtype.selectedIndex].value == 'pop3')
-    {
-        document.getElementById("nocc_webmail_login").port.value = 110;
-    }
-    else if (document.getElementById("nocc_webmail_login").servtype.options[document.getElementById("nocc_webmail_login").servtype.selectedIndex].value == 'pop3/notls')
-    {
-        document.getElementById("nocc_webmail_login").port.value = 110;
-    }
-    else if (document.getElementById("nocc_webmail_login").servtype.options[document.getElementById("nocc_webmail_login").servtype.selectedIndex].value == 'pop3/ssl')
-    {
-        document.getElementById("nocc_webmail_login").port.value = 995;
-    }
-    else if (document.getElementById("nocc_webmail_login").servtype.options[document.getElementById("nocc_webmail_login").servtype.selectedIndex].value == 'pop3/ssl/novalidate-cert')
-    {
-        document.getElementById("nocc_webmail_login").port.value = 995;
-    }
-}
-
-function updateLang() 
-{
-    if (document.getElementById("nocc_webmail_login").user.value == "" && document.getElementById("nocc_webmail_login").passwd.value == "")
-    {
-        var lang_page = "index.php?lang=" + document.getElementById("nocc_webmail_login").lang[document.getElementById("nocc_webmail_login").lang.selectedIndex].value;
-        self.location = lang_page;
-    }
-}
-
-function updateTheme() 
-{
-    if (document.getElementById("nocc_webmail_login").user.value == "" && document.getElementById("nocc_webmail_login").passwd.value == "")
-    {
-        var lang_page = "index.php?theme=" + document.getElementById("nocc_webmail_login").theme[document.getElementById("nocc_webmail_login").theme.selectedIndex].value;
-        self.location = lang_page;
-    }
-}
-
-function updatePage() 
-{
-    if (document.getElementById("nocc_webmail_login").user.value == "" && document.getElementById("nocc_webmail_login").passwd.value == "")
-    {
-        if (document.getElementById("nocc_webmail_login").theme && document.getElementById("nocc_webmail_login").lang) {
-            var lang_page = "index.php?theme=" + document.getElementById("nocc_webmail_login").theme[document.getElementById("nocc_webmail_login").theme.selectedIndex].value + "&lang=" + document.getElementById("nocc_webmail_login").lang[document.getElementById("nocc_webmail_login").lang.selectedIndex].value;
-            self.location = lang_page;
-        }
-        if (!document.getElementById("nocc_webmail_login").theme && document.getElementById("nocc_webmail_login").lang) {
-            var lang_page = "index.php?lang=" + document.getElementById("nocc_webmail_login").lang[document.getElementById("nocc_webmail_login").lang.selectedIndex].value;
-            self.location = lang_page;
-        }
-        if (document.getElementById("nocc_webmail_login").theme && !document.getElementById("nocc_webmail_login").lang) {
-            var lang_page = "index.php?theme=" + document.getElementById("nocc_webmail_login").theme[document.getElementById("nocc_webmail_login").theme.selectedIndex].value;
-            self.location = lang_page;
-        }
-        if (!document.getElementById("nocc_webmail_login").theme && !document.getElementById("nocc_webmail_login").lang) {
-            var lang_page = "index.php";
-            self.location = lang_page;
-        }
-    }
-}
-
-
-// -->
-</script>
-
             <form action="action.php" method="post" id="nocc_webmail_login">
             <div id="loginBox">
               <h2><?php echo $html_welcome.' '.$conf->nocc_name.' v'.$conf->nocc_version; ?></h2>
@@ -171,7 +88,7 @@ function updatePage()
                     echo '<th><label for="server">'.$html_server.'</label></th>';
                     echo '<td>';
                     echo '<input class="button" type="text" name="server" id="server" value="mail.example.com" size="15" /><br /><input class="button" type="text" size="4" name="port" value="143" />';
-                    echo '<select class="button" name="servtype" onchange="updatePort()">';
+                    echo '<select class="button" name="servtype" onchange="updateLoginPort()">';
                     echo '<option value="imap">IMAP</option>';
                     echo '<option value="notls">IMAP (no TLS)</option>';
                     echo '<option value="ssl">IMAP SSL</option>';
@@ -189,7 +106,7 @@ function updatePage()
                 <tr>
                   <th><label for="lang"><?php echo $html_lang ?></label></th>
                   <td>
-                  <select class="button" name="lang" id="lang" onchange="updatePage()">
+                  <select class="button" name="lang" id="lang" onchange="updateLoginPage()">
                   <?php
                     for ($i = 0; $i < sizeof($lang_array); $i++)
                       if (file_exists('lang/'.$lang_array[$i]->filename.'.php'))
@@ -211,7 +128,7 @@ function updatePage()
                 <tr>
                 <th><label for="theme"><?php echo $html_theme ?></label></th>
                 <td>
-                <select class="button" name="theme" id="theme" onchange="updatePage()">
+                <select class="button" name="theme" id="theme" onchange="updateLoginPage()">
                 <?php
                     $handle = opendir('./themes');
                     while (($file = readdir($handle)) != false) 
