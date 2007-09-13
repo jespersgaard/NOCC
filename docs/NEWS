@@ -8,6 +8,7 @@ NOCC 1.5  ?? ??, ??
     * Patch #1786808 : Move JavaScript code to own file (Tim Gerundt).
 
   Misc
+    * Cut off long "From" addresses in inbox (Tim Gerundt).
     * Remove nested table from inbox opts menu (Tim Gerundt).
     * Change the way language list is displayed (Arnaud Boudou).
     * Welsh translation added (Sion Pennant).

@@ -1,4 +1,4 @@
-<!-- start of $Id: html_inbox.php,v 1.56 2007/06/19 06:35:12 goddess_skuld Exp $ -->
+<!-- start of $Id: html_inbox.php,v 1.57 2007/06/20 18:28:29 gerundt Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -18,7 +18,7 @@
     echo '<td class="column'.$column; if ($_SESSION['nocc_sort'] == $column) echo ' sorted'; echo '">';
     switch ($column) {
       case '1': //From...
-        echo '<a href="'.$_SERVER['PHP_SELF'].'?action=write&amp;mail_to='.convertMailData2Html($tmp['from']).'" title="'.convertMailData2Html($tmp['from']).'">'.convertMailData2Html(display_address($tmp['from'])).'</a>&nbsp;';
+        echo '<a href="'.$_SERVER['PHP_SELF'].'?action=write&amp;mail_to='.convertMailData2Html($tmp['from']).'" title="'.convertMailData2Html($tmp['from']).'">'.convertMailData2Html(display_address($tmp['from']), 55).'</a>&nbsp;';
         break;
       case '2': //To...
         echo convertMailData2Html(display_address($tmp['to']), 55);
@@ -47,4 +47,4 @@
   }
   echo '</tr>';
 ?>
-<!-- end of $Id: html_inbox.php,v 1.56 2007/06/19 06:35:12 goddess_skuld Exp $ -->
+<!-- end of $Id: html_inbox.php,v 1.57 2007/06/20 18:28:29 gerundt Exp $ -->
