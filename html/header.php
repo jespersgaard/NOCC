@@ -30,18 +30,15 @@ else {
         <link href="themes/<?php echo str_replace('..','',convertLang2Html($_SESSION['nocc_theme'])); ?>/style.css" rel="stylesheet" type="text/css" />
         <link href="themes/<?php echo str_replace('..','',convertLang2Html($_SESSION['nocc_theme'])); ?>/print.css" rel="stylesheet" media="print" type="text/css" />
         <script src="js/nocc.js" type="text/javascript"></script>
-        <script type="text/javascript">
-            function OpenHelpWindow(theURL,winName,features)
-            {
-                window.open(theURL,winName,features);
-            }
 <?php
   // if message is opened in another window, we reload the opener window
   // (message list), in order to refresh the mail list after a successful 
   // deletion. It does not works with Safari
   if($_SESSION['message_deleted'] == "true"){
-    echo ("\n          if (window.opener != null)");
-    echo ("\n            window.opener.location.href = window.opener.location;\n");
+    echo ("        <script type=\"text/javascript\">\n");
+    echo ("          if (window.opener != null)\n");
+    echo ("            window.opener.location.href = window.opener.location;\n");
+    echo ("        </script>\n");
     $_SESSION['message_deleted'] = "false";
   }
   $rss_url = "rss.php";
@@ -61,7 +58,6 @@ else {
   $rss_url .= '&amp;quota_enable=' . base64_encode($_SESSION['quota_enable']);
   $rss_url .= '&amp;quota_type=' . base64_encode($_SESSION['quota_type']);
 ?>
-        </script>
         <link rel="alternate" type="application/rss+xml" title="RSS - NOCC" href="<?php echo $rss_url ?>" />
     </head>
     <body dir="<?php echo convertLang2Html($lang_dir); ?>">
@@ -73,4 +69,4 @@ else {
 <?php
 }
 ?>
-<!-- end of $Id: header.php,v 1.67 2007/04/25 09:29:52 goddess_skuld Exp $ -->
+<!-- end of $Id: header.php,v 1.68 2007/09/03 21:47:11 gerundt Exp $ -->
