@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.121 2007/07/08 20:35:21 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.122 2007/09/03 21:47:10 gerundt Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -14,6 +14,7 @@ require_once './conf.php';
 //window.
 if ($_COOKIE['NoccIdent'] != '' && $_COOKIE['NoccIdent'] != null) {
   header("Location: ".$conf->base_url."action.php?action=cookie");
+  exit();
 }
 require_once './common.php';
 require_once './check.php';

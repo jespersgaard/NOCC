@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.159 2007/09/15 19:38:46 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.160 2007/09/15 19:40:37 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -429,10 +429,6 @@ if (!isset($conf->base_url) || $conf->base_url == '') {
   $conf->base_url = 'http';
   if ($_SERVER['HTTPS']=='on')
     $conf->base_url .=  's';
-  $conf->base_url .=  '://';
-  if ($_SERVER['SERVER_PORT']!='80')
-    $conf->base_url .=  $_SERVER['HTTP_HOST'].':'.$_SERVER['SERVER_PORT'].$dir_name;
-  else
-    $conf->base_url .=  $_SERVER['HTTP_HOST'].$dir_name;
+  $conf->base_url .= '://'.$_SERVER['HTTP_HOST'].$dir_name;
 }
 ?>
