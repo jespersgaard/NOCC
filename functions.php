@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.230 2007/06/26 19:57:48 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.231 2007/08/04 17:14:41 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -1103,6 +1103,7 @@ function saveSession(&$ev)
     unset ($cookie_string);
     $cookie_string = $_SESSION['nocc_user'];
     $cookie_string .= " " . $_SESSION['nocc_passwd'];
+    $cookie_string .= " " . $_SESSION['nocc_login'];
     $cookie_string .= " " . $_SESSION['nocc_lang'];
     $cookie_string .= " " . $_SESSION['nocc_smtp_server'];
     $cookie_string .= " " . $_SESSION['nocc_smtp_port'];
