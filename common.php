@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.75 2007/07/01 21:01:46 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.76 2007/07/08 20:35:19 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -215,6 +215,9 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server'])))
     if(isset($conf->domains[$domainnum]->login_with_domain) && ($conf->domains[$domainnum]->login_with_domain == 1)){
       if (isset($conf->domains[$domainnum]->login_with_domain_character) && $conf->domains[$domainnum]->login_with_domain_character != '') {
         $_SESSION['nocc_login'] .= $conf->domains[$domainnum]->login_with_domain_character . $_SESSION['nocc_domain'];
+      } else if (ereg("([A-Za-z0-9]+)@([A-Za-z0-9]+)",$_SESSION['nocc_login'], $regs)) {
+        $_SESSION['nocc_login'] = $_SESSION['nocc_login'];
+        $_SESSION['nocc_domain'] = $regs[2];
       } else {
         $_SESSION['nocc_login'] .= "@" . $_SESSION['nocc_domain'];
       }
