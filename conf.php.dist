@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.158 2007/06/01 19:24:11 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf.php.dist,v 1.159 2007/09/15 19:38:46 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -389,6 +389,8 @@ function get_default_from_address() {
     else {
         if (isset($_SESSION['nocc_login_with_domain']) and $_SESSION['nocc_login_with_domain'] == 1) {
 	    $from_address = $_SESSION['nocc_login'];
+        } else if (ereg("([A-Za-z0-9]+)@([A-Za-z0-9]+)", $_SESSION['nocc_login'], $regs)) {
+            $from_address = $_SESSION['nocc_login'];
         } else {
 	    $from_address = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
         }
