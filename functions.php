@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.231 2007/08/04 17:14:41 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.232 2007/09/15 20:43:21 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -139,6 +139,7 @@ function inbox(&$pop, $skip = 0, &$ev)
         $date = format_date($timestamp, $lang);
         $time = format_time($timestamp, $lang);
         $msg_list[$i] =  Array(
+                'index' => $i,
                 'new' => $newmail, 
                 'number' => $pop->msgno($msgnum),
                 'attach' => $attach,

@@ -1,16 +1,18 @@
-<!-- start of $Id: html_inbox.php,v 1.57 2007/06/20 18:28:29 gerundt Exp $ -->
+<!-- start of $Id: html_inbox.php,v 1.58 2007/09/13 22:39:28 gerundt Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
 
+  $even_odd_class = ($tmp['index'] % 2) ? 'even' : 'odd';
+  
   $new_class = '';
   if ($_SESSION['ucb_pop_server'] || $pop->is_imap()) {
     if ($tmp['new'] != '' && $tmp['new'] != null && $tmp['new'] != "&nbsp;") {
-      $new_class = 'new';
+      $new_class = ' new';
     }
   }
   
-  echo '<tr class="'.$new_class.'">';
+  echo '<tr class="'.$even_odd_class.$new_class.'">';
   echo '<td class="column0">';
   echo '  <input type="checkbox" name="msg-'.$tmp['number'].'" value="Y" />';
   echo '</td>';
@@ -47,4 +49,4 @@
   }
   echo '</tr>';
 ?>
-<!-- end of $Id: html_inbox.php,v 1.57 2007/06/20 18:28:29 gerundt Exp $ -->
+<!-- end of $Id: html_inbox.php,v 1.58 2007/09/13 22:39:28 gerundt Exp $ -->
