@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.190 2007/06/01 19:24:10 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.191 2007/06/20 21:53:19 gerundt Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -639,8 +639,6 @@ switch($action)
           require ('./html/error.php');
           require ('./html/footer.php');
           break;
-        } else {
-          $_SESSION['tab_mail'] = $tab_mail;
         }
 
         if(count($tab_mail) < 1) {
