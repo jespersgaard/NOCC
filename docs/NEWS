@@ -10,6 +10,7 @@ NOCC 1.5  ?? ??, ??
     * Patch #1786808 : Move JavaScript code to own file (Tim Gerundt).
 
   Misc
+    * Add upgrade help file (Arnaud Boudou).
     * Add "Even/Odd" theming support for inbox (Tim Gerundt).
     * Fix issue with session save cookie (Arnaud Boudou).
     * Add a new way to use 'user@domain' style logins (Arnaud Boudou).
