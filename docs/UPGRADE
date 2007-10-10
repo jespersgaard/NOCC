@@ -10,7 +10,7 @@ Before upgrade
     </path/to/nocc/>conf.php
     </path/to/nocc/>login_alias (if used)
     </path/to/nocc/>login_allowed (if used)
-    </path/to/nocc/prefs/>*.*
+    </path/to/nocc/prefs/>*.* (if used, "$conf->prefs_dir" config setting)
 
 Upgrade steps
 *************
