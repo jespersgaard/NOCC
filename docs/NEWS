@@ -8,6 +8,8 @@ NOCC 1.5  ?? ??, ??
 
   Patches
     * Patch #1786808 : Move JavaScript code to own file (Tim Gerundt).
+    * Patch #1810354 : Highlight and marking of rows in inbox table (Tim
+      Gerundt).
 
   RFE
     * RFE #1804115 : list of personalised files (Arnaud Boudou).
