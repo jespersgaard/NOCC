@@ -431,6 +431,7 @@ img.sort {
 #inboxTable {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
+  border-collapse: collapse;
 }
 
 #inboxTable .new {
@@ -453,6 +454,17 @@ img.sort {
 #inboxTable td img {
   height: 17px;
   width: 17px;
+}
+
+#inboxTable tr.marked {
+  background-color: #FFDEAD;
+}
+
+#inboxTable tr.odd:hover,
+#inboxTable tr.even:hover,
+#inboxTable tr.hover {
+  cursor: pointer;
+  background-color: #FFC061;
 }
 
 #inboxStatus {
