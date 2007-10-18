@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/cs.php,v 1.43 2006/12/18 18:47:31 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/cs.php,v 1.44 2007/01/07 19:57:53 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -10,7 +10,7 @@
  *
  * Configuration file for the Czech language
  * Translation by Vaclav Habr <habr@fonet.cz>
- * Translation by Lukas Mizoch <www.mizoch.info>
+ * Translation by Lukas Mizoch <ragimiri@gmail.com>
  */
 
 $charset = 'UTF-8';
@@ -161,8 +161,8 @@ $html_sort = 'Seřadit';
 $html_from = 'Od';
 $html_subject = 'Předmět';
 $html_date = 'Datum';
-$html_sent = 'Odeslat';
-$html_wrote = 'odesláno';
+$html_sent = 'Odesláno';
+$html_wrote = 'napsal(a)';
 $html_size = 'Velikost';
 $html_totalsize = 'Celková velikost';
 $html_kb = 'KiB';
@@ -170,20 +170,20 @@ $html_bytes = 'bajtů';
 $html_filename = 'Název souboru';
 $html_to = 'Komu';
 $html_cc = 'Kopie';
-$html_bcc = 'Skrytá';
-$html_nosubject = 'Bez názvu';
+$html_bcc = 'Skrytá kopie';
+$html_nosubject = '(bez předmětu)';
 $html_send = 'Odeslat';
 $html_cancel = 'Zrušit';
 $html_no_mail = 'Žádná zpráva';
 $html_logout = 'Odhlášení';
-$html_msg = 'Zpráva';
-$html_msgs = 'Zpráv';
+$html_msg = 'zpráva';
+$html_msgs = 'zpráv';
 $html_configuration = 'Chybná konfigurace serveru!!!';
 $html_priority = 'Důležitost';
 $html_low = 'Malá';
 $html_normal = 'Střední';
 $html_high = 'Vysoká';
-$html_receipt = 'Potvrzení o doručení';
+$html_receipt = 'Potvrdit čtení';
 $html_select = 'Vybrat';
 $html_select_all = 'Invertovat výběr';
 $html_loading_image = 'Nahrávám obrázek';

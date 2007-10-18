@@ -7,6 +7,7 @@ NOCC 1.5  ?? ??, ??
       Evans).
 
   Patches
+    * Patch #1815635 : Corrected CS localisation (Ragimiri).
     * Patch #1810354 : Highlight and marking of rows in inbox table (Tim
       Gerundt).
     * Patch #1786808 : Move JavaScript code to own file (Tim Gerundt).
