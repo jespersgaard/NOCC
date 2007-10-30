@@ -7,6 +7,8 @@ NOCC 1.5  ?? ??, ??
       Evans).
 
   Patches
+    * Patch #1819600 : New inbox table layout for "standard" theme (Tim
+      Gerundt).
     * Patch #1815635 : Corrected CS localisation (Ragimiri).
     * Patch #1810354 : Highlight and marking of rows in inbox table (Tim
       Gerundt).

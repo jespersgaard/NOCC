@@ -421,16 +421,53 @@ img.sort {
 #inboxTable {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
+  border: 1px solid silver;
   border-collapse: collapse;
+}
+
+#inboxTable th {
+  text-align: left;
+  background-color: silver;
+  border-top: 1px solid silver;
+  border-bottom: 1px solid silver;
+}
+
+#inboxTable td {
+  border-top: 1px solid silver;
+  border-bottom: 1px solid silver;
 }
 
 #inboxTable .new {
   font-weight: bold;
 }
 
-#inboxTable th.sorted {
+#inboxTable .odd {
+  background-color: #FFFFFF;
+}
+
+#inboxTable .even {
+  background-color: #F0F0F0;
+}
+
+#inboxTable .odd > .sorted {
   background-color: #FFFFCC;
-  border: 1px dashed #222222;
+}
+
+#inboxTable .even > .sorted {
+  background-color: #FFFFAA;
+}
+
+#inboxTable .sorted {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+#inboxTable th.sorted {
+  background-color: #FFFF88;
+}
+
+#inboxTable td.sorted {
+  background-color: #FFFFCC;
 }
 
 #inboxTable .column0 {
@@ -446,13 +483,17 @@ img.sort {
   width: 17px;
 }
 
-#inboxTable tr.marked {
+#inboxTable tr.marked,
+#inboxTable tr.marked .sorted {
   background-color: #FFDEAD;
 }
 
 #inboxTable tr.odd:hover,
 #inboxTable tr.even:hover,
-#inboxTable tr.hover {
+#inboxTable tr.hover,
+#inboxTable tr.odd:hover .sorted,
+#inboxTable tr.even:hover .sorted,
+#inboxTable tr.hover .sorted {
   cursor: pointer;
   background-color: #FFC061;
 }
@@ -461,7 +502,6 @@ img.sort {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
-  border-top: 1px dashed #222222;
 }
 
 .send {
