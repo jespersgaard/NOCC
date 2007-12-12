@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.49 2006/11/22 14:27:18 goddess_skuld Exp $ -->
+<!-- start of $Id: prefs.php,v 1.50 2007/01/30 14:02:58 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -28,6 +28,7 @@ if (count($big_list) > 1) {
 }
 ?>
 <div class="prefs">
+  <h3><?php echo convertLang2Html($html_preferences) ?></h3>
   <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
     <div>
       <input type="hidden" name="action" value="setprefs" />
@@ -237,4 +238,4 @@ if (count($big_list) > 1) {
  <?php
    }
  ?>
-<!-- end of $Id: prefs.php,v 1.49 2006/11/22 14:27:18 goddess_skuld Exp $ -->
+<!-- end of $Id: prefs.php,v 1.50 2007/01/30 14:02:58 goddess_skuld Exp $ -->

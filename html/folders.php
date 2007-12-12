@@ -1,4 +1,4 @@
-<!-- start of $Id: folders.php,v 1.18 2006/10/17 09:32:46 goddess_skuld Exp $ -->
+<!-- start of $Id: folders.php,v 1.19 2006/11/22 14:27:17 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -28,6 +28,7 @@ if (count($big_list) > 1) {
 
 ?>
 <div class="prefs">
+<h3><?php echo convertLang2Html($html_manage_folders_link) ?></h3>
   <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
     <div>
       <input type="hidden" name="action" value="managefolders" />
@@ -108,4 +109,4 @@ if (count($big_list) > 1) {
   &nbsp;|&nbsp;
   <a href="action.php?action=managefilters"><?php echo convertLang2Html($html_manage_filters_link) ?></a>
 </div>
-<!-- end of $Id: folders.php,v 1.18 2006/10/17 09:32:46 goddess_skuld Exp $ -->
+<!-- end of $Id: folders.php,v 1.19 2006/11/22 14:27:17 goddess_skuld Exp $ -->

@@ -4,6 +4,7 @@
 ?>
 
 <div class="prefs">
+<h3><?php echo convertLang2Html($html_manage_filters_link) ?></h3>
 <?php if ($html_filter_select) { ?>
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 <div>
@@ -142,4 +143,4 @@ if ($html_filter_select) {
 &nbsp;|&nbsp;
 <a href="action.php?action=managefolders"><?php echo convertLang2Html($html_manage_folders_link) ?></a>
 </div>
-<!-- end of $Id: filter_prefs.php,v 1.8 2006/10/17 09:32:46 goddess_skuld Exp $ -->
+<!-- end of $Id: filter_prefs.php,v 1.9 2006/11/22 14:27:17 goddess_skuld Exp $ -->

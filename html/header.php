@@ -62,11 +62,23 @@ else {
     </head>
     <body dir="<?php echo convertLang2Html($lang_dir); ?>">
         <div id="header">
-            <img src="themes/<?php echo $_SESSION['nocc_theme']; ?>/img/logo.png" id="headerLogo" alt="Logo" />
-            <h1><?php echo htmlspecialchars($header_display_address); ?></h1>
+            <h1>NOCC</h1>
+<?php
+  if ($header_display_address != '') {
+    echo "<h2>" . htmlspecialchars($header_display_address) . "</h2>\n";
+    if ($conf->prefs_dir || $conf->enable_logout) {
+      echo "<ul>\n";
+      if ($conf->prefs_dir)
+        echo "  <li><a href=\"action.php?action=setprefs\">" . convertLang2Html($html_preferences) . "</a></li>\n";
+      if ($conf->enable_logout)
+        echo "  <li><a href=\"logout.php\">" . convertLang2Html($html_logout) . "</a></li>\n";
+      echo "</ul>\n";
+    }
+  }
+?>
         </div>
         <div id="main">
 <?php
 }
 ?>
-<!-- end of $Id: header.php,v 1.68 2007/09/03 21:47:11 gerundt Exp $ -->
+<!-- end of $Id: header.php,v 1.69 2007/09/13 22:46:29 gerundt Exp $ -->

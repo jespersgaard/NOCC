@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_mail.php,v 1.38 2006/10/16 19:11:53 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_mail.php,v 1.39 2006/11/22 14:27:18 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -27,12 +27,7 @@
       <td class="menu">
         <a href="delete.php?delete_mode=1&amp;mail=<?php echo $content['msgnum'] ?>&amp;only_one=1" onclick="if (confirm('<?php echo $html_del_msg ?>')) return true; else return false;"><?php echo convertLang2Html($html_delete) ?></a>
       </td>
-      <?php if ($conf->enable_logout) { ?>
-      <td class="menu">
-        <a href="logout.php"><?php echo convertLang2Html($html_logout) ?></a>
-      </td>
-      <?php } ?>
     </tr>
   </table>
 </div>
-<!-- end of $Id: menu_mail.php,v 1.38 2006/10/16 19:11:53 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_mail.php,v 1.39 2006/11/22 14:27:18 goddess_skuld Exp $ -->

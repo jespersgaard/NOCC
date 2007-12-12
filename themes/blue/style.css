@@ -90,55 +90,6 @@
   text-decoration:underline;
 }
 
-.menuSmall {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  text-decoration: none;
-  text-align: center;
-  width: 80px;
-  background-color: #99cc99;
-}
-
-.menuSmall a:link    {
-  color: #0000FF;
-  text-decoration:none;
-}
-
-.menuSmall a:visited {
-  color: #0000FF;
-  text-decoration:none;
-}
-
-.menuSmall a:hover   {
-  color: #0000FF;
-  text-decoration:underline;
-}
-
-.menuSmallSelected {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  text-decoration: none;
-  text-align: center;
-  width: 80px;
-  background-color: #FF9900;
-  border: 1px dashed #DDDDDD;
-}
-
-.menuSmallSelected a:link    {
-  color: #0000FF;
-  text-decoration:none;
-}
-
-.menuSmallSelected a:visited {
-  color: #0000FF;
-  text-decoration:none;
-}
-
-.menuSmallSelected a:hover   {
-  color: #0000FF;
-  text-decoration:underline;
-}
-
 .menuBlank {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
@@ -257,17 +208,37 @@ table {
 }
 
 #header h1 {
+  float: left;
   margin: 0;
-  margin-left: 158px;
+  padding: 0;
+  width: 153px;
+  height: 47px;
+  background: url(./img/logo.png) no-repeat;
+  text-indent: -999em;
+}
+
+#header h2 {
+  float: left;
+  margin: 0;
+  margin-left: 10px;
   padding: 5px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#headerLogo {
-  float: left;
-  width: 153px;
-  height: 47px;
-  padding: 0 5px 5px 0;
+#header ul {
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: smaller;
+}
+
+#header li {
+  margin: 0;
+  margin-left: 10px;
+  padding: 0;
+  display: inline;
+  list-style: none;
 }
 
 #main {

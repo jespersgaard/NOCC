@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox.php,v 1.57 2006/10/15 21:36:37 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.58 2006/11/22 14:27:17 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -47,17 +47,7 @@ elseif ($action == 'forward')
                     <a href="javascript:void(0);" onclick="window.open('contacts_manager.php?<?php echo session_name() . '=' .   session_id() ?>','','scrollbars=yes,resizable=yes,width=600,height=400')"><?php echo convertLang2Html($html_contacts) ?></a>
                   </td>
                   <?php } ?>
-                  <?php if($conf->prefs_dir) { ?>
-                  <td class="menuSmall">
-                    <a href="action.php?action=setprefs"><?php echo convertLang2Html($html_preferences) ?></a>
-                  </td>
-                  <?php } ?>
-                  <?php if ($conf->enable_logout) { ?>
-                  <td class="menuSmall">
-                    <a href="logout.php"><?php echo convertLang2Html($html_logout) ?></a>
-                  </td>
-                  <?php } ?>
                 </tr>
               </table>
             </div>
-<!-- end of $Id: menu_inbox.php,v 1.57 2006/10/15 21:36:37 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_inbox.php,v 1.58 2006/11/22 14:27:17 goddess_skuld Exp $ -->
