@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.232 2007/09/15 20:43:21 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.233 2007/09/25 22:04:04 gerundt Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -398,8 +398,10 @@ function GetPart(&$attach_tab, &$this_part, $part_no, &$display_rfc822)
                 $mime_type = 'multipart';
                 for ($i = 0; $i < count($this_part->parts); $i++)
                 {
-                    if ($part_no != '')
+                    if ($part_no != '') {
+                      if (substr($part_no,-1) != '.')
                         $part_no = $part_no . '.';
+                    }
                     // if it's an alternative, we skip the text part to only keep the HTML part
                     if ($this_part->subtype == 'ALTERNATIVE')// && $read == true)
                         GetPart($attach_tab, $this_part->parts[++$i], $part_no . ($i + 1), $display_rfc822);

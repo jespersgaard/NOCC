@@ -7,6 +7,7 @@ NOCC 1.5  ?? ??, ??
       Evans).
 
   Patches
+    * Patch #1820487 : attachments downloaded with zero size (Arnaud Boudou).
     * Patch #1838031 : Move "Preferences" and "Logout" to the top right corner 
       (Tim Gerundt).
     * Patch #1819600 : New inbox table layout for "standard" theme (Tim
