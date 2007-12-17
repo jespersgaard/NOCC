@@ -155,7 +155,7 @@ function InvertCheckedMsgs() {
           marked_row[unique_id] = false;
         }
       }
-     }
-   }
+    }
+  }
   return true;
- }
+}
