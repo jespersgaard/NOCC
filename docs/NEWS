@@ -21,6 +21,7 @@ NOCC 1.5  ?? ??, ??
     * RFE #1804115 : list of personalised files (Arnaud Boudou).
 
   Misc
+    * Hide CSS images with "url()" too (Tim Gerundt).
     * Remove unused $_SESSION['tab_mail'] (Tim Gerundt).
     * Add "Even/Odd" theming support for inbox (Tim Gerundt).
     * Fix issue with session save cookie (Arnaud Boudou).

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.191 2007/06/20 21:53:19 gerundt Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.192 2007/10/07 19:59:18 gerundt Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -57,14 +57,15 @@ switch($action)
 
         $attach_tab = array();
         $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
-	// Display or hide distant HTML images
-	if (!isset($_REQUEST['display_images']) || $_REQUEST['display_images'] != 1) {
-	  $content['body'] = eregi_replace('src="[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]"', 'src="none"', $content['body']);
-	  $content['body'] = eregi_replace('src=[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]', 'src="none"', $content['body']);
+        // Display or hide distant HTML images
+        if (!isset($_REQUEST['display_images']) || $_REQUEST['display_images'] != 1) {
+          $content['body'] = eregi_replace('src="[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]"', 'src="none"', $content['body']);
+          $content['body'] = eregi_replace('src=[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]', 'src="none"', $content['body']);
+          $content['body'] = eregi_replace('url\([[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]\)', 'url(none)', $content['body']);
         }
         // Display embedded HTML images
         $tmp_attach_tab = $attach_tab;
-	$i = 0;
+        $i = 0;
         while ($tmp = array_pop($tmp_attach_tab)) {
           if ($conf->display_img_attach && (eregi('image', $tmp['mime']) && ($tmp['number'] != '')))
           {
