@@ -136,9 +136,15 @@ label {
 .currentInbox {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
-  color: #FFFFFF;
-  font-weight: bold;    
+  color: white;
+  font-weight: bold;
 }
+
+.currentInbox a:link { color:white; text-decoration:none; }
+.currentInbox a:visited { color:white; text-decoration:none; }
+.currentInbox a:focus { color:white; text-decoration:underline; }
+.currentInbox a:hover { color:white; text-decoration:underline; }
+.currentInbox a:active { color:white; text-decoration:underline; }
 
 .rss:link{
   background: url(./img/rss.png) bottom center no-repeat;

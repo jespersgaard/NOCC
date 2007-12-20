@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.95 2007/05/12 19:48:44 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.96 2007/06/19 06:35:12 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -70,8 +70,8 @@ if ($pop->is_imap()) {
                   <table>
                     <tr>
                       <td class="left">
-                        <?php if ($_SESSION['nocc_folder'] != 'INBOX') { ?>
-                        <span class="currentInbox"><?php echo $_SESSION['nocc_folder']; ?></span> 
+                        <?php if ($pop->is_imap()) { ?>
+                        <span class="currentInbox"><?php buildfolderlink($_SESSION['nocc_folder']); ?></span>
                         <?php } else { ?>
                         <span class="currentInbox"><?php echo $html_inbox; ?></span>
                         <?php } ?>
@@ -146,4 +146,4 @@ if ($pop->is_imap()) {
                             }
                           ?>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.95 2007/05/12 19:48:44 goddess_skuld Exp $ -->
+<!-- end of $Id: html_top_table.php,v 1.96 2007/06/19 06:35:12 goddess_skuld Exp $ -->

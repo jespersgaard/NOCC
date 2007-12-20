@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox.php,v 1.58 2006/11/22 14:27:17 goddess_skuld Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.59 2007/12/12 22:04:54 gerundt Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -34,7 +34,7 @@ elseif ($action == 'forward')
               <table>
                 <tr>
                   <td class="<?php echo $classInbox; ?>">
-                    <a href="<?php echo $_SERVER['PHP_SELF'] ?>"><?php if ($_SESSION['nocc_folder'] != 'INBOX') { echo $_SESSION['nocc_folder']; } else { echo convertLang2Html($html_inbox); } ?></a>
+                    <a href="<?php echo $_SERVER['PHP_SELF'] ?>"><?php echo convertLang2Html($html_inbox); ?></a>
                   </td>
                   <td class="<?php echo $class; ?>">
                     <?php echo $line ?>
@@ -50,4 +50,4 @@ elseif ($action == 'forward')
                 </tr>
               </table>
             </div>
-<!-- end of $Id: menu_inbox.php,v 1.58 2006/11/22 14:27:17 goddess_skuld Exp $ -->
+<!-- end of $Id: menu_inbox.php,v 1.59 2007/12/12 22:04:54 gerundt Exp $ -->

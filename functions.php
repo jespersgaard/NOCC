@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.233 2007/09/25 22:04:04 gerundt Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.234 2007/12/17 22:16:49 gerundt Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -1200,5 +1200,21 @@ function os_iconv($input_charset, $output_charset, &$text) {
   }
 
   return @iconv($input_charset, $output_charset, $text);
+}
+
+// Build a folder breadcrumb navigation...
+function buildfolderlink($folder) {
+  $folderpath = '';
+  // split the string at the periods
+  $elements = explode('.', $folder);
+  for ($i = 0; $i < count($elements); $i++) {
+    if ($i > 0) {
+      $folderpath = $folderpath . '.';
+      echo ".";
+    }
+    $folderpath = $folderpath . $elements[$i];
+    echo "<a href=\"". $_SERVER['PHP_SELF'] . "?folder=" . $folderpath . "\">" . $elements[$i] . "</a>";
+  }
+  echo "\n";
 }
 ?>
