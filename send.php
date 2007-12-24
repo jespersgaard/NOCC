@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.142 2007/02/01 10:24:23 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.143 2007/06/26 19:57:48 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -52,7 +52,7 @@ if ($_SESSION['html_mail_send']) {
 if(ini_get("file_uploads")) {
         if (isset($_FILES['mail_att'])) {
             $mail_att = $_FILES['mail_att'];
-	}
+  }
 }
 $mail_receipt = isset($_REQUEST['receipt']);
 $mail_priority = safestrip($_REQUEST['priority']);
@@ -116,7 +116,7 @@ switch($_REQUEST['sendaction'])
         $trim_mail_cc = trim($mail_cc);
         $mail->to = cut_address($trim_mail_to, $charset);
         $mail->cc = cut_address($trim_mail_cc, $charset);
-	$user_prefs = $_SESSION['nocc_user_prefs'];
+        $user_prefs = $_SESSION['nocc_user_prefs'];
         if(isset($user_prefs->cc_self) && $user_prefs->cc_self) {
             array_unshift($mail->cc, $mail->from);
         }
@@ -128,16 +128,15 @@ switch($_REQUEST['sendaction'])
         }
 
         // Append advertisement tag, if set
-	// Wrap outgoing message if needed
-	if (isset($user_prefs->wrap_msg))
-	    $wrap_msg = $user_prefs->wrap_msg;
-        if ($mail_body != '')
-		{
-			if (isset ($wrap_msg) && $wrap_msg)
-				$mail->body = wrap_outgoing_msg ($mail_body, $wrap_msg, $mail->crlf);
-			else
-			 	$mail->body = $mail_body;
-		}
+        // Wrap outgoing message if needed
+        if (isset($user_prefs->wrap_msg))
+            $wrap_msg = $user_prefs->wrap_msg;
+        if ($mail_body != '') {
+          if (isset ($wrap_msg) && $wrap_msg)
+            $mail->body = wrap_outgoing_msg ($mail_body, $wrap_msg, $mail->crlf);
+          else
+            $mail->body = $mail_body;
+        }
 
         if (isset($conf->ad))
             if ($mail_body != '')
@@ -172,7 +171,7 @@ switch($_REQUEST['sendaction'])
 
         // Add original message as attachment?
         if(isset($_REQUEST['forward_msgnum']) && $_REQUEST['forward_msgnum'] != "") {
-	  $mail_list = explode('$', $_REQUEST['forward_msgnum']);
+          $mail_list = explode('$', $_REQUEST['forward_msgnum']);
           for ($msg_num = 0; $msg_num < count($mail_list); $msg_num++) {
             $forward_msgnum = $mail_list[$msg_num];
             $ev = "";
@@ -213,16 +212,16 @@ switch($_REQUEST['sendaction'])
           }
         }
 
-            if (!isset ($_SESSION['last_send']))
-            {
-                $ev = $mail->send($conf);
-                $_SESSION['last_send'] = time ();
-            }
-            else if ($_SESSION['last_send'] + $conf->send_delay < time ())
-            {
-                $ev = $mail->send($conf);
-                $_SESSION['last_send'] = time ();
-            }
+        if (!isset ($_SESSION['last_send']))
+        {
+          $ev = $mail->send($conf);
+          $_SESSION['last_send'] = time ();
+        }
+        else if ($_SESSION['last_send'] + $conf->send_delay < time ())
+        {
+          $ev = $mail->send($conf);
+          $_SESSION['last_send'] = time ();
+        }
         header("Content-type: text/html; Charset=$charset");
         if (NoccException::isException($ev))
         {

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.192 2007/10/07 19:59:18 gerundt Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.193 2007/12/19 21:06:19 gerundt Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -127,17 +127,17 @@ switch($action)
     case 'write':
         $_SESSION['html_mail_send'] = $user_prefs->html_mail_send;
 
-    	if (isset($_REQUEST['mail_to']) && $_REQUEST['mail_to'] != "") {
-	  $mail_to = $_REQUEST['mail_to'];
-	}
+        if (isset($_REQUEST['mail_to']) && $_REQUEST['mail_to'] != "") {
+            $mail_to = $_REQUEST['mail_to'];
+        }
         $pop = new nocc_imap($ev);
         if (NoccException::isException($ev)) {
-	    require ('./html/header.php');
-	    require ('./html/error.php');
-	    require ('./html/footer.php');
-	    exit;
-	}
-	$pop->close();
+            require ('./html/header.php');
+            require ('./html/error.php');
+            require ('./html/footer.php');
+            exit;
+        }
+        $pop->close();
         // Add signature
         add_signature($mail_body);
 
@@ -328,9 +328,9 @@ switch($action)
             break;
         }
 
-	$do = "";
-	if(isset($_REQUEST['do']))
-		$do = trim(safestrip($_REQUEST['do']));
+    $do = "";
+    if(isset($_REQUEST['do']))
+        $do = trim(safestrip($_REQUEST['do']));
         switch ($do) {
             case 'create_folder':
                 if ($_REQUEST['createnewbox']) {
@@ -394,12 +394,12 @@ switch($action)
     case 'managefilters':
         $pop = new nocc_imap($ev);
         if (NoccException::isException($ev)) {
-	    require ('./html/header.php');
-	    require ('./html/error.php');
-	    require ('./html/footer.php');
+            require ('./html/header.php');
+            require ('./html/error.php');
+            require ('./html/footer.php');
             exit;
         }
-	$user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
+        $user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
         $filterset = NOCCUserFilters::read($user_key, $ev);
 
         if (NoccException::isException($ev)) {
@@ -509,29 +509,29 @@ switch($action)
                 } else {
                   $user_prefs->signature = safestrip($_REQUEST['signature']);
                 }
-	    if (isset($_REQUEST['wrap_msg']))
+            if (isset($_REQUEST['wrap_msg']))
                 $user_prefs->wrap_msg = $_REQUEST['wrap_msg'];
             $user_prefs->sig_sep = isset($_REQUEST['sig_sep']);
             $user_prefs->html_mail_send = isset($_REQUEST['html_mail_send']);
-	    $user_prefs->graphical_smilies = isset($_REQUEST['graphical_smilies']);
+            $user_prefs->graphical_smilies = isset($_REQUEST['graphical_smilies']);
             $user_prefs->sent_folder = isset($_REQUEST['sent_folder']);
             if (isset($_REQUEST['sent_folder_name'])) {
                 $replace = str_replace($_SESSION['imap_namespace'], "", $_REQUEST['sent_folder_name']);
                 $user_prefs->sent_folder_name = safestrip($replace);
             }
             if (isset($_REQUEST['lang']))
-              $user_prefs->lang = $_REQUEST['lang'];
+                $user_prefs->lang = $_REQUEST['lang'];
             if (isset($_REQUEST['theme']))
-              $user_prefs->theme = $_REQUEST['theme'];
+                $user_prefs->theme = $_REQUEST['theme'];
 
             // Commit preferences
             $user_prefs->commit($ev);
-	    if (NoccException::isException($ev)) {
-	       require ('./html/header.php'); 
-	       require ('./html/error.php');
-	       require ('./html/footer.php');
-	    break;      
-								            }               
+            if (NoccException::isException($ev)) {
+                require ('./html/header.php'); 
+                require ('./html/error.php');
+                require ('./html/footer.php');
+                break;
+            }
 
             $_SESSION['nocc_user_prefs'] = $user_prefs;
         }
@@ -550,13 +550,13 @@ switch($action)
         $pop = new nocc_imap($ev);
 
         if (NoccException::isException($ev)) {
-	  if ($action == 'login' || $action == 'cookie') {
-	    session_name("NOCCSESSID");
-	    $_SESSION["nocc_login"] = "";
-	    $_SESSION["nocc_user_prefs"] = "";
-	    session_destroy();
-	    setcookie ("NoccIdent");
-	  }
+          if ($action == 'login' || $action == 'cookie') {
+            session_name("NOCCSESSID");
+            $_SESSION["nocc_login"] = "";
+            $_SESSION["nocc_user_prefs"] = "";
+            session_destroy();
+            setcookie ("NoccIdent");
+          }
           require ('./html/header.php');
           require ('./html/error.php');
           require ('./html/footer.php');
@@ -612,7 +612,7 @@ switch($action)
                       }
                     }
                   }
-		}
+                }
               }
               $pop->expunge($ev);
               if(NoccException::isException($ev)) {
@@ -728,13 +728,12 @@ function add_signature(&$body) {
     $user_prefs = $_SESSION['nocc_user_prefs'];
     if(isset($user_prefs->signature))
     {
-		// Add signature with separation if needed
-		if(isset($user_prefs->sig_sep) && $user_prefs->sig_sep)
-			$body .= "\r\n\r\n"."-- \r\n".$user_prefs->signature;
-		else
-			$body .= "\r\n\r\n".$user_prefs->signature;
+        // Add signature with separation if needed
+        if(isset($user_prefs->sig_sep) && $user_prefs->sig_sep)
+            $body .= "\r\n\r\n"."-- \r\n".$user_prefs->signature;
+        else
+            $body .= "\r\n\r\n".$user_prefs->signature;
     }
-
 }
 
 ?>

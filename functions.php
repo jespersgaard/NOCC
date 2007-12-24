@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.234 2007/12/17 22:16:49 gerundt Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.235 2007/12/20 23:14:00 gerundt Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -52,33 +52,33 @@ function inbox(&$pop, $skip = 0, &$ev)
         if(NoccException::isException($ev)) return;
 
         // Get message charset
-	$msg_charset = '';
-	if ($struct_msg->ifparameters) {
-	  while ($obj = array_pop($struct_msg->parameters))
-	    if (strtolower($obj->attribute) == 'charset') {
-	      $msg_charset = $obj->value;
-	      break;
-	    }
-	}
-	if ($msg_charset == '') {
-	  $msg_charset = 'ISO-8859-1';
-	}
+        $msg_charset = '';
+        if ($struct_msg->ifparameters) {
+          while ($obj = array_pop($struct_msg->parameters))
+            if (strtolower($obj->attribute) == 'charset') {
+              $msg_charset = $obj->value;
+              break;
+            }
+        }
+        if ($msg_charset == '') {
+          $msg_charset = 'ISO-8859-1';
+        }
 
-	// Get subject
+        // Get subject
         $subject_header = str_replace('x-unknown', $msg_charset, $ref_contenu_message->subject);
         $subject_array = nocc_imap::mime_header_decode($subject_header);
         
-	for ($j = 0; $j < count($subject_array); $j++)
+        for ($j = 0; $j < count($subject_array); $j++)
             $subject .= $subject_array[$j]->text;
 
-	// Get from
-	$from_header = str_replace('x-unknown', $msg_charset, $ref_contenu_message->fromaddress);
+        // Get from
+        $from_header = str_replace('x-unknown', $msg_charset, $ref_contenu_message->fromaddress);
         $from_array = nocc_imap::mime_header_decode($from_header);
         for ($j = 0; $j < count($from_array); $j++)
             $from .= $from_array[$j]->text;
 
-	// Get to
-	$to_header = str_replace('x-unknown', $msg_charset, $ref_contenu_message->toaddress);
+        // Get to
+        $to_header = str_replace('x-unknown', $msg_charset, $ref_contenu_message->toaddress);
         $to_array = nocc_imap::mime_header_decode($to_header);
         for ($j = 0; $j < count($to_array); $j++) {
           if (!(strpos($to_array[$j]->text, '@')))
@@ -188,15 +188,15 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
         {
             $prev_msg = ($i - 1 >= 0) ? $sorted[$i - 1] : 0;
             $next_msg = ($i + 1 < sizeof($sorted)) ? $sorted[$i + 1] : 0;
-	    $msg_found = 1;
+            $msg_found = 1;
             break;
         }
     }
 
     if(!$msg_found)
       {
-	$ev = new NoccException($lang_invalid_msg_num);
-	return;
+        $ev = new NoccException($lang_invalid_msg_num);
+        return;
       }
 
     // Get number of messages (why?)
@@ -376,16 +376,16 @@ function GetPart(&$attach_tab, &$this_part, $part_no, &$display_rfc822)
     for ($i = 0; $i < count($this_part->parameters); $i++)
     {
         // PHP 5.x doesn't allow to convert a stdClass object to an array
-	// We sometimes have this issue with Mailer daemon reports
-	if (!(get_class($this_part->parameters) == "stdClass") &&
-	    !(get_class($this_part->parameters) == "stdclass")) { 
+        // We sometimes have this issue with Mailer daemon reports
+        if (!(get_class($this_part->parameters) == "stdClass") &&
+          !(get_class($this_part->parameters) == "stdclass")) { 
             $param = $this_part->parameters[$i];
             if ((($param->attribute == 'NAME') || ($param->attribute == 'name')) && ($param->value != ''))
             {
                 $att_name = $param->value;
                 break;
             }
-	}
+        }
     }
     if (isset($this_part->type))
     {
@@ -551,8 +551,8 @@ function GetSinglePart(&$attach_tab, &$this_part, &$header, &$body)
                 'disposition' => $this_part->ifdisposition ? $this_part->disposition : '',
                 'charset' => $charset
             );
-	    if(isset($this_part->bytes))
-		    $tmp['size'] = ($this_part->bytes > 1000) ? ceil($this_part->bytes / 1000) : 1;
+            if(isset($this_part->bytes))
+                $tmp['size'] = ($this_part->bytes > 1000) ? ceil($this_part->bytes / 1000) : 1;
 
             array_unshift($attach_tab, $tmp);
 }
@@ -897,39 +897,39 @@ function mailquote(&$body, &$from, $html_wrote)
       $tbl = explode ("\r\n", $body);
       // For each line
       for ($i = 0, $buffer = ''; $i < count ($tbl); ++$i)
-	{
-	  unset($buffer);
-	  // Number of "> "
-	  $q = substr_count($tbl[$i], "> ");
+        {
+          unset($buffer);
+          // Number of "> "
+          $q = substr_count($tbl[$i], "> ");
 
-	  $tbl[$i] = rtrim ($tbl[$i]);
-	  // Erase the "> "
-	  $tbl[$i] = str_replace ("> ", "", $tbl[$i]);
-	  // Erase the break line
-	  $tbl[$i] = str_replace ("\n", " ", $tbl[$i]);
-	  // length of "> > ...."
-	  $length = ($q + 1) * strlen ("> ");
-	  // Add the quote if ligne is not to long
-	  if (strlen ($tbl[$i]) + $length <= $wrap_msg)
-	    $msg .= str_pad($tbl[$i], strlen ($tbl[$i]) + $length, "> ", STR_PAD_LEFT) . $crlf;
-	  // If line is to long, create new line
-	  else
-	    {
-	      $words = explode (" ", $tbl[$i]);
-	      for ($j = 0; $j < count ($words); ++$j)
-		{
-		  if (strlen ($buffer) + strlen ($words[$j]) + $length <= $wrap_msg)
-		    $buffer .= $words[$j] . " ";
-		  else
-		    {
-		      $msg .=  str_pad(rtrim ($buffer), strlen (rtrim ($buffer)) + $length, "> ", STR_PAD_LEFT) . $crlf;
-		      $buffer = $words[$j] . " ";
-		    }
-		}
-	      //if ($q != substr_count($tbl[$i + 1], "> "))
-		$msg .= str_pad(rtrim ($buffer), strlen (rtrim ($buffer)) + $length, "> ", STR_PAD_LEFT) . $crlf;
-	    }
-	}
+          $tbl[$i] = rtrim ($tbl[$i]);
+          // Erase the "> "
+          $tbl[$i] = str_replace ("> ", "", $tbl[$i]);
+          // Erase the break line
+          $tbl[$i] = str_replace ("\n", " ", $tbl[$i]);
+          // length of "> > ...."
+          $length = ($q + 1) * strlen ("> ");
+          // Add the quote if ligne is not to long
+          if (strlen ($tbl[$i]) + $length <= $wrap_msg)
+            $msg .= str_pad($tbl[$i], strlen ($tbl[$i]) + $length, "> ", STR_PAD_LEFT) . $crlf;
+          // If line is to long, create new line
+          else
+            {
+              $words = explode (" ", $tbl[$i]);
+              for ($j = 0; $j < count ($words); ++$j)
+                {
+                  if (strlen ($buffer) + strlen ($words[$j]) + $length <= $wrap_msg)
+                      $buffer .= $words[$j] . " ";
+                  else
+                    {
+                      $msg .=  str_pad(rtrim ($buffer), strlen (rtrim ($buffer)) + $length, "> ", STR_PAD_LEFT) . $crlf;
+                      $buffer = $words[$j] . " ";
+                    }
+                }
+              //if ($q != substr_count($tbl[$i + 1], "> "))
+              $msg .= str_pad(rtrim ($buffer), strlen (rtrim ($buffer)) + $length, "> ", STR_PAD_LEFT) . $crlf;
+            }
+        }
       $body = $msg;
     }
   else
@@ -961,23 +961,23 @@ function wrap_outgoing_msg ($txt, $length, $newline)
     {
       $tbl[$i] = rtrim ($tbl[$i]);
       if (strlen ($tbl[$i]) <= $length)
-	$msg .= $tbl[$i] . $newline;
+        $msg .= $tbl[$i] . $newline;
       else
-	{
+        {
           unset( $buffer);
-	  $words = explode (" ", $tbl[$i]);
-	  for ($j = 0; $j < count ($words); ++$j)
-	    {
-	      if ((strlen ($buffer) + strlen ($words[$j])) <= $length)
-		$buffer .= $words[$j] . " ";
-	      else
-		{
-		  $msg .= rtrim ($buffer) . $newline;
-		  $buffer = $words[$j] . " ";
-		}
-	    }
-	  $msg .= rtrim ($buffer) . $newline;
-	}
+          $words = explode (" ", $tbl[$i]);
+          for ($j = 0; $j < count ($words); ++$j)
+            {
+              if ((strlen ($buffer) + strlen ($words[$j])) <= $length)
+                $buffer .= $words[$j] . " ";
+              else
+                {
+                  $msg .= rtrim ($buffer) . $newline;
+                  $buffer = $words[$j] . " ";
+                }
+            }
+          $msg .= rtrim ($buffer) . $newline;
+        }
     }
   return $msg;
 }
@@ -1049,7 +1049,7 @@ function load_list ($path)
      {
        $buffer = trim(fgets($fp, 4096));
        if ($buffer != "")
-	 array_push ($contacts, $buffer);
+         array_push ($contacts, $buffer);
      }
 
    fclose($fp);
