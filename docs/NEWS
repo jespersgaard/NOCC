@@ -1,4 +1,6 @@
-NOCC 1.5  ?? ??, ??
+NOCC 1.6  ?? ??, ??
+
+NOCC 1.5  January 01, 2008
 
   Bugs
     * Bug #1793631 : Wrong $conf->base_url with non-default port
