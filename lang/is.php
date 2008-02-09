@@ -89,6 +89,7 @@ $html_manage_folders_link = 'Manage IMAP Folders';  //to translate
 $html_manage_filters_link = 'Manage Email Filters';  //to translate
 $html_use_graphical_smilies = 'Use graphical smilies'; //to translate
 $html_sent_folder = 'Copy sent mails into a dedicated folder'; //to translate
+$html_trash_folder = 'Move deleted mails into a dedicated folder'; // to translate
 $html_colored_quotes = 'Colored quotes'; //to translate
 $html_display_struct = 'Display structured text'; //to translate
 $html_send_html_mail = 'Send mail in HTML format'; //to translate

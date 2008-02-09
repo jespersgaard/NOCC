@@ -1,4 +1,4 @@
-<!-- start of $Id: folders.php,v 1.19 2006/11/22 14:27:17 goddess_skuld Exp $ -->
+<!-- start of $Id: folders.php,v 1.20 2007/12/12 22:04:54 gerundt Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -12,7 +12,7 @@ $big_list = array();
 if (is_array($all_mailboxes)) {
   reset($all_mailboxes);
   while (list($junk, $val) = each($all_mailboxes)) {
-    list($junk,$name) = split($pop->server .'}', $pop->utf7_decode($val->name));
+    list($junk,$name) = split($pop->server .'}', $val->name);
     if (strlen($name) <= 32) {
       array_push($big_list, $name);
     }
@@ -22,7 +22,7 @@ if (is_array($all_mailboxes)) {
 $select_list = array();
 if (count($big_list) > 1) {
   for ($i = 0; $i < count($big_list); $i++) {
-    array_push($select_list, "\t<option value=\"".$big_list[$i]."\">".$big_list[$i]."</option>\n");
+    array_push($select_list, "\t<option value=\"".$big_list[$i]."\">".mb_convert_encoding($big_list[$i], $charset, 'UTF7-IMAP')."</option>\n");
   }
 }
 
@@ -109,4 +109,4 @@ if (count($big_list) > 1) {
   &nbsp;|&nbsp;
   <a href="action.php?action=managefilters"><?php echo convertLang2Html($html_manage_filters_link) ?></a>
 </div>
-<!-- end of $Id: folders.php,v 1.19 2006/11/22 14:27:17 goddess_skuld Exp $ -->
+<!-- end of $Id: folders.php,v 1.20 2007/12/12 22:04:54 gerundt Exp $ -->

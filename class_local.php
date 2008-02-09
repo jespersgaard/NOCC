@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.52 2007/06/01 19:24:11 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.53 2007/08/04 17:14:41 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -142,13 +142,15 @@ class nocc_imap
     }
 
     function renamemailbox(&$old_box, &$new_box, &$ev) {
-        if(!imap_renamemailbox($this->conn, '{'.$this->server.'}'.$old_box, '{'.$this->server.'}'.$this->namespace.$new_box)) {
+        global $charset;
+        if(!imap_renamemailbox($this->conn, '{'.$this->server.'}'.$old_box, '{'.$this->server.'}'.$this->namespace.mb_convert_encoding($new_box, 'UTF7-IMAP', $charset))) {
             $ev = new NoccException(imap_last_error());
         }
     }
 
     function createmailbox(&$new_box, &$ev) {
-        if(!imap_createmailbox($this->conn, '{'.$this->server.'}'.$this->namespace.$new_box)) {
+        global $charset;
+        if(!imap_createmailbox($this->conn, '{'.$this->server.'}'.$this->namespace.mb_convert_encoding($new_box, 'UTF7-IMAP', $charset))) {
             $ev = new NoccException(imap_last_error());
         }
     }
@@ -290,6 +292,7 @@ class nocc_imap
      */
     function html_folder_select($value, $selected = '') {
         $folders = $this->get_nice_subscribed($ev);
+        global $charset;
         if(NoccException::isException($ev)) {
                 return "<p class=\"error\">Error retrieving folder pulldown: ".$ev->getMessage()."</p>";
         }
@@ -300,7 +303,7 @@ class nocc_imap
 
         $html_select = "<select class=\"button\" id=\"$value\" name=\"$value\">\n";
         foreach($folders as $folder) {
-            $html_select .= "\t<option ".($folder == $selected ? "selected=\"selected\"" : "")." value=\"$folder\">$folder</option>\n";
+            $html_select .= "\t<option ".($folder == $selected ? "selected=\"selected\"" : "")." value=\"$folder\">".mb_convert_encoding($folder, $charset, 'UTF7-IMAP')."</option>\n";
         }
         $html_select .= "</select>\n";
         return $html_select;

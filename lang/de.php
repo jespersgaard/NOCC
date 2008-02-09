@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.63 2006/10/20 12:20:00 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.64 2007/06/24 21:03:47 gerundt Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha AT free DOT fr>
  * Copyright 2000 Olivier Cahagne <wolruf AT free DOT fr>
@@ -95,6 +95,7 @@ $html_manage_folders_link = 'IMAP-Ordner verwalten';
 $html_manage_filters_link = 'E-Mail-Filter verwalten';
 $html_use_graphical_smilies = 'Benutze graphische Emoticons';
 $html_sent_folder = 'Kopiere gesendete E-Mail in das angegebene Verzeichnis';
+$html_trash_folder = 'Move deleted mails into a dedicated folder'; // to translate
 $html_colored_quotes = 'Farbige Zitate';
 $html_display_struct = 'Strukturierten Text anzeigen';
 $html_send_html_mail = 'E-Mail im HTML-Format versenden';

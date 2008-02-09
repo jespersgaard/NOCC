@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.193 2007/12/19 21:06:19 gerundt Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.194 2007/12/24 22:40:44 gerundt Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -518,6 +518,11 @@ switch($action)
             if (isset($_REQUEST['sent_folder_name'])) {
                 $replace = str_replace($_SESSION['imap_namespace'], "", $_REQUEST['sent_folder_name']);
                 $user_prefs->sent_folder_name = safestrip($replace);
+            }
+            $user_prefs->trash_folder = isset($_REQUEST['trash_folder']);
+            if (isset($_REQUEST['trash_folder_name'])) {
+                $replace = str_replace($_SESSION['imap_namespace'], "", $_REQUEST['trash_folder_name']);
+                $user_prefs->trash_folder_name = safestrip($replace);
             }
             if (isset($_REQUEST['lang']))
                 $user_prefs->lang = $_REQUEST['lang'];

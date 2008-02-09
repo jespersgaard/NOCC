@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.15 2006/10/18 19:22:04 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.16 2007/06/25 22:05:48 gerundt Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -30,6 +30,8 @@ class NOCCUserPrefs {
 	var $graphical_smilies;
         var $sent_folder;
         var $sent_folder_name;
+        var $trash_folder;
+        var $trash_folder_name;
         var $lang;
         var $theme;
 
@@ -118,6 +120,10 @@ class NOCCUserPrefs {
                                 $prefs->sent_folder = ($value == 1 || $value == 'on');
                         if($key == 'sent_folder_name')
                                 $prefs->sent_folder_name = $value;
+                        if($key == 'trash_folder')
+                                $prefs->trash_folder = ($value == 1 || $value == 'on');
+                        if($key == 'trash_folder_name')
+                                $prefs->trash_folder_name = $value;
 
                         if($key == 'lang')
                                 $prefs->lang = $value;
@@ -179,6 +185,8 @@ class NOCCUserPrefs {
 		fwrite($file, "graphical_smilies=".$this->graphical_smilies."\n");
                 fwrite($file, "sent_folder=".$this->sent_folder."\n");
                 fwrite($file, "sent_folder_name=".str_replace($_SESSION['imap_namespace'], "", $this->sent_folder_name)."\n");
+                fwrite($file, "trash_folder=".$this->trash_folder."\n");
+                fwrite($file, "trash_folder_name=".str_replace($_SESSION['imap_namespace'], "", $this->trash_folder_name)."\n");
                 fwrite($file, "lang=".$this->lang."\n");
                 fwrite($file, "theme=".$this->theme."\n");
 		fclose($file);

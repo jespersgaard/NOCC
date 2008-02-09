@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.50 2007/01/30 14:02:58 goddess_skuld Exp $ -->
+<!-- start of $Id: prefs.php,v 1.51 2007/12/12 22:04:55 gerundt Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -9,20 +9,33 @@ $big_list = array();
 if (is_array($all_mailboxes)) {
   reset($all_mailboxes);
   while (list($junk, $val) = each($all_mailboxes)) {
-    list($junk,$name) = split($pop->server .'}', $pop->utf7_decode($val->name));
+    list($junk,$name) = split($pop->server .'}', $val->name);
     if (strlen($name) <= 32) {
       array_push($big_list, $name);
     }
   }
 }
 
-$select_list = array();
+// Build list for sent mails folder selection
+$sent_folders_list = array();
 if (count($big_list) > 1) {
   for ($i = 0; $i < count($big_list); $i++) {
     if (isset($user_prefs->sent_folder_name) && $_SESSION['imap_namespace'] . $user_prefs->sent_folder_name == $big_list[$i]) {
-      array_push($select_list, "\t<option value=\"".$big_list[$i]."\" selected=\"selected\">".$big_list[$i]."</option>\n");
+      array_push($sent_folders_list, "\t<option value=\"".$big_list[$i]."\" selected=\"selected\">".mb_convert_encoding($big_list[$i], $charset, 'UTF7-IMAP')."</option>\n");
     } else {
-      array_push($select_list, "\t<option value=\"".$big_list[$i]."\">".$big_list[$i]."</option>\n");
+      array_push($sent_folders_list, "\t<option value=\"".$big_list[$i]."\">".mb_convert_encoding($big_list[$i], $charset, 'UTF7-IMAP')."</option>\n");
+    }
+  }
+}
+
+// Build list for deleted mails folder selection
+$trash_folders_list = array();
+if (count($big_list) > 1) {
+  for ($i = 0; $i < count($big_list); $i++) {
+    if (isset($user_prefs->trash_folder_name) && $_SESSION['imap_namespace'] . $user_prefs->trash_folder_name == $big_list[$i]) {
+      array_push($trash_folders_list, "\t<option value=\"".$big_list[$i]."\" selected=\"selected\">".mb_convert_encoding($big_list[$i], $charset, 'UTF7-IMAP')."</option>\n");
+    } else {
+      array_push($trash_folders_list, "\t<option value=\"".$big_list[$i]."\">".mb_convert_encoding($big_list[$i], $charset, 'UTF7-IMAP')."</option>\n");
     }
   }
 }
@@ -150,7 +163,14 @@ if (count($big_list) > 1) {
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
              <input type="checkbox" name="sent_folder" id="sent_folder" value="on" <?php if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder) echo 'checked="checked"'; ?> /><label for="sent_folder"><?php echo convertLang2Html($html_sent_folder) ?></label> : 
-             <select class="button" name="sent_folder_name"><?php echo join('', $select_list) ?></select>
+             <select class="button" name="sent_folder_name"><?php echo join('', $sent_folders_list) ?></select>
+           </td>
+         </tr>
+         <tr>
+           <td class="prefsLabel">&nbsp;</td>
+           <td class="prefsData">
+             <input type="checkbox" name="trash_folder" id="trash_folder" value="on" <?php if (isset($user_prefs->trash_folder) && $user_prefs->trash_folder) echo 'checked="checked"'; ?> /><label for="trash_folder"><?php echo convertLang2Html($html_trash_folder) ?></label> : 
+             <select class="button" name="trash_folder_name"><?php echo join('', $trash_folders_list) ?></select>
            </td>
          </tr>
          <?php } ?>
@@ -238,4 +258,4 @@ if (count($big_list) > 1) {
  <?php
    }
  ?>
-<!-- end of $Id: prefs.php,v 1.50 2007/01/30 14:02:58 goddess_skuld Exp $ -->
+<!-- end of $Id: prefs.php,v 1.51 2007/12/12 22:04:55 gerundt Exp $ -->

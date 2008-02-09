@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.86 2006/06/23 12:43:31 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/cy.php,v 1.1 2007/07/27 05:20:22 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -92,6 +92,7 @@ $html_manage_folders_link = 'Gweinyddu ffolderi IMAP';
 $html_manage_filters_link = 'Gweinyddu Hidlau E-bost';
 $html_use_graphical_smilies = 'Defnyddio wynebau graffigol';
 $html_sent_folder = 'Copïo negeseuon anfonedig i ffolder bwrpasol';
+$html_trash_folder = 'Move deleted mails into a dedicated folder'; // to translate
 $html_colored_quotes = 'Dyfynodau lliw';
 $html_display_struct = 'Dangos testun strwythuredig';
 $html_send_html_mail = 'Gyrru negeseuon mewn fformat HTML';

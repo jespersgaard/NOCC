@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.50 2006/10/18 19:22:13 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.51 2006/10/20 12:20:00 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -91,6 +91,8 @@ $html_prefs_updated = 'Настройки сохранены';
 $html_manage_folders_link = 'Управление папками IMAP';
 $html_manage_filters_link = 'Управление почтовыми фильтрами';
 $html_use_graphical_smilies = 'Использовать графические смайлики';
+$html_sent_folder = 'Copy sent mails into a dedicated folder'; //to translate
+$html_trash_folder = 'Move deleted mails into a dedicated folder'; // to translate
 $html_colored_quotes = 'Colored quotes'; //to translate
 $html_display_struct = 'Display structured text'; //to translate
 $html_send_html_mail = 'Send mail in HTML format'; //to translate

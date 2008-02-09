@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.53 2006/09/02 07:05:27 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.54 2006/10/20 13:40:14 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -27,6 +27,7 @@ if (NoccException::isException($ev)) {
 
 $num_messages = $pop->num_msg();
 $url = "action.php";
+$user_prefs = $_SESSION['nocc_user_prefs'];
 
 // Work out folder and target_folder
 $folder = $_SESSION['nocc_folder'];
@@ -53,7 +54,13 @@ if (isset($_REQUEST['only_one'])) {
         // If messages are opened in a new windows, we will reload the opener window
         // i.e. the one with messages list
         $_SESSION['message_deleted'] = "true";
-        $pop->delete($mail, $ev);
+	if ($pop->is_imap()
+               && $user_prefs->trash_folder
+               && $_SESSION['nocc_folder'] != $user_prefs->trash_folder_name ) {
+            $pop->mail_move($mail, $user_prefs->trash_folder_name, $ev);
+        } else {
+            $pop->delete($mail, $ev);
+        }
         if ($mail - 1) {
             $url = "action.php?action=aff_mail&mail=".--$mail."&verbose=0";
         }
@@ -93,7 +100,13 @@ if (isset($_REQUEST['only_one'])) {
                 // If messages are opened in a new windows, we will reload the opener window
                 // i.e. the one with messages list
                 $_SESSION['message_deleted'] = "true";
-                $pop->delete($i, $ev);
+                if ($pop->is_imap()
+                        && $user_prefs->trash_folder
+                        && $_SESSION['nocc_folder'] != $user_prefs->trash_folder_name ) {
+                    $pop->mail_move($i, $user_prefs->trash_folder_name, $ev);
+                } else {
+                    $pop->delete($i, $ev);
+                }
             }
             if (isset($_REQUEST['mark_read_mode']) && $_REQUEST['mark_mode'] == 'read') {
                 $pop->mail_mark_read($i, $ev);

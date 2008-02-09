@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/cs.php,v 1.44 2007/01/07 19:57:53 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/cs.php,v 1.45 2007/10/18 17:14:47 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -92,6 +92,7 @@ $html_manage_folders_link = 'Spravovat IMAP složky';
 $html_manage_filters_link = 'Spravovat poštovní filtry';
 $html_use_graphical_smilies = 'Používat grafické smajlíky';
 $html_sent_folder = 'Kopírovat odeslané dopisy do vyhrazení složky';
+$html_trash_folder = 'Move deleted mails into a dedicated folder'; // to translate
 $html_colored_quotes = 'Barevné uvozovky';
 $html_display_struct = 'Zobrazit strukturovaný text';
 $html_send_html_mail = 'Posílat zprávy v HTML';

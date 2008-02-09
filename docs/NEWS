@@ -1,5 +1,8 @@
 NOCC 1.6  ?? ??, ??
 
+  Misc
+    * Add trash can feature on IMAP accounts (Arnaud Boudou).
+
 NOCC 1.5  January 01, 2008
 
   Bugs
@@ -20,12 +23,11 @@ NOCC 1.5  January 01, 2008
     * Patch #1786808 : Move JavaScript code to own file (Tim Gerundt).
 
   RFE
+    * RFE #1854176 : Enhancement suggestions (Tim Gerundt, Michael D Young).
     * RFE #1804115 : list of personalised files (Arnaud Boudou).
 
   Misc
     * Harmonize mail header background color (Tim Gerundt).
-    * Change "currentInbox" to a breadcrumb navigation for IMAP (Tim Gerundt, 
-      Michael D Young).
     * Hide CSS images with "url()" too (Tim Gerundt).
     * Remove unused $_SESSION['tab_mail'] (Tim Gerundt).
     * Add "Even/Odd" theming support for inbox (Tim Gerundt).
