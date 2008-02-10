@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.23 2006/11/22 14:27:13 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.24 2008/02/10 20:52:21 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -149,7 +149,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
     </form>
   </div>
   <?php
-	;
+    ;
         break;
 
       case "add":

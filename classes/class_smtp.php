@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.36 2006/12/21 08:58:58 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/classes/class_smtp.php,v 1.1 2008/02/10 20:52:24 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -117,7 +117,7 @@ class smtp
               $line = fgets($smtp, 1024);
               $this->sessionlog .= "Rcvd: $line";
               if (substr($line, 0, 1) != '2')
-	          return new NoccException($html_smtp_error_unexpected . ' : ' . $line);
+              return new NoccException($html_smtp_error_unexpected . ' : ' . $line);
               return (true);
               break;
           case '':
@@ -220,27 +220,27 @@ class smtp
         $smtp = $this->smtp_open();
         if(NoccException::isException($smtp))
             return $smtp;
-	unset ($ev);
+    unset ($ev);
         $ev = $this->smtp_ehlo($smtp);
         if(NoccException::isException($ev))
             return $ev;
-	unset ($ev);
+    unset ($ev);
         $ev = $this->smtp_auth($smtp);
         if(NoccException::isException($ev))
             return $ev;
-	unset ($ev);
+    unset ($ev);
         $ev = $this->smtp_mail_from($smtp);
         if(NoccException::isException($ev))
             return $ev;
-	unset ($ev);
+    unset ($ev);
         $ev = $this->smtp_rcpt_to($smtp);
         if(NoccException::isException($ev))
             return $ev;
-	unset ($ev);
+    unset ($ev);
         $ev = $this->smtp_data($smtp);
         if(NoccException::isException($ev))
             return $ev;
-	unset ($ev);
+    unset ($ev);
         $ev = $this->smtp_quit($smtp);
         if(NoccException::isException($ev))
             return $ev;

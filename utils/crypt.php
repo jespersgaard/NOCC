@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/crypt.php,v 1.3 2007/01/15 19:33:27 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/utils/crypt.php,v 1.1 2008/02/10 20:52:26 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -15,9 +15,9 @@ function encr($string, $key)
   for($i=0; $i<strlen($string); $i++)
     {
       for($j=0; $j<strlen($key); $j++)
-	{
-	  $string[$i] = $string[$i]^$key[$j];
-	}
+    {
+      $string[$i] = $string[$i]^$key[$j];
+    }
     }
   return $string;
 }
@@ -27,9 +27,9 @@ function decr($string, $key) {
   for($i=0; $i<strlen($string); $i++)
     {
       for($j=0; $j<strlen($key); $j++)
-	{
-	  $string[$i] = $key[$j]^$string[$i];
-	}
+    {
+      $string[$i] = $key[$j]^$string[$i];
+    }
     }
   return $string;
 }
@@ -51,15 +51,15 @@ function genkey($keylength, $cookiename)
 // Returns the key, though I don't see a need in doing that.
 
   $rkey = substr(ereg_replace("[^A-Za-z0-9]",
-			      "",
-			      crypt(time())) .
-		 ereg_replace("[^A-Za-z0-9]",
-			      "",
-			      crypt(time())) .
-		 ereg_replace("[^A-Za-z0-9]",
-			      "",
-			      crypt(time())),
-		 0, $keylength);
+                  "",
+                  crypt(time())) .
+         ereg_replace("[^A-Za-z0-9]",
+                  "",
+                  crypt(time())) .
+         ereg_replace("[^A-Za-z0-9]",
+                  "",
+                  crypt(time())),
+         0, $keylength);
 
   setcookie ($cookiename, $rkey , time() + 3600);
 

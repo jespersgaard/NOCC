@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.54 2008/02/09 12:35:59 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/classes/class_local.php,v 1.1 2008/02/10 20:52:25 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -38,7 +38,7 @@ class nocc_imap
         global $conf;
         global $lang_could_not_connect;
         if(!isset($_SESSION['nocc_servr']) || !isset($_SESSION['nocc_folder']) || !isset($_SESSION['nocc_login']) || !isset($_SESSION['nocc_passwd'])) {
-	    $ev = new NoccException($lang_could_not_connect);
+        $ev = new NoccException($lang_could_not_connect);
             return;
         }
 
@@ -371,16 +371,16 @@ class nocc_imap
       $user_prefs = $_SESSION['nocc_user_prefs'];
       if (isset($user_prefs->graphical_smilies) && $user_prefs->graphical_smilies) {
         $body = ereg_replace("\;-?\)","<img src=\"themes/" . $_SESSION['nocc_theme'] . "/img/smilies/wink.png\" alt=\"wink\"/>", $body);
-	$body = ereg_replace("\;-?D","<img src=\"themes/" . $_SESSION['nocc_theme'] . "/img/smilies/grin.png\" alt=\"grin\"/>", $body);
-	$body = ereg_replace(":\'\(?","<img src=\"themes/" . $_SESSION['nocc_theme'] . "/img/smilies/cry.png\" alt=\"cry\"/>", $body);
-	$body = ereg_replace(":-?[xX]","<img src=\"themes/" . $_SESSION['nocc_theme'] . "/img/smilies/confused.png\" alt=\"confused\"/>", $body);
-	$body = ereg_replace(":-?\[\)","<img src=\"themes/" . $_SESSION['nocc_theme'] . "/img/smilies/embarassed.png\" alt=\"embarassed\"/>", $body);
-	$body = ereg_replace(":-?\*","<img src=\"themes/" . $_SESSION['nocc_theme'] . "/img/smilies/love.png\" alt=\"love\"/>", $body);
-	$body = ereg_replace(":-?[pP]","<img src=\"themes/" . $_SESSION['nocc_theme'] . "/img/smilies/tongue.png\" alt=\"tongue\"/>", $body);
-	$body = ereg_replace(":-?\)","<img src=\"themes/" . $_SESSION['nocc_theme'] . "/img/smilies/happy.png\" alt=\"happy\"/>", $body);
-	$body = ereg_replace(":-?\(","<img src=\"themes/" . $_SESSION['nocc_theme'] . "/img/smilies/unhappy.png\" alt=\"unhappy\"/>", $body);
-	$body = ereg_replace(":-[oO]","<img src=\"themes/" . $_SESSION['nocc_theme'] . "/img/smilies/surprised.png\" alt=\"surprised\"/>", $body);
-	$body = ereg_replace("8-?\)","<img src=\"themes/" . $_SESSION['nocc_theme'] . "/img/smilies/cool.png\" alt=\"cool\"/>", $body);
+    $body = ereg_replace("\;-?D","<img src=\"themes/" . $_SESSION['nocc_theme'] . "/img/smilies/grin.png\" alt=\"grin\"/>", $body);
+    $body = ereg_replace(":\'\(?","<img src=\"themes/" . $_SESSION['nocc_theme'] . "/img/smilies/cry.png\" alt=\"cry\"/>", $body);
+    $body = ereg_replace(":-?[xX]","<img src=\"themes/" . $_SESSION['nocc_theme'] . "/img/smilies/confused.png\" alt=\"confused\"/>", $body);
+    $body = ereg_replace(":-?\[\)","<img src=\"themes/" . $_SESSION['nocc_theme'] . "/img/smilies/embarassed.png\" alt=\"embarassed\"/>", $body);
+    $body = ereg_replace(":-?\*","<img src=\"themes/" . $_SESSION['nocc_theme'] . "/img/smilies/love.png\" alt=\"love\"/>", $body);
+    $body = ereg_replace(":-?[pP]","<img src=\"themes/" . $_SESSION['nocc_theme'] . "/img/smilies/tongue.png\" alt=\"tongue\"/>", $body);
+    $body = ereg_replace(":-?\)","<img src=\"themes/" . $_SESSION['nocc_theme'] . "/img/smilies/happy.png\" alt=\"happy\"/>", $body);
+    $body = ereg_replace(":-?\(","<img src=\"themes/" . $_SESSION['nocc_theme'] . "/img/smilies/unhappy.png\" alt=\"unhappy\"/>", $body);
+    $body = ereg_replace(":-[oO]","<img src=\"themes/" . $_SESSION['nocc_theme'] . "/img/smilies/surprised.png\" alt=\"surprised\"/>", $body);
+    $body = ereg_replace("8-?\)","<img src=\"themes/" . $_SESSION['nocc_theme'] . "/img/smilies/cool.png\" alt=\"cool\"/>", $body);
       }
       return ($body);
     }

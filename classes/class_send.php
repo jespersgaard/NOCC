@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_send.php,v 1.72 2006/10/18 19:22:04 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/classes/class_send.php,v 1.1 2008/02/10 20:52:25 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -48,7 +48,7 @@ class mime_mail
         $this->crlf = null;
         $this->priority = '3 (Normal)';
         $this->receipt = false;
-	$this->return = null;
+    $this->return = null;
     }
 
     /*
@@ -156,8 +156,8 @@ class mime_mail
         if (!empty($this->headers))
             $mime .= $this->headers . $this->crlf;
 
-	// Strip lonely "\r\n.\r\n" in order to avoid STMP errors
-	$mime = str_replace("\r\n.\r\n", "\r\n..\r\n", $mime);
+    // Strip lonely "\r\n.\r\n" in order to avoid STMP errors
+    $mime = str_replace("\r\n.\r\n", "\r\n..\r\n", $mime);
 
         $mail_format = '';
         if ($_SESSION['html_mail_send']) {
@@ -166,7 +166,7 @@ class mime_mail
           $mail_format = 'text/plain';
         }
 
-	if (sizeof($this->parts) >= 1)
+    if (sizeof($this->parts) >= 1)
         {
             $this->add_attachment($this->body,  '',  $mail_format, 'quoted-printable', $this->charset);
             $mime .= 'MIME-Version: 1.0' . $this->crlf . $this->build_multipart();
@@ -223,7 +223,7 @@ class mime_mail
                 $smtp->subject = $this->subject;
                 $smtp->data = $mime;
                 $smtp_return = $smtp->send();
-		if (NoccException::isException($smtp_return)) {
+        if (NoccException::isException($smtp_return)) {
                     return($smtp_return);
                 }
                 $copy_return = 1;

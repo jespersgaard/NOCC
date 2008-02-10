@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/user_filters.php,v 1.8 2005/08/01 08:11:15 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/classes/user_filters.php,v 1.1 2008/02/10 20:52:24 goddess_skuld Exp $
  *
  * Copyright 2002 Mike Rylander <mrylander@mail.com>
  *
@@ -83,7 +83,7 @@ class NOCCUserFilters {
          */
         function commit(&$ev) {
                 global $conf;
-		global $html_prefs_file_error;
+        global $html_prefs_file_error;
 
                 // Do we need to write?
                 if(!$this->dirty_flag) return;
@@ -94,10 +94,10 @@ class NOCCUserFilters {
                         $ev = new NoccException($html_prefs_file_error);
                         return;
                 }
-		if(!is_writeable($conf->prefs_dir)) {
-		    $ev = new NoccException($html_prefs_file_error);
-		    return;
-		}
+        if(!is_writeable($conf->prefs_dir)) {
+            $ev = new NoccException($html_prefs_file_error);
+            return;
+        }
                 $file = fopen($filename, 'w');
                 if(!$file) {
                         $ev = new NoccException($html_prefs_file_error);

@@ -110,21 +110,21 @@ if ($html_filter_select) {
       if(NoccException::isException($ev)) {
     ?>
       <div class="error">
-	<table class="errorTable">
-	  <tr class="errorTitle">
-	    <td><?php echo convertLang2Html($html_error_occurred) ?></td>
-	  </tr>
-	  <tr class="errorText">
-	    <td>
-	      <p><?php echo convertLang2Html($ev->getMessage()); ?></p>
-	    </td>
-	  </tr>
-	</table>
+    <table class="errorTable">
+      <tr class="errorTitle">
+        <td><?php echo convertLang2Html($html_error_occurred) ?></td>
+      </tr>
+      <tr class="errorText">
+        <td>
+          <p><?php echo convertLang2Html($ev->getMessage()); ?></p>
+        </td>
+      </tr>
+    </table>
       </div>
     <?php
       } else {
-	if(isset($_REQUEST['do']))
-	  echo '<br />' . convertLang2Html($html_prefs_updated);
+    if(isset($_REQUEST['do']))
+      echo '<br />' . convertLang2Html($html_prefs_updated);
       }
     ?>
     <br /><br />
@@ -143,4 +143,4 @@ if ($html_filter_select) {
 &nbsp;|&nbsp;
 <a href="action.php?action=managefolders"><?php echo convertLang2Html($html_manage_folders_link) ?></a>
 </div>
-<!-- end of $Id: filter_prefs.php,v 1.9 2006/11/22 14:27:17 goddess_skuld Exp $ -->
+<!-- end of $Id: filter_prefs.php,v 1.10 2007/12/12 22:04:54 gerundt Exp $ -->

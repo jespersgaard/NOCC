@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.55 2008/02/09 12:35:59 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.56 2008/02/10 20:52:23 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -54,7 +54,7 @@ if (isset($_REQUEST['only_one'])) {
         // If messages are opened in a new windows, we will reload the opener window
         // i.e. the one with messages list
         $_SESSION['message_deleted'] = "true";
-	if ($pop->is_imap()
+    if ($pop->is_imap()
                && $user_prefs->trash_folder
                && $_SESSION['nocc_folder'] != $user_prefs->trash_folder_name ) {
             $pop->mail_move($mail, $user_prefs->trash_folder_name, $ev);

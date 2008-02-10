@@ -1,4 +1,4 @@
-<!-- start of $Id: footer.php,v 1.19 2007/02/01 07:28:59 goddess_skuld Exp $ -->
+<!-- start of $Id: footer.php,v 1.20 2007/02/02 08:47:18 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -9,7 +9,7 @@ if(file_exists($custom_footer)) {
 }
 else {
 ?>
-	</div>
+    </div>
         <div id="footer">
             <a href="javascript:void(0);" onclick="window.open('http://nocc.sourceforge.net');">
                 <img src="themes/<?php echo str_replace('..','',convertLang2Html($_SESSION['nocc_theme'])) ?>/img/button.png" id="footerLogo" alt="Powered by NOCC" />
@@ -20,4 +20,4 @@ else {
 <?php
 }
 ?>
-<!-- end of $Id: footer.php,v 1.19 2007/02/01 07:28:59 goddess_skuld Exp $ -->
+<!-- end of $Id: footer.php,v 1.20 2007/02/02 08:47:18 goddess_skuld Exp $ -->

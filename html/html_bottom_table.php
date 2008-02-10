@@ -1,4 +1,4 @@
-<!-- start of $Id: html_bottom_table.php,v 1.41 2007/06/20 21:53:20 gerundt Exp $ -->
+<!-- start of $Id: html_bottom_table.php,v 1.42 2007/09/03 21:47:11 gerundt Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -14,7 +14,7 @@
                     <tr>
                       <td class="inbox">&nbsp;</td>
                       <td class="inbox right">
-	                <?php echo $page_line ?>
+                    <?php echo $page_line ?>
                       </td>
                       <td class="inbox right">
                         <?php echo $prev ?>
@@ -24,4 +24,4 @@
                   </table>
                 </div>
                 <?php } ?>
-<!-- end of $Id: html_bottom_table.php,v 1.41 2007/06/20 21:53:20 gerundt Exp $ -->
+<!-- end of $Id: html_bottom_table.php,v 1.42 2007/09/03 21:47:11 gerundt Exp $ -->

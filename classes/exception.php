@@ -10,7 +10,7 @@ class NoccException
     function isException($data) {
         return (bool)(is_object($data) &&
                       ((get_class($data) == "NoccException") ||
-		       (get_class($data) == "noccexception")));
+               (get_class($data) == "noccexception")));
     }
 
     function NoccException($message = "unknown error")
