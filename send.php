@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.143 2007/06/26 19:57:48 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.144 2007/12/24 22:40:44 gerundt Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,7 +9,7 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
 
-require_once './conf.php';
+require_once './config/conf.php';
 require_once './common.php';
 
 class attached_file {
@@ -21,23 +21,23 @@ class attached_file {
 
 if (!isset($_SESSION['nocc_loggedin']))
 {
-    require_once './proxy.php';
+    require_once './utils/proxy.php';
     header('Location: ' . $conf->base_url . 'logout.php');
     return;
 }
 
-// DEPRACATED: Not required PHP >= 4.1
+// DEPRECATED: Not required PHP >= 4.1
 if (!function_exists('is_uploaded_file'))
-    include_once ('./is_uploaded_file.php');
+    include_once ('./utils/is_uploaded_file.php');
 
 if ($_SERVER['REQUEST_METHOD'] != 'POST') {
     clear_attachments();
-    require_once './proxy.php';
+    require_once './utils/proxy.php';
     header('Location: ' . $conf->base_url . 'action.php');
     return;
 }
-require_once './class_send.php';
-require_once './class_smtp.php';
+require_once './classes/class_send.php';
+require_once './classes/class_smtp.php';
 
 if( isset($conf->allow_address_change) && $conf->allow_address_change ) $mail_from = safestrip($_REQUEST['mail_from']);
 else $mail_from = get_default_from_address();
@@ -235,7 +235,7 @@ switch($_REQUEST['sendaction'])
         else
         {
             // Redirect user to inbox
-            require_once './proxy.php';
+            require_once './utils/proxy.php';
             header("Location: ".$conf->base_url."action.php?successfulsend=true");
         }
         break;

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.37 2003/12/21 15:40:20 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.38 2005/12/15 20:10:47 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -14,9 +14,9 @@
 if(!isset($HTTP_USER_AGENT))
     $HTTP_USER_AGENT = $_SERVER['HTTP_USER_AGENT'];
 
-require_once './conf.php';
+require_once './config/conf.php';
 require_once './common.php';
-require_once './class_local.php';
+require_once './classes/class_local.php';
 
 $mime = $_REQUEST['mime'];
 $filename = $_REQUEST['filename'];

@@ -2,10 +2,10 @@
   if (!isset($conf->loaded))
     die('Hacking attempt');
 
-if (file_exists('proxy.php'))
-    require_once 'proxy.php';
+if (file_exists('./utils/proxy.php'))
+    require_once './utils/proxy.php';
 else
-    die('proxy.php is missing');
+    die('./utils/proxy.php is missing');
 
 if(isset($charset))
     header ("Content-type: text/html; Charset=$charset");
@@ -81,4 +81,4 @@ else {
 <?php
 }
 ?>
-<!-- end of $Id: header.php,v 1.69 2007/09/13 22:46:29 gerundt Exp $ -->
+<!-- end of $Id: header.php,v 1.70 2007/12/12 22:04:54 gerundt Exp $ -->

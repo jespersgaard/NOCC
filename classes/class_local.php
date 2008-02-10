@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.53 2007/08/04 17:14:41 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_local.php,v 1.54 2008/02/09 12:35:59 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,9 +13,9 @@
  * our own IMAP/POP3 classes in the future.
  */
 
-require_once 'exception.php';
-require_once 'detect_cyr_charset.php';
-require_once 'crypt.php';
+require_once './classes/exception.php';
+require_once './utils/detect_cyr_charset.php';
+require_once './utils/crypt.php';
 
 class result
 {

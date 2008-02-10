@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.35 2006/11/16 13:35:14 ajetam Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/class_smtp.php,v 1.36 2006/12/21 08:58:58 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -11,7 +11,7 @@
  * Class based on a work from Unk <rgroesb_garbage@triple-it_garbage.nl>  
  */
 
-require_once 'exception.php';
+require_once './classes/exception.php';
 
 class smtp
 {
@@ -86,7 +86,7 @@ class smtp
     function smtp_auth($smtp)
     {
       global $conf;
-      require_once 'crypt.php';
+      require_once '../utils/crypt.php';
       switch ($_SESSION['smtp_auth']) {
           case 'LOGIN':
               fputs($smtp, "auth login\r\n"); 

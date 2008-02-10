@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/conf_charset.php,v 1.1 2005/07/04 17:12:27 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/conf_charset.php,v 1.2 2005/12/02 10:45:48 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>

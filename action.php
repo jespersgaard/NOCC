@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.194 2007/12/24 22:40:44 gerundt Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.195 2008/02/09 12:35:59 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,7 +12,7 @@
  * This file is the main file of NOCC each function starts from here
  */
 
-require_once './conf.php';
+require_once './config/conf.php';
 require_once './common.php';
 
 // Remove any attachments from disk and from our session
@@ -120,7 +120,7 @@ switch($action)
         break;
 
     case 'logout':
-        require_once './proxy.php';
+        require_once './utils/proxy.php';
         header("Location: ".$conf->base_url."logout.php");
         break;
 

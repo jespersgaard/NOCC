@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/check.php,v 1.19 2006/11/29 19:42:46 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/check.php,v 1.20 2007/02/25 14:05:23 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -40,22 +40,22 @@ if (ini_get('register_globals') == true)
 // NOCC setup
 if (empty($conf->tmpdir))
 {
-  $ev = new NoccException("\"\$conf->tmpdir\" is not set in \"conf.php\". NOCC cannot run.");
+  $ev = new NoccException("\"\$conf->tmpdir\" is not set in \"config/conf.php\". NOCC cannot run.");
 }
 
 if (!empty($conf->prefs_dir) && !is_dir($conf->prefs_dir))
 {
-  $ev = new NoccException("\"\$conf->prefs_dir\" is set in \"conf.php\" but doesn't exists. You must create \"\$conf->prefs_dir\" ($conf->prefs_dir) in order for NOCC to run.");
+  $ev = new NoccException("\"\$conf->prefs_dir\" is set in \"config/conf.php\" but doesn't exists. You must create \"\$conf->prefs_dir\" ($conf->prefs_dir) in order for NOCC to run.");
 }
 
 if (!isset($conf->master_key) || $conf->master_key == '')
 {
-  $ev = new NoccException("\"\$conf->master_key\" must be set in \"conf.php\" in order for NOCC to run.");
+  $ev = new NoccException("\"\$conf->master_key\" must be set in \"config/conf.php\" in order for NOCC to run.");
 }
 
 if (!isset($conf->column_order) || $conf->column_order == '')
 {
-  $ev = new NoccException("\"\$conf->column_order\" must be set in \"conf.php\" in order for NOCC to run.");
+  $ev = new NoccException("\"\$conf->column_order\" must be set in \"config/conf.php\" in order for NOCC to run.");
 }
 
 // Display error message

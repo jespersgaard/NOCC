@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/help.php,v 1.14 2002/05/30 14:07:21 rossigee Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/help.php,v 1.15 2005/08/01 08:11:14 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,7 +9,7 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
 
-require_once './conf.php';
+require_once './config/conf.php';
 require_once './common.php';
 $lang = $_SESSION['nocc_lang'];
 ?>

@@ -1,6 +1,6 @@
 Frequently Asked Questions for Nocc
 -----------------------------------
-Last updated: $Date: 2006/10/16 05:32:53 $
+Last updated: $Date: 2007/06/29 22:11:27 $
 
  Q. Nocc keeps me asking for a correct login/password.
 
@@ -23,7 +23,7 @@ Last updated: $Date: 2006/10/16 05:32:53 $
  Q. Having configured Nocc, I get this error with my favourite browser:
 
  A. Fatal error: Call to undefined function: imap_open()
-    in /opt/apache/htdocs/nocc/functions.php on line 26
+    in /opt/apache/htdocs/nocc/utils/functions.php on line 26
 
     -> Please check that PHP has IMAP/c-client support (you can use a small
     PHP script with phpinfo() to see what it supports).
@@ -115,7 +115,7 @@ Last updated: $Date: 2006/10/16 05:32:53 $
 -----------------------------------
 
  Q. I get this error when reading e-mails, randomly:
-    'Invalid Range End at line 450 in functions.php'
+    'Invalid Range End at line 450 in utils/functions.php'
 
  A. New: This is fixed in 0.9.6, was replaced by its Perl-equivalent.
 
@@ -128,7 +128,7 @@ Last updated: $Date: 2006/10/16 05:32:53 $
 
     If you can recompile PHP, then recompile it without this option.
     If you cannot recompile PHP, then comment out the following line in
-    functions.php starting with:
+    utils/functions.php starting with:
 
     [...]
     elseif (eregi('plain', $mime))
@@ -194,7 +194,7 @@ Last updated: $Date: 2006/10/16 05:32:53 $
  A. Create a .htaccess file at Nocc's root directory with the following line:
       php_flag register_globals off
     If your host does not allow you to use any .htaccess file, you will have to
-    delete in the check.php file the lines beginning with 
+    delete in the utils/check.php file the lines beginning with 
       if (ini_get('register_globals') == true)
     and finishing just before
       ?>

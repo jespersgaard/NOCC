@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.16 2007/01/22 19:24:54 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.17 2007/04/25 09:29:52 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,8 +12,8 @@
  * File for RSS stream
  */
 
-  require_once('crypt.php');
-  require_once('user_prefs.php');
+  require_once('./utils/crypt.php');
+  require_once('./classes/user_prefs.php');
 
   session_name("NOCCSESSID");
   session_start();
@@ -44,9 +44,9 @@
       }
   }
 
-  require_once './conf.php';
+  require_once './config/conf.php';
   require_once './common.php';
-  require_once './class_local.php';
+  require_once './classes/class_local.php';
   
   $pop = new nocc_imap($ev);
   if (NoccException::isException($ev)) {

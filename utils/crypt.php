@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/crypt.php,v 1.2 2007/01/14 17:11:47 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/crypt.php,v 1.3 2007/01/15 19:33:27 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>

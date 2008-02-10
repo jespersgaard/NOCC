@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/user_filters.php,v 1.7 2004/06/30 17:52:43 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/user_filters.php,v 1.8 2005/08/01 08:11:15 goddess_skuld Exp $
  *
  * Copyright 2002 Mike Rylander <mrylander@mail.com>
  *
@@ -8,7 +8,7 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
 
-require_once 'exception.php';
+require_once './classes/exception.php';
 
 class NOCCUserFilters {
         var $key;

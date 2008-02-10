@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/mime.php,v 1.6 2001/05/27 08:42:47 wolruf Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/mime.php,v 1.7 2002/03/24 17:00:36 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>

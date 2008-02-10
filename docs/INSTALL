@@ -50,7 +50,7 @@ Installing NOCC
        2) untar/unzip nocc into the directory you want.
           Default directory is nocc.
    
-       3) Change into the 'nocc' directory, make changes to the 
+       3) Change into the 'nocc/webmail/config' directory, make changes to the 
           config file (conf.php.dist) and save the new one to conf.php
           (remove .dist in the file name)
 

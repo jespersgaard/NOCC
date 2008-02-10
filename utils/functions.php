@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.236 2007/12/24 22:40:44 gerundt Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.237 2008/02/09 12:35:59 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -10,7 +10,7 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
 
-require_once 'class_local.php';
+require_once './classes/class_local.php';
 
 /* ----------------------------------------------------- */
 

@@ -1,10 +1,10 @@
-<!-- start of $Id: html_top_table.php,v 1.96 2007/06/19 06:35:12 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.97 2007/12/20 23:14:01 gerundt Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
 
-require_once 'class_local.php';
-require_once 'conf.php';
+require_once './classes/class_local.php';
+require_once './config/conf.php';
 
 $per_page = get_per_page();
 
@@ -146,4 +146,4 @@ if ($pop->is_imap()) {
                             }
                           ?>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.96 2007/06/19 06:35:12 goddess_skuld Exp $ -->
+<!-- end of $Id: html_top_table.php,v 1.97 2007/12/20 23:14:01 gerundt Exp $ -->

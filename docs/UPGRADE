@@ -7,9 +7,9 @@ Before upgrade
 **************
 
   Before upgrading your NOCC installation, you should backup the following files
-    </path/to/nocc/>conf.php
-    </path/to/nocc/>login_alias (if used)
-    </path/to/nocc/>login_allowed (if used)
+    </path/to/nocc/>config/conf.php
+    </path/to/nocc/>config/login_alias (if used)
+    </path/to/nocc/>config/login_allowed (if used)
     </path/to/nocc/prefs/>*.* (if used, "$conf->prefs_dir" config setting)
 
 Upgrade steps

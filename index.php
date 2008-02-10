@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.122 2007/09/03 21:47:10 gerundt Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/index.php,v 1.123 2007/09/15 19:56:54 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,7 +9,7 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
 
-require_once './conf.php';
+require_once './config/conf.php';
 //If a previous authentification cookie was set, we use it to bypass login
 //window.
 if ($_COOKIE['NoccIdent'] != '' && $_COOKIE['NoccIdent'] != null) {
@@ -17,7 +17,7 @@ if ($_COOKIE['NoccIdent'] != '' && $_COOKIE['NoccIdent'] != null) {
   exit();
 }
 require_once './common.php';
-require_once './check.php';
+require_once './utils/check.php';
 require ('./html/header.php');
 ?>
             <form action="action.php" method="post" id="nocc_webmail_login">

@@ -1,6 +1,6 @@
 Known bugs for Nocc
 -------------------
-Last updated: $Date: 2004/08/23 07:46:31 $
+Last updated: $Date: 2004/08/24 10:40:30 $
 
  Bug: Nocc doesn't send correct "To:" header when sending mail via mail()
       function under Win32 platform only, when SMTP has not been configured
@@ -42,14 +42,14 @@ Last updated: $Date: 2004/08/23 07:46:31 $
 
 ----------------------------------
 
- Bug: Invalid range end in functions.php:448
+ Bug: Invalid range end in utils/functions.php:448
 
  Explanation: we might use the ereg() function out-of-band but it's not 100%
           reproducible. If you can help us debug, writing testcase, see
           bug #464216.
           Might also be a PHP bug, we don't know yet for sure.
 
- Work-around: comment line #448 in functions.php
+ Work-around: comment line #448 in utils/functions.php
  
  $body = eregi_replace("([#a-zA-Z0-9+-._]*)@([#a-zA-Z0-9+-_]*)\.([a-zA-Z0-9+-_.]+[#a-zA-Z0-9+]*)","<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1@\\2.\\3&amp;lang=$lang\">\\1@\\2.\\3</a>", $body);
 

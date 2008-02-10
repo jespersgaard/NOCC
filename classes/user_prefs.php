@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.16 2007/06/25 22:05:48 gerundt Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/user_prefs.php,v 1.17 2008/02/09 12:35:59 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,7 +9,7 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
 
-require_once 'exception.php';
+require_once './classes/exception.php';
 
 class NOCCUserPrefs {
 	var $key;

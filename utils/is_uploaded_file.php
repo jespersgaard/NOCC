@@ -1,6 +1,6 @@
 <?php 
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/is_uploaded_file.php,v 1.3 2001/05/29 08:51:53 nicocha Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/is_uploaded_file.php,v 1.4 2002/03/24 17:00:36 wolruf Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/down_mail.php,v 1.10 2006/10/17 05:33:52 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/down_mail.php,v 1.11 2006/10/19 13:47:51 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -14,9 +14,9 @@
 if(!isset($HTTP_USER_AGENT))
     $HTTP_USER_AGENT = $_SERVER['HTTP_USER_AGENT'];
 
-require_once './conf.php';
+require_once './config/conf.php';
 require_once './common.php';
-require_once './class_local.php';
+require_once './classes/class_local.php';
 
 $mail = $_REQUEST['mail'];
 

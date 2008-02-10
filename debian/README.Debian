@@ -1,7 +1,7 @@
 nocc for Debian
 ---------------
 
- Change into the 'nocc' directory, make changes to the config file
+ Change into the 'nocc/webmail/config' directory, make changes to the config file
  (conf.php.dist) and save the new one to conf.php. 
 
  'conf.php.dist' contains a large number of default values that you'll need to

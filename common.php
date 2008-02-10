@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.78 2007/09/15 20:43:21 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.79 2008/01/01 10:07:52 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -13,9 +13,9 @@
 // Define variables
 if (!isset($from_rss)) { $from_rss=false; }
 
-require_once("user_filters.php");
-require_once("html_entity_decode.php");
-require_once("crypt.php");
+require_once('./classes/user_filters.php');
+require_once('./utils/html_entity_decode.php');
+require_once('./utils/crypt.php');
 
 $conf->nocc_name = 'NOCC';
 $conf->nocc_version = '1.6-dev';
@@ -286,8 +286,8 @@ if(isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
     }
 }
 
-require_once ('./conf_lang.php');
-require_once ('./conf_charset.php');
+require_once ('./config/conf_lang.php');
+require_once ('./config/conf_charset.php');
 
 // allow PHP script to consume more memory than default setting for
 // big attachments

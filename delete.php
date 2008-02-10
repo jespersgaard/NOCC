@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.54 2006/10/20 13:40:14 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.55 2008/02/09 12:35:59 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,9 +12,9 @@
  * this file just delete the selected message(s)
  */
 
-require_once('./conf.php');
+require_once('./config/conf.php');
 require_once('./common.php');
-require_once('./class_local.php');
+require_once('./classes/class_local.php');
 
 $ev = "";
 $pop = new nocc_imap($ev);
@@ -139,7 +139,7 @@ if (NoccException::isException($ev)) {
 
 // Redirect user to index
 // TODO: redirect user to next message
-require_once('./proxy.php');
+require_once('./utils/proxy.php');
 //header('Location: ' . $conf->base_url . "action.php");
 header('Location: ' . $conf->base_url . $url);
 
