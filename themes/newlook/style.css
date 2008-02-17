@@ -48,66 +48,6 @@
   font-size: 13px;
 }
 
-.menu {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-  text-decoration: none;
-  text-align: center;
-  width: 120px;
-  background-color: #0099CC;
-}
-
-.menu a:link    {
-  color: #FFFFFF;
-  text-decoration:none;
-}
-
-.menu a:visited {
-  color: #FFFFFF;
-  text-decoration:none;
-}
-
-.menu a:hover   {
-  color: #FFFFFF;
-  text-decoration:underline;
-}
-
-.menuSelected {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-  text-decoration: none;
-  text-align: center;
-  width: 120px;
-  background-color: #00AFEA;
-  border: 1px dashed #222222;
-}
-
-.menuSelected a:link    {
-  color: #FFFFFF;
-  text-decoration:none;
-}
-
-.menuSelected a:visited {
-  color: #FFFFFF;
-  text-decoration:none;
-}
-
-.menuSelected a:hover   {
-  color: #FFFFFF;
-  text-decoration:underline;
-}
-
-.menuBlank {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-  text-decoration: none;
-  text-align: center;
-  background-color: #0099CC;
-}
-
 .button {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
@@ -225,7 +165,7 @@ table {
   margin: 0;
   padding: 0;
   width: 153px;
-  height: 58px;
+  height: 60px;
   background: url(./img/logo.png) no-repeat;
   text-indent: -999em;
 }
@@ -269,27 +209,51 @@ table {
   border: 0;
 }
 
-div.menuInbox {
-  background-color: #F7F7F7;
+.mainmenu {
+  color: #000000;
+  background-color: #0099CC;
 }
 
-div.menuInbox table {
-  width: 100%;
-}
-div.menuMail {
-  background-color: #F7F7F7;
-}
-
-div.menuMail table {
-  width: 100%;
+.mainmenu ul {
+  margin: 0;
+  padding: 1px 0 1px 0;
+  list-style-type: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: smaller;
+  font-weight: bold;
 }
 
-div.menuPrefs {
-  background-color: #F7F7F7;
+.mainmenu ul li {
+  display: inline;
 }
 
-div.menuPrefs table {
-  width: 100%;
+.mainmenu ul li a,
+.mainmenu ul li a:visited,
+.mainmenu ul li span {
+  padding: 0 2em 0 2em;
+  text-decoration: none;
+  color: #FFFFFF;
+  background-color: #0099CC;
+  border: 1px solid #0099CC;
+}
+
+.mainmenu ul li a:hover {
+  color: #00AFEA;
+  background-color: #FFFFFF;
+  border: 1px dashed #222222;
+}
+
+.mainmenu ul li.selected a,
+.mainmenu ul li.selected a:visited,
+.mainmenu ul li.selected span {
+  color: #FFFFFF;
+  background-color: #00AFEA;
+  border: 1px dashed #222222;
+}
+
+.mainmenu ul li span,
+.mainmenu ul li.selected span {
+  color: #000000;
 }
 
 div.messageSummary {

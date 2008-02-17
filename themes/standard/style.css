@@ -41,63 +41,6 @@
   font-size: 13px;
 }
 
-.menu {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
-  text-decoration: none;
-  text-align: center;
-  width: 120px;
-  background-color: #99CCFF;
-}
-
-.menu a:link    {
-  color: #0000FF;
-  text-decoration:none;
-}
-
-.menu a:visited {
-  color: #0000FF;
-  text-decoration:none;
-}
-
-.menu a:hover   {
-  color: #0000FF;
-  text-decoration:underline;
-}
-
-.menuSelected {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
-  text-decoration: none;
-  text-align: center;
-  width: 120px;
-  background-color: #FFC061;
-  border: 1px dashed #222222;
-}
-
-.menuSelected a:link    {
-  color: #0000FF;
-  text-decoration:none;
-}
-
-.menuSelected a:visited {
-  color: #0000FF;
-  text-decoration:none;
-}
-
-.menuSelected a:hover   {
-  color: #0000FF;
-  text-decoration:underline;
-}
-
-.menuBlank {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
-  text-decoration: none;
-  text-align: center;
-  background-color: #99CCFF;
-}
-
 .button {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
@@ -259,28 +202,39 @@ table {
   border: 0;
 }
 
-div.menuInbox {
-  background-color: #F0F0F0;
+.mainmenu {
+  background-color: #99CCFF;
 }
 
-div.menuInbox table {
-  width: 100%;
+.mainmenu ul {
+  margin: 0;
+  padding: 1px 0 1px 0;
+  list-style-type: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: smaller;
 }
 
-div.menuMail {
-  background-color: #F0F0F0;
+.mainmenu ul li {
+  display: inline;
 }
 
-div.menuMail table {
-  width: 100%;
+.mainmenu ul li a,
+.mainmenu ul li span {
+  padding: 0 2em 0 2em;
+  text-decoration: none;
+  background-color: #99CCFF;
+  border: 1px solid #99CCFF;
 }
 
-div.menuPrefs {
-  background-color: #F0F0F0;
+.mainmenu ul li a:hover {
+  background-color: #FFDEAD;
+  border: 1px dashed #222222;
 }
 
-div.menuPrefs table {
-  width: 100%;
+.mainmenu ul li.selected a,
+.mainmenu ul li.selected span {
+  background-color: #FFC061;
+  border: 1px dashed #222222;
 }
 
 div.messageSummary {

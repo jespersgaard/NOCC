@@ -16,15 +16,7 @@
   display:none;
 }
 
-div.menuInbox {
-  display:none;
-}
-
-div.menuMail {
-  display:none;
-}
-
-div.menuPrefs {
+.mainmenu {
   display:none;
 }
 
