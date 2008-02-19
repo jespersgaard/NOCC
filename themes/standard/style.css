@@ -409,11 +409,6 @@ img.sort {
   text-align: right;
 }
 
-#inboxTable td img {
-  height: 17px;
-  width: 17px;
-}
-
 #inboxTable tr.marked,
 #inboxTable tr.marked .sorted {
   background-color: #FFDEAD;
