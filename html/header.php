@@ -29,6 +29,7 @@ else {
         <meta http-equiv="Content-Type" content="text/html; charset=<?php echo convertLang2Html($charset); ?>" />
         <link href="themes/<?php echo str_replace('..','',convertLang2Html($_SESSION['nocc_theme'])); ?>/style.css" rel="stylesheet" type="text/css" />
         <link href="themes/<?php echo str_replace('..','',convertLang2Html($_SESSION['nocc_theme'])); ?>/print.css" rel="stylesheet" media="print" type="text/css" />
+        <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <script src="js/nocc.js" type="text/javascript"></script>
 <?php
   // if message is opened in another window, we reload the opener window
@@ -81,4 +82,4 @@ else {
 <?php
 }
 ?>
-<!-- end of $Id: header.php,v 1.70 2007/12/12 22:04:54 gerundt Exp $ -->
+<!-- end of $Id: header.php,v 1.71 2008/02/10 20:52:14 goddess_skuld Exp $ -->
