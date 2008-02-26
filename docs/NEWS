@@ -6,6 +6,7 @@ NOCC 1.6  ?? ??, ??
     * Patch #1894098 : Use <ul> for main menu (Tim Gerundt).
 
   Misc
+    * Update some theme images (Tim Gerundt).
     * Reorganize some files (Arnaud Boudou).
     * Add trash can feature on IMAP accounts (Arnaud Boudou).
 
