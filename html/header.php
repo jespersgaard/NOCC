@@ -31,9 +31,6 @@ else {
         <link href="themes/<?php echo str_replace('..','',convertLang2Html($_SESSION['nocc_theme'])); ?>/print.css" rel="stylesheet" media="print" type="text/css" />
         <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <script src="js/nocc.js" type="text/javascript"></script>
-        <!--[if lt IE 7.]>
-          <script defer src="js/pngfix.js" type="text/javascript"></script>
-        <![endif]-->
 <?php
   // if message is opened in another window, we reload the opener window
   // (message list), in order to refresh the mail list after a successful 
@@ -85,4 +82,4 @@ else {
 <?php
 }
 ?>
-<!-- end of $Id: header.php,v 1.72 2008/02/19 23:20:28 gerundt Exp $ -->
+<!-- end of $Id: header.php,v 1.73 2008/02/21 23:16:23 gerundt Exp $ -->
