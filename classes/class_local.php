@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/classes/class_local.php,v 1.1 2008/02/10 20:52:25 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/classes/class_local.php,v 1.2 2008/02/10 21:02:09 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -56,6 +56,8 @@ class nocc_imap
             return;
         }
         $this->conn = $conn;
+
+        $_SESSION['is_imap'] = $this->is_imap();
 
         return $this;
     }

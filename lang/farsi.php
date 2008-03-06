@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.34 2006/10/20 12:20:00 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/farsi.php,v 1.35 2008/02/09 12:35:59 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -44,7 +44,6 @@ $err_passwd_empty = 'رمز خالى است';
 
 
 // html message
-
 $alt_delete = 'پاک کردن پيغامهاى انتخاب شده';
 $alt_delete_one = 'پاک کردن پيغام';
 $alt_new_msg = 'پيغامهاى جديد';
@@ -61,7 +60,6 @@ $html_on = 'on';  //to translate
 $html_theme = 'Theme';  //to translate
 
 // index.php
-
 $html_lang = 'زبان';
 $html_welcome = 'خوش آمديد به';
 $html_login = 'شناسه کاربر';
@@ -74,7 +72,6 @@ $html_retry = 'سعى دوباره';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
-
 $html_msgperpage = 'تعداد پيغامها در صفحه';
 $html_preferences = 'تنظيمات';
 $html_full_name = 'اسم کامل';
@@ -97,6 +94,7 @@ $html_display_struct = 'Display structured text'; //to translate
 $html_send_html_mail = 'Send mail in HTML format'; //to translate
 
 // folders.php
+$html_folders = 'Folders';  //to translate
 $html_folders_create_failed = 'شاخه نمىتواند ايجاد شود';
 $html_folders_sub_failed = 'Could not subscribed to folder!';  //to translate
 $html_folders_unsub_failed = 'Could not unsubscribed from folder!';  //to translate

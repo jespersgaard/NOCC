@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.63 2006/10/20 12:20:00 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pl.php,v 1.64 2008/02/09 12:35:59 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -45,7 +45,6 @@ $err_passwd_empty = 'Proszę wpisać hasło';
 
 
 // html message
-
 $alt_delete = 'Skasuj zaznaczone wiadomości';
 $alt_delete_one = 'Skasuj wiadomość';
 $alt_new_msg = 'Nowa wiadomość';
@@ -62,7 +61,6 @@ $html_on = 'Włączone';
 $html_theme = 'Wygląd';
 
 // index.php
-
 $html_lang = 'Język';
 $html_welcome = 'Witaj w';
 $html_login = 'Nazwa konta';
@@ -75,7 +73,6 @@ $html_retry = 'Ponów';
 $html_remember = "Zapamiętaj ustawienia";
 
 // prefs.php
-
 $html_msgperpage = 'Wiadomości na stronie';
 $html_preferences = 'Ustawienia';
 $html_full_name = 'Nazwa wyświetlana';
@@ -98,6 +95,7 @@ $html_display_struct = 'Display structured text'; //to translate
 $html_send_html_mail = 'Send mail in HTML format'; //to translate
 
 // folders.php
+$html_folders = 'Folders';  //to translate
 $html_folders_create_failed = 'Nie można uworzyć folderu!';
 $html_folders_sub_failed = 'Nie można dołączyć folderu!';
 $html_folders_unsub_failed = 'Nie można odłączyć folderu!';

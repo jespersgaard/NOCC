@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/no.php,v 1.43 2006/10/20 12:20:00 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/no.php,v 1.44 2008/02/09 12:35:59 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -44,7 +44,6 @@ $err_passwd_empty = 'Passord er ikke spesifisert';
 
 
 // html message
-
 $alt_delete = 'Slett alle markerte meldinger';
 $alt_delete_one = 'Slett markert melding';
 $alt_new_msg = 'Nye meldinger';
@@ -61,7 +60,6 @@ $html_on = 'til';
 $html_theme = 'Tema';
 
 // index.php
-
 $html_lang = 'Språk';
 $html_welcome = 'Velkommen til';
 $html_login = 'Brukernavn';
@@ -74,7 +72,6 @@ $html_retry = 'Prøv igjen';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
-
 $html_msgperpage = 'Beskjeder pr. side';
 $html_preferences = 'Innstillinger';
 $html_full_name = 'Fullt navn';
@@ -97,6 +94,7 @@ $html_display_struct = 'Display structured text'; //to translate
 $html_send_html_mail = 'Send mail in HTML format'; //to translate
 
 // folders.php
+$html_folders = 'Folders';  //to translate
 $html_folders_create_failed = 'Folder could not be created!';  //to translate
 $html_folders_sub_failed = 'Could not subscribed to folder!';  //to translate
 $html_folders_unsub_failed = 'Could not unsubscribed from foder!';  //to translate

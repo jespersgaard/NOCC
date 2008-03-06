@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/cs.php,v 1.45 2007/10/18 17:14:47 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/cs.php,v 1.46 2008/02/09 12:35:59 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -45,7 +45,6 @@ $err_passwd_empty = 'Není vyplněno heslo';
 
 
 // html message
-
 $alt_delete = 'Vymazat vybrané zprávy';
 $alt_delete_one = 'Vymazat zprávu';
 $alt_new_msg = 'Nové zprávy';
@@ -62,7 +61,6 @@ $html_on = 'na';
 $html_theme = 'Téma';
 
 // index.php
-
 $html_lang = 'Jazyk';
 $html_welcome = 'Vítejte v';
 $html_login = 'Jméno';
@@ -75,7 +73,6 @@ $html_retry = 'Zkusit znovu';
 $html_remember = 'Pamatovat nastavení';
 
 // prefs.php
-
 $html_msgperpage = 'Zpráv na stránku';
 $html_preferences = 'Nastavení';
 $html_full_name = 'Celé jméno';
@@ -98,6 +95,7 @@ $html_display_struct = 'Zobrazit strukturovaný text';
 $html_send_html_mail = 'Posílat zprávy v HTML';
 
 // folders.php
+$html_folders = 'Folders';  //to translate
 $html_folders_create_failed = 'Složka nemohla být vytvořena!';
 $html_folders_sub_failed = 'Nelze se přihlásit do složky!';
 $html_folders_unsub_failed = 'Nelze se odhlásit ze složky!';

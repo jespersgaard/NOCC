@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ja.php,v 1.12 2006/10/20 12:20:00 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ja.php,v 1.13 2008/02/09 12:35:59 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -44,7 +44,6 @@ $err_passwd_empty = 'パスワードフィールドが空です。';
 
 
 // html message
-
 $alt_delete = '選択メッセージ削除';
 $alt_delete_one = 'メッセージ削除';
 $alt_new_msg = '新規メッセージ';
@@ -61,7 +60,6 @@ $html_on = 'オン';
 $html_theme = 'テーマ';
 
 // index.php
-
 $html_lang = '言語';
 $html_welcome = 'ようこそ';
 $html_login = 'ログイン';
@@ -74,7 +72,6 @@ $html_retry = '再挑戦';
 $html_remember = "設定を覚える";
 
 // prefs.php
-
 $html_msgperpage = 'ページ毎メッセージ';
 $html_preferences = '設定';
 $html_full_name = 'フルネーム';
@@ -97,6 +94,7 @@ $html_display_struct = 'Display structured text'; //to translate
 $html_send_html_mail = 'Send mail in HTML format'; //to translate
 
 // folders.php
+$html_folders = 'Folders';  //to translate
 $html_folders_create_failed = 'フォルダーを作成できませんでした!';
 $html_folders_sub_failed = 'フォルダーを購読出来ませんで強いた!';
 $html_folders_unsub_failed = 'フォルダーを未購読に出来ませんでした!';

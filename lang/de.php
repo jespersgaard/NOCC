@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.64 2007/06/24 21:03:47 gerundt Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.65 2008/02/09 12:35:59 goddess_skuld Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha AT free DOT fr>
  * Copyright 2000 Olivier Cahagne <wolruf AT free DOT fr>
@@ -101,6 +101,7 @@ $html_display_struct = 'Strukturierten Text anzeigen';
 $html_send_html_mail = 'E-Mail im HTML-Format versenden';
 
 // folders.php
+$html_folders = 'Ordner';
 $html_folders_create_failed = 'Der Ordner konnte nicht angelegt werden!';
 $html_folders_sub_failed = 'Der Ordner konnte nicht abonniert werden!';
 $html_folders_unsub_failed = 'Der Ordner konnte nicht abbestellt werden!';

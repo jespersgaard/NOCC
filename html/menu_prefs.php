@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_prefs.php,v 1.30 2007/12/20 23:14:02 gerundt Exp $ -->
+<!-- start of $Id: menu_prefs.php,v 1.31 2008/02/17 18:03:37 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -11,6 +11,11 @@
     <li>
       <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=write"><?php echo convertLang2Html($html_new_msg) ?></a>
     </li>
+    <?php if ($_SESSION['is_imap']) { ?>
+    <li>
+      <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=managefolders"><?php echo convertLang2Html($html_folders); ?></a>
+    </li>
+    <?php } ?>
     <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
     <li>
       <a href="javascript:void(0);" onclick="window.open('contacts_manager.php?<?php echo session_name() . '=' .   session_id() ?>','','scrollbars=yes,resizable=yes,width=600,height=400')"><?php echo convertLang2Html($html_contacts) ?></a>
@@ -18,4 +23,4 @@
     <?php } ?>
   </ul>
 </div>
-<!-- end of $Id: menu_prefs.php,v 1.30 2007/12/20 23:14:02 gerundt Exp $ -->
+<!-- end of $Id: menu_prefs.php,v 1.31 2008/02/17 18:03:37 goddess_skuld Exp $ -->

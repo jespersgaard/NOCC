@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox.php,v 1.60 2007/12/20 23:14:01 gerundt Exp $ -->
+<!-- start of $Id: menu_inbox.php,v 1.61 2008/02/17 18:03:37 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -30,6 +30,10 @@ switch ($action) {
     $selected = 2;
     $line = '<span>' . $html_forward . '</span>';
     break;
+  case 'managefolders':
+    $selected = 3;
+    $line = '<a href="'.$_SERVER['PHP_SELF'].'?action=write">'.$html_new_msg.'</a>';
+    break;
 }
 ?>
 <div class="mainmenu">
@@ -40,6 +44,11 @@ switch ($action) {
     <?php if ($selected == 2) echo '<li class="selected">'; else echo '<li>'; ?>
       <?php echo $line ?>
     </li>
+    <?php if ($_SESSION['is_imap']) { ?>
+    <?php if ($selected == 3) echo '<li class="selected">'; else echo '<li>'; ?>
+      <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=managefolders"><?php echo convertLang2Html($html_folders); ?></a>
+    </li>
+    <?php } ?>
     <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
     <li>
       <a href="javascript:void(0);" onclick="window.open('contacts_manager.php?<?php echo session_name() . '=' .   session_id() ?>','','scrollbars=yes,resizable=yes,width=600,height=400')"><?php echo convertLang2Html($html_contacts) ?></a>
@@ -52,4 +61,4 @@ switch ($action) {
     <?php } ?>
   </ul>
 </div>
-<!-- end of $Id: menu_inbox.php,v 1.60 2007/12/20 23:14:01 gerundt Exp $ -->
+<!-- end of $Id: menu_inbox.php,v 1.61 2008/02/17 18:03:37 goddess_skuld Exp $ -->

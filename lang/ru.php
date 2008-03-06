@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.51 2006/10/20 12:20:00 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ru.php,v 1.52 2008/02/09 12:35:59 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -45,7 +45,6 @@ $err_passwd_empty = 'Не введен пароль';
 
 
 // html message
-
 $alt_delete = 'Удалить выбранные сообщения';
 $alt_delete_one = 'Удалить сообщение';
 $alt_new_msg = 'Новые сообщения';
@@ -62,7 +61,6 @@ $html_on = 'Вкл.';
 $html_theme = 'Дизайн';
 
 // index.php
-
 $html_lang = 'Язык';
 $html_welcome = 'Добро пожаловать в';
 $html_login = 'Имя';
@@ -75,7 +73,6 @@ $html_retry = 'Вернуться';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
-
 $html_msgperpage = 'Писем на странице';
 $html_preferences = 'Настройки';
 $html_full_name = 'Имя';
@@ -98,6 +95,7 @@ $html_display_struct = 'Display structured text'; //to translate
 $html_send_html_mail = 'Send mail in HTML format'; //to translate
 
 // folders.php
+$html_folders = 'Folders';  //to translate
 $html_folders_create_failed = 'Папка не может быть создана!';
 $html_folders_sub_failed = 'Невозможно подписаться на папку!';
 $html_folders_unsub_failed = 'Невозможно отписаться от папки!';

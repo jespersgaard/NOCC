@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-tw.php,v 1.46 2006/10/20 12:20:00 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/zh-tw.php,v 1.47 2008/02/09 12:35:59 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -44,7 +44,6 @@ $err_passwd_empty = '密碼之位置空白';
 
 
 // html message
-
 $alt_delete = '删除已選擇之信件';
 $alt_delete_one = '删除此信件';
 $alt_new_msg = '新信件';
@@ -61,7 +60,6 @@ $html_on = '在';
 $html_theme = '背景主題';
 
 // index.php
-
 $html_lang = '語言';
 $html_welcome = '歡迎到';
 $html_login = '登入';
@@ -74,7 +72,6 @@ $html_retry = '再嘗試';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
-
 $html_msgperpage = 'Messages per page';  //to translate
 $html_preferences = 'Preferences';  //to translate
 $html_full_name = 'Full name';  //to translate
@@ -97,6 +94,7 @@ $html_display_struct = 'Display structured text'; //to translate
 $html_send_html_mail = 'Send mail in HTML format'; //to translate
 
 // folders.php
+$html_folders = 'Folders';  //to translate
 $html_folders_create_failed = 'Folder could not be created!';  //to translate
 $html_folders_sub_failed = 'Could not subscribed to folder!';  //to translate
 $html_folders_unsub_failed = 'Could not unsubscribed from folder!';  //to translate

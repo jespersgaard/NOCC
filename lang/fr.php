@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.99 2006/10/20 12:20:00 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.100 2008/02/09 12:35:59 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -44,7 +44,6 @@ $err_passwd_empty = 'Vous n\'avez pas saisi de mot de passe';
 
 
 // html message
-
 $alt_delete = 'Effacer les messages selectionnés';
 $alt_delete_one = 'Effacer le message';
 $alt_new_msg = 'Nouveaux messages';
@@ -61,7 +60,6 @@ $html_on = 'sur';
 $html_theme = 'Thème';
 
 // index.php
-
 $html_lang = 'Langue';
 $html_welcome = 'Bienvenue à';
 $html_login = 'Identifiant';
@@ -74,7 +72,6 @@ $html_retry = 'Réessayer';
 $html_remember = "Conserver les paramètres";
 
 // prefs.php
-
 $html_msgperpage = 'Messages par page';
 $html_preferences = 'Préférences';
 $html_full_name = 'Nom complet';
@@ -97,6 +94,7 @@ $html_display_struct = 'Afficher le texte structuré';
 $html_send_html_mail = 'Envoyer les emails au format HTML';
 
 // folders.php
+$html_folders = 'Dossiers';
 $html_folders_create_failed = 'Le dossier n\'a pas pu être créé!';
 $html_folders_sub_failed = 'Il n\' pas été possible de s\'inscrire au dossier!';
 $html_folders_unsub_failed = 'Il n\' pas été possible de de désinscrire du dossier!';

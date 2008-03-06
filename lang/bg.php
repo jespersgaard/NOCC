@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/bg.php,v 1.43 2006/10/20 12:19:59 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/bg.php,v 1.44 2008/02/09 12:35:59 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -44,7 +44,6 @@ $err_passwd_empty = 'Не е въведена парола';
 
 
 // html message
-
 $alt_delete = 'Изтрий маркираните писма';
 $alt_delete_one = 'Изтрий писмото';
 $alt_new_msg = 'Нови писма';
@@ -61,7 +60,6 @@ $html_on = 'on';  //to translate
 $html_theme = 'Дизайн';
 
 // index.php
-
 $html_lang = 'Език';
 $html_welcome = 'Добре дошли!<br/>';
 $html_login = 'Име';
@@ -74,7 +72,6 @@ $html_retry = 'Опитай отново';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
-
 $html_msgperpage = 'Messages per page';  //to translate
 $html_preferences = 'Настройки';
 $html_full_name = 'Име, Презиме, Фамилия';
@@ -97,6 +94,7 @@ $html_display_struct = 'Display structured text'; //to translate
 $html_send_html_mail = 'Send mail in HTML format'; //to translate
 
 // folders.php
+$html_folders = 'Folders';  //to translate
 $html_folders_create_failed = 'Folder could not be created!';  //to translate
 $html_folders_sub_failed = 'Could not subscribed to folder!';  //to translate
 $html_folders_unsub_failed = 'Could not unsubscribed from folder!';  //to translate

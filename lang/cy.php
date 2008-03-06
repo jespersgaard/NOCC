@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/cy.php,v 1.1 2007/07/27 05:20:22 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/cy.php,v 1.2 2008/02/09 12:35:59 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -45,7 +45,6 @@ $err_passwd_empty = 'Mae\'r blwch cyfrinair yn wag';
 
 
 // html message
-
 $alt_delete = 'Dileu\'r negeseuon sydd wedi eu dewis';
 $alt_delete_one = 'Dileu\'r neges';
 $alt_new_msg = 'Negeseuon newydd';
@@ -62,7 +61,6 @@ $html_on = 'ar';
 $html_theme = 'Thema';
 
 // index.php
-
 $html_lang = 'Iaith';
 $html_welcome = 'Croeso i';
 $html_login = 'Mewngofnodi';
@@ -75,7 +73,6 @@ $html_retry = 'Ailgeisio';
 $html_remember = "Cofio dewisiadau";
 
 // prefs.php
-
 $html_msgperpage = 'Nifer o negeseuon y dudalen';
 $html_preferences = 'Dewisiadau';
 $html_full_name = 'Enw llawn';
@@ -98,6 +95,7 @@ $html_display_struct = 'Dangos testun strwythuredig';
 $html_send_html_mail = 'Gyrru negeseuon mewn fformat HTML';
 
 // folders.php
+$html_folders = 'Folders';  //to translate
 $html_folders_create_failed = 'Methu creu ffolder!';
 $html_folders_sub_failed = 'Methu tanysgrifo i\'r ffolder!';
 $html_folders_unsub_failed = 'Methu dad-danysgrifo o\'r ffolder!';

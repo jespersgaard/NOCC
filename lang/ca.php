@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ca.php,v 1.14 2006/10/20 12:19:59 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ca.php,v 1.15 2008/02/09 12:35:59 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -44,7 +44,6 @@ $err_passwd_empty = 'El camp contrasenya és buit';
 
 
 // html message
-
 $alt_delete = 'Esborrar missatges seleccionats';
 $alt_delete_one = 'Esborrar el missatge';
 $alt_new_msg = 'Missatges nous';
@@ -61,7 +60,6 @@ $html_on = 'a';
 $html_theme = 'Assumpte';
 
 // index.php
-
 $html_lang = 'Idioma';
 $html_welcome = 'Benvingut a';
 $html_login = 'Usuari';
@@ -74,7 +72,6 @@ $html_retry = 'Reintentar';
 $html_remember = 'Recordar valors';
 
 // prefs.php
-
 $html_msgperpage = 'Missatges per pàgina';
 $html_preferences = 'Preferències';
 $html_full_name = 'Nom complet';
@@ -97,6 +94,7 @@ $html_display_struct = 'Display structured text'; //to translate
 $html_send_html_mail = 'Send mail in HTML format'; //to translate
 
 // folders.php
+$html_folders = 'Folders';  //to translate
 $html_folders_create_failed = 'No s\'ha pogut crear la carpeta!';
 $html_folders_sub_failed = 'No us heu pogut subscriure a la carpeta!';
 $html_folders_unsub_failed = 'No us heu pogut desafectar de la carpeta!';

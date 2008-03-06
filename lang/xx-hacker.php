@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.24 2006/10/20 12:20:00 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.25 2008/02/09 12:35:59 goddess_skuld Exp $ 
  *
  * Copyright 2004 Nicolas Chalanset <nicocha at free.fr>
  * Copyright 2004 Olivier Cahagne <wolruf at free.fr>
@@ -46,7 +46,6 @@ $err_passwd_empty = 'Th3 p4ssw0rd f!3ld !s 3mpty';
 
 
 // html message
-
 $alt_delete = 'D313t3 s313ct3d m3ss4g3s';
 $alt_delete_one = 'De13t3 th3 m3ss4g3';
 $alt_new_msg = 'New m3ss4g3s';
@@ -63,7 +62,6 @@ $html_on = '0n';
 $html_theme = 'Th3m3';
 
 // index.php
-
 $html_lang = 'L4ngu4g3';
 $html_welcome = 'W3lc0m3 t0';
 $html_login = 'L0g!n';
@@ -76,7 +74,6 @@ $html_retry = 'R3try';
 $html_remember = "R3m3mb3r s3tt!ngs";
 
 // prefs.php
-
 $html_msgperpage = 'M3ss4g3s p3r p4g3';
 $html_preferences = 'Pr3f3r3nc3s';
 $html_full_name = 'Full n4m3';
@@ -99,6 +96,7 @@ $html_display_struct = 'D!spl4y structur3d t3xt';
 $html_send_html_mail = 'S3nd m4!l !n HTML f0rm4t';
 
 // folders.php
+$html_folders = 'F0ld3rs';  //to translate
 $html_folders_create_failed = 'F0ld3r c0u1d n0t b3 cr34t3d!';
 $html_folders_sub_failed = 'C0uld n0t subscr!b3 t0 f0ld3r!';
 $html_folders_unsub_failed = 'C0uld n0t unsubscr!b3d fr0m f0ld3r!';

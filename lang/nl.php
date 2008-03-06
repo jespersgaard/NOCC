@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.60 2007/03/06 08:08:12 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.61 2008/02/09 12:35:59 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -46,7 +46,6 @@ $err_user_empty = 'Het inlogveld is nog leeg';
 $err_passwd_empty = 'Het wachtwoordveld is nog leeg';
 
 // html message
-
 $alt_delete = 'Verwijder geselecteerde berichten';
 $alt_delete_one = 'Verwijder dit bericht';
 $alt_new_msg = 'Nieuwe berichten';
@@ -63,7 +62,6 @@ $html_on = 'aan';
 $html_theme = 'Weergave';
 
 // index.php
-
 $html_lang = 'Taal';
 $html_welcome = 'Welkom bij';
 $html_login = 'Loginnaam';
@@ -76,7 +74,6 @@ $html_retry = 'Probeer opnieuw';
 $html_remember = "Onthoud instellingen";
 
 // prefs.php
-
 $html_msgperpage = 'Berichten per pagina';
 $html_preferences = 'Instellingen';
 $html_full_name = 'Volledige Naam';
@@ -99,6 +96,7 @@ $html_display_struct = 'Toon gestructureerde tekst';
 $html_send_html_mail = 'Zend berichten in HTML formaat';
 
 // folders.php
+$html_folders = 'Folders';  //to translate
 $html_folders_create_failed = 'Map kon niet worden gemaakt!';
 $html_folders_sub_failed = 'Abonneren op map is mislukt!';
 $html_folders_unsub_failed = 'Niet meer abonneren op map is mislukt!';

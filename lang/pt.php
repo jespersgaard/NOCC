@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.62 2006/10/20 12:20:00 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.63 2008/02/09 12:35:59 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -45,7 +45,6 @@ $err_passwd_empty = 'A senha não foi preenchida';
 
 
 // html message
-
 $alt_delete = 'Apagar as mensagens seleccionadas';
 $alt_delete_one = 'Apagar a mensagem';
 $alt_new_msg = 'Mensagens novas';
@@ -62,7 +61,6 @@ $html_on = 'em';
 $html_theme = 'Tema';
 
 // index.php
-
 $html_lang = 'Língua';
 $html_welcome = 'Benvindo ao';
 $html_login = 'Identificador';
@@ -75,7 +73,6 @@ $html_retry = 'Tentar novamente';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
-
 $html_msgperpage = 'Mensagens por página';
 $html_preferences = 'Preferências';
 $html_full_name = 'Nome completo';
@@ -98,6 +95,7 @@ $html_display_struct = 'Display structured text'; //to translate
 $html_send_html_mail = 'Send mail in HTML format'; //to translate
 
 // folders.php
+$html_folders = 'Folders';  //to translate
 $html_folders_create_failed = 'Folder could not be created!';  //to translate
 $html_folders_sub_failed = 'Could not subscribed to folder!';  //to translate 
 $html_folders_unsub_failed = 'Could not unsubscribed from folder!';  //to translate

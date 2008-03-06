@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.97 2006/10/20 12:20:00 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/en.php,v 1.98 2008/02/09 12:35:59 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -97,6 +97,7 @@ $html_display_struct = 'Display structured text';
 $html_send_html_mail = 'Send mail in HTML format';
 
 // folders.php
+$html_folders = 'Folders';
 $html_folders_create_failed = 'Folder could not be created!';
 $html_folders_sub_failed = 'Could not subscribe to folder!';
 $html_folders_unsub_failed = 'Could not unsubscribed from folder!';

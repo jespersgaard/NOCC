@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.195 2008/02/09 12:35:59 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.196 2008/02/10 20:52:21 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -381,10 +381,10 @@ switch($action)
         }
 
         require ('./html/header.php');
-        require ('./html/menu_prefs.php');
+        require ('./html/menu_inbox.php');
         if ($pop->is_imap())
             require ('./html/folders.php');
-        require ('./html/menu_prefs.php');
+        require ('./html/menu_inbox.php');
         require ('./html/footer.php');
 
         $pop->close();

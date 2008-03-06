@@ -1,4 +1,4 @@
-<!-- start of $Id: folders.php,v 1.20 2007/12/12 22:04:54 gerundt Exp $ -->
+<!-- start of $Id: folders.php,v 1.21 2008/02/09 12:35:59 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -28,7 +28,7 @@ if (count($big_list) > 1) {
 
 ?>
 <div class="prefs">
-<h3><?php echo convertLang2Html($html_manage_folders_link) ?></h3>
+<h3><?php echo convertLang2Html($html_folders) ?></h3>
   <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
     <div>
       <input type="hidden" name="action" value="managefolders" />
@@ -103,10 +103,4 @@ if (count($big_list) > 1) {
     </div>
   </form>
 </div>
-
-<div class="IMAPPrefs">
-  <a href="action.php?action=setprefs"><?php echo convertLang2Html($html_preferences) ?></a>
-  &nbsp;|&nbsp;
-  <a href="action.php?action=managefilters"><?php echo convertLang2Html($html_manage_filters_link) ?></a>
-</div>
-<!-- end of $Id: folders.php,v 1.20 2007/12/12 22:04:54 gerundt Exp $ -->
+<!-- end of $Id: folders.php,v 1.21 2008/02/09 12:35:59 goddess_skuld Exp $ -->

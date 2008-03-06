@@ -42,7 +42,6 @@ $err_passwd_empty = 'Lykilorð vantar';
 
 
 // html message
-
 $alt_delete = 'Eyða völdum bréfum';
 $alt_delete_one = 'Eyða bréfi';
 $alt_new_msg = 'Ný bréf';
@@ -59,7 +58,6 @@ $html_on = 'á';
 $html_theme = 'Þema';
 
 // index.php
-
 $html_lang = 'Tungumál';
 $html_welcome = 'Velkomin/n í';
 $html_login = 'Notendanafn';
@@ -72,7 +70,6 @@ $html_retry = 'Reyna aftur';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
-
 $html_msgperpage = 'Messages per page'; //to translate
 $html_preferences = 'Valmöguleikar';
 $html_full_name = 'Fullt nafn';
@@ -95,6 +92,7 @@ $html_display_struct = 'Display structured text'; //to translate
 $html_send_html_mail = 'Send mail in HTML format'; //to translate
 
 // folders.php
+$html_folders = 'Folders';  //to translate
 $html_folders_create_failed = 'Folder could not be created!';  //to translate
 $html_folders_sub_failed = 'Could not subscribed to folder!';  //to translate
 $html_folders_unsub_failed = 'Could not unsubscribed from folder!';  //to translate
