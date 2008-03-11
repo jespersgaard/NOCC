@@ -204,6 +204,9 @@ table {
   border: 0;
 }
 
+/**
+ * main menu
+ */
 .mainmenu {
   color: #000000;
   background-color: #99CC99;
@@ -249,6 +252,36 @@ table {
 .mainmenu ul li.selected span {
   color: #FFFFFF;
 }
+
+/**
+ * sub menu
+ */
+.submenu {
+  background-color: #002266;
+}
+
+.submenu ul {
+  margin: 0;
+  padding: 1px 0 1px 0;
+  list-style-type: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: smaller;
+}
+
+.submenu ul li {
+  display: inline;
+}
+
+.submenu ul li a,
+.submenu ul li span {
+  padding: 0 2em 0 2em;
+}
+
+.submenu a:link { color:white; text-decoration:none; }
+.submenu a:visited { color:white; text-decoration:none; }
+.submenu a:focus { color:white; text-decoration:underline; }
+.submenu a:hover { color:white; text-decoration:underline; }
+.submenu a:active { color:white; text-decoration:underline; }
 
 div.messageSummary {
   background-color: #002266;

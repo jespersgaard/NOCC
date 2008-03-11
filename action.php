@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.196 2008/02/10 20:52:21 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.197 2008/03/06 17:04:12 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -91,6 +91,7 @@ switch($action)
         // Here we display the message
         require ('./html/header.php');
         require ('./html/menu_mail.php');
+        require ('./html/submenu_mail.php');
         require ('./html/html_mail.php');
         while ($tmp = array_pop($attach_tab))
         {
@@ -113,6 +114,7 @@ switch($action)
                 }
             }
         } 
+        require ('./html/submenu_mail.php');
         require ('./html/menu_mail.php');
         require ('./html/footer.php');
 

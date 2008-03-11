@@ -1,6 +1,7 @@
 NOCC 1.6  ?? ??, ??
 
   Patches
+    * Patch #1911516 : Add submenu to mail view (Tim Gerundt).
     * Patch #1908364 : Move "Manage IMAP Folders" to main menu (Tim Gerundt).
     * Patch #1897338 : Add favicon (Tim Gerundt).
     * Patch #1896532 : New attachment icon (Tim Gerundt).

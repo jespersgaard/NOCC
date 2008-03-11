@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_mail.php,v 1.41 2007/12/20 23:14:02 gerundt Exp $ -->
+<!-- start of $Id: menu_mail.php,v 1.42 2008/02/17 18:03:37 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -8,24 +8,19 @@
     <li>
       <a href="<?php echo $_SERVER['PHP_SELF'] ?>"><?php echo convertLang2Html($html_inbox); ?></a>
     </li>
-    <li>
-      <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=write"><?php echo convertLang2Html($html_new_msg) ?></a>
+    <li class="selected">
+      <span><?php echo convertLang2Html($html_msg) ?></span>
     </li>
+    <?php if ($_SESSION['is_imap']) { ?>
     <li>
-      <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=reply&amp;mail=<?php echo $content['msgnum'] ?>"><?php echo convertLang2Html($html_reply) ?></a>
+      <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=managefolders"><?php echo convertLang2Html($html_folders); ?></a>
     </li>
+    <?php } ?>
+    <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
     <li>
-      <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=reply_all&amp;mail=<?php echo $content['msgnum'] ?>"><?php echo convertLang2Html($html_reply_all) ?></a>
+      <a href="javascript:void(0);" onclick="window.open('contacts_manager.php?<?php echo session_name() . '=' .   session_id() ?>','','scrollbars=yes,resizable=yes,width=600,height=400')"><?php echo convertLang2Html($html_contacts) ?></a>
     </li>
-    <li>
-      <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=forward&amp;mail=<?php echo $content['msgnum'] ?>"><?php echo convertLang2Html($html_forward) ?></a>
-    </li>
-    <li>
-      <a href="down_mail.php?mail=<?php echo $content['msgnum'] ?>"><?php echo convertLang2Html($html_down_mail) ?></a>
-    </li>
-    <li>
-      <a href="delete.php?delete_mode=1&amp;mail=<?php echo $content['msgnum'] ?>&amp;only_one=1" onclick="if (confirm('<?php echo $html_del_msg ?>')) return true; else return false;"><?php echo convertLang2Html($html_delete) ?></a>
-    </li>
+    <?php } ?>
   </ul>
 </div>
-<!-- end of $Id: menu_mail.php,v 1.41 2007/12/20 23:14:02 gerundt Exp $ -->
+<!-- end of $Id: menu_mail.php,v 1.42 2008/02/17 18:03:37 goddess_skuld Exp $ -->
