@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/functions.php,v 1.237 2008/02/09 12:35:59 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/utils/functions.php,v 1.1 2008/02/10 20:52:25 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -615,9 +615,13 @@ function remove_stuff(&$body, &$mime)
           $body = preg_replace('/(\s)(\|)([^\s\|]+[^\|\r\n]+)(\|)/', '\\1<code>\\2\\3\\4</code>', $body); // |code|
 
         }
-        $body = nl2br($body);
+
         if (function_exists('wordwrap'))
+        {
             $body = wordwrap($body, 80, "\n");
+        }
+        
+        $body = nl2br($body);
     }    
     return ($body);
 }
