@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/utils/functions.php,v 1.1 2008/02/10 20:52:25 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/utils/functions.php,v 1.2 2008/03/12 18:14:32 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -616,10 +616,9 @@ function remove_stuff(&$body, &$mime)
 
         }
 
-        if (function_exists('wordwrap'))
-        {
-            $body = wordwrap($body, 80, "\n");
-        }
+        // Disable incoming message wordwrapping. Plain text message formatting should be done by the writter.
+        // The client don't have to change the way the message is display (think to ASCII schemes).
+        // $body = wordwrap($body, 80);
         
         $body = nl2br($body);
     }    
