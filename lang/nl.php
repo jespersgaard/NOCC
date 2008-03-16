@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.61 2008/02/09 12:35:59 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.62 2008/03/06 17:04:11 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -90,13 +90,13 @@ $html_manage_folders_link = 'Beheer IMAP Mappen';
 $html_manage_filters_link = 'Beheer E-mail Filters';
 $html_use_graphical_smilies = 'Gebruik grafische smiley\'s';
 $html_sent_folder = 'Kopieer verzonden berichten naar map'; 
-$html_trash_folder = 'Move deleted mails into a dedicated folder'; // to translate
+$html_trash_folder = 'Verplaats verwijderde berichten naar map';
 $html_colored_quotes = 'Gekleurd aanhalen';
 $html_display_struct = 'Toon gestructureerde tekst';
 $html_send_html_mail = 'Zend berichten in HTML formaat';
 
 // folders.php
-$html_folders = 'Folders';  //to translate
+$html_folders = 'Mappen';
 $html_folders_create_failed = 'Map kon niet worden gemaakt!';
 $html_folders_sub_failed = 'Abonneren op map is mislukt!';
 $html_folders_unsub_failed = 'Niet meer abonneren op map is mislukt!';
