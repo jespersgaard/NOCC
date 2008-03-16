@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.197 2008/03/06 17:04:12 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.198 2008/03/11 07:25:29 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -170,6 +170,9 @@ switch($action)
             require ('./html/footer.php');
             break;
         }
+
+        $mail_header = $pop->headerinfo($_REQUEST['mail'], $ev);
+        $mail_messageid = urlencode($mail_header->message_id);
 
         $mail_to = !empty($content['reply_to']) ? $content['reply_to'] : $content['from'];
         // Test for Re: in subject, should not be added twice ! 

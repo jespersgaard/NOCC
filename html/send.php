@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.86 2006/11/22 14:27:18 goddess_skuld Exp $ -->
+<!-- start of $Id: send.php,v 1.87 2007/05/20 19:41:47 gerundt Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -19,7 +19,14 @@ $mail_from = get_default_from_address();
   <?php 
       }
   } 
+
+  // include old messageid
+  // to keep 'treeview' of mailinglist threads etc.
+  if (!empty($mail_messageid)) {
+      print('<div><input type="hidden" name="mail_messageid" value="' . $mail_messageid . '" /></div>');
+  }
   ?>
+
     <p class="sendButtons">
       <input type="submit" class="button" onclick="btnClicked=this" name="sendaction" value="<?php echo $html_send ?>" />
       &nbsp;&nbsp;
@@ -211,4 +218,4 @@ function validate(f)
 
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.86 2006/11/22 14:27:18 goddess_skuld Exp $ -->
+<!-- end of $Id: send.php,v 1.87 2007/05/20 19:41:47 gerundt Exp $ -->

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.144 2007/12/24 22:40:44 gerundt Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.145 2008/02/10 20:52:18 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -111,6 +111,10 @@ switch($_REQUEST['sendaction'])
         $mail->priority = $_REQUEST['priority'];
         $mail->receipt = isset($_REQUEST['receipt']);
         $mail->headers = "";
+        if (!empty($_REQUEST['mail_messageid'])) {
+            $mail->headers .= 'References: ' . urldecode($_REQUEST['mail_messageid']) . $mail->crlf;
+            $mail->headers .= 'In-Reply-To: ' . urldecode($_REQUEST['mail_messageid']) . $mail->crlf;
+        }
         $mail->headers .= 'User-Agent: ' . $conf->nocc_name . ' <' . $conf->nocc_url . '>';
         $trim_mail_to = trim($mail_to);
         $trim_mail_cc = trim($mail_cc);
