@@ -1,5 +1,9 @@
 NOCC 1.6  ?? ??, ??
 
+  Bugs
+    * Bug #1915542 : Directory traversal: ../utils/crypt.php not found?
+      (openfan).
+
   Patches
     * Patch #1916104 : Patch to updated pt-br translation (Renato Frederick).
     * Patch #1915516 : The 2 missing Dutch translations (openfan).

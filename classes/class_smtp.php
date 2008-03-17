@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/classes/class_smtp.php,v 1.1 2008/02/10 20:52:24 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/classes/class_smtp.php,v 1.2 2008/02/10 21:02:10 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -86,7 +86,7 @@ class smtp
     function smtp_auth($smtp)
     {
       global $conf;
-      require_once '../utils/crypt.php';
+      require_once './utils/crypt.php';
       switch ($_SESSION['smtp_auth']) {
           case 'LOGIN':
               fputs($smtp, "auth login\r\n"); 
