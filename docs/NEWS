@@ -1,6 +1,7 @@
 NOCC 1.6  ?? ??, ??
 
   Patches
+    * Patch #1916104 : Patch to updated pt-br translation (Renato Frederick).
     * Patch #1915516 : The 2 missing Dutch translations (openfan).
     * Patch #1915151 : NOCC breaks message threads on reply (Tobias Mathes).
     * Patch #1911516 : Add submenu to mail view (Tim Gerundt).
