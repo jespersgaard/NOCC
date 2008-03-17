@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.51 2007/12/12 22:04:55 gerundt Exp $ -->
+<!-- start of $Id: prefs.php,v 1.52 2008/02/09 12:35:59 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -50,7 +50,7 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel"><label for="full_name"><?php echo convertLang2Html($html_full_name) ?>:</label></td>
            <td class="prefsData">
-             <input class="button"type="text" name="full_name" id="full_name" value="<?php echo (isset($user_prefs->full_name)) ? $user_prefs->full_name : "" ?>" size="40"/>
+             <input class="button" type="text" name="full_name" id="full_name" value="<?php echo (isset($user_prefs->full_name)) ? $user_prefs->full_name : "" ?>" size="40"/>
            </td>
          </tr>
          <?php if ($conf->allow_address_change) { ?>
@@ -258,4 +258,4 @@ if (count($big_list) > 1) {
  <?php
    }
  ?>
-<!-- end of $Id: prefs.php,v 1.51 2007/12/12 22:04:55 gerundt Exp $ -->
+<!-- end of $Id: prefs.php,v 1.52 2008/02/09 12:35:59 goddess_skuld Exp $ -->
