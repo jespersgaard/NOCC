@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.198 2008/03/11 07:25:29 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.199 2008/03/16 08:56:36 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -711,7 +711,11 @@ switch($action)
               $status = $pop->status($folder->name);
               if (!($status == false) && ($status->unseen > 0)) {
                 if (!in_array($folder_name, $new_folders)) {
-                  $unseen_count = count($unseen_messages);
+                  if (isset($unseen_messages)) {
+                    $unseen_count = count($unseen_messages);
+                  } else {
+                    $unseen_count = 0;
+                  }
                   $list_of_folders .= ' <a href="'.$_SERVER['PHP_SELF'].'?folder='.$folder_name.'">'.$folder_name." ($status->unseen)".'</a>';
                   $_SESSION['list_of_folders'] = $list_of_folders;
                   array_push($new_folders, $folder_name);

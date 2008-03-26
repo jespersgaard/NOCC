@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/utils/crypt.php,v 1.1 2008/02/10 20:52:26 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/utils/crypt.php,v 1.2 2008/02/10 21:02:09 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -83,7 +83,8 @@ function decpass($cipher, $rkey)
 
   //$decpasswd = base64_decode(decr($cipher, $rkey));
   $dechexpasswd = decr($cipher, $rkey);
-
+  $decpasswd = '';
+  
   for ($i=0; $i<strlen($dechexpasswd)/2; $i++) {
     $decpasswd.=chr(base_convert(substr($dechexpasswd,$i*2,2),16,10));
   }

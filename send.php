@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.145 2008/02/10 20:52:18 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.146 2008/03/16 08:56:36 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -46,7 +46,7 @@ $mail_cc = safestrip($_REQUEST['mail_cc']);
 $mail_bcc = safestrip($_REQUEST['mail_bcc']);
 $mail_subject = safestrip($_REQUEST['mail_subject']);
 $mail_body = safestrip($_REQUEST['mail_body']);
-if ($_SESSION['html_mail_send']) {
+if (isset($_SESSION['html_mail_send']) && $_SESSION['html_mail_send']) {
   $mail_body = '<html><head></head><body>'.$mail_body.'</body></html>';
 }
 if(ini_get("file_uploads")) {

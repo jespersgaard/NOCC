@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/utils/functions.php,v 1.2 2008/03/12 18:14:32 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/utils/functions.php,v 1.3 2008/03/16 09:12:12 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -65,20 +65,32 @@ function inbox(&$pop, $skip = 0, &$ev)
         }
 
         // Get subject
-        $subject_header = str_replace('x-unknown', $msg_charset, $ref_contenu_message->subject);
+        if (isset($ref_contenu_message->subject)) {
+            $subject_header = str_replace('x-unknown', $msg_charset, $ref_contenu_message->subject);
+        } else {
+            $subject_header = '';
+        }
         $subject_array = nocc_imap::mime_header_decode($subject_header);
         
         for ($j = 0; $j < count($subject_array); $j++)
             $subject .= $subject_array[$j]->text;
 
         // Get from
-        $from_header = str_replace('x-unknown', $msg_charset, $ref_contenu_message->fromaddress);
+        if (isset($ref_contenu_message->fromaddress)) {
+            $from_header = str_replace('x-unknown', $msg_charset, $ref_contenu_message->fromaddress);
+        } else {
+            $from_header = '';
+        }
         $from_array = nocc_imap::mime_header_decode($from_header);
         for ($j = 0; $j < count($from_array); $j++)
             $from .= $from_array[$j]->text;
 
         // Get to
-        $to_header = str_replace('x-unknown', $msg_charset, $ref_contenu_message->toaddress);
+        if (isset($ref_contenu_message->fromaddress)) {
+            $to_header = str_replace('x-unknown', $msg_charset, $ref_contenu_message->toaddress);
+        } else {
+            $to_header = '';
+        }
         $to_array = nocc_imap::mime_header_decode($to_header);
         for ($j = 0; $j < count($to_array); $j++) {
           if (!(strpos($to_array[$j]->text, '@')))
@@ -237,6 +249,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
     }
     if(NoccException::isException($ev)) return;
 
+    $body_charset = '';
     if (eregi('text/html', $tmp['mime']) || eregi('text/plain', $tmp['mime']))
     {
         if ($tmp['transfer'] == 'QUOTED-PRINTABLE')
@@ -640,6 +653,7 @@ function link_att(&$mail, $attach_tab, &$display_part_no)
                 $link .= $tmp['number'] . '&nbsp;&nbsp;';
             unset($att_name);
             $att_name_array = nocc_imap::mime_header_decode($tmp['name']);
+            $att_name = '';
             for ($i=0; $i<count($att_name_array); $i++) {
               $att_name .= $att_name_array[$i]->text;
             }
@@ -788,7 +802,7 @@ function cut_address(&$addr, &$charset)
 
 function view_part(&$pop, &$mail, $part_no, &$transfer, &$msg_charset, &$charset)
 {
-    if(NoccException::isException($ev)) {
+    if(isset($ev) && NoccException::isException($ev)) {
         return "<p class=\"error\">".$ev->getMessage."</p>";
     }
     $text = $pop->fetchbody($mail, $part_no, $ev);
@@ -919,6 +933,7 @@ function mailquote(&$body, &$from, $html_wrote)
           else
             {
               $words = explode (" ", $tbl[$i]);
+              $buffer = '';
               for ($j = 0; $j < count ($words); ++$j)
                 {
                   if (strlen ($buffer) + strlen ($words[$j]) + $length <= $wrap_msg)
@@ -994,7 +1009,7 @@ function escape_dots ($txt)
   $tbl = explode ($crlf, $txt);
 
   for ($i = 0; $i < count($tbl); ++$i) {
-    if($tbl[$i][0] == '.')
+    if(strlen($tbl[$i]) != 0 && $tbl[$i][0] == '.')
       $tbl[$i] = "." . $tbl[$i];
 
     $msg .= $tbl[$i] . $crlf;

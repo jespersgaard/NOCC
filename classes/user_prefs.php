@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/classes/user_prefs.php,v 1.1 2008/02/10 20:52:25 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/classes/user_prefs.php,v 1.2 2008/02/10 21:02:10 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -24,16 +24,16 @@ class NOCCUserPrefs {
     var $seperate_msg_win;
     var $reply_leadin;
     var $signature;
-        var $wrap_msg;
-        var $sig_sep;
-        var $html_mail_send;
+    var $wrap_msg;
+    var $sig_sep;
+    var $html_mail_send;
     var $graphical_smilies;
-        var $sent_folder;
-        var $sent_folder_name;
-        var $trash_folder;
-        var $trash_folder_name;
-        var $lang;
-        var $theme;
+    var $sent_folder;
+    var $sent_folder_name;
+    var $trash_folder;
+    var $trash_folder_name;
+    var $lang;
+    var $theme;
 
     // Set when preferences have not been commit
     var $dirty_flag;
@@ -113,7 +113,7 @@ class NOCCUserPrefs {
             if($key == 'sig_sep')
                 $prefs->sig_sep = ($value == 1 || $value == 'on');
             if($key == 'html_mail_send')
-                $prefs->html_mail_send = ($value == 1 || $valeur == 'on');
+                $prefs->html_mail_send = ($value == 1 || $value == 'on');
             if($key == 'graphical_smilies')
                 $prefs->graphical_smilies = ($value == 1 || $value == 'on');
                         if($key == 'sent_folder')

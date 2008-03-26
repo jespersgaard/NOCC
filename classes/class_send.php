@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/classes/class_send.php,v 1.1 2008/02/10 20:52:25 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/classes/class_send.php,v 1.2 2008/02/10 21:02:10 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -160,7 +160,7 @@ class mime_mail
     $mime = str_replace("\r\n.\r\n", "\r\n..\r\n", $mime);
 
         $mail_format = '';
-        if ($_SESSION['html_mail_send']) {
+        if (isset($_SESSION['html_mail_send']) && $_SESSION['html_mail_send']) {
           $mail_format = 'text/html';
         } else {
           $mail_format = 'text/plain';
@@ -212,7 +212,8 @@ class mime_mail
         }
         else
         {
-            if (($smtp = new smtp()) != 0)
+	    $smtp = new smtp();
+            if (!empty($smtp))
             {
                 $smtp->smtp_server = $this->smtp_server;
                 $smtp->port = $this->smtp_port;

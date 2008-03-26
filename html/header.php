@@ -35,31 +35,35 @@ else {
   // if message is opened in another window, we reload the opener window
   // (message list), in order to refresh the mail list after a successful 
   // deletion. It does not works with Safari
-  if($_SESSION['message_deleted'] == "true"){
+  if(isset($_SESSION['message_deleted']) && $_SESSION['message_deleted'] == "true"){
     echo ("        <script type=\"text/javascript\">\n");
     echo ("          if (window.opener != null)\n");
     echo ("            window.opener.location.href = window.opener.location;\n");
     echo ("        </script>\n");
     $_SESSION['message_deleted'] = "false";
   }
-  $rss_url = "rss.php";
-  $rss_url .= '?nocc_lang=' . base64_encode($_SESSION['nocc_lang']);
-  $rss_url .= '&amp;nocc_smtp_server=' . base64_encode($_SESSION['nocc_smtp_server']);
-  $rss_url .= '&amp;nocc_smtp_port=' . base64_encode($_SESSION['nocc_smtp_port']);
-  $rss_url .= '&amp;nocc_theme=' . base64_encode($_SESSION['nocc_theme']);
-  $rss_url .= '&amp;nocc_domain=' . base64_encode($_SESSION['nocc_domain']);
-  $rss_url .= '&amp;imap_namespace=' . base64_encode($_SESSION['imap_namespace']);
-  $rss_url .= '&amp;nocc_servr=' . base64_encode($_SESSION['nocc_servr']);
-  $rss_url .= '&amp;nocc_folder=' . base64_encode($_SESSION['nocc_folder']);
-  $rss_url .= '&amp;smtp_auth=' . base64_encode($_SESSION['smtp_auth']);
-  $rss_url .= '&amp;nocc_user=' . base64_encode($_SESSION['nocc_user']);
-  $rss_url .= '&amp;nocc_passwd=' . base64_encode($_SESSION['nocc_passwd']);
-  $rss_url .= '&amp;nocc_login=' . base64_encode($_SESSION['nocc_login']);
-  $rss_url .= '&amp;ucb_pop_server=' . base64_encode($_SESSION['ucb_pop_server']);
-  $rss_url .= '&amp;quota_enable=' . base64_encode($_SESSION['quota_enable']);
-  $rss_url .= '&amp;quota_type=' . base64_encode($_SESSION['quota_type']);
+  if (isset($_SESSION['quota_type'])) {
+    $rss_url = "rss.php";
+    $rss_url .= '?nocc_lang=' . base64_encode($_SESSION['nocc_lang']);
+    $rss_url .= '&amp;nocc_smtp_server=' . base64_encode($_SESSION['nocc_smtp_server']);
+    $rss_url .= '&amp;nocc_smtp_port=' . base64_encode($_SESSION['nocc_smtp_port']);
+    $rss_url .= '&amp;nocc_theme=' . base64_encode($_SESSION['nocc_theme']);
+    $rss_url .= '&amp;nocc_domain=' . base64_encode($_SESSION['nocc_domain']);
+    $rss_url .= '&amp;imap_namespace=' . base64_encode($_SESSION['imap_namespace']);
+    $rss_url .= '&amp;nocc_servr=' . base64_encode($_SESSION['nocc_servr']);
+    $rss_url .= '&amp;nocc_folder=' . base64_encode($_SESSION['nocc_folder']);
+    $rss_url .= '&amp;smtp_auth=' . base64_encode($_SESSION['smtp_auth']);
+    $rss_url .= '&amp;nocc_user=' . base64_encode($_SESSION['nocc_user']);
+    $rss_url .= '&amp;nocc_passwd=' . base64_encode($_SESSION['nocc_passwd']);
+    $rss_url .= '&amp;nocc_login=' . base64_encode($_SESSION['nocc_login']);
+    $rss_url .= '&amp;ucb_pop_server=' . base64_encode($_SESSION['ucb_pop_server']);
+    $rss_url .= '&amp;quota_enable=' . base64_encode($_SESSION['quota_enable']);
+    $rss_url .= '&amp;quota_type=' . base64_encode($_SESSION['quota_type']);
+  }
+  if (isset($rss_url)) {
 ?>
         <link rel="alternate" type="application/rss+xml" title="RSS - NOCC" href="<?php echo $rss_url ?>" />
+<? } ?>
     </head>
     <body dir="<?php echo convertLang2Html($lang_dir); ?>">
         <div id="header">
@@ -82,4 +86,4 @@ else {
 <?php
 }
 ?>
-<!-- end of $Id: header.php,v 1.73 2008/02/21 23:16:23 gerundt Exp $ -->
+<!-- end of $Id: header.php,v 1.74 2008/02/26 21:53:44 gerundt Exp $ -->

@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.87 2007/05/20 19:41:47 gerundt Exp $ -->
+<!-- start of $Id: send.php,v 1.88 2008/03/16 08:56:35 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -160,7 +160,7 @@ $mail_from = get_default_from_address();
      <tr>
        <td>&nbsp;</td>
        <td class="sendData">
-         <?php if (!$_SESSION['html_mail_send']) { ?>
+         <?php if (!isset($_SESSION['html_mail_send']) || !$_SESSION['html_mail_send']) { ?>
          <textarea name="mail_body" cols="82" rows="20"><?php echo (isset($mail_body) ? htmlspecialchars($mail_body) : '') ?></textarea>
          <?php
            } else {
@@ -218,4 +218,4 @@ function validate(f)
 
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.87 2007/05/20 19:41:47 gerundt Exp $ -->
+<!-- end of $Id: send.php,v 1.88 2008/03/16 08:56:35 goddess_skuld Exp $ -->

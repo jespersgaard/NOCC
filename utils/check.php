@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/check.php,v 1.20 2007/02/25 14:05:23 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/utils/check.php,v 1.1 2008/02/10 20:52:25 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -59,7 +59,7 @@ if (!isset($conf->column_order) || $conf->column_order == '')
 }
 
 // Display error message
-if (NoccException::isException($ev)) {
+if (isset($ev) && NoccException::isException($ev)) {
   require ('./html/header.php');
   require ('./html/error.php');
   require ('./html/footer.php');
