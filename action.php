@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.199 2008/03/16 08:56:36 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.200 2008/03/26 07:29:53 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -107,10 +107,10 @@ switch($action)
                 if (eregi('JPEG', $img_type) || eregi('JPG', $img_type) || eregi('GIF', $img_type) || eregi ('PNG', $img_type))
                 {
                     echo '<hr />';
-                    echo '<center>';
+                    echo '<div class="center">';
                     echo '<p>' . $html_loading_image . ' ' . $tmp['name'] . '...</p>';
                     echo '<img src="get_img.php?mail=' . $_REQUEST['mail'].'&amp;num=' . $tmp['number'] . '&amp;mime=' . $img_type . '&amp;transfer=' . $tmp['transfer'] . '" />';
-                    echo '</center>';
+                    echo '</div>';
                 }
             }
         } 
