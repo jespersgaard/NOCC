@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/classes/class_send.php,v 1.2 2008/02/10 21:02:10 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/classes/class_send.php,v 1.3 2008/03/26 07:29:53 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -212,7 +212,7 @@ class mime_mail
         }
         else
         {
-	    $smtp = new smtp();
+            $smtp = new smtp();
             if (!empty($smtp))
             {
                 $smtp->smtp_server = $this->smtp_server;
@@ -224,7 +224,7 @@ class mime_mail
                 $smtp->subject = $this->subject;
                 $smtp->data = $mime;
                 $smtp_return = $smtp->send();
-        if (NoccException::isException($smtp_return)) {
+                if (NoccException::isException($smtp_return)) {
                     return($smtp_return);
                 }
                 $copy_return = 1;
