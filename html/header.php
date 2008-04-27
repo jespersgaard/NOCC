@@ -63,7 +63,7 @@ else {
   if (isset($rss_url)) {
 ?>
         <link rel="alternate" type="application/rss+xml" title="RSS - NOCC" href="<?php echo $rss_url ?>" />
-<? } ?>
+<?php } ?>
     </head>
     <body dir="<?php echo convertLang2Html($lang_dir); ?>">
         <div id="header">
@@ -86,4 +86,4 @@ else {
 <?php
 }
 ?>
-<!-- end of $Id: header.php,v 1.74 2008/02/26 21:53:44 gerundt Exp $ -->
+<!-- end of $Id: header.php,v 1.75 2008/03/26 07:29:53 goddess_skuld Exp $ -->
