@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.99 2008/04/01 22:26:12 gerundt Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.100 2008/04/27 18:31:58 gerundt Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -19,7 +19,6 @@ $next = '';
 if($pages > 1) {
     $nskip = $skip + 1;
     $pskip = $skip - 1;
-    $this_page = $skip + 1;
     if($pskip > -1 ) {
         $prev = "<a href=\"".$_SERVER['PHP_SELF']."?skip=$pskip\">";
         $prev .= "<img class=\"navigation\" src=\"themes/".$_SESSION['nocc_theme']."/img/left_arrow.png\" alt=\"".$alt_prev."\" title=\"".$title_prev_page."\" /></a>\n";
@@ -143,4 +142,4 @@ if ($pop->is_imap()) {
                             }
                           ?>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.99 2008/04/01 22:26:12 gerundt Exp $ -->
+<!-- end of $Id: html_top_table.php,v 1.100 2008/04/27 18:31:58 gerundt Exp $ -->
