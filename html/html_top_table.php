@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.98 2008/02/10 20:52:15 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.99 2008/04/01 22:26:12 gerundt Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -13,7 +13,6 @@ $skip = (isset($_REQUEST['skip'])) ? $_REQUEST['skip'] : '0';
 $pages = $pop->get_page_count($conf);
 
 $page_line = '';
-$this_page = '';
 $prev = '';
 $next = '';
 
@@ -144,4 +143,4 @@ if ($pop->is_imap()) {
                             }
                           ?>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.98 2008/02/10 20:52:15 goddess_skuld Exp $ -->
+<!-- end of $Id: html_top_table.php,v 1.99 2008/04/01 22:26:12 gerundt Exp $ -->
