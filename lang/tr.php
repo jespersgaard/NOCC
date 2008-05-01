@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/tr.php,v 1.41 2006/10/20 12:20:00 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/tr.php,v 1.44 2008/05/01 07:53:07 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -90,13 +90,13 @@ $html_manage_folders_link = 'IMAP dosyasını yönet';
 $html_manage_filters_link = 'Email süzgecini yönet';
 $html_use_graphical_smilies = 'Grafik ifadelere izin ver';
 $html_sent_folder = 'Gönderilen iletileri ayrı klasöre kopyala';
-$html_trash_folder = 'Move deleted mails into a dedicated folder'; // to translate
+$html_trash_folder = 'Silinmiş iletileri öngörülen klasöre taşı';
 $html_colored_quotes = 'Renkli tırnak işareti kullan'; 
 $html_display_struct = 'Biçimli yazıları göster'; 
 $html_send_html_mail = 'İletiyi HTML formatında gönder'; 
 
 // folders.php
-$html_folders = 'Folders';  //to translate
+$html_folders = 'Klasörler';
 $html_folders_create_failed = 'Klasör oluşturmada bir hata çıktı!';  
 $html_folders_sub_failed = 'Klasörü paylaşmada hata oluştu!';
 $html_folders_unsub_failed = 'Klasörün paylaşımı kaldırlamadı!';
