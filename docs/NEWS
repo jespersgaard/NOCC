@@ -7,6 +7,7 @@ NOCC 1.6  ?? ??, ??
       (openfan).
 
   Patches
+    * Patch #1955700 : Updated Czech translation (Ragimiri).
     * Patch #1955195 : Turkish Translation complete (Ismail Özer).
     * Patch #1921698 : Eliminate deprecated center tag (Tobias Mathes)
     * Patch #1916104 : Patch to updated pt-br translation (Renato Frederick).

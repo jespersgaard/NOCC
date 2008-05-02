@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/cs.php,v 1.46 2008/02/09 12:35:59 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/cs.php,v 1.47 2008/03/06 17:04:03 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -28,14 +28,14 @@ $lang_dir = 'ltr';
 
 // What format string should we pass to strftime() for messages sent on
 // days other than today?
-$default_date_format = '%d-%m-%Y'; 
+$default_date_format = '%d.%m.%Y'; 
 
 // If the local is not implemented on the host, how we display the date
-$no_locale_date_format = '%d-%m-%Y';
+$no_locale_date_format = '%d.%m.%Y';
 
 // What format string should we pass to strftime() for messages sent
 // today?
-$default_time_format = '%I:%M %p';
+$default_time_format = '%H:%M:%S';
 
 
 // Here is the configuration for the HTML
@@ -88,14 +88,14 @@ $html_prefs_updated = 'Nastavení aktualizováno ';
 $html_manage_folders_link = 'Spravovat IMAP složky';
 $html_manage_filters_link = 'Spravovat poštovní filtry';
 $html_use_graphical_smilies = 'Používat grafické smajlíky';
-$html_sent_folder = 'Kopírovat odeslané dopisy do vyhrazení složky';
-$html_trash_folder = 'Move deleted mails into a dedicated folder'; // to translate
+$html_sent_folder = 'Kopírovat odeslané dopisy do vyhrazené složky';
+$html_trash_folder = 'Přesunout smazané dopisy do vyhrazené složky';
 $html_colored_quotes = 'Barevné uvozovky';
 $html_display_struct = 'Zobrazit strukturovaný text';
 $html_send_html_mail = 'Posílat zprávy v HTML';
 
 // folders.php
-$html_folders = 'Folders';  //to translate
+$html_folders = 'Složky';
 $html_folders_create_failed = 'Složka nemohla být vytvořena!';
 $html_folders_sub_failed = 'Nelze se přihlásit do složky!';
 $html_folders_unsub_failed = 'Nelze se odhlásit ze složky!';
