@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.52 2008/02/09 12:35:59 goddess_skuld Exp $ -->
+<!-- start of $Id: prefs.php,v 1.53 2008/03/17 19:55:56 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -214,8 +214,7 @@ if (count($big_list) > 1) {
            </td>
          </tr>
          <?php } ?>
-         <tr>
-           <td colspan="2" class="center">
+      </table>
            <?php
              if(NoccException::isException($ev)) {
            ?>
@@ -234,16 +233,14 @@ if (count($big_list) > 1) {
            <?php
              } else {
                if(isset($_REQUEST['submit_prefs']))
-                 echo '<br />' . convertLang2Html($html_prefs_updated);
+                 echo '<p>' . convertLang2Html($html_prefs_updated) . '</p>';
              }
            ?>
-             <br /><br />
-             <input type="submit" class="button" value="<?php echo convertLang2Html($html_submit) ?>" />
-              &nbsp;&nbsp;
-              <input type="reset" class="button" value="<?php echo convertLang2Html($html_cancel) ?>" />
-           </td>
-         </tr>
-       </table>
+      <p class="sendButtons">
+        <input type="submit" class="button" value="<?php echo convertLang2Html($html_submit) ?>" />
+        &nbsp;&nbsp;
+        <input type="reset" class="button" value="<?php echo convertLang2Html($html_cancel) ?>" />
+      </p>
      </div>
    </form>
  </div>
@@ -258,4 +255,4 @@ if (count($big_list) > 1) {
  <?php
    }
  ?>
-<!-- end of $Id: prefs.php,v 1.52 2008/02/09 12:35:59 goddess_skuld Exp $ -->
+<!-- end of $Id: prefs.php,v 1.53 2008/03/17 19:55:56 goddess_skuld Exp $ -->

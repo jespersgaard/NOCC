@@ -104,8 +104,7 @@ if ($html_filter_select) {
     <input type="radio" id="filter_action_delete" name="filter_action" value="DELETE"/><label for="filter_action_delete"><?php echo convertLang2Html($html_filter_remove) ?></label>
   </td>
 </tr>
-<tr>
-  <td class="center" colspan="2">
+</table>
     <?php
       if(NoccException::isException($ev)) {
     ?>
@@ -124,16 +123,14 @@ if ($html_filter_select) {
     <?php
       } else {
     if(isset($_REQUEST['do']))
-      echo '<br />' . convertLang2Html($html_prefs_updated);
+      echo '<p>' . convertLang2Html($html_prefs_updated) . '</p>';
       }
     ?>
-    <br /><br />
-    <input type="submit" class="button" value="<?php echo convertLang2Html($html_submit) ?>" />
-    &nbsp;&nbsp;
-    <input type="reset" class="button" value="<?php echo convertLang2Html($html_cancel) ?>" />
-  </td>
-</tr>
-</table>
+<p class="sendButtons">
+  <input type="submit" class="button" value="<?php echo convertLang2Html($html_submit) ?>" />
+  &nbsp;&nbsp;
+  <input type="reset" class="button" value="<?php echo convertLang2Html($html_cancel) ?>" />
+</p>
 </div>
 </form>
 </div>
@@ -143,4 +140,4 @@ if ($html_filter_select) {
 &nbsp;|&nbsp;
 <a href="action.php?action=managefolders"><?php echo convertLang2Html($html_manage_folders_link) ?></a>
 </div>
-<!-- end of $Id: filter_prefs.php,v 1.10 2007/12/12 22:04:54 gerundt Exp $ -->
+<!-- end of $Id: filter_prefs.php,v 1.11 2008/02/10 21:02:10 goddess_skuld Exp $ -->

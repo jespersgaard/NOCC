@@ -1,4 +1,4 @@
-<!-- start of $Id: folders.php,v 1.21 2008/02/09 12:35:59 goddess_skuld Exp $ -->
+<!-- start of $Id: folders.php,v 1.22 2008/03/06 17:04:13 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -70,8 +70,7 @@ if (count($big_list) > 1) {
             <label for="do_delete_folder"><?php echo convertLang2Html($html_folder_delete) ?></label> <select class="button" name="deletebox"> <?php echo join('', $select_list) ?> </select>
           </td>
         </tr>
-        <tr>
-          <td class="center" colspan="2">
+      </table>
           <?php
             if(NoccException::isException($ev)) {
           ?>
@@ -90,17 +89,15 @@ if (count($big_list) > 1) {
           <?php
             } else {
               if(isset($_REQUEST['submit_folders']))
-                echo '<br />'.convertLang2Html($html_folders_updated);
+                echo '<p>'.convertLang2Html($html_folders_updated).'</p>';
             }
           ?>
-          <br /><br />
-            <input type="submit" class="button" value="<?php echo convertLang2Html($html_submit) ?>" />
-            &nbsp;&nbsp;
-            <input type="reset" class="button" value="<?php echo convertLang2Html($html_cancel) ?>" />
-          </td>
-        </tr>
-      </table>
+      <p class="sendButtons">
+        <input type="submit" class="button" value="<?php echo convertLang2Html($html_submit) ?>" />
+        &nbsp;&nbsp;
+        <input type="reset" class="button" value="<?php echo convertLang2Html($html_cancel) ?>" />
+      </p>
     </div>
   </form>
 </div>
-<!-- end of $Id: folders.php,v 1.21 2008/02/09 12:35:59 goddess_skuld Exp $ -->
+<!-- end of $Id: folders.php,v 1.22 2008/03/06 17:04:13 goddess_skuld Exp $ -->
