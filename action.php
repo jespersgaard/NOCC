@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.200 2008/03/26 07:29:53 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.201 2008/03/28 00:15:51 gerundt Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -476,7 +476,9 @@ switch($action)
 
         require ('./html/header.php');
         require ('./html/menu_prefs.php');
+        require ('./html/submenu_prefs.php');
         require ('./html/filter_prefs.php');
+        require ('./html/submenu_prefs.php');
         require ('./html/menu_prefs.php');
         require ('./html/footer.php');
 
@@ -548,7 +550,9 @@ switch($action)
 
         require ('./html/header.php');
         require ('./html/menu_prefs.php');
+        require ('./html/submenu_prefs.php');
         require ('./html/prefs.php');
+        require ('./html/submenu_prefs.php');
         require ('./html/menu_prefs.php');
         require ('./html/footer.php');
 

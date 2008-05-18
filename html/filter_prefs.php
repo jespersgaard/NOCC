@@ -134,10 +134,4 @@ if ($html_filter_select) {
 </div>
 </form>
 </div>
-
-<div class="IMAPPrefs">
-<a href="action.php?action=setprefs"><?php echo convertLang2Html($html_preferences) ?></a>
-&nbsp;|&nbsp;
-<a href="action.php?action=managefolders"><?php echo convertLang2Html($html_manage_folders_link) ?></a>
-</div>
-<!-- end of $Id: filter_prefs.php,v 1.11 2008/02/10 21:02:10 goddess_skuld Exp $ -->
+<!-- end of $Id: filter_prefs.php,v 1.12 2008/05/16 23:31:27 gerundt Exp $ -->

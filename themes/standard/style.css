@@ -264,6 +264,11 @@ table {
   padding: 0 2em 0 2em;
 }
 
+.submenu ul li.selected a,
+.submenu ul li.selected span {
+  font-weight: bold;
+}
+
 .submenu a:link { color:white; text-decoration:none; }
 .submenu a:visited { color:white; text-decoration:none; }
 .submenu a:focus { color:white; text-decoration:underline; }
@@ -648,15 +653,6 @@ img.sort {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   text-align: left;
-}
-
-.IMAPPrefs {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  text-align: right;
-  font-weight: bold;
-  background-color: #F0F0F0;
-  padding: 3px;
 }
 
 .navigation {

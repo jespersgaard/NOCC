@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.53 2008/03/17 19:55:56 goddess_skuld Exp $ -->
+<!-- start of $Id: prefs.php,v 1.54 2008/05/16 23:31:28 gerundt Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -244,15 +244,4 @@ if (count($big_list) > 1) {
      </div>
    </form>
  </div>
- <?php
-   if($pop->is_imap()) {
- ?>
- <div class="IMAPPrefs">
-   <a href="action.php?action=managefolders"><?php echo convertLang2Html($html_manage_folders_link) ?></a>
-   &nbsp;|&nbsp;
-   <a href="action.php?action=managefilters"><?php echo convertLang2Html($html_manage_filters_link) ?></a>
- </div>
- <?php
-   }
- ?>
-<!-- end of $Id: prefs.php,v 1.53 2008/03/17 19:55:56 goddess_skuld Exp $ -->
+<!-- end of $Id: prefs.php,v 1.54 2008/05/16 23:31:28 gerundt Exp $ -->
