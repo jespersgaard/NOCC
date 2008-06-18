@@ -1,6 +1,7 @@
 NOCC 1.6  ?? ??, ??
 
   Bugs
+    * Bug #1994489 : "move deleted mails" doesn't work (Tobias Gesellchen).
     * Bug #1920092 : Reduce PHP Notices when debug set to E_ALL (Arnaud Boudou).
     * Bug #1915569 : Small bug: prefs.php serves invalid XHTML1.1 (openfan).
     * Bug #1915542 : Directory traversal: ../utils/crypt.php not found?

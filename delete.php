@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.56 2008/02/10 20:52:23 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.57 2008/02/10 21:02:10 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -54,12 +54,13 @@ if (isset($_REQUEST['only_one'])) {
         // If messages are opened in a new windows, we will reload the opener window
         // i.e. the one with messages list
         $_SESSION['message_deleted'] = "true";
-    if ($pop->is_imap()
-               && $user_prefs->trash_folder
-               && $_SESSION['nocc_folder'] != $user_prefs->trash_folder_name ) {
-            $pop->mail_move($mail, $user_prefs->trash_folder_name, $ev);
+        $target_folder = $_SESSION['imap_namespace'].$user_prefs->trash_folder_name;
+        if ($pop->is_imap()
+                && $user_prefs->trash_folder
+                && $_SESSION['nocc_folder'] != $target_folder ) {
+            $pop->mail_move($i, $target_folder, $ev);
         } else {
-            $pop->delete($mail, $ev);
+            $pop->delete($i, $ev);
         }
         if ($mail - 1) {
             $url = "action.php?action=aff_mail&mail=".--$mail."&verbose=0";
@@ -100,10 +101,11 @@ if (isset($_REQUEST['only_one'])) {
                 // If messages are opened in a new windows, we will reload the opener window
                 // i.e. the one with messages list
                 $_SESSION['message_deleted'] = "true";
+                $target_folder = $_SESSION['imap_namespace'].$user_prefs->trash_folder_name;
                 if ($pop->is_imap()
                         && $user_prefs->trash_folder
-                        && $_SESSION['nocc_folder'] != $user_prefs->trash_folder_name ) {
-                    $pop->mail_move($i, $user_prefs->trash_folder_name, $ev);
+                        && $_SESSION['nocc_folder'] != $target_folder ) {
+                    $pop->mail_move($i, $target_folder, $ev);
                 } else {
                     $pop->delete($i, $ev);
                 }
