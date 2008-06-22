@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.201 2008/03/28 00:15:51 gerundt Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.202 2008/05/18 00:02:19 gerundt Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -27,25 +27,25 @@ if(isset($_REQUEST['remember']))
 
 // Refresh quota usage
 if (!isset($_REQUEST['sort'])) {
-  if (isset($_SESSION['quota_enable']) && $_SESSION['quota_enable'] == true) {
-    $pop = new nocc_imap($ev);
-    if (NoccException::isException($ev)) {
-     require ('./html/header.php');
-     require ('./html/error.php');
-     require ('./html/footer.php');
-     exit;
+    if (isset($_SESSION['quota_enable']) && $_SESSION['quota_enable'] == true) {
+        $pop = new nocc_imap($ev);
+        if (NoccException::isException($ev)) {
+            require ('./html/header.php');
+            require ('./html/error.php');
+            require ('./html/footer.php');
+            exit;
+        }
+        $quota = $pop->get_quota_usage($_SESSION['nocc_folder']);
+        $_SESSION['quota'] = $quota;
     }
-    $quota = $pop->get_quota_usage($_SESSION['nocc_folder']);
-    $_SESSION['quota'] = $quota;
-  }
 }
 
 // Act on 'action'
 $action = '';
 if(isset($_REQUEST['action']))
     $action = safestrip($_REQUEST['action']);
-switch($action)
-{
+
+switch($action) {
     case 'aff_mail':
         $pop = new nocc_imap($ev);
         if (NoccException::isException($ev)) {
@@ -59,27 +59,27 @@ switch($action)
         $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
         // Display or hide distant HTML images
         if (!isset($_REQUEST['display_images']) || $_REQUEST['display_images'] != 1) {
-          $content['body'] = eregi_replace('src="[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]"', 'src="none"', $content['body']);
-          $content['body'] = eregi_replace('src=[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]', 'src="none"', $content['body']);
-          $content['body'] = eregi_replace('url\([[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]\)', 'url(none)', $content['body']);
+            $content['body'] = eregi_replace('src="[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]"', 'src="none"', $content['body']);
+            $content['body'] = eregi_replace('src=[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]', 'src="none"', $content['body']);
+            $content['body'] = eregi_replace('url\([[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]\)', 'url(none)', $content['body']);
         }
         // Display embedded HTML images
         $tmp_attach_tab = $attach_tab;
         $i = 0;
         while ($tmp = array_pop($tmp_attach_tab)) {
-          if ($conf->display_img_attach && (eregi('image', $tmp['mime']) && ($tmp['number'] != '')))
-          {
-            $exploded = explode('/', $tmp['mime']);
-            $img_type = array_pop($exploded);
-            if (eregi('JPEG', $img_type) || eregi('JPG', $img_type) || eregi('GIF', $img_type) || eregi ('PNG', $img_type))
+            if ($conf->display_img_attach && (eregi('image', $tmp['mime']) && ($tmp['number'] != '')))
             {
-              $new_img_src = 'src="get_img.php?mail=' . $_REQUEST['mail'].'&amp;num=' . $tmp['number'] . '&amp;mime=' . $img_type . '&amp;transfer=' . $tmp['transfer'] . '"';
-              $img_id = str_replace('<', '', $tmp['id']);
-              $img_id = str_replace('>', '', $img_id);
-              $content['body'] = str_replace('src="cid:'.$img_id.'"', $new_img_src, $content['body']);
-              $content['body'] = str_replace('src=cid:'.$img_id, $new_img_src, $content['body']);
+                $exploded = explode('/', $tmp['mime']);
+                $img_type = array_pop($exploded);
+                if (eregi('JPEG', $img_type) || eregi('JPG', $img_type) || eregi('GIF', $img_type) || eregi ('PNG', $img_type)) {
+                    $new_img_src = 'src="get_img.php?mail=' . $_REQUEST['mail'].'&amp;num='
+                            . $tmp['number'] . '&amp;mime=' . $img_type . '&amp;transfer=' . $tmp['transfer'] . '"';
+                    $img_id = str_replace('<', '', $tmp['id']);
+                    $img_id = str_replace('>', '', $img_id);
+                    $content['body'] = str_replace('src="cid:'.$img_id.'"', $new_img_src, $content['body']);
+                    $content['body'] = str_replace('src=cid:'.$img_id, $new_img_src, $content['body']);
+                }
             }
-          }
         }
         if (NoccException::isException($ev)) {
             require ('./html/header.php');
@@ -93,14 +93,12 @@ switch($action)
         require ('./html/menu_mail.php');
         require ('./html/submenu_mail.php');
         require ('./html/html_mail.php');
-        while ($tmp = array_pop($attach_tab))
-        {
+        while ($tmp = array_pop($attach_tab)) {
             // $attach_tab is the array of attachments
             // If it's a text/plain, display it
             if ((!eregi('ATTACHMENT', $tmp['disposition'])) && $conf->display_text_attach && (eregi('text/plain', $tmp['mime'])))
                 echo '<hr />'.view_part($pop, $_REQUEST['mail'], $tmp['number'], $tmp['transfer'], $tmp['charset'], $charset);
-            if ($conf->display_img_attach && (eregi('image', $tmp['mime']) && ($tmp['number'] != '')))
-            {
+            if ($conf->display_img_attach && (eregi('image', $tmp['mime']) && ($tmp['number'] != ''))) {
                 // if it's an image, display it
                 $exploded = explode('/', $tmp['mime']);
                 $img_type = array_pop($exploded);
@@ -109,7 +107,8 @@ switch($action)
                     echo '<hr />';
                     echo '<div class="center">';
                     echo '<p>' . $html_loading_image . ' ' . $tmp['name'] . '...</p>';
-                    echo '<img src="get_img.php?mail=' . $_REQUEST['mail'].'&amp;num=' . $tmp['number'] . '&amp;mime=' . $img_type . '&amp;transfer=' . $tmp['transfer'] . '" />';
+                    echo '<img src="get_img.php?mail=' . $_REQUEST['mail'].'&amp;num=' . $tmp['number'] . '&amp;mime='
+                            . $img_type . '&amp;transfer=' . $tmp['transfer'] . '" />';
                     echo '</div>';
                 }
             }
@@ -183,10 +182,14 @@ switch($action)
 
         // Set body
         if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
-            $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . enh_html_entity_decode(strip_tags($content['body'], ''));
+            $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': '
+                    . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject
+                    . ': '. $content['subject'] . "\n\n" . enh_html_entity_decode(strip_tags($content['body'], ''));
         else {
-            if (isset($conf->enable_reply_leadin) && $conf->enable_reply_leadin == true && isset($user_prefs->reply_leadin) && ($user_prefs->reply_leadin != ''))
-            {
+            if (isset($conf->enable_reply_leadin) 
+                    && $conf->enable_reply_leadin == true 
+                    && isset($user_prefs->reply_leadin) 
+                    && ($user_prefs->reply_leadin != '')) {
                 $parsed_leadin = NOCCUserPrefs::parseLeadin($user_prefs->reply_leadin, $content);
                 $mail_body = mailquote(enh_html_entity_decode(strip_tags($content['body'], '')), $parsed_leadin, '');
             }
@@ -230,7 +233,10 @@ switch($action)
             require ('./html/footer.php');
             break;
         }
-
+        
+        $mail_header = $pop->headerinfo($_REQUEST['mail'], $ev);
+        $mail_messageid = urlencode($mail_header->message_id);
+        
         $mail_to = get_reply_all($content['from'], $content['to'], $content['cc']);
         if (!strcasecmp(substr($content['subject'], 0, 2), $html_reply_short))
             $mail_subject = $content['subject'];
@@ -239,10 +245,14 @@ switch($action)
 
         // Set body
         if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
-            $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': ' . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject . ': '. $content['subject'] . "\n\n" . enh_html_entity_decode(strip_tags($content['body'], ''));
+            $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': '
+                    . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject
+                    . ': '. $content['subject'] . "\n\n" . enh_html_entity_decode(strip_tags($content['body'], ''));
         else {
-            if (isset($conf->enable_reply_leadin) && $conf->enable_reply_leadin == true && isset($user_prefs->reply_leadin) && ($user_prefs->reply_leadin != ''))
-            {
+            if (isset($conf->enable_reply_leadin) 
+                    && $conf->enable_reply_leadin == true 
+                    && isset($user_prefs->reply_leadin) 
+                    && ($user_prefs->reply_leadin != '')) {
                 $parsed_leadin = NOCCUserPrefs::parseLeadin($user_prefs->reply_leadin, $content);
                 $mail_body = mailquote(enh_html_entity_decode(strip_tags($content['body'], '')), $parsed_leadin, '');
             }
@@ -281,33 +291,35 @@ switch($action)
         $mail_list = explode('$', $_REQUEST['mail']);
         $mail_body = '';
         for ($mail_num = 0; $mail_num < count($mail_list); $mail_num++) {
-          //$content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
-          $content = aff_mail($pop, $attach_tab, $mail_list[$mail_num], $_REQUEST['verbose'], $ev);
-          if (NoccException::isException($ev)) {
-            require ('./html/header.php');
-            require ('./html/error.php');
-            require ('./html/footer.php');
-            break;
-          }
-
-          if (count($mail_list) == 1) {
-            $mail_subject = $html_forward_short.': '.$content['subject'];
-          } else {
-            $mail_subject = '';
-          }
-
-          if (isset($conf->broken_forwarding) && $conf->broken_forwarding) {
-            // Set body
-            if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
-                $mail_body .= $original_msg . $conf->crlf . $html_from . ': ' . $content['from'] . $conf->crlf . $html_to . ': ' . $content['to'] . $conf->crlf . $html_sent.': ' . $content['complete_date'] . $conf->crlf . $html_subject . ': '. $content['subject'] . $conf->crlf . $conf->crlf . strip_tags2($content['body'], '') . $conf->crlf . $conf->crlf;
-            else {
-              $stripped_content = strip_tags2($content['body'], '');
-              $mail_body .= mailquote($stripped_content, $content['from'], $html_wrote) . $conf->crlf . $conf->crlf;
+            $content = aff_mail($pop, $attach_tab, $mail_list[$mail_num], $_REQUEST['verbose'], $ev);
+            if (NoccException::isException($ev)) {
+                require ('./html/header.php');
+                require ('./html/error.php');
+                require ('./html/footer.php');
+                break;
             }
-            $broken_forwarding = true;
-          } else {
-            $broken_forwarding = false;
-          }
+
+            if (count($mail_list) == 1) {
+                $mail_subject = $html_forward_short.': '.$content['subject'];
+            } else {
+                $mail_subject = '';
+            }
+
+            if (isset($conf->broken_forwarding) && $conf->broken_forwarding) {
+                // Set body
+                if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
+                    $mail_body .= $original_msg . $conf->crlf . $html_from . ': ' . $content['from'] . $conf->crlf
+                            . $html_to . ': ' . $content['to'] . $conf->crlf . $html_sent.': ' . $content['complete_date']
+                            . $conf->crlf . $html_subject . ': '. $content['subject'] . $conf->crlf . $conf->crlf
+                            . strip_tags2($content['body'], '') . $conf->crlf . $conf->crlf;
+                else {
+                    $stripped_content = strip_tags2($content['body'], '');
+                    $mail_body .= mailquote($stripped_content, $content['from'], $html_wrote) . $conf->crlf . $conf->crlf;
+                }
+                $broken_forwarding = true;
+            } else {
+                $broken_forwarding = false;
+            }
         }
         // Let send.php know to attach the original message
         $forward_msgnum = $_REQUEST['mail'];
@@ -512,9 +524,9 @@ switch($action)
                 $user_prefs->reply_leadin = safestrip($_REQUEST['reply_leadin']);
             if (isset($_REQUEST['signature']))
                 if (isset($_REQUEST['html_mail_send']) && $_REQUEST['html_mail_send']) {
-                  $user_prefs->signature = $_REQUEST['signature'];
+                    $user_prefs->signature = $_REQUEST['signature'];
                 } else {
-                  $user_prefs->signature = safestrip($_REQUEST['signature']);
+                    $user_prefs->signature = safestrip($_REQUEST['signature']);
                 }
             if (isset($_REQUEST['wrap_msg']))
                 $user_prefs->wrap_msg = $_REQUEST['wrap_msg'];
@@ -564,77 +576,77 @@ switch($action)
         $pop = new nocc_imap($ev);
 
         if (NoccException::isException($ev)) {
-          if ($action == 'login' || $action == 'cookie') {
-            session_name("NOCCSESSID");
-            $_SESSION["nocc_login"] = "";
-            $_SESSION["nocc_user_prefs"] = "";
-            session_destroy();
-            setcookie ("NoccIdent");
-          }
-          require ('./html/header.php');
-          require ('./html/error.php');
-          require ('./html/footer.php');
-          break;
+            if ($action == 'login' || $action == 'cookie') {
+                session_name("NOCCSESSID");
+                $_SESSION["nocc_login"] = "";
+                $_SESSION["nocc_user_prefs"] = "";
+                session_destroy();
+                setcookie ("NoccIdent");
+            }
+            require ('./html/header.php');
+            require ('./html/error.php');
+            require ('./html/footer.php');
+            break;
         }
         if ($action == 'login') {
-          // Subscribe to INBOX, usefull if it's not already done.
-          if($pop->is_imap()) {
-            $pop->subscribe($pop->folder, $ev, false);
-          }
-          // If needed, store a cookie with all needed parameters
-          if ($remember == "true") {
-            saveSession($ev);
-            if (NoccException::isException($ev)) {
-              require ('./html/header.php');
-              require ('./html/error.php');
-              require ('./html/footer.php');
-              break;
-            }              
-            //store cookie for thirty days
-            setcookie ('NoccIdent', $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'], time()+60*60*24*30);
-          }
+            // Subscribe to INBOX, usefull if it's not already done.
+            if($pop->is_imap()) {
+                $pop->subscribe($pop->folder, $ev, false);
+            }
+            // If needed, store a cookie with all needed parameters
+            if ($remember == "true") {
+                saveSession($ev);
+                if (NoccException::isException($ev)) {
+                    require ('./html/header.php');
+                    require ('./html/error.php');
+                    require ('./html/footer.php');
+                    break;
+                }
+                //store cookie for thirty days
+                setcookie ('NoccIdent', $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'], time()+60*60*24*30);
+            }
         }
 
         // We may need to apply some filters to the INBOX...  this is still a work in progress.
         if (!isset($_REQUEST['sort'])) {
-          if ($pop->is_imap()) {
-            if ($pop->folder == 'INBOX') {
-              $user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
-              if (!empty($conf->prefs_dir)) {
-                $filters = NOCCUserFilters::read($user_key, $ev);
-                if(NoccException::isException($ev)) {
-                  error_log("Error reading filters for user '$user_key': ".$ev->getMessage());
-                  $filters = NULL;
-                  $ev = NULL;
-                }
-
-                $small_search = 'unseen ';
-                if (isset($_REQUEST['reapply_filters']) && $_REQUEST['reapply_filters'] == 1) {
-                  $small_search = '';
-                }
-                if ($filters!=null) {
-                  foreach($filters->filterset as $name => $filter) {
-                    $filter_messages = $pop->search($small_search . $filter['SEARCH'],'',$ev);
-                    if (is_array($filter_messages)) {
-                      $filter_to_folder = array();
-                      foreach($filter_messages as $filt_msg_no) {
-                        if ($filter['ACTION'] == 'DELETE') {
-                          $pop->delete($filt_msg_no, $ev);
-                        } elseif (preg_match("/^MOVE:(.+)$/", $filter['ACTION'], $filter_to_folder)) {
-                          $pop->mail_move($filt_msg_no, $filter_to_folder[1], $ev);
+            if ($pop->is_imap()) {
+                if ($pop->folder == 'INBOX') {
+                    $user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
+                    if (!empty($conf->prefs_dir)) {
+                        $filters = NOCCUserFilters::read($user_key, $ev);
+                        if(NoccException::isException($ev)) {
+                            error_log("Error reading filters for user '$user_key': ".$ev->getMessage());
+                            $filters = NULL;
+                            $ev = NULL;
                         }
-                      }
+
+                        $small_search = 'unseen ';
+                        if (isset($_REQUEST['reapply_filters']) && $_REQUEST['reapply_filters'] == 1) {
+                            $small_search = '';
+                        }
+                        if ($filters!=null) {
+                            foreach($filters->filterset as $name => $filter) {
+                                $filter_messages = $pop->search($small_search . $filter['SEARCH'],'',$ev);
+                                if (is_array($filter_messages)) {
+                                    $filter_to_folder = array();
+                                    foreach($filter_messages as $filt_msg_no) {
+                                        if ($filter['ACTION'] == 'DELETE') {
+                                            $pop->delete($filt_msg_no, $ev);
+                                        } elseif (preg_match("/^MOVE:(.+)$/", $filter['ACTION'], $filter_to_folder)) {
+                                            $pop->mail_move($filt_msg_no, $filter_to_folder[1], $ev);
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
-                  }
+                    $pop->expunge($ev);
+                    if(NoccException::isException($ev)) {
+                        error_log("Error expunging mail for user '$user_key': ".$ev->getMessage());
+                        $ev = NULL;
+                    }
                 }
-              }
-              $pop->expunge($ev);
-              if(NoccException::isException($ev)) {
-                error_log("Error expunging mail for user '$user_key': ".$ev->getMessage());
-                $ev = NULL;
-              }
             }
-          }
         }
 
 
@@ -645,36 +657,36 @@ switch($action)
         $tab_mail = array();
         $skip = 0;
         if (isset($_REQUEST['skip']))
-          $skip = $_REQUEST['skip'];
+            $skip = $_REQUEST['skip'];
         if ($pop->num_msg() > 0)
-          $tab_mail = inbox($pop, $skip, $ev);
+            $tab_mail = inbox($pop, $skip, $ev);
 
         if (NoccException::isException($ev)) {
-          require ('./html/header.php');
-          require ('./html/error.php');
-          require ('./html/footer.php');
-          break;
+            require ('./html/header.php');
+            require ('./html/error.php');
+            require ('./html/footer.php');
+            break;
         }
 
         if(count($tab_mail) < 1) {
-          // the mailbox is empty
-          $num_msg = 0;
-          require ('./html/header.php');
-          require ('./html/menu_inbox.php');
-          require ('./html/html_top_table.php');
-          include ('./html/no_mail.php');
-          require ('./html/html_bottom_table.php');
-          require ('./html/menu_inbox.php');
-          require ('./html/footer.php');
-          break;
+            // the mailbox is empty
+            $num_msg = 0;
+            require ('./html/header.php');
+            require ('./html/menu_inbox.php');
+            require ('./html/html_top_table.php');
+            include ('./html/no_mail.php');
+            require ('./html/html_bottom_table.php');
+            require ('./html/menu_inbox.php');
+            require ('./html/footer.php');
+            break;
         }
 
         // there are messages, we display
         if (isset($_REQUEST['sort'])) {
-          $num_msg = $_SESSION['num_msg'];
+            $num_msg = $_SESSION['num_msg'];
         } else {
-          $num_msg = $pop->num_msg();
-          $_SESSION['num_msg'] = $num_msg;
+            $num_msg = $pop->num_msg();
+            $_SESSION['num_msg'] = $num_msg;
         }
         require ('./html/header.php');
         require ('./html/menu_inbox.php');
@@ -682,7 +694,7 @@ switch($action)
 
         // Include this once for each line of the message index
         while ($tmp = array_shift($tab_mail)) {
-          require ('./html/html_inbox.php');
+            require ('./html/html_inbox.php');
         }
 
         $new_folders = array();
@@ -691,53 +703,50 @@ switch($action)
         // If we show it twice, the bottom folder select is sent, and might be
         // wrong.
         if ($pop->is_imap()) {
-          if (isset($_REQUEST['sort'])) {
-            $subscribed = $_SESSION['subscribed'];
-          } else {
-            // gather list of folders for menu_inbox_status
-            $subscribed = $pop->getsubscribed($ev);
-            if (NoccException::isException($ev)) {
-              require ('./html/header.php');
-              require ('./html/error.php');
-              require ('./html/footer.php');
-              break;
-            } else {
-              $_SESSION['subscribed'] = $subscribed;
-            }
-          }
-
-          foreach($subscribed as $folder) {
             if (isset($_REQUEST['sort'])) {
-              $list_of_folders =  $_SESSION['list_of_folders'];
+                $subscribed = $_SESSION['subscribed'];
             } else {
-              $folder_name = substr(strstr($folder->name, '}'), 1);
-
-              $status = $pop->status($folder->name);
-              if (!($status == false) && ($status->unseen > 0)) {
-                if (!in_array($folder_name, $new_folders)) {
-                  if (isset($unseen_messages)) {
-                    $unseen_count = count($unseen_messages);
-                  } else {
-                    $unseen_count = 0;
-                  }
-                  $list_of_folders .= ' <a href="'.$_SERVER['PHP_SELF'].'?folder='.$folder_name.'">'.$folder_name." ($status->unseen)".'</a>';
-                  $_SESSION['list_of_folders'] = $list_of_folders;
-                  array_push($new_folders, $folder_name);
+                // gather list of folders for menu_inbox_status
+                $subscribed = $pop->getsubscribed($ev);
+                if (NoccException::isException($ev)) {
+                    require ('./html/header.php');
+                    require ('./html/error.php');
+                    require ('./html/footer.php');
+                    break;
+                } else {
+                    $_SESSION['subscribed'] = $subscribed;
                 }
-              }
             }
-          }
+
+            foreach($subscribed as $folder) {
+                if (isset($_REQUEST['sort'])) {
+                    $list_of_folders =  $_SESSION['list_of_folders'];
+                } else {
+                    $folder_name = substr(strstr($folder->name, '}'), 1);
+
+                    $status = $pop->status($folder->name);
+                    if (!($status == false) && ($status->unseen > 0)) {
+                        if (!in_array($folder_name, $new_folders)) {
+                            if (isset($unseen_messages)) {
+                                $unseen_count = count($unseen_messages);
+                            } else {
+                                $unseen_count = 0;
+                            }
+                            $list_of_folders .= ' <a href="' . $_SERVER['PHP_SELF'] . '?folder=' . $folder_name
+                            . '">' . $folder_name . " ($status->unseen)" . '</a>';
+                            $_SESSION['list_of_folders'] = $list_of_folders;
+                            array_push($new_folders, $folder_name);
+                        }
+                    }
+                }
+            }
         }
 
         require ('./html/html_bottom_table.php');
         require ('./html/menu_inbox.php');
         require ('./html/footer.php');
 
-        // As sort action only works on cached list of mails and folders
-        // we don't have to close a never opened connection.
-        //if (!isset($_REQUEST['sort'])) {
-          $pop->close();
-        //}
+        $pop->close();
 
         break;
 }

@@ -8,6 +8,7 @@ NOCC 1.6  ?? ??, ??
       (openfan).
 
   Patches
+    * Patch #1999529 : NOCC breaks message threads on Reply All (Tobias Mathes).
     * Patch #1999513 : Quota limits format (Tobias Mathes).
     * Patch #1955700 : Updated Czech translation (Ragimiri).
     * Patch #1955195 : Turkish Translation complete (Ismail Özer).
