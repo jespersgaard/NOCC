@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/cy.php,v 1.2 2008/02/09 12:35:59 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/cy.php,v 1.3 2008/03/06 17:04:08 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -165,6 +165,8 @@ $html_wrote = 'ysgrifennwyd';
 $html_size = 'Maint';
 $html_totalsize = 'Cyfanswm maint';
 $html_kb = 'kb';
+$html_mb = 'MB'; //to translate
+$html_gb = 'GB'; //to translate
 $html_bytes = 'beit';
 $html_filename = 'Enw ffeil';
 $html_to = 'I';

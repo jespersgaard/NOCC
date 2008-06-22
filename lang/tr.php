@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/tr.php,v 1.44 2008/05/01 07:53:07 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/tr.php,v 1.45 2008/05/01 11:52:07 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -165,7 +165,9 @@ $html_sent = 'Gönder';
 $html_wrote = 'Yazdı'; 
 $html_size = 'Boyut ';
 $html_totalsize = 'Toplam Boyut';
-$html_kb = ' KB'; 
+$html_kb = ' KB';
+$html_mb = 'MB';
+$html_gb = 'GB';
 $html_bytes = ' Bytes';
 $html_filename = 'Dosya Adı';
 $html_to = 'Alıcı';

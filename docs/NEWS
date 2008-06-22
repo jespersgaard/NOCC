@@ -8,9 +8,10 @@ NOCC 1.6  ?? ??, ??
       (openfan).
 
   Patches
+    * Patch #1999513 : Quota limits format (Tobias Mathes).
     * Patch #1955700 : Updated Czech translation (Ragimiri).
     * Patch #1955195 : Turkish Translation complete (Ismail Özer).
-    * Patch #1921698 : Eliminate deprecated center tag (Tobias Mathes)
+    * Patch #1921698 : Eliminate deprecated center tag (Tobias Mathes).
     * Patch #1916104 : Patch to updated pt-br translation (Renato Frederick).
     * Patch #1915516 : The 2 missing Dutch translations (openfan).
     * Patch #1915151 : NOCC breaks message threads on reply (Tobias Mathes).

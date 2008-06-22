@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/bg.php,v 1.44 2008/02/09 12:35:59 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/bg.php,v 1.45 2008/03/06 17:04:09 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -163,6 +163,8 @@ $html_wrote = 'написа';
 $html_size = 'Големина';
 $html_totalsize = 'Общо';
 $html_kb = 'КБ';
+$html_mb = 'MB'; //to translate
+$html_gb = 'GB'; //to translate
 $html_bytes = 'байта';
 $html_filename = 'име на файл';
 $html_to = 'За';

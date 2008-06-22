@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.100 2008/04/27 18:31:58 gerundt Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.101 2008/04/27 18:41:06 gerundt Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -75,11 +75,11 @@ if ($pop->is_imap()) {
                         &nbsp;
                         <?php
                           if (isset($_SESSION['quota_enable']) && $_SESSION['quota_enable'] == true) { 
-                            if ($_SESSION['quota_type'] == 'STORAGE') {
-                              echo '<span class="currentQuota">' . $_SESSION['quota'][$_SESSION['quota_type']]['usage'] . $html_kb . '</span><span class="maxQuota"> / ' . $_SESSION['quota'][$_SESSION['quota_type']]['limit'] . $html_kb . '</span>';
-                            } else {
-                              echo '<span class="currentQuota">' . $_SESSION['quota'][$_SESSION['quota_type']]['usage'] . $html_msgs . '</span><span class="maxQuota"> / ' . $_SESSION['quota'][$_SESSION['quota_type']]['limit'] . $html_msgs . '</span>';
-                            }
+                              if ($_SESSION['quota_type'] == 'STORAGE') {
+                                  echo '<span class="currentQuota">' . format_quota($_SESSION['quota'][$_SESSION['quota_type']]['usage']) . '</span><span class="maxQuota"> / ' . format_quota($_SESSION['quota'][$_SESSION['quota_type']]['limit']) . '</span>';
+                              } else {
+                                  echo '<span class="currentQuota">' . $_SESSION['quota'][$_SESSION['quota_type']]['usage'] . $html_msgs . '</span><span class="maxQuota"> / ' . $_SESSION['quota'][$_SESSION['quota_type']]['limit'] . $html_msgs . '</span>';
+                              }
                           }
                         ?>
                       </td>
@@ -119,27 +119,27 @@ if ($pop->is_imap()) {
                           <th class="column0"></th>
                           <?php
                             foreach ($conf->column_order as $column) { //For all columns...
-                              switch ($column) {
-                                case '1': $column_title = $html_from; break;
-                                case '2': $column_title = $html_to; break;
-                                case '3': $column_title = $html_subject; break;
-                                case '4': $column_title = $html_date; break;
-                                case '5': $column_title = $html_size; break;
-                                case '6': $column_title = ''; break;
-                                case '7': $column_title = ''; break;
-                              }
-                              echo '<th class="column'.$column; if ($_SESSION['nocc_sort'] == $column) echo ' sorted'; echo '">';
-                              if ($column_title != '') { //If we have a column title...
-                                echo '<a href="'.$_SERVER['PHP_SELF'].'?sort='.$column.'&amp;sortdir='.$new_sortdir.'">'.$column_title.'</a>';
-                                if ($_SESSION['nocc_sort'] == $column) {
-                                  echo '&nbsp;';
-                                  echo '<a href="'.$_SERVER['PHP_SELF'].'?sort='.$column.'&amp;sortdir='.$new_sortdir.'">';
-                                  echo '  <img src="themes/'.$_SESSION['nocc_theme'].'/img/'.$arrow.'.png" class="sort" alt="'.$html_sort.'" title="'.$html_sort_by.' '.$column_title.'" />';
-                                  echo '</a>';
+                                switch ($column) {
+                                    case '1': $column_title = $html_from; break;
+                                    case '2': $column_title = $html_to; break;
+                                    case '3': $column_title = $html_subject; break;
+                                    case '4': $column_title = $html_date; break;
+                                    case '5': $column_title = $html_size; break;
+                                    case '6': $column_title = ''; break;
+                                    case '7': $column_title = ''; break;
                                 }
-                              }
-                              echo '</th>';
+                                echo '<th class="column'.$column; if ($_SESSION['nocc_sort'] == $column) echo ' sorted'; echo '">';
+                                if ($column_title != '') { //If we have a column title...
+                                    echo '<a href="'.$_SERVER['PHP_SELF'].'?sort='.$column.'&amp;sortdir='.$new_sortdir.'">'.$column_title.'</a>';
+                                    if ($_SESSION['nocc_sort'] == $column) {
+                                        echo '&nbsp;';
+                                        echo '<a href="'.$_SERVER['PHP_SELF'].'?sort='.$column.'&amp;sortdir='.$new_sortdir.'">';
+                                        echo '  <img src="themes/'.$_SESSION['nocc_theme'].'/img/'.$arrow.'.png" class="sort" alt="'.$html_sort.'" title="'.$html_sort_by.' '.$column_title.'" />';
+                                        echo '</a>';
+                                    }
+                                }
+                                echo '</th>';
                             }
                           ?>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.100 2008/04/27 18:31:58 gerundt Exp $ -->
+<!-- end of $Id: html_top_table.php,v 1.101 2008/04/27 18:41:06 gerundt Exp $ -->

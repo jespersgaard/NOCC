@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.63 2008/02/09 12:35:59 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pt.php,v 1.64 2008/03/06 17:04:05 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -165,6 +165,8 @@ $html_wrote = 'escreveu';
 $html_size = 'Tamanho';
 $html_totalsize = 'Tamanho Total';
 $html_kb = 'kB'; //to translate
+$html_mb = 'MB'; //to translate
+$html_gb = 'GB'; //to translate
 $html_bytes = 'bytes'; //to translate
 $html_filename = 'Ficheiro';
 $html_to = 'Para';

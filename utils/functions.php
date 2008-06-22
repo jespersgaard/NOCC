@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/utils/functions.php,v 1.3 2008/03/16 09:12:12 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/utils/functions.php,v 1.4 2008/03/26 07:29:53 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -14,8 +14,7 @@ require_once './classes/class_local.php';
 
 /* ----------------------------------------------------- */
 
-function inbox(&$pop, $skip = 0, &$ev)
-{
+function inbox(&$pop, $skip = 0, &$ev) {
     global $conf;
     global $charset;
 
@@ -169,8 +168,7 @@ function inbox(&$pop, $skip = 0, &$ev)
 }
 
 /* ----------------------------------------------------- */
-function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
-{
+function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     global $conf;
     global $lang_locale;
     global $no_locale_date_format;
@@ -304,15 +302,15 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
     if(NoccException::isException($ev)) return;
     $msg_charset = '';
     if ($struct_msg->ifparameters) {
-      while ($obj = array_pop($struct_msg->parameters)) {
-        if (strtolower($obj->attribute) == 'charset') {
-          $msg_charset = $obj->value;
-          break;
+        while ($obj = array_pop($struct_msg->parameters)) {
+            if (strtolower($obj->attribute) == 'charset') {
+                $msg_charset = $obj->value;
+                break;
+            }
         }
-      }
     }
     if ($msg_charset == '') {
-      $msg_charset = 'ISO-8859-1';
+        $msg_charset = 'ISO-8859-1';
     }
 
     // Get subject
@@ -381,8 +379,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev)
 /* ----------------------------------------------------- */
 
 // based on a function from matt@bonneau.net
-function GetPart(&$attach_tab, &$this_part, $part_no, &$display_rfc822)
-{
+function GetPart(&$attach_tab, &$this_part, $part_no, &$display_rfc822) {
     $att_name = '[unknown]';
     if ($this_part->ifdescription == true)
         $att_name = $this_part->description;
@@ -391,7 +388,7 @@ function GetPart(&$attach_tab, &$this_part, $part_no, &$display_rfc822)
         // PHP 5.x doesn't allow to convert a stdClass object to an array
         // We sometimes have this issue with Mailer daemon reports
         if (!(get_class($this_part->parameters) == "stdClass") &&
-          !(get_class($this_part->parameters) == "stdclass")) { 
+                !(get_class($this_part->parameters) == "stdclass")) { 
             $param = $this_part->parameters[$i];
             if ((($param->attribute == 'NAME') || ($param->attribute == 'name')) && ($param->value != ''))
             {
@@ -412,8 +409,8 @@ function GetPart(&$attach_tab, &$this_part, $part_no, &$display_rfc822)
                 for ($i = 0; $i < count($this_part->parts); $i++)
                 {
                     if ($part_no != '') {
-                      if (substr($part_no,-1) != '.')
-                        $part_no = $part_no . '.';
+                        if (substr($part_no,-1) != '.')
+                            $part_no = $part_no . '.';
                     }
                     // if it's an alternative, we skip the text part to only keep the HTML part
                     if ($this_part->subtype == 'ALTERNATIVE')// && $read == true)
@@ -512,8 +509,7 @@ function GetPart(&$attach_tab, &$this_part, $part_no, &$display_rfc822)
 
 // BUG: returns text/plain when Content-Type: application/x-zip (e.g.)
 
-function GetSinglePart(&$attach_tab, &$this_part, &$header, &$body)
-{
+function GetSinglePart(&$attach_tab, &$this_part, &$header, &$body) {
     if (eregi('text/html', $header))
         $full_mime_type = 'text/html';
     else
@@ -572,8 +568,7 @@ function GetSinglePart(&$attach_tab, &$this_part, &$header, &$body)
 
 /* ----------------------------------------------------- */
 
-function remove_stuff(&$body, &$mime)
-{
+function remove_stuff(&$body, &$mime) {
     $PHP_SELF = $_SERVER['PHP_SELF'];
 
     $lang = $_SESSION['nocc_lang'];
@@ -613,20 +608,19 @@ function remove_stuff(&$body, &$mime)
         // $body = eregi_replace("([#a-zA-Z0-9+-._]*)@([#a-zA-Z0-9+-_.]*)\.([a-zA-Z]+)","<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1@\\2.\\3\">\\1@\\2.\\3</a>", $body);
         $body = preg_replace("/([0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,})/", "<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1\">\\1</a>", $body); 
         if ( !isset($user_prefs->colored_quotes) || (isset($user_prefs->colored_quotes) && $user_prefs->colored_quotes)) {
-          $body = preg_replace('/^(&gt; *&gt; *&gt; *&gt; *&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel5">\\1\\2</span>\\3', $body);
-          $body = preg_replace('/^(&gt; *&gt; *&gt; *&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel4">\\1\\2</span>\\3', $body);
-          $body = preg_replace('/^(&gt; *&gt; *&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel3">\\1\\2</span>\\3', $body);
-          $body = preg_replace('/^(&gt; *&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel2">\\1\\2</span>\\3', $body);
-          $body = preg_replace('/^(&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel1">\\1\\2</span>\\3', $body);
+            $body = preg_replace('/^(&gt; *&gt; *&gt; *&gt; *&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel5">\\1\\2</span>\\3', $body);
+            $body = preg_replace('/^(&gt; *&gt; *&gt; *&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel4">\\1\\2</span>\\3', $body);
+            $body = preg_replace('/^(&gt; *&gt; *&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel3">\\1\\2</span>\\3', $body);
+            $body = preg_replace('/^(&gt; *&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel2">\\1\\2</span>\\3', $body);
+            $body = preg_replace('/^(&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel1">\\1\\2</span>\\3', $body);
         }
         if (isset($user_prefs->display_struct) && $user_prefs->display_struct) {
-          $body = preg_replace('/(\s)\+\/-/', '\\1&plusmn;', $body); // +/-
-          $body = preg_replace('/(\w|\))\^([0-9]+)/', '\\1<sup>\\2</sup>', $body); // 10^6, a^2, (a+b)^2
-          $body = preg_replace('/(\s)(\*)([^\s\*]+[^\*\r\n]+)(\*)/', '\\1<strong>\\2\\3\\4</strong>', $body); // *strong*
-          $body = preg_replace('/(\s)(\/)([^\s\/]+[^\/\r\n<>]+)(\/)/', '\\1<em>\\2\\3\\4</em>', $body); // /emphasis/
-          $body = preg_replace('/(\s)(_)([^\s_]+[^_\r\n]+)(_)/', '\\1<span style="text-decoration:underline">\\2\\3\\4</span>', $body); // _underline_
-          $body = preg_replace('/(\s)(\|)([^\s\|]+[^\|\r\n]+)(\|)/', '\\1<code>\\2\\3\\4</code>', $body); // |code|
-
+            $body = preg_replace('/(\s)\+\/-/', '\\1&plusmn;', $body); // +/-
+            $body = preg_replace('/(\w|\))\^([0-9]+)/', '\\1<sup>\\2</sup>', $body); // 10^6, a^2, (a+b)^2
+            $body = preg_replace('/(\s)(\*)([^\s\*]+[^\*\r\n]+)(\*)/', '\\1<strong>\\2\\3\\4</strong>', $body); // *strong*
+            $body = preg_replace('/(\s)(\/)([^\s\/]+[^\/\r\n<>]+)(\/)/', '\\1<em>\\2\\3\\4</em>', $body); // /emphasis/
+            $body = preg_replace('/(\s)(_)([^\s_]+[^_\r\n]+)(_)/', '\\1<span style="text-decoration:underline">\\2\\3\\4</span>', $body); // _underline_
+            $body = preg_replace('/(\s)(\|)([^\s\|]+[^\|\r\n]+)(\|)/', '\\1<code>\\2\\3\\4</code>', $body); // |code|
         }
 
         // Disable incoming message wordwrapping. Plain text message formatting should be done by the writter.
@@ -640,12 +634,11 @@ function remove_stuff(&$body, &$mime)
 
 /* ----------------------------------------------------- */
 
-function link_att(&$mail, $attach_tab, &$display_part_no)
-{
+function link_att(&$mail, $attach_tab, &$display_part_no) {
     global $html_kb;
     sort($attach_tab);
     $link = '';
-    while ($tmp = array_shift($attach_tab))
+    while ($tmp = array_shift($attach_tab)) {
         if (!empty($tmp['name']))
         {
             $mime = str_replace('/', '-', $tmp['mime']);
@@ -655,20 +648,20 @@ function link_att(&$mail, $attach_tab, &$display_part_no)
             $att_name_array = nocc_imap::mime_header_decode($tmp['name']);
             $att_name = '';
             for ($i=0; $i<count($att_name_array); $i++) {
-              $att_name .= $att_name_array[$i]->text;
+                $att_name .= $att_name_array[$i]->text;
             }
             $att_name_dl = $att_name;
             $att_name = convertLang2Html($att_name);
             $link .= '<a href="download.php?mail=' . $mail . '&amp;part=' . $tmp['number'] . '&amp;transfer=' . $tmp['transfer'] . '&amp;filename=' . base64_encode($att_name_dl) . '&amp;mime=' . $mime . '">' . $att_name . '</a>&nbsp;&nbsp;' . $tmp['mime'] . '&nbsp;&nbsp;' . $tmp['size'] . ' ' . $html_kb . '<br/>';
         }
+    }
     return ($link);
 }
 
 /* ----------------------------------------------------- */
 // Return date formatted as a string, according to locale
 
-function format_date(&$date, &$lang)
-{
+function format_date(&$date, &$lang) {
     global $default_date_format;
     global $lang_locale;
     global $no_locale_date_format;
@@ -685,8 +678,7 @@ function format_date(&$date, &$lang)
     return strftime($default_date_format, $date); 
 }
 
-function format_time(&$time, &$lang)
-{
+function format_time(&$time, &$lang) {
     global $default_time_format;
     global $lang_locale;
 
@@ -705,8 +697,7 @@ function format_time(&$time, &$lang)
 /* ----------------------------------------------------- */
 
 // We have to figure out the entire mail size
-function get_mail_size(&$this_part)
-{
+function get_mail_size(&$this_part) {
     $size = (isset($this_part->bytes) ? $this_part->bytes : 0);
     if (isset($this_part->parts))
         for ($i = 0; $i < count($this_part->parts); $i++)
@@ -718,8 +709,7 @@ function get_mail_size(&$this_part)
 /* ----------------------------------------------------- */
 
 // this function build an array with all the recipients of the message for later reply or reply all 
-function get_reply_all(&$from, &$to, &$cc)
-{
+function get_reply_all(&$from, &$to, &$cc) {
     $login = $_SESSION['nocc_login'];
     $domain = $_SESSION['nocc_domain'];
     if (!eregi($login.'@'.$domain, $from))
@@ -739,8 +729,7 @@ function get_reply_all(&$from, &$to, &$cc)
 /* ----------------------------------------------------- */
 
 // We need that to build a correct list of all the recipient when we send a message
-function cut_address(&$addr, &$charset)
-{
+function cut_address(&$addr, &$charset) {
     global $charset;
     // Strip slashes from input
     $addr = safestrip($addr);
@@ -800,8 +789,7 @@ function cut_address(&$addr, &$charset)
 
 /* ----------------------------------------------------- */
 
-function view_part(&$pop, &$mail, $part_no, &$transfer, &$msg_charset, &$charset)
-{
+function view_part(&$pop, &$mail, $part_no, &$transfer, &$msg_charset, &$charset) {
     if(isset($ev) && NoccException::isException($ev)) {
         return "<p class=\"error\">".$ev->getMessage."</p>";
     }
@@ -822,18 +810,7 @@ function view_part(&$pop, &$mail, $part_no, &$transfer, &$msg_charset, &$charset
 
 /* ----------------------------------------------------- */
 
-function encode_mime(&$string, &$charset)
-{ 
-    /*$text = '=?' . $charset . '?Q?'; 
-    for($i = 0; $i < strlen($string); $i++ )
-    { 
-        $val = ord($string[$i]); 
-        $val = dechex($val); 
-        $text .= '=' . $val; 
-    } 
-    $text .= '?='; 
-    return ($text);
-    */
+function encode_mime(&$string, &$charset) { 
     $string = rawurlencode($string);
     $string = str_replace('%', '=', $string);
     $string = '=?' . $charset . '?Q?' . $string . '?=';
@@ -844,8 +821,7 @@ function encode_mime(&$string, &$charset)
 
 // This function removes temporary attachment files and
 // removes any attachment information from the session
-function clear_attachments()
-{
+function clear_attachments() {
     global $conf;
     if (isset($_SESSION['nocc_attach_array']) && is_array($_SESSION['nocc_attach_array']))
         while ($tmp = array_shift($_SESSION['nocc_attach_array']))
@@ -858,8 +834,7 @@ function clear_attachments()
 // This function chops the <mail@domain.com> bit from a 
 // full 'Blah Blah <mail@domain.com>' address, or not
 // depending on the 'hide_addresses' preference.
-function display_address(&$address)
-{
+function display_address(&$address) {
     global $html_att_unknown;
     // Check for null
     if($address == '')
@@ -884,75 +859,70 @@ function display_address(&$address)
     //return substr($address, 0, $bracketpos - 1);
     $formatted_address = '';
     while (!($bracketpos === false)) {
-      $formatted_address = substr($address, 0, $bracketpos - 1);
-      $formatted_address .= substr($address, strpos($address, ">")+1);
-      $address = $formatted_address;
-      $bracketpos = strpos($address, "<");
+        $formatted_address = substr($address, 0, $bracketpos - 1);
+        $formatted_address .= substr($address, strpos($address, ">")+1);
+        $address = $formatted_address;
+        $bracketpos = strpos($address, "<");
     }
     return $address;
 }
 
 /* ----------------------------------------------------- */
 
-function mailquote(&$body, &$from, $html_wrote)
-{
+function mailquote(&$body, &$from, $html_wrote) {
     $user_prefs = $_SESSION['nocc_user_prefs'];
 
-  $crlf = "\r\n";
-  $from = ucwords(trim(ereg_replace("&lt;.*&gt;", "", str_replace("\"", "", $from))));
+    $crlf = "\r\n";
+    $from = ucwords(trim(ereg_replace("&lt;.*&gt;", "", str_replace("\"", "", $from))));
 
-  if (isset($user_prefs->wrap_msg)) {
-    $wrap_msg = $user_prefs->wrap_msg;
-  } else {
-    $wrap_msg = 0;
-  }
-  // If we must wrap the message
-  if ($wrap_msg)
-    {
-      $msg = '';
-      //Break message in table with "\r\n" as separator
-      $tbl = explode ("\r\n", $body);
-      // For each line
-      for ($i = 0, $buffer = ''; $i < count ($tbl); ++$i)
-        {
-          unset($buffer);
-          // Number of "> "
-          $q = substr_count($tbl[$i], "> ");
+    if (isset($user_prefs->wrap_msg)) {
+        $wrap_msg = $user_prefs->wrap_msg;
+    } else {
+        $wrap_msg = 0;
+    }
+    // If we must wrap the message
+    if ($wrap_msg) {
+        $msg = '';
+        //Break message in table with "\r\n" as separator
+        $tbl = explode ("\r\n", $body);
+        // For each line
+        for ($i = 0, $buffer = ''; $i < count ($tbl); ++$i) {
+            unset($buffer);
+            // Number of "> "
+            $q = substr_count($tbl[$i], "> ");
 
-          $tbl[$i] = rtrim ($tbl[$i]);
-          // Erase the "> "
-          $tbl[$i] = str_replace ("> ", "", $tbl[$i]);
-          // Erase the break line
-          $tbl[$i] = str_replace ("\n", " ", $tbl[$i]);
-          // length of "> > ...."
-          $length = ($q + 1) * strlen ("> ");
-          // Add the quote if ligne is not to long
-          if (strlen ($tbl[$i]) + $length <= $wrap_msg)
-            $msg .= str_pad($tbl[$i], strlen ($tbl[$i]) + $length, "> ", STR_PAD_LEFT) . $crlf;
-          // If line is to long, create new line
-          else
-            {
-              $words = explode (" ", $tbl[$i]);
-              $buffer = '';
-              for ($j = 0; $j < count ($words); ++$j)
-                {
-                  if (strlen ($buffer) + strlen ($words[$j]) + $length <= $wrap_msg)
-                      $buffer .= $words[$j] . " ";
-                  else
-                    {
-                      $msg .=  str_pad(rtrim ($buffer), strlen (rtrim ($buffer)) + $length, "> ", STR_PAD_LEFT) . $crlf;
-                      $buffer = $words[$j] . " ";
+            $tbl[$i] = rtrim ($tbl[$i]);
+            // Erase the "> "
+            $tbl[$i] = str_replace ("> ", "", $tbl[$i]);
+            // Erase the break line
+            $tbl[$i] = str_replace ("\n", " ", $tbl[$i]);
+            // length of "> > ...."
+            $length = ($q + 1) * strlen ("> ");
+            // Add the quote if ligne is not to long
+            if (strlen ($tbl[$i]) + $length <= $wrap_msg)
+                $msg .= str_pad($tbl[$i], strlen ($tbl[$i]) + $length, "> ", STR_PAD_LEFT) . $crlf;
+            // If line is to long, create new line
+            else {
+                $words = explode (" ", $tbl[$i]);
+                $buffer = '';
+                for ($j = 0; $j < count ($words); ++$j) {
+                    if (strlen ($buffer) + strlen ($words[$j]) + $length <= $wrap_msg)
+                        $buffer .= $words[$j] . " ";
+                    else {
+                        $msg .=  str_pad(rtrim ($buffer), strlen (rtrim ($buffer)) + $length, "> ", STR_PAD_LEFT) . $crlf;
+                        $buffer = $words[$j] . " ";
                     }
                 }
-              //if ($q != substr_count($tbl[$i + 1], "> "))
-              $msg .= str_pad(rtrim ($buffer), strlen (rtrim ($buffer)) + $length, "> ", STR_PAD_LEFT) . $crlf;
+                //if ($q != substr_count($tbl[$i + 1], "> "))
+                $msg .= str_pad(rtrim ($buffer), strlen (rtrim ($buffer)) + $length, "> ", STR_PAD_LEFT) . $crlf;
             }
         }
-      $body = $msg;
+        $body = $msg;
+    } else {
+        $body = "> " . ereg_replace("\n", "\n> ", trim($body));
     }
-  else
-    $body = "> " . ereg_replace("\n", "\n> ", trim($body));
-  return($from . ' ' . $html_wrote . " :\n\n" . $body);
+    
+    return($from . ' ' . $html_wrote . " :\n\n" . $body);
 
 }
 /* ----------------------------------------------------- */
@@ -960,8 +930,7 @@ function mailquote(&$body, &$from, $html_wrote)
 // If running with magic_quotes_gpc (get/post/cookie) set
 // in php.ini, we will need to strip slashes from every
 // field we receive from a get/post operation.
-function safestrip(&$string)
-{
+function safestrip(&$string) {
     if(get_magic_quotes_gpc())
         $string = stripslashes($string);
     return $string;
@@ -969,57 +938,50 @@ function safestrip(&$string)
 
 
 // Wrap outgoing messages to
-function wrap_outgoing_msg ($txt, $length, $newline)
-{
-  $msg = '';
-  // cut message in segment
-  $tbl = explode ("\r\n", $txt);
-  // Clean the end of the line
-  for ($i = 0, $buffer = ''; $i < count ($tbl); ++$i)
-    {
-      $tbl[$i] = rtrim ($tbl[$i]);
-      if (strlen ($tbl[$i]) <= $length)
-        $msg .= $tbl[$i] . $newline;
-      else
-        {
-          unset( $buffer);
-          $words = explode (" ", $tbl[$i]);
-          for ($j = 0; $j < count ($words); ++$j)
-            {
-              if ((strlen ($buffer) + strlen ($words[$j])) <= $length)
-                $buffer .= $words[$j] . " ";
-              else
-                {
-                  $msg .= rtrim ($buffer) . $newline;
-                  $buffer = $words[$j] . " ";
+function wrap_outgoing_msg ($txt, $length, $newline) {
+    $msg = '';
+    // cut message in segment
+    $tbl = explode ("\r\n", $txt);
+    // Clean the end of the line
+    for ($i = 0, $buffer = ''; $i < count ($tbl); ++$i) {
+        $tbl[$i] = rtrim ($tbl[$i]);
+        if (strlen ($tbl[$i]) <= $length)
+            $msg .= $tbl[$i] . $newline;
+        else {
+            unset( $buffer);
+            $words = explode (" ", $tbl[$i]);
+            for ($j = 0; $j < count ($words); ++$j) {
+                if ((strlen ($buffer) + strlen ($words[$j])) <= $length)
+                    $buffer .= $words[$j] . " ";
+                else {
+                    $msg .= rtrim ($buffer) . $newline;
+                    $buffer = $words[$j] . " ";
                 }
             }
-          $msg .= rtrim ($buffer) . $newline;
+            $msg .= rtrim ($buffer) . $newline;
         }
     }
-  return $msg;
+    return $msg;
 }
 
-function escape_dots ($txt)
-{
-  $crlf = "\r\n";
-  $msg = '';
+function escape_dots ($txt) {
+    $crlf = "\r\n";
+    $msg = '';
 
-  // cut message in segment
-  $tbl = explode ($crlf, $txt);
+    // cut message in segment
+    $tbl = explode ($crlf, $txt);
 
-  for ($i = 0; $i < count($tbl); ++$i) {
-    if(strlen($tbl[$i]) != 0 && $tbl[$i][0] == '.')
-      $tbl[$i] = "." . $tbl[$i];
+    for ($i = 0; $i < count($tbl); ++$i) {
+        if(strlen($tbl[$i]) != 0 && $tbl[$i][0] == '.')
+            $tbl[$i] = "." . $tbl[$i];
 
-    $msg .= $tbl[$i] . $crlf;
-  }
+        $msg .= $tbl[$i] . $crlf;
+    }
 
-  return $msg;
+    return $msg;
 }
 
-function strip_tags2(&$string, $allow)
-{
+function strip_tags2(&$string, $allow) {
     $string = eregi_replace('<<', '<nocc_less_than_tag><', $string);
     $string = eregi_replace('>>', '><nocc_greater_than_tag>;', $string);
     $string = strip_tags($string, $allow . '<nocc_less_than_tag><nocc_greater_than_tag>');
@@ -1030,8 +992,7 @@ function strip_tags2(&$string, $allow)
 /* ----------------------------------------------------- */
 
 // Check e-mail address and return TRUE if it looks valid.
-function valid_email($email)
-{
+function valid_email($email) {
     /* Regex of valid characters */
     $regexp = "^[A-Za-z0-9\._-]+@([A-Za-z0-9][A-Za-z0-9-]{1,62})(\.[A-Za-z0-9][A-Za-z0-9-]{1,62})+$";
     if(!ereg($regexp, $email))
@@ -1044,31 +1005,30 @@ function get_per_page() {
     $user_prefs = $_SESSION['nocc_user_prefs'];
     $msg_per_page = 0;
     if (isset($conf->msg_per_page))
-            $msg_per_page = $conf->msg_per_page;
+        $msg_per_page = $conf->msg_per_page;
     if (isset($user_prefs->msg_per_page))
-            $msg_per_page = $user_prefs->msg_per_page;
+        $msg_per_page = $user_prefs->msg_per_page;
     // Failsafe
     if($msg_per_page < 1)
-            $msg_per_page = 25;
+        $msg_per_page = 25;
+
     return $msg_per_page;
 }
 
 // ============================ Contact List ==================================
 
-function load_list ($path)
-{
+function load_list ($path) {
    $fp = @fopen($path, "r");
    if (!$fp)
-     return array();
+       return array();
    // Create the contact list
    $contacts = array ();
    // Load the contact list
-   while(!feof ($fp))
-     {
+   while(!feof ($fp)) {
        $buffer = trim(fgets($fp, 4096));
        if ($buffer != "")
-         array_push ($contacts, $buffer);
-     }
+           array_push ($contacts, $buffer);
+   }
 
    fclose($fp);
    // return the list
@@ -1076,164 +1036,185 @@ function load_list ($path)
 }
 
 
-function save_list ($path, $contacts, $conf, &$ev)
-{
-  include ('lang/' . $_SESSION['nocc_lang'] . '.php');
-  if(file_exists($path) && !is_writable($path)){
-     $ev = new NoccException($html_err_file_contacts);
-     return;
-  }
-  if (!is_writeable($conf->prefs_dir)) {
-      $ev = new NoccException($html_err_file_contacts);
-      return;
-  }
-  $fp = fopen($path, "w");
+function save_list ($path, $contacts, $conf, &$ev) {
+    include ('lang/' . $_SESSION['nocc_lang'] . '.php');
+    if (file_exists($path) && !is_writable($path)) {
+        $ev = new NoccException($html_err_file_contacts);
+        return;
+    }
+    if (!is_writeable($conf->prefs_dir)) {
+        $ev = new NoccException($html_err_file_contacts);
+        return;
+    }
+    $fp = fopen($path, "w");
 
-  for ($i = 0; $i < count ($contacts); ++$i)
-  {
-      if (trim($contacts[$i]) != "")
-          fwrite ($fp, $contacts[$i]."\n");
-  }
+    for ($i = 0; $i < count ($contacts); ++$i) {
+        if (trim($contacts[$i]) != "")
+            fwrite ($fp, $contacts[$i]."\n");
+    }
 
-  fclose($fp);
+    fclose($fp);
 }
 
 // Convert html entities to normal characters
-function unhtmlentities ($string)
-{
-   $trans_tbl = get_html_translation_table (HTML_ENTITIES);
-   $trans_tbl = array_flip ($trans_tbl);
-   return strtr ($string, $trans_tbl);
+function unhtmlentities ($string) {
+    $trans_tbl = get_html_translation_table (HTML_ENTITIES);
+    $trans_tbl = array_flip ($trans_tbl);
+    return strtr ($string, $trans_tbl);
 }
 
 // Convert mail data (from, to, ...) to HTML
 function convertMailData2Html($maildata, $cutafter = 0) {
-  if (($cutafter > 0) && (strlen($maildata) > $cutafter)) {
-    return htmlspecialchars(substr($maildata, 0, $cutafter)) . '&hellip;';
-  } else {
-    return htmlspecialchars($maildata);
-  }
+    if (($cutafter > 0) && (strlen($maildata) > $cutafter)) {
+        return htmlspecialchars(substr($maildata, 0, $cutafter)) . '&hellip;';
+    } else {
+        return htmlspecialchars($maildata);
+    }
 }
 
 // Save session informations.
-function saveSession(&$ev)
-{
-  global $conf;
-  if (!empty($conf->prefs_dir)) {
-    // generate string with session information
-    unset ($cookie_string);
-    $cookie_string = $_SESSION['nocc_user'];
-    $cookie_string .= " " . $_SESSION['nocc_passwd'];
-    $cookie_string .= " " . $_SESSION['nocc_login'];
-    $cookie_string .= " " . $_SESSION['nocc_lang'];
-    $cookie_string .= " " . $_SESSION['nocc_smtp_server'];
-    $cookie_string .= " " . $_SESSION['nocc_smtp_port'];
-    $cookie_string .= " " . $_SESSION['nocc_theme'];
-    $cookie_string .= " " . $_SESSION['nocc_domain'];
-    $cookie_string .= " " . $_SESSION['imap_namespace'];
-    $cookie_string .= " " . $_SESSION['nocc_servr'];
-    $cookie_string .= " " . $_SESSION['nocc_folder'];
-    $cookie_string .= " " . $_SESSION['smtp_auth'];
-    $cookie_string .= " " . $_SESSION['ucb_pop_server'];
-    $cookie_string .= " " . $_SESSION['quota_enable'];
-    $cookie_string .= " " . $_SESSION['quota_type'];
+function saveSession(&$ev) {
+    global $conf;
+    if (!empty($conf->prefs_dir)) {
+         // generate string with session information
+        unset ($cookie_string);
+        $cookie_string = $_SESSION['nocc_user'];
+        $cookie_string .= " " . $_SESSION['nocc_passwd'];
+        $cookie_string .= " " . $_SESSION['nocc_login'];
+        $cookie_string .= " " . $_SESSION['nocc_lang'];
+        $cookie_string .= " " . $_SESSION['nocc_smtp_server'];
+        $cookie_string .= " " . $_SESSION['nocc_smtp_port'];
+        $cookie_string .= " " . $_SESSION['nocc_theme'];
+        $cookie_string .= " " . $_SESSION['nocc_domain'];
+        $cookie_string .= " " . $_SESSION['imap_namespace'];
+        $cookie_string .= " " . $_SESSION['nocc_servr'];
+        $cookie_string .= " " . $_SESSION['nocc_folder'];
+        $cookie_string .= " " . $_SESSION['smtp_auth'];
+        $cookie_string .= " " . $_SESSION['ucb_pop_server'];
+        $cookie_string .= " " . $_SESSION['quota_enable'];
+        $cookie_string .= " " . $_SESSION['quota_type'];
 
-    // encode cookie string to base64
-    $cookie_string = base64_encode($cookie_string);
+        // encode cookie string to base64
+        $cookie_string = base64_encode($cookie_string);
 
-    // save string to file
-    $filename = $conf->prefs_dir . '/' . $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'] . '.session';
-    if (file_exists($filename) && !is_writable($filename)) {
-      $ev = new NoccException($html_session_file_error);
-      return;
+        // save string to file
+        $filename = $conf->prefs_dir . '/' . $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'] . '.session';
+        if (file_exists($filename) && !is_writable($filename)) {
+            $ev = new NoccException($html_session_file_error);
+            return;
+        }
+        if (!is_writable($conf->prefs_dir)) {
+            $ev = new NoccException($html_session_file_error);
+            return;
+        }
+        $file = fopen($filename, 'w');
+        if (!$file) {
+            $ev = new NoccException($html_session_file_error);
+            return;
+        }
+        fwrite ($file, $cookie_string . "\n");
+        fclose ($file);
     }
-    if (!is_writable($conf->prefs_dir)) {
-      $ev = new NoccException($html_session_file_error);
-      return;
-    }
-    $file = fopen($filename, 'w');
-    if (!$file) {
-      $ev = new NoccException($html_session_file_error);
-      return;
-    }
-    fwrite ($file, $cookie_string . "\n");
-    fclose ($file);
-  }
 }
 
 // Restore session informations.
-function loadSession(&$ev, &$key)
-{
-  global $conf;
+function loadSession(&$ev, &$key) {
+    global $conf;
 
-  if (empty($conf->prefs_dir)) {
-    return '';
-  }
+    if (empty($conf->prefs_dir)) {
+        return '';
+    }
 
-  $filename = $conf->prefs_dir . '/' . $key . '.session';
-  if (!file_exists($filename)) {
-    return '';
-  }
+    $filename = $conf->prefs_dir . '/' . $key . '.session';
+    if (!file_exists($filename)) {
+        return '';
+    }
 
-  $file = fopen($filename, 'r');
-  if (!$file) {
-    $ev = new NoccException("Could not open $filename for reading user session");
-    return '';
-  }
+    $file = fopen($filename, 'r');
+    if (!$file) {
+        $ev = new NoccException("Could not open $filename for reading user session");
+        return '';
+    }
 
-  $line = trim(fgets($file, 1024));
-  return $line;
+    $line = trim(fgets($file, 1024));
+    return $line;
 }
 
 // Convert a language string to HTML
 function convertLang2Html($langstring) {
-  global $charset;
-  return htmlentities($langstring, ENT_COMPAT, $charset);
+    global $charset;
+    return htmlentities($langstring, ENT_COMPAT, $charset);
 }
 
 // Wrapper for iconv if GNU iconv is not used
 function os_iconv($input_charset, $output_charset, &$text) {
-  if (strlen($text) == 0) {
-    return $text;
-  }
-
-  if (PHP_OS == 'AIX') {
-    // AIX has its own small selection of names.
-    $input_charset = strtolower($input_charset);
-    if ($input_charset == 'x-unknown' || $input_charset == 'us-ascii')
-    {
-      $input_charset = 'ISO8859-1';
-    } else if (ereg('^iso[-_]?8859[-_]?([1-9][0-9]?)', $input_charset, $groups))
-    {
-      $input_charset = 'ISO8859-' . $groups[0];
-    } else if (ereg('^(windows|cp|ibm)[-_]?([0-9]+)$', $input_charset, $groups))
-    {
-      $input_charset = 'IBM-' . str_pad($groups[1], 3, '0', STR_PAD_LEFT);
+    if (strlen($text) == 0) {
+        return $text;
     }
-  } else {
-    // Assume default GNU iconv.
-    if ($input_charset == 'x-unknown') {
-      $input_charset = 'ISO-8859-1';
-    }
-  }
 
-  return @iconv($input_charset, $output_charset, $text);
+    if (PHP_OS == 'AIX') {
+        // AIX has its own small selection of names.
+        $input_charset = strtolower($input_charset);
+        if ($input_charset == 'x-unknown' || $input_charset == 'us-ascii') {
+            $input_charset = 'ISO8859-1';
+        } else if (ereg('^iso[-_]?8859[-_]?([1-9][0-9]?)', $input_charset, $groups)) {
+            $input_charset = 'ISO8859-' . $groups[0];
+        } else if (ereg('^(windows|cp|ibm)[-_]?([0-9]+)$', $input_charset, $groups)) {
+            $input_charset = 'IBM-' . str_pad($groups[1], 3, '0', STR_PAD_LEFT);
+        }
+    } else {
+        // Assume default GNU iconv.
+        if ($input_charset == 'x-unknown') {
+            $input_charset = 'ISO-8859-1';
+        }
+    }
+
+    return @iconv($input_charset, $output_charset, $text);
 }
 
 // Build a folder breadcrumb navigation...
 function buildfolderlink($folder) {
-  global $charset;
-  $folderpath = '';
-  // split the string at the periods
-  $elements = explode('.', $folder);
-  for ($i = 0; $i < count($elements); $i++) {
-    if ($i > 0) {
-      $folderpath = $folderpath . '.';
-      echo ".";
+    global $charset;
+    $folderpath = '';
+    // split the string at the periods
+    $elements = explode('.', $folder);
+    for ($i = 0; $i < count($elements); $i++) {
+        if ($i > 0) {
+            $folderpath = $folderpath . '.';
+            echo ".";
+        }
+        $folderpath = $folderpath . $elements[$i];
+        echo "<a href=\"". $_SERVER['PHP_SELF'] . "?folder=" . $folderpath . "\">" . mb_convert_encoding($elements[$i], $charset, 'UTF7-IMAP') . "</a>";
     }
-    $folderpath = $folderpath . $elements[$i];
-    echo "<a href=\"". $_SERVER['PHP_SELF'] . "?folder=" . $folderpath . "\">" . mb_convert_encoding($elements[$i], $charset, 'UTF7-IMAP') . "</a>";
-  }
-  echo "\n";
+    echo "\n";
 }
+
+
+function format_quota($bytes) {
+    // load translated abbreviations
+    global $html_bytes, $html_kb, $html_mb, $html_gb;
+
+    if ($bytes >= 1048576) {
+        // Gigabyte or greater
+        $_size = round($bytes / 1024 / 1024);
+        $formated_quota = $_size.' '.$html_gb;
+        
+        return $formated_quota;
+    } elseif (($bytes < 1048576) && ($bytes >= 1024)) {
+        // Megabyte, but not Gigabyte
+        $_size = round($bytes / 1024);
+        $formated_quota = $_size.' '.$html_mb;
+
+        return $formated_quota;
+    } else {
+        // kilobytes
+        $_size = $bytes;
+        $formated_quota = $_size.' '.$html_kb;
+
+        return $formated_quota;
+    }
+
+    return FALSE;    
+}
+
 ?>
