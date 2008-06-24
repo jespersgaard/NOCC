@@ -1,6 +1,8 @@
 NOCC 1.6  ?? ??, ??
 
   Bugs
+    * Bug #2000880 : No evaluation of themes saved in user preferences (Tobias
+      Mathes).
     * Bug #1994489 : "move deleted mails" doesn't work (Tobias Gesellchen).
     * Bug #1920092 : Reduce PHP Notices when debug set to E_ALL (Arnaud Boudou).
     * Bug #1915569 : Small bug: prefs.php serves invalid XHTML1.1 (openfan).
@@ -8,6 +10,8 @@ NOCC 1.6  ?? ??, ??
       (openfan).
 
   Patches
+    * Patch #2000920 : No evaluation of themes saved in user preferences (Tobias
+      Mathes).
     * Patch #1999529 : NOCC breaks message threads on Reply All (Tobias Mathes).
     * Patch #1999513 : Quota limits format (Tobias Mathes).
     * Patch #1955700 : Updated Czech translation (Ragimiri).
