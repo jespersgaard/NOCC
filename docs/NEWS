@@ -1,5 +1,7 @@
 NOCC 1.7  ?? ??, ??
 
+  Patches
+    * Patch #2010065 : Optimize regexs for remote image security (Tim Gerundt).
 
 NOCC 1.6  July 01, 2008
 
