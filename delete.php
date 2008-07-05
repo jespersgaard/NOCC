@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.57 2008/02/10 21:02:10 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.58 2008/06/18 08:04:47 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -36,7 +36,7 @@ if (isset($_REQUEST['target_folder']) && $_REQUEST['target_folder'] != $folder)
     $target_folder = $_REQUEST['target_folder'];
 
 if (isset($_REQUEST['bottom_target_folder']) && $_REQUEST['bottom_target_folder'] != $folder)
-    $target_folder = $_REQUEST['bottom_target_folder'];
+    $bottom_target_folder = $_REQUEST['bottom_target_folder'];
 
 if (isset($_REQUEST['only_one'])) {
     $mail = $_REQUEST['mail'];
@@ -58,9 +58,9 @@ if (isset($_REQUEST['only_one'])) {
         if ($pop->is_imap()
                 && $user_prefs->trash_folder
                 && $_SESSION['nocc_folder'] != $target_folder ) {
-            $pop->mail_move($i, $target_folder, $ev);
+            $pop->mail_move($mail, $target_folder, $ev);
         } else {
-            $pop->delete($i, $ev);
+            $pop->delete($mail, $ev);
         }
         if ($mail - 1) {
             $url = "action.php?action=aff_mail&mail=".--$mail."&verbose=0";
@@ -71,7 +71,7 @@ if (isset($_REQUEST['only_one'])) {
     }
 } else {
     $msg_to_forward = '';
-    for ($i = 1; $i <= $num_messages; $i++) {
+    for ($i = $num_messages; $i >= 1 ; $i--) {
 
         if (isset($_REQUEST['msg-'.$i])) {
             if (isset($_REQUEST['move_mode'])) {
