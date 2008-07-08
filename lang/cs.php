@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/cs.php,v 1.48 2008/05/02 07:43:05 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/cs.php,v 1.49 2008/06/22 12:22:03 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -164,9 +164,9 @@ $html_sent = 'Odesláno';
 $html_wrote = 'napsal(a)';
 $html_size = 'Velikost';
 $html_totalsize = 'Celková velikost';
-$html_kb = 'KiB';
-$html_mb = 'MB'; //to translate
-$html_gb = 'GB'; //to translate
+$html_kb = 'KB';
+$html_mb = 'MB';
+$html_gb = 'GB';
 $html_bytes = 'bajtů';
 $html_filename = 'Název souboru';
 $html_to = 'Komu';
