@@ -501,6 +501,10 @@ img.sort {
   text-align: left;
 }
 
+#receipt {
+  margin-left: 2em;
+}
+
 .mailData {
   border: 0px;
   text-align: center;
