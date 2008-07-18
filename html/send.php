@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.88 2008/03/16 08:56:35 goddess_skuld Exp $ -->
+<!-- start of $Id: send.php,v 1.89 2008/03/26 07:29:53 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -94,12 +94,6 @@ $mail_from = get_default_from_address();
      </tr>
      <?php } ?>
      <tr>
-       <td class="sendLabel"><label for="receipt"><?php echo $html_receipt ?>:</label></td>
-       <td class="sendData">
-         <input name="receipt" id="receipt" type="checkbox" <?php if(isset($mail_receipt) && $mail_receipt) echo "checked"; ?>/>
-       </td>
-     </tr>
-     <tr>
        <td class="sendLabel"><label for="priority"><?php echo $html_priority ?>:</label></td>
        <td class="sendData">
          <select class="button" name="priority" id="priority">
@@ -107,6 +101,8 @@ $mail_from = get_default_from_address();
            <option value="3 (Normal)" selected="selected"><?php echo $html_normal ?></option>
            <option value="4 (Low)"><?php echo $html_low ?></option>
          </select>
+         <input name="receipt" id="receipt" type="checkbox" <?php if(isset($mail_receipt) && $mail_receipt) echo "checked"; ?>/>
+         <label for="receipt"><?php echo $html_receipt ?></label>
        </td>
      </tr>
      <tr>
@@ -214,8 +210,9 @@ function validate(f)
         alert("<?php echo unhtmlentities($html_attach_forget) ?>")
         return (false);
     }
+    return (true);
 }
 
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.88 2008/03/16 08:56:35 goddess_skuld Exp $ -->
+<!-- end of $Id: send.php,v 1.89 2008/03/26 07:29:53 goddess_skuld Exp $ -->

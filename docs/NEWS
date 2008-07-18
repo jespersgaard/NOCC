@@ -1,6 +1,7 @@
 NOCC 1.7  ?? ??, ??
 
   Bugs
+    * Bug #2013844 : Javascript warning validate(f) send.php (Arnaud Boudou).
     * Bug #2009567 : Cannot delete one mail (Arnaud Boudou).
 
   Patches
