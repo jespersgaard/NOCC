@@ -4,6 +4,7 @@ NOCC 1.7  ?? ??, ??
     * Bug #2009567 : Cannot delete one mail (Arnaud Boudou).
 
   Patches
+    * Patch #2019643 : Spanish translation (Juan).
     * Patch #2019010 : Change "receipt" checkbox in send form (Tim Gerundt).
     * Patch #2011244 : Updated Czech translation (Ragimiri).
     * Patch #2010065 : Optimize regexs for remote image security (Tim Gerundt).

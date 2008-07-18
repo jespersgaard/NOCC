@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/es.php,v 1.61 2008/03/06 17:04:03 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/es.php,v 1.62 2008/06/22 12:21:57 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -39,40 +39,40 @@ $default_time_format = '%I:%M %p';
 
 // Here is the configuration for the HTML
 
-$err_user_empty = 'El campo de usuario esta vacío';
-$err_passwd_empty = 'El campo de clave esta vacío';
+$err_user_empty = 'El campo de usuario está vacío';
+$err_passwd_empty = 'El campo de contraseña está vacío';
 
 
 // html message
-$alt_delete = 'Borrar mensajes seleccionados';
-$alt_delete_one = 'Borrar mensaje';
+$alt_delete = 'Eliminar mensajes seleccionados';
+$alt_delete_one = 'Eliminar mensaje';
 $alt_new_msg = 'Nuevo mensajes';
 $alt_reply = 'Responder al autor';
 $alt_reply_all = 'Responder a todos';
 $alt_forward = 'Remitir';
-$alt_next = 'Next'; //to translate
-$alt_prev = 'Previous'; //to translate
-$title_next_page = 'Next page'; //to translate
-$title_prev_page = 'Previous page'; //to translate
+$alt_next = 'Siguiente';
+$alt_prev = 'Anterior';
+$title_next_page = 'Página siguiente';
+$title_prev_page = 'Página anterior';
 $title_next_msg = 'Siguiente';
 $title_prev_msg = 'Anterior';
 $html_on = 'en';
-$html_theme = 'Aparencia';
+$html_theme = 'Tema';
 
 // index.php
-$html_lang = 'Lenguaje';
+$html_lang = 'Idioma';
 $html_welcome = 'Bienvenido a';
 $html_login = 'Usuario';
-$html_passwd = 'Clave';
-$html_submit = 'Ok';
+$html_passwd = 'Contraseña';
+$html_submit = 'Aceptar';
 $html_help = 'Ayuda';
 $html_server = 'Servidor';
-$html_wrong = 'El usuario o la clave son incorrectos';
+$html_wrong = 'El usuario o la contraseña son incorrectos';
 $html_retry = 'Reintentar';
-$html_remember = "Remember settings"; //to translate
+$html_remember = "Recordar opciones";
 
 // prefs.php
-$html_msgperpage = 'Messages per page'; //to translate
+$html_msgperpage = 'Mensajes por página';
 $html_preferences = 'Preferencias';
 $html_full_name = 'Nombre completo';
 $html_email_address = 'Dirección de E-mail';
@@ -82,149 +82,149 @@ $html_outlook_quoting = 'Quotes tipo Outlook';
 $html_reply_to = 'Responder a';
 $html_use_signature = 'Usar firma';
 $html_signature = 'Firma';
-$html_reply_leadin = 'Reply Leadin'; //to translate
+$html_reply_leadin = 'Tabular respuesta';
 $html_prefs_updated = 'Preferencias actualizadas';
-$html_manage_folders_link = 'Manage IMAP Folders';  //to translate
-$html_manage_filters_link = 'Manage Email Filters';  //to translate
-$html_use_graphical_smilies = 'Use graphical smilies'; //to translate
-$html_sent_folder = 'Copy sent mails into a dedicated folder'; //to translate
-$html_trash_folder = 'Move deleted mails into a dedicated folder'; // to translate
-$html_colored_quotes = 'Colored quotes'; //to translate
-$html_display_struct = 'Display structured text'; //to translate
-$html_send_html_mail = 'Send mail in HTML format'; //to translate
+$html_manage_folders_link = 'Gestionar carpetas IMAP';
+$html_manage_filters_link = 'Gestionar filtros de mensajes';
+$html_use_graphical_smilies = 'Usar \'smilies\' gráficos';
+$html_sent_folder = 'Mover archivos enviados a una carpeta específica';
+$html_trash_folder = 'Mover archivos eliminados a una carpeta específica';
+$html_colored_quotes = 'Quotes con colores';
+$html_display_struct = 'Mostrar texto estructurado';
+$html_send_html_mail = 'Enviar mensajes en formato HTML';
 
 // folders.php
-$html_folders = 'Folders';  //to translate
-$html_folders_create_failed = 'Folder could not be created!';  //to translate
-$html_folders_sub_failed = 'Could not subscribed to folder!';  //to translate
-$html_folders_unsub_failed = 'Could not unsubscribed from folder!';  //to translate
-$html_folders_rename_failed = 'Folder could not be renamed!';  //to translate
-$html_folders_updated = 'Folders updated';  //to translate
-$html_folder_subscribe = 'Subscribe to';  //to translate
-$html_folder_rename = 'Rename';  //to translate
-$html_folder_create = 'Create new folder called';  //to translate
-$html_folder_remove = 'Unsubscribe from';  //to translate
-$html_folder_delete = 'Delete';  //to translate
-$html_folder_to = 'to'; //to translate
+$html_folders = 'Carpetas';
+$html_folders_create_failed = 'No se pudo crear la carpeta';
+$html_folders_sub_failed = 'No se pudo suscribir a la carpeta';
+$html_folders_unsub_failed = 'No se pudo de-suscribir de la carpeta';
+$html_folders_rename_failed = 'No se pudo cambiar el nombre a la carpeta';
+$html_folders_updated = 'Carpeta actualizada';
+$html_folder_subscribe = 'Suscribir a';
+$html_folder_rename = 'Renombrar';
+$html_folder_create = 'Crear nueva carpeta llamada';
+$html_folder_remove = 'De-suscribir de';
+$html_folder_delete = 'Eliminar';
+$html_folder_to = 'a';
 
 // filters.php
-$html_filter_remove = 'Delete';  //to translate
-$html_filter_body = 'Message Body';  //to translate
-$html_filter_subject = 'Message Subject';  //to translate
-$html_filter_to = 'To Field';  //to translate
-$html_filter_cc = 'Cc Field';  //to translate
-$html_filter_from = 'From Field';  //to translate
-$html_filter_change_tip = 'To change a filter simply overwrite it.';  //to translate
-$html_reapply_filters = 'Reapply all filters';  //to translate
-$html_filter_contains = 'contains';  //to translate
-$html_filter_name = 'Filter Name';  //to translate
-$html_filter_action = 'Filter Action';  //to translate
-$html_filter_moveto = 'Move to';  //to translate
+$html_filter_remove = 'Eliminar';
+$html_filter_body = 'Cuerpo del mensaje';
+$html_filter_subject = 'Asunto del mensaje';
+$html_filter_to = 'Campo Para';
+$html_filter_cc = 'Campo CC';
+$html_filter_from = 'Campo De';
+$html_filter_change_tip = 'Para cambiar un filtro, simplemente sobreescríbalo.';
+$html_reapply_filters = 'Re-aplicar todos los filtros';
+$html_filter_contains = 'contiene';
+$html_filter_name = 'Nombre del filtro';
+$html_filter_action = 'Acción del filtro';
+$html_filter_moveto = 'Mover a';
 
 // Other pages
-$html_select_one = '--Select One--';  //to translate
-$html_and = 'And';  //to translate
-$html_new_msg_in = 'New messages in';  //to translate
-$html_or = 'or';  //to translate
-$html_move = 'Move';  //to translate
-$html_copy = 'Copy';  //to translate
-$html_messages_to = 'selected messages to';  //to translate
-$html_gotopage = 'Go to Page';  //to translate
-$html_gotofolder = 'Go to Folder';  //to translate
-$html_other_folders = 'Folder List';  //to translate
-$html_page = 'Page';  //to translate
-$html_of = 'of';  //to translate
-$html_view_header = 'Ver cabezal';
-$html_remove_header = 'Ocultar cabezal';
-$html_inbox = 'Inbox'; //to translate
+$html_select_one = '-- Seleccione uno --';
+$html_and = 'Y';
+$html_new_msg_in = 'Nuevos mensajes en';
+$html_or = 'O';
+$html_move = 'Mover';
+$html_copy = 'Copiar';
+$html_messages_to = 'los mensajesseleccionados a';
+$html_gotopage = 'Ir a la página';
+$html_gotofolder = 'Ir a la carpeta';
+$html_other_folders = 'Lista de carpetas';
+$html_page = 'Página';
+$html_of = 'de';
+$html_view_header = 'Ver encabezado';
+$html_remove_header = 'Ocultar encabezado';
+$html_inbox = 'Bandeja de entrada';
 $html_new_msg = 'Escribir';
 $html_reply = 'Responder';
 $html_reply_short = 'Re';
 $html_reply_all = 'Responder a todos';
-$html_forward = 'Remitir';
-$html_forward_short = 'Fw'; //to translate
-$html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
-$html_delete = 'Borrar';
+$html_forward = 'Reenviar';
+$html_forward_short = 'Fw';
+$html_forward_info = 'Los mensajes reenviados se enviarán como archivos adjuntos al nuevo mensaje.';
+$html_delete = 'Eliminar';
 $html_new = 'Nuevo';
 $html_mark = 'Borrar';
-$html_att = 'Archivo asociado';
-$html_atts = 'Archivos asociados';
+$html_att = 'Archivo adjunto';
+$html_atts = 'Archivos adjuntos';
 $html_att_unknown = '[desconocido]';
-$html_attach = 'Asociar';
-$html_attach_forget = '¡ Debe asociar su archivo anes de enviar su mensaje !';
-$html_attach_delete = 'Borrar elegidos';
-$html_attach_none = 'You must select a file to attach!';  //to translate
+$html_attach = 'Adjuntar';
+$html_attach_forget = '¡Debe adjuntar sus archivos antes de enviar su mensaje!';
+$html_attach_delete = 'Eliminar archivos seleccionados';
+$html_attach_none = '¡Debe seleccionar un archivo a adjuntar!';
 $html_sort_by = 'Ordenar por';
 $html_sort = 'Ordenar';
 $html_from = 'De';
-$html_subject = 'Tema';
+$html_subject = 'Asunto';
 $html_date = 'Fecha';
-$html_sent = 'Enviar';
-$html_wrote = 'wrote'; //to translate
+$html_sent = 'Enviado';
+$html_wrote = 'Escrito';
 $html_size = 'Tamaño';
 $html_totalsize = 'Tamaño total';
-$html_kb = 'kB'; //to translate
-$html_mb = 'MB'; //to translate
-$html_gb = 'GB'; //to translate
-$html_bytes = 'bytes'; //to translate
+$html_kb = 'kB';
+$html_mb = 'MB';
+$html_gb = 'GB';
+$html_bytes = 'bytes';
 $html_filename = 'Archivo';
 $html_to = 'A';
-$html_cc = 'Cc'; //to translate
-$html_bcc = 'Bcc'; //to translate
-$html_nosubject = 'Sin tema';
+$html_cc = 'Cc';
+$html_bcc = 'Bcc';
+$html_nosubject = 'Sin asunto';
 $html_send = 'Enviar';
 $html_cancel = 'Cancelar';
-$html_no_mail = 'Sin nuevos mensajes.';
+$html_no_mail = 'No hay mensajes nuevos.';
 $html_logout = 'Salir';
 $html_msg = 'Mensaje';
 $html_msgs = 'Mensajes';
-$html_configuration = '¡ Este servidor no está bien definido !';
+$html_configuration = '¡Este servidor no está bien definido!';
 $html_priority = 'Prioridad';
 $html_low = 'Baja';
-$html_normal = 'Normal';  //to translate
+$html_normal = 'Normal';
 $html_high = 'Alta';
-$html_receipt = 'Request a return receipt';
-$html_select = 'Elegir';
-$html_select_all = 'Invert Selection';  //to translate
+$html_receipt = 'Solicitar una confirmación de entrega';
+$html_select = 'Seleccionar';
+$html_select_all = 'Invertir selección';
 $html_loading_image = 'Cargando imagen';
-$html_send_confirmed = 'Su correo ha sido aceptado para envio';
-$html_no_sendaction = 'No ha especificado acción. Intente habilitando JavaScript.';
+$html_send_confirmed = 'Su correo ha sido enviado correctamente';
+$html_no_sendaction = 'No se ha especificado una acción. Intente probar de nuevo habilitando JavaScript.';
 $html_error_occurred = 'Ha ocurrido un error';
 $html_prefs_file_error = 'Imposible abrir el archivo de preferencias para cambiarlo.';
-$html_wrap = 'Wrap outgoing messages to :';  //to translate
-$html_wrap_none = 'None'; //to translate
-$html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
-$html_mark_as = 'Mark as'; //to translate
-$html_read = 'read'; //to translate
-$html_unread = 'unread'; //to translate
-$html_encoding = 'Character encoding'; // to translate
+$html_wrap = 'Ajustar mensajes salientes a:';
+$html_wrap_none = 'Ninguno';
+$html_usenet_separator = 'Separador en noticias de Usenet ("-- \n") antes de la firma';
+$html_mark_as = 'Marcar como';
+$html_read = 'leído';
+$html_unread = 'no leído';
+$html_encoding = 'Codificación de caracteres';
 
 // Contacts manager
-$html_add = 'Add';  //to translate
-$html_contacts = 'Contacts';  //to translate
-$html_modify = 'Modify';  //to translate
-$html_back = 'Back';  //to translate
-$html_contact_add = 'Add new contact';  //to translate
-$html_contact_mod = 'Modify a contact';  //to translate
-$html_contact_first = 'First name';  //to translate
-$html_contact_last = 'Last Name';  //to translate
-$html_contact_nick = 'Nick';  //to translate
-$html_contact_mail = 'Mail';  //to translate
-$html_contact_list = 'Contact list of ';  //to translate
-$html_contact_del = 'from the contact list';
+$html_add = 'Añadir';
+$html_contacts = 'Contactos';
+$html_modify = 'Modificar';
+$html_back = 'Volver';
+$html_contact_add = 'Añadir nuevo contacto';
+$html_contact_mod = 'Modificar contacto';
+$html_contact_first = 'Nombre';
+$html_contact_last = 'Apellido';
+$html_contact_nick = 'Apodo';
+$html_contact_mail = 'Dirección de e-mail';
+$html_contact_list = 'Lista de contactos de ';
+$html_contact_del = 'de la lista decontactos';
 
-$html_contact_err1 = 'Maximal number of contact is ';  //to translate
-$html_contact_err2 = 'You can\'t add a new contact';  //to translate
-$html_contact_err3 = 'You don\'t have access rights to contact list'; //to translate
-$html_del_msg = 'Delete selected messages ?';  //to translate
-$html_down_mail = 'Download';  //to translate
+$html_contact_err1 = 'El número máximo de contactos es ';
+$html_contact_err2 = 'No puede añadir un nuevo contacto';
+$html_contact_err3 = 'No tiene permisos de acceso a la lista de contactos';
+$html_del_msg = '¿Eliminar mensajes seleccionados?';
+$html_down_mail = 'Decsargar'; 
 
 $original_msg = '-- Mensaje Original --';
-$to_empty = '¡ El campo \'A\' no debe estar vacio !';
+$to_empty = '¡El campo \'A\' no debe estar vacio!';
 
 // Images warning
-$html_images_warning = 'For your security, remote pictures are not displayed.'; // to translate
-$html_images_display = 'Display pictures'; // to translate
+$html_images_warning = 'Para su seguridad, las imágenes remotas no serán mostradas.';
+$html_images_display = 'Mostrar imágenes';
 
 // SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Imposible abrir conexión';
@@ -232,16 +232,16 @@ $html_smtp_error_unexpected = 'Respuesta inesperada:';
 
 // IMAP messages (class_local.php)
 $lang_could_not_connect = 'No se pudo conectar al servidor';
-$lang_invalid_msg_num = 'Bad Message Number';  //to translate
+$lang_invalid_msg_num = 'Número incorrecto de mensajes';
 
-$html_file_upload_attack = 'Possible file upload attack';  //to translate
-$html_invalid_email_address = 'Invalid e-mail address';  //to translate
-$html_invalid_msg_per_page = 'Invalid number of messages per page';  //to translate
-$html_invalid_wrap_msg = 'Invalid message wrap width';  //to translate
-$html_seperate_msg_win = 'Messages in separate window';  //to translate
+$html_file_upload_attack = 'Posible ataque el enviar archivo';
+$html_invalid_email_address = 'Dirección de e-mail no válida';
+$html_invalid_msg_per_page = 'Número de mensajes por página no válido';
+$html_invalid_wrap_msg = 'Ancho de ajuste de mensaje no válido';
+$html_seperate_msg_win = 'Mensajes en una ventana separada';
 
 // Exceptions
-$html_err_file_contacts = 'Unable to open contacts file for writing.'; //to translate
-$html_session_file_error = 'Unable to open session file for writing.';  //to translate
-$html_login_not_allowed = 'This login is not allowed for connexion.'; //to translate
+$html_err_file_contacts = 'No se pudo abrir el archivo de contactos para escritura.';
+$html_session_file_error = 'No se pudo abrir el archivo de sesiones para escritura.';
+$html_login_not_allowed = 'Este nombre de inicio de sesión no está permitido para conexión.';
 ?>
