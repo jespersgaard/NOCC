@@ -1,10 +1,10 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.17 2007/04/25 09:29:52 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.18 2008/02/10 20:52:16 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
- * Copyright 2004 Arnaud Boudou <skuld@goddess-gate.com>
+ * Copyright 2004 Arnaud Boudou <goddess_skuld@users.sourceforge.net>
  *
  * See the enclosed file COPYING for license information (GPL).  If you
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
