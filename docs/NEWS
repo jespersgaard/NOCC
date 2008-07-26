@@ -10,6 +10,9 @@ NOCC 1.7  ?? ??, ??
     * Patch #2011244 : Updated Czech translation (Ragimiri).
     * Patch #2010065 : Optimize regexs for remote image security (Tim Gerundt).
 
+  RFE
+    * RFE #2025591 : login_prefix (Arnaud Boudou).
+
   Misc
     * Fix some bugs on multiple mails actions (Arnaud Boudou).
 

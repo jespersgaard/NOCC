@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.81 2008/06/24 09:55:34 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.82 2008/07/01 11:23:49 goddess_skuld Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -238,6 +238,10 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
         }
         $_SESSION['nocc_login_with_domain'] = 1; 
     }
+
+    //append prefix to login
+    if(isset($conf->domains[$domainnum]->login_prefix))
+        $_SESSION['nocc_login'] = $conf->domains[$domainnum]->login_prefix . $_SESSION['nocc_login'];
 
     //append suffix to login
     if(isset($conf->domains[$domainnum]->login_suffix))
