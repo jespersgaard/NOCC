@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.146 2008/03/16 08:56:36 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.147 2008/03/26 07:29:53 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -66,10 +66,11 @@ switch($_REQUEST['sendaction'])
         $attach_array = $_SESSION['nocc_attach_array'];
 
         $num_attach = count($attach_array);
+        //TODO: Check if "$conf->tmpdir" exists?
         $tmp_name = $conf->tmpdir.'/'.basename($mail_att['tmp_name'] . time() . '.att');
 
         // Adding the new file to the array
-        if (move_uploaded_file($mail_att['tmp_name'], $tmp_name))
+        if (@move_uploaded_file($mail_att['tmp_name'], $tmp_name))
         {
             $attach_array[] = new attached_file;
             $attach_array[$num_attach]->file_name = basename($mail_att['name']);
