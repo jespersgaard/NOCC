@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/pt-br.php,v 1.47 2008/03/17 06:44:43 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/pt-br.php,v 1.48 2008/06/22 12:22:12 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -245,4 +245,8 @@ $html_seperate_msg_win = 'Mensagens em uma janela separada';
 $html_err_file_contacts = 'Impossível abrir arquivo de contatos para gravação.'; 
 $html_session_file_error = 'Impossível abrir arquivo de dessão para gravação.';  
 $html_login_not_allowed = 'Este login não é permitido para conexão.'; 
+
+// Send delay
+$lang_err_send_delay = 'You must wait between two mails'; // to translate
+$lang_seconds = 'seconds'; // to translate
 ?>

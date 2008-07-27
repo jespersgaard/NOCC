@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ca.php,v 1.16 2008/03/06 17:04:09 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/ca.php,v 1.17 2008/06/22 12:22:28 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -244,4 +244,8 @@ $html_seperate_msg_win = 'Missatge a finestres separades';
 $html_err_file_contacts = 'No s\'ha pogut obrir el fitxer de contactes per escriure-hi.';
 $html_session_file_error = 'Unable to open session file for writing.';  //to translate
 $html_login_not_allowed = 'This login is not allowed for connexion.'; //to translate
+
+// Send delay
+$lang_err_send_delay = 'You must wait between two mails'; // to translate
+$lang_seconds = 'seconds'; // to translate
 ?>

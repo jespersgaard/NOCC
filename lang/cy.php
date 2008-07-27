@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/cy.php,v 1.3 2008/03/06 17:04:08 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/cy.php,v 1.4 2008/06/22 12:22:21 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -245,5 +245,8 @@ $html_seperate_msg_win = 'Negeseuon mewn ffenestr arall';
 $html_err_file_contacts = 'Methu agor ffeil cysylltiadau ar gyfer ysgrifennu.';
 $html_session_file_error = 'Methu agor ffeil sesiynau ar gyfer ysgrifennu.';
 $html_login_not_allowed = 'Nid yw\'r mewngofnodiad yma\'n ddilys ar gyfer y cyswllt hwn.';
-?>
 
+// Send delay
+$lang_err_send_delay = 'You must wait between two mails'; // to translate
+$lang_seconds = 'seconds'; // to translate
+?>

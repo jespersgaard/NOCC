@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/cs.php,v 1.49 2008/06/22 12:22:03 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/cs.php,v 1.50 2008/07/08 18:18:15 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -243,4 +243,8 @@ $html_seperate_msg_win = 'Zprávy v oddělených oknech';
 $html_err_file_contacts = 'Nelze otevřít soubor kontaktů pro zápis.';
 $html_session_file_error = 'Nelze otevřít soubor seance pro zápis.';
 $html_login_not_allowed = 'Tento uživatel nemá dovoleno přihlašování.';
+
+// Send delay
+$lang_err_send_delay = 'You must wait between two mails'; // to translate
+$lang_seconds = 'seconds'; // to translate
 ?>

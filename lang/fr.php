@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.101 2008/03/06 17:04:07 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/fr.php,v 1.102 2008/06/22 12:22:18 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -244,4 +244,8 @@ $html_seperate_msg_win = 'Messages dans des fenêtres séparées';
 $html_err_file_contacts = 'Impossible d\'ouvrir le fichier des contacts';
 $html_session_file_error = 'Impossible d\'ouvrir le fichier des sessions';
 $html_login_not_allowed = 'Cet identifiant n\'est pas autorisé à se connecter.';
+
+// Send delay
+$lang_err_send_delay = 'Vous devez attendre entre deux messages';
+$lang_seconds = 'secondes';
 ?>

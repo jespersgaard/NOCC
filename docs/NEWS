@@ -11,6 +11,7 @@ NOCC 1.7  ?? ??, ??
     * Patch #2010065 : Optimize regexs for remote image security (Tim Gerundt).
 
   RFE
+    * RFE #2025620 : send_delay (Arnaud Boudou).
     * RFE #2025591 : login_prefix (Arnaud Boudou).
 
   Misc

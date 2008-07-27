@@ -1,34 +1,33 @@
-<!-- start of $Id: send.php,v 1.89 2008/03/26 07:29:53 goddess_skuld Exp $ -->
+<!-- start of $Id: send.php,v 1.90 2008/07/18 18:19:18 goddess_skuld Exp $ -->
 <?php
-  if (!isset($conf->loaded))
-    die('Hacking attempt');
+    if (!isset($conf->loaded))
+        die('Hacking attempt');
 
-// Default e-mail address on send form
-$mail_from = get_default_from_address();
-
+    // Default e-mail address on send form
+    $mail_from = get_default_from_address();
 ?>
 <div class="send">
 <!-- If 'file_uploads=Off', we must set formtype to "normal" otherwise it won't work -->
 <form id="sendform" enctype="<?php echo (ini_get("file_uploads")) ? "multipart/form-data" : "normal" ?>" method="post" onsubmit="return(validate(this));" action="send.php">
 
 <?php 
-  if(isset($broken_forwarding) && !($broken_forwarding)) {
-      if(isset($forward_msgnum)) { 
+    if(isset($broken_forwarding) && !($broken_forwarding)) {
+        if(isset($forward_msgnum)) { 
 ?>
 <div><input type="hidden" name="forward_msgnum" value="<?php echo $forward_msgnum ?>" /></div>
-  <?php 
-      }
-  } 
+<?php 
+        }
+    } 
 
-  // include old messageid
-  // to keep 'treeview' of mailinglist threads etc.
-  if (!empty($mail_messageid)) {
-      print('<div><input type="hidden" name="mail_messageid" value="' . $mail_messageid . '" /></div>');
-  }
-  ?>
+    // include old messageid
+    // to keep 'treeview' of mailinglist threads etc.
+    if (!empty($mail_messageid)) {
+        print('<div><input type="hidden" name="mail_messageid" value="' . $mail_messageid . '" /></div>');
+    }
+?>
 
     <p class="sendButtons">
-      <input type="submit" class="button" onclick="btnClicked=this" name="sendaction" value="<?php echo $html_send ?>" />
+      <input type="submit" class="button" onclick="btnClicked=this);" name="sendaction" value="<?php echo $html_send ?>" />
       &nbsp;&nbsp;
       <input type="reset" class="button" value="<?php echo $html_cancel ?>" />
     </p>
@@ -109,47 +108,44 @@ $mail_from = get_default_from_address();
        <td>&nbsp;</td>
        <td class="sendData">
        <?php
-         if (isset($_SESSION['nocc_attach_array']) && count($_SESSION['nocc_attach_array']) > 0)
-         {
-           $attach_array = $_SESSION['nocc_attach_array'];
-           echo '<table>';
-           echo '<tr>';
-           echo '<td class="sendData">&nbsp;</td>';
-           echo '<td class="sendData bold">' . $html_filename . '</td>';
-           echo '<td class="sendData bold">' . $html_size . '(' . $html_bytes . ')</td>';
-           echo '</tr>';
-           $totalsize = 0;
-           for ($i = 0; $i < count($attach_array); $i++)
-           {    
-             $totalsize += $attach_array[$i]->file_size;
-             $att_name = nocc_imap::mime_header_decode($attach_array[$i]->file_name);
-             echo '<tr>';
-             echo '<td class="sendData">';
-             echo '<input type="checkbox" name="file-' . $i . '" id="file-' . $i . '" />';
-             echo '</td>';
-             echo '<td class="sendData"><label for="file-' . $i . '">' . convertLang2Html($att_name[0]->text) . '</label></td>';
-             echo '<td class="sendData">' . $attach_array[$i]->file_size . '</td>';
-             echo '</tr>';
-           }
-           echo '<tr>';
-           echo '<td colspan="2">';
-           echo '<input type="submit" class="button" onclick="btnClicked=this" name="sendaction" value="' . $html_attach_delete . '" />';
-           echo '</td>';
-           echo '<td class="sendData bold">' . $html_totalsize . ' : ' . $totalsize . ' ' . $html_bytes . '</td>';
-           echo '</tr>';
-           echo '</table>';
-         }
-         else {
-           if (isset($broken_forwarding) && !($broken_forwarding)) {
-             if (isset($_GET["action"]) && $_GET["action"] == 'forward') {
-               echo '<span class="inbox">' . $html_forward_info . '</span>';
-             } else {
-               echo '&nbsp;';
-             }
-          } else {
-            echo '&nbsp;';
-          }
-         }
+            if (isset($_SESSION['nocc_attach_array']) && count($_SESSION['nocc_attach_array']) > 0) {
+                $attach_array = $_SESSION['nocc_attach_array'];
+                echo '<table>';
+                echo '<tr>';
+                echo '<td class="sendData">&nbsp;</td>';
+                echo '<td class="sendData bold">' . $html_filename . '</td>';
+                echo '<td class="sendData bold">' . $html_size . '(' . $html_bytes . ')</td>';
+                echo '</tr>';
+                $totalsize = 0;
+                for ($i = 0; $i < count($attach_array); $i++) {    
+                    $totalsize += $attach_array[$i]->file_size;
+                    $att_name = nocc_imap::mime_header_decode($attach_array[$i]->file_name);
+                    echo '<tr>';
+                    echo '<td class="sendData">';
+                    echo '<input type="checkbox" name="file-' . $i . '" id="file-' . $i . '" />';
+                    echo '</td>';
+                    echo '<td class="sendData"><label for="file-' . $i . '">' . convertLang2Html($att_name[0]->text) . '</label></td>';
+                    echo '<td class="sendData">' . $attach_array[$i]->file_size . '</td>';
+                    echo '</tr>';
+                }
+                echo '<tr>';
+                echo '<td colspan="2">';
+                echo '<input type="submit" class="button" onclick="btnClicked=this" name="sendaction" value="' . $html_attach_delete . '" />';
+                echo '</td>';
+                echo '<td class="sendData bold">' . $html_totalsize . ' : ' . $totalsize . ' ' . $html_bytes . '</td>';
+                echo '</tr>';
+                echo '</table>';
+            } else {
+                if (isset($broken_forwarding) && !($broken_forwarding)) {
+                    if (isset($_GET["action"]) && $_GET["action"] == 'forward') {
+                        echo '<span class="inbox">' . $html_forward_info . '</span>';
+                    } else {
+                        echo '&nbsp;';
+                    }
+                } else {
+                    echo '&nbsp;';
+                }
+            }
        ?>
        </td>
      </tr>
@@ -160,20 +156,20 @@ $mail_from = get_default_from_address();
          <textarea name="mail_body" cols="82" rows="20"><?php echo (isset($mail_body) ? htmlspecialchars($mail_body) : '') ?></textarea>
          <?php
            } else {
-             include("fckeditor/fckeditor.php") ;
+                include("fckeditor/fckeditor.php") ;
            
-             $oFCKeditor = new FCKeditor('mail_body') ;
-             $oFCKeditor->ToolbarSet = 'NOCC';
-             $oFCKeditor->BasePath = 'fckeditor/';
-             $oFCKeditor->Value = isset($mail_body) ? $mail_body : '';
-             $oFCKeditor->Create() ;
+                $oFCKeditor = new FCKeditor('mail_body') ;
+                $oFCKeditor->ToolbarSet = 'NOCC';
+                $oFCKeditor->BasePath = 'fckeditor/';
+                $oFCKeditor->Value = isset($mail_body) ? $mail_body : '';
+                $oFCKeditor->Create() ;
            }
          ?>
        </td>
      </tr>
    </table>
     <p class="sendButtons">
-      <input type="submit" class="button" onclick="btnClicked=this" name="sendaction" value="<?php echo $html_send ?>" />
+      <input type="submit" class="button" onclick="btnClicked=this);" name="sendaction" value="<?php echo $html_send ?>" />
       &nbsp;&nbsp;
       <input type="reset" class="button" value="<?php echo $html_cancel ?>" />
     </p>
@@ -186,6 +182,9 @@ var btnClicked;
 
 function validate(f) 
 {
+    if (checkSendDelay() == false) {
+        return (false);
+    }
     if (btnClicked.value == "<?php echo unhtmlentities($html_attach) ?>") {
         if(f.elements['mail_att'].value == "") {
             alert('<?php echo unhtmlentities($html_attach_none) ?>');
@@ -213,6 +212,31 @@ function validate(f)
     return (true);
 }
 
+function checkSendDelay() {
+    var thisdate = new Date();
+    var send_delay = <?php echo($conf->send_delay) ?>;
+    <?php
+        if (isset ($_SESSION['last_send'])){
+    ?>
+        var last_send = <?php echo($_SESSION['last_send']) ?>;
+    <?php
+        } else {
+    ?>
+        var last_send = 0;
+    <?php
+        }
+    ?>
+    
+    if (last_send + send_delay < ( thisdate.getTime() / 1000 )) {
+        return (true);
+    } else {
+        alert('<?php echo(convertLang2Html( $lang_err_send_delay . ' (' . $conf->send_delay . ' ' . $lang_seconds . ').')) ?>');
+        return (false);
+    }
+    
+    return false;
+}
+
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.89 2008/03/26 07:29:53 goddess_skuld Exp $ -->
+<!-- end of $Id: send.php,v 1.90 2008/07/18 18:19:18 goddess_skuld Exp $ -->

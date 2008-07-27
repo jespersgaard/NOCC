@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.147 2008/03/26 07:29:53 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.148 2008/07/26 10:25:44 gerundt Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -13,14 +13,13 @@ require_once './config/conf.php';
 require_once './common.php';
 
 class attached_file {
-  var $file_name = "";
-  var $tmp_file = "";
-  var $file_size = "";
-  var $file_mime = "";
+    var $file_name = "";
+    var $tmp_file = "";
+    var $file_size = "";
+    var $file_mime = "";
 }
 
-if (!isset($_SESSION['nocc_loggedin']))
-{
+if (!isset($_SESSION['nocc_loggedin'])) {
     require_once './utils/proxy.php';
     header('Location: ' . $conf->base_url . 'logout.php');
     return;
@@ -39,26 +38,31 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
 require_once './classes/class_send.php';
 require_once './classes/class_smtp.php';
 
-if( isset($conf->allow_address_change) && $conf->allow_address_change ) $mail_from = safestrip($_REQUEST['mail_from']);
-else $mail_from = get_default_from_address();
+if( isset($conf->allow_address_change) && $conf->allow_address_change )
+    $mail_from = safestrip($_REQUEST['mail_from']);
+else 
+    $mail_from = get_default_from_address();
+
 $mail_to = safestrip($_REQUEST['mail_to']);
 $mail_cc = safestrip($_REQUEST['mail_cc']);
 $mail_bcc = safestrip($_REQUEST['mail_bcc']);
 $mail_subject = safestrip($_REQUEST['mail_subject']);
 $mail_body = safestrip($_REQUEST['mail_body']);
+
 if (isset($_SESSION['html_mail_send']) && $_SESSION['html_mail_send']) {
-  $mail_body = '<html><head></head><body>'.$mail_body.'</body></html>';
+    $mail_body = '<html><head></head><body>'.$mail_body.'</body></html>';
 }
-if(ini_get("file_uploads")) {
-        if (isset($_FILES['mail_att'])) {
-            $mail_att = $_FILES['mail_att'];
-  }
+
+if (ini_get("file_uploads")) {
+    if (isset($_FILES['mail_att'])) {
+        $mail_att = $_FILES['mail_att'];
+    }
 }
+
 $mail_receipt = isset($_REQUEST['receipt']);
 $mail_priority = safestrip($_REQUEST['priority']);
 
-switch($_REQUEST['sendaction'])
-{
+switch($_REQUEST['sendaction']) {
     case unhtmlentities($html_attach):
         // Counting the attachments number in the array
         if (!isset($_SESSION['nocc_attach_array']))
@@ -70,8 +74,7 @@ switch($_REQUEST['sendaction'])
         $tmp_name = $conf->tmpdir.'/'.basename($mail_att['tmp_name'] . time() . '.att');
 
         // Adding the new file to the array
-        if (@move_uploaded_file($mail_att['tmp_name'], $tmp_name))
-        {
+        if (@move_uploaded_file($mail_att['tmp_name'], $tmp_name)) {
             $attach_array[] = new attached_file;
             $attach_array[$num_attach]->file_name = basename($mail_att['name']);
             $attach_array[$num_attach]->tmp_file = $tmp_name;
@@ -100,6 +103,7 @@ switch($_REQUEST['sendaction'])
         require ('./html/menu_inbox.php');
         require ('./html/footer.php');
         break;
+
     case unhtmlentities($html_send):
         $mail = new mime_mail();
         $mail->crlf = $conf->crlf;
@@ -137,10 +141,10 @@ switch($_REQUEST['sendaction'])
         if (isset($user_prefs->wrap_msg))
             $wrap_msg = $user_prefs->wrap_msg;
         if ($mail_body != '') {
-          if (isset ($wrap_msg) && $wrap_msg)
-            $mail->body = wrap_outgoing_msg ($mail_body, $wrap_msg, $mail->crlf);
-          else
-            $mail->body = $mail_body;
+            if (isset ($wrap_msg) && $wrap_msg)
+                $mail->body = wrap_outgoing_msg ($mail_body, $wrap_msg, $mail->crlf);
+            else
+                $mail->body = $mail_body;
         }
 
         if (isset($conf->ad))
@@ -153,14 +157,11 @@ switch($_REQUEST['sendaction'])
         $mail->body = escape_dots($mail->body);
 
         // Getting the attachments
-        if (isset($_SESSION['nocc_attach_array']))
-        {
+        if (isset($_SESSION['nocc_attach_array'])) {
             $attach_array = $_SESSION['nocc_attach_array'];
-            for ($i = 0; $i < count($attach_array); $i++)
-            {
+            for ($i = 0; $i < count($attach_array); $i++) {
                 // If the temporary file exists, attach it
-                if (file_exists($attach_array[$i]->tmp_file))
-                {
+                if (file_exists($attach_array[$i]->tmp_file)) {
                     $fp = fopen($attach_array[$i]->tmp_file, 'rb');
                     $file = fread($fp, $attach_array[$i]->file_size);
                     fclose($fp);
@@ -176,90 +177,84 @@ switch($_REQUEST['sendaction'])
 
         // Add original message as attachment?
         if(isset($_REQUEST['forward_msgnum']) && $_REQUEST['forward_msgnum'] != "") {
-          $mail_list = explode('$', $_REQUEST['forward_msgnum']);
-          for ($msg_num = 0; $msg_num < count($mail_list); $msg_num++) {
-            $forward_msgnum = $mail_list[$msg_num];
-            $ev = "";
-            $pop = new nocc_imap($ev);
-            if (NoccException::isException($ev)) {
-                require ('./html/header.php');
-                require ('./html/error.php');
-                require ('./html/footer.php');
-                break;
-            }
+            $mail_list = explode('$', $_REQUEST['forward_msgnum']);
+            for ($msg_num = 0; $msg_num < count($mail_list); $msg_num++) {
+                $forward_msgnum = $mail_list[$msg_num];
+                $ev = "";
+                $pop = new nocc_imap($ev);
+                if (NoccException::isException($ev)) {
+                    require ('./html/header.php');
+                    require ('./html/error.php');
+                    require ('./html/footer.php');
+                    break;
+                }
 
-            // Rebuild original message from headers and body
-            $origmsg = "";
-            $headers = $pop->fetchheader($forward_msgnum, $ev);
-            if (NoccException::isException($ev)) {
-                require ('./html/header.php');
-                require ('./html/error.php');
-                require ('./html/footer.php');
-                break;
-            }
-            $body = $pop->body($forward_msgnum, $ev);
-            if (NoccException::isException($ev)) {
-                require ('./html/header.php');
-                require ('./html/error.php');
-                require ('./html/footer.php');
-                break;
-            }
-            $origmsg .= $headers;
-            $origmsg .= $conf->crlf;
-            $origmsg .= $body;
+                // Rebuild original message from headers and body
+                $origmsg = "";
+                $headers = $pop->fetchheader($forward_msgnum, $ev);
+                if (NoccException::isException($ev)) {
+                    require ('./html/header.php');
+                    require ('./html/error.php');
+                    require ('./html/footer.php');
+                    break;
+                }
+                $body = $pop->body($forward_msgnum, $ev);
+                if (NoccException::isException($ev)) {
+                    require ('./html/header.php');
+                    require ('./html/error.php');
+                    require ('./html/footer.php');
+                    break;
+                }
+                $origmsg .= $headers;
+                $origmsg .= $conf->crlf;
+                $origmsg .= $body;
 
-            // Attach it
-            if (count($mail_list) == 1) {
-              $mail->add_attachment($origmsg, 'orig_msg.eml',  'message/rfc822', '', '');
-            } else {
-              $mail->add_attachment($origmsg, 'orig_msg_'.$msg_num.'.eml',  'message/rfc822', '', '');
+                // Attach it
+                if (count($mail_list) == 1) {
+                    $mail->add_attachment($origmsg, 'orig_msg.eml',  'message/rfc822', '', '');
+                } else {
+                    $mail->add_attachment($origmsg, 'orig_msg_'.$msg_num.'.eml',  'message/rfc822', '', '');
+                }
             }
-          }
         }
 
-        if (!isset ($_SESSION['last_send']))
-        {
-          $ev = $mail->send($conf);
-          $_SESSION['last_send'] = time ();
-        }
-        else if ($_SESSION['last_send'] + $conf->send_delay < time ())
-        {
-          $ev = $mail->send($conf);
-          $_SESSION['last_send'] = time ();
+        if (!isset ($_SESSION['last_send'])) {
+            $ev = $mail->send($conf);
+            $_SESSION['last_send'] = time ();
+        } else if ($_SESSION['last_send'] + $conf->send_delay < time ()) {
+            $ev = $mail->send($conf);
+            $_SESSION['last_send'] = time ();
+        } else {
+            $ev = new NoccException($lang_err_send_delay . ' (' . $conf->send_delay . ' ' . $lang_seconds . ').');
         }
         header("Content-type: text/html; Charset=$charset");
-        if (NoccException::isException($ev))
-        {
+        if (NoccException::isException($ev)) {
             // Error while sending the message, display an error message
             require ('./html/header.php');
             require ('./html/menu_inbox.php');
             require ('./html/send_error.php');
             require ('./html/menu_inbox.php');
             require ('./html/footer.php');
-        }
-        else
-        {
+        } else {
             // Redirect user to inbox
             require_once './utils/proxy.php';
             header("Location: ".$conf->base_url."action.php?successfulsend=true");
         }
         break;
+
     case unhtmlentities($html_attach_delete):
         // Rebuilding the attachments array with only the files the user wants to keep
         $tmp_array = array();
         $attach_array = $_SESSION['nocc_attach_array'];
-        for ($i = $j = 0; $i < count($attach_array); $i++)
-        {
-            if (!isset($_REQUEST['file-'.$i]))
-            {
+        for ($i = $j = 0; $i < count($attach_array); $i++) {
+            if (!isset($_REQUEST['file-'.$i])) {
                 $tmp_array[] = new attached_file;
                 $tmp_array[$j]->file_name = $attach_array[$i]->file_name;
                 $tmp_array[$j]->tmp_file = $attach_array[$i]->tmp_file;
                 $tmp_array[$j]->file_size = $attach_array[$i]->file_size;
                 $tmp_array[$j]->file_mime = $attach_array[$i]->file_mime;
                 $j++;
-            }
-            else
+            } else
                 @unlink($attach_array[$i]->tmp_file);
         }
 
@@ -274,6 +269,7 @@ switch($_REQUEST['sendaction'])
         require ('./html/menu_inbox.php');
         require ('./html/footer.php');
         break;
+
     default:
         // Nothing was set in the sendaction (e.g. no javascript enabled)
         header("Content-type: text/html; Charset=$charset");

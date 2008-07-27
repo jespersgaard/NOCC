@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.66 2008/03/06 17:04:10 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.67 2008/06/22 12:22:29 goddess_skuld Exp $ 
  *
  * Copyright 2000 Nicolas Chalanset <nicocha AT free DOT fr>
  * Copyright 2000 Olivier Cahagne <wolruf AT free DOT fr>
@@ -251,4 +251,8 @@ $html_seperate_msg_win = 'Nachricht in neuem Fenster öffnen';
 $html_err_file_contacts = 'Kann die Kontaktdatei nicht zum Schreiben öffnen.';
 $html_session_file_error = 'Kann die Sitzungsdatei nicht zum Schreiben öffnen.';
 $html_login_not_allowed = 'Diese Anmeldung ist nicht für die Verbindung zugelassen.';
+
+// Send delay
+$lang_err_send_delay = 'You must wait between two mails'; // to translate
+$lang_seconds = 'seconds'; // to translate
 ?>
