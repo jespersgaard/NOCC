@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.90 2008/07/18 18:19:18 goddess_skuld Exp $ -->
+<!-- start of $Id: send.php,v 1.91 2008/07/27 07:53:23 goddess_skuld Exp $ -->
 <?php
     if (!isset($conf->loaded))
         die('Hacking attempt');
@@ -110,29 +110,29 @@
        <?php
             if (isset($_SESSION['nocc_attach_array']) && count($_SESSION['nocc_attach_array']) > 0) {
                 $attach_array = $_SESSION['nocc_attach_array'];
-                echo '<table>';
+                echo '<table id="attachTable">';
                 echo '<tr>';
-                echo '<td class="sendData">&nbsp;</td>';
-                echo '<td class="sendData bold">' . $html_filename . '</td>';
-                echo '<td class="sendData bold">' . $html_size . '(' . $html_bytes . ')</td>';
+                echo '<th></th>';
+                echo '<th>' . $html_filename . '</th>';
+                echo '<th>' . $html_size . '</th>';
                 echo '</tr>';
                 $totalsize = 0;
-                for ($i = 0; $i < count($attach_array); $i++) {    
+                for ($i = 0; $i < count($attach_array); $i++) {
                     $totalsize += $attach_array[$i]->file_size;
                     $att_name = nocc_imap::mime_header_decode($attach_array[$i]->file_name);
                     echo '<tr>';
-                    echo '<td class="sendData">';
+                    echo '<td>';
                     echo '<input type="checkbox" name="file-' . $i . '" id="file-' . $i . '" />';
                     echo '</td>';
-                    echo '<td class="sendData"><label for="file-' . $i . '">' . convertLang2Html($att_name[0]->text) . '</label></td>';
-                    echo '<td class="sendData">' . $attach_array[$i]->file_size . '</td>';
+                    echo '<td><label for="file-' . $i . '">' . convertLang2Html($att_name[0]->text) . '</label></td>';
+                    echo '<td>' . $attach_array[$i]->file_size . ' ' . $html_bytes . '</td>';
                     echo '</tr>';
                 }
                 echo '<tr>';
-                echo '<td colspan="2">';
+                echo '<th colspan="2">';
                 echo '<input type="submit" class="button" onclick="btnClicked=this" name="sendaction" value="' . $html_attach_delete . '" />';
-                echo '</td>';
-                echo '<td class="sendData bold">' . $html_totalsize . ' : ' . $totalsize . ' ' . $html_bytes . '</td>';
+                echo '</th>';
+                echo '<th>' . $html_totalsize . ': ' . $totalsize . ' ' . $html_bytes . '</th>';
                 echo '</tr>';
                 echo '</table>';
             } else {
@@ -239,4 +239,4 @@ function checkSendDelay() {
 
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.90 2008/07/18 18:19:18 goddess_skuld Exp $ -->
+<!-- end of $Id: send.php,v 1.91 2008/07/27 07:53:23 goddess_skuld Exp $ -->

@@ -501,6 +501,24 @@ img.sort {
   text-align: left;
 }
 
+#attachTable {
+  width: auto;
+  border: 1px solid silver;
+  border-collapse: collapse;
+}
+
+#attachTable th {
+  text-align: left;
+  background-color: silver;
+  border-top: 1px solid silver;
+  border-bottom: 1px solid silver;
+}
+
+#attachTable td {
+  border-top: 1px solid silver;
+  border-bottom: 1px solid silver;
+}
+
 #receipt {
   margin-left: 2em;
 }

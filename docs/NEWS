@@ -5,6 +5,7 @@ NOCC 1.7  ?? ??, ??
     * Bug #2009567 : Cannot delete one mail (Arnaud Boudou).
 
   Patches
+    * Patch #2028613 : Style attachments table in send.php (Tim Gerundt).
     * Patch #2019643 : Spanish translation (Juan).
     * Patch #2019010 : Change "receipt" checkbox in send form (Tim Gerundt).
     * Patch #2011244 : Updated Czech translation (Ragimiri).
