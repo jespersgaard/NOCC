@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.91 2008/07/27 07:53:23 goddess_skuld Exp $ -->
+<!-- start of $Id: send.php,v 1.92 2008/08/07 20:17:25 gerundt Exp $ -->
 <?php
     if (!isset($conf->loaded))
         die('Hacking attempt');
@@ -27,7 +27,7 @@
 ?>
 
     <p class="sendButtons">
-      <input type="submit" class="button" onclick="btnClicked=this);" name="sendaction" value="<?php echo $html_send ?>" />
+      <input type="submit" class="button" onclick="btnClicked=this" name="sendaction" value="<?php echo $html_send ?>" />
       &nbsp;&nbsp;
       <input type="reset" class="button" value="<?php echo $html_cancel ?>" />
     </p>
@@ -169,7 +169,7 @@
      </tr>
    </table>
     <p class="sendButtons">
-      <input type="submit" class="button" onclick="btnClicked=this);" name="sendaction" value="<?php echo $html_send ?>" />
+      <input type="submit" class="button" onclick="btnClicked=this" name="sendaction" value="<?php echo $html_send ?>" />
       &nbsp;&nbsp;
       <input type="reset" class="button" value="<?php echo $html_cancel ?>" />
     </p>
@@ -239,4 +239,4 @@ function checkSendDelay() {
 
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.91 2008/07/27 07:53:23 goddess_skuld Exp $ -->
+<!-- end of $Id: send.php,v 1.92 2008/08/07 20:17:25 gerundt Exp $ -->
