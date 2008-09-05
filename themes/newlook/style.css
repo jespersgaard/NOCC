@@ -295,6 +295,53 @@ table {
 .submenu a:hover { color:white; text-decoration:underline; }
 .submenu a:active { color:white; text-decoration:underline; }
 
+/**
+ * page navigation
+ */
+.pagenav {
+  text-align: right;
+  color: white;
+  background-color: #006699;
+}
+
+.pagenav ul {
+  margin: 0;
+  padding: 2px 0;
+  list-style-type: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.pagenav ul li {
+  display: inline;
+}
+
+.pagenav ul li.pagexofy {
+  margin-right: 1em;
+}
+
+.pagenav ul li a,
+.pagenav ul li span {
+  margin: 0;
+  padding: 0 3px;
+}
+
+.pagenav ul li.prev span,
+.pagenav ul li.next span {
+  color: #CCCCCC;
+}
+
+.pagenav ul li.current span {
+  font-weight: bold;
+  font-size: larger;
+  color: #FFC061;
+}
+
+.pagenav a:link { color:white; text-decoration:none; }
+.pagenav a:visited { color:white; text-decoration:none; }
+.pagenav a:focus { color:#FFDEAD; text-decoration:underline; }
+.pagenav a:hover { color:#FFDEAD; text-decoration:underline; }
+.pagenav a:active { color:#FFDEAD; text-decoration:underline; }
+
 div.messageSummary {
   background-color: #006699;
 }

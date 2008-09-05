@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/utils/functions.php,v 1.4 2008/03/26 07:29:53 goddess_skuld Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/utils/functions.php,v 1.5 2008/06/22 12:22:38 goddess_skuld Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -1217,4 +1217,80 @@ function format_quota($bytes) {
     return FALSE;    
 }
 
+//...
+function get_page_nav($pages, $skip) {
+  global $html_page, $html_of, $alt_prev, $title_prev_page, $alt_next, $title_next_page;
+  
+  $html = '';
+  if ($pages > 1) { // if there several pages...
+    $form_select .= '<select class="button" name="skip" onChange="submit();">';
+    $selected = '';
+    for ($i = 0; $i < $pages; $i++) { 
+        $xpage = $i + 1;
+        if ($i == $skip) {
+            $selected = 'selected="selected"';
+        } else {
+            $selected = '';
+        }
+        $form_select .= '<option '.$selected.' value="'.$i.'">'.$xpage.'</option>';
+    }
+    $form_select .= '</select>';
+
+    $page = $skip + 1;
+    $pskip = $skip - 1;
+    $nskip = $skip + 1;
+    
+    $start_page = $page - 2;
+    $end_page = $page + 2;
+    if ($page < 4) { // if first three pages...
+      $start_page = 1;
+      $end_page = 6;
+    }
+    elseif ($page > ($pages - 3)) { // if last three pages...
+      $start_page = $pages - 5;
+      $end_page = $pages;
+    }
+    if ($start_page < 1) {
+      $end_page = $end_page - $start_page;
+      $start_page = 1;
+    }
+    if ($end_page > $pages) {
+      $end_page = $pages;
+    }
+    
+    $html = '<form method="post" action="'.$_SERVER['PHP_SELF'].'">';
+    $html .= '<div class="pagenav"><ul>';
+    $html .= '<li class="pagexofy"><span>' . $html_page . ' ' . $form_select . ' ' . $html_of . ' ' . $pages . '</span></li>';
+    if ($pskip > -1 ) // if NOT first page...
+      $html .= '<li class="prev"><a href="' . $_SERVER['PHP_SELF'] . '?skip=' . $pskip . '" title="' . $title_prev_page . '">&laquo; ' . $alt_prev . '</a></li>';
+    else // if first page...
+      $html .= '<li class="prev"><span> &laquo; ' . $alt_prev . '</span></li>';
+    if ($start_page > 1) {
+      $html .= '<li class="page"><a href="' . $_SERVER['PHP_SELF'] . '?skip=0" title="' . $html_page . ' 1">1</a></li>';
+      if ($start_page > 2) {
+        $html .= '<li class="extend"><span>&hellip;</span></li>';
+      }
+    }
+    for ($xpage = $start_page; $xpage <= $end_page; $xpage++) { // for all visible pages...
+      $xskip = $xpage - 1;
+      if ($xpage == $page) // if current page...
+        $html .= '<li class="current"><span>' . $xpage . '</span></li>';
+      else // if NOT current page...
+        $html .= '<li class="page"><a href="' . $_SERVER['PHP_SELF'] . '?skip=' . $xskip . '" title="' . $html_page . ' ' . $xpage . '">' . $xpage . '</a></li>';
+    }
+    if ($end_page < $pages) {
+      if ($end_page < $pages - 1) {
+        $html .= '<li class="extend"><span>&hellip;</span></li>';
+      }
+      $html .= '<li class="page"><a href="' . $_SERVER['PHP_SELF'] . '?skip=' . ($pages - 1) . '" title="' . $html_page . ' ' . $pages . '">' . $pages . '</a></li>';
+    }
+    if ($nskip < $pages) // if NOT last page...
+      $html .= '<li class="next"><a href="' . $_SERVER['PHP_SELF'] . '?skip=' . $nskip . '" title="' . $title_next_page . '">' . $alt_next . ' &raquo;</a></li>';
+    else // if last page...
+      $html .= '<li class="next"><span>' . $alt_next . ' &raquo;</span></li>';
+    $html .= '</ul></div>';
+    $html .= '</form>';
+  }
+  return $html;
+}
 ?>

@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.101 2008/04/27 18:41:06 gerundt Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.102 2008/06/22 12:22:40 goddess_skuld Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -13,36 +13,9 @@ $skip = (isset($_REQUEST['skip'])) ? $_REQUEST['skip'] : '0';
 $pages = $pop->get_page_count($conf);
 
 $page_line = '';
-$prev = '';
-$next = '';
 
 if($pages > 1) {
-    $nskip = $skip + 1;
-    $pskip = $skip - 1;
-    if($pskip > -1 ) {
-        $prev = "<a href=\"".$_SERVER['PHP_SELF']."?skip=$pskip\">";
-        $prev .= "<img class=\"navigation\" src=\"themes/".$_SESSION['nocc_theme']."/img/left_arrow.png\" alt=\"".$alt_prev."\" title=\"".$title_prev_page."\" /></a>\n";
-    }
-    if($nskip < $pages) {
-        $next = "<a href=\"".$_SERVER['PHP_SELF']."?skip=$nskip\">";
-        $next .= "<img class=\"navigation\" src=\"themes/".$_SESSION['nocc_theme']."/img/right_arrow.png\" alt=\"".$alt_next."\" title=\"".$title_next_page."\" /></a>\n";
-    }
-
-    $page_line = "<form method=\"post\" action=\"".$_SERVER['PHP_SELF']."\"><div>";
-    $page_line .= "$html_page <select class=\"button\" name=\"skip\">\n";
-    $selected = '';
-    for ($i = 0; $i < $pages; $i++) { 
-        $current_skip = $i + 1;
-        if ($i == $skip) {
-            $selected = "selected=\"selected\"";
-        } else {
-            $selected = "";
-        }
-        $page_line .= "\t<option $selected value=\"$i\">$current_skip</option>\n";
-    }
-    $page_line .= "</select> $html_of $pages ";
-    $page_line .= "<input type=\"submit\" class=\"button\" name=\"submit\" value=\"$html_gotopage\" />";
-    $page_line .= "</div></form>";
+    $page_line = get_page_nav($pages, $skip);
 }
 
 $fldr_line = "";
@@ -102,10 +75,6 @@ if ($pop->is_imap()) {
                       <td class="inbox right">
                         <?php echo $page_line ?>
                       </td>
-                      <td class="inbox right">
-                        <?php echo $prev ?>
-                        <?php echo $next ?>
-                      </td>
                     </tr>
                   </table>
                 </div>
@@ -142,4 +111,4 @@ if ($pop->is_imap()) {
                             }
                           ?>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.101 2008/04/27 18:41:06 gerundt Exp $ -->
+<!-- end of $Id: html_top_table.php,v 1.102 2008/06/22 12:22:40 goddess_skuld Exp $ -->
