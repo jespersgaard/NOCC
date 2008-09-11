@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts.php,v 1.16 2008/02/10 20:52:23 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts.php,v 1.17 2008/02/21 23:53:54 gerundt Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -77,7 +77,7 @@ function toggle (bt)
 </script>
 </head>
 
-<body dir="<?php echo $lang_dir; ?>">
+<body id="popup" dir="<?php echo $lang_dir; ?>">
   <?php
     if (!isset($conf->contact_number_max) || $conf->contact_number_max == 0) {
   ?>

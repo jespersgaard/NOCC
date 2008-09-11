@@ -155,6 +155,10 @@ table {
   border-spacing: 0px;
 }
 
+#popup {
+  min-width: 0;
+}
+
 #header h1 {
   float: left;
   margin: 0;

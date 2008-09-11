@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.25 2008/02/10 21:02:10 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.26 2008/02/21 23:53:55 gerundt Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -54,7 +54,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
   </script>
 </head>
 
-<body dir="<?php echo $lang_dir; ?>">
+<body id="popup" dir="<?php echo $lang_dir; ?>">
   <?php
     if (!isset($conf->contact_number_max) || $conf->contact_number_max == 0) {
   ?>
@@ -249,10 +249,9 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
       ?>
     </table>
   </div>
-  <div class="contactsAddLink">
-    <br/>
+  <p class="contactsAddLink">
     <a href="<?php echo $_SERVER['PHP_SELF'];; ?>?action=add_prompt&amp;<?php echo $query_str ?>"><?php echo convertLang2Html($html_contact_add) ?></a>
-  </div>
+  </p>
   <?php
     } // switch
   ?>
