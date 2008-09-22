@@ -687,6 +687,11 @@ img.sort {
   background-color: #F7F7F7;
 }
 
+.prefs h3 {
+  margin-top: 0;
+  padding-top: 1em;
+}
+
 .prefs table {
   border: 0px;
   padding: 0px;
