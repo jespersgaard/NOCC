@@ -720,6 +720,17 @@ img.sort {
   width: 100%;
 }
 
+.prefs fieldset {
+  border: 0;
+  border-top: 1px solid silver;
+}
+
+.prefs fieldset legend {
+  margin-left: 2em;
+  font-weight: bold;
+  font-size: larger;
+}
+
 .prefsLabel {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;

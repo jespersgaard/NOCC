@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.54 2008/05/16 23:31:28 gerundt Exp $ -->
+<!-- start of $Id: prefs.php,v 1.55 2008/05/18 00:02:22 gerundt Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -174,6 +174,10 @@ if (count($big_list) > 1) {
            </td>
          </tr>
          <?php } ?>
+      </table>
+    <fieldset>
+      <legend>NOCC</legend>
+      <table>
          <tr>
            <td class="prefsLabel"><label for="lang"><?php echo convertLang2Html($html_lang) ?>:</label></td>
            <td class="prefsData">
@@ -215,6 +219,7 @@ if (count($big_list) > 1) {
          </tr>
          <?php } ?>
       </table>
+    </fieldset>
            <?php
              if(NoccException::isException($ev)) {
            ?>
@@ -244,4 +249,4 @@ if (count($big_list) > 1) {
      </div>
    </form>
  </div>
-<!-- end of $Id: prefs.php,v 1.54 2008/05/16 23:31:28 gerundt Exp $ -->
+<!-- end of $Id: prefs.php,v 1.55 2008/05/18 00:02:22 gerundt Exp $ -->
