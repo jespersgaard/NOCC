@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.57 2008/09/23 19:14:26 gerundt Exp $ -->
+<!-- start of $Id: prefs.php,v 1.58 2008/09/23 19:51:38 gerundt Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -76,12 +76,6 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="outlook_quoting" id="outlook_quoting" value="on" <?php if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting) echo 'checked="checked"'; ?> /><label for="outlook_quoting"><?php echo convertLang2Html($html_outlook_quoting) ?></label>
-           </td>
-         </tr>
-         <tr>
-           <td class="prefsLabel">&nbsp;</td>
-           <td class="prefsData">
              <input type="checkbox" name="colored_quotes" id="colored_quotes" value="on" <?php if(!isset($user_prefs->colored_quotes) || (isset($user_prefs->colored_quotes) && $user_prefs->colored_quotes)) echo 'checked="checked"'; ?> /><label for="colored_quotes"><?php echo convertLang2Html($html_colored_quotes) ?></label>
            </td>
          </tr>
@@ -91,14 +85,6 @@ if (count($big_list) > 1) {
              <input type="checkbox" name="seperate_msg_win" id="seperate_msg_win" value="on" <?php if(isset($user_prefs->seperate_msg_win) && $user_prefs->seperate_msg_win) echo 'checked="checked"'; ?> /><label for="seperate_msg_win"><?php echo convertLang2Html($html_seperate_msg_win) ?></label>
            </td>
          </tr>
-         <?php if($conf->enable_reply_leadin) { ?>
-         <tr>
-           <td class="prefsLabel"><label for="reply_leadin"><?php echo convertLang2Html($html_reply_leadin) ?>:</label></td>
-           <td class="prefsData">
-             <input class="button" type="text" name="reply_leadin" id="reply_leadin" value="<?php echo (isset($user_prefs->reply_leadin)) ? $user_prefs->reply_leadin : "" ?>" size="40"/>
-           </td>
-         </tr>
-         <?php } ?>
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
@@ -112,6 +98,25 @@ if (count($big_list) > 1) {
            </td>
          </tr>
       </table>
+    <fieldset>
+      <legend><?php echo convertLang2Html($html_reply); ?></legend>
+      <table>
+         <?php if($conf->enable_reply_leadin) { ?>
+         <tr>
+           <td class="prefsLabel"><label for="reply_leadin"><?php echo convertLang2Html($html_reply_leadin) ?>:</label></td>
+           <td class="prefsData">
+             <input class="button" type="text" name="reply_leadin" id="reply_leadin" value="<?php echo (isset($user_prefs->reply_leadin)) ? $user_prefs->reply_leadin : "" ?>" size="40"/>
+           </td>
+         </tr>
+         <?php } ?>
+         <tr>
+           <td class="prefsLabel">&nbsp;</td>
+           <td class="prefsData">
+             <input type="checkbox" name="outlook_quoting" id="outlook_quoting" value="on" <?php if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting) echo 'checked="checked"'; ?> /><label for="outlook_quoting"><?php echo convertLang2Html($html_outlook_quoting) ?></label>
+           </td>
+         </tr>
+      </table>
+    </fieldset>
     <fieldset>
       <legend><?php echo convertLang2Html($html_send); ?></legend>
       <table>
@@ -264,4 +269,4 @@ if (count($big_list) > 1) {
      </div>
    </form>
  </div>
-<!-- end of $Id: prefs.php,v 1.57 2008/09/23 19:14:26 gerundt Exp $ -->
+<!-- end of $Id: prefs.php,v 1.58 2008/09/23 19:51:38 gerundt Exp $ -->
