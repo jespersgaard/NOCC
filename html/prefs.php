@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.56 2008/09/22 22:42:06 gerundt Exp $ -->
+<!-- start of $Id: prefs.php,v 1.57 2008/09/23 19:14:26 gerundt Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -70,12 +70,6 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="cc_self" id="cc_self" value="on" <?php if(isset($user_prefs->cc_self) && $user_prefs->cc_self) echo 'checked="checked"'; ?> /><label for="cc_self"><?php echo convertLang2Html($html_ccself) ?></label>
-           </td>
-         </tr>
-         <tr>
-           <td class="prefsLabel">&nbsp;</td>
-           <td class="prefsData">
              <input type="checkbox" name="hide_addresses" id="hide_addresses" value="on" <?php if(isset($user_prefs->hide_addresses) && $user_prefs->hide_addresses) echo 'checked="checked"'; ?> /><label for="hide_addresses"><?php echo convertLang2Html($html_hide_addresses) ?></label>
            </td>
          </tr>
@@ -89,17 +83,6 @@ if (count($big_list) > 1) {
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
              <input type="checkbox" name="colored_quotes" id="colored_quotes" value="on" <?php if(!isset($user_prefs->colored_quotes) || (isset($user_prefs->colored_quotes) && $user_prefs->colored_quotes)) echo 'checked="checked"'; ?> /><label for="colored_quotes"><?php echo convertLang2Html($html_colored_quotes) ?></label>
-           </td>
-         </tr>
-         <tr>
-           <td class="prefsLabel">&nbsp;</td>
-           <td class="prefsData">
-             <?php echo convertLang2Html($html_wrap) ?>
-             <input type="radio" name="wrap_msg" id="wrap_msg_80" value="80" <?php if($user_prefs->wrap_msg == 80) echo 'checked="checked"'; ?> /><label for="wrap_msg_80">80</label>
-             &nbsp;&nbsp;
-             <input type="radio" name="wrap_msg" id="wrap_msg_72" value="72" <?php if($user_prefs->wrap_msg == 72) echo 'checked="checked"'; ?> /><label for="wrap_msg_72">72</label>
-             &nbsp;&nbsp;
-             <input type="radio" name="wrap_msg" id="wrap_msg_0" value="0" <?php if(!isset($user_prefs->wrap_msg) || $user_prefs->wrap_msg == '' || $user_prefs->wrap_msg == '0') echo 'checked="checked"'; ?> /><label for="wrap_msg_0"><?php echo convertLang2Html($html_wrap_none) ?></label>
            </td>
          </tr>
          <tr>
@@ -119,12 +102,6 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="html_mail_send" id="html_mail_send" value="on" <?php if(isset($user_prefs->html_mail_send) && $user_prefs->html_mail_send) echo 'checked="checked"'; ?> /><label for="html_mail_send"><?php echo convertLang2Html($html_send_html_mail) ?></label>
-           </td>
-         </tr>
-         <tr>
-           <td class="prefsLabel">&nbsp;</td>
-           <td class="prefsData">
              <input type="checkbox" name="graphical_smilies" id="graphical_smilies" value="on" <?php if (isset($user_prefs->graphical_smilies) && $user_prefs->graphical_smilies) echo 'checked="checked"'; ?> /><label for="graphical_smilies"><?php echo convertLang2Html($html_use_graphical_smilies) ?></label>
            </td>
          </tr>
@@ -135,6 +112,34 @@ if (count($big_list) > 1) {
            </td>
          </tr>
       </table>
+    <fieldset>
+      <legend><?php echo convertLang2Html($html_send); ?></legend>
+      <table>
+         <tr>
+           <td class="prefsLabel">&nbsp;</td>
+           <td class="prefsData">
+             <input type="checkbox" name="cc_self" id="cc_self" value="on" <?php if(isset($user_prefs->cc_self) && $user_prefs->cc_self) echo 'checked="checked"'; ?> /><label for="cc_self"><?php echo convertLang2Html($html_ccself) ?></label>
+           </td>
+         </tr>
+         <tr>
+           <td class="prefsLabel">&nbsp;</td>
+           <td class="prefsData">
+             <input type="checkbox" name="html_mail_send" id="html_mail_send" value="on" <?php if(isset($user_prefs->html_mail_send) && $user_prefs->html_mail_send) echo 'checked="checked"'; ?> /><label for="html_mail_send"><?php echo convertLang2Html($html_send_html_mail) ?></label>
+           </td>
+         </tr>
+         <tr>
+           <td class="prefsLabel">&nbsp;</td>
+           <td class="prefsData">
+             <?php echo convertLang2Html($html_wrap) ?>
+             <input type="radio" name="wrap_msg" id="wrap_msg_80" value="80" <?php if($user_prefs->wrap_msg == 80) echo 'checked="checked"'; ?> /><label for="wrap_msg_80">80</label>
+             &nbsp;&nbsp;
+             <input type="radio" name="wrap_msg" id="wrap_msg_72" value="72" <?php if($user_prefs->wrap_msg == 72) echo 'checked="checked"'; ?> /><label for="wrap_msg_72">72</label>
+             &nbsp;&nbsp;
+             <input type="radio" name="wrap_msg" id="wrap_msg_0" value="0" <?php if(!isset($user_prefs->wrap_msg) || $user_prefs->wrap_msg == '' || $user_prefs->wrap_msg == '0') echo 'checked="checked"'; ?> /><label for="wrap_msg_0"><?php echo convertLang2Html($html_wrap_none) ?></label>
+           </td>
+         </tr>
+      </table>
+    </fieldset>
     <fieldset>
       <legend><?php echo convertLang2Html($html_signature); ?></legend>
       <table>
@@ -259,4 +264,4 @@ if (count($big_list) > 1) {
      </div>
    </form>
  </div>
-<!-- end of $Id: prefs.php,v 1.56 2008/09/22 22:42:06 gerundt Exp $ -->
+<!-- end of $Id: prefs.php,v 1.57 2008/09/23 19:14:26 gerundt Exp $ -->
