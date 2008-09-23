@@ -17,6 +17,7 @@ NOCC 1.7  ?? ??, ??
     * RFE #2025591 : login_prefix (Arnaud Boudou).
 
   Misc
+    * Arrange preference entries (Tim Gerundt).
     * Add relationship attribute to the previous/next links (Tim Gerundt).
     * Fix some bugs on multiple mails actions (Arnaud Boudou).
 

@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.58 2008/09/23 19:51:38 gerundt Exp $ -->
+<!-- start of $Id: prefs.php,v 1.59 2008/09/23 20:04:47 gerundt Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -62,6 +62,16 @@ if (count($big_list) > 1) {
          </tr>
          <?php } ?>
          <tr>
+           <td class="prefsLabel">&nbsp;</td>
+           <td class="prefsData">
+             <input type="checkbox" name="hide_addresses" id="hide_addresses" value="on" <?php if(isset($user_prefs->hide_addresses) && $user_prefs->hide_addresses) echo 'checked="checked"'; ?> /><label for="hide_addresses"><?php echo convertLang2Html($html_hide_addresses) ?></label>
+           </td>
+         </tr>
+      </table>
+    <fieldset>
+      <legend><?php echo convertLang2Html($html_inbox); ?></legend>
+      <table>
+         <tr>
            <td class="prefsLabel"><label for="msg_per_page"><?php echo convertLang2Html($html_msgperpage) ?>:</label></td>
            <td class="prefsData">
              <input class="button" type="text" name="msg_per_page" id="msg_per_page" value="<?php echo (isset($user_prefs->msg_per_page)) ? $user_prefs->msg_per_page : $conf->msg_per_page ?>" size="3" maxlength="3"/>
@@ -70,7 +80,18 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="hide_addresses" id="hide_addresses" value="on" <?php if(isset($user_prefs->hide_addresses) && $user_prefs->hide_addresses) echo 'checked="checked"'; ?> /><label for="hide_addresses"><?php echo convertLang2Html($html_hide_addresses) ?></label>
+             <input type="checkbox" name="seperate_msg_win" id="seperate_msg_win" value="on" <?php if(isset($user_prefs->seperate_msg_win) && $user_prefs->seperate_msg_win) echo 'checked="checked"'; ?> /><label for="seperate_msg_win"><?php echo convertLang2Html($html_seperate_msg_win) ?></label>
+           </td>
+         </tr>
+      </table>
+    </fieldset>
+    <fieldset>
+      <legend><?php echo convertLang2Html($html_msg); ?></legend>
+      <table>
+         <tr>
+           <td class="prefsLabel">&nbsp;</td>
+           <td class="prefsData">
+             <input type="checkbox" name="graphical_smilies" id="graphical_smilies" value="on" <?php if (isset($user_prefs->graphical_smilies) && $user_prefs->graphical_smilies) echo 'checked="checked"'; ?> /><label for="graphical_smilies"><?php echo convertLang2Html($html_use_graphical_smilies) ?></label>
            </td>
          </tr>
          <tr>
@@ -82,22 +103,11 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="seperate_msg_win" id="seperate_msg_win" value="on" <?php if(isset($user_prefs->seperate_msg_win) && $user_prefs->seperate_msg_win) echo 'checked="checked"'; ?> /><label for="seperate_msg_win"><?php echo convertLang2Html($html_seperate_msg_win) ?></label>
-           </td>
-         </tr>
-         <tr>
-           <td class="prefsLabel">&nbsp;</td>
-           <td class="prefsData">
-             <input type="checkbox" name="graphical_smilies" id="graphical_smilies" value="on" <?php if (isset($user_prefs->graphical_smilies) && $user_prefs->graphical_smilies) echo 'checked="checked"'; ?> /><label for="graphical_smilies"><?php echo convertLang2Html($html_use_graphical_smilies) ?></label>
-           </td>
-         </tr>
-         <tr>
-           <td class="prefsLabel">&nbsp;</td>
-           <td class="prefsData">
              <input type="checkbox" name="display_struct" id="display_struct" value="on" <?php if(isset($user_prefs->display_struct) && (isset($user_prefs->display_struct) && $user_prefs->display_struct)) echo 'checked="checked"'; ?> /><label for="display_struct"><?php echo convertLang2Html($html_display_struct) ?></label>
            </td>
          </tr>
       </table>
+    </fieldset>
     <fieldset>
       <legend><?php echo convertLang2Html($html_reply); ?></legend>
       <table>
@@ -269,4 +279,4 @@ if (count($big_list) > 1) {
      </div>
    </form>
  </div>
-<!-- end of $Id: prefs.php,v 1.58 2008/09/23 19:51:38 gerundt Exp $ -->
+<!-- end of $Id: prefs.php,v 1.59 2008/09/23 20:04:47 gerundt Exp $ -->
