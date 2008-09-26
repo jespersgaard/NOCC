@@ -16,7 +16,7 @@
 .mail {
   font-family: monospace; 
   font-size: 13px;
-  background-color: #002266;
+  background-color: #003366;
   text-align: left;
 }
 
@@ -44,7 +44,7 @@
 .button {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
-  background-color: #002266; 
+  background-color: #000033; 
   color: white;
 }
 
@@ -124,7 +124,7 @@ img {
 body {
   min-width: 40em;
   color: #FFFFFF;
-  background-color: #000080;
+  background-color: #000033;
 }
 
 form {
@@ -212,13 +212,13 @@ table {
  * main menu
  */
 .mainmenu {
-  color: #000000;
-  background-color: #99CC99;
+  color: #FFFFFF;
+  background-color: #000033;
 }
 
 .mainmenu ul {
   margin: 0;
-  padding: 1px 0 1px 0;
+  padding: .2em 0;
   list-style-type: none;
   font-family: Arial, Helvetica, sans-serif;
   font-size: smaller;
@@ -231,25 +231,23 @@ table {
 .mainmenu ul li a,
 .mainmenu ul li a:visited,
 .mainmenu ul li span {
-  padding: 0 2em 0 2em;
+  padding: .2em 2em;
   text-decoration: none;
-  color: #0000FF;
-  background-color: #99CC99;
-  border: 1px solid #99CC99;
+  color: #000033;
+  background-color: #006699;
 }
 
 .mainmenu ul li a:hover {
-  color: #FF9900;
-  background-color: #0000FF;
-  border: 1px dashed #DDDDDD;
+  color: #FFFFFF;
+  background-color: #0099CC;
 }
 
 .mainmenu ul li.selected a,
 .mainmenu ul li.selected a:visited,
 .mainmenu ul li.selected span {
-  color: #0000FF;
-  background-color: #FF9900;
-  border: 1px dashed #DDDDDD;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: #0099CC;
 }
 
 .mainmenu ul li span,
@@ -261,12 +259,12 @@ table {
  * sub menu
  */
 .submenu {
-  background-color: #002266;
+  background-color: #0099CC;
 }
 
 .submenu ul {
   margin: 0;
-  padding: 1px 0 1px 0;
+  padding: .2em 0;
   list-style-type: none;
   font-family: Arial, Helvetica, sans-serif;
   font-size: smaller;
@@ -278,7 +276,7 @@ table {
 
 .submenu ul li a,
 .submenu ul li span {
-  padding: 0 2em 0 2em;
+  padding: 0 2em;
 }
 
 .submenu ul li.selected a,
@@ -298,7 +296,7 @@ table {
 .pagenav {
   text-align: right;
   color: white;
-  background-color: #002266;
+  background-color: #0099CC;
 }
 
 .pagenav ul {
@@ -340,11 +338,11 @@ table {
 .pagenav a:active { color:#FFDEAD; text-decoration:underline; }
 
 div.messageSummary {
-  background-color: #002266;
+  background-color: #0099CC;
 }
 
 div.topNavigation {
-  background-color: #002266;
+  background-color: #0099CC;
 }
 
 div.topNavigation table {
@@ -357,7 +355,10 @@ div.topNavigation img {
 }
 
 div.messageList {
-  background-color: #000080;
+  padding: .5em;
+  background-color: #003366;
+  border-top: .2em solid #0099CC;
+  border-bottom: .2em solid #0099CC;
 }
 
 div.messageList table {
@@ -365,7 +366,7 @@ div.messageList table {
 }
 
 div.bottomNavigation {
-  background-color: #002266;
+  background-color: #0099CC;
 }
 
 div.bottomNavigation table {
@@ -408,7 +409,7 @@ img.sort {
 .errorText {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
-  background-color: #000080;
+  background-color: #003366;
   text-align: center;
   padding: 2px;
 }
@@ -418,9 +419,9 @@ img.sort {
   margin-left: auto;
   margin-right: auto;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #000080;
+  background-color: #003366;
   text-align: center;
-  border: 1px solid #FF9900;
+  border: 1px solid #006699;
 }
 
 #loginBox h2 {
@@ -450,6 +451,7 @@ img.sort {
 }
 
 #inboxTable {
+  margin: .5em 0;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   border-collapse: collapse;
@@ -485,6 +487,7 @@ img.sort {
 }
 
 #inboxStatus {
+  margin: .5em 0;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
@@ -496,7 +499,9 @@ img.sort {
   text-align: center;
   width: 100%;
   padding: 0px;
-  background-color: #000080;
+  background-color: #003366;
+  border-top: .2em solid #0099CC;
+  border-bottom: .2em solid #0099CC;
 }
 
 .send table {
@@ -677,7 +682,9 @@ img.sort {
   text-align: center;
   padding: 0px;
   width: 100%;
-  background-color: #000080;
+  background-color: #003366;
+  border-top: .2em solid #0099CC;
+  border-bottom: .2em solid #0099CC;
 }
 
 .prefs h3 {
@@ -686,9 +693,6 @@ img.sort {
 }
 
 .prefs table {
-  border: 0px;
-  padding: 0px;
-  background-color: #000080;
   width: 100%;
 }
 
