@@ -1,4 +1,4 @@
-<!-- start of $Id: html_bottom_table.php,v 1.43 2008/02/10 21:02:10 goddess_skuld Exp $ -->
+<!-- start of $Id: html_bottom_table.php,v 1.44 2008/09/05 21:33:20 gerundt Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -8,7 +8,7 @@
                     <?php include('menu_inbox_bottom_opts.php'); ?>
                   <!-- end of Message list bloc -->
                 </div>
-                <?php if (($pop->is_imap()) || ($pages > 1)) { ?>
+                <?php if ($pages > 1) { ?>
                 <div class="bottomNavigation">
                   <table>
                     <tr>
@@ -20,4 +20,4 @@
                   </table>
                 </div>
                 <?php } ?>
-<!-- end of $Id: html_bottom_table.php,v 1.43 2008/02/10 21:02:10 goddess_skuld Exp $ -->
+<!-- end of $Id: html_bottom_table.php,v 1.44 2008/09/05 21:33:20 gerundt Exp $ -->
