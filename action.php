@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.203 2008/06/22 12:43:11 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.204 2008/07/05 07:47:32 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -548,8 +548,10 @@ switch($action) {
             }
             if (isset($_REQUEST['lang']))
                 $user_prefs->lang = $_REQUEST['lang'];
-            if (isset($_REQUEST['theme']))
+            if (isset($_REQUEST['theme'])) {
                 $user_prefs->theme = $_REQUEST['theme'];
+                $_SESSION['nocc_theme'] = $_REQUEST['theme'];
+            }
 
             // Commit preferences
             $user_prefs->commit($ev);
