@@ -157,6 +157,8 @@ table {
 
 #popup {
   min-width: 0;
+  color: #FFFFFF;
+  background-color: #003366;
 }
 
 #header h1 {
@@ -252,7 +254,7 @@ table {
 
 .mainmenu ul li span,
 .mainmenu ul li.selected span {
-  color: #FFFFFF;
+  color: #000033;
 }
 
 /**
@@ -615,79 +617,76 @@ img.sort {
   text-align: left;
 }
 
-.contactsTitle {
+.contactAdd table {
+  width: 100%;
+  text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
+  color: #FFFFFF;
+  background-color: #004477;
+  border: 1px solid #000033;
+  border-collapse: collapse;
+}
+
+.contactAdd table td {
+  padding: 3px;
+}
+
+.contactsTitle {
   font-weight: bold;
-  text-decoration: none;
-  text-align: center;
-  background-color: #99cc99;
+  font-size: larger;
+  color: #FFFFFF;
+  background-color: #000033;
 }
 
 .contactsSubTitle {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
   font-weight: bold;
-  text-decoration: none;
-  text-align: center;
-  color: #33CC00;
-}
-
-.contactsAdd table {
-  border: 0px;
-  text-align: center;
-  padding: 3px;
-  background-color: #000080;
-  width: 100%;
+  font-size: larger;
 }
 
 .contactsAddLabel {
- font-family: Arial, Helvetica, sans-serif;
- font-size: 12px;
  text-align: right;
 }
 
 .contactsAddData {
- font-family: Arial, Helvetica, sans-serif;
- font-size: 12px;
  text-align: left;
-}
-
-.contactsList {
 }
 
 .contactsList table {
   width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  border: 1px solid #000033;
+  border-collapse: collapse;
+}
+
+.contactsList table th,
+.contactsList table td {
+  padding: 3px;
+  border-top: 1px solid #000033;
+  border-bottom: 1px solid #000033;
 }
 
 .contactsListHeader {
-  text-align: center;
-  background-color: #99cc99;
-  font-weight: bold;
-  font-size: 12px;
-  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+  color: #FFFFFF;
+  background-color: #000033;
 }
 
 .contactsListOdd {
-  font-size: 12px;
   color: #FFFFFF;
-  background-color: #000080;
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #005588;
 }
 
 .contactsListEven {
-  font-size: 12px;
   color: #FFFFFF;
-  background-color: #002266;
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #004477;
 }
 
 .contactsAddLink {
-  font-size: 12px;
-  color: #000000;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #33CC00;
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
   font-weight: bold;
 }
 
