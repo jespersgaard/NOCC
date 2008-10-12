@@ -1,10 +1,7 @@
-<!-- start of $Id: html_top_table.php,v 1.102 2008/06/22 12:22:40 goddess_skuld Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.103 2008/09/05 21:33:20 gerundt Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
-
-require_once './classes/class_local.php';
-require_once './config/conf.php';
 
 $arrow = ($_SESSION['nocc_sortdir'] == 0) ? 'up' : 'down';
 $new_sortdir = ($_SESSION['nocc_sortdir'] == 0) ? 1 : 0;
@@ -111,4 +108,4 @@ if ($pop->is_imap()) {
                             }
                           ?>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.102 2008/06/22 12:22:40 goddess_skuld Exp $ -->
+<!-- end of $Id: html_top_table.php,v 1.103 2008/09/05 21:33:20 gerundt Exp $ -->
