@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.148 2008/07/26 10:25:44 gerundt Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/send.php,v 1.149 2008/07/27 07:53:24 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,7 +9,6 @@
  * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
  */
 
-require_once './config/conf.php';
 require_once './common.php';
 
 class attached_file {

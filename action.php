@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.204 2008/07/05 07:47:32 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.205 2008/09/28 22:33:25 gerundt Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,7 +12,6 @@
  * This file is the main file of NOCC each function starts from here
  */
 
-require_once './config/conf.php';
 require_once './common.php';
 
 // Remove any attachments from disk and from our session

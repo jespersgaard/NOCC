@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.58 2008/06/18 08:04:47 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.59 2008/07/05 09:17:22 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,7 +12,6 @@
  * this file just delete the selected message(s)
  */
 
-require_once('./config/conf.php');
 require_once('./common.php');
 require_once('./classes/class_local.php');
 

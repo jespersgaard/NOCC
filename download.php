@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.39 2008/02/10 20:52:23 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/download.php,v 1.40 2008/10/02 16:29:52 gerundt Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -14,7 +14,6 @@
 if(!isset($HTTP_USER_AGENT))
     $HTTP_USER_AGENT = $_SERVER['HTTP_USER_AGENT'];
 
-require_once './config/conf.php';
 require_once './common.php';
 require_once './classes/class_local.php';
 

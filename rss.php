@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.18 2008/02/10 20:52:16 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/rss.php,v 1.19 2008/07/22 20:10:37 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -44,7 +44,6 @@
       }
   }
 
-  require_once './config/conf.php';
   require_once './common.php';
   require_once './classes/class_local.php';
   
