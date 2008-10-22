@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.205 2008/09/28 22:33:25 gerundt Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.206 2008/10/13 19:54:25 gerundt Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -672,33 +672,26 @@ switch($action) {
             break;
         }
 
-        if(count($tab_mail) < 1) {
-            // the mailbox is empty
-            $num_msg = 0;
-            require ('./html/header.php');
-            require ('./html/menu_inbox.php');
-            require ('./html/html_top_table.php');
-            include ('./html/no_mail.php');
-            require ('./html/html_bottom_table.php');
-            require ('./html/menu_inbox.php');
-            require ('./html/footer.php');
-            break;
-        }
-
-        // there are messages, we display
-        if (isset($_REQUEST['sort'])) {
-            $num_msg = $_SESSION['num_msg'];
-        } else {
-            $num_msg = $pop->num_msg();
-            $_SESSION['num_msg'] = $num_msg;
-        }
         require ('./html/header.php');
         require ('./html/menu_inbox.php');
         require ('./html/html_top_table.php');
+        if(count($tab_mail) < 1) {
+            // the mailbox is empty
+            $num_msg = 0;
+            include ('./html/no_mail.php');
+        } else {
+            // there are messages, we display
+            if (isset($_REQUEST['sort'])) {
+                $num_msg = $_SESSION['num_msg'];
+            } else {
+                $num_msg = $pop->num_msg();
+                $_SESSION['num_msg'] = $num_msg;
+            }
 
-        // Include this once for each line of the message index
-        while ($tmp = array_shift($tab_mail)) {
-            require ('./html/html_inbox.php');
+            // Include this once for each line of the message index
+            while ($tmp = array_shift($tab_mail)) {
+                require ('./html/html_inbox.php');
+            }
         }
 
         $new_folders = array();
