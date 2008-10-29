@@ -16,7 +16,8 @@
   display:none;
 }
 
-.mainmenu {
+.mainmenu,
+.submenu {
   display:none;
 }
 
