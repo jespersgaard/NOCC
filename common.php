@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.83 2008/07/26 09:04:21 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.84 2008/10/13 19:54:25 gerundt Exp $
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
@@ -14,7 +14,9 @@
 if (!isset($from_rss)) { $from_rss=false; }
 
 require_once './config/conf.php';
+require_once './classes/user_prefs.php';
 require_once('./classes/user_filters.php');
+require_once './utils/functions.php';
 require_once('./utils/html_entity_decode.php');
 require_once('./utils/crypt.php');
 

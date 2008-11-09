@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/logout.php,v 1.36 2006/09/25 19:23:07 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/logout.php,v 1.37 2008/02/10 20:52:18 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,6 +12,7 @@
 session_name("NOCCSESSID");
 session_start();
 require_once './config/conf.php';
+require_once './utils/functions.php';
 
 clear_attachments();
 session_name("NOCCSESSID");

@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts.php,v 1.18 2008/09/11 22:08:26 gerundt Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts.php,v 1.19 2008/10/13 19:54:25 gerundt Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -12,7 +12,6 @@
 
 require_once ('./common.php');
 require_once ('./utils/proxy.php');
-require_once ('./utils/functions.php');
 
 if(isset($charset))
   header ("Content-type: text/html; Charset=$charset");

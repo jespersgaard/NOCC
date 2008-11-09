@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/config/conf.php.dist,v 1.2 2008/02/10 21:02:10 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/config/conf.php.dist,v 1.3 2008/07/26 09:04:20 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -376,10 +376,6 @@ $conf->use_verbose = true;
 // ###
 // ### Don't change anything below this line
 // ###
-
-require_once './classes/user_prefs.php';
-require_once './classes/user_filters.php';
-require_once './utils/functions.php';
 
 // This function allows you to customise the default e-mail address
 function get_default_from_address() {
