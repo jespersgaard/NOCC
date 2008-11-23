@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.103 2008/09/05 21:33:20 gerundt Exp $ -->
+<!-- start of $Id: html_top_table.php,v 1.104 2008/10/12 16:51:56 gerundt Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -41,7 +41,7 @@ if ($pop->is_imap()) {
                         <?php } else { ?>
                         <span class="currentInbox"><?php echo $html_inbox; ?></span>
                         <?php } ?>
-                        <a class="rss" href="<?php echo $rss_url ?>"><span class="rssText">(RSS)</span></a>
+                        <a class="rss" href="<?php echo $rss_url ?>" title="RSS"><span class="rssText">(RSS)</span></a>
                         &nbsp;
                         <?php
                           if (isset($_SESSION['quota_enable']) && $_SESSION['quota_enable'] == true) { 
@@ -108,4 +108,4 @@ if ($pop->is_imap()) {
                             }
                           ?>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.103 2008/09/05 21:33:20 gerundt Exp $ -->
+<!-- end of $Id: html_top_table.php,v 1.104 2008/10/12 16:51:56 gerundt Exp $ -->
