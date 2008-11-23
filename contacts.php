@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts.php,v 1.19 2008/10/13 19:54:25 gerundt Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts.php,v 1.20 2008/11/09 01:07:42 gerundt Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -32,47 +32,47 @@ $_SESSION['nocc_loggedin'] = 1;
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang; ?>">
 <head>
-<title>NOCC - Webmail - <?php echo $html_contact_list . " " . $_SESSION["nocc_user"]; ?></title>
-<link href="themes/<?php echo $_SESSION['nocc_theme']; ?>/style.css" rel="stylesheet" type="text/css" />
-
-<meta content="text/html; charset=<?php echo $charset ?>" http-equiv="Content-Type" />
-<script type="text/javascript">
-
-
-function toggleemail (bt, email)
-{
-  var field = window.opener.document.getElementById("sendform").<?php echo $_GET["field"]; ?>.value;
-
-  if (bt.value == '<?php echo unhtmlentities($html_add) ?>')
-  {
-    if (field == '')
-      window.opener.document.getElementById("sendform").<?php echo $_GET["field"]; ?>.value = email;
-    else
-      window.opener.document.getElementById("sendform").<?php echo $_GET["field"]; ?>.value = field + "," + email;
-  }
-  else
-  {
-    var f = '';
-    tbl = field.split(",");
-    for (i = 0; i < tbl.length; ++i)
+  <title>NOCC - Webmail - <?php echo $html_contact_list . " " . $_SESSION["nocc_user"]; ?></title>
+  <link href="themes/<?php echo $_SESSION['nocc_theme']; ?>/style.css" rel="stylesheet" type="text/css" />
+  <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <meta content="text/html; charset=<?php echo $charset ?>" http-equiv="Content-Type" />
+  <script type="text/javascript">
+  <!--
+    function toggleemail (bt, email)
     {
-      if (f != '' && tbl[i] != email)
-        f += ',';
-      if (tbl[i] != email)
-        f += tbl[i];
-    }
-    window.opener.document.getElementById("sendform").<?php echo $_GET["field"]; ?>.value = f;
-  }
-}
+      var field = window.opener.document.getElementById("sendform").<?php echo $_GET["field"]; ?>.value;
 
-function toggle (bt)
-{
-  if (bt.value == '<?php echo unhtmlentities($html_add) ?>')
-    bt.value = '<?php echo unhtmlentities($html_delete) ?>';
-  else
-    bt.value = '<?php echo unhtmlentities($html_add) ?>';
-}
-</script>
+      if (bt.value == '<?php echo unhtmlentities($html_add) ?>')
+      {
+        if (field == '')
+          window.opener.document.getElementById("sendform").<?php echo $_GET["field"]; ?>.value = email;
+        else
+          window.opener.document.getElementById("sendform").<?php echo $_GET["field"]; ?>.value = field + "," + email;
+      }
+      else
+      {
+        var f = '';
+        tbl = field.split(",");
+        for (i = 0; i < tbl.length; ++i)
+        {
+          if (f != '' && tbl[i] != email)
+            f += ',';
+          if (tbl[i] != email)
+            f += tbl[i];
+        }
+        window.opener.document.getElementById("sendform").<?php echo $_GET["field"]; ?>.value = f;
+      }
+    }
+
+    function toggle (bt)
+    {
+      if (bt.value == '<?php echo unhtmlentities($html_add) ?>')
+        bt.value = '<?php echo unhtmlentities($html_delete) ?>';
+      else
+        bt.value = '<?php echo unhtmlentities($html_add) ?>';
+    }
+    //-->
+  </script>
 </head>
 
 <body id="popup" dir="<?php echo $lang_dir; ?>">

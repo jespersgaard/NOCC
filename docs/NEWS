@@ -20,6 +20,7 @@ NOCC 1.7  ?? ??, ??
     * RFE #2025591 : login_prefix (Arnaud Boudou).
 
   Misc
+    * Add favicon to contacts pages (Tim Gerundt).
     * Don't print the sub menus (Tim Gerundt).
     * Load "config/conf.php" via "common.php" file (Tim Gerundt).
     * Arrange preference entries (Tim Gerundt).

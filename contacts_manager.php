@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.28 2008/10/13 19:54:25 gerundt Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/contacts_manager.php,v 1.29 2008/11/09 01:07:42 gerundt Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -36,8 +36,9 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang; ?>">
 <head>
-  <link href="themes/<?php echo $_SESSION['nocc_theme']; ?>/style.css" rel="stylesheet" type="text/css" />
   <title>NOCC - Webmail - <?php echo $html_contact_list . " " . $_SESSION["nocc_user"]; ?></title>
+  <link href="themes/<?php echo $_SESSION['nocc_theme']; ?>/style.css" rel="stylesheet" type="text/css" />
+  <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
   <meta content="text/html; charset=<?php echo $charset ?>" http-equiv="Content-Type" />
   <script type="text/javascript">
   <!--
