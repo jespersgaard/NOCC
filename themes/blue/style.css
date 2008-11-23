@@ -572,12 +572,22 @@ img.sort {
   text-align: center;
   padding: 0px;
   width: 100%;
-  background-color: #002266;
+  background-color: #003366;
 }
 
 .mailData table {
   border: 0px;
   padding: 2px;
+}
+
+.mail {
+  margin: 0;
+  padding: .5em;
+}
+
+.mail pre {
+  margin: 0;
+  padding: 0;
 }
 
 .mailNav {
