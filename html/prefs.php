@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.59 2008/09/23 20:04:47 gerundt Exp $ -->
+<!-- start of $Id: prefs.php,v 1.60 2008/09/23 20:34:40 gerundt Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -61,12 +61,6 @@ if (count($big_list) > 1) {
            </td>
          </tr>
          <?php } ?>
-         <tr>
-           <td class="prefsLabel">&nbsp;</td>
-           <td class="prefsData">
-             <input type="checkbox" name="hide_addresses" id="hide_addresses" value="on" <?php if(isset($user_prefs->hide_addresses) && $user_prefs->hide_addresses) echo 'checked="checked"'; ?> /><label for="hide_addresses"><?php echo convertLang2Html($html_hide_addresses) ?></label>
-           </td>
-         </tr>
       </table>
     <fieldset>
       <legend><?php echo convertLang2Html($html_inbox); ?></legend>
@@ -81,6 +75,12 @@ if (count($big_list) > 1) {
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
              <input type="checkbox" name="seperate_msg_win" id="seperate_msg_win" value="on" <?php if(isset($user_prefs->seperate_msg_win) && $user_prefs->seperate_msg_win) echo 'checked="checked"'; ?> /><label for="seperate_msg_win"><?php echo convertLang2Html($html_seperate_msg_win) ?></label>
+           </td>
+         </tr>
+         <tr>
+           <td class="prefsLabel">&nbsp;</td>
+           <td class="prefsData">
+             <input type="checkbox" name="hide_addresses" id="hide_addresses" value="on" <?php if(isset($user_prefs->hide_addresses) && $user_prefs->hide_addresses) echo 'checked="checked"'; ?> /><label for="hide_addresses"><?php echo convertLang2Html($html_hide_addresses) ?></label>
            </td>
          </tr>
       </table>
@@ -279,4 +279,4 @@ if (count($big_list) > 1) {
      </div>
    </form>
  </div>
-<!-- end of $Id: prefs.php,v 1.59 2008/09/23 20:04:47 gerundt Exp $ -->
+<!-- end of $Id: prefs.php,v 1.60 2008/09/23 20:34:40 gerundt Exp $ -->
