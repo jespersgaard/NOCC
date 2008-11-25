@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/down_mail.php,v 1.12 2008/02/10 20:52:20 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/down_mail.php,v 1.13 2008/10/13 19:54:25 gerundt Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -28,10 +28,10 @@ if (NoccException::isException($ev)) {
     return;
 }
 
-$ref_contenu_message = $pop->headerinfo($mail, $ev);
+$msg_headerinfo = $pop->headerinfo($mail, $ev);
 $header = $pop->fetchheader($mail, $ev);
-if (isset($ref_contenu_message->subject)) {
-    $subject_array = $pop->mime_header_decode($ref_contenu_message->subject);
+if (isset($msg_headerinfo->subject)) {
+    $subject_array = $pop->mime_header_decode($msg_headerinfo->subject);
     for ($subject = "", $j = 0; $j < count($subject_array); $j++)
             $subject .= $subject_array[$j]->text;
 }
