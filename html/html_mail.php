@@ -1,4 +1,4 @@
-<!-- start of $Id: html_mail.php,v 1.8 2008/09/05 22:39:02 gerundt Exp $ -->
+<!-- start of $Id: html_mail.php,v 1.9 2008/11/23 22:47:48 gerundt Exp $ -->
 <div class="mailNav">
    <table>
 <?php
@@ -27,7 +27,7 @@ if (($content['next'] != '') && ($content['next'] != 0))
   echo '<a href="' . $_SERVER['PHP_SELF'] . '?action=aff_mail&amp;mail=' . $content['next'] . '&amp;verbose=' . $verbose . '" rel="next"><img src="themes/' . $_SESSION['nocc_theme'] . '/img/right_arrow.png" alt="' . $alt_next . '" title="' . $title_next_msg . '" class="navigation" /></a>';
 echo "</td></tr>";
 
-if ($conf->use_verbose && $verbose == '0') { //If displaying "normal" headers...
+if ($conf->use_verbose && $verbose == '0') { //If displaying "normal" header...
   echo '<tr><th class="mailHeaderLabel">'.$html_from.':</th><td class="mailHeaderData">'.htmlspecialchars($content['from']).'</td></tr>';
   echo '<tr><th class="mailHeaderLabel">'.$html_to.':</th><td class="mailHeaderData">'.htmlspecialchars($content['to']).'</td></tr>';
   if ($content['cc'] != '') {
@@ -54,11 +54,11 @@ if ($content['subject'] == '')
       echo ' selected="selected"';
     echo '>'.$charset_array[$i]->label.'</option>';
   }
-  echo '</select>&nbsp;&nbsp<input name="submit" class="button" type="submit" value="' . $html_submit . '" />';
+  echo '</select>&nbsp;&nbsp;<input name="submit" class="button" type="submit" value="' . $html_submit . '" />';
   echo '</div></form>';
   echo '</td></tr>';
 }
-else { //If displaying "verbose" headers...
+else { //If displaying "verbose" header...
   if($content['att'] != '') {
     echo $content['att'];
   }
@@ -80,12 +80,13 @@ if ($has_images && $display_images != 1) {
 </div>
 <div class="mailData">
 <?php
-if (!($conf->use_verbose && $verbose == '0')) { //If displaying "verbose" headers...
+if (!($conf->use_verbose && $verbose == '0')) { //If displaying "verbose" header...
+  //TODO: Rename this CSS class "mail" to "mailHeader"?
   echo '<div class="mail"><pre>'.htmlspecialchars($content['header']).'</pre></div>';
 }
-
+//TODO: Rename this CSS class "mail" to "mailBody"?
 echo '<div class="mail">'.$content['body'].'</div>';
 
 ?>
-</div>
-<!-- end of $Id: html_mail.php,v 1.8 2008/09/05 22:39:02 gerundt Exp $ -->
+</div> <!-- .mailData -->
+<!-- end of $Id: html_mail.php,v 1.9 2008/11/23 22:47:48 gerundt Exp $ -->

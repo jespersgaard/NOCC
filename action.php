@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.206 2008/10/13 19:54:25 gerundt Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.207 2008/10/22 22:17:32 gerundt Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -95,26 +95,33 @@ switch($action) {
         require ('./html/menu_mail.php');
         require ('./html/submenu_mail.php');
         require ('./html/html_mail.php');
+        //TODO: Use "mailData" DIV from file "html/html_mail.php"!
+        echo '<div class="mailData">';
         while ($tmp = array_pop($attach_tab)) {
             // $attach_tab is the array of attachments
             // If it's a text/plain, display it
-            if ((!eregi('ATTACHMENT', $tmp['disposition'])) && $conf->display_text_attach && (eregi('text/plain', $tmp['mime'])))
-                echo '<hr />'.view_part($pop, $_REQUEST['mail'], $tmp['number'], $tmp['transfer'], $tmp['charset'], $charset);
+            if ((!eregi('ATTACHMENT', $tmp['disposition'])) && $conf->display_text_attach && (eregi('text/plain', $tmp['mime']))) {
+                echo '<hr class="mailAttachSep" />';
+                echo '<div class="mailTextAttach">';
+                //TODO: Replace URLs and Smilies in text/plain attachment?
+                echo view_part($pop, $_REQUEST['mail'], $tmp['number'], $tmp['transfer'], $tmp['charset'], $charset);
+                echo '</div> <!-- .mailTextAttach -->';
+            }
             if ($conf->display_img_attach && (eregi('image', $tmp['mime']) && ($tmp['number'] != ''))) {
                 // if it's an image, display it
                 $exploded = explode('/', $tmp['mime']);
                 $img_type = array_pop($exploded);
                 if (eregi('JPEG', $img_type) || eregi('JPG', $img_type) || eregi('GIF', $img_type) || eregi ('PNG', $img_type))
                 {
-                    echo '<hr />';
-                    echo '<div class="center">';
-                    echo '<p>' . $html_loading_image . ' ' . $tmp['name'] . '...</p>';
+                    echo '<hr class="mailAttachSep" />';
+                    echo '<div class="mailImgAttach">';
                     echo '<img src="get_img.php?mail=' . $_REQUEST['mail'].'&amp;num=' . $tmp['number'] . '&amp;mime='
-                            . $img_type . '&amp;transfer=' . $tmp['transfer'] . '" />';
-                    echo '</div>';
+                            . $img_type . '&amp;transfer=' . $tmp['transfer'] . '" alt="" title="' . $tmp['name'] . '" />';
+                    echo '</div> <!-- .mailImgAttach -->';
                 }
             }
-        } 
+        }
+        echo '</div> <!-- .mailData -->';
         require ('./html/submenu_mail.php');
         require ('./html/menu_mail.php');
         require ('./html/footer.php');

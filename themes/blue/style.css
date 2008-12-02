@@ -13,13 +13,6 @@
   font-size: 12px;
 }
 
-.mail {
-  font-family: monospace;
-  font-size: 13px;
-  background-color: #003366;
-  text-align: left;
-}
-
 .titlew {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
@@ -567,17 +560,11 @@ img.sort {
   margin-left: 2em;
 }
 
+/*
+ * mail data (verbose header, body and attachments)
+ */
 .mailData {
-  border: 0px;
-  text-align: center;
-  padding: 0px;
-  width: 100%;
   background-color: #003366;
-}
-
-.mailData table {
-  border: 0px;
-  padding: 2px;
 }
 
 .mail {
@@ -588,6 +575,33 @@ img.sort {
 .mail pre {
   margin: 0;
   padding: 0;
+}
+
+hr.mailAttachSep {
+  display: none;
+}
+
+.mailTextAttach {
+  margin: 0;
+  padding: .5em;
+  border-top: 1px solid silver;
+}
+
+.mailImgAttach {
+  text-align: center;
+  border-top: 1px solid silver;
+}
+
+.mailImgAttach img {
+  margin: 0;
+  padding: .5em;
+  background: url(./img/img-loader.gif) no-repeat 50% 50%;
+}
+
+.mail,
+.mailTextAttach {
+  font-family: monospace;
+  font-size: 13px;
 }
 
 .mailNav {
