@@ -1,9 +1,9 @@
-<!-- start of $Id$ -->
+<!-- start of $Id: submenu_prefs.php,v 1.1 2008/05/18 00:02:23 gerundt Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
 
-  if($pop->is_imap()) {
+  if ($pop->is_imap() && $conf->prefs_dir) {
     $action = '';
     if(isset($_REQUEST['action']))
       $action = safestrip($_REQUEST['action']);
@@ -31,4 +31,4 @@
 <?php
   }
 ?>
-<!-- end of $Id$ -->
+<!-- end of $Id: submenu_prefs.php,v 1.1 2008/05/18 00:02:23 gerundt Exp $ -->

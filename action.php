@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.208 2008/12/02 23:29:54 gerundt Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.209 2008/12/07 21:22:59 gerundt Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -559,8 +559,14 @@ switch($action) {
                 $_SESSION['nocc_theme'] = $_REQUEST['theme'];
             }
 
-            // Commit preferences
-            $user_prefs->commit($ev);
+            if ($conf->prefs_dir) {
+                // Commit preferences
+                $user_prefs->commit($ev);
+            }
+            else {
+                // Validate preferences
+                $user_prefs->validate($ev);
+            }
             if (NoccException::isException($ev)) {
                 require ('./html/header.php'); 
                 require ('./html/error.php');

@@ -20,6 +20,7 @@ NOCC 1.7  ?? ??, ??
     * RFE #2025591 : login_prefix (Arnaud Boudou).
 
   Misc
+    * Allow preferences page even without "prefs_dir" (Tim Gerundt).
     * Make displaying of image and text attachments more styleable (Tim Gerundt).
     * Refresh "blue" theme (Tim Gerundt).
     * Fix attachment list in verbose header view (Tim Gerundt).

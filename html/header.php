@@ -71,14 +71,11 @@ else {
 <?php
   if ($header_display_address != '') {
     echo "<h2>" . htmlspecialchars($header_display_address) . "</h2>\n";
-    if ($conf->prefs_dir || $conf->enable_logout) {
-      echo "<ul>\n";
-      if ($conf->prefs_dir)
-        echo "  <li><a href=\"action.php?action=setprefs\">" . convertLang2Html($html_preferences) . "</a></li>\n";
-      if ($conf->enable_logout)
-        echo "  <li><a href=\"logout.php\">" . convertLang2Html($html_logout) . "</a></li>\n";
-      echo "</ul>\n";
-    }
+    echo "<ul>\n";
+    echo "  <li><a href=\"action.php?action=setprefs\">" . convertLang2Html($html_preferences) . "</a></li>\n";
+    if ($conf->enable_logout)
+      echo "  <li><a href=\"logout.php\">" . convertLang2Html($html_logout) . "</a></li>\n";
+    echo "</ul>\n";
   }
 ?>
         </div>
@@ -86,4 +83,4 @@ else {
 <?php
 }
 ?>
-<!-- end of $Id: header.php,v 1.75 2008/03/26 07:29:53 goddess_skuld Exp $ -->
+<!-- end of $Id: header.php,v 1.76 2008/04/27 19:44:01 gerundt Exp $ -->
