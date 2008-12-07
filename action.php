@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.207 2008/10/22 22:17:32 gerundt Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/action.php,v 1.208 2008/12/02 23:29:54 gerundt Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -667,9 +667,10 @@ switch($action) {
         // Fetch message list
         $tab_mail = array();
         $skip = 0;
+        $num_msg = $pop->num_msg();
         if (isset($_REQUEST['skip']))
             $skip = $_REQUEST['skip'];
-        if ($pop->num_msg() > 0)
+        if ($num_msg > 0)
             $tab_mail = inbox($pop, $skip, $ev);
 
         if (NoccException::isException($ev)) {
@@ -684,18 +685,9 @@ switch($action) {
         require ('./html/html_top_table.php');
         if(count($tab_mail) < 1) {
             // the mailbox is empty
-            $num_msg = 0;
             include ('./html/no_mail.php');
         } else {
             // there are messages, we display
-            if (isset($_REQUEST['sort'])) {
-                $num_msg = $_SESSION['num_msg'];
-            } else {
-                $num_msg = $pop->num_msg();
-                $_SESSION['num_msg'] = $num_msg;
-            }
-
-            // Include this once for each line of the message index
             while ($tmp = array_shift($tab_mail)) {
                 require ('./html/html_inbox.php');
             }
