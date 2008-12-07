@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/classes/user_prefs.php,v 1.2 2008/02/10 21:02:10 goddess_skuld Exp $
+ * $Header: /cvsroot/nocc/nocc/webmail/classes/user_prefs.php,v 1.3 2008/03/26 07:29:53 goddess_skuld Exp $
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -108,29 +108,26 @@ class NOCCUserPrefs {
                 $prefs->signature = base64_decode($value);
             if($key == 'reply_leadin')
                 $prefs->reply_leadin = base64_decode($value);
-                        if($key == 'wrap_msg')
-                                $prefs->wrap_msg = $value;
+            if($key == 'wrap_msg')
+                $prefs->wrap_msg = $value;
             if($key == 'sig_sep')
                 $prefs->sig_sep = ($value == 1 || $value == 'on');
             if($key == 'html_mail_send')
                 $prefs->html_mail_send = ($value == 1 || $value == 'on');
             if($key == 'graphical_smilies')
                 $prefs->graphical_smilies = ($value == 1 || $value == 'on');
-                        if($key == 'sent_folder')
-                                $prefs->sent_folder = ($value == 1 || $value == 'on');
-                        if($key == 'sent_folder_name')
-                                $prefs->sent_folder_name = $value;
-                        if($key == 'trash_folder')
-                                $prefs->trash_folder = ($value == 1 || $value == 'on');
-                        if($key == 'trash_folder_name')
-                                $prefs->trash_folder_name = $value;
-
-                        if($key == 'lang')
-                                $prefs->lang = $value;
-
-                        if($key == 'theme')
-                                $prefs->theme = $value;
-
+            if($key == 'sent_folder')
+                $prefs->sent_folder = ($value == 1 || $value == 'on');
+            if($key == 'sent_folder_name')
+                $prefs->sent_folder_name = $value;
+            if($key == 'trash_folder')
+                $prefs->trash_folder = ($value == 1 || $value == 'on');
+            if($key == 'trash_folder_name')
+                $prefs->trash_folder_name = $value;
+            if($key == 'lang')
+                $prefs->lang = $value;
+            if($key == 'theme')
+                $prefs->theme = $value;
         }
         fclose($file);
 
@@ -155,11 +152,11 @@ class NOCCUserPrefs {
         // Write prefs to file
         $filename = $conf->prefs_dir . '/' . $this->key . '.pref';
         if(file_exists($filename) && !is_writable($filename)){
-                $ev = new NoccException($html_prefs_file_error);
+            $ev = new NoccException($html_prefs_file_error);
             return; 
         }
         if(!is_writable($conf->prefs_dir)) {
-                $ev = new NoccException($html_prefs_file_error);
+            $ev = new NoccException($html_prefs_file_error);
             return;
         }
         $file = fopen($filename, 'w');
@@ -181,14 +178,14 @@ class NOCCUserPrefs {
         fwrite($file, "signature=".base64_encode($this->signature)."\n");
         fwrite($file, "wrap_msg=".$this->wrap_msg."\n");
         fwrite($file, "sig_sep=".$this->sig_sep."\n");
-                fwrite($file, "html_mail_send=".$this->html_mail_send."\n");
+        fwrite($file, "html_mail_send=".$this->html_mail_send."\n");
         fwrite($file, "graphical_smilies=".$this->graphical_smilies."\n");
-                fwrite($file, "sent_folder=".$this->sent_folder."\n");
-                fwrite($file, "sent_folder_name=".str_replace($_SESSION['imap_namespace'], "", $this->sent_folder_name)."\n");
-                fwrite($file, "trash_folder=".$this->trash_folder."\n");
-                fwrite($file, "trash_folder_name=".str_replace($_SESSION['imap_namespace'], "", $this->trash_folder_name)."\n");
-                fwrite($file, "lang=".$this->lang."\n");
-                fwrite($file, "theme=".$this->theme."\n");
+        fwrite($file, "sent_folder=".$this->sent_folder."\n");
+        fwrite($file, "sent_folder_name=".str_replace($_SESSION['imap_namespace'], "", $this->sent_folder_name)."\n");
+        fwrite($file, "trash_folder=".$this->trash_folder."\n");
+        fwrite($file, "trash_folder_name=".str_replace($_SESSION['imap_namespace'], "", $this->trash_folder_name)."\n");
+        fwrite($file, "lang=".$this->lang."\n");
+        fwrite($file, "theme=".$this->theme."\n");
         fclose($file);
 
         $this->dirty_flag = 0;
@@ -219,8 +216,8 @@ class NOCCUserPrefs {
         }
 
         if( isset($this->wrap_msg) && !ereg("^(0|72|80)$",$this->wrap_msg) ) {
-          $ev = new NoccException($html_invalid_wrap_msg);
-          return;
+            $ev = new NoccException($html_invalid_wrap_msg);
+            return;
         }
 
         // Give go-ahead to commit
