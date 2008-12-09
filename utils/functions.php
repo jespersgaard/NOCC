@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/utils/functions.php,v 1.7 2008/09/05 22:39:02 gerundt Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/utils/functions.php,v 1.8 2008/11/25 23:01:05 gerundt Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -1223,7 +1223,7 @@ function get_page_nav($pages, $skip) {
   
   $html = '';
   if ($pages > 1) { // if there several pages...
-    $form_select .= '<select class="button" name="skip" onChange="submit();">';
+    $form_select .= '<select class="button" name="skip" onchange="submit();">';
     $selected = '';
     for ($i = 0; $i < $pages; $i++) { 
         $xpage = $i + 1;
