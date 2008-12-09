@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/utils/functions.php,v 1.8 2008/11/25 23:01:05 gerundt Exp $ 
+ * $Header: /cvsroot/nocc/nocc/webmail/utils/functions.php,v 1.9 2008/12/09 23:26:01 gerundt Exp $ 
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -595,14 +595,14 @@ function remove_stuff(&$body, &$mime) {
         $body = preg_replace("|<([^>]*)&{.*}([^>]*)>|i", "<&{;}\\3>", $body);
         $body = eregi_replace("href=\"mailto:([a-zA-Z0-9+-=%&:_.~?@]+[#a-zA-Z0-9+]*)\"","HREF=\"$PHP_SELF?action=write&amp;mail_to=\\1\"", $body);
         $body = eregi_replace("href=mailto:([a-zA-Z0-9+-=%&:_.~?@]+[#a-zA-Z0-9+]*)","HREF=\"$PHP_SELF?action=write&amp;mail_to=\\1\"", $body);
-        $body = eregi_replace("href=\"([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)\"","href=\"javascript:void(0);\" onclick=\"window.open('\\1');\"", $body);
-        $body = eregi_replace("href=([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)","href=\"javascript:void(0);\" onclick=\"window.open('\\1');\"", $body);
+        $body = eregi_replace("href=\"([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)\"","href=\"\\1\" target=\"_blank\"", $body);
+        $body = eregi_replace("href=([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)","href=\"\\1\" target=\"_blank\"", $body);
     }
     elseif (eregi('plain', $mime))
     {
         $user_prefs = $_SESSION['nocc_user_prefs'];
         $body = htmlspecialchars($body);
-        $body = eregi_replace("(http|https|ftp)://([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)","<a href=\"javascript:void(0);\" onclick=\"window.open('\\1://\\2');\">\\1://\\2</a>", $body);
+        $body = eregi_replace("(http|https|ftp)://([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)","<a href=\"\\1://\\2\" target=\"_blank\">\\1://\\2</a>", $body);
         // Bug #511302: Comment out following line if you have the 'Invalid Range End' problem
         // New rewritten preg_replace should fix the problem, bug #522389
         // $body = eregi_replace("([#a-zA-Z0-9+-._]*)@([#a-zA-Z0-9+-_.]*)\.([a-zA-Z]+)","<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1@\\2.\\3\">\\1@\\2.\\3</a>", $body);
