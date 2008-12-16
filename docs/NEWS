@@ -20,6 +20,7 @@ NOCC 1.7  ?? ??, ??
     * RFE #2025591 : login_prefix (Arnaud Boudou).
 
   Misc
+    * Update FCKeditor to version 2.6.3 (Tim Gerundt).
     * Don't use JavaScript to open links in a new window (Tim Gerundt).
     * Switch back to XHTML 1.0 Transitional (Tim Gerundt).
     * Allow preferences page even without "prefs_dir" (Tim Gerundt).

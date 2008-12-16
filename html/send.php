@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.92 2008/08/07 20:17:25 gerundt Exp $ -->
+<!-- start of $Id: send.php,v 1.93 2008/08/12 22:24:51 gerundt Exp $ -->
 <?php
     if (!isset($conf->loaded))
         die('Hacking attempt');
@@ -156,13 +156,13 @@
          <textarea name="mail_body" cols="82" rows="20"><?php echo (isset($mail_body) ? htmlspecialchars($mail_body) : '') ?></textarea>
          <?php
            } else {
-                include("fckeditor/fckeditor.php") ;
-           
+                include('fckeditor/fckeditor.php');
                 $oFCKeditor = new FCKeditor('mail_body') ;
                 $oFCKeditor->ToolbarSet = 'NOCC';
                 $oFCKeditor->BasePath = 'fckeditor/';
+                $oFCKeditor->Config['CustomConfigurationsPath'] = $conf->base_url . 'config/fckconfig.js';
                 $oFCKeditor->Value = isset($mail_body) ? $mail_body : '';
-                $oFCKeditor->Create() ;
+                $oFCKeditor->Create();
            }
          ?>
        </td>
@@ -239,4 +239,4 @@ function checkSendDelay() {
 
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.92 2008/08/07 20:17:25 gerundt Exp $ -->
+<!-- end of $Id: send.php,v 1.93 2008/08/12 22:24:51 gerundt Exp $ -->

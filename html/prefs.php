@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.60 2008/09/23 20:34:40 gerundt Exp $ -->
+<!-- start of $Id: prefs.php,v 1.61 2008/11/24 22:41:01 gerundt Exp $ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -162,13 +162,13 @@ if (count($big_list) > 1) {
            <td class="prefsLabel"><label for="signature"><?php echo convertLang2Html($html_signature) ?>:</label></td>
            <td class="prefsData">
              <?php if (isset($user_prefs->html_mail_send) && $user_prefs->html_mail_send) { 
-               include("fckeditor/fckeditor.php") ;
-               $oFCKeditor = new FCKeditor('signature') ;
+               include('fckeditor/fckeditor.php');
+               $oFCKeditor = new FCKeditor('signature');
                $oFCKeditor->ToolbarSet = 'NOCC';
                $oFCKeditor->BasePath = 'fckeditor/';
+               $oFCKeditor->Config['CustomConfigurationsPath'] = $conf->base_url . 'config/fckconfig.js';
                $oFCKeditor->Value = isset($user_prefs->signature) ? $user_prefs->signature : "";
-               $oFCKeditor->Create() ;
-
+               $oFCKeditor->Create();
              } else { ?>
              <textarea class="button" name="signature" id="signature" rows="5" cols="40"><?php echo (isset($user_prefs->signature)) ? $user_prefs->signature : "" ?></textarea>
              <?php } ?>
@@ -279,4 +279,4 @@ if (count($big_list) > 1) {
      </div>
    </form>
  </div>
-<!-- end of $Id: prefs.php,v 1.60 2008/09/23 20:34:40 gerundt Exp $ -->
+<!-- end of $Id: prefs.php,v 1.61 2008/11/24 22:41:01 gerundt Exp $ -->
