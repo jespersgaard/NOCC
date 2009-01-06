@@ -21,7 +21,7 @@ require_once('./utils/html_entity_decode.php');
 require_once('./utils/crypt.php');
 
 $conf->nocc_name = 'NOCC';
-$conf->nocc_version = '1.7';
+$conf->nocc_version = '1.8-dev';
 $conf->nocc_url = 'http://nocc.sourceforge.net/';
 
 $pwd_to_encrypt = false;
