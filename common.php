@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/common.php,v 1.85 2008/11/09 01:07:42 gerundt Exp $
+ * $Id$
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
