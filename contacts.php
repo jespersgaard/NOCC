@@ -1,6 +1,6 @@
 <?php
 /*
- * $Header: /cvsroot/nocc/nocc/webmail/contacts.php,v 1.21 2008/11/23 22:12:41 gerundt Exp $
+ * $Id$
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -106,7 +106,7 @@ $_SESSION['nocc_loggedin'] = 1;
         <th><?php echo convertLang2Html($html_contact_last) ?></th>
         <th><?php echo convertLang2Html($html_contact_nick) ?></th>
         <th><?php echo convertLang2Html($html_contact_mail) ?></th>
-        <th>&nbsp;</td>
+        <th>&nbsp;</th>
       </tr>
       <?php
         $path = $conf->prefs_dir . "/" .$_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'].".contacts";
