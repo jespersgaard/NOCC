@@ -1,17 +1,20 @@
 <?php
-/*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/xx-hacker.php,v 1.28 2008/06/22 12:22:17 goddess_skuld Exp $ 
- *
- * Copyright 2004 Nicolas Chalanset <nicocha at free.fr>
- * Copyright 2004 Olivier Cahagne <wolruf at free.fr>
- *
- * See the enclosed file COPYING for license information (GPL).  If you
- * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
- *
- * ** Easter Egg **
- * add "{?,&}lang=xx-hacker" in URI after logging in
+/**
  * Configuration file for the xx-hacker language
- * 
+ *
+ * Easter Egg: Add "{?,&}lang=xx-hacker" in URI after logging in
+ *
+ * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
+ * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
+ *
+ * This file is part of NOCC. NOCC is free software under the terms of the
+ * GNU General Public License. You should have received a copy of the license
+ * along with NOCC.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @package    NOCC
+ * @subpackage Translations
+ * @license    http://www.gnu.org/licenses/ GNU General Public License
+ * @version    SVN: $Id$
  */
 
 $charset = 'UTF-8';

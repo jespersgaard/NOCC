@@ -1,16 +1,21 @@
 <?php
-/*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/ro.php,v 1.42 2008/06/22 12:22:32 goddess_skuld Exp $ 
+/**
+ * Configuration file for the Romanian language
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
  *
- * See the enclosed file COPYING for license information (GPL).  If you
- * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
+ * This file is part of NOCC. NOCC is free software under the terms of the
+ * GNU General Public License. You should have received a copy of the license
+ * along with NOCC.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Configuration file for the romanian language 
- * Translation by Nicu Buculei <nicubunu@yahoo.com>
- * 
+ * Translators:
+ * - Nicu Buculei <nicubunu@yahoo.com>
+ *
+ * @package    NOCC
+ * @subpackage Translations
+ * @license    http://www.gnu.org/licenses/ GNU General Public License
+ * @version    SVN: $Id$
  */
 
 $charset = 'UTF-8';

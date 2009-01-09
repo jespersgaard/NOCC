@@ -1,19 +1,24 @@
 <?php
-/*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/nl.php,v 1.64 2008/06/22 12:22:35 goddess_skuld Exp $
+/**
+ * Configuration file for the Dutch language
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
  *
- * See the enclosed file COPYING for license information (GPL).  If you
- * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
+ * This file is part of NOCC. NOCC is free software under the terms of the
+ * GNU General Public License. You should have received a copy of the license
+ * along with NOCC.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Configuration file for Dutch, the language of The Netherlands
- * Translation by Sander Schroevers and Pieterjan Goppel
- *  <lp_leeki@euronet.nl>
- *  Some adding by Mathijs Kolenberg <mack@solcon.nl>
- *  Some adding/modification by Silvan Jongerius <sjongerius@duxy.nl>
- *  Some adding/modification by openfan <leprincevelours@yahoo.com>
+ * Translators:
+ * - Sander Schroevers and Pieterjan Goppel <lp_leeki@euronet.nl>
+ * - Mathijs Kolenberg <mack@solcon.nl>
+ * - Silvan Jongerius <sjongerius@duxy.nl>
+ * - openfan <leprincevelours@yahoo.com>
+ *
+ * @package    NOCC
+ * @subpackage Translations
+ * @license    http://www.gnu.org/licenses/ GNU General Public License
+ * @version    SVN: $Id$
  */
 
 $charset = 'UTF-8';

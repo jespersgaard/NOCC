@@ -1,19 +1,24 @@
 <?php
-/*
- * $Header: /cvsroot/nocc/nocc/webmail/lang/de.php,v 1.67 2008/06/22 12:22:29 goddess_skuld Exp $ 
+/**
+ * Configuration file for the German language
  *
  * Copyright 2000 Nicolas Chalanset <nicocha AT free DOT fr>
  * Copyright 2000 Olivier Cahagne <wolruf AT free DOT fr>
  *
- * See the enclosed file COPYING for license information (GPL).  If you
- * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
+ * This file is part of NOCC. NOCC is free software under the terms of the
+ * GNU General Public License. You should have received a copy of the license
+ * along with NOCC.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Configuration file for the german language
- * Translation by
- * 	David Ferch <dferch AT tk-online DOT net>
- *	Benjamin Bräuer <ben1 AT gmx DOT de>
- *	Alexander Schremmer <alex AT alexanderweb DOT de>
- *	Tim Gerundt <tim AT gerundt DOT de>
+ * Translators:
+ * - David Ferch <dferch AT tk-online DOT net>
+ * - Benjamin Bräuer <ben1 AT gmx DOT de>
+ * - Alexander Schremmer <alex AT alexanderweb DOT de>
+ * - Tim Gerundt <tim AT gerundt DOT de>
+ *
+ * @package    NOCC
+ * @subpackage Translations
+ * @license    http://www.gnu.org/licenses/ GNU General Public License
+ * @version    SVN: $Id$
  */
 
 $charset = 'UTF-8';
