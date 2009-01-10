@@ -1,4 +1,4 @@
-<!-- start of $Id: html_top_table.php,v 1.104 2008/10/12 16:51:56 gerundt Exp $ -->
+<!-- start of $Id$ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -108,4 +108,4 @@ if ($pop->is_imap()) {
                             }
                           ?>
                         </tr>
-<!-- end of $Id: html_top_table.php,v 1.104 2008/10/12 16:51:56 gerundt Exp $ -->
+<!-- end of $Id$ -->

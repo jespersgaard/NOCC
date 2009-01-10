@@ -1,4 +1,4 @@
-<!-- start of $Id: menu_inbox_bottom_opts.php,v 1.6 2007/07/30 21:50:21 gerundt Exp $ -->
+<!-- start of $Id$ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -39,4 +39,4 @@
                             </tr>
                           </table>
                   </form>
-<!-- end of $Id: menu_inbox_bottom_opts.php,v 1.6 2007/07/30 21:50:21 gerundt Exp $ -->
+<!-- end of $Id$ -->

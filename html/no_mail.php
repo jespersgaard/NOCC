@@ -1,4 +1,4 @@
-<!-- start of $Id: no_mail.php,v 1.9 2006/11/22 14:27:18 goddess_skuld Exp $ -->
+<!-- start of $Id$ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -8,4 +8,4 @@
     <?php echo convertLang2Html($html_no_mail) ?>
   </td>
 </tr>
-<!-- end of $Id: no_mail.php,v 1.9 2006/11/22 14:27:18 goddess_skuld Exp $ -->
+<!-- end of $Id$ -->

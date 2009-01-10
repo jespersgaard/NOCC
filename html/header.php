@@ -83,4 +83,4 @@ else {
 <?php
 }
 ?>
-<!-- end of $Id: header.php,v 1.77 2008/12/07 23:10:36 gerundt Exp $ -->
+<!-- end of $Id$ -->

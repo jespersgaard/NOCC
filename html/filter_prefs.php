@@ -134,4 +134,4 @@ if ($html_filter_select) {
 </div>
 </form>
 </div>
-<!-- end of $Id: filter_prefs.php,v 1.12 2008/05/16 23:31:27 gerundt Exp $ -->
+<!-- end of $Id$ -->

@@ -1,4 +1,4 @@
-<!-- start of $Id: send.php,v 1.93 2008/08/12 22:24:51 gerundt Exp $ -->
+<!-- start of $Id$ -->
 <?php
     if (!isset($conf->loaded))
         die('Hacking attempt');
@@ -239,4 +239,4 @@ function checkSendDelay() {
 
 //-->
 </script>
-<!-- end of $Id: send.php,v 1.93 2008/08/12 22:24:51 gerundt Exp $ -->
+<!-- end of $Id$ -->

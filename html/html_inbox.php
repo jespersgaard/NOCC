@@ -1,4 +1,4 @@
-<!-- start of $Id: html_inbox.php,v 1.59 2007/09/25 22:04:07 gerundt Exp $ -->
+<!-- start of $Id$ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -50,4 +50,4 @@
   }
   echo '</tr>';
 ?>
-<!-- end of $Id: html_inbox.php,v 1.59 2007/09/25 22:04:07 gerundt Exp $ -->
+<!-- end of $Id$ -->

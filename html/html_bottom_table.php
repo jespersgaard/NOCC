@@ -1,4 +1,4 @@
-<!-- start of $Id: html_bottom_table.php,v 1.44 2008/09/05 21:33:20 gerundt Exp $ -->
+<!-- start of $Id$ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -20,4 +20,4 @@
                   </table>
                 </div>
                 <?php } ?>
-<!-- end of $Id: html_bottom_table.php,v 1.44 2008/09/05 21:33:20 gerundt Exp $ -->
+<!-- end of $Id$ -->

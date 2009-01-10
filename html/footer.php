@@ -1,4 +1,4 @@
-<!-- start of $Id: footer.php,v 1.21 2008/02/10 21:02:10 goddess_skuld Exp $ -->
+<!-- start of $Id$ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -20,4 +20,4 @@ else {
 <?php
 }
 ?>
-<!-- end of $Id: footer.php,v 1.21 2008/02/10 21:02:10 goddess_skuld Exp $ -->
+<!-- end of $Id$ -->

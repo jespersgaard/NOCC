@@ -1,4 +1,4 @@
-<!-- start of $Id: folders.php,v 1.22 2008/03/06 17:04:13 goddess_skuld Exp $ -->
+<!-- start of $Id$ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -100,4 +100,4 @@ if (count($big_list) > 1) {
     </div>
   </form>
 </div>
-<!-- end of $Id: folders.php,v 1.22 2008/03/06 17:04:13 goddess_skuld Exp $ -->
+<!-- end of $Id$ -->

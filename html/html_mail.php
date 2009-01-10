@@ -1,4 +1,4 @@
-<!-- start of $Id: html_mail.php,v 1.9 2008/11/23 22:47:48 gerundt Exp $ -->
+<!-- start of $Id$ -->
 <div class="mailNav">
    <table>
 <?php
@@ -89,4 +89,4 @@ echo '<div class="mail">'.$content['body'].'</div>';
 
 ?>
 </div> <!-- .mailData -->
-<!-- end of $Id: html_mail.php,v 1.9 2008/11/23 22:47:48 gerundt Exp $ -->
+<!-- end of $Id$ -->

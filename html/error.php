@@ -1,4 +1,4 @@
-<!-- start of $Id: error.php,v 1.7 2006/11/22 14:27:17 goddess_skuld Exp $ -->
+<!-- start of $Id$ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -18,4 +18,4 @@
     </tr>
   </table>
 </div>
-<!-- end of $Id: error.php,v 1.7 2006/11/22 14:27:17 goddess_skuld Exp $ -->
+<!-- end of $Id$ -->

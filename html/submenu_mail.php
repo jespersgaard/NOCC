@@ -1,4 +1,4 @@
-<!-- start of $Id: $ -->
+<!-- start of $Id$ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -25,4 +25,4 @@
     </li>
   </ul>
 </div>
-<!-- end of $Id: $ -->
+<!-- end of $Id$ -->

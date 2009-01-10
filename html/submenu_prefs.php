@@ -1,4 +1,4 @@
-<!-- start of $Id: submenu_prefs.php,v 1.1 2008/05/18 00:02:23 gerundt Exp $ -->
+<!-- start of $Id$ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -31,4 +31,4 @@
 <?php
   }
 ?>
-<!-- end of $Id: submenu_prefs.php,v 1.1 2008/05/18 00:02:23 gerundt Exp $ -->
+<!-- end of $Id$ -->

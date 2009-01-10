@@ -1,4 +1,4 @@
-<!-- start of $Id: prefs.php,v 1.61 2008/11/24 22:41:01 gerundt Exp $ -->
+<!-- start of $Id$ -->
 <?php
   if (!isset($conf->loaded))
     die('Hacking attempt');
@@ -279,4 +279,4 @@ if (count($big_list) > 1) {
      </div>
    </form>
  </div>
-<!-- end of $Id: prefs.php,v 1.61 2008/11/24 22:41:01 gerundt Exp $ -->
+<!-- end of $Id$ -->
