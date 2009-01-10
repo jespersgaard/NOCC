@@ -1,15 +1,18 @@
 <?php
-/*
- * $Header: /cvsroot/nocc/nocc/webmail/delete.php,v 1.59 2008/07/05 09:17:22 goddess_skuld Exp $
+/**
+ * This file just delete the selected message(s)
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
  * Copyright 2002 Mike Rylander <mrylander@mail.com>
  *
- * See the enclosed file COPYING for license information (GPL).  If you
- * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
+ * This file is part of NOCC. NOCC is free software under the terms of the
+ * GNU General Public License. You should have received a copy of the license
+ * along with NOCC.  If not, see <http://www.gnu.org/licenses/>.
  *
- * this file just delete the selected message(s)
+ * @package    NOCC
+ * @license    http://www.gnu.org/licenses/ GNU General Public License
+ * @version    SVN: $Id$
  */
 
 require_once('./common.php');

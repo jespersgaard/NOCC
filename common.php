@@ -1,13 +1,16 @@
 <?php
-/*
- * $Id$
+/**
+ * Stuff that is always checked or run or initialised for every hit
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
  *
- * See the enclosed file COPYING for license information (GPL).  If you
- * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
+ * This file is part of NOCC. NOCC is free software under the terms of the
+ * GNU General Public License. You should have received a copy of the license
+ * along with NOCC.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Stuff that is always checked or run or initialised for every hit.
+ * @package    NOCC
+ * @license    http://www.gnu.org/licenses/ GNU General Public License
+ * @version    SVN: $Id$
  */
 
 // Define variables
