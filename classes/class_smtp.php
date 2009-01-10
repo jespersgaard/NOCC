@@ -1,14 +1,19 @@
 <?php
-/*
- * $Header: /cvsroot/nocc/nocc/webmail/classes/class_smtp.php,v 1.2 2008/02/10 21:02:10 goddess_skuld Exp $
+/**
+ * Class for sending a mail with SMTP
+ *
+ * Class based on a work from Unk <rgroesb_garbage@triple-it_garbage.nl>
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
  *
- * See the enclosed file COPYING for license information (GPL).  If you
- * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
+ * This file is part of NOCC. NOCC is free software under the terms of the
+ * GNU General Public License. You should have received a copy of the license
+ * along with NOCC.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Class based on a work from Unk <rgroesb_garbage@triple-it_garbage.nl>  
+ * @package    NOCC
+ * @license    http://www.gnu.org/licenses/ GNU General Public License
+ * @version    SVN: $Id$
  */
 
 require_once './classes/exception.php';

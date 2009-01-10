@@ -1,16 +1,21 @@
 <?php
-/*
- * $Header: /cvsroot/nocc/nocc/webmail/classes/class_local.php,v 1.2 2008/02/10 21:02:09 goddess_skuld Exp $
+/**
+ * Class for IMAP/POP3 functions
+ *
+ * Moved all imap_* PHP calls into one, which should make it easier to write
+ * our own IMAP/POP3 classes in the future.
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
  * Copyright 2002 Mike Rylander <mrylander@mail.com>
  *
- * See the enclosed file COPYING for license information (GPL).  If you
- * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
+ * This file is part of NOCC. NOCC is free software under the terms of the
+ * GNU General Public License. You should have received a copy of the license
+ * along with NOCC.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Moved all imap_* PHP calls into one, which should make it easier to write
- * our own IMAP/POP3 classes in the future.
+ * @package    NOCC
+ * @license    http://www.gnu.org/licenses/ GNU General Public License
+ * @version    SVN: $Id$
  */
 
 require_once './classes/exception.php';
