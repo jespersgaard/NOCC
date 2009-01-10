@@ -1,13 +1,19 @@
 <?php
-/*
- * $Header: /cvsroot/nocc/nocc/webmail/config/conf_charset.php,v 1.1 2008/02/10 20:52:26 goddess_skuld Exp $
+/**
+ * Charset configuration for NOCC
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
  * Copyright 2005 Arnaud Boudou <goddess_skuld@users.sourceforge.net>
  *
- * See the enclosed file COPYING for license information (GPL).  If you
- * did not receive this file, see http://www.fsf.org/copyleft/gpl.html.
+ * This file is part of NOCC. NOCC is free software under the terms of the
+ * GNU General Public License. You should have received a copy of the license
+ * along with NOCC.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @package    NOCC
+ * @subpackage Configuration
+ * @license    http://www.gnu.org/licenses/ GNU General Public License
+ * @version    SVN: $Id$
  */
 
 /* Windows  charsets as disabled as libiconv can't manage them */
