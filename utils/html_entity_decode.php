@@ -15,9 +15,15 @@
 // | Authors: David Irvine <dave@codexweb.co.za>                          |
 // |          Aidan Lister <aidan@php.net>                                |
 // +----------------------------------------------------------------------+
-//
-// $Id: html_entity_decode.php,v 1.2 2006/05/26 19:11:13 goddess_skuld Exp $
 
+/**
+ * HTML entity decode
+ *
+ * @package    NOCC
+ * @subpackage Utilities
+ * @license    http://www.php.net/license/3_0.txt PHP License v3.0
+ * @version    SVN: $Id$
+ */
 
 if (!defined('ENT_NOQUOTES')) {
     define('ENT_NOQUOTES', 0);
@@ -40,7 +46,7 @@ if (!defined('ENT_QUOTES')) {
  * @link        http://php.net/function.html_entity_decode
  * @author      David Irvine <dave@codexweb.co.za>
  * @author      Aidan Lister <aidan@php.net>
- * @version     $Revision: 1.2 $
+ * @version     Revision: 1.2
  * @since       PHP 4.3.0
  * @internal    Setting the charset will not do anything
  * @require     PHP 4.0.0 (user_error)

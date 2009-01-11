@@ -1,4 +1,18 @@
 <?php
+/**
+ * Detect charset
+ *
+ * Copyright 2003 Alexander Sabournekov
+ *
+ * This file is part of NOCC. NOCC is free software under the terms of the
+ * GNU General Public License. You should have received a copy of the license
+ * along with NOCC.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @package    NOCC
+ * @subpackage Utilities
+ * @license    http://www.gnu.org/licenses/ GNU General Public License
+ * @version    SVN: $Id$
+ */
 
 $cad_StatsTableKoi = array(
 '��' => 1815, '��' => 1446, '��' => 1438, '��' => 1405, '��' => 1207, '��' => 1194, '��' => 1177, '��' => 1140, '��' => 1078,
