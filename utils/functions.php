@@ -106,12 +106,7 @@ function inbox(&$pop, $skip = 0, &$ev) {
             $to = $to . $to_array[$j]->text . ", ";
         }
         $to = substr($to, 0, strlen($to)-2);
-        $msg_size = 0;
-        if ($pop->is_imap())
-            $msg_size = get_mail_size($struct_msg);
-        else
-            if(isset($struct_msg->bytes))
-                $msg_size = ($struct_msg->bytes > 1000) ? ceil($struct_msg->bytes / 1000) : 1;
+        $msg_size = get_mail_size($struct_msg);
         if (isset($struct_msg->type) && ( $struct_msg->type == 1 || $struct_msg->type == 3))
         {
             if ($struct_msg->subtype == 'ALTERNATIVE' || $struct_msg->subtype == 'RELATED')
@@ -705,9 +700,11 @@ function format_time(&$time, &$lang) {
 // We have to figure out the entire mail size
 function get_mail_size(&$this_part) {
     $size = (isset($this_part->bytes) ? $this_part->bytes : 0);
-    if (isset($this_part->parts))
-        for ($i = 0; $i < count($this_part->parts); $i++)
-            $size += (isset($this_part->parts[$i]->bytes) ? $this_part->parts[$i]->bytes : 0);
+    if ($size == 0) {
+        if (isset($this_part->parts))
+            for ($i = 0; $i < count($this_part->parts); $i++)
+                $size += (isset($this_part->parts[$i]->bytes) ? $this_part->parts[$i]->bytes : 0);
+    }
     $size = ($size > 1000) ? ceil($size / 1000) : 1;
     return ($size);
 }
