@@ -1,5 +1,7 @@
 NOCC 1.8  ?? ??, ??
 
+  Patches
+    * Patch #2502771 : Use new MailReader class (Tim Gerundt).
 
 NOCC 1.7  January 01, 2008
 

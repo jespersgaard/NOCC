@@ -17,6 +17,7 @@
  */
 
 require_once './classes/class_local.php';
+require_once './classes/nocc_mailreader.php';
 
 /* ----------------------------------------------------- */
 
@@ -55,19 +56,11 @@ function inbox(&$pop, $skip = 0, &$ev) {
         if(NoccException::isException($ev)) return;
         $struct_msg = $pop->fetchstructure($pop_msgno_msgnum, $ev);
         if(NoccException::isException($ev)) return;
+        $mail_reader = new NOCC_MailReader($pop_msgno_msgnum, $pop, $ev);
+        if(NoccException::isException($ev)) return;
 
         // Get message charset
-        $msg_charset = '';
-        if ($struct_msg->ifparameters) {
-          while ($obj = array_pop($struct_msg->parameters))
-            if (strtolower($obj->attribute) == 'charset') {
-              $msg_charset = $obj->value;
-              break;
-            }
-        }
-        if ($msg_charset == '') {
-          $msg_charset = 'ISO-8859-1';
-        }
+        $msg_charset = $mail_reader->getCharset();
 
         // Get subject
         if (isset($msg_headerinfo->subject)) {
@@ -106,7 +99,7 @@ function inbox(&$pop, $skip = 0, &$ev) {
             $to = $to . $to_array[$j]->text . ", ";
         }
         $to = substr($to, 0, strlen($to)-2);
-        $msg_size = get_mail_size($struct_msg);
+        $msg_size = $mail_reader->getSize();
         if (isset($struct_msg->type) && ( $struct_msg->type == 1 || $struct_msg->type == 3))
         {
             if ($struct_msg->subtype == 'ALTERNATIVE' || $struct_msg->subtype == 'RELATED')
@@ -298,21 +291,11 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
         }
     }
 
-    //Get message charset
-    $struct_msg = $pop->fetchstructure($mail, $ev);
+    $mail_reader = new NOCC_MailReader($mail, $pop, $ev);
     if(NoccException::isException($ev)) return;
-    $msg_charset = '';
-    if ($struct_msg->ifparameters) {
-        while ($obj = array_pop($struct_msg->parameters)) {
-            if (strtolower($obj->attribute) == 'charset') {
-                $msg_charset = $obj->value;
-                break;
-            }
-        }
-    }
-    if ($msg_charset == '') {
-        $msg_charset = 'ISO-8859-1';
-    }
+
+    //Get message charset
+    $msg_charset = $mail_reader->getCharset();
 
     // Get subject
     $subject_header = str_replace('x-unknown', $msg_charset, $msg_headerinfo->subject);
@@ -694,20 +677,6 @@ function format_time(&$time, &$lang) {
     return strftime($default_time_format, $time); 
 }
 
-
-/* ----------------------------------------------------- */
-
-// We have to figure out the entire mail size
-function get_mail_size(&$this_part) {
-    $size = (isset($this_part->bytes) ? $this_part->bytes : 0);
-    if ($size == 0) {
-        if (isset($this_part->parts))
-            for ($i = 0; $i < count($this_part->parts); $i++)
-                $size += (isset($this_part->parts[$i]->bytes) ? $this_part->parts[$i]->bytes : 0);
-    }
-    $size = ($size > 1000) ? ceil($size / 1000) : 1;
-    return ($size);
-}
 
 /* ----------------------------------------------------- */
 
