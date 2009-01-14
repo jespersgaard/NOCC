@@ -100,15 +100,11 @@ function inbox(&$pop, $skip = 0, &$ev) {
         }
         $to = substr($to, 0, strlen($to)-2);
         $msg_size = $mail_reader->getSize();
-        if (isset($struct_msg->type) && ( $struct_msg->type == 1 || $struct_msg->type == 3))
-        {
-            if ($struct_msg->subtype == 'ALTERNATIVE' || $struct_msg->subtype == 'RELATED')
-                $attach = '&nbsp;';
-            else
-                $attach = '<img src="themes/' . $_SESSION['nocc_theme'] . '/img/attach.png" alt="" />';
-        }
-        else
+        if ($mail_reader->hasAttachments() == true) {
+            $attach = '<img src="themes/' . $_SESSION['nocc_theme'] . '/img/attach.png" alt="" />';
+        } else {
             $attach = '&nbsp;';
+        }
         // Check Status Line with UCB POP Server to
         // see if this is a new message. This is a
         // non-RFC standard line header.

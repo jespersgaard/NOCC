@@ -15,6 +15,8 @@
 
 /**
  * Reading details from a mail
+ *
+ * @package    NOCC
  */
 class NOCC_MailReader {
     var $_type, $_subtype;
@@ -29,7 +31,10 @@ class NOCC_MailReader {
         $structure = $pop->fetchstructure($msgno, $ev);
         
         $this->_type = $structure->type;
-        $this->_subtype = $structure->subtype;
+        $this->_subtype = '';
+        if ($structure->ifsubtype) {
+          $this->_subtype = $structure->subtype;
+        }
         $this->_parts = $structure->parts;
         
         //--------------------------------------------------------------------------------
@@ -67,6 +72,8 @@ class NOCC_MailReader {
     
     /**
      * Get the primary body type from the mail
+     *
+     * @return integer Primary body type
      */
     function getType() {
         return $this->_type;
@@ -74,6 +81,8 @@ class NOCC_MailReader {
     
     /**
      * Get the MIME subtype from the mail
+     *
+     * @return string MIME subtype
      */
     function getSubtype() {
         return $this->_subtype;
@@ -81,6 +90,8 @@ class NOCC_MailReader {
     
     /**
      * Get the charset from the mail
+     *
+     * @return string Charset
      */
     function getCharset() {
         return $this->_charset;
@@ -88,9 +99,25 @@ class NOCC_MailReader {
     
     /**
      * Get the size from the mail in kilobyte
+     *
+     * @return integer Size in kilobyte
      */
     function getSize() {
         return ($this->_totalbytes > 1024) ? ceil($this->_totalbytes / 1024) : 1;
+    }
+    
+    /**
+     * Has the mail attachments?
+     *
+     * @return boolean Has attachments?
+     */
+    function hasAttachments() {
+        if ( $this->_type == 1 || $this->_type == 3) { //if "multipart" or "application" message...
+            if ($this->_subtype != 'ALTERNATIVE' && $this->_subtype != 'RELATED') {
+                return true;
+            }
+        }
+        return false;
     }
 }
 ?>
