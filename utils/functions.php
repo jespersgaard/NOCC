@@ -54,8 +54,6 @@ function inbox(&$pop, $skip = 0, &$ev) {
         $pop_msgno_msgnum = $pop->msgno($msgnum);
         $msg_headerinfo = $pop->headerinfo($pop_msgno_msgnum, $ev);
         if(NoccException::isException($ev)) return;
-        $struct_msg = $pop->fetchstructure($pop_msgno_msgnum, $ev);
-        if(NoccException::isException($ev)) return;
         $mail_reader = new NOCC_MailReader($pop_msgno_msgnum, $pop, $ev);
         if(NoccException::isException($ev)) return;
 
