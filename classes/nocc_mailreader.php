@@ -19,6 +19,7 @@
  * @package    NOCC
  */
 class NOCC_MailReader {
+    var $_structure;
     var $_type, $_subtype;
     var $_parts;
     var $_charset;
@@ -29,6 +30,7 @@ class NOCC_MailReader {
      */
     function NOCC_MailReader($msgno, &$pop, &$ev) {
         $structure = $pop->fetchstructure($msgno, $ev);
+        $this->_structure = $structure;
         
         $this->_type = $structure->type;
         $this->_subtype = '';
@@ -68,6 +70,16 @@ class NOCC_MailReader {
             }
         }
         //--------------------------------------------------------------------------------
+    }
+    
+    /**
+     * Get the structure from the mail
+     * @todo Drop property, if we included the functions GetPart() and GetSinglePart() to this class
+     *
+     * @return array Structure array
+     */
+    function getStructure() {
+        return $this->_structure;
     }
     
     /**

@@ -200,13 +200,15 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     // Get number of messages (why?)
     $num_messages = $pop->num_msg();
 
+    $mail_reader = new NOCC_MailReader($mail, $pop, $ev);
+    if(NoccException::isException($ev)) return;
+
     // Get message header information (parsed)
     $msg_headerinfo = $pop->headerinfo($mail, $ev); 
     if(NoccException::isException($ev)) return;
 
     // Get the MIME message structure
-    $struct_msg = $pop->fetchstructure($mail, $ev);
-    if(NoccException::isException($ev)) return; 
+    $struct_msg = $mail_reader->getStructure();
 
     // If there are attachments, populate the attachment array, otherwise
     // just get the main body as a single-element array
@@ -284,9 +286,6 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
                 break;
         }
     }
-
-    $mail_reader = new NOCC_MailReader($mail, $pop, $ev);
-    if(NoccException::isException($ev)) return;
 
     //Get message charset
     $msg_charset = $mail_reader->getCharset();
