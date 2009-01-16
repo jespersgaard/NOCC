@@ -30,6 +30,7 @@ class NOCC_MailReader {
     var $_toaddress;
     var $_ccaddress;
     var $_replytoaddress;
+    var $_timestamp;
     
     /**
      * Initialize the mail reader
@@ -99,6 +100,7 @@ class NOCC_MailReader {
         if (isset($this->_replytoaddress)) {
             $this->_replytoaddress = $this->_decodeMimeHeader($headerinfo->reply_toaddress, $this->_charset);
         }
+        $this->_timestamp = rtrim($headerinfo->udate);
     }
     
     /**
@@ -204,6 +206,15 @@ class NOCC_MailReader {
      */
     function getReplyToAddress() {
         return ($this->_replytoaddress);
+    }
+    
+    /**
+     * Get the date (in Unix time) from the mail
+     *
+     * @return string Date in Unix time
+     */
+    function getTimestamp() {
+        return ($this->_timestamp);
     }
     
     /**

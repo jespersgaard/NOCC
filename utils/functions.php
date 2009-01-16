@@ -119,7 +119,7 @@ function inbox(&$pop, $skip = 0, &$ev) {
             $newmail = '<img src="themes/' . $_SESSION['nocc_theme'] . '/img/new.png" alt=""/>';
         else
             $newmail = '&nbsp;';
-        $timestamp = chop($msg_headerinfo->udate);
+        $timestamp = $mail_reader->getTimestamp();
         $date = format_date($timestamp, $lang);
         $time = format_time($timestamp, $lang);
         $msg_list[$i] =  Array(
@@ -186,10 +186,6 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     $num_messages = $pop->num_msg();
 
     $mail_reader = new NOCC_MailReader($mail, $pop, $ev);
-    if(NoccException::isException($ev)) return;
-
-    // Get message header information (parsed)
-    $msg_headerinfo = $pop->headerinfo($mail, $ev); 
     if(NoccException::isException($ev)) return;
 
     // Get the MIME message structure
@@ -292,7 +288,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     // Get reply to
     $reply_to = $mail_reader->getReplyToAddress();
     
-    $timestamp = chop($msg_headerinfo->udate);
+    $timestamp = $mail_reader->getTimestamp();
     $date = format_date($timestamp, $lang);
     $time = format_time($timestamp, $lang);
     $content = Array(
