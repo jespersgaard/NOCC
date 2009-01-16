@@ -106,12 +106,10 @@ function inbox(&$pop, $skip = 0, &$ev) {
         }
         else
         {
-            if ($pop->is_imap()) {
-                if (($msg_headerinfo->Unseen == 'U') || ($msg_headerinfo->Recent == 'N'))
-                    $new_mail_from_header = '';
-                else
-                    $new_mail_from_header = '&nbsp;';
-            } else {
+            if ($mail_reader->isUnread() == true) {
+                $new_mail_from_header = '';
+            }
+            else {
                 $new_mail_from_header = '&nbsp;';
             }
         }

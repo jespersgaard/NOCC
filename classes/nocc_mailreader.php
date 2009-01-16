@@ -32,6 +32,8 @@ class NOCC_MailReader {
     var $_replytoaddress;
     var $_timestamp;
     
+    var $_isunread;
+    
     /**
      * Initialize the mail reader
      */
@@ -101,6 +103,13 @@ class NOCC_MailReader {
             $this->_replytoaddress = $this->_decodeMimeHeader($headerinfo->reply_toaddress, $this->_charset);
         }
         $this->_timestamp = rtrim($headerinfo->udate);
+        
+        $this->_isunread = false;
+        if ($pop->is_imap()) {
+            if (($headerinfo->Unseen == 'U') || ($headerinfo->Recent == 'N'))
+                $this->_isunread = true;
+        }
+
     }
     
     /**
@@ -215,6 +224,15 @@ class NOCC_MailReader {
      */
     function getTimestamp() {
         return ($this->_timestamp);
+    }
+    
+    /**
+     * Is the mail unread?
+     *
+     * @return boolean Is unread?
+     */
+    function isUnread() {
+        return ($this->_isunread);
     }
     
     /**
