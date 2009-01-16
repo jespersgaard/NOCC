@@ -61,25 +61,10 @@ function inbox(&$pop, $skip = 0, &$ev) {
         $msg_charset = $mail_reader->getCharset();
 
         // Get subject
-        if (isset($msg_headerinfo->subject)) {
-            $subject_header = str_replace('x-unknown', $msg_charset, $msg_headerinfo->subject);
-        } else {
-            $subject_header = '';
-        }
-        $subject_array = nocc_imap::mime_header_decode($subject_header);
-        
-        for ($j = 0; $j < count($subject_array); $j++)
-            $subject .= $subject_array[$j]->text;
+        $subject = $mail_reader->getSubject();
 
         // Get from
-        if (isset($msg_headerinfo->fromaddress)) {
-            $from_header = str_replace('x-unknown', $msg_charset, $msg_headerinfo->fromaddress);
-        } else {
-            $from_header = '';
-        }
-        $from_array = nocc_imap::mime_header_decode($from_header);
-        for ($j = 0; $j < count($from_array); $j++)
-            $from .= $from_array[$j]->text;
+        $from = $mail_reader->getFromAddress();
 
         // Get to
         if (isset($msg_headerinfo->fromaddress)) {
@@ -291,42 +276,22 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     $msg_charset = $mail_reader->getCharset();
 
     // Get subject
-    $subject_header = str_replace('x-unknown', $msg_charset, $msg_headerinfo->subject);
-    $subject_array = nocc_imap::mime_header_decode($subject_header);
-    for ($j = 0; $j < count($subject_array); $j++)
-        $subject .= $subject_array[$j]->text;
+    $subject = $mail_reader->getSubject();
 
     // Get from
-    $from_header = str_replace('x-unknown', $msg_charset, $msg_headerinfo->fromaddress);
-    $from_array = nocc_imap::mime_header_decode($from_header);
-    for ($j = 0; $j < count($from_array); $j++)
-        $from .= $from_array[$j]->text;
+    $from = $mail_reader->getFromAddress();
 
     // Get to
-    $to_header = str_replace('x-unknown', $msg_charset, $msg_headerinfo->toaddress);
-    $to_array = nocc_imap::mime_header_decode($to_header);
-    for ($j = 0; $j < count($to_array); $j++)
-        $to .= $to_array[$j]->text;
+    $to = $mail_reader->getToAddress();
     $to = str_replace(',', ', ', $to);
     
     // Get cc
-    $cc_header = isset($msg_headerinfo->ccaddress) ? $msg_headerinfo->ccaddress : '';
-    $cc_header = str_replace('x-unknown', $msg_charset, $cc_header);
-    $cc_array = isset($msg_headerinfo->ccaddress) ? nocc_imap::mime_header_decode($cc_header) : 0;
-    if ($cc_array != 0) {
-        for ($j = 0; $j < count($cc_array); $j++)
-            $cc .= $cc_array[$j]->text;
-    }
+    $cc = $mail_reader->getCcAddress();
     $cc = str_replace(',', ', ', $cc);
 
     // Get reply to
-    $reply_to_header = isset($msg_headerinfo->reply_toaddress) ? $msg_headerinfo->reply_toaddress : '';
-    $reply_to_header = str_replace('x-unknown', $msg_charset, $reply_to_header);
-    $reply_to_array = isset($msg_headerinfo->reply_toaddress) ? nocc_imap::mime_header_decode($reply_to_header) : 0;
-    if ($reply_to_array != 0) {
-        for ($j = 0; $j < count($reply_to_array); $j++)
-            $reply_to .= $reply_to_array[$j]->text;
-    }
+    $reply_to = $mail_reader->getReplyToAddress();
+    
     $timestamp = chop($msg_headerinfo->udate);
     $date = format_date($timestamp, $lang);
     $time = format_time($timestamp, $lang);

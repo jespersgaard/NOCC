@@ -25,6 +25,12 @@ class NOCC_MailReader {
     var $_charset;
     var $_totalbytes;
     
+    var $_subject;
+    var $_fromaddress;
+    var $_toaddress;
+    var $_ccaddress;
+    var $_replytoaddress;
+    
     /**
      * Initialize the mail reader
      */
@@ -70,6 +76,29 @@ class NOCC_MailReader {
             }
         }
         //--------------------------------------------------------------------------------
+        
+        $headerinfo = $pop->headerinfo($msgno, $ev);
+        
+        $this->_subject = '';
+        if (isset($this->_subject)) {
+            $this->_subject = $this->_decodeMimeHeader($headerinfo->subject, $this->_charset);
+        }
+        $this->_fromaddress = '';
+        if (isset($this->_fromaddress)) {
+            $this->_fromaddress = $this->_decodeMimeHeader($headerinfo->fromaddress, $this->_charset);
+        }
+        $this->_toaddress = '';
+        if (isset($this->_toaddress)) {
+            $this->_toaddress = $this->_decodeMimeHeader($headerinfo->toaddress, $this->_charset);
+        }
+        $this->_ccaddress = '';
+        if (isset($this->_ccaddress)) {
+            $this->_ccaddress = $this->_decodeMimeHeader($headerinfo->ccaddress, $this->_charset);
+        }
+        $this->_replytoaddress = '';
+        if (isset($this->_replytoaddress)) {
+            $this->_replytoaddress = $this->_decodeMimeHeader($headerinfo->reply_toaddress, $this->_charset);
+        }
     }
     
     /**
@@ -130,6 +159,69 @@ class NOCC_MailReader {
             }
         }
         return false;
+    }
+    
+    /**
+     * Get the subject from the mail
+     *
+     * @return string Subject
+     */
+    function getSubject() {
+        return ($this->_subject);
+    }
+    
+    /**
+     * Get the "From" address from the mail
+     *
+     * @return string "From" address
+     */
+    function getFromAddress() {
+        return ($this->_fromaddress);
+    }
+    
+    /**
+     * Get the "To" address from the mail
+     *
+     * @return string "To" address
+     */
+    function getToAddress() {
+        return ($this->_toaddress);
+    }
+    
+    /**
+     * Get the "Cc" address from the mail
+     *
+     * @return string "Cc" address
+     */
+    function getCcAddress() {
+        return ($this->_ccaddress);
+    }
+    
+    /**
+     * Get the "Reply-To" address from the mail
+     *
+     * @return string "Reply-To" address
+     */
+    function getReplyToAddress() {
+        return ($this->_replytoaddress);
+    }
+    
+    /**
+     * Decode MIME header
+     *
+     * @return string Decoded MIME header
+     */
+    function _decodeMimeHeader($mimeheader, $charset) {
+        $decodedheader = '';
+        if (isset($mimeheader)) {
+          $mimeheader = str_replace('x-unknown', $charset, $mimeheader);
+          
+          $decoded = nocc_imap::mime_header_decode($mimeheader);
+          for ($i = 0; $i < count($decoded); $i++) { //for all elements...
+              $decodedheader .= $decoded[$i]->text;
+          }
+        }
+        return $decodedheader;
     }
 }
 ?>
