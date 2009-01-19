@@ -46,7 +46,10 @@ class NOCC_MailReader {
         if ($structure->ifsubtype) {
           $this->_subtype = $structure->subtype;
         }
-        $this->_parts = $structure->parts;
+        $this->_parts = NULL;
+        if (isset($structure->parts)) {
+          $this->_parts = $structure->parts;
+        }
         
         //--------------------------------------------------------------------------------
         // Get the charset from the mail...
@@ -83,23 +86,23 @@ class NOCC_MailReader {
         $headerinfo = $pop->headerinfo($msgno, $ev);
         
         $this->_subject = '';
-        if (isset($this->_subject)) {
+        if (isset($headerinfo->subject)) {
             $this->_subject = $this->_decodeMimeHeader($headerinfo->subject, $this->_charset);
         }
         $this->_fromaddress = '';
-        if (isset($this->_fromaddress)) {
+        if (isset($headerinfo->fromaddress)) {
             $this->_fromaddress = $this->_decodeMimeHeader($headerinfo->fromaddress, $this->_charset);
         }
         $this->_toaddress = '';
-        if (isset($this->_toaddress)) {
+        if (isset($headerinfo->toaddress)) {
             $this->_toaddress = $this->_decodeMimeHeader($headerinfo->toaddress, $this->_charset);
         }
         $this->_ccaddress = '';
-        if (isset($this->_ccaddress)) {
+        if (isset($headerinfo->ccaddress)) {
             $this->_ccaddress = $this->_decodeMimeHeader($headerinfo->ccaddress, $this->_charset);
         }
         $this->_replytoaddress = '';
-        if (isset($this->_replytoaddress)) {
+        if (isset($headerinfo->reply_toaddress)) {
             $this->_replytoaddress = $this->_decodeMimeHeader($headerinfo->reply_toaddress, $this->_charset);
         }
         $this->_timestamp = rtrim($headerinfo->udate);
