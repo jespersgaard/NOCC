@@ -181,8 +181,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
         GetPart($attach_tab, $struct_msg, NULL, $conf->display_rfc822);
     else {
         $pop_fetchheader_mail_ev = $pop->fetchheader($mail, $ev);
-        $pop_body_mail_ev = $pop->body($mail, $ev);
-        GetSinglePart($attach_tab, $struct_msg, $pop_fetchheader_mail_ev, $pop_body_mail_ev);
+        GetSinglePart($attach_tab, $struct_msg, $pop_fetchheader_mail_ev);
         if(NoccException::isException($ev)) return;
     }
 
@@ -431,7 +430,7 @@ function GetPart(&$attach_tab, &$this_part, $part_no, &$display_rfc822) {
 
 // BUG: returns text/plain when Content-Type: application/x-zip (e.g.)
 
-function GetSinglePart(&$attach_tab, &$this_part, &$header, &$body) {
+function GetSinglePart(&$attach_tab, &$this_part, &$header) {
     if (eregi('text/html', $header))
         $full_mime_type = 'text/html';
     else
