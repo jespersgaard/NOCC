@@ -1132,7 +1132,7 @@ function get_page_nav($pages, $skip) {
   
   $html = '';
   if ($pages > 1) { // if there several pages...
-    $form_select .= '<select class="button" name="skip" onchange="submit();">';
+    $form_select = '<select class="button" name="skip" onchange="submit();">';
     $selected = '';
     for ($i = 0; $i < $pages; $i++) { 
         $xpage = $i + 1;
