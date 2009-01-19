@@ -52,8 +52,6 @@ function inbox(&$pop, $skip = 0, &$ev) {
         $subject = $from = $to = '';
         $msgnum = $sorted[$i];
         $pop_msgno_msgnum = $pop->msgno($msgnum);
-        $msg_headerinfo = $pop->headerinfo($pop_msgno_msgnum, $ev);
-        if(NoccException::isException($ev)) return;
         $mail_reader = new NOCC_MailReader($pop_msgno_msgnum, $pop, $ev);
         if(NoccException::isException($ev)) return;
 
@@ -67,21 +65,9 @@ function inbox(&$pop, $skip = 0, &$ev) {
         $from = $mail_reader->getFromAddress();
 
         // Get to
-        if (isset($msg_headerinfo->fromaddress)) {
-            $to_header = str_replace('x-unknown', $msg_charset, $msg_headerinfo->toaddress);
-        } else {
-            $to_header = '';
-        }
-        $to_array = nocc_imap::mime_header_decode($to_header);
-        for ($j = 0; $j < count($to_array); $j++) {
-          if (!(strpos($to_array[$j]->text, '@')))
-            // If it's not an email address, we don't add the comma, the
-            // email address itself will be the next string
-            $to = $to . $to_array[$j]->text . " ";
-          else
-            $to = $to . $to_array[$j]->text . ", ";
-        }
-        $to = substr($to, 0, strlen($to)-2);
+        $to = $mail_reader->getToAddress();
+        $to = str_replace(',', ', ', $to);
+
         $msg_size = $mail_reader->getSize();
         if ($mail_reader->hasAttachments() == true) {
             $attach = '<img src="themes/' . $_SESSION['nocc_theme'] . '/img/attach.png" alt="" />';
