@@ -275,7 +275,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     $date = format_date($timestamp, $lang);
     $time = format_time($timestamp, $lang);
     $content = Array(
-        'message_id' => $mail_reader->getMessageId,
+        'message_id' => $mail_reader->getMessageId(),
         'from' => $from,
         'to' => $to,
         'cc' => $cc,
