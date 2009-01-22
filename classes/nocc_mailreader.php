@@ -25,6 +25,7 @@ class NOCC_MailReader {
     var $_charset;
     var $_totalbytes;
     
+    var $_messageid;
     var $_subject;
     var $_fromaddress;
     var $_toaddress;
@@ -85,6 +86,10 @@ class NOCC_MailReader {
         
         $headerinfo = $pop->headerinfo($msgno, $ev);
         
+        $this->_messageid = '';
+        if (isset($headerinfo->message_id)) {
+            $this->_messageid = $headerinfo->message_id;
+        }
         $this->_subject = '';
         if (isset($headerinfo->subject)) {
             $this->_subject = $this->_decodeMimeHeader($headerinfo->subject, $this->_charset);
@@ -173,6 +178,15 @@ class NOCC_MailReader {
             }
         }
         return false;
+    }
+    
+    /**
+     * Get the message id from the mail
+     *
+     * @return string Message id
+     */
+    function getMessageId() {
+        return ($this->_messageid);
     }
     
     /**

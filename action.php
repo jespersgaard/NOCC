@@ -182,8 +182,7 @@ switch($action) {
             break;
         }
 
-        $mail_header = $pop->headerinfo($_REQUEST['mail'], $ev);
-        $mail_messageid = urlencode($mail_header->message_id);
+        $mail_messageid = urlencode($content['message_id']);
 
         $mail_to = !empty($content['reply_to']) ? $content['reply_to'] : $content['from'];
         // Test for Re: in subject, should not be added twice ! 
@@ -246,8 +245,7 @@ switch($action) {
             break;
         }
         
-        $mail_header = $pop->headerinfo($_REQUEST['mail'], $ev);
-        $mail_messageid = urlencode($mail_header->message_id);
+        $mail_messageid = urlencode($content['message_id']);
         
         $mail_to = get_reply_all($content['from'], $content['to'], $content['cc']);
         if (!strcasecmp(substr($content['subject'], 0, 2), $html_reply_short))
