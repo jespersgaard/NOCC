@@ -301,7 +301,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
 /* ----------------------------------------------------- */
 
 // based on a function from matt@bonneau.net
-function GetPart(&$attach_tab, &$this_part, $part_no, &$display_rfc822) {
+function GetPart(&$attach_tab, $this_part, $part_no, $display_rfc822) {
     $att_name = '[unknown]';
     if ($this_part->ifdescription == true)
         $att_name = $this_part->description;
@@ -431,7 +431,7 @@ function GetPart(&$attach_tab, &$this_part, $part_no, &$display_rfc822) {
 
 // BUG: returns text/plain when Content-Type: application/x-zip (e.g.)
 
-function GetSinglePart(&$attach_tab, &$this_part, &$header) {
+function GetSinglePart(&$attach_tab, $this_part, $header) {
     if (eregi('text/html', $header))
         $full_mime_type = 'text/html';
     else
