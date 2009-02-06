@@ -80,7 +80,7 @@ function inbox(&$pop, $skip = 0, &$ev) {
         // Set this in conf.php
         if ($_SESSION['ucb_pop_server'])
         {
-            $header_msg = $pop->fetchheader($pop->msgno($msgnum), $ev);
+            $header_msg = $mail_reader->getHeader();
             if(NoccException::isException($ev)) return;
             $header_lines = explode("\r\n", $header_msg);
             while (list($k, $v) = each($header_lines))
@@ -180,16 +180,13 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     if ($struct_msg->type == 3 || (isset($struct_msg->parts) && (sizeof($struct_msg->parts) > 0)))
         GetPart($attach_tab, $struct_msg, NULL, $conf->display_rfc822);
     else {
-        $pop_fetchheader_mail_ev = $pop->fetchheader($mail, $ev);
-        GetSinglePart($attach_tab, $struct_msg, $pop_fetchheader_mail_ev);
-        if(NoccException::isException($ev)) return;
+        GetSinglePart($attach_tab, $struct_msg, $mail_reader->getHeader());
     }
 
     // If we are showing all headers, gather them into a header array
     $header = "";
     if (($verbose == 1) && ($conf->use_verbose == true)) {
-        $header = $pop->fetchheader($mail, $ev);
-        if(NoccException::isException($ev)) return;
+        $header = $mail_reader->getHeader();
     }
 
     // Get the first part
