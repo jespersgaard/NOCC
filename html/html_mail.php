@@ -41,6 +41,17 @@ if ($content['subject'] == '')
   if($content['att'] != '') {
     echo $content['att'];
   }
+  //TODO: Get "priority text" from MailReader class?
+  $priority = '';
+  switch ($content['priority']) {
+    case 1: $priority = $html_highest; break;
+    case 2: $priority = $html_high; break;
+    case 4: $priority = $html_low; break;
+    case 5: $priority = $html_lowest; break;
+  }
+  if ($priority != '') {
+    echo '<tr><th class="mailHeaderLabel">'.$html_priority.':</th><td class="mailHeaderData">'.$priority.'</td></tr>';
+  }
   echo '<tr><th class="mailHeaderLabel">' . $html_encoding . ':</th><td class="mailHeaderData">';
   echo '<form id="encoding" action="action.php" method="post"><div>';
   echo '<input type="hidden" name="action" value="' . $_REQUEST['action'] . '"/>';

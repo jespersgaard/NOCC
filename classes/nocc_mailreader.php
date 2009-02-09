@@ -338,9 +338,9 @@ class NOCC_MailReader {
             return $value;
         }
         if ( $value == 'urgent' || $value == 'high' ) {
-            return 1;
+            return 2;
         } elseif ( $value == 'non-urgent' || $value == 'low' ) {
-            return 5;
+            return 4;
         }
         // default is normal priority
         return 3;
