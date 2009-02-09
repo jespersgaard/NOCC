@@ -96,9 +96,11 @@
        <td class="sendLabel"><label for="priority"><?php echo $html_priority ?>:</label></td>
        <td class="sendData">
          <select class="button" name="priority" id="priority">
+           <option value="1 (Highest)"><?php echo $html_highest ?></option>
            <option value="2 (High)"><?php echo $html_high ?></option>
            <option value="3 (Normal)" selected="selected"><?php echo $html_normal ?></option>
            <option value="4 (Low)"><?php echo $html_low ?></option>
+           <option value="5 (Lowest)"><?php echo $html_lowest ?></option>
          </select>
          <input name="receipt" id="receipt" type="checkbox" <?php if(isset($mail_receipt) && $mail_receipt) echo "checked"; ?>/>
          <label for="receipt"><?php echo $html_receipt ?></label>
