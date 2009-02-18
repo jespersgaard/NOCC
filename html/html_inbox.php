@@ -45,6 +45,16 @@
       case '7': //Attachment...
         echo $tmp['attach'];
         break;
+      case '8': //Priority...
+        //TODO: Get "priority text" from MailReader class?
+        switch ($tmp['priority']) {
+          case 1: echo $html_highest; break;
+          case 2: echo $html_high; break;
+          case 3: echo $html_normal; break;
+          case 4: echo $html_low; break;
+          case 5: echo $html_lowest; break;
+        }
+        break;
     }
     echo '</td>';
   }

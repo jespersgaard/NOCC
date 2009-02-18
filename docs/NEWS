@@ -6,6 +6,7 @@ NOCC 1.8  ?? ??, ??
   Misc
     * Add "Highest" and "Lowest" priority to sending (Tim Gerundt).
     * Show priority in mail view (Tim Gerundt).
+    * Support priority column in inbox (Tim Gerundt).
 
 NOCC 1.7  January 01, 2008
 

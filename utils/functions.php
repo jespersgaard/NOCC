@@ -118,6 +118,7 @@ function inbox(&$pop, $skip = 0, &$ev) {
                 'time' => $time,
                 'complete_date' => $date . ' ' . $time,
                 'size' => $msg_size,
+                'priority' => $mail_reader->getPriority(),
                 'sort' => $sort,
                 'sortdir' => $sortdir);
     }
