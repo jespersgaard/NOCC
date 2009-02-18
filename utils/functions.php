@@ -119,6 +119,7 @@ function inbox(&$pop, $skip = 0, &$ev) {
                 'complete_date' => $date . ' ' . $time,
                 'size' => $msg_size,
                 'priority' => $mail_reader->getPriority(),
+                'priority_text' => $mail_reader->getPriorityText(),
                 'sort' => $sort,
                 'sortdir' => $sortdir);
     }
@@ -283,6 +284,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
         'time' => $time,
         'complete_date' => $date . ' ' . $time,
         'priority' => $mail_reader->getPriority(),
+        'priority_text' => $mail_reader->getPriorityText(),
         'att' => $link_att,
         'body' => $pop->graphicalsmilies($body),
         'body_mime' => convertLang2Html($tmp['mime']),

@@ -299,6 +299,24 @@ class NOCC_MailReader {
     }
     
     /**
+     * Get the (translated) priority text from the mail
+     *
+     * @return string Priority text
+     */
+    function getPriorityText() {
+        global $html_highest, $html_high, $html_normal, $html_low, $html_lowest;
+        
+        switch ($this->_priority) {
+            case 1: return $html_highest; break;
+            case 2: return $html_high; break;
+            case 3: return $html_normal; break;
+            case 4: return $html_low; break;
+            case 5: return $html_lowest; break;
+            default: return '';
+        }
+    }
+    
+    /**
      * Decode MIME header
      *
      * @return string Decoded MIME header
