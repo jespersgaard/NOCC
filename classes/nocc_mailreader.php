@@ -306,12 +306,12 @@ class NOCC_MailReader {
     function _decodeMimeHeader($mimeheader, $charset) {
         $decodedheader = '';
         if (isset($mimeheader)) {
-          $mimeheader = str_replace('x-unknown', $charset, $mimeheader);
-          
-          $decoded = nocc_imap::mime_header_decode($mimeheader);
-          for ($i = 0; $i < count($decoded); $i++) { //for all elements...
-              $decodedheader .= $decoded[$i]->text;
-          }
+            $mimeheader = str_replace('x-unknown', $charset, $mimeheader);
+            
+            $decoded = nocc_imap::mime_header_decode($mimeheader);
+            for ($i = 0; $i < count($decoded); $i++) { //for all elements...
+                $decodedheader .= $decoded[$i]->text;
+            }
         }
         return $decodedheader;
     }
