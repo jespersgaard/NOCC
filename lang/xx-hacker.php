@@ -243,6 +243,8 @@ $lang_invalid_msg_num = 'B4d m3ss4g3 numb3r';
 
 $html_file_upload_attack = 'P0ss!bl3 f!l3 upl04d 4tt4ck';
 $html_invalid_email_address = 'Inv4l!d 3-m4!l 4ddr3ss';
+$html_invalid_msg_per_page = 'Inv4l!d numb3r 0f m3ss4g3s p3r p4g3';
+$html_invalid_wrap_msg = 'Inv4l!d m3ss4g3 wr4p w!dth';
 $html_seperate_msg_win = 'M3ss4g3s !n s3p4r4t3 w!nd0w';
 
 // Exceptions
