@@ -150,6 +150,7 @@ $html_reply_short = 'Re';  //to translate
 $html_reply_all = 'Ответить всем';
 $html_forward = 'Переслать';
 $html_forward_short = 'Fw';  //to translate
+$html_forward_info = 'The forwarded message will be sent as an attachment to this one.';  //to translate
 $html_delete = 'Удалить';
 $html_new = 'Новое';
 $html_mark = 'Удалить';
@@ -159,6 +160,7 @@ $html_att_unknown = '[неизвестно]';
 $html_attach = 'Прикрепить файл';
 $html_attach_forget = 'Вы должны прикрепить файл до отправки сообщения!';
 $html_attach_delete = 'Удалить выбранные';
+$html_attach_none = 'You must select a file to attach!';  //to translate
 $html_sort_by = 'Сортировать по';
 $html_sort = 'Сортировать';
 $html_from = 'От';
@@ -239,6 +241,7 @@ $html_smtp_error_unexpected = 'Неожиданный ответ SMTP:';
 
 // IMAP messages (class_local.php)
 $lang_could_not_connect = 'Невозможно подключиться к серверу';
+$lang_invalid_msg_num = 'Bad message number'; // to translate
 
 $html_file_upload_attack = 'Возможная аттака с помощью загрузки файла';
 $html_invalid_email_address = 'Неверный адрес электронной почты';
