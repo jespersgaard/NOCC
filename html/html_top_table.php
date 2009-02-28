@@ -95,6 +95,7 @@ if ($pop->is_imap()) {
                                     case '7': $column_title = ''; break;
                                     //TODO: Make "Priority" column sortable!
                                     case '8': $column_title = ''; break;
+                                    case '9': $column_title = ''; break;
                                 }
                                 echo '<th class="column'.$column; if ($_SESSION['nocc_sort'] == $column) echo ' sorted'; echo '">';
                                 if ($column_title != '') { //If we have a column title...
@@ -107,8 +108,11 @@ if ($pop->is_imap()) {
                                     }
                                 }
                                 else { //If we NOT have a column title...
-                                    if ($column == '8') { //If "Priority" column...
+                                    if ($column == '8') { //If "Priority Text" column...
                                         echo $html_priority;
+                                    }
+                                    elseif ($column == '9') { //If "Priority Number" column...
+                                        echo '<span title="' . $html_priority . '">!</span>';
                                     }
                                 }
                                 echo '</th>';

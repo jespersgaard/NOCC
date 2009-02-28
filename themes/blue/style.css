@@ -485,6 +485,10 @@ img.sort {
   text-align: right;
 }
 
+#inboxTable .column9 {
+  text-align: center;
+}
+
 #inboxTable tr.marked {
   background-color: #0099CC;
 }
