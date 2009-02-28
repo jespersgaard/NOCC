@@ -7,6 +7,7 @@ NOCC 1.8  ?? ??, ??
     * Add "Highest" and "Lowest" priority to sending (Tim Gerundt).
     * Show priority in mail view (Tim Gerundt).
     * Support priority column in inbox (Tim Gerundt).
+    * Change "Forward" abbreviation from "Fw" to "Fwd" (Tim Gerundt).
 
 NOCC 1.7  January 01, 2008
 
