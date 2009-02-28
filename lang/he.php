@@ -81,6 +81,7 @@ $html_retry = 'נסיון נוסף';
 $html_remember = "Remember settings"; //to translate
 
 // prefs.php
+$html_msgperpage = 'Messages per page'; //to translate
 $html_preferences = 'Preferences';  //to translate
 $html_full_name = 'Full name';  //to translate
 $html_email_address = 'E-mail Address';  //to translate
@@ -104,7 +105,7 @@ $html_send_html_mail = 'Send mail in HTML format'; //to translate
 // folders.php
 $html_folders = 'Folders';  //to translate
 $html_folders_create_failed = 'Folder could not be created!';  //to translate
-$html_folders_sub_failed = 'Could not subscribed to folder!';  //to translate
+$html_folders_sub_failed = 'Could not subscribe to folder!';  //to translate
 $html_folders_unsub_failed = 'Could not unsubscribed from folder!';  //to translate
 $html_folders_rename_failed = 'Folder could not be renamed!';  //to translate
 $html_folders_updated = 'Folders updated';  //to translate
@@ -149,11 +150,11 @@ $html_new_msg = 'כתיבה';
 $html_reply = 'תשובה';
 # please leave 'Re' and 'Fwd' as they are, otherwise they mess the subject line
 # [tzafrir]
-$html_reply_short = 'Re'; //to translate
+$html_reply_short = 'Re';
 $html_reply_all = 'תשובה לכל';
 $html_forward = 'העברה';
-$html_forward_short = 'Fw'; //to translate
-$html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
+$html_forward_short = 'Fwd';
+$html_forward_info = 'The forwarded message will be sent as an attachment to this one.'; //to translate
 $html_delete = 'מחיקה';
 $html_new = 'חדש';
 $html_mark = 'מחיקה';
@@ -170,6 +171,7 @@ $html_from = 'מאת';
 $html_subject = 'נושא';
 $html_date = 'תאריך';
 $html_sent = 'Send'; //to translate
+$html_wrote = 'wrote'; //to translate
 $html_size = 'גודל';
 $html_totalsize = 'סה\' גודל';
 $html_kb = 'ק\'ב';
@@ -194,6 +196,7 @@ $html_low = 'Low';  //to translate
 $html_normal = 'Normal';  //to translate
 $html_high = 'High';  //to translate
 $html_highest = 'Highest';  //to translate
+$html_receipt = 'Request a return receipt';  //to translate
 $html_select = 'Select';  //to translate
 $html_select_all = 'Invert Selection';  //to translate
 $html_loading_image = 'Loading image';  //to translate
@@ -203,7 +206,7 @@ $html_error_occurred = 'An error occurred';  //to translate
 $html_prefs_file_error = 'Unable to open preferences file for writing.';  //to translate
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
 $html_wrap_none = 'None'; //to translate
-$html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
+$html_usenet_separator = 'Usenet separator ("-- \n") before signature';  //to translate
 $html_mark_as = 'Mark as'; //to translate
 $html_read = 'read'; //to translate
 $html_unread = 'unread'; //to translate
@@ -217,13 +220,13 @@ $html_back = 'Back';  //to translate
 $html_contact_add = 'Add new contact';  //to translate
 $html_contact_mod = 'Modify a contact';  //to translate
 $html_contact_first = 'First name';  //to translate
-$html_contact_last = 'Last Name';  //to translate
+$html_contact_last = 'Last name';  //to translate
 $html_contact_nick = 'Nick';  //to translate
 $html_contact_mail = 'Mail';  //to translate
 $html_contact_list = 'Contact list of ';  //to translate
 $html_contact_del = 'from the contact list';  //to translate
 
-$html_contact_err1 = 'Maximal number of contact is ';  //to translate
+$html_contact_err1 = 'Maximum number of contact is ';  //to translate
 $html_contact_err2 = 'You can\'t add a new contact';  //to translate
 $html_contact_err3 = 'You don\'t have access rights to contact list'; //to translate
 $html_del_msg = 'Delete selected messages ?';  //to translate
@@ -244,7 +247,7 @@ $html_smtp_error_unexpected = 'Unexpected SMTP response:';  //to translate
 
 // IMAP messages (class_local.php)
 $lang_could_not_connect = 'Could not connect to server';  //to translate
-$lang_invalid_msg_num = 'Bad Message Number';  //to translate
+$lang_invalid_msg_num = 'Bad message number';  //to translate
 
 $html_file_upload_attack = 'Possible file upload attack';  //to translate
 $html_invalid_email_address = 'Invalid e-mail address';  //to translate
