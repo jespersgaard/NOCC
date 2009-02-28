@@ -104,7 +104,7 @@ $html_send_html_mail = 'Send mail in HTML format'; //to translate
 // folders.php
 $html_folders = 'Folders';  //to translate
 $html_folders_create_failed = 'Folder could not be created!';  //to translate
-$html_folders_sub_failed = 'Could not subscribed to folder!';  //to translate 
+$html_folders_sub_failed = 'Could not subscribe to folder!';  //to translate 
 $html_folders_unsub_failed = 'Could not unsubscribed from folder!';  //to translate
 $html_folders_rename_failed = 'Folder could not be renamed!';  //to translate
 $html_folders_updated = 'Folders updated';  //to translate
@@ -113,6 +113,7 @@ $html_folder_rename = 'Rename';  //to translate
 $html_folder_create = 'Create new folder called';  //to translate
 $html_folder_remove = 'Unsubscribe from';  //to translate
 $html_folder_delete = 'Delete';  //to translate
+$html_folder_to = 'to';  //to translate
 
 // filters.php
 $html_filter_remove = 'Apagar';
@@ -127,7 +128,6 @@ $html_filter_contains = 'contains';  //to translate
 $html_filter_name = 'Filter Name';  //to translate
 $html_filter_action = 'Filter Action';  //to translate
 $html_filter_moveto = 'Move to';  //to translate
-$html_folder_to = 'para'; //to translate
 
 // Other pages
 $html_select_one = '--Escolha--';
@@ -151,7 +151,7 @@ $html_reply_short = 'Re';
 $html_reply_all = 'Responder a todos';
 $html_forward = 'Reencaminhar';
 $html_forward_short = 'Fw'; //to translate
-$html_forward_info = 'The forwarded message will be send as an attachment to this one.'; //to translate
+$html_forward_info = 'The forwarded message will be sent as an attachment to this one.'; //to translate
 $html_delete = 'Apagar';
 $html_new = 'Nova';
 $html_mark = 'Apagar';
@@ -203,7 +203,7 @@ $html_error_occurred = 'Ocorreu um erro';
 $html_prefs_file_error = 'Não foi possível abrir o ficheiro de preferenças para escrita.';
 $html_wrap = 'Wrap outgoing messages to :';  //to translate
 $html_wrap_none = 'None'; //to translate
-$html_usenet_separator = 'Usenet separator ("-- \n") Before signature';  //to translate
+$html_usenet_separator = 'Usenet separator ("-- \n") before signature';  //to translate
 $html_mark_as = 'Mark as'; //to translate
 $html_read = 'read'; //to translate
 $html_unread = 'unread'; //to translate
@@ -217,13 +217,13 @@ $html_back = 'Back';  //to translate
 $html_contact_add = 'Add new contact';  //to translate
 $html_contact_mod = 'Modify a contact';  //to translate
 $html_contact_first = 'First name';  //to translate
-$html_contact_last = 'Last Name';  //to translate
+$html_contact_last = 'Last name';  //to translate
 $html_contact_nick = 'Nick';  //to translate
 $html_contact_mail = 'Mail';  //to translate
 $html_contact_list = 'Contact list of ';  //to translate
 $html_contact_del = 'from the contact list';  //to translate
 
-$html_contact_err1 = 'Maximal number of contact is ';  //to translate
+$html_contact_err1 = 'Maximum number of contact is ';  //to translate
 $html_contact_err2 = 'You can\'t add a new contact';  //to translate
 $html_contact_err3 = 'You don\'t have access rights to contact list'; //to translate
 $html_del_msg = 'Delete selected messages ?';  //to translate
@@ -231,10 +231,6 @@ $html_down_mail = 'Download';  //to translate
 
 $original_msg = '-- Mensagem Original --';
 $to_empty = 'O campo \'Para\' tem de ser preenchido !';
-
-// Images warning
-$html_images_warning = 'For your security, remote pictures are not displayed.'; // to translate
-$html_images_display = 'Display pictures'; // to translate
 
 // Images warning
 $html_images_warning = 'For your security, remote pictures are not displayed.'; // to translate
