@@ -26,7 +26,7 @@ NOCC 1.7  January 01, 2008
     * Patch #2011244 : Updated Czech translation (Ragimiri).
     * Patch #2010065 : Optimize regexs for remote image security (Tim Gerundt).
 
-  RFE
+  Feature Requests
     * RFE #2025620 : send_delay (Arnaud Boudou).
     * RFE #2025591 : login_prefix (Arnaud Boudou).
 
@@ -101,7 +101,7 @@ NOCC 1.5  January 01, 2008
       Gerundt).
     * Patch #1786808 : Move JavaScript code to own file (Tim Gerundt).
 
-  RFE
+  Feature Requests
     * RFE #1854176 : Enhancement suggestions (Tim Gerundt, Michael D Young).
     * RFE #1804115 : list of personalised files (Arnaud Boudou).
 
@@ -149,7 +149,7 @@ NOCC 1.4  July 01, 2007
     * Patch #1630921 : Optimize login box (Tim Gerundt).
     * Patch #1627141 : CS translation for 1.3 version (Ragimiri).
 
-  RFE
+  Feature Requests
     * RFE #1639527 : Setting for mailbox column order (Tim Gerundt).
 
   Misc
