@@ -3,6 +3,9 @@ NOCC 1.8  ?? ??, ??
   Patches
     * Patch #2502771 : Use new MailReader class (Tim Gerundt).
 
+  Feature Requests
+    * RFE #2593901 : Slim down FCKeditor toolbar (Tim Gerundt).
+
   Misc
     * Add "Highest" and "Lowest" priority to sending (Tim Gerundt).
     * Show priority in mail view (Tim Gerundt).

@@ -3,21 +3,21 @@
  */
 
 FCKConfig.ToolbarSets["NOCC"] = [
-	['Source','Preview'],
-	['Cut','Copy','Paste','PasteText','PasteWord'],
-	['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
-	['Form','Checkbox','Radio','TextField','Textarea','Select','Button','ImageButton','HiddenField'],
-	'/',
-	['Bold','Italic','Underline','StrikeThrough','-','Subscript','Superscript'],
-	['OrderedList','UnorderedList','-','Outdent','Indent','Blockquote','CreateDiv'],
-	['JustifyLeft','JustifyCenter','JustifyRight','JustifyFull'],
-	['Link','Unlink','Anchor'],
-	['Table','Rule','SpecialChar','PageBreak'],
-	'/',
-	['Style','FontFormat','FontName','FontSize'],
+	['FontName','FontSize'],
 	['TextColor','BGColor'],
-	['FitWindow','ShowBlocks','-','About']		// No comma for the last row.
+	['Cut','Copy','Paste'],
+	['Undo','Redo'],
+	['Source'],
+	'/',
+	['Bold','Italic','Underline','StrikeThrough','-','Subscript','Superscript','-','RemoveFormat'],
+	['OrderedList','UnorderedList','-','Outdent','Indent'],
+	['JustifyLeft','JustifyCenter','JustifyRight','JustifyFull'],
+	['Link','Unlink','-','Rule','-','SpecialChar'],
+	['About']		// No comma for the last row.
 ] ;
+
+FCKConfig.LinkDlgHideTarget		= true ;
+FCKConfig.LinkDlgHideAdvanced	= true ;
 
 FCKConfig.LinkBrowser = false ;
 
