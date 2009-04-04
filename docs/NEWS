@@ -4,6 +4,7 @@ NOCC 1.8  ?? ??, ??
     * Patch #2502771 : Use new MailReader class (Tim Gerundt).
 
   Feature Requests
+    * RFE #2593924 : Don't use source code in config file (Tobias Mathes).
     * RFE #2593901 : Slim down FCKeditor toolbar (Tim Gerundt).
 
   Misc

@@ -17,6 +17,7 @@
 session_name("NOCCSESSID");
 session_start();
 require_once './config/conf.php';
+require_once './utils/config_check.php';
 require_once './utils/functions.php';
 
 clear_attachments();
