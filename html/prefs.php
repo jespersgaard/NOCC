@@ -234,7 +234,7 @@ if (count($big_list) > 1) {
                $handle = opendir('./themes');
                while (($file = readdir($handle)) != false)
                {
-                 if (($file != '.') && ($file != '..'))
+                 if (($file != '.') && ($file != '..') && ($file != '.svn'))
                  {
                    echo '<option value="'.$file.'"';
                    if ($file == $_SESSION['nocc_theme'])
