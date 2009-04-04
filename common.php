@@ -16,15 +16,18 @@
 // Define variables
 if (!isset($from_rss)) { $from_rss=false; }
 
-if (file_exists('./config/conf.php'))
-  {
+if (file_exists('./config/conf.php')) {
     require_once './config/conf.php';
-  }
-else
-  {
+    
+    // code extraction from conf.php, legacy code support
+    if ((file_exists('./utils/config_check.php')) && (!function_exists('get_default_from_address'))) {
+    require_once('./utils/config_check.php');
+    }
+}
+else {
     print("The main configuration file (./config/conf.php) couldn't be found! <p />Please rename the file './config/conf.php.dist' to './config/conf.php'. ");
     die();
-  }
+}
 
 require_once './classes/user_prefs.php';
 require_once('./classes/user_filters.php');
