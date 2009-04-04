@@ -64,6 +64,16 @@ if (!isset($conf->column_order) || $conf->column_order == '')
   $ev = new NoccException("\"\$conf->column_order\" must be set in \"config/conf.php\" in order for NOCC to run.");
 }
 
+// Disable LDAP feature, if enabled but NOT supported
+if (($conf->contact_ldap === true) && !extension_loaded('ldap')) {
+  $conf->contact_ldap = false;
+}
+
+// DISABLE LDAP SSL, if SSL is NOT supported
+if (($conf->contact_ldap === true) && ($conf->contact_ldap_options['ssl'] === true) && !extension_loaded('openssl')) {
+    $conf->contact_ldap_options['ssl'] = false;
+}
+
 // Display error message
 if (isset($ev) && NoccException::isException($ev)) {
   require ('./html/header.php');
