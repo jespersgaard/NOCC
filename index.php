@@ -14,7 +14,16 @@
  * @version    SVN: $Id$
  */
 
-require_once './common.php';
+if (file_exists('./common.php'))
+  {
+    require_once './common.php';
+  }
+else
+  {
+    print('The main configuration file (common.php) couldn\'t be found!');
+    die();
+  }
+  
 //If a previous authentification cookie was set, we use it to bypass login
 //window.
 if (isset($_COOKIE['NoccIdent']) && $_COOKIE['NoccIdent'] != '' && $_COOKIE['NoccIdent'] != null) {
