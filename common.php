@@ -16,7 +16,16 @@
 // Define variables
 if (!isset($from_rss)) { $from_rss=false; }
 
-require_once './config/conf.php';
+if (file_exists('./config/conf.php'))
+  {
+    require_once './config/conf.php';
+  }
+else
+  {
+    print("The main configuration file (./config/conf.php) couldn't be found! <p />Please rename the file './config/conf.php.dist' to './config/conf.php'. ");
+    die();
+  }
+
 require_once './classes/user_prefs.php';
 require_once('./classes/user_filters.php');
 require_once './utils/functions.php';

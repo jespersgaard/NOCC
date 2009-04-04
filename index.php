@@ -14,15 +14,7 @@
  * @version    SVN: $Id$
  */
 
-if (file_exists('./common.php'))
-  {
-    require_once './common.php';
-  }
-else
-  {
-    print('The main configuration file (common.php) couldn\'t be found!');
-    die();
-  }
+require_once './common.php';
   
 //If a previous authentification cookie was set, we use it to bypass login
 //window.
