@@ -371,12 +371,21 @@ $conf->send_delay = 30;
 // Is the user allowed to change his "From:" address? (true/false)
 $conf->allow_address_change = true;
 
+// the user can change their 'reply leadin' string
+$conf->enable_reply_leadin = false;
+
+// let user see the header of a message
+$conf->use_verbose = true;
+
 // Number of contacts per user, 0 to disable contacts list
 $conf->contact_number_max = 10;
 
-
 // activate 'group' contacts via LDAP
 $conf->contact_ldap = false;
+
+// ##
+// ## LDAP options
+// ##
 
 // LDAP hostname
 $conf->contact_ldap_options['host'] = '';
@@ -424,16 +433,5 @@ $conf->contact_ldap_options['group_title'] = 'NOCC';
 // LDAP mail suffix for contacts, if needed, otherwise it will take the default domain
 $conf->contact_ldap_options['suffix'] = '';
 
-
-// the user can change their 'reply leadin' string
-$conf->enable_reply_leadin = false;
-
-// let user see the header of a message
-$conf->use_verbose = true;
-
 // ###################     End of Configuration     ####################
-// ###
-// ### Don't change anything below this line
-// ###
-
 ?>
