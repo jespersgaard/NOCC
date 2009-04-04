@@ -256,4 +256,5 @@ $html_login_not_allowed = 'Nid yw\'r mewngofnodiad yma\'n ddilys ar gyfer y cysw
 // Send delay
 $lang_err_send_delay = 'You must wait between two mails'; // to translate
 $lang_seconds = 'seconds'; // to translate
+$html_search = 'Search';  //to translate
 ?>

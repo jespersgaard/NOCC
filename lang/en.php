@@ -256,4 +256,5 @@ $html_login_not_allowed = 'This login is not allowed for connexion.';
 // Send delay
 $lang_err_send_delay = 'You must wait between two mails';
 $lang_seconds = 'seconds';
+$html_search = 'Search';  //to translate
 ?>

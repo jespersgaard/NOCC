@@ -253,4 +253,5 @@ $html_login_not_allowed = 'Cet identifiant n\'est pas autorisé à se connecter.
 // Send delay
 $lang_err_send_delay = 'Vous devez attendre entre deux messages';
 $lang_seconds = 'secondes';
+$html_search = 'Search';  //to translate
 ?>

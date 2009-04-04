@@ -374,6 +374,57 @@ $conf->allow_address_change = true;
 // Number of contacts per user, 0 to disable contacts list
 $conf->contact_number_max = 10;
 
+
+// activate 'group' contacts via LDAP
+$conf->contact_ldap = false;
+
+// LDAP hostname
+$conf->contact_ldap_options['host'] = '';
+
+// use LDAP SSL connection
+$conf->contact_ldap_options['ssl'] = false;
+
+// use LDAP authentication, leave it true if you are unsure
+$conf->contact_ldap_options['anonymous'] = true;
+
+// use LDAP authentication, leave it empty if you are unsure
+$conf->contact_ldap_options['bind_dn'] = '';
+
+// use LDAP authentication, leave it empty if you are unsure
+$conf->contact_ldap_options['bind_pass'] = '';
+
+// LDAP port, leave it empty if you are unsure
+$conf->contact_ldap_options['port'] = '';
+
+// Display 0-9, A-Z menu entry in contact list
+$conf->contact_ldap_options['alphanum'] = true;
+
+// LDAP DN (Distinguished Name)
+$conf->contact_ldap_options['dn'] = 'dc=nocc, dc=sourceforge, dc=net';
+
+// LDAP search filter
+$conf->contact_ldap_options['filter'] = '(|(uid=%s))';
+
+// Field order must be: uid (username), cn (common name) (or first name), FALSE (or last name), FALSE (or email)
+$conf->contact_ldap_options['attributes'] = array("uid", "cn", FALSE, FALSE);
+
+// LDAP enable search
+$conf->contact_ldap_options['search'] = true;
+
+// LDAP search options
+$conf->contact_ldap_options['search_options'] = array('uid' => 'Nickname', 'cn' => 'Full Name');
+//!!! FUZZY !!! $conf->contact_ldap_options['search_options'] = array('uid' => $html_contact_nick, 'cn' => $html_full_name);
+
+// LDAP sort search by 'attribute' (example: uid )
+$conf->contact_ldap_options['search_sortby'] = 'uid';
+
+// LDAP 'group contacts' title
+$conf->contact_ldap_options['group_title'] = 'NOCC';
+
+// LDAP mail suffix for contacts, if needed, otherwise it will take the default domain
+$conf->contact_ldap_options['suffix'] = '';
+
+
 // the user can change their 'reply leadin' string
 $conf->enable_reply_leadin = false;
 

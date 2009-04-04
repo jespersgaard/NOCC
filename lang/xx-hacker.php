@@ -255,4 +255,5 @@ $html_login_not_allowed = 'Th!s l0g!n !s n0t 4ll0w3d f0r c0nn3x!0n.';
 // Send delay
 $lang_err_send_delay = 'Y0u must w4!t b3tw33n tw0 m4ils';
 $lang_seconds = 's3c0nds';
+$html_search = 'Search';  //to translate
 ?>
