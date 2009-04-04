@@ -16,8 +16,20 @@
 
 session_name("NOCCSESSID");
 session_start();
-require_once './config/conf.php';
-require_once './utils/config_check.php';
+
+if (file_exists('./config/conf.php')) {
+    require_once './config/conf.php';
+    
+    // code extraction from conf.php, legacy code support
+    if ((file_exists('./utils/config_check.php')) && (!function_exists('get_default_from_address'))) {
+    require_once('./utils/config_check.php');
+    }
+}
+else {
+    print("The main configuration file (./config/conf.php) couldn't be found! <p />Please rename the file './config/conf.php.dist' to './config/conf.php'. ");
+    die();
+}
+
 require_once './utils/functions.php';
 
 clear_attachments();
