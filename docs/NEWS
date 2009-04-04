@@ -1,17 +1,23 @@
 NOCC 1.8  ?? ??, ??
 
+  Bugs
+	* Bug #2593952 : User-friendly error message, if config file missing
+	  (Tobias Mathes).
+
   Patches
     * Patch #2502771 : Use new MailReader class (Tim Gerundt).
 
   Feature Requests
     * RFE #2593924 : Don't use source code in config file (Tobias Mathes).
     * RFE #2593901 : Slim down FCKeditor toolbar (Tim Gerundt).
+	* RFE #2002532 : Group contacts via LDAP (Tobias Mathes).
 
   Misc
     * Add "Highest" and "Lowest" priority to sending (Tim Gerundt).
     * Show priority in mail view (Tim Gerundt).
     * Support priority column in inbox (Tim Gerundt).
     * Change "Forward" abbreviation from "Fw" to "Fwd" (Tim Gerundt).
+	* Removed ".svn" folders from theme selections (Tobias Mathes).
 
 NOCC 1.7  January 01, 2008
 
