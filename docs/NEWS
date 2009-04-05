@@ -18,6 +18,9 @@ NOCC 1.8  ?? ??, ??
     * Support priority column in inbox (Tim Gerundt).
     * Change "Forward" abbreviation from "Fw" to "Fwd" (Tim Gerundt).
     * Removed ".svn" folders from theme selections (Tobias Mathes).
+    * Formatting of language file has been modified, for coorperation
+      with TranslateWiki.net (Siebrand Mazeland).
+    * Language files update (Siebrand Mazeland, TranslateWiki.net).
 
 NOCC 1.7  January 01, 2008
 

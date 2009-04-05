@@ -1,6 +1,6 @@
 <?php
 /**
- * Configuration file for the Polish language
+ * Language configuration file for NOCC
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,64 +9,39 @@
  * GNU General Public License. You should have received a copy of the license
  * along with NOCC.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Translators:
- * - Ryszard Janiszewski <dex7@akacje.net>
- * - Tomasz Mateja <tommat@pimpek.one.pl>
- *
  * @package    NOCC
  * @subpackage Translations
  * @license    http://www.gnu.org/licenses/ GNU General Public License
  * @version    SVN: $Id$
  */
 
+/** Polish (Polski)
+ *
+ * @ingroup Language
+ * @file
+ *
+ * @author Ryszard Janiszewski <dex7@akacje.net>
+ * @author Tomasz Mateja <tommat@pimpek.one.pl>
+ */
+
 $charset = 'UTF-8';
-
-// Configuration for the days and months
-
-// What language to use
-// see '/usr/share/locale/' for more information
 $lang_locale = 'pl_PL.UTF-8';
-
-// Text Alignment
-// Can be right-to-left (rtl) which is needed for proper Arabic, Hebrew
-// Or left-to-right (ltr) which is default for most languages
 $lang_dir = 'ltr';
-
-// What format string should we pass to strftime() for messages sent on
-// days other than today?
-$default_date_format = '%Y-%m-%d'; 
-
-// If the local is not implemented on the host, how we display the date
+$default_date_format = '%Y-%m-%d';
 $no_locale_date_format = '%Y-%m-%d';
-
-// What format string should we pass to strftime() for messages sent
-// today?
 $default_time_format = '%H:%M';
-
-
-// Here is the configuration for the HTML
-
 $err_user_empty = 'Proszę wpisać nazwę użytkownika';
 $err_passwd_empty = 'Proszę wpisać hasło';
-
-
-// html message
 $alt_delete = 'Skasuj zaznaczone wiadomości';
 $alt_delete_one = 'Skasuj wiadomość';
 $alt_new_msg = 'Nowa wiadomość';
 $alt_reply = 'Odpowiedz autorowi';
 $alt_reply_all = 'Odpowiedz wszystkim';
 $alt_forward = 'Prześlij dalej';
-$alt_next = 'Next'; //to translate
-$alt_prev = 'Previous'; //to translate
-$title_next_page = 'Next page'; //to translate
-$title_prev_page = 'Previous page'; //to translate
 $title_next_msg = 'Następna wiadomość';
 $title_prev_msg = 'Poprzednia wiadomość';
 $html_on = 'Włączone';
 $html_theme = 'Wygląd';
-
-// index.php
 $html_lang = 'Język';
 $html_welcome = 'Witaj w';
 $html_login = 'Nazwa konta';
@@ -76,9 +51,7 @@ $html_help = 'Pomoc';
 $html_server = 'Serwer';
 $html_wrong = 'Nazwa konta lub hasło jest niepoprawne';
 $html_retry = 'Ponów';
-$html_remember = "Zapamiętaj ustawienia";
-
-// prefs.php
+$html_remember = 'Zapamiętaj ustawienia';
 $html_msgperpage = 'Wiadomości na stronie';
 $html_preferences = 'Ustawienia';
 $html_full_name = 'Nazwa wyświetlana';
@@ -95,13 +68,6 @@ $html_manage_folders_link = 'Zarządzaj Folderami IMAP';
 $html_manage_filters_link = 'Reguły wiadomości';
 $html_use_graphical_smilies = 'Używaj emotikon';
 $html_sent_folder = 'Kopiuj wysłane wiadomości do wyznaczonego folderu';
-$html_trash_folder = 'Move deleted mails into a dedicated folder'; // to translate
-$html_colored_quotes = 'Colored quotes'; //to translate
-$html_display_struct = 'Display structured text'; //to translate
-$html_send_html_mail = 'Send mail in HTML format'; //to translate
-
-// folders.php
-$html_folders = 'Folders';  //to translate
 $html_folders_create_failed = 'Nie można uworzyć folderu!';
 $html_folders_sub_failed = 'Nie można dołączyć folderu!';
 $html_folders_unsub_failed = 'Nie można odłączyć folderu!';
@@ -113,8 +79,6 @@ $html_folder_create = 'Stwórz nowy folder o nazwie';
 $html_folder_remove = 'Odłącz folder';
 $html_folder_delete = 'Skasuj';
 $html_folder_to = 'do';
-
-// filters.php
 $html_filter_remove = 'Skasuj';
 $html_filter_body = 'Treść Wiadomości';
 $html_filter_subject = 'Temat Wiadomości';
@@ -127,8 +91,6 @@ $html_filter_contains = 'zawiera';
 $html_filter_name = 'Nazwa Filtru';
 $html_filter_action = 'Akcja';
 $html_filter_moveto = 'Przenieś do';
-
-// Other pages
 $html_select_one = '--Wybierz Jeden--';
 $html_and = 'i';
 $html_new_msg_in = 'Nowe wiadomości w';
@@ -170,9 +132,6 @@ $html_sent = 'Wyślij';
 $html_wrote = 'napisał(a)';
 $html_size = 'Rozmiar';
 $html_totalsize = 'Rozmiar';
-$html_kb = 'kB'; //to translate
-$html_mb = 'MB'; //to translate
-$html_gb = 'GB'; //to translate
 $html_bytes = 'bajtów';
 $html_filename = 'Nazwa pliku';
 $html_to = 'Do';
@@ -187,11 +146,9 @@ $html_msg = 'Wiadomość';
 $html_msgs = 'Wiadomości';
 $html_configuration = 'Serwer nie został prawidłowo skonfigurowany!';
 $html_priority = 'Ważność';
-$html_lowest = 'Lowest';  //to translate
 $html_low = 'Niska';
 $html_normal = 'Normalna';
 $html_high = 'Wysoka';
-$html_highest = 'Highest';  //to translate
 $html_receipt = 'Zażądaj potwierdzenia otrzymania wiadomości';
 $html_select = 'Zaznacz';
 $html_select_all = 'Odwróć zaznaczenie';
@@ -207,8 +164,6 @@ $html_mark_as = 'Zaznacz jako';
 $html_read = 'Przeczytane';
 $html_unread = 'Nie przeczytane';
 $html_encoding = 'Kodowanie znaków';
-
-// Contacts manager
 $html_add = 'Dodaj';
 $html_contacts = 'Kontakty';
 $html_modify = 'Zmień';
@@ -221,41 +176,22 @@ $html_contact_nick = 'Nick';
 $html_contact_mail = 'Adres e-mail';
 $html_contact_list = 'Lista kontaktów użytkownika ';
 $html_contact_del = 'z listy kontaktów';
-
 $html_contact_err1 = 'Maksymalna liczba kontaktów to ';
 $html_contact_err2 = 'Nie możesz dodać nowego kontaktu';
 $html_contact_err3 = 'Nie posiadasz uprawnień do listy kontaktów.';
 $html_del_msg = 'Usunąć zaznaczone wiadomości?';
 $html_down_mail = 'Pobierz';
-
 $original_msg = '--- Wiadomość oryginalna ---';
 $to_empty = 'Pole \'Do\' nie może być puste!';
-
-// Images warning
 $html_images_warning = 'Dla twojego bezpieczeństwa, zdalne obrazy nie są wyświetlane.';
 $html_images_display = 'Wyświetl obrazy';
-
-// SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Nie można utworzyć połączenia SMTP';
 $html_smtp_error_unexpected = 'Nieoczekiwana odpowiedź SMTP';
-
-// IMAP messages (class_local.php)
 $lang_could_not_connect = 'Nie można połaczyć się z serwerem';
 $lang_invalid_msg_num = 'Zły numer wiadomości';
-
 $html_file_upload_attack = 'Możliwy atak poprzez upload plików';
 $html_invalid_email_address = 'Niewłaściwy adres e-mail';
 $html_invalid_msg_per_page = 'Niepoprawna ilość wiadomości na stronę';
-$html_invalid_wrap_msg =  'Niepoprawna szerokoć zawijania linii';
+$html_invalid_wrap_msg = 'Niepoprawna szerokoć zawijania linii';
 $html_seperate_msg_win = 'Wiadomości w osobnym oknie';
-
-// Exceptions
 $html_err_file_contacts = 'Brak dostępu do zapisu listy kontaktów.';
-$html_session_file_error = 'Unable to open session file for writing.';  //to translate
-$html_login_not_allowed = 'This login is not allowed for connexion.'; //to translate
-
-// Send delay
-$lang_err_send_delay = 'You must wait between two mails'; // to translate
-$lang_seconds = 'seconds'; // to translate
-$html_search = 'Search';  //to translate
-?>

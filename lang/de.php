@@ -1,19 +1,13 @@
 <?php
 /**
- * Configuration file for the German language
+ * Language configuration file for NOCC
  *
- * Copyright 2000 Nicolas Chalanset <nicocha AT free DOT fr>
- * Copyright 2000 Olivier Cahagne <wolruf AT free DOT fr>
+ * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
+ * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
  *
  * This file is part of NOCC. NOCC is free software under the terms of the
  * GNU General Public License. You should have received a copy of the license
  * along with NOCC.  If not, see <http://www.gnu.org/licenses/>.
- *
- * Translators:
- * - David Ferch <dferch AT tk-online DOT net>
- * - Benjamin Bräuer <ben1 AT gmx DOT de>
- * - Alexander Schremmer <alex AT alexanderweb DOT de>
- * - Tim Gerundt <tim AT gerundt DOT de>
  *
  * @package    NOCC
  * @subpackage Translations
@@ -21,39 +15,25 @@
  * @version    SVN: $Id$
  */
 
+/** German (Deutsch)
+ *
+ * @ingroup Language
+ * @file
+ *
+ * @author David Ferch <dferch AT tk-online DOT net>
+ * @author Benjamin Bräuer <ben1 AT gmx DOT de>
+ * @author Alexander Schremmer <alex AT alexanderweb DOT de>
+ * @author Tim Gerundt <tim AT gerundt DOT de>
+ */
+
 $charset = 'UTF-8';
-
-// Configuration for the days and months
-
-// What language to use
-// see '/usr/share/locale/' for more information
 $lang_locale = 'de_DE.UTF-8';
-
-// Text Alignment
-// Can be right-to-left (rtl) which is needed for proper Arabic, Hebrew
-// Or left-to-right (ltr) which is default for most languages
 $lang_dir = 'ltr';
-
-// What format string should we pass to strftime() for messages sent on
-// days other than today?
-$default_date_format = '%d.%m.%Y'; 
-
-// If the local is not implemented on the host, how we display the date
+$default_date_format = '%d.%m.%Y';
 $no_locale_date_format = '%d.%m.%Y';
-
-// What format string should we pass to strftime() for messages sent
-// today?
 $default_time_format = '%H:%M';
-
-
-// Here is the configuration for the HTML
-
 $err_user_empty = 'Kein Nutzername eingegeben';
 $err_passwd_empty = 'Kein Passwort eingegeben';
-
-
-// html message
-
 $alt_delete = 'Markierte Nachrichten löschen';
 $alt_delete_one = 'Nachricht löschen';
 $alt_new_msg = 'Neue Nachrichten';
@@ -68,9 +48,6 @@ $title_next_msg = 'Nächste Nachricht';
 $title_prev_msg = 'Vorige Nachricht';
 $html_on = 'an';
 $html_theme = 'Theme';
-
-// index.php
-
 $html_lang = 'Sprache';
 $html_welcome = 'Willkommen bei';
 $html_login = 'Login';
@@ -80,10 +57,7 @@ $html_help = 'Hilfe';
 $html_server = 'Server';
 $html_wrong = 'Der Nutzername oder das Passwort sind falsch';
 $html_retry = 'Nochmal';
-$html_remember = "Einstellungen speichern";
-
-// prefs.php
-
+$html_remember = 'Einstellungen speichern';
 $html_msgperpage = 'Nachrichten pro Seite';
 $html_preferences = 'Einstellungen';
 $html_full_name = 'Vollständiger Name';
@@ -100,12 +74,9 @@ $html_manage_folders_link = 'IMAP-Ordner verwalten';
 $html_manage_filters_link = 'E-Mail-Filter verwalten';
 $html_use_graphical_smilies = 'Benutze graphische Emoticons';
 $html_sent_folder = 'Kopiere gesendete E-Mail in das angegebene Verzeichnis';
-$html_trash_folder = 'Move deleted mails into a dedicated folder'; // to translate
 $html_colored_quotes = 'Farbige Zitate';
 $html_display_struct = 'Strukturierten Text anzeigen';
 $html_send_html_mail = 'E-Mail im HTML-Format versenden';
-
-// folders.php
 $html_folders = 'Ordner';
 $html_folders_create_failed = 'Der Ordner konnte nicht angelegt werden!';
 $html_folders_sub_failed = 'Der Ordner konnte nicht abonniert werden!';
@@ -118,8 +89,6 @@ $html_folder_create = 'Erstelle neuen Ordner';
 $html_folder_remove = 'Abbestellen:';
 $html_folder_delete = 'Lösche';
 $html_folder_to = 'nach';
-
-// filters.php
 $html_filter_remove = 'Löschen';
 $html_filter_body = 'Nachrichtentext';
 $html_filter_subject = 'Betreff';
@@ -132,8 +101,6 @@ $html_filter_contains = 'enthält';
 $html_filter_name = 'Filter Name';
 $html_filter_action = 'Filter Aktion';
 $html_filter_moveto = 'Verschiebe nach';
-
-// Other pages
 $html_select_one = '--Auswählen--';
 $html_and = 'Und';
 $html_new_msg_in = 'Neue Nachrichten in';
@@ -212,8 +179,6 @@ $html_mark_as = 'Markiere als';
 $html_read = 'gelesen';
 $html_unread = 'ungelesen';
 $html_encoding = 'Zeichensatz-Kodierung';
-
-// Contacts manager
 $html_add = 'Hinzufügen';
 $html_contacts = 'Kontakte';
 $html_modify = 'Ändere';
@@ -226,41 +191,24 @@ $html_contact_nick = 'Spitzname';
 $html_contact_mail = 'E-Mail-Adresse';
 $html_contact_list = 'Kontaktliste von ';
 $html_contact_del = 'von der Kontaktliste';
-
 $html_contact_err1 = 'Die Maximalanzahl der Kontakte ist ';
 $html_contact_err2 = 'Sie können keinen neuen Kontakt hinzufügen';
 $html_contact_err3 = 'Sie haben keine Rechte, um auf die Kontaktliste zuzugreifen';
 $html_del_msg = 'Sollen die markierten Nachrichten gelöscht werden?';
 $html_down_mail = 'Download';
-
 $original_msg = '-- Original Nachricht--';
 $to_empty = 'Das \'An\' Feld darf nicht leer sein !';
-
-// Images warning
 $html_images_warning = 'Zu Ihrer Sicherheit werden externe Bilder nicht angezeigt.';
 $html_images_display = 'Bilder anzeigen';
-
-// SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Konnte Verbindung nicht öffnen';
 $html_smtp_error_unexpected = 'Unerwartete Antwort:';
-
-// IMAP messages (class_local.php)
 $lang_could_not_connect = 'Verbindung zum Server fehlgeschlagen';
 $lang_invalid_msg_num = 'Fehlerhafte Nachrichten-Nummer';
-
 $html_file_upload_attack = 'Die hochgeladene Datei konnte nicht gefunden werden.';
 $html_invalid_email_address = 'Ungültige E-Mail-Adresse';
 $html_invalid_msg_per_page = 'Ungültige Anzahl von Nachrichten pro Seite.';
 $html_invalid_wrap_msg = 'Ungültiger Nachrichtenumbruch';
 $html_seperate_msg_win = 'Nachricht in neuem Fenster öffnen';
-
-// Exceptions
 $html_err_file_contacts = 'Kann die Kontaktdatei nicht zum Schreiben öffnen.';
 $html_session_file_error = 'Kann die Sitzungsdatei nicht zum Schreiben öffnen.';
 $html_login_not_allowed = 'Diese Anmeldung ist nicht für die Verbindung zugelassen.';
-
-// Send delay
-$lang_err_send_delay = 'You must wait between two mails'; // to translate
-$lang_seconds = 'seconds'; // to translate
-$html_search = 'Search';  //to translate
-?>

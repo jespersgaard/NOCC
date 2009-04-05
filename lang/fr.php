@@ -1,6 +1,6 @@
 <?php
 /**
- * Configuration file for the French language
+ * Language configuration file for NOCC
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -15,38 +15,21 @@
  * @version    SVN: $Id$
  */
 
+/** French (Français)
+ *
+ * @ingroup Language
+ * @file
+ *
+ */
+
 $charset = 'UTF-8';
-
-// Configuration for the days and months
-
-// What language to use (Here, french FRANCE --> fr_FR)
-// see '/usr/share/locale/' for more information
 $lang_locale = 'fr_FR.UTF-8';
-
-// Text Alignment
-// Can be right-to-left (rtl) which is needed for proper Arabic, Hebrew
-// Or left-to-right (ltr) which is default for most languages
 $lang_dir = 'ltr';
-
-// What format string should we pass to strftime() for messages sent on
-// days other than today?
-$default_date_format = '%A %d %B %Y'; 
-
-// If the local is not implemented on the host, how we display the date
+$default_date_format = '%A %d %B %Y';
 $no_locale_date_format = '%d-%m-%Y';
-
-// What format string should we pass to strftime() for messages sent
-// today?
 $default_time_format = '%H:%M';
-
-
-// Here is the configuration for the HTML
-
 $err_user_empty = 'Vous n\'avez pas saisi de login';
 $err_passwd_empty = 'Vous n\'avez pas saisi de mot de passe';
-
-
-// html message
 $alt_delete = 'Effacer les messages sélectionnés';
 $alt_delete_one = 'Effacer le message';
 $alt_new_msg = 'Nouveaux messages';
@@ -61,8 +44,6 @@ $title_next_msg = 'Message suivant';
 $title_prev_msg = 'Message précédent';
 $html_on = 'sur';
 $html_theme = 'Thème';
-
-// index.php
 $html_lang = 'Langue';
 $html_welcome = 'Bienvenue à';
 $html_login = 'Identifiant';
@@ -73,8 +54,6 @@ $html_server = 'Serveur';
 $html_wrong = 'L\'identifiant ou le mot de passe ne sont pas valides';
 $html_retry = 'Réessayer';
 $html_remember = 'Conserver les paramètres';
-
-// prefs.php
 $html_msgperpage = 'Messages par page';
 $html_preferences = 'Préférences';
 $html_full_name = 'Nom complet';
@@ -95,8 +74,6 @@ $html_trash_folder = 'Déplacer les éléments effacés dans un dossier dédié'
 $html_colored_quotes = 'Citations colorées';
 $html_display_struct = 'Afficher le texte structuré';
 $html_send_html_mail = 'Envoyer les e-mails au format HTML';
-
-// folders.php
 $html_folders = 'Dossiers';
 $html_folders_create_failed = 'Le dossier n\'a pas pu être créé !';
 $html_folders_sub_failed = 'Il n\' pas été possible de s\'inscrire au dossier !';
@@ -109,8 +86,6 @@ $html_folder_create = 'Créer un nouveau dossier';
 $html_folder_remove = 'Se désinscrire de';
 $html_folder_delete = 'Supprimer';
 $html_folder_to = 'vers';
-
-// filters.php
 $html_filter_remove = 'Supprimer';
 $html_filter_body = 'Corps du message';
 $html_filter_subject = 'Objet';
@@ -123,8 +98,6 @@ $html_filter_contains = 'contient';
 $html_filter_name = 'Nom du filtre';
 $html_filter_action = 'Action';
 $html_filter_moveto = 'déplacer vers';
-
-// Other pages
 $html_select_one = '--Sélectionner--';
 $html_and = 'Et';
 $html_new_msg_in = 'Nouveaux messages dans';
@@ -154,7 +127,7 @@ $html_att = 'Pièce jointe';
 $html_atts = 'Pièces jointes';
 $html_att_unknown = '[inconnu]';
 $html_attach = 'Attacher';
-$html_attach_forget = 'Vous devez attacher votre fichier avant d\'envoyer votre message !'; 
+$html_attach_forget = 'Vous devez attacher votre fichier avant d\'envoyer votre message !';
 $html_attach_delete = 'Supprimer les fichiers sélectionnés';
 $html_attach_none = 'Vous devez sélectionner un fichier à attacher !';
 $html_sort_by = 'Trier par';
@@ -203,8 +176,6 @@ $html_mark_as = 'Marquer comme';
 $html_read = 'lu';
 $html_unread = 'non lu';
 $html_encoding = 'Encodage du texte';
-
-// Contacts manager
 $html_add = 'Ajouter';
 $html_contacts = 'Contacts';
 $html_modify = 'Modifier';
@@ -217,41 +188,26 @@ $html_contact_nick = 'Pseudo';
 $html_contact_mail = 'E-mail';
 $html_contact_list = 'Liste de contacts de ';
 $html_contact_del = 'de la liste de contacts';
-
 $html_contact_err1 = 'Le nombre maximal de contacts est ';
 $html_contact_err2 = 'Vous ne pouvez pas ajouter un nouveau contact';
 $html_contact_err3 = 'Vous n\'avez pas le droit d\'accéder à la liste de contacts';
 $html_del_msg = 'Supprimer le(s) message(s) sélectionné(s) ?';
 $html_down_mail = 'Télécharger';
-
 $original_msg = '-- Message original --';
 $to_empty = 'Le champ \'A\' ne doit pas être vide !';
-
-// Images warning
 $html_images_warning = 'Pour votre sécurité, les images distantes sont désactivées.';
 $html_images_display = 'Afficher les images';
-
-// SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Impossible d\'ouvrir la connexion';
 $html_smtp_error_unexpected = 'Réponse inattendue :';
-
-// IMAP messages (class_local.php)
 $lang_could_not_connect = 'Impossible de se connecter au serveur';
 $lang_invalid_msg_num = 'Mauvais numéro de message';
-
 $html_file_upload_attack = 'Possibilité d\'attaque depuis le fichier uploadé';
 $html_invalid_email_address = 'Adresse e-mail invalide';
 $html_invalid_msg_per_page = 'Nombre de messages par page invalide';
 $html_invalid_wrap_msg = 'Valeur de tronquature invalide';
 $html_seperate_msg_win = 'Messages dans des fenêtres séparées';
-
-// Exceptions
 $html_err_file_contacts = 'Impossible d\'ouvrir le fichier des contacts';
 $html_session_file_error = 'Impossible d\'ouvrir le fichier des sessions';
 $html_login_not_allowed = 'Cet identifiant n\'est pas autorisé à se connecter.';
-
-// Send delay
 $lang_err_send_delay = 'Vous devez attendre entre deux messages';
 $lang_seconds = 'secondes';
-$html_search = 'Search';  //to translate
-?>

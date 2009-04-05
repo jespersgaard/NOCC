@@ -1,6 +1,6 @@
 <?php
 /**
- * Configuration file for the Czech language
+ * Language configuration file for NOCC
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,48 +9,29 @@
  * GNU General Public License. You should have received a copy of the license
  * along with NOCC.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Translators:
- * - Vaclav Habr <habr@fonet.cz>
- * - Lukas Mizoch <ragimiri@gmail.com>
- *
  * @package    NOCC
  * @subpackage Translations
  * @license    http://www.gnu.org/licenses/ GNU General Public License
  * @version    SVN: $Id$
  */
 
+/** Czech (Česky)
+ *
+ * @ingroup Language
+ * @file
+ *
+ * @author Vaclav Habr <habr@fonet.cz>
+ * @author Lukas Mizoch <ragimiri@gmail.com>
+ */
+
 $charset = 'UTF-8';
-
-// Configuration for the days and months
-
-// What language to use
-// see '/usr/share/locale/' for more information
 $lang_locale = 'cs_CZ.UTF-8';
-
-// Text Alignment
-// Can be right-to-left (rtl) which is needed for proper Arabic, Hebrew
-// Or left-to-right (ltr) which is default for most languages
 $lang_dir = 'ltr';
-
-// What format string should we pass to strftime() for messages sent on
-// days other than today?
-$default_date_format = '%d.%m.%Y'; 
-
-// If the local is not implemented on the host, how we display the date
+$default_date_format = '%d.%m.%Y';
 $no_locale_date_format = '%d.%m.%Y';
-
-// What format string should we pass to strftime() for messages sent
-// today?
 $default_time_format = '%H:%M:%S';
-
-
-// Here is the configuration for the HTML
-
 $err_user_empty = 'Není vyplněno přihlašovací jméno ';
 $err_passwd_empty = 'Není vyplněno heslo';
-
-
-// html message
 $alt_delete = 'Vymazat vybrané zprávy';
 $alt_delete_one = 'Vymazat zprávu';
 $alt_new_msg = 'Nové zprávy';
@@ -65,8 +46,6 @@ $title_next_msg = 'Další zpráva';
 $title_prev_msg = 'Předchozí zpráva';
 $html_on = 'na';
 $html_theme = 'Téma';
-
-// index.php
 $html_lang = 'Jazyk';
 $html_welcome = 'Vítejte v';
 $html_login = 'Jméno';
@@ -77,8 +56,6 @@ $html_server = 'Server';
 $html_wrong = 'Prihlašovací jméno a heslo nesouhlasí';
 $html_retry = 'Zkusit znovu';
 $html_remember = 'Pamatovat nastavení';
-
-// prefs.php
 $html_msgperpage = 'Zpráv na stránku';
 $html_preferences = 'Nastavení';
 $html_full_name = 'Celé jméno';
@@ -99,8 +76,6 @@ $html_trash_folder = 'Přesunout smazané dopisy do vyhrazené složky';
 $html_colored_quotes = 'Barevné uvozovky';
 $html_display_struct = 'Zobrazit strukturovaný text';
 $html_send_html_mail = 'Posílat zprávy v HTML';
-
-// folders.php
 $html_folders = 'Složky';
 $html_folders_create_failed = 'Složka nemohla být vytvořena!';
 $html_folders_sub_failed = 'Nelze se přihlásit do složky!';
@@ -113,8 +88,6 @@ $html_folder_create = 'Vytvořit novou složku';
 $html_folder_remove = 'Odhlásit z';
 $html_folder_delete = 'Smazat';
 $html_folder_to = 'do';
-
-// filters.php
 $html_filter_remove = 'Smazat';
 $html_filter_body = 'Tělo zprávy';
 $html_filter_subject = 'Věc zprávy';
@@ -127,8 +100,6 @@ $html_filter_contains = 'obsahuje';
 $html_filter_name = 'Jméno filtru';
 $html_filter_action = 'Akce filtru';
 $html_filter_moveto = 'Přesuň do';
-
-// Other pages
 $html_select_one = '--Zvolte jeden--';
 $html_and = 'a zároveň';
 $html_new_msg_in = 'Nové zprávy v';
@@ -187,11 +158,9 @@ $html_msg = 'zpráva';
 $html_msgs = 'zpráv';
 $html_configuration = 'Chybná konfigurace serveru!!!';
 $html_priority = 'Důležitost';
-$html_lowest = 'Lowest';  //to translate
 $html_low = 'Malá';
 $html_normal = 'Střední';
 $html_high = 'Vysoká';
-$html_highest = 'Highest';  //to translate
 $html_receipt = 'Potvrdit čtení';
 $html_select = 'Vybrat';
 $html_select_all = 'Invertovat výběr';
@@ -207,8 +176,6 @@ $html_mark_as = 'Označit jako';
 $html_read = 'přečtené';
 $html_unread = 'nečtené';
 $html_encoding = 'Znaková sada';
-
-// Contacts manager
 $html_add = 'Přidat';
 $html_contacts = 'Kontakty';
 $html_modify = 'Změnit';
@@ -228,32 +195,17 @@ $html_del_msg = 'Smazat označené zprávy?';
 $html_down_mail = 'Stáhnout';
 $original_msg = '-- Původní zpráva --';
 $to_empty = 'Musíte vyplnit kolonku Komu:';
-
-// Images warning
 $html_images_warning = 'Pro vaše bezpečí nejsou vzdálené obrázky zobrazeny.';
 $html_images_display = 'Zobrazit obrázky';
-
-// SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Chyba při vytváření SMTP spojení';
 $html_smtp_error_unexpected = 'Neočekávaná odezva SMTP:';
-
-// IMAP messages (class_local.php)
 $lang_could_not_connect = 'Chyba při připojování k serveru';
 $lang_invalid_msg_num = 'Špatné číslo zprávy';
-
 $html_file_upload_attack = 'Možný útok při nahrávání souboru';
 $html_invalid_email_address = 'Špatná e-mailová adresa';
 $html_invalid_msg_per_page = 'Špatný počet zpráv na stránku';
 $html_invalid_wrap_msg = 'Špatná hranice zalamování textu';
 $html_seperate_msg_win = 'Zprávy v oddělených oknech';
-
-// Exceptions
 $html_err_file_contacts = 'Nelze otevřít soubor kontaktů pro zápis.';
 $html_session_file_error = 'Nelze otevřít soubor seance pro zápis.';
 $html_login_not_allowed = 'Tento uživatel nemá dovoleno přihlašování.';
-
-// Send delay
-$lang_err_send_delay = 'You must wait between two mails'; // to translate
-$lang_seconds = 'seconds'; // to translate
-$html_search = 'Search';  //to translate
-?>

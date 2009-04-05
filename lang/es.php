@@ -1,6 +1,6 @@
 <?php
 /**
- * Configuration file for the Spanish language
+ * Language configuration file for NOCC
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -9,47 +9,28 @@
  * GNU General Public License. You should have received a copy of the license
  * along with NOCC.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Translators:
- * - Gustavo Muslera <gmuslera@internet.com.uy>
- *
  * @package    NOCC
  * @subpackage Translations
  * @license    http://www.gnu.org/licenses/ GNU General Public License
  * @version    SVN: $Id$
  */
 
+/** Spanish (Español)
+ *
+ * @ingroup Language
+ * @file
+ *
+ * @author Gustavo Muslera <gmuslera@internet.com.uy>
+ */
+
 $charset = 'UTF-8';
-
-// Configuration for the days and months
-
-// What language to use
-// see '/usr/share/locale/' for more information
 $lang_locale = 'es_ES.UTF-8';
-
-// Text Alignment
-// Can be right-to-left (rtl) which is needed for proper Arabic, Hebrew
-// Or left-to-right (ltr) which is default for most languages
 $lang_dir = 'ltr';
-
-// What format string should we pass to strftime() for messages sent on
-// days other than today?
-$default_date_format = '%Y-%m-%d'; 
-
-// If the local is not implemented on the host, how we display the date
+$default_date_format = '%Y-%m-%d';
 $no_locale_date_format = '%Y-%m-%d';
-
-// What format string should we pass to strftime() for messages sent
-// today?
 $default_time_format = '%I:%M %p';
-
-
-// Here is the configuration for the HTML
-
 $err_user_empty = 'El campo de usuario está vacío';
 $err_passwd_empty = 'El campo de contraseña está vacío';
-
-
-// html message
 $alt_delete = 'Eliminar mensajes seleccionados';
 $alt_delete_one = 'Eliminar mensaje';
 $alt_new_msg = 'Nuevo mensajes';
@@ -64,8 +45,6 @@ $title_next_msg = 'Siguiente';
 $title_prev_msg = 'Anterior';
 $html_on = 'en';
 $html_theme = 'Tema';
-
-// index.php
 $html_lang = 'Idioma';
 $html_welcome = 'Bienvenido a';
 $html_login = 'Usuario';
@@ -75,9 +54,7 @@ $html_help = 'Ayuda';
 $html_server = 'Servidor';
 $html_wrong = 'El usuario o la contraseña son incorrectos';
 $html_retry = 'Reintentar';
-$html_remember = "Recordar opciones";
-
-// prefs.php
+$html_remember = 'Recordar opciones';
 $html_msgperpage = 'Mensajes por página';
 $html_preferences = 'Preferencias';
 $html_full_name = 'Nombre completo';
@@ -98,8 +75,6 @@ $html_trash_folder = 'Mover archivos eliminados a una carpeta específica';
 $html_colored_quotes = 'Quotes con colores';
 $html_display_struct = 'Mostrar texto estructurado';
 $html_send_html_mail = 'Enviar mensajes en formato HTML';
-
-// folders.php
 $html_folders = 'Carpetas';
 $html_folders_create_failed = 'No se pudo crear la carpeta';
 $html_folders_sub_failed = 'No se pudo suscribir a la carpeta';
@@ -112,8 +87,6 @@ $html_folder_create = 'Crear nueva carpeta llamada';
 $html_folder_remove = 'De-suscribir de';
 $html_folder_delete = 'Eliminar';
 $html_folder_to = 'a';
-
-// filters.php
 $html_filter_remove = 'Eliminar';
 $html_filter_body = 'Cuerpo del mensaje';
 $html_filter_subject = 'Asunto del mensaje';
@@ -126,8 +99,6 @@ $html_filter_contains = 'contiene';
 $html_filter_name = 'Nombre del filtro';
 $html_filter_action = 'Acción del filtro';
 $html_filter_moveto = 'Mover a';
-
-// Other pages
 $html_select_one = '-- Seleccione uno --';
 $html_and = 'Y';
 $html_new_msg_in = 'Nuevos mensajes en';
@@ -186,11 +157,9 @@ $html_msg = 'Mensaje';
 $html_msgs = 'Mensajes';
 $html_configuration = '¡Este servidor no está bien definido!';
 $html_priority = 'Prioridad';
-$html_lowest = 'Lowest';  //to translate
 $html_low = 'Baja';
 $html_normal = 'Normal';
 $html_high = 'Alta';
-$html_highest = 'Highest';  //to translate
 $html_receipt = 'Solicitar una confirmación de entrega';
 $html_select = 'Seleccionar';
 $html_select_all = 'Invertir selección';
@@ -206,8 +175,6 @@ $html_mark_as = 'Marcar como';
 $html_read = 'leído';
 $html_unread = 'no leído';
 $html_encoding = 'Codificación de caracteres';
-
-// Contacts manager
 $html_add = 'Añadir';
 $html_contacts = 'Contactos';
 $html_modify = 'Modificar';
@@ -220,41 +187,24 @@ $html_contact_nick = 'Apodo';
 $html_contact_mail = 'Dirección de e-mail';
 $html_contact_list = 'Lista de contactos de ';
 $html_contact_del = 'de la lista decontactos';
-
 $html_contact_err1 = 'El número máximo de contactos es ';
 $html_contact_err2 = 'No puede añadir un nuevo contacto';
 $html_contact_err3 = 'No tiene permisos de acceso a la lista de contactos';
 $html_del_msg = '¿Eliminar mensajes seleccionados?';
-$html_down_mail = 'Decsargar'; 
-
+$html_down_mail = 'Decsargar';
 $original_msg = '-- Mensaje Original --';
 $to_empty = '¡El campo \'A\' no debe estar vacio!';
-
-// Images warning
 $html_images_warning = 'Para su seguridad, las imágenes remotas no serán mostradas.';
 $html_images_display = 'Mostrar imágenes';
-
-// SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Imposible abrir conexión';
 $html_smtp_error_unexpected = 'Respuesta inesperada:';
-
-// IMAP messages (class_local.php)
 $lang_could_not_connect = 'No se pudo conectar al servidor';
 $lang_invalid_msg_num = 'Número incorrecto de mensajes';
-
 $html_file_upload_attack = 'Posible ataque el enviar archivo';
 $html_invalid_email_address = 'Dirección de e-mail no válida';
 $html_invalid_msg_per_page = 'Número de mensajes por página no válido';
 $html_invalid_wrap_msg = 'Ancho de ajuste de mensaje no válido';
 $html_seperate_msg_win = 'Mensajes en una ventana separada';
-
-// Exceptions
 $html_err_file_contacts = 'No se pudo abrir el archivo de contactos para escritura.';
 $html_session_file_error = 'No se pudo abrir el archivo de sesiones para escritura.';
 $html_login_not_allowed = 'Este nombre de inicio de sesión no está permitido para conexión.';
-
-// Send delay
-$lang_err_send_delay = 'You must wait between two mails'; // to translate
-$lang_seconds = 'seconds'; // to translate
-$html_search = 'Search';  //to translate
-?>
