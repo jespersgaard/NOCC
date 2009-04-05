@@ -148,6 +148,13 @@ if(!$conf->use_theme || !isset($_SESSION['nocc_theme']))
 // Import language translation variables
 $lang = str_replace('..','',$lang);
 $lang = str_replace('/','',$lang);
+
+// load english (nocc default), to be overwritten by translation,
+// fixes missing translation issue
+if ($lang != 'en') {
+require ('./lang/'. $conf->default_lang.'.php');
+}
+
 require ('./lang/'. $lang.'.php');
 
 // Start with default smtp server/port, override later

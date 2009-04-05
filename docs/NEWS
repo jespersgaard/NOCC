@@ -3,6 +3,8 @@ NOCC 1.8  ?? ??, ??
   Bugs
     * Bug #2593952 : User-friendly error message, if config file missing
       (Tobias Mathes).
+    * Bug #2734956 : Error occuring when variables not in translation
+      available (Tobias Mathes).
 
   Patches
     * Patch #2502771 : Use new MailReader class (Tim Gerundt).
