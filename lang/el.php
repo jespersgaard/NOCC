@@ -20,6 +20,8 @@
  * @ingroup Language
  * @file
  *
+ * @author Consta
+ * @author Omnipaedista
  * @author Spyros Ioakim <sioakim@ace-hellas.gr>
  */
 
@@ -37,13 +39,17 @@ $alt_new_msg = 'Νέα μηνύματα';
 $alt_reply = 'Απάντηση στον αποστολέα';
 $alt_reply_all = 'Απάντηση σε όλους';
 $alt_forward = 'Προώθηση';
+$title_next_page = 'Επόμενη σελίδα';
+$title_prev_page = 'Προηγούμενη σελίδα';
 $title_next_msg = 'Επόμενο μήνυμα';
 $title_prev_msg = 'Προηγούμενο μήνυμα';
+$html_on = 'επί';
 $html_theme = 'Θέμα';
 $html_lang = 'Γλώσσα';
 $html_welcome = 'Καλώς ήρθατε στο';
 $html_login = 'Ονομα λογαριασμού';
 $html_passwd = 'Κωδικός';
+$html_submit = 'Υποβολή';
 $html_help = 'Βοήθεια';
 $html_server = 'Διακομιστής';
 $html_wrong = 'Το όνομα λογαριασμού ή ο κωδικός είναι λάθος';
@@ -58,6 +64,18 @@ $html_reply_to = 'Απάντηση σε';
 $html_use_signature = 'Χρησιμοποίηση υπογραφής';
 $html_signature = 'Υπογραφή';
 $html_prefs_updated = 'Οι Προτιμήσεις σας ανανεώθηκαν';
+$html_folders = 'Φάκελοι';
+$html_folder_rename = 'Μετονομασία';
+$html_folder_delete = 'Διαγραφή';
+$html_folder_to = 'προς';
+$html_filter_remove = 'Διαγραφή';
+$html_select_one = '--Επιλέξτε ένα--';
+$html_and = 'Και';
+$html_or = 'ή';
+$html_move = 'Μετακίνηση';
+$html_copy = 'Αντιγραφή';
+$html_page = 'Σελίδα';
+$html_of = 'του';
 $html_view_header = 'Προβολή λεπτομερειών';
 $html_remove_header = 'Απόκρυψη λεπτομερειών';
 $html_new_msg = 'Σύνθεση';
@@ -73,12 +91,17 @@ $html_att_unknown = '[άγνωστο]';
 $html_attach = 'Επισύναψη';
 $html_attach_forget = 'Πρέπει να συννάψετε το αρχείο πρίν στείλετε το μήνυμα !';
 $html_attach_delete = 'Διαγραφή μαρκαρισμένων συνημμένων';
+$html_sort = 'Κατάταξη';
 $html_from = 'Από';
 $html_subject = 'Θέμα';
 $html_date = 'Ημ/νία';
 $html_sent = 'Αποστολή';
 $html_size = 'Μέγεθος';
 $html_totalsize = 'Συνολικό μέγεθος';
+$html_kb = 'kB';
+$html_mb = 'MB';
+$html_gb = 'GB';
+$html_bytes = 'μπάιτς';
 $html_filename = 'Ονομα αρχείου';
 $html_to = 'Πρός';
 $html_cc = 'Αντίγραφο προς';
@@ -101,7 +124,22 @@ $html_send_confirmed = 'Το μήνυμα σας θα αποσταλεί.';
 $html_no_sendaction = 'Δεν επιλέχθηκε εντολή. Δοκιμάστε να ενεργοποιήσετε τηνJavaScript.';
 $html_error_occurred = 'Ενα σφάλμα συνέβη';
 $html_prefs_file_error = 'Δεν μπορώ να γράψω στο αρχείο προτιμήσεων.';
+$html_wrap_none = 'Κανένα';
+$html_add = 'Προσθήκη';
+$html_contacts = 'Επαφές';
+$html_modify = 'Τροποποίηση';
+$html_back = 'Πίσω';
+$html_contact_add = 'Προσθήκη νέας επαφής';
+$html_contact_first = 'Όνομα';
+$html_contact_last = 'Επίθετο';
+$html_contact_mail = 'Αλληλογραφία';
+$html_del_msg = 'Διαγραφή επιλεγμένων μηνυμάτων ;';
+$html_down_mail = 'Κατέβασμα';
 $original_msg = '-- Πρωτότυπο Μήνυμα --';
 $to_empty = 'Το πεδίο \'Πρός\' δεν πρέπει να είναι άδειο !';
+$html_images_display = 'Προβολή εικόνων';
 $html_smtp_error_no_conn = 'Δεν μπορώ να ανοίξω σύνδεση';
 $html_smtp_error_unexpected = 'Αγνωστη απάντηση:';
+$html_seperate_msg_win = 'Μηνύματα σε ξεχωριστό παράθυρο';
+$lang_seconds = 'δευτερόλεπτα';
+$html_search = 'Αναζήτηση';

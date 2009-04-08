@@ -20,13 +20,13 @@
  * @ingroup Language
  * @file
  *
- * @author Sander Schroevers
- * @author Pieterjan Goppel <lp_leeki@euronet.nl>
  * @author Mathijs Kolenberg <mack@solcon.nl>
- * @author openfan <leprincevelours@yahoo.com>
+ * @author Pieterjan Goppel <lp_leeki@euronet.nl>
+ * @author SPQRobin
+ * @author Sander Schroevers
  * @author Siebrand
  * @author Silvan Jongerius <sjongerius@duxy.nl>
- * @author SPQRobin
+ * @author openfan <leprincevelours@yahoo.com>
  */
 
 $charset = 'UTF-8';
@@ -193,9 +193,9 @@ $html_contact_first = 'Voornaam';
 $html_contact_last = 'Achternaam';
 $html_contact_nick = 'Bijnaam';
 $html_contact_mail = 'E-mailadres';
-$html_contact_list = 'Contactlijst van ';
+$html_contact_list = 'Contactlijst van';
 $html_contact_del = 'van de contactlijst';
-$html_contact_err1 = 'Het maximaal aantal contactpersonen is ';
+$html_contact_err1 = 'Het maximaal aantal contactpersonen is';
 $html_contact_err2 = 'Er kan geen nieuw contactpersoon toegevoegd worden';
 $html_contact_err3 = 'Geen toegang tot de contactlijst';
 $html_del_msg = 'Geselecteerde berichten verwijderen?';

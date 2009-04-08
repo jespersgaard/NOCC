@@ -20,8 +20,8 @@
  * @ingroup Language
  * @file
  *
- * @author Vaclav Habr <habr@fonet.cz>
  * @author Lukas Mizoch <ragimiri@gmail.com>
+ * @author Vaclav Habr <habr@fonet.cz>
  */
 
 $charset = 'UTF-8';
@@ -30,7 +30,7 @@ $lang_dir = 'ltr';
 $default_date_format = '%d.%m.%Y';
 $no_locale_date_format = '%d.%m.%Y';
 $default_time_format = '%H:%M:%S';
-$err_user_empty = 'Není vyplněno přihlašovací jméno ';
+$err_user_empty = 'Není vyplněno přihlašovací jméno';
 $err_passwd_empty = 'Není vyplněno heslo';
 $alt_delete = 'Vymazat vybrané zprávy';
 $alt_delete_one = 'Vymazat zprávu';
@@ -67,7 +67,7 @@ $html_reply_to = 'Odpovědět';
 $html_use_signature = 'Použij podpis';
 $html_signature = 'Podpis';
 $html_reply_leadin = 'Hlavička odpovědi';
-$html_prefs_updated = 'Nastavení aktualizováno ';
+$html_prefs_updated = 'Nastavení aktualizováno';
 $html_manage_folders_link = 'Spravovat IMAP složky';
 $html_manage_filters_link = 'Spravovat poštovní filtry';
 $html_use_graphical_smilies = 'Používat grafické smajlíky';
@@ -186,9 +186,9 @@ $html_contact_first = 'Křestní jméno';
 $html_contact_last = 'Příjmení';
 $html_contact_nick = 'Přezdívka';
 $html_contact_mail = 'E-mail';
-$html_contact_list = 'Seznam kontaktů ';
+$html_contact_list = 'Seznam kontaktů';
 $html_contact_del = 'ze seznamu kontaktů';
-$html_contact_err1 = 'Maximální počet kontaktů je ';
+$html_contact_err1 = 'Maximální počet kontaktů je';
 $html_contact_err2 = 'Nemůžete přidat nový kontakt.';
 $html_contact_err3 = 'Nemáte přístup k seznamu kontaktů';
 $html_del_msg = 'Smazat označené zprávy?';

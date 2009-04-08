@@ -20,6 +20,7 @@
  * @ingroup Language
  * @file
  *
+ * @author IAlex
  */
 
 $charset = 'UTF-8';
@@ -28,7 +29,7 @@ $lang_dir = 'ltr';
 $default_date_format = '%A %d %B %Y';
 $no_locale_date_format = '%d-%m-%Y';
 $default_time_format = '%H:%M';
-$err_user_empty = 'Vous n\'avez pas saisi de login';
+$err_user_empty = 'Vous n\'avez pas saisi de nom d\'utilisateur';
 $err_passwd_empty = 'Vous n\'avez pas saisi de mot de passe';
 $alt_delete = 'Effacer les messages sélectionnés';
 $alt_delete_one = 'Effacer le message';
@@ -57,7 +58,7 @@ $html_remember = 'Conserver les paramètres';
 $html_msgperpage = 'Messages par page';
 $html_preferences = 'Préférences';
 $html_full_name = 'Nom complet';
-$html_email_address = 'Adresse e-mail';
+$html_email_address = 'Adresse de courriel';
 $html_ccself = 'Recevoir une copie';
 $html_hide_addresses = 'Cacher les adresses e-mail';
 $html_outlook_quoting = 'Citation à la Outlook';
@@ -68,16 +69,16 @@ $html_reply_leadin = 'Entête de réponse';
 $html_prefs_updated = 'Préférences mises à jour';
 $html_manage_folders_link = 'Gestion des dossiers IMAP';
 $html_manage_filters_link = 'Gestion des filtres e-mail';
-$html_use_graphical_smilies = 'Utiliser les émoticons graphiques';
+$html_use_graphical_smilies = 'Utiliser les émoticones graphiques';
 $html_sent_folder = 'Copier les éléments envoyés dans un dossier dédié';
 $html_trash_folder = 'Déplacer les éléments effacés dans un dossier dédié';
 $html_colored_quotes = 'Citations colorées';
 $html_display_struct = 'Afficher le texte structuré';
-$html_send_html_mail = 'Envoyer les e-mails au format HTML';
+$html_send_html_mail = 'Envoyer les courriels au format HTML';
 $html_folders = 'Dossiers';
 $html_folders_create_failed = 'Le dossier n\'a pas pu être créé !';
-$html_folders_sub_failed = 'Il n\' pas été possible de s\'inscrire au dossier !';
-$html_folders_unsub_failed = 'Il n\' pas été possible de de désinscrire du dossier !';
+$html_folders_sub_failed = 'Impossible de s\'inscrire au dossier !';
+$html_folders_unsub_failed = 'Impossible de se désinscrire du dossier !';
 $html_folders_rename_failed = 'Le dossier n\'a pas pu être renommé !';
 $html_folders_updated = 'Dossiers mis à jour';
 $html_folder_subscribe = 'S\'inscrire à';
@@ -171,7 +172,7 @@ $html_error_occurred = 'Une erreur est survenue';
 $html_prefs_file_error = 'Impossible d\'ouvrir le fichier de préférences';
 $html_wrap = 'Tronquer les messages sortant à :';
 $html_wrap_none = 'aucun';
-$html_usenet_separator = 'Séparateur Usenet ("-- \n") avant la signature';
+$html_usenet_separator = 'Séparateur Usenet (« -- \n ») avant la signature';
 $html_mark_as = 'Marquer comme';
 $html_read = 'lu';
 $html_unread = 'non lu';
@@ -186,9 +187,9 @@ $html_contact_first = 'Prénom';
 $html_contact_last = 'Nom';
 $html_contact_nick = 'Pseudo';
 $html_contact_mail = 'E-mail';
-$html_contact_list = 'Liste de contacts de ';
+$html_contact_list = 'Liste de contacts de';
 $html_contact_del = 'de la liste de contacts';
-$html_contact_err1 = 'Le nombre maximal de contacts est ';
+$html_contact_err1 = 'Le nombre maximal de contacts est';
 $html_contact_err2 = 'Vous ne pouvez pas ajouter un nouveau contact';
 $html_contact_err3 = 'Vous n\'avez pas le droit d\'accéder à la liste de contacts';
 $html_del_msg = 'Supprimer le(s) message(s) sélectionné(s) ?';
@@ -211,3 +212,4 @@ $html_session_file_error = 'Impossible d\'ouvrir le fichier des sessions';
 $html_login_not_allowed = 'Cet identifiant n\'est pas autorisé à se connecter.';
 $lang_err_send_delay = 'Vous devez attendre entre deux messages';
 $lang_seconds = 'secondes';
+$html_search = 'Rechercher';

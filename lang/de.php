@@ -20,10 +20,12 @@
  * @ingroup Language
  * @file
  *
- * @author David Ferch <dferch AT tk-online DOT net>
- * @author Benjamin Bräuer <ben1 AT gmx DOT de>
  * @author Alexander Schremmer <alex AT alexanderweb DOT de>
+ * @author Als-Holder
+ * @author Benjamin Bräuer <ben1 AT gmx DOT de>
+ * @author David Ferch <dferch AT tk-online DOT net>
  * @author Tim Gerundt <tim AT gerundt DOT de>
+ * @author Twobee
  */
 
 $charset = 'UTF-8';
@@ -189,14 +191,14 @@ $html_contact_first = 'Vorname';
 $html_contact_last = 'Nachname';
 $html_contact_nick = 'Spitzname';
 $html_contact_mail = 'E-Mail-Adresse';
-$html_contact_list = 'Kontaktliste von ';
+$html_contact_list = 'Kontaktliste von';
 $html_contact_del = 'von der Kontaktliste';
-$html_contact_err1 = 'Die Maximalanzahl der Kontakte ist ';
+$html_contact_err1 = 'Die Maximalanzahl der Kontakte ist';
 $html_contact_err2 = 'Sie können keinen neuen Kontakt hinzufügen';
 $html_contact_err3 = 'Sie haben keine Rechte, um auf die Kontaktliste zuzugreifen';
 $html_del_msg = 'Sollen die markierten Nachrichten gelöscht werden?';
 $html_down_mail = 'Download';
-$original_msg = '-- Original Nachricht--';
+$original_msg = '-- Original Nachricht --';
 $to_empty = 'Das \'An\' Feld darf nicht leer sein !';
 $html_images_warning = 'Zu Ihrer Sicherheit werden externe Bilder nicht angezeigt.';
 $html_images_display = 'Bilder anzeigen';
@@ -212,3 +214,5 @@ $html_seperate_msg_win = 'Nachricht in neuem Fenster öffnen';
 $html_err_file_contacts = 'Kann die Kontaktdatei nicht zum Schreiben öffnen.';
 $html_session_file_error = 'Kann die Sitzungsdatei nicht zum Schreiben öffnen.';
 $html_login_not_allowed = 'Diese Anmeldung ist nicht für die Verbindung zugelassen.';
+$lang_seconds = 'Sekunden';
+$html_search = 'Suchen';

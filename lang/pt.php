@@ -20,9 +20,9 @@
  * @ingroup Language
  * @file
  *
- * @author sena <sena@smux.net>
  * @author JS <jorge.silva@ciberlink.pt>
  * @author Paulo Matos <paulo.matos@fct.unl.pt>
+ * @author sena <sena@smux.net>
  */
 
 $charset = 'UTF-8';

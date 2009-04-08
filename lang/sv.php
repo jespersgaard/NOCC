@@ -21,6 +21,7 @@
  * @file
  *
  * @author Robert Niska <r.niska@redbox.d2g.nu>
+ * @author Twobee
  */
 
 $charset = 'UTF-8';
@@ -37,6 +38,7 @@ $alt_new_msg = 'Nya Meddelanden';
 $alt_reply = 'Svara';
 $alt_reply_all = 'Svara alla';
 $alt_forward = 'Vidarebefodra';
+$alt_next = 'Nästa';
 $title_next_msg = 'Nästa';
 $title_prev_msg = 'Föregående';
 $html_on = 'På';

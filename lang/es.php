@@ -20,6 +20,7 @@
  * @ingroup Language
  * @file
  *
+ * @author Crazymadlover
  * @author Gustavo Muslera <gmuslera@internet.com.uy>
  */
 
@@ -157,9 +158,11 @@ $html_msg = 'Mensaje';
 $html_msgs = 'Mensajes';
 $html_configuration = '¡Este servidor no está bien definido!';
 $html_priority = 'Prioridad';
+$html_lowest = 'El más bajo';
 $html_low = 'Baja';
 $html_normal = 'Normal';
 $html_high = 'Alta';
+$html_highest = 'El más alto';
 $html_receipt = 'Solicitar una confirmación de entrega';
 $html_select = 'Seleccionar';
 $html_select_all = 'Invertir selección';
@@ -185,9 +188,9 @@ $html_contact_first = 'Nombre';
 $html_contact_last = 'Apellido';
 $html_contact_nick = 'Apodo';
 $html_contact_mail = 'Dirección de e-mail';
-$html_contact_list = 'Lista de contactos de ';
+$html_contact_list = 'Lista de contactos de';
 $html_contact_del = 'de la lista decontactos';
-$html_contact_err1 = 'El número máximo de contactos es ';
+$html_contact_err1 = 'El número máximo de contactos es';
 $html_contact_err2 = 'No puede añadir un nuevo contacto';
 $html_contact_err3 = 'No tiene permisos de acceso a la lista de contactos';
 $html_del_msg = '¿Eliminar mensajes seleccionados?';
@@ -208,3 +211,6 @@ $html_seperate_msg_win = 'Mensajes en una ventana separada';
 $html_err_file_contacts = 'No se pudo abrir el archivo de contactos para escritura.';
 $html_session_file_error = 'No se pudo abrir el archivo de sesiones para escritura.';
 $html_login_not_allowed = 'Este nombre de inicio de sesión no está permitido para conexión.';
+$lang_err_send_delay = 'Debes esperar entre dos correos';
+$lang_seconds = 'segundos';
+$html_search = 'Buscar';

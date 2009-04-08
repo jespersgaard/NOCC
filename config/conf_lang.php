@@ -36,6 +36,12 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'bg';
 $lang_array[$i]->label = 'Български';
 
+// Bosnian
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'bs';
+$lang_array[$i]->label = 'Bosanski';
+
 // Catalan
 $i++;
 $lang_array[$i] = new lang();
@@ -66,6 +72,12 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'de';
 $lang_array[$i]->label = 'Deutsch';
 
+// Swiss German
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'gsw';
+$lang_array[$i]->label = 'Deutsch (Schweiz)';
+
 // English
 $i++;
 $lang_array[$i] = new lang();
@@ -83,6 +95,12 @@ $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'es';
 $lang_array[$i]->label = 'Español';
+
+// Basque
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'eu';
+$lang_array[$i]->label = 'Euskara';
 
 // Persian
 $i++;
@@ -150,6 +168,12 @@ $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'nn';
 $lang_array[$i]->label = 'Norsk nynorsk';
+
+// Occitan
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'oc';
+$lang_array[$i]->label = 'Occitan';
 
 // Polish
 $i++;

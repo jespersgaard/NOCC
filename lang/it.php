@@ -20,8 +20,8 @@
  * @ingroup Language
  * @file
  *
- * @author Guido Venturini <guido@technojuice.com>
  * @author Francesco Andreozzi <ozzo@lauratiamo.it>
+ * @author Guido Venturini <guido@technojuice.com>
  */
 
 $charset = 'UTF-8';
@@ -43,7 +43,7 @@ $title_prev_msg = 'Precedente';
 $html_on = 'sicuro';
 $html_theme = 'Tema';
 $html_lang = 'Lingua';
-$html_welcome = 'Benvenuto in ';
+$html_welcome = 'Benvenuto in';
 $html_login = 'Utente';
 $html_passwd = 'Password';
 $html_submit = 'Ok';
@@ -166,9 +166,9 @@ $html_contact_first = 'Nome';
 $html_contact_last = 'Cognome';
 $html_contact_nick = 'Nick';
 $html_contact_mail = 'Mail';
-$html_contact_list = 'Lista dei Contatti di ';
+$html_contact_list = 'Lista dei Contatti di';
 $html_contact_del = 'dalla lista dei contatti';
-$html_contact_err1 = 'Il numero massimo dei contatti è ';
+$html_contact_err1 = 'Il numero massimo dei contatti è';
 $html_contact_err2 = 'Non puoi aggiungere altri contatti';
 $html_contact_err3 = 'Non hai i privilegi necessari per accedere alla lista contatti';
 $html_del_msg = 'Eliminare i messaggi selezionati ?';

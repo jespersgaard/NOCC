@@ -15,7 +15,7 @@
  * @version    SVN: $Id$
  */
 
-/** Korean
+/** Kanuri (Kanuri)
  *
  * @ingroup Language
  * @file
@@ -42,7 +42,7 @@ $title_prev_msg = '이전 글';
 $html_on = '선택';
 $html_theme = '테마';
 $html_lang = '언어';
-$html_welcome = '어서오세요! ';
+$html_welcome = '어서오세요!';
 $html_login = '접속아이디';
 $html_passwd = '비밀번호';
 $html_submit = '로그인';

@@ -20,8 +20,8 @@
  * @ingroup Language
  * @file
  *
- * @author Sergey Frolovithev <serg@spylog.ru>
  * @author Anton Jakimov <t0xa@ls2.lv>
+ * @author Sergey Frolovithev <serg@spylog.ru>
  */
 
 $charset = 'UTF-8';
@@ -164,9 +164,9 @@ $html_contact_first = 'Имя';
 $html_contact_last = 'Фамилия';
 $html_contact_nick = 'Псевдоним';
 $html_contact_mail = 'Адрес электронной почты';
-$html_contact_list = 'Список контактов ';
+$html_contact_list = 'Список контактов';
 $html_contact_del = 'из контактного листа';
-$html_contact_err1 = 'Максимальное число контактов ';
+$html_contact_err1 = 'Максимальное число контактов';
 $html_contact_err2 = 'Вы не можете добавить новый контакт';
 $html_contact_err3 = 'У вас нет прав доступа к контактному листу';
 $html_del_msg = 'Стереть выбранные письма?';

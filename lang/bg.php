@@ -20,6 +20,7 @@
  * @ingroup Language
  * @file
  *
+ * @author DCLXVI
  * @author Evgeni Gechev <etg@setcom.bg>
  */
 
@@ -37,6 +38,8 @@ $alt_new_msg = 'Нови писма';
 $alt_reply = 'Отговори на автора';
 $alt_reply_all = 'Отговори на всички';
 $alt_forward = 'Препрати';
+$title_next_page = 'Следваща страница';
+$title_prev_page = 'Предишна страница';
 $title_next_msg = 'Следващо писмо';
 $title_prev_msg = 'Предишно писмо';
 $html_theme = 'Дизайн';
@@ -109,5 +112,5 @@ $html_send_confirmed = 'Писмото е прието';
 $html_no_sendaction = 'Не е посочено действие. Опитай да разрешиш Javascript в браузера.';
 $original_msg = '-- Оригинално писмо --';
 $to_empty = 'Полето \'За\' не трябва да е празно !';
-$html_smtp_error_no_conn = 'Грешка! Не може да бъда осъществена връзка със сървъра ';
+$html_smtp_error_no_conn = 'Грешка! Не може да бъда осъществена връзка със сървъра';
 $html_smtp_error_unexpected = 'Грешка! Непознат отговор от сървъра:';

@@ -20,6 +20,7 @@
  * @ingroup Language
  * @file
  *
+ * @author Joseph
  * @author İsmail Özer <aceleyolla AT gmx DOT net>
  */
 
@@ -46,7 +47,7 @@ $title_prev_msg = 'Önceki İleti';
 $html_on = 'HTML etkin kıl';
 $html_theme = 'Biçim';
 $html_lang = 'Dil';
-$html_welcome = 'Atabarı Web Mailine Hoş Geldiniz ';
+$html_welcome = 'Atabarı Web Mailine Hoş Geldiniz';
 $html_login = 'Kullanıcı Adı';
 $html_passwd = 'Parola';
 $html_submit = 'Giriş';
@@ -97,7 +98,7 @@ $html_filter_change_tip = 'İleti süzgecini değiştirmek için varolanı düze
 $html_reapply_filters = 'Tüm süzgeçleri yeniden çalıştır';
 $html_filter_contains = 'Süzgecin içeriği';
 $html_filter_name = 'Süzgeç adı';
-$html_filter_action = 'Süzgecin işlevi ';
+$html_filter_action = 'Süzgecin işlevi';
 $html_filter_moveto = 'Buraya taşı';
 $html_select_one = '-- Seç --';
 $html_and = 'Ve';
@@ -105,7 +106,7 @@ $html_new_msg_in = 'deki yeni iletiyi';
 $html_or = 'Veya';
 $html_move = 'Taşı';
 $html_copy = 'Kopyala';
-$html_messages_to = 'seçilen iletiyi buraya ';
+$html_messages_to = 'seçilen iletiyi buraya';
 $html_gotopage = 'Sayfaya git';
 $html_gotofolder = 'Klasöre git';
 $html_other_folders = 'Klasör listesi';
@@ -138,7 +139,7 @@ $html_subject = 'Konu';
 $html_date = 'Tarih';
 $html_sent = 'Gönder';
 $html_wrote = 'Yazdı';
-$html_size = 'Boyut ';
+$html_size = 'Boyut';
 $html_totalsize = 'Toplam Boyut';
 $html_kb = ' KB';
 $html_mb = 'MB';
@@ -157,9 +158,11 @@ $html_msg = 'İleti';
 $html_msgs = 'İletiler';
 $html_configuration = 'Bu sunucusu henüz ayarlanmamış!';
 $html_priority = 'İletinin önemliliği';
+$html_lowest = 'En düşük';
 $html_low = 'Düşük';
 $html_normal = 'Orta';
 $html_high = 'Yüksek';
+$html_highest = 'En yüksek';
 $html_receipt = 'İleti okundu onayı gönderilsin';
 $html_select = 'Seç';
 $html_select_all = 'Ters seçim yap';
@@ -187,7 +190,7 @@ $html_contact_nick = 'Rumuz';
 $html_contact_mail = 'E-Mail';
 $html_contact_list = 'Kişi listesine mensup';
 $html_contact_del = 'Kişi listesinden';
-$html_contact_err1 = 'En fazla kişi sayısı ';
+$html_contact_err1 = 'En fazla kişi sayısı';
 $html_contact_err2 = 'Yeni kişi ekleyemzsiniz';
 $html_contact_err3 = 'Kişiler listesini düzenleme hakkınız yoktur';
 $html_del_msg = 'Seçilen iletiler gerçekten silinsin mi?';
@@ -208,3 +211,6 @@ $html_seperate_msg_win = 'İletiyi yeni bir pencerede göster';
 $html_err_file_contacts = 'Kişiler list dosyası bulunamadı.';
 $html_session_file_error = 'Oturum biliglerini yazma dosyası bulunamadı.';
 $html_login_not_allowed = 'Bu kullanıcının girişi engellenmiştir.';
+$lang_err_send_delay = 'İki posta arasında beklemeniz gerekir';
+$lang_seconds = 'saniye';
+$html_search = 'Ara';
