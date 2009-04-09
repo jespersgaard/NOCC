@@ -114,20 +114,29 @@ require ('./html/header.php');
                   <td>
                   <select class="button" name="lang" id="lang" onchange="updateLoginPage()">
                   <?php
-                    for ($i = 0; $i < sizeof($lang_array); $i++)
-                      if (file_exists('lang/'.$lang_array[$i]->filename.'.php'))
-                      {
-                        echo '<option value="'.$lang_array[$i]->filename.'"';
-                          if ($_SESSION['nocc_lang'] == $lang_array[$i]->filename)
-                        echo ' selected="selected"';
-                        echo '>'.$lang_array[$i]->label.'</option>';
-                      }
+                  
+                  foreach ($lang_array as $_lang_key => $_lang_var)
+                    {
+                      if (file_exists('lang/' . $_lang_var->filename . '.php'))
+                        {
+                          echo '<option value="' . $_lang_var->filename . '"';
+
+                          if ($_SESSION['nocc_lang'] == $_lang_var->filename)
+                            {
+                              echo ' selected="selected"';
+                            }
+
+                          echo '>' . convertLang2Html($_lang_var->label) . '</option>';
+                        }
+                    }
+
                     echo '</select>'."\n";
                   ?>
                   </td>
                 </tr>
                 <?php
                   }
+
                   if ($conf->use_theme == true && $conf->hide_theme_select_from_login_page == false) 
                   {
                 ?>
@@ -154,6 +163,7 @@ require ('./html/header.php');
                 </tr>
                 <?php
                   }
+                  
                   if (isset($conf->prefs_dir) && $conf->prefs_dir != '') {
                 ?>
                 <tr>
