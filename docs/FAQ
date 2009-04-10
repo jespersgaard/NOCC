@@ -1,8 +1,8 @@
-Frequently Asked Questions for Nocc
+Frequently Asked Questions for NOCC
 -----------------------------------
-Last updated: $Date: 2007/06/29 22:11:27 $
+Last updated: $Date$
 
- Q. Nocc keeps me asking for a correct login/password.
+ Q. NOCC keeps me asking for a correct login/password.
 
  A. Check that you correctly configured your POP/IMAP server in conf.php
     ex:
@@ -20,7 +20,7 @@ Last updated: $Date: 2007/06/29 22:11:27 $
 
 -----------------------------------
  
- Q. Having configured Nocc, I get this error with my favourite browser:
+ Q. Having configured NOCC, I get this error with my favourite browser:
 
  A. Fatal error: Call to undefined function: imap_open()
     in /opt/apache/htdocs/nocc/utils/functions.php on line 26
@@ -50,7 +50,7 @@ Last updated: $Date: 2007/06/29 22:11:27 $
 
 -----------------------------------
 
- Q. Nocc is slow with a CGI version of PHP when there're big mails
+ Q. NOCC is slow with a CGI version of PHP when there're big mails
 
  A. Unfortunately, we tried to optimize the code but some functions are
     clearly very slow in CGI mode. We hope this will be solved in future
@@ -82,7 +82,7 @@ Last updated: $Date: 2007/06/29 22:11:27 $
  Q. I get "Fatal error: Failed opening required 'lang/ en.php' [...]".
 
  A. This is a know bug from flawed PHP 4 install on RedHat 7.
-    This is fixed with updated php-4.0.4pl1-6 RPM package or with Nocc 0.9.3
+    This is fixed with updated php-4.0.4pl1-6 RPM package or with NOCC 0.9.3
     which has a fix that suppresses extra spaces within this variable.
 
     See: http://www.redhat.com/bugzilla/show_bug.cgi?id=24933
@@ -170,14 +170,14 @@ Last updated: $Date: 2007/06/29 22:11:27 $
     the server string into conf.php. I.e: 
     $conf->domains[$i]->in = 'localhost:993/ssl/novalidate-cert';
 
-----------------------------------
+-----------------------------------
 
  Q. When connecting to a POP3 or POPS server while quota are enabled into
     conf.php, I get an blank page.
 
  A. Disable quota into conf.php file. It only works with IMAP connections.
 
-----------------------------------
+-----------------------------------
 
  Q. When displaying an email or the inbox content, the charset is not correctly
     detected causing bad body or subject display.
@@ -186,22 +186,22 @@ Last updated: $Date: 2007/06/29 22:11:27 $
     can't be detected du to PHP IMAP module imap_fetchstructure function
     limitation.
 
-----------------------------------
+-----------------------------------
 
  Q. My web hosting service is using the register_globals setting set to on, so I
-    can't use Nocc.
+    can't use NOCC.
 
- A. Create a .htaccess file at Nocc's root directory with the following line:
+ A. Create a .htaccess file at NOCC's root directory with the following line:
       php_flag register_globals off
     If your host does not allow you to use any .htaccess file, you will have to
     delete in the utils/check.php file the lines beginning with 
       if (ini_get('register_globals') == true)
     and finishing just before
       ?>
-    But remember : running Nocc with register_globals set to on may expose you
+    But remember : running NOCC with register_globals set to on may expose you
     to unwanted vulnerabilities.
 
-----------------------------------
+-----------------------------------
 
  Q. With NOCC hosted on a Windows server, all attachment downloaded from mails
     with NOCC are garbled. After checking them, it appears they present 3 bytes
