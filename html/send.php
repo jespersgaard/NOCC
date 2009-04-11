@@ -154,7 +154,7 @@
      <tr>
        <td>&nbsp;</td>
        <td class="sendData">
-         <?php if (!isset($_SESSION['html_mail_send']) || !$_SESSION['html_mail_send']) { ?>
+         <?php if (!isset($_SESSION['html_mail_send']) || !$_SESSION['html_mail_send'] || !file_exists('fckeditor/fckeditor.php')) { ?>
          <textarea name="mail_body" cols="82" rows="20"><?php echo (isset($mail_body) ? htmlspecialchars($mail_body) : '') ?></textarea>
          <?php
            } else {

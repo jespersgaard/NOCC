@@ -136,12 +136,14 @@ if (count($big_list) > 1) {
              <input type="checkbox" name="cc_self" id="cc_self" value="on" <?php if(isset($user_prefs->cc_self) && $user_prefs->cc_self) echo 'checked="checked"'; ?> /><label for="cc_self"><?php echo convertLang2Html($html_ccself) ?></label>
            </td>
          </tr>
+         <?php if (file_exists('fckeditor/fckeditor.php')) { ?>
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
              <input type="checkbox" name="html_mail_send" id="html_mail_send" value="on" <?php if(isset($user_prefs->html_mail_send) && $user_prefs->html_mail_send) echo 'checked="checked"'; ?> /><label for="html_mail_send"><?php echo convertLang2Html($html_send_html_mail) ?></label>
            </td>
          </tr>
+         <?php } ?>
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
@@ -161,7 +163,7 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel"><label for="signature"><?php echo convertLang2Html($html_signature) ?>:</label></td>
            <td class="prefsData">
-             <?php if (isset($user_prefs->html_mail_send) && $user_prefs->html_mail_send) { 
+             <?php if (isset($user_prefs->html_mail_send) && $user_prefs->html_mail_send && file_exists('fckeditor/fckeditor.php')) { 
                include('fckeditor/fckeditor.php');
                $oFCKeditor = new FCKeditor('signature');
                $oFCKeditor->ToolbarSet = 'NOCC';
