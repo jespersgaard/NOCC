@@ -37,7 +37,7 @@ $_SESSION['nocc_loggedin'] = 1;
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang ?>" lang="<?php echo $lang ?>">
 <head>
-  <title>NOCC - Webmail - <?php echo $html_contact_list . " " . $_SESSION["nocc_user"]; ?></title>
+  <title>NOCC - Webmail - <?php echo i18n_merge($html_contact_list, $_SESSION["nocc_user"], 0); ?></title>
   <link href="themes/<?php echo $_SESSION['nocc_theme']; ?>/style.css" rel="stylesheet" type="text/css" />
   <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
   <meta content="text/html; charset=<?php echo $charset ?>" http-equiv="Content-Type" />
@@ -114,7 +114,7 @@ $_SESSION['nocc_loggedin'] = 1;
 		<ul>
 			<li>
 				<?php
-					$tab_title_personal = convertLang2Html($html_contact_list . " " . $_SESSION["nocc_user"]);
+					$tab_title_personal = i18n_merge($html_contact_list, $_SESSION["nocc_user"]);
 					
 					// toggle activated tab
 					if ($contacts_ldap === true) {
@@ -127,7 +127,7 @@ $_SESSION['nocc_loggedin'] = 1;
 			</li>
 			<li>
 				<?php
-					$tab_title_group = convertLang2Html($conf->contact_ldap_options['group_title'] . ' ' . $html_contacts);
+					$tab_title_group = i18n_merge($html_contacts, $conf->contact_ldap_options['group_title']);
 					
 					// toggle activated tab
 					if ($contacts_ldap === false) {
@@ -188,15 +188,22 @@ $_SESSION['nocc_loggedin'] = 1;
   ?>
   <div class="contactsList">
     <p class="contactsTitle">
-      <?php echo convertLang2Html($html_contact_list . " " . $_SESSION["nocc_user"]); ?>
+      <?php echo i18n_merge($html_contact_list, $_SESSION["nocc_user"]); ?>
     </p>
 
     <table>
       <tr class="contactsListHeader">
+       <?php if ($lang_dir === 'ltr') { ?>
         <th><?php echo convertLang2Html($html_contact_first) ?></th>
         <th><?php echo convertLang2Html($html_contact_last) ?></th>
         <th><?php echo convertLang2Html($html_contact_nick) ?></th>
         <th><?php echo convertLang2Html($html_contact_mail) ?></th>
+       <?php } else { ?>
+        <th><?php echo convertLang2Html($html_contact_mail) ?></th>
+        <th><?php echo convertLang2Html($html_contact_nick) ?></th>
+        <th><?php echo convertLang2Html($html_contact_last) ?></th>
+        <th><?php echo convertLang2Html($html_contact_first) ?></th>
+       <?php } ?>
         <th>&nbsp;</th>
       </tr>
 
@@ -208,6 +215,8 @@ $_SESSION['nocc_loggedin'] = 1;
         for ($i = 0; $i < count ($contacts); ++$i)
         {
           $tab = explode ("\t",$contacts[$i]);
+          
+          if ($lang_dir === 'ltr') {
       ?>
       <tr class="<?php echo ($i % 2) ? "contactsListEven" : "contactsListOdd" ?>">
         <td class="contactNameFirst"><?php echo ($tab[0]) ? $tab[0] : "&nbsp;"; ?></td>
@@ -216,7 +225,16 @@ $_SESSION['nocc_loggedin'] = 1;
         <td class="contactEmail"><?php echo $tab[3]; ?></td>
         <td><input type="button" name="Submit" id="<?php echo 'btn'.$i ?>" value="<?php echo unhtmlentities($html_add) ?>" class="button" onclick="toggleemail (document.getElementById('<?php echo 'btn'.$i ?>'), '<?php echo trim($tab[3]); ?>');toggle (document.getElementById('<?php echo 'btn'.$i ?>'));"/></td>
       </tr>
+      <?php } else { ?>
+      <tr class="<?php echo ($i % 2) ? "contactsListEven" : "contactsListOdd" ?>">
+        <td><input type="button" name="Submit" id="<?php echo 'btn'.$i ?>" value="<?php echo unhtmlentities($html_add) ?>" class="button" onclick="toggleemail (document.getElementById('<?php echo 'btn'.$i ?>'), '<?php echo trim($tab[3]); ?>');toggle (document.getElementById('<?php echo 'btn'.$i ?>'));"/></td>
+        <td class="contactEmail"><?php echo $tab[3]; ?></td>
+        <td class="contactNickname"><?php echo ($tab[2]) ? $tab[2] : "&nbsp;"; ?></td>
+        <td class="contactNameLast"><?php echo ($tab[1]) ? $tab[1] : "&nbsp;"; ?></td>
+        <td class="contactNameFirst"><?php echo ($tab[0]) ? $tab[0] : "&nbsp;"; ?></td>
+      </tr>
       <?php
+          }
         }
 	  }
     else {
@@ -319,7 +337,7 @@ $_SESSION['nocc_loggedin'] = 1;
 			foreach ($contact_list AS $list_val) {
 				$_uid = trim($list_val['count']);
 				if ($i === 1) {
-				print('<div id="contact-amount"><span id="contact-count">' . $contact_list['count'] . '</span><span id="contacts"> ' . $html_contacts . '</span></div>');
+				print('<div id="contact-amount"><span id="contact-count">' . i18n_merge($html_contact_count, $contact_list['count']) . '</span></div>');
 				}
 				
 				// filter out hostnames (for  windows like hostname$)
@@ -342,7 +360,7 @@ $_SESSION['nocc_loggedin'] = 1;
 					$contact_email = $list_val[$contact_list_uid][0].$contact_suffix;
 				}
 				
-				
+                if ($lang_dir === 'ltr') {
 			?>
 			
 			<tr class="<?php echo ($i % 2) ? "contactsListEven" : "contactsListOdd" ?>">
@@ -352,14 +370,24 @@ $_SESSION['nocc_loggedin'] = 1;
 		        <td class="contactEmail"><?php echo unhtmlentities($contact_email); ?></td>
 		        <td><input type="button" name="Submit" id="<?php echo 'btn'.$i ?>" value="<?php echo unhtmlentities($html_add) ?>" class="button" onclick="toggleemail (document.getElementById('<?php echo 'btn'.$i ?>'), '<?php echo trim($contact_email); ?>');toggle (document.getElementById('<?php echo 'btn'.$i ?>'));"/></td>
 			</tr>
+			<?php } else { ?>
+			<tr class="<?php echo ($i % 2) ? "contactsListEven" : "contactsListOdd" ?>">
+		        <td><input type="button" name="Submit" id="<?php echo 'btn'.$i ?>" value="<?php echo unhtmlentities($html_add) ?>" class="button" onclick="toggleemail (document.getElementById('<?php echo 'btn'.$i ?>'), '<?php echo trim($contact_email); ?>');toggle (document.getElementById('<?php echo 'btn'.$i ?>'));"/></td>
+		        <td class="contactEmail"><?php echo unhtmlentities($contact_email); ?></td>
+		        <td class="contactNickname"><?php echo unhtmlentities($list_val[$contact_list_uid][0]); ?></td>
+		        <td class="contactNameLast"><?php echo unhtmlentities($contact_name[1]); ?></td>
+		        <td class="contactNameFirst"><?php echo unhtmlentities($contact_name[0]); ?></td>
+			</tr>
 
 	<?php
+	            } // ltr/rtl end
+	            
 				$i++;
 				}
 			}
 			
 			if ($contact_list['count'] == 0) {
-				print('<tr><td colspan="4">No matches.</td></tr>');
+				print('<tr><td colspan="4">' . $html_contact_none  . '</td></tr>');
 			}
 			
 		}

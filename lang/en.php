@@ -66,7 +66,7 @@ $html_theme = 'Theme';
 // index.php
 
 $html_lang = 'Language';
-$html_welcome = 'Welcome to';
+$html_welcome = 'Welcome to %1$s';
 $html_login = 'Login';
 $html_passwd = 'Password';
 $html_submit = 'Submit';
@@ -74,7 +74,7 @@ $html_help = 'Help';
 $html_server = 'Server';
 $html_wrong = 'The login or the password are incorrect';
 $html_retry = 'Retry';
-$html_remember = "Remember settings";
+$html_remember = 'Remember settings';
 
 // prefs.php
 
@@ -209,7 +209,7 @@ $html_encoding = 'Character encoding';
 
 // Contacts manager
 $html_add = 'Add';
-$html_contacts = 'Contacts';
+$html_contacts = '%1$s Contacts';
 $html_modify = 'Modify';
 $html_back = 'Back';
 $html_contact_add = 'Add new contact';
@@ -218,12 +218,14 @@ $html_contact_first = 'First name';
 $html_contact_last = 'Last name';
 $html_contact_nick = 'Nick';
 $html_contact_mail = 'Mail';
-$html_contact_list = 'Contact list of ';
+$html_contact_list = 'Contact list of %1$s';
 $html_contact_del = 'from the contact list';
+$html_contact_count = '%1$d Contacts';
 
 $html_contact_err1 = 'Maximum number of contact is ';
 $html_contact_err2 = 'You can\'t add a new contact';
 $html_contact_err3 = 'You don\'t have access rights to contact list';
+$html_contact_none = 'No contacts could be found.';
 $html_del_msg = 'Delete selected messages ?';
 $html_down_mail = 'Download';
 

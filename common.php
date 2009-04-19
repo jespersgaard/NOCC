@@ -34,6 +34,7 @@ require_once('./classes/user_filters.php');
 require_once './utils/functions.php';
 require_once('./utils/html_entity_decode.php');
 require_once('./utils/crypt.php');
+require_once('./utils/translation.php');
 
 $conf->nocc_name = 'NOCC';
 $conf->nocc_version = '1.8-dev';
