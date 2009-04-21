@@ -17,6 +17,9 @@
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
@@ -42,7 +45,7 @@ $title_prev_msg = 'Forrige melding';
 $html_on = 'til';
 $html_theme = 'Tema';
 $html_lang = 'Språk';
-$html_welcome = 'Velkommen til';
+$html_welcome = 'Velkommen til %1$s';
 $html_login = 'Brukernavn';
 $html_passwd = 'Passord';
 $html_submit = 'Logg inn';

@@ -17,6 +17,9 @@
 
 /** Hebrew (עברית)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
@@ -41,7 +44,7 @@ $title_next_msg = 'ההודעה הבאה';
 $title_prev_msg = 'ההודעות הבאות';
 $html_on = 'בזמן';
 $html_lang = 'שפה';
-$html_welcome = 'ברוכים הבאים';
+$html_welcome = 'ברוכים הבאים %1$s';
 $html_login = 'שם המשתמש';
 $html_passwd = 'סיסמה';
 $html_submit = 'התחברות';

@@ -17,6 +17,9 @@
 
 /** Romanian (Română)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
@@ -42,7 +45,7 @@ $title_prev_msg = 'Mesaj anterior';
 $html_on = 'activ';
 $html_theme = 'Tema';
 $html_lang = 'Limba';
-$html_welcome = 'Bun venit la';
+$html_welcome = 'Bun venit la %1$s';
 $html_login = 'Nume';
 $html_passwd = 'Parola';
 $html_submit = 'Trimit';

@@ -17,10 +17,14 @@
 
 /** Russian (Русский)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
  * @author Anton Jakimov <t0xa@ls2.lv>
+ * @author EugeneZelenko
  * @author Sergey Frolovithev <serg@spylog.ru>
  */
 
@@ -43,7 +47,7 @@ $title_prev_msg = 'Предыдущее';
 $html_on = 'Вкл.';
 $html_theme = 'Дизайн';
 $html_lang = 'Язык';
-$html_welcome = 'Добро пожаловать в';
+$html_welcome = 'Добро пожаловать в %1$s';
 $html_login = 'Имя';
 $html_passwd = 'Пароль';
 $html_submit = 'Войти';
@@ -155,7 +159,7 @@ $html_usenet_separator = 'Разделитель в стиле Usenet ("-- \n") 
 $html_mark_as = 'Пометить как';
 $html_read = 'прочитанное';
 $html_unread = 'непрочитанное';
-$html_contacts = 'Контакты';
+$html_contacts = '%1$s Контакты';
 $html_modify = 'Изменить';
 $html_back = 'Назад';
 $html_contact_add = 'Добавить контакт';
@@ -164,7 +168,7 @@ $html_contact_first = 'Имя';
 $html_contact_last = 'Фамилия';
 $html_contact_nick = 'Псевдоним';
 $html_contact_mail = 'Адрес электронной почты';
-$html_contact_list = 'Список контактов';
+$html_contact_list = 'Список контактов %1$s';
 $html_contact_del = 'из контактного листа';
 $html_contact_err1 = 'Максимальное число контактов';
 $html_contact_err2 = 'Вы не можете добавить новый контакт';

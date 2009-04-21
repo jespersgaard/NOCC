@@ -17,6 +17,9 @@
 
 /** Chinese (Taiwan) (‪中文(台灣)‬)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
@@ -42,7 +45,7 @@ $title_prev_msg = '上一封';
 $html_on = '在';
 $html_theme = '背景主題';
 $html_lang = '語言';
-$html_welcome = '歡迎到';
+$html_welcome = '歡迎到 %1$s';
 $html_login = '登入';
 $html_passwd = '密碼';
 $html_submit = '提交';

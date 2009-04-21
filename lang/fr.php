@@ -17,6 +17,9 @@
 
 /** French (Français)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
@@ -46,7 +49,7 @@ $title_prev_msg = 'Message précédent';
 $html_on = 'sur';
 $html_theme = 'Thème';
 $html_lang = 'Langue';
-$html_welcome = 'Bienvenue à';
+$html_welcome = 'Bienvenue à %1$s';
 $html_login = 'Identifiant';
 $html_passwd = 'Mot de passe';
 $html_submit = 'Valider';
@@ -178,7 +181,7 @@ $html_read = 'lu';
 $html_unread = 'non lu';
 $html_encoding = 'Encodage du texte';
 $html_add = 'Ajouter';
-$html_contacts = 'Contacts';
+$html_contacts = '%1$s Contacts';
 $html_modify = 'Modifier';
 $html_back = 'Retour';
 $html_contact_add = 'Ajouter un nouveau contact';
@@ -187,7 +190,7 @@ $html_contact_first = 'Prénom';
 $html_contact_last = 'Nom';
 $html_contact_nick = 'Pseudo';
 $html_contact_mail = 'E-mail';
-$html_contact_list = 'Liste de contacts de';
+$html_contact_list = 'Liste de contacts de %1$s';
 $html_contact_del = 'de la liste de contacts';
 $html_contact_err1 = 'Le nombre maximal de contacts est';
 $html_contact_err2 = 'Vous ne pouvez pas ajouter un nouveau contact';

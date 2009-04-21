@@ -17,6 +17,9 @@
 
 /** latinica (latinica)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
@@ -42,7 +45,7 @@ $title_prev_msg = 'Prethodna poruka';
 $html_on = 'ukljucen';
 $html_theme = 'Tema';
 $html_lang = 'Jezik';
-$html_welcome = 'Dobrodošli';
+$html_welcome = 'Dobrodošli %1$s';
 $html_login = 'Korisničko ime';
 $html_passwd = 'Šifra';
 $html_submit = 'Prijava';

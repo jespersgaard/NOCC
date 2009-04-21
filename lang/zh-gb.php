@@ -17,6 +17,9 @@
 
 /** Simplified Chinese (‪中文(简体)‬)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
@@ -42,7 +45,7 @@ $title_prev_msg = '上一个邮件';
 $html_on = '打开';
 $html_theme = '主题';
 $html_lang = '语言';
-$html_welcome = '欢迎';
+$html_welcome = '欢迎 %1$s';
 $html_login = '登录';
 $html_passwd = '密码';
 $html_submit = '用户名';

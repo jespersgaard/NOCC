@@ -17,6 +17,9 @@
 
 /** Croatian (Hrvatski)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
@@ -42,13 +45,14 @@ $title_prev_msg = 'Prethodna poruka';
 $html_on = 'ukljucen';
 $html_theme = 'Tema';
 $html_lang = 'Jezik';
-$html_welcome = 'Dobrodošli';
+$html_welcome = 'Dobrodošli %1$s';
 $html_login = 'Korisničko ime';
 $html_passwd = 'Šifra';
 $html_submit = 'Prijava';
 $html_help = 'Pomoć';
 $html_wrong = 'Korisničko ime ili šifra su neispravni';
 $html_retry = 'Pokušaj ponovo';
+$html_msgperpage = 'Messages per page';
 $html_preferences = 'Postavke';
 $html_full_name = 'Puno ime';
 $html_email_address = 'E-mail adresa';
@@ -96,12 +100,16 @@ $html_priority = 'Prioritet';
 $html_low = 'Nizak';
 $html_normal = 'Normalan';
 $html_high = 'Visok';
+$html_receipt = 'Request a return receipt';
 $html_select = 'Selektiraj';
 $html_loading_image = 'Ucitavam sliku';
 $html_send_confirmed = 'Vasa poruka je isporucena';
 $html_no_sendaction = 'Nista nije specificirano - ukljucite JavaScript.';
 $html_error_occurred = 'Dogodila se greska';
 $html_prefs_file_error = 'Ne mogu zapisati postavke.';
+$html_add = 'Add';
+$html_contact_err1 = 'Maximal number of contact is';
+$html_contact_err2 = 'You can\'t add a new contact';
 $original_msg = '-- Originalna poruka --';
 $to_empty = 'Polje \'Za\' ne moze biti prazno!';
 $html_smtp_error_no_conn = 'Ne mogu se spojiti!';

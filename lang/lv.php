@@ -17,6 +17,9 @@
 
 /** Latvian (Latviešu)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
@@ -41,7 +44,7 @@ $title_prev_msg = 'Iepriekšējā vēstule';
 $html_on = 'ieslēgt';
 $html_theme = 'Izskats';
 $html_lang = 'Valoda';
-$html_welcome = 'Laipni lūgti';
+$html_welcome = 'Laipni lūgti %1$s';
 $html_login = 'Lietotājvārds';
 $html_passwd = 'Parole';
 $html_submit = 'Ievadīt';

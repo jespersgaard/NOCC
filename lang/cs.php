@@ -17,6 +17,9 @@
 
 /** Czech (Česky)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
@@ -47,7 +50,7 @@ $title_prev_msg = 'Předchozí zpráva';
 $html_on = 'na';
 $html_theme = 'Téma';
 $html_lang = 'Jazyk';
-$html_welcome = 'Vítejte v';
+$html_welcome = 'Vítejte v %1$s';
 $html_login = 'Jméno';
 $html_passwd = 'Heslo';
 $html_submit = 'Potvrdit';
@@ -177,7 +180,7 @@ $html_read = 'přečtené';
 $html_unread = 'nečtené';
 $html_encoding = 'Znaková sada';
 $html_add = 'Přidat';
-$html_contacts = 'Kontakty';
+$html_contacts = '%1$s Kontakty';
 $html_modify = 'Změnit';
 $html_back = 'Zpět';
 $html_contact_add = 'Přidat nový kontakt';
@@ -186,7 +189,7 @@ $html_contact_first = 'Křestní jméno';
 $html_contact_last = 'Příjmení';
 $html_contact_nick = 'Přezdívka';
 $html_contact_mail = 'E-mail';
-$html_contact_list = 'Seznam kontaktů';
+$html_contact_list = 'Seznam kontaktů %1$s';
 $html_contact_del = 'ze seznamu kontaktů';
 $html_contact_err1 = 'Maximální počet kontaktů je';
 $html_contact_err2 = 'Nemůžete přidat nový kontakt.';

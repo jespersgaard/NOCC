@@ -30,6 +30,12 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'ar';
 $lang_array[$i]->label = 'العربية';
 
+// Belarusian
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'be-tarask';
+$lang_array[$i]->label = 'Беларуская (тарашкевіца)';
+
 // Bulgarian
 $i++;
 $lang_array[$i] = new lang();
@@ -126,6 +132,12 @@ $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'hr';
 $lang_array[$i]->label = 'Hrvatski';
+
+// Interlingua
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'ia';
+$lang_array[$i]->label = 'Interlingua';
 
 // Icelandic
 $i++;
@@ -235,6 +247,12 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'sv';
 $lang_array[$i]->label = 'Svenska';
 
+// Tagalog
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'tl';
+$lang_array[$i]->label = 'Tagalog';
+
 // Thai
 $i++;
 $lang_array[$i] = new lang();
@@ -271,4 +289,12 @@ $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'zh-tw';
 $lang_array[$i]->label = '古文 / 文言文';
+
+/* Message documentation (translateWiki.net specific)
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'qqq';
+$lang_array[$i]->label = 'Message documentation';
+*/
+
 ?>

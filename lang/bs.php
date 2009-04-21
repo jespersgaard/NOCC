@@ -17,6 +17,9 @@
 
 /** Bosnian (Bosanski)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
@@ -46,7 +49,7 @@ $title_prev_msg = 'Prethodna poruka';
 $html_on = 'na';
 $html_theme = 'Tema';
 $html_lang = 'Jezik';
-$html_welcome = 'Dobrodošli na';
+$html_welcome = 'Dobrodošli na %1$s';
 $html_login = 'Prijava';
 $html_passwd = 'Šifra';
 $html_submit = 'Pošalji';
@@ -70,35 +73,65 @@ $html_prefs_updated = 'Postavke ažurirane';
 $html_manage_folders_link = 'Upravljaj IMAP direktorijima';
 $html_manage_filters_link = 'Upravljaj email filterima';
 $html_use_graphical_smilies = 'Koristi grafičke smješke';
+$html_sent_folder = 'Kopije poslanih mailova u predviđeni direktorij';
+$html_trash_folder = 'Premjesti obrisane mailove u predviđeni direktorijum';
 $html_display_struct = 'Prikaži strukturisani tekst';
+$html_send_html_mail = 'Pošalji mail u HTML formatu';
 $html_folders = 'Direktoriji';
 $html_folders_create_failed = 'Direktorijum nije mogao biti napravljen!';
+$html_folders_updated = 'Direktoriji ažurirani';
+$html_folder_subscribe = 'Pretplati se na';
 $html_folder_rename = 'Preimenuj';
+$html_folder_remove = 'Odustani od';
 $html_folder_delete = 'Obriši';
+$html_folder_to = 'za';
 $html_filter_remove = 'Brisanje';
 $html_filter_body = 'Tijelo poruke';
 $html_filter_subject = 'Predmet poruke';
 $html_filter_to = 'U polje';
+$html_filter_cc = 'Polje cc';
+$html_filter_from = 'Polje Od';
+$html_filter_contains = 'sadrži';
+$html_filter_name = 'Naziv filtera';
+$html_filter_moveto = 'Premjesti u';
 $html_select_one = '--Odaberi jedan--';
 $html_and = 'i';
+$html_new_msg_in = 'Nove poruke u';
 $html_or = 'ili';
+$html_move = 'Premjesti';
 $html_copy = 'Kopija';
+$html_other_folders = 'Spisak direktorijuma';
 $html_page = 'Stranica';
+$html_of = 'od';
 $html_new_msg = 'Piši';
+$html_reply = 'Odgovor';
+$html_reply_all = 'Odgovori sve';
 $html_forward_short = 'Napr';
+$html_delete = 'Brisanje';
 $html_new = 'Nova';
+$html_mark = 'Obriši';
 $html_attach = 'Dodaj';
+$html_date = 'Datum';
 $html_size = 'Veličina';
 $html_totalsize = 'Ukupna veličina';
 $html_filename = 'Ime datoteke';
 $html_msg = 'Poruka';
+$html_msgs = 'Poruke';
+$html_priority = 'Prioritet';
 $html_select = 'Odaberi';
+$html_select_all = 'Obrni odabir';
 $html_wrap_none = 'Ništa';
-$html_contacts = 'Kontakti';
+$html_mark_as = 'Označi kao';
+$html_read = 'pročitano';
+$html_unread = 'nepročitano';
+$html_contacts = '%1$s Kontakti';
+$html_back = 'Nazad';
 $html_contact_first = 'Ime';
 $html_contact_last = 'Prezime';
 $html_contact_nick = 'Nadimak';
+$html_contact_err2 = 'Ne možete dodati novi kontakt';
 $html_del_msg = 'Obriši odabrane poruke ?';
 $original_msg = '-- Prvobitna poruka --';
 $to_empty = 'Polje \'Za\' ne smije biti prazno !';
 $html_images_display = 'Prikaži slike';
+$html_search = 'Pretraga';

@@ -17,6 +17,9 @@
 
 /** Occitan (Occitan)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
@@ -46,7 +49,7 @@ $title_prev_msg = 'Messatge precedent';
 $html_on = 'sus';
 $html_theme = 'Tèma';
 $html_lang = 'Lenga';
-$html_welcome = 'Benvenguda a';
+$html_welcome = 'Benvenguda a %1$s';
 $html_login = 'Identificant';
 $html_passwd = 'Senhal';
 $html_submit = 'Validar';
@@ -178,7 +181,7 @@ $html_read = 'legit';
 $html_unread = 'pas legit';
 $html_encoding = 'Encodatge del tèxte';
 $html_add = 'Apondre';
-$html_contacts = 'Contactes';
+$html_contacts = '%1$s Contactes';
 $html_modify = 'Mdificar';
 $html_back = 'Retorn';
 $html_contact_add = 'Apondre un contacte novèl';
@@ -187,7 +190,7 @@ $html_contact_first = 'Pichon nom';
 $html_contact_last = 'Nom d\'Ostal';
 $html_contact_nick = 'Escais';
 $html_contact_mail = 'Adreça electronica';
-$html_contact_list = 'Lista de contactes de';
+$html_contact_list = 'Lista de contactes de %1$s';
 $html_contact_del = 'de la lista de contactes';
 $html_contact_err1 = 'Lo nombre maximal de contactes es';
 $html_contact_err2 = 'Podètz pas apondre un contacte novèl';

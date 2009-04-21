@@ -17,6 +17,9 @@
 
 /** Swiss German (Alemannisch)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
@@ -46,7 +49,7 @@ $title_prev_msg = 'Vorigi Nochricht';
 $html_on = 'an';
 $html_theme = 'Thema';
 $html_lang = 'Sproch';
-$html_welcome = 'Willchu bi';
+$html_welcome = 'Willchu bi %1$s';
 $html_login = 'Aamälde';
 $html_passwd = 'Passwort';
 $html_submit = 'Jo';
@@ -178,7 +181,7 @@ $html_read = 'gläse';
 $html_unread = 'nit gläse';
 $html_encoding = 'Zeichesatz-Kodierig';
 $html_add = 'Zuefiege';
-$html_contacts = 'Kontakt';
+$html_contacts = '%1$s Kontakt';
 $html_modify = 'Ändere';
 $html_back = 'Zruck';
 $html_contact_add = 'Neje Kontakt dezuefiege';
@@ -187,7 +190,7 @@ $html_contact_first = 'Vorname';
 $html_contact_last = 'Nochname';
 $html_contact_nick = 'Ibername';
 $html_contact_mail = 'E-Mail-Adräss';
-$html_contact_list = 'Kontaktlischt vu';
+$html_contact_list = 'Kontaktlischt vu %1$s';
 $html_contact_del = 'vu dr Kontaktlischt';
 $html_contact_err1 = 'D Maximalaazahl vu dr Kontakt isch';
 $html_contact_err2 = 'Du chasch kei neje Kontakt dezuefiege';

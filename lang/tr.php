@@ -17,6 +17,9 @@
 
 /** Turkish (Türkçe)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
@@ -47,7 +50,7 @@ $title_prev_msg = 'Önceki İleti';
 $html_on = 'HTML etkin kıl';
 $html_theme = 'Biçim';
 $html_lang = 'Dil';
-$html_welcome = 'Atabarı Web Mailine Hoş Geldiniz';
+$html_welcome = 'Atabarı Web Mailine Hoş Geldiniz %1$s';
 $html_login = 'Kullanıcı Adı';
 $html_passwd = 'Parola';
 $html_submit = 'Giriş';
@@ -179,7 +182,7 @@ $html_read = 'Okundu';
 $html_unread = 'Okunmadı';
 $html_encoding = 'Dil Karekter Karşılığı (encoding)';
 $html_add = 'Ekle';
-$html_contacts = 'Kişiler';
+$html_contacts = '%1$s Kişiler';
 $html_modify = 'Değiştir';
 $html_back = 'Geri';
 $html_contact_add = 'Yeni kişi ekle';
@@ -188,7 +191,7 @@ $html_contact_first = 'Adı';
 $html_contact_last = 'Soyadı';
 $html_contact_nick = 'Rumuz';
 $html_contact_mail = 'E-Mail';
-$html_contact_list = 'Kişi listesine mensup';
+$html_contact_list = 'Kişi listesine mensup %1$s';
 $html_contact_del = 'Kişi listesinden';
 $html_contact_err1 = 'En fazla kişi sayısı';
 $html_contact_err2 = 'Yeni kişi ekleyemzsiniz';

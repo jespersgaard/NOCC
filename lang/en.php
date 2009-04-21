@@ -91,19 +91,19 @@ $html_signature = 'Signature';
 $html_reply_leadin = 'Reply Leadin';
 $html_prefs_updated = 'Preferences updated';
 $html_manage_folders_link = 'Manage IMAP Folders';
-$html_manage_filters_link = 'Manage Email Filters';
+$html_manage_filters_link = 'Manage E-mail Filters';
 $html_use_graphical_smilies = 'Use graphical smilies';
-$html_sent_folder = 'Copy sent mails into a dedicated folder';
-$html_trash_folder = 'Move deleted mails into a dedicated folder';
+$html_sent_folder = 'Copy sent e-mails into a dedicated folder';
+$html_trash_folder = 'Move deleted e-mails into a dedicated folder';
 $html_colored_quotes = 'Colored quotes';
 $html_display_struct = 'Display structured text';
-$html_send_html_mail = 'Send mail in HTML format';
+$html_send_html_mail = 'Send e-mail in HTML format';
 
 // folders.php
 $html_folders = 'Folders';
 $html_folders_create_failed = 'Folder could not be created!';
 $html_folders_sub_failed = 'Could not subscribe to folder!';
-$html_folders_unsub_failed = 'Could not unsubscribed from folder!';
+$html_folders_unsub_failed = 'Could not unsubscribe from folder!';
 $html_folders_rename_failed = 'Folder could not be renamed!';
 $html_folders_updated = 'Folders updated';
 $html_folder_subscribe = 'Subscribe to';
@@ -195,7 +195,7 @@ $html_receipt = 'Request a return receipt';
 $html_select = 'Select';
 $html_select_all = 'Invert Selection';
 $html_loading_image = 'Loading image';
-$html_send_confirmed = 'Your mail was accepted for delivery';
+$html_send_confirmed = 'Your e-mail was accepted for delivery';
 $html_no_sendaction = 'No action specified. Try enabling JavaScript.';
 $html_error_occurred = 'An error occurred';
 $html_prefs_file_error = 'Unable to open preferences file for writing.';
@@ -217,14 +217,14 @@ $html_contact_mod = 'Modify a contact';
 $html_contact_first = 'First name';
 $html_contact_last = 'Last name';
 $html_contact_nick = 'Nick';
-$html_contact_mail = 'Mail';
+$html_contact_mail = 'E-mail';
 $html_contact_list = 'Contact list of %1$s';
 $html_contact_del = 'from the contact list';
 $html_contact_count = '%1$d Contacts';
 
-$html_contact_err1 = 'Maximum number of contact is ';
-$html_contact_err2 = 'You can\'t add a new contact';
-$html_contact_err3 = 'You don\'t have access rights to contact list';
+$html_contact_err1 = 'Maximum number of contacts is ';
+$html_contact_err2 = 'You cannot add a new contact';
+$html_contact_err3 = 'You do not have access rights to contact list';
 $html_contact_none = 'No contacts could be found.';
 $html_del_msg = 'Delete selected messages ?';
 $html_down_mail = 'Download';
@@ -256,7 +256,6 @@ $html_session_file_error = 'Unable to open session file for writing.';
 $html_login_not_allowed = 'This login is not allowed for connexion.';
 
 // Send delay
-$lang_err_send_delay = 'You must wait between two mails';
+$lang_err_send_delay = 'You must wait between two e-mails';
 $lang_seconds = 'seconds';
-$html_search = 'Search';  //to translate
-?>
+$html_search = 'Search';

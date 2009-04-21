@@ -17,6 +17,9 @@
 
 /** Persian (فارسی)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
@@ -39,7 +42,7 @@ $alt_forward = 'فرستادن پيغام';
 $title_next_page = 'پيغام بعدى';
 $title_prev_page = 'پيغام قبلى';
 $html_lang = 'زبان';
-$html_welcome = 'خوش آمديد به';
+$html_welcome = 'خوش آمديد به %1$s';
 $html_login = 'شناسه کاربر';
 $html_passwd = 'رمز';
 $html_submit = 'ورود';

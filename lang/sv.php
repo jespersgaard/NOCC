@@ -17,9 +17,13 @@
 
 /** Swedish (Svenska)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
+ * @author Gabbe.g
  * @author Robert Niska <r.niska@redbox.d2g.nu>
  * @author Twobee
  */
@@ -39,18 +43,22 @@ $alt_reply = 'Svara';
 $alt_reply_all = 'Svara alla';
 $alt_forward = 'Vidarebefodra';
 $alt_next = 'Nästa';
+$title_next_page = 'Nästa';
+$title_prev_page = 'Föregående';
 $title_next_msg = 'Nästa';
 $title_prev_msg = 'Föregående';
 $html_on = 'På';
 $html_theme = 'Tema';
 $html_lang = 'Språk';
-$html_welcome = 'Välkommen till';
+$html_welcome = 'Välkommen till %1$s';
 $html_login = 'Användarnamn';
 $html_passwd = 'Lösenord';
 $html_submit = 'Logga in';
 $html_help = 'Hjälp';
+$html_server = 'Server';
 $html_wrong = 'Användarnamnet eller lösenordet är fel';
 $html_retry = 'Försök igen';
+$html_signature = 'Signatur';
 $html_view_header = 'Visa huvud';
 $html_remove_header = 'Dölj huvud';
 $html_inbox = 'Inkorg';

@@ -17,9 +17,14 @@
 
 /** Brazilian Portuguese (Português do Brasil)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
+ * @author Eduardo.mps
+ * @author GKnedo
  * @author Giovani Zamboni <zambaxtz@terra.com.br>
  * @author Renato Frederick <frederick@dahype.org>
  */
@@ -47,7 +52,7 @@ $title_prev_msg = 'Mensagem anterior';
 $html_on = 'Ligado';
 $html_theme = 'Tema';
 $html_lang = 'Linguagem';
-$html_welcome = 'Bem vindo ao';
+$html_welcome = 'Bem vindo ao %1$s';
 $html_login = 'Usuário';
 $html_passwd = 'Senha';
 $html_submit = 'Enviar';
@@ -66,14 +71,17 @@ $html_outlook_quoting = 'Quotas no estilo Outlook';
 $html_reply_to = 'Responder para';
 $html_use_signature = 'Usar Assinatura';
 $html_signature = 'Assinatura';
+$html_reply_leadin = 'Responder com prefixo';
 $html_prefs_updated = 'Preferências Atualizada';
 $html_manage_folders_link = 'Gerenciar Pastas IMAP';
 $html_manage_filters_link = 'Gerenciar Filtros de Email';
 $html_use_graphical_smilies = 'Usar Smiles';
 $html_sent_folder = 'Copiar emails enviados para';
+$html_trash_folder = 'Move e-mails deletados para uma pasta específica';
 $html_colored_quotes = 'Quotas Coloridas';
 $html_display_struct = 'Mostrar texto estruturado';
 $html_send_html_mail = 'Enviar email em formato HTML';
+$html_folders = 'Pastas';
 $html_folders_create_failed = 'Pasta não pôde ser criada';
 $html_folders_sub_failed = 'Não foi possível asssinar a pasta!';
 $html_folders_unsub_failed = 'Não foi possível cancelar assinatura deste pasta!';
@@ -155,9 +163,11 @@ $html_msg = 'Mensagem';
 $html_msgs = 'Mensagens';
 $html_configuration = 'Este servidor ainda não esta bem configurado !';
 $html_priority = 'Prioridade';
+$html_lowest = 'Mais Baixo';
 $html_low = 'Baixa';
 $html_normal = 'Normal';
 $html_high = 'Alta';
+$html_highest = 'Mais Alto';
 $html_receipt = 'Pedir confirmação de Leitura';
 $html_select = 'Selecionar';
 $html_select_all = 'Inverter Seleção';
@@ -174,7 +184,7 @@ $html_read = 'lido';
 $html_unread = 'não lido';
 $html_encoding = 'Codificação de Caracteres';
 $html_add = 'Adicionar';
-$html_contacts = 'Contatos';
+$html_contacts = '%1$s Contatos';
 $html_modify = 'Modificar';
 $html_back = 'Voltar';
 $html_contact_add = 'Adicionar novo contato';
@@ -183,12 +193,13 @@ $html_contact_first = 'Primeiro Nome';
 $html_contact_last = 'Último Nome';
 $html_contact_nick = 'Apelido';
 $html_contact_mail = 'E-Mail';
-$html_contact_list = 'Listas de contatos de';
+$html_contact_list = 'Listas de contatos de %1$s';
 $html_contact_del = 'da lista de contatos';
 $html_contact_err1 = 'Máximo número de contatos é';
 $html_contact_err2 = 'Você não pode adicionar um novo contato';
 $html_contact_err3 = 'Você não tem acesso à lista de contatos';
 $html_del_msg = 'Deletar mensagens selecionadas ?';
+$html_down_mail = 'Baixar';
 $original_msg = '-- Mensagem Original --';
 $to_empty = 'Campo \'Para\' não pode estar vazio !';
 $html_images_warning = 'Para sua segurança, imagens remotas não são mostradas.';
@@ -205,3 +216,6 @@ $html_seperate_msg_win = 'Mensagens em uma janela separada';
 $html_err_file_contacts = 'Impossível abrir arquivo de contatos para gravação.';
 $html_session_file_error = 'Impossível abrir arquivo de dessão para gravação.';
 $html_login_not_allowed = 'Este login não é permitido para conexão.';
+$lang_err_send_delay = 'Você tem de aguardar um pouco entre suas ações';
+$lang_seconds = 'segundos';
+$html_search = 'Buscar';

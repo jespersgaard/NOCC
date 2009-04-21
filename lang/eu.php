@@ -17,6 +17,9 @@
 
 /** Basque (Euskara)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
@@ -95,7 +98,7 @@ $html_select = 'Aukeratu';
 $html_select_all = 'Aukerak Alderantzikatu';
 $html_loading_image = 'Irudia kargatzen';
 $html_add = 'Gehitu';
-$html_contacts = 'Kontaktuak';
+$html_contacts = '%1$s Kontaktuak';
 $html_modify = 'Aldatu';
 $html_back = 'Atzera';
 $html_contact_add = 'Kontaktu berria gehitu';

@@ -17,6 +17,9 @@
 
 /** Icelandic (Íslenska)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
@@ -42,7 +45,7 @@ $title_prev_msg = 'Fyrra bréf';
 $html_on = 'á';
 $html_theme = 'Þema';
 $html_lang = 'Tungumál';
-$html_welcome = 'Velkomin/n í';
+$html_welcome = 'Velkomin/n í %1$s';
 $html_login = 'Notendanafn';
 $html_passwd = 'Lykilorð';
 $html_submit = 'Skrá inn';

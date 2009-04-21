@@ -17,9 +17,13 @@
 
 /** Japanese (日本語)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
+ * @author Aotake
  * @author Fryed-peach
  * @author Tadashi Jokagi <elf2000@users.sourceforge.net>
  * @author 青子守歌
@@ -33,8 +37,8 @@ $no_locale_date_format = '%Y-%m-%d';
 $default_time_format = '%H:%M';
 $err_user_empty = 'ログイン欄が空です';
 $err_passwd_empty = 'パスワード欄が空です';
-$alt_delete = '選択メッセージ削除';
-$alt_delete_one = 'メッセージ削除';
+$alt_delete = '選択したメッセージを削除';
+$alt_delete_one = 'メッセージを削除';
 $alt_new_msg = '新規メッセージ';
 $alt_reply = '著者に返信';
 $alt_reply_all = '全員に返信';
@@ -48,16 +52,16 @@ $title_prev_msg = '前のメッセージ';
 $html_on = 'オン';
 $html_theme = 'テーマ';
 $html_lang = '言語';
-$html_welcome = 'ようこそ';
+$html_welcome = '%1$sへようこそ';
 $html_login = 'ログイン';
 $html_passwd = 'パスワード';
 $html_submit = '送信';
 $html_help = 'ヘルプ';
 $html_server = 'サーバー';
-$html_wrong = 'ログインまたはパスワードは正しくありません。';
+$html_wrong = 'ログインもしくはパスワードが誤っています';
 $html_retry = '再挑戦';
 $html_remember = '設定を覚える';
-$html_msgperpage = 'ページ毎メッセージ';
+$html_msgperpage = 'ページ毎のメッセージ数';
 $html_preferences = '設定';
 $html_full_name = 'フルネーム';
 $html_email_address = '電子メールアドレス';
@@ -83,10 +87,10 @@ $html_folders_sub_failed = 'フォルダーを購読出来ませんで強いた!
 $html_folders_unsub_failed = 'フォルダーを未購読に出来ませんでした!';
 $html_folders_rename_failed = 'フォルダー名を変更出来ませんでした!';
 $html_folders_updated = 'フォルダーを更新しました';
-$html_folder_subscribe = 'フォルダー購読 フォルダー:';
+$html_folder_subscribe = '購読するフォルダー:';
 $html_folder_rename = '名称変更';
 $html_folder_create = '新しいフォルダー名:';
-$html_folder_remove = 'フォルダー購読をやめる フォルダー:';
+$html_folder_remove = '購読をやめるフォルダー:';
 $html_folder_delete = '削除';
 $html_folder_to = 'へ';
 $html_filter_remove = '削除';
@@ -122,7 +126,7 @@ $html_reply_short = '返';
 $html_reply_all = '全員に返信';
 $html_forward = '転送';
 $html_forward_short = '転送';
-$html_forward_info = '転送されたメッセージはひとつの添付として送信されるでしょう。';
+$html_forward_info = '転送されたメッセージはこのメッセージへの添付として送信されます。';
 $html_delete = '削除';
 $html_new = '新規';
 $html_mark = '削除';
@@ -180,7 +184,7 @@ $html_read = '既読';
 $html_unread = '未読';
 $html_encoding = '文字エンコーディング';
 $html_add = '追加';
-$html_contacts = 'アドレス帳';
+$html_contacts = '%1$の住所録';
 $html_modify = '修正';
 $html_back = '戻る';
 $html_contact_add = 'アドレス帳新規追加';
@@ -189,11 +193,13 @@ $html_contact_first = '名前';
 $html_contact_last = '苗字';
 $html_contact_nick = 'ニック';
 $html_contact_mail = 'メール';
-$html_contact_list = 'アドレス帳 所有者:';
+$html_contact_list = '%1$の住所録';
 $html_contact_del = 'コンタクトリストから';
+$html_contact_count = 'お問い合わせ先';
 $html_contact_err1 = '最大のアドレス帳数:';
 $html_contact_err2 = 'アドレス帳に追加できませんでした。';
 $html_contact_err3 = 'アドレス帳へのアクセス権限を持っていません。';
+$html_contact_none = '連絡先がありません。';
 $html_del_msg = '選択メッセージを削除しますか?';
 $html_down_mail = 'ダウンロード';
 $original_msg = '-- 元のメッセージ --';

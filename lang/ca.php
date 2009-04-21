@@ -17,6 +17,9 @@
 
 /** Catalan (Català)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
@@ -42,7 +45,7 @@ $title_prev_msg = 'Missatge anterior';
 $html_on = 'a';
 $html_theme = 'Assumpte';
 $html_lang = 'Idioma';
-$html_welcome = 'Benvingut a';
+$html_welcome = 'Benvingut a %1$s';
 $html_login = 'Usuari';
 $html_passwd = 'Contrasenya';
 $html_submit = 'Enviar';
@@ -160,7 +163,7 @@ $html_mark_as = 'Marcar com';
 $html_read = 'llegit';
 $html_unread = 'per llegir';
 $html_add = 'Afegir';
-$html_contacts = 'Contactes';
+$html_contacts = '%1$s Contactes';
 $html_modify = 'Modificar';
 $html_back = 'Enrere';
 $html_contact_add = 'Afegir contacte nou';
@@ -169,7 +172,7 @@ $html_contact_first = 'Nom';
 $html_contact_last = 'Cognoms';
 $html_contact_nick = 'Renom';
 $html_contact_mail = 'Correu';
-$html_contact_list = 'Llista de contactes de';
+$html_contact_list = 'Llista de contactes de %1$s';
 $html_contact_del = 'de la llista de contactes';
 $html_contact_err1 = 'El mombre màxim de contactes és';
 $html_contact_err2 = 'Nom podeu afegir cap més contacte';

@@ -17,6 +17,9 @@
 
 /** Bulgarian (Български)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
@@ -44,7 +47,7 @@ $title_next_msg = 'Следващо писмо';
 $title_prev_msg = 'Предишно писмо';
 $html_theme = 'Дизайн';
 $html_lang = 'Език';
-$html_welcome = 'Добре дошли!<br/>';
+$html_welcome = 'Добре дошли %1$s!';
 $html_login = 'Име';
 $html_passwd = 'Парола';
 $html_submit = 'Потвърждение';
@@ -62,6 +65,19 @@ $html_reply_to = 'Отговори на';
 $html_use_signature = 'Ползвай сигнатура';
 $html_signature = 'Сигнатура';
 $html_prefs_updated = 'Настройките са обновени';
+$html_folder_rename = 'Преименуване';
+$html_folder_remove = 'Отписване от';
+$html_folder_delete = 'Изтриване';
+$html_filter_remove = 'Изтриване';
+$html_filter_contains = 'съдържа';
+$html_and = 'И';
+$html_new_msg_in = 'Нови съобщения в';
+$html_or = 'или';
+$html_move = 'Преместване';
+$html_copy = 'Копиране';
+$html_messages_to = 'на избраните съобщения в';
+$html_page = 'Страница';
+$html_of = 'от';
 $html_view_header = 'Покажи служ. информация';
 $html_remove_header = 'Скрий служ. информация';
 $html_inbox = 'Получени писма';
@@ -110,7 +126,17 @@ $html_select = 'Маркирай';
 $html_loading_image = 'Зареждане на картинка';
 $html_send_confirmed = 'Писмото е прието';
 $html_no_sendaction = 'Не е посочено действие. Опитай да разрешиш Javascript в браузера.';
+$html_mark_as = 'Отбелязване като';
+$html_read = 'прочетено';
+$html_unread = 'непрочетено';
+$html_add = 'Добавяне';
+$html_contact_first = 'Име';
+$html_contact_last = 'Фамилия';
+$html_down_mail = 'Изтегляне';
 $original_msg = '-- Оригинално писмо --';
 $to_empty = 'Полето \'За\' не трябва да е празно !';
 $html_smtp_error_no_conn = 'Грешка! Не може да бъда осъществена връзка със сървъра';
 $html_smtp_error_unexpected = 'Грешка! Непознат отговор от сървъра:';
+$html_invalid_email_address = 'Невалиден адрес за електронна поща';
+$lang_seconds = 'секунди';
+$html_search = 'Търсене';

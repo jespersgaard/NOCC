@@ -17,6 +17,9 @@
 
 /** German (Deutsch)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
@@ -26,6 +29,7 @@
  * @author David Ferch <dferch AT tk-online DOT net>
  * @author Tim Gerundt <tim AT gerundt DOT de>
  * @author Twobee
+ * @author Xqt
  */
 
 $charset = 'UTF-8';
@@ -51,17 +55,17 @@ $title_prev_msg = 'Vorige Nachricht';
 $html_on = 'an';
 $html_theme = 'Theme';
 $html_lang = 'Sprache';
-$html_welcome = 'Willkommen bei';
+$html_welcome = 'Willkommen bei %1$s';
 $html_login = 'Login';
 $html_passwd = 'Passwort';
 $html_submit = 'Ok';
-$html_help = 'Hilfe';
+$html_help = 'Hilf';
 $html_server = 'Server';
 $html_wrong = 'Der Nutzername oder das Passwort sind falsch';
 $html_retry = 'Nochmal';
 $html_remember = 'Einstellungen speichern';
 $html_msgperpage = 'Nachrichten pro Seite';
-$html_preferences = 'Einstellungen';
+$html_preferences = 'paerseenlich Profil';
 $html_full_name = 'Vollständiger Name';
 $html_email_address = 'E-Mail-Adresse';
 $html_ccself = 'Kopie der gesendeten Nachrichten an die eigene Adresse schicken';
@@ -107,13 +111,13 @@ $html_select_one = '--Auswählen--';
 $html_and = 'Und';
 $html_new_msg_in = 'Neue Nachrichten in';
 $html_or = 'oder';
-$html_move = 'Verschiebe';
+$html_move = 'Ziehe';
 $html_copy = 'Kopiere';
 $html_messages_to = 'die markierten Nachrichten nach';
 $html_gotopage = 'Gehe zu Seite';
 $html_gotofolder = 'Gehe zu Ordner';
 $html_other_folders = 'Ordner Liste';
-$html_page = 'Seite';
+$html_page = 'Blatt';
 $html_of = 'von';
 $html_view_header = 'Header anzeigen';
 $html_remove_header = 'Header verbergen';
@@ -182,7 +186,7 @@ $html_read = 'gelesen';
 $html_unread = 'ungelesen';
 $html_encoding = 'Zeichensatz-Kodierung';
 $html_add = 'Hinzufügen';
-$html_contacts = 'Kontakte';
+$html_contacts = '%1$s Kontakte';
 $html_modify = 'Ändere';
 $html_back = 'Zurück';
 $html_contact_add = 'Füge neuen Kontakt hinzu';
@@ -191,7 +195,7 @@ $html_contact_first = 'Vorname';
 $html_contact_last = 'Nachname';
 $html_contact_nick = 'Spitzname';
 $html_contact_mail = 'E-Mail-Adresse';
-$html_contact_list = 'Kontaktliste von';
+$html_contact_list = 'Kontaktliste von %1$s';
 $html_contact_del = 'von der Kontaktliste';
 $html_contact_err1 = 'Die Maximalanzahl der Kontakte ist';
 $html_contact_err2 = 'Sie können keinen neuen Kontakt hinzufügen';

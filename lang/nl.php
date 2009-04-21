@@ -17,6 +17,9 @@
 
 /** Dutch (Nederlands)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
@@ -52,7 +55,7 @@ $title_prev_msg = 'Vorig bericht';
 $html_on = 'aan';
 $html_theme = 'Weergave';
 $html_lang = 'Taal';
-$html_welcome = 'Welkom bij';
+$html_welcome = 'Welkom bij %1$s';
 $html_login = 'Gebruikersnaam';
 $html_passwd = 'Wachtwoord';
 $html_submit = 'Verzenden';
@@ -184,7 +187,7 @@ $html_read = 'Gelezen';
 $html_unread = 'Ongelezen';
 $html_encoding = 'Karakterset';
 $html_add = 'Toevoegen';
-$html_contacts = 'Contactpersonen';
+$html_contacts = '%1$s contactpersonen';
 $html_modify = 'Wijzigen';
 $html_back = 'Terug';
 $html_contact_add = 'Nieuw contactpersoon toevoegen';
@@ -193,11 +196,13 @@ $html_contact_first = 'Voornaam';
 $html_contact_last = 'Achternaam';
 $html_contact_nick = 'Bijnaam';
 $html_contact_mail = 'E-mailadres';
-$html_contact_list = 'Contactlijst van';
+$html_contact_list = 'Contactenlijst van %1$s';
 $html_contact_del = 'van de contactlijst';
+$html_contact_count = '%1$d contacten';
 $html_contact_err1 = 'Het maximaal aantal contactpersonen is';
 $html_contact_err2 = 'Er kan geen nieuw contactpersoon toegevoegd worden';
 $html_contact_err3 = 'Geen toegang tot de contactlijst';
+$html_contact_none = 'Er zijn nog geen contactpersonen ingesteld.';
 $html_del_msg = 'Geselecteerde berichten verwijderen?';
 $html_down_mail = 'Downloaden';
 $original_msg = '-- Oorspronkelijk Bericht --';

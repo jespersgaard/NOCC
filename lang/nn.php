@@ -17,9 +17,13 @@
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
+ * @author Harald Khan
  * @author Ove Ruben R Olsen <ruben@noia.no>
  */
 
@@ -36,34 +40,39 @@ $alt_delete_one = 'Fjern meldinga';
 $alt_new_msg = 'Nye meldingar';
 $alt_reply = 'Svar på melding';
 $alt_reply_all = 'Svar til alle';
-$alt_forward = 'Videresend';
+$alt_forward = 'Vidaresend';
+$alt_next = 'Neste';
+$alt_prev = 'Førre';
+$title_next_page = 'Neste side';
+$title_prev_page = 'Førre side';
 $title_next_msg = 'Neste';
-$title_prev_msg = 'Forrige';
+$title_prev_msg = 'Førre';
 $html_on = 'til';
 $html_theme = 'Bunad';
 $html_lang = 'Målføre';
-$html_welcome = 'Velkommen til';
+$html_welcome = 'Velkommen til %1$s';
 $html_login = 'Brukarnamn';
 $html_passwd = 'Kjenneord';
-$html_submit = 'Log på';
+$html_submit = 'Logg på';
 $html_help = 'Hjelp';
-$html_wrong = 'Feil brukernamn eller kjenneord';
+$html_server = 'Tenar';
+$html_wrong = 'Feil brukarnamn eller kjenneord';
 $html_retry = 'Prøv på ny';
 $html_view_header = 'Vis meldinghovud';
 $html_remove_header = 'Skjul meldinghovud';
 $html_new_msg = 'Lag ny melding';
 $html_reply = 'Svar';
 $html_reply_all = 'Svar til alle';
-$html_forward = 'Videresend';
+$html_forward = 'Vidaresend';
 $html_delete = 'Ta bort';
 $html_new = 'Ny';
 $html_mark = 'Ta bort';
 $html_att = 'Vedlegg';
-$html_atts = 'Vedlagte filar';
+$html_atts = 'Vedlagte filer';
 $html_att_unknown = '[ukjent vedlegg]';
 $html_attach = 'Vedlegg';
-$html_attach_forget = 'Det er naudsynt å vedlegga fila, før du sendar meldinga!';
-$html_attach_delete = 'Fjern markerete vedlegg';
+$html_attach_forget = 'Det er naudsynt å leggja ved fila før du sender meldinga!';
+$html_attach_delete = 'Fjern markerte vedlegg';
 $html_from = 'Frå';
 $html_subject = 'Emne';
 $html_date = 'Dato';
@@ -78,5 +87,5 @@ $html_no_mail = 'Ingen meldingar';
 $html_logout = 'Avslutt';
 $html_msg = 'Melding';
 $html_msgs = 'Meldingar';
-$html_configuration = 'Serveren er ikkje korrekt satt opp!';
+$html_configuration = 'Tenaren er ikkje korrekt satt opp!';
 $original_msg = '-- Opphaveleg melding --';

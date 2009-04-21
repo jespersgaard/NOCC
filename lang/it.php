@@ -17,10 +17,14 @@
 
 /** Italian (Italiano)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
  * @author Francesco Andreozzi <ozzo@lauratiamo.it>
+ * @author Gianfranco
  * @author Guido Venturini <guido@technojuice.com>
  */
 
@@ -38,12 +42,14 @@ $alt_new_msg = 'Nuovo messaggio';
 $alt_reply = 'Rispondi al Mittente';
 $alt_reply_all = 'Rispondi a tutti';
 $alt_forward = 'Inoltra';
+$title_next_page = 'Pagina successiva';
+$title_prev_page = 'Pagina precedente';
 $title_next_msg = 'Prossimo';
 $title_prev_msg = 'Precedente';
 $html_on = 'sicuro';
 $html_theme = 'Tema';
 $html_lang = 'Lingua';
-$html_welcome = 'Benvenuto in';
+$html_welcome = 'Benvenuto in %1$s';
 $html_login = 'Utente';
 $html_passwd = 'Password';
 $html_submit = 'Ok';
@@ -67,6 +73,9 @@ $html_manage_folders_link = 'Configura Cartelle IMAP';
 $html_manage_filters_link = 'Configura Filtri Email';
 $html_use_graphical_smilies = 'Usa smilies grafici';
 $html_sent_folder = 'Copia email inviate in cartella predefinita';
+$html_trash_folder = 'Sposta i messaggi cancellati in una cartella dedicata';
+$html_send_html_mail = 'Invia messaggi in formato HTML';
+$html_folders = 'Cartelle';
 $html_folders_create_failed = 'La cartella non può essere creata!';
 $html_folders_sub_failed = 'Impossibile connettersi alla cartella!';
 $html_folders_unsub_failed = 'Impossibile disconnettersi dalla cartella!';
@@ -139,17 +148,19 @@ $html_msg = 'Messaggio';
 $html_msgs = 'Messaggi';
 $html_configuration = 'Questo server non è configurato correttamente!';
 $html_priority = 'Priorita';
+$html_lowest = 'Più bassa';
 $html_low = 'Bassa';
 $html_normal = 'Normale';
 $html_high = 'Alta';
+$html_highest = 'Più alta';
 $html_receipt = 'Richiedi conferma di recapito';
 $html_select = 'Seleziona';
 $html_select_all = 'Inverti Selezione';
 $html_loading_image = 'Apertura immagine';
-$html_send_confirmed = 'La tua e-mail e stata accettata per la consegna';
-$html_no_sendaction = 'Nessuna azione specificata. Provare ad abilitare JavaScript.';
-$html_error_occurred = 'Si e verificato un errore';
-$html_prefs_file_error = 'Impossibile aprire il file di preferences per la modifica.';
+$html_send_confirmed = 'La tua e-mail è stata accettata per la consegna';
+$html_no_sendaction = 'Nessuna azione specificata. Prova ad abilitare i JavaScript.';
+$html_error_occurred = 'Si è verificato un errore';
+$html_prefs_file_error = 'Impossibile aprire per la modifica il file delle preferenze.';
 $html_wrap = 'Nuovo testo a capo alla colonna:';
 $html_usenet_separator = 'Separatore ("-- \n") prima della firma';
 $html_mark_as = 'Contrassegna come';
@@ -157,7 +168,7 @@ $html_read = 'letto';
 $html_unread = 'non letto';
 $html_encoding = 'Encoding caratteri';
 $html_add = 'Nuovo';
-$html_contacts = 'Contatti';
+$html_contacts = '%1$s Contatti';
 $html_modify = 'Modifica';
 $html_back = 'Indietro';
 $html_contact_add = 'Aggiungi nuovo contatto';
@@ -166,7 +177,7 @@ $html_contact_first = 'Nome';
 $html_contact_last = 'Cognome';
 $html_contact_nick = 'Nick';
 $html_contact_mail = 'Mail';
-$html_contact_list = 'Lista dei Contatti di';
+$html_contact_list = 'Lista dei Contatti di %1$s';
 $html_contact_del = 'dalla lista dei contatti';
 $html_contact_err1 = 'Il numero massimo dei contatti è';
 $html_contact_err2 = 'Non puoi aggiungere altri contatti';
@@ -174,13 +185,17 @@ $html_contact_err3 = 'Non hai i privilegi necessari per accedere alla lista cont
 $html_del_msg = 'Eliminare i messaggi selezionati ?';
 $original_msg = '-- Messaggio Originale --';
 $to_empty = 'Il campo \'A\' non può essere vuoto !';
-$html_smtp_error_no_conn = 'Impossibile stabilire una connessione';
+$html_images_display = 'Mostra immagini';
+$html_smtp_error_no_conn = 'Impossibile stabilire una connessione SMTP';
 $html_smtp_error_unexpected = 'Risposta inattesa dal server SMTP:';
 $lang_could_not_connect = 'Non è possibile connettersi al server';
 $lang_invalid_msg_num = 'Numero messaggio errato';
-$html_file_upload_attack = 'Possibile attacco di upload di files';
+$html_file_upload_attack = 'Possibile attacco tramite caricamento di files esterni';
 $html_invalid_email_address = 'Indirizzo e-mail non valido';
 $html_invalid_msg_per_page = 'Numero di messaggi per pagina non valido';
 $html_invalid_wrap_msg = 'Ampiezza testo a capo non valida';
 $html_seperate_msg_win = 'Messaggi in finestre separate';
 $html_err_file_contacts = 'Impossibile aprire in scrittura il file dei contatti.';
+$html_session_file_error = 'Impossibile aprire in scrittura il file di sessione';
+$lang_seconds = 'secondi';
+$html_search = 'Cerca';

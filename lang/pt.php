@@ -17,6 +17,9 @@
 
 /** Portuguese (Português)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
@@ -44,7 +47,7 @@ $title_prev_msg = 'Anterior';
 $html_on = 'em';
 $html_theme = 'Tema';
 $html_lang = 'Língua';
-$html_welcome = 'Benvindo ao';
+$html_welcome = 'Benvindo ao %1$s';
 $html_login = 'Identificador';
 $html_passwd = 'Senha';
 $html_submit = 'Entrar';

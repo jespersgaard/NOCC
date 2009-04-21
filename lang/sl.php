@@ -17,6 +17,9 @@
 
 /** Slovenian (Slovenščina)
  *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
  * @ingroup Language
  * @file
  *
@@ -41,7 +44,7 @@ $title_next_msg = 'Naslednji';
 $title_prev_msg = 'Prejnji';
 $html_theme = 'tema';
 $html_lang = 'Jezik';
-$html_welcome = 'Dobrodoli v';
+$html_welcome = 'Dobrodoli v %1$s';
 $html_login = 'Uporabniko ime';
 $html_passwd = 'Geslo';
 $html_submit = 'Prijava';
