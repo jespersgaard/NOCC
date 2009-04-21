@@ -29,7 +29,6 @@
  * @author David Ferch <dferch AT tk-online DOT net>
  * @author Tim Gerundt <tim AT gerundt DOT de>
  * @author Twobee
- * @author Xqt
  */
 
 $charset = 'UTF-8';
@@ -111,7 +110,7 @@ $html_select_one = '--Auswählen--';
 $html_and = 'Und';
 $html_new_msg_in = 'Neue Nachrichten in';
 $html_or = 'oder';
-$html_move = 'Ziehe';
+$html_move = 'Verschiebe';
 $html_copy = 'Kopiere';
 $html_messages_to = 'die markierten Nachrichten nach';
 $html_gotopage = 'Gehe zu Seite';
