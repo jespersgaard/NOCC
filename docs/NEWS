@@ -24,6 +24,7 @@ NOCC 1.8  ?? ??, ??
     * Formatting of language file has been modified, for coorperation
       with TranslateWiki.net (Siebrand Mazeland).
     * Language files update (Siebrand Mazeland, TranslateWiki.net).
+    * Drop fixed pixel font sizes from themes (Tim Gerundt).
 
 NOCC 1.7  January 01, 2008
 
