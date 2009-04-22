@@ -1,42 +1,22 @@
-.inbox {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-}
-
 .inbox img {
   height: 17px;
   width: 17px;
 }
 
-.prefs {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-}
-
 .titlew {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
   color: #FFFFFF;
 }
 
 .menuOpts {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
   color: #000000;
 }
 
 .menuOpts input {
-  font-size: 13px;
   overflow: visible;
-}
-
-.menuOpts select {
-  font-size: 13px;
 }
 
 .button {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
 }
 
 label {
@@ -60,8 +40,6 @@ label {
 }
 
 .currentInbox {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
   color: white;
   font-weight: bold;
 }
@@ -95,15 +73,11 @@ label {
 }
 
 .currentQuota {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
   color: #FFFFFF;
-  font-weight: bold;    
+  font-weight: bold;
 }
 
 .maxQuota {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
   color: #FFFFFF;
   font-weight: bold;    
 }
@@ -116,6 +90,8 @@ body {
   min-width: 40em;
   color: #000000;
   background-color: #FFFFFF;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
 }
 
 form {
@@ -167,15 +143,12 @@ table {
   margin: 0;
   margin-left: 10px;
   padding: 5px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 #header ul {
   margin: 0;
   padding: 0;
   text-align: right;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: smaller;
 }
 
 #header li {
@@ -212,8 +185,6 @@ table {
   margin: 0;
   padding: 1px 0 1px 0;
   list-style-type: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: smaller;
 }
 
 .mainmenu ul li {
@@ -250,8 +221,6 @@ table {
   margin: 0;
   padding: 1px 0 1px 0;
   list-style-type: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: smaller;
 }
 
 .submenu ul li {
@@ -287,7 +256,6 @@ table {
   margin: 0;
   padding: 2px 0;
   list-style-type: none;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .pagenav ul li {
@@ -382,8 +350,6 @@ img.sort {
 }
 
 .errorTitle {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
   font-weight: bold;
   color: #FFFFFF;
   text-align: center;
@@ -391,8 +357,6 @@ img.sort {
 }
 
 .errorText {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
   background-color: #CCCCCC;
   text-align: center;
   padding: 2px;
@@ -403,7 +367,6 @@ img.sort {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
   background-color: #CCCCCC;
   border: 1px solid #000000;
 }
@@ -411,7 +374,6 @@ img.sort {
 #loginBox h2 {
   margin: 0;
   padding: 0.5em;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 #loginBox table {
@@ -436,8 +398,6 @@ img.sort {
 
 #inboxTable {
   margin: .5em 0;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
   border: 1px solid silver;
   border-collapse: collapse;
 }
@@ -516,8 +476,6 @@ img.sort {
 
 #inboxStatus {
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
 }
 
 .send {
@@ -541,15 +499,11 @@ img.sort {
 }
 
 .sendLabel {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
   width: 15%;
   text-align: right;
 }
 
 .sendData {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
   text-align: left;
 }
 
@@ -615,7 +569,6 @@ hr.mailAttachSep {
 .mail,
 .mailTextAttach {
   font-family: monospace;
-  font-size: 13px;
 }
 
 .mailNav {
@@ -633,23 +586,17 @@ hr.mailAttachSep {
 }
 
 .mailSwitchHeaders {
- font-family: Arial, Helvetica, sans-serif;
- font-size: 12px;
  text-align: left;
  background-color: #F0F0F0;
 }
 
 .mailHeaderLabel {
- font-family: Arial, Helvetica, sans-serif;
- font-size: 12px;
  font-weight: normal;
  text-align: right;
  background-color: #F0F0F0;
 }
 
 .mailHeaderData {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
   font-weight: bold;
   background-color: #F0F0F0;
   text-align: left;
@@ -658,8 +605,6 @@ hr.mailAttachSep {
 .contactAdd table {
   width: 100%;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
   color: #000000;
   background-color: #F0F0F0;
   border: 1px solid silver;
@@ -692,8 +637,6 @@ hr.mailAttachSep {
 
 .contactsList table {
   width: 100%;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
   border: 1px solid silver;
   border-collapse: collapse;
 }
@@ -723,8 +666,6 @@ hr.mailAttachSep {
 
 .contactsAddLink {
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
   font-weight: bold;
 }
 
@@ -757,15 +698,11 @@ hr.mailAttachSep {
 }
 
 .prefsLabel {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
   text-align: right;
   width: 20%;
 }
 
 .prefsData {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
   text-align: left;
 }
 
@@ -779,8 +716,6 @@ hr.mailAttachSep {
   background-color: #FFFF80;
   text-align: center;
   color: #000000;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
 }
 
 /* colored quotes */
