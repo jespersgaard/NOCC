@@ -367,6 +367,7 @@ img.sort {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  font-size: larger;
   background-color: #CCCCCC;
   border: 1px solid #000000;
 }
