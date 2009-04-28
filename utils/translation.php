@@ -12,7 +12,7 @@
  * @package    NOCC
  * @subpackage Utilities
  * @license    http://www.gnu.org/licenses/ GNU General Public License
- * @version    SVN: $Id: translation.php 1637 2009-04-19 11:29:00Z radical-tobi $
+ * @version    SVN: $Id$
  */
 
 
