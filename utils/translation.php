@@ -15,7 +15,8 @@
  * @version    SVN: $Id: translation.php 1637 2009-04-19 11:29:00Z radical-tobi $
  */
 
-  function i18n_merge($func_str_translation = NULL, $func_str_insert = NULL, $func_convert = 1) {
+
+  function i18n_message($func_str_translation = NULL, $func_str_insert = NULL, $func_convert = 1) {
   
     if ((!is_null($func_str_translation)) && (!is_null($func_str_insert))) {
 

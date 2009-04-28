@@ -37,7 +37,7 @@ $_SESSION['nocc_loggedin'] = 1;
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang ?>" lang="<?php echo $lang ?>">
 <head>
-  <title>NOCC - Webmail - <?php echo i18n_merge($html_contact_list, $_SESSION["nocc_user"], 0); ?></title>
+  <title>NOCC - Webmail - <?php echo i18n_message($html_contact_list, $_SESSION["nocc_user"], 0); ?></title>
   <link href="themes/<?php echo $_SESSION['nocc_theme']; ?>/style.css" rel="stylesheet" type="text/css" />
   <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
   <meta content="text/html; charset=<?php echo $charset ?>" http-equiv="Content-Type" />
@@ -114,7 +114,7 @@ $_SESSION['nocc_loggedin'] = 1;
 		<ul>
 			<li>
 				<?php
-					$tab_title_personal = i18n_merge($html_contact_list, $_SESSION["nocc_user"]);
+					$tab_title_personal = i18n_message($html_contact_list, $_SESSION["nocc_user"]);
 					
 					// toggle activated tab
 					if ($contacts_ldap === true) {
@@ -127,7 +127,7 @@ $_SESSION['nocc_loggedin'] = 1;
 			</li>
 			<li>
 				<?php
-					$tab_title_group = i18n_merge($html_contacts, $conf->contact_ldap_options['group_title']);
+					$tab_title_group = i18n_message($html_contacts, $conf->contact_ldap_options['group_title']);
 					
 					// toggle activated tab
 					if ($contacts_ldap === false) {
@@ -188,7 +188,7 @@ $_SESSION['nocc_loggedin'] = 1;
   ?>
   <div class="contactsList">
     <p class="contactsTitle">
-      <?php echo i18n_merge($html_contact_list, $_SESSION["nocc_user"]); ?>
+      <?php echo i18n_message($html_contact_list, $_SESSION["nocc_user"]); ?>
     </p>
 
     <table>
@@ -337,7 +337,7 @@ $_SESSION['nocc_loggedin'] = 1;
 			foreach ($contact_list AS $list_val) {
 				$_uid = trim($list_val['count']);
 				if ($i === 1) {
-				print('<div id="contact-amount"><span id="contact-count">' . i18n_merge($html_contact_count, $contact_list['count']) . '</span></div>');
+				print('<div id="contact-amount"><span id="contact-count">' . i18n_message($html_contact_count, $contact_list['count']) . '</span></div>');
 				}
 				
 				// filter out hostnames (for  windows like hostname$)

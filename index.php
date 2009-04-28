@@ -27,7 +27,7 @@ require ('./html/header.php');
 ?>
             <form action="action.php" method="post" id="nocc_webmail_login">
             <div id="loginBox">
-              <h2><?php echo i18n_merge($html_welcome, $conf->nocc_name.' v'.$conf->nocc_version); ?></h2>
+              <h2><?php echo i18n_message($html_welcome, $conf->nocc_name.' v'.$conf->nocc_version); ?></h2>
               <input type="hidden" name="folder" value="INBOX" />
               <input type="hidden" name="action" value="login" />
               <table>
