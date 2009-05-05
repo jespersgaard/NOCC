@@ -207,6 +207,10 @@ class nocc_imap
         return imap_utf7_encode($thing);
     }
 
+    function utf8($mime_encoded_text) {
+        return imap_utf8($mime_encoded_text);
+    }
+
     function getmailboxes(&$ev) {
         $mailboxes = imap_getmailboxes($this->conn, '{'.$this->server.'}', '*');
         if(!is_array($mailboxes)) {
