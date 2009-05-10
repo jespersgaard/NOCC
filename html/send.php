@@ -121,12 +121,12 @@
                 $totalsize = 0;
                 for ($i = 0; $i < count($attach_array); $i++) {
                     $totalsize += $attach_array[$i]->file_size;
-                    $att_name = nocc_imap::mime_header_decode($attach_array[$i]->file_name);
+                    $att_name = nocc_imap::utf8($attach_array[$i]->file_name);
                     echo '<tr>';
                     echo '<td>';
                     echo '<input type="checkbox" name="file-' . $i . '" id="file-' . $i . '" />';
                     echo '</td>';
-                    echo '<td><label for="file-' . $i . '">' . convertLang2Html($att_name[0]->text) . '</label></td>';
+                    echo '<td><label for="file-' . $i . '">' . htmlentities($att_name, ENT_COMPAT, 'UTF-8') . '</label></td>';
                     echo '<td>' . $attach_array[$i]->file_size . ' ' . $html_bytes . '</td>';
                     echo '</tr>';
                 }
