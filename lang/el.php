@@ -24,6 +24,7 @@
  * @file
  *
  * @author Consta
+ * @author Crazymadlover
  * @author Dead3y3
  * @author Omnipaedista
  * @author Spyros Ioakim <sioakim@ace-hellas.gr>
@@ -195,9 +196,11 @@ $html_contact_nick = 'Ψευδώνυμο';
 $html_contact_mail = 'Αλληλογραφία';
 $html_contact_list = 'Κατάλογος επαφών του %1$s';
 $html_contact_del = 'από τον κατάλογο επαφών';
+$html_contact_count = '%1$d Επαφές';
 $html_contact_err1 = 'Μέγιστος αριθμός επαφών είναι';
 $html_contact_err2 = 'Δεν μπορείτε να προσθέσετε μια νέα επαφή';
 $html_contact_err3 = 'Δεν έχετε δικαιώματα πρόσβασης στον κατάλογο επαφών';
+$html_contact_none = 'Καμία επαφή δεν ήταν δυνατό να βρεθεί.';
 $html_del_msg = 'Διαγραφή επιλεγμένων μηνυμάτων ;';
 $html_down_mail = 'Κατέβασμα';
 $original_msg = '-- Πρωτότυπο Μήνυμα --';

@@ -12,7 +12,7 @@
  * @package    NOCC
  * @subpackage Translations
  * @license    http://www.gnu.org/licenses/ GNU General Public License
- * @version    SVN: $Id: Nocc.php 49189 2009-04-04 22:22:36Z siebrand $
+ * @version    SVN: $Id$
  */
 
 /** Message documentation (Message documentation)
@@ -38,16 +38,27 @@ $alt_next = '{{Identical|Next}}';
 $alt_prev = '{{Identical|Previous}}';
 $title_next_page = '{{Identical|Next page}}';
 $title_prev_page = '{{Identical|Previous page}}';
+$html_on = 'Message obsolete per [[Translating talk:NOCC|discussion]]';
 $html_passwd = '{{Identical|Password}}';
 $html_help = '{{Identical|Help}}';
 $html_msgperpage = 'Text before an input box in the user\'s \'preferences\'. The user chooses the number of messages to display together on each page of a list of messages.';
 $html_preferences = '{{Identical|Preferences}}';
-$html_folder_rename = '{{Identical|Rename}}';
-$html_folder_delete = '{{Identical|Delete}}';
+$html_folder_subscribe = 'Part of the interface for managing folders, see the [[Translating talk:NOCC#NOCC_screenshots|screenshot]].';
+$html_folder_rename = 'Part of the interface for managing folders, see the [[Translating talk:NOCC#NOCC_screenshots|screenshot]]. It appears in the option to rename a folder: \'Rename [input box to select folder to be renamed] to [input box to write new name]\'.
+
+{{Identical|Rename}}';
+$html_folder_create = 'Part of the interface for managing folders, see the [[Translating talk:NOCC#NOCC_screenshots|screenshot]].';
+$html_folder_remove = 'Part of the interface for managing folders, see the [[Translating talk:NOCC#NOCC_screenshots|screenshot]].';
+$html_folder_delete = 'Part of the interface for managing folders, see the [[Translating talk:NOCC#NOCC_screenshots|screenshot]].
+
+{{Identical|Delete}}';
+$html_folder_to = 'Part of the interface for managing folders, see the [[Translating talk:NOCC#NOCC_screenshots|screenshot]]. It appears in the option to rename a folder: \'Rename [input box to select folder to be renamed] to [input box to write new name]\'.';
 $html_filter_remove = '{{Identical|Delete}}';
 $html_and = '{{Identical|And}}';
 $html_move = '{{Identical|Move}}';
 $html_page = '{{Identical|Page}}';
+$html_of = 'Appears at the top of a mailbox, to navigate between the pages of a mailbox. \'of\' is part of \'Page x of y\', where n is a page number in an input box and y is the total number of pages in the mailbox. See the [[Translating_talk:NOCC#NOCC_screenshots|screenshot]].';
+$html_reply_short = 'Appears at the beginning of the subject box when replying to a message. It is short for reply. See the [[Translating_talk:NOCC#NOCC_screenshots|screenshot]].';
 $html_delete = '{{Identical|Delete}}';
 $html_new = '{{Identical|New}}';
 $html_mark = '{{Identical|Delete}}';
@@ -56,6 +67,7 @@ $html_attach_delete = 'This is a button label which appears under the list of at
 $html_subject = '{{Identical|Subject}}';
 $html_date = '{{Identical|Date}}';
 $html_sent = '{{Identical|Send}}';
+$html_wrote = 'The text \'{email sender} wrote\' appears on the reply, before the original message.';
 $html_size = '{{Identical|Size}}';
 $html_filename = '{{Identical|Filename}}';
 $html_send = '{{Identical|Send}}';
@@ -67,5 +79,7 @@ $html_high = 'Option in the drop-down box for selecting the priority for tagging
 $html_highest = 'Option in the drop-down box for selecting the priority for tagging an e-mail before sending it. The five options are lowest, low, normal, high and highest.';
 $html_wrap_none = '{{Identical|None}}';
 $html_add = '{{Identical|Add}}';
+$html_contact_mod = 'This means the same as \'amend the details of a contact\'.';
+$html_contact_list = '%1$s is the username';
 $html_down_mail = '{{Identical|Download}}';
 $html_search = '{{Identical|Search}}';

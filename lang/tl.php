@@ -12,7 +12,7 @@
  * @package    NOCC
  * @subpackage Translations
  * @license    http://www.gnu.org/licenses/ GNU General Public License
- * @version    SVN: $Id: Nocc.php 49189 2009-04-04 22:22:36Z siebrand $
+ * @version    SVN: $Id$
  */
 
 /** Tagalog (Tagalog)

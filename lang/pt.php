@@ -23,8 +23,10 @@
  * @ingroup Language
  * @file
  *
+ * @author Crazymadlover
  * @author JS <jorge.silva@ciberlink.pt>
  * @author Paulo Matos <paulo.matos@fct.unl.pt>
+ * @author Waldir
  * @author sena <sena@smux.net>
  */
 
@@ -42,6 +44,10 @@ $alt_new_msg = 'Mensagens novas';
 $alt_reply = 'Responder ao autor';
 $alt_reply_all = 'Responder a todos';
 $alt_forward = 'Reencaminhar';
+$alt_next = 'Próximo';
+$alt_prev = 'Anterior';
+$title_next_page = 'Próxima página';
+$title_prev_page = 'Página anterior';
 $title_next_msg = 'Próxima';
 $title_prev_msg = 'Anterior';
 $html_on = 'em';
@@ -55,12 +61,14 @@ $html_help = 'Ajuda';
 $html_server = 'Servidor';
 $html_wrong = 'Identificador ou senha incorrectos';
 $html_retry = 'Tentar novamente';
+$html_remember = 'Gravar as configurações';
 $html_msgperpage = 'Mensagens por página';
 $html_preferences = 'Preferências';
 $html_full_name = 'Nome completo';
 $html_email_address = 'Endereço E-mail';
 $html_ccself = 'Cc próprio';
 $html_hide_addresses = 'Esconder Endereços';
+$html_outlook_quoting = 'Citação ao estilo Outlook';
 $html_reply_to = 'Responder para';
 $html_use_signature = 'Utilizar assinatura';
 $html_signature = 'Assinatura';
@@ -68,6 +76,11 @@ $html_reply_leadin = 'Responder com prefixo';
 $html_prefs_updated = 'Preferências actualizadas';
 $html_manage_folders_link = 'Gerir Pastas IMAP';
 $html_manage_filters_link = 'Gerir Filtros de Email';
+$html_use_graphical_smilies = 'Utilizar risonhos gráficos';
+$html_sent_folder = 'Copiar e-mails enviados para uma pasta específica';
+$html_trash_folder = 'Mover emails apagados para uma pasta específica';
+$html_colored_quotes = 'Cotações coloridas';
+$html_display_struct = 'Mostrar texto estruturado';
 $html_filter_remove = 'Apagar';
 $html_filter_body = 'Conteúdo da Mensagem';
 $html_filter_subject = 'Assunto da Mensaagem';

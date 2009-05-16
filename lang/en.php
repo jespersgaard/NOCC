@@ -15,6 +15,15 @@
  * @version    SVN: $Id$
  */
 
+/** English (English)
+ *
+ * See the qqq 'language' for message documentation incl. usage of parameters
+ * To improve a translation please visit http://translatewiki.net
+ *
+ * @ingroup Language
+ * @file
+ */
+
 $charset = 'UTF-8';
 
 // Configuration for the days and months

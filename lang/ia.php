@@ -12,7 +12,7 @@
  * @package    NOCC
  * @subpackage Translations
  * @license    http://www.gnu.org/licenses/ GNU General Public License
- * @version    SVN: $Id: Nocc.php 49189 2009-04-04 22:22:36Z siebrand $
+ * @version    SVN: $Id$
  */
 
 /** Interlingua (Interlingua)
@@ -181,7 +181,7 @@ $html_read = 'legite';
 $html_unread = 'non legite';
 $html_encoding = 'Codification de characteres';
 $html_add = 'Adder';
-$html_contacts = '%1$s Contactos';
+$html_contacts = 'Contactos de %1$s';
 $html_modify = 'Modificar';
 $html_back = 'Retornar';
 $html_contact_add = 'Adder un nove contacto';
@@ -192,9 +192,11 @@ $html_contact_nick = 'Pseudonymo';
 $html_contact_mail = 'E-mail';
 $html_contact_list = 'Lista de contactos de %1$s';
 $html_contact_del = 'ab le lista de contactos';
+$html_contact_count = '%1$d contactos';
 $html_contact_err1 = 'Le numero maxime de contactos es';
 $html_contact_err2 = 'Tu non pote adder un nove contacto';
 $html_contact_err3 = 'Tu non ha le permission de acceder al lista de contactos';
+$html_contact_none = 'Nulle contacto poteva esser trovate.';
 $html_del_msg = 'Deler le messages seligite?';
 $html_down_mail = 'Discargar';
 $original_msg = '-- Message original --';

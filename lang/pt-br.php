@@ -23,6 +23,7 @@
  * @ingroup Language
  * @file
  *
+ * @author Crazymadlover
  * @author Eduardo.mps
  * @author GKnedo
  * @author Giovani Zamboni <zambaxtz@terra.com.br>
@@ -195,9 +196,11 @@ $html_contact_nick = 'Apelido';
 $html_contact_mail = 'E-Mail';
 $html_contact_list = 'Listas de contatos de %1$s';
 $html_contact_del = 'da lista de contatos';
+$html_contact_count = '%1$d Contatos';
 $html_contact_err1 = 'Máximo número de contatos é';
 $html_contact_err2 = 'Você não pode adicionar um novo contato';
 $html_contact_err3 = 'Você não tem acesso à lista de contatos';
+$html_contact_none = 'Nenhum contato foi encontrado.';
 $html_del_msg = 'Deletar mensagens selecionadas ?';
 $html_down_mail = 'Baixar';
 $original_msg = '-- Mensagem Original --';

@@ -24,6 +24,7 @@
  * @file
  *
  * @author Tzafrir Cohen <tzafrir@technion.ac.il>
+ * @author YaronSh
  */
 
 $charset = 'UTF-8';
@@ -44,7 +45,7 @@ $title_next_msg = 'ההודעה הבאה';
 $title_prev_msg = 'ההודעות הבאות';
 $html_on = 'בזמן';
 $html_lang = 'שפה';
-$html_welcome = 'ברוכים הבאים %1$s';
+$html_welcome = 'ברוכים הבאים אל %1$s';
 $html_login = 'שם המשתמש';
 $html_passwd = 'סיסמה';
 $html_submit = 'התחברות';

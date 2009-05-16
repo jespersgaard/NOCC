@@ -120,6 +120,17 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'fr';
 $lang_array[$i]->label = 'Français';
 
+// Irish
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'ga';
+$lang_array[$i]->label = 'Gaeilge';
+
+// Galician
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'gl';
+$lang_array[$i]->label = 'Galego';
 
 // Hebrew
 $i++;
@@ -156,6 +167,12 @@ $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'lv';
 $lang_array[$i]->label = 'Latviesu';
+
+// Luxembourgish
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'lb';
+$lang_array[$i]->label = 'Lëtzebuergesch';
 
 // Hungarian
 $i++;
@@ -204,6 +221,13 @@ $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'pt-br';
 $lang_array[$i]->label = 'Português Brasileiro';
+
+
+// Ripoarisch
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'ksh';
+$lang_array[$i]->label = 'Ripoarisch';
 
 // Romanian
 $i++;

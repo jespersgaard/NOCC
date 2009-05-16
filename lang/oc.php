@@ -12,7 +12,7 @@
  * @package    NOCC
  * @subpackage Translations
  * @license    http://www.gnu.org/licenses/ GNU General Public License
- * @version    SVN: $Id: Nocc.php 49189 2009-04-04 22:22:36Z siebrand $
+ * @version    SVN: $Id$
  */
 
 /** Occitan (Occitan)
@@ -181,7 +181,7 @@ $html_read = 'legit';
 $html_unread = 'pas legit';
 $html_encoding = 'Encodatge del tèxte';
 $html_add = 'Apondre';
-$html_contacts = '%1$s Contactes';
+$html_contacts = 'Contactes de %1$s';
 $html_modify = 'Mdificar';
 $html_back = 'Retorn';
 $html_contact_add = 'Apondre un contacte novèl';
@@ -192,9 +192,11 @@ $html_contact_nick = 'Escais';
 $html_contact_mail = 'Adreça electronica';
 $html_contact_list = 'Lista de contactes de %1$s';
 $html_contact_del = 'de la lista de contactes';
+$html_contact_count = '%1$d contactes';
 $html_contact_err1 = 'Lo nombre maximal de contactes es';
 $html_contact_err2 = 'Podètz pas apondre un contacte novèl';
 $html_contact_err3 = 'Avètz pas lo drech d\'accedir a la lista de contactes';
+$html_contact_none = 'Cap de contacte es pas estat trobat';
 $html_del_msg = 'Suprimir lo(s) messatge(s) seleccionat(s) ?';
 $html_down_mail = 'Telecargar';
 $original_msg = '-- Messatge original --';

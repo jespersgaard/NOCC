@@ -12,7 +12,7 @@
  * @package    NOCC
  * @subpackage Translations
  * @license    http://www.gnu.org/licenses/ GNU General Public License
- * @version    SVN: $Id: Nocc.php 49189 2009-04-04 22:22:36Z siebrand $
+ * @version    SVN: $Id$
  */
 
 /** Basque (Euskara)
@@ -98,7 +98,7 @@ $html_select = 'Aukeratu';
 $html_select_all = 'Aukerak Alderantzikatu';
 $html_loading_image = 'Irudia kargatzen';
 $html_add = 'Gehitu';
-$html_contacts = '%1$s Kontaktuak';
+$html_contacts = '%1$-(r)en Kontaktuak';
 $html_modify = 'Aldatu';
 $html_back = 'Atzera';
 $html_contact_add = 'Kontaktu berria gehitu';

@@ -27,8 +27,10 @@
  * @author Als-Holder
  * @author Benjamin Bräuer <ben1 AT gmx DOT de>
  * @author David Ferch <dferch AT tk-online DOT net>
+ * @author Purodha
  * @author Tim Gerundt <tim AT gerundt DOT de>
  * @author Twobee
+ * @author Umherirrender
  */
 
 $charset = 'UTF-8';
@@ -46,16 +48,16 @@ $alt_reply = 'Antwort an Absender';
 $alt_reply_all = 'Antwort an alle';
 $alt_forward = 'Weiterleitung';
 $alt_next = 'Nächste';
-$alt_prev = 'Vorige';
+$alt_prev = 'Vorherige';
 $title_next_page = 'Nächste Seite';
-$title_prev_page = 'Vorige Seite';
+$title_prev_page = 'Vorherige Seite';
 $title_next_msg = 'Nächste Nachricht';
-$title_prev_msg = 'Vorige Nachricht';
+$title_prev_msg = 'Vorherige Nachricht';
 $html_on = 'an';
-$html_theme = 'Theme';
+$html_theme = 'Thema';
 $html_lang = 'Sprache';
 $html_welcome = 'Willkommen bei %1$s';
-$html_login = 'Login';
+$html_login = 'Anmelden';
 $html_passwd = 'Passwort';
 $html_submit = 'Ok';
 $html_help = 'Hilfe';
@@ -69,7 +71,7 @@ $html_full_name = 'Vollständiger Name';
 $html_email_address = 'E-Mail-Adresse';
 $html_ccself = 'Kopie der gesendeten Nachrichten an die eigene Adresse schicken';
 $html_hide_addresses = 'Adressen verstecken';
-$html_outlook_quoting = 'Quoting im Outlook-Stil';
+$html_outlook_quoting = 'Aus Originalnachrichten im Outlook-Stil zitieren';
 $html_reply_to = 'Antwort an';
 $html_use_signature = 'Signatur benutzen';
 $html_signature = 'Signatur';
@@ -90,7 +92,7 @@ $html_folders_unsub_failed = 'Der Ordner konnte nicht abbestellt werden!';
 $html_folders_rename_failed = 'Der Ordner konnte nicht umbenannt werden!';
 $html_folders_updated = 'Die Ordner wurden aktualisiert';
 $html_folder_subscribe = 'Abonniere';
-$html_folder_rename = 'Umbenennen:';
+$html_folder_rename = 'Umbenennen';
 $html_folder_create = 'Erstelle neuen Ordner';
 $html_folder_remove = 'Abbestellen:';
 $html_folder_delete = 'Lösche';
@@ -136,7 +138,7 @@ $html_att = 'Anhang';
 $html_atts = 'Anhänge';
 $html_att_unknown = '[unbekannt]';
 $html_attach = 'Anhängen';
-$html_attach_forget = 'Sie müssen die Datei vor dem Senden der Nachricht anhängen !';
+$html_attach_forget = 'Sie müssen die Datei vor dem Senden der Nachricht anhängen!';
 $html_attach_delete = 'Ausgewählte entfernen';
 $html_attach_none = 'Als Anhang müssen Sie eine Datei auswählen!';
 $html_sort_by = 'Sortieren nach';
@@ -146,8 +148,8 @@ $html_subject = 'Betreff';
 $html_date = 'Datum';
 $html_sent = 'Gesendet';
 $html_wrote = 'schrieb';
-$html_size = 'Grösse';
-$html_totalsize = 'Gesamtgrösse';
+$html_size = 'Größe';
+$html_totalsize = 'Gesamtgröße';
 $html_kb = 'KB';
 $html_mb = 'MB';
 $html_gb = 'GB';
@@ -205,7 +207,7 @@ $html_contact_none = 'Es konnten keine Kontakte gefunden werden.';
 $html_del_msg = 'Sollen die markierten Nachrichten gelöscht werden?';
 $html_down_mail = 'Download';
 $original_msg = '-- Original Nachricht --';
-$to_empty = 'Das \'An\' Feld darf nicht leer sein !';
+$to_empty = 'Das „An“-Feld darf nicht leer sein!';
 $html_images_warning = 'Zu Ihrer Sicherheit werden externe Bilder nicht angezeigt.';
 $html_images_display = 'Bilder anzeigen';
 $html_smtp_error_no_conn = 'Konnte Verbindung nicht öffnen';
@@ -223,4 +225,3 @@ $html_login_not_allowed = 'Diese Anmeldung ist nicht für die Verbindung zugelas
 $lang_err_send_delay = 'Bitte lassen Sie etwas Zeit zwischen dem Versenden zweier E-Mails vergehen';
 $lang_seconds = 'Sekunden';
 $html_search = 'Suchen';
-

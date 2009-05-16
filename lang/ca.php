@@ -24,12 +24,14 @@
  * @file
  *
  * @author David Gimeno i Ayuso <info@sima-pc.com>
+ * @author MuRe
+ * @author Solde
  */
 
 $charset = 'UTF-8';
 $lang_locale = 'ca_ES.UTF-8';
 $lang_dir = 'ltr';
-$default_date_format = '%j/%n/%Y';
+$default_date_format = '%d/%m/%Y';
 $no_locale_date_format = '%d/%m/%Y';
 $default_time_format = '%H.%i';
 $err_user_empty = 'El camp usuari és buit';
@@ -40,6 +42,10 @@ $alt_new_msg = 'Missatges nous';
 $alt_reply = 'Contestar al remitent';
 $alt_reply_all = 'Contestar tothom';
 $alt_forward = 'Reenviar';
+$alt_next = 'Següent';
+$alt_prev = 'Anterior';
+$title_next_page = 'Pàgina següent';
+$title_prev_page = 'Pàgina anterior';
 $title_next_msg = 'Missatge següent';
 $title_prev_msg = 'Missatge anterior';
 $html_on = 'a';
@@ -70,6 +76,7 @@ $html_manage_folders_link = 'Gestionar carpetes IMAP';
 $html_manage_filters_link = 'Gestionar filtres correu';
 $html_use_graphical_smilies = 'Usar emoticones gràfiques';
 $html_sent_folder = 'Copiar missatges enviats a una carpeta dedicada';
+$html_folders = 'Carpetes';
 $html_folders_create_failed = 'No s\'ha pogut crear la carpeta!';
 $html_folders_sub_failed = 'No us heu pogut subscriure a la carpeta!';
 $html_folders_unsub_failed = 'No us heu pogut desafectar de la carpeta!';
@@ -132,6 +139,9 @@ $html_sent = 'Enviar';
 $html_wrote = 'escrit';
 $html_size = 'Tamany';
 $html_totalsize = 'Tamany total';
+$html_kb = 'kB';
+$html_mb = 'MB';
+$html_gb = 'GB';
 $html_filename = 'Fitxer';
 $html_to = 'A';
 $html_cc = 'Còpia';
@@ -163,7 +173,7 @@ $html_mark_as = 'Marcar com';
 $html_read = 'llegit';
 $html_unread = 'per llegir';
 $html_add = 'Afegir';
-$html_contacts = '%1$s Contactes';
+$html_contacts = '%1$s contactes';
 $html_modify = 'Modificar';
 $html_back = 'Enrere';
 $html_contact_add = 'Afegir contacte nou';
@@ -174,9 +184,11 @@ $html_contact_nick = 'Renom';
 $html_contact_mail = 'Correu';
 $html_contact_list = 'Llista de contactes de %1$s';
 $html_contact_del = 'de la llista de contactes';
+$html_contact_count = '%1$d Contactes';
 $html_contact_err1 = 'El mombre màxim de contactes és';
 $html_contact_err2 = 'Nom podeu afegir cap més contacte';
 $html_contact_err3 = 'No teniu drets d\'accés a la llista de contactes';
+$html_contact_none = 'No s\'han trobat contactes.';
 $html_del_msg = 'Esborrar missatges seleccionats?';
 $html_down_mail = 'Descarregar';
 $original_msg = '-- Missatge original --';
@@ -191,3 +203,5 @@ $html_invalid_msg_per_page = 'Nombre de missatges per pàgina incorrecte';
 $html_invalid_wrap_msg = 'Ample d\'ajust de missatge incorrecte';
 $html_seperate_msg_win = 'Missatge a finestres separades';
 $html_err_file_contacts = 'No s\'ha pogut obrir el fitxer de contactes per escriure-hi.';
+$lang_seconds = 'segons';
+$html_search = 'Cerca';

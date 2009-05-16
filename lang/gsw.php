@@ -12,7 +12,7 @@
  * @package    NOCC
  * @subpackage Translations
  * @license    http://www.gnu.org/licenses/ GNU General Public License
- * @version    SVN: $Id: Nocc.php 49189 2009-04-04 22:22:36Z siebrand $
+ * @version    SVN: $Id$
  */
 
 /** Swiss German (Alemannisch)
@@ -181,7 +181,7 @@ $html_read = 'gläse';
 $html_unread = 'nit gläse';
 $html_encoding = 'Zeichesatz-Kodierig';
 $html_add = 'Zuefiege';
-$html_contacts = '%1$s Kontakt';
+$html_contacts = 'Kontakt vu %1$s';
 $html_modify = 'Ändere';
 $html_back = 'Zruck';
 $html_contact_add = 'Neje Kontakt dezuefiege';
@@ -192,9 +192,11 @@ $html_contact_nick = 'Ibername';
 $html_contact_mail = 'E-Mail-Adräss';
 $html_contact_list = 'Kontaktlischt vu %1$s';
 $html_contact_del = 'vu dr Kontaktlischt';
+$html_contact_count = '%1$d Kontakt';
 $html_contact_err1 = 'D Maximalaazahl vu dr Kontakt isch';
 $html_contact_err2 = 'Du chasch kei neje Kontakt dezuefiege';
 $html_contact_err3 = 'Du hesch nit s Rächt, uf d Kontaktlischt zuezgryfe';
+$html_contact_none = 'Kei Kontakt gfunde.';
 $html_del_msg = 'Solle di markierte Nochrichte glescht wäre?';
 $html_down_mail = 'Abelade';
 $original_msg = '-- Urspringligi Nochricht --';

@@ -12,7 +12,7 @@
  * @package    NOCC
  * @subpackage Translations
  * @license    http://www.gnu.org/licenses/ GNU General Public License
- * @version    SVN: $Id: Nocc.php 49189 2009-04-04 22:22:36Z siebrand $
+ * @version    SVN: $Id$
  */
 
 /** Bosnian (Bosanski)
@@ -79,6 +79,7 @@ $html_display_struct = 'Prikaži strukturisani tekst';
 $html_send_html_mail = 'Pošalji mail u HTML formatu';
 $html_folders = 'Direktoriji';
 $html_folders_create_failed = 'Direktorijum nije mogao biti napravljen!';
+$html_folders_rename_failed = 'Direktorij nije moguće preimenovati!';
 $html_folders_updated = 'Direktoriji ažurirani';
 $html_folder_subscribe = 'Pretplati se na';
 $html_folder_rename = 'Preimenuj';
@@ -91,8 +92,10 @@ $html_filter_subject = 'Predmet poruke';
 $html_filter_to = 'U polje';
 $html_filter_cc = 'Polje cc';
 $html_filter_from = 'Polje Od';
+$html_reapply_filters = 'Ponovna primjena svih filtera';
 $html_filter_contains = 'sadrži';
 $html_filter_name = 'Naziv filtera';
+$html_filter_action = 'Akcija filtera';
 $html_filter_moveto = 'Premjesti u';
 $html_select_one = '--Odaberi jedan--';
 $html_and = 'i';
@@ -100,38 +103,59 @@ $html_new_msg_in = 'Nove poruke u';
 $html_or = 'ili';
 $html_move = 'Premjesti';
 $html_copy = 'Kopija';
+$html_gotopage = 'Idi na stranicu';
+$html_gotofolder = 'Idi u direktorijum';
 $html_other_folders = 'Spisak direktorijuma';
 $html_page = 'Stranica';
 $html_of = 'od';
 $html_new_msg = 'Piši';
 $html_reply = 'Odgovor';
 $html_reply_all = 'Odgovori sve';
+$html_forward = 'Proslijediti';
 $html_forward_short = 'Napr';
 $html_delete = 'Brisanje';
 $html_new = 'Nova';
 $html_mark = 'Obriši';
+$html_att_unknown = '[nepoznato]';
 $html_attach = 'Dodaj';
+$html_attach_delete = 'Ukloni odabrano';
+$html_from = 'Od';
+$html_subject = 'Tema';
 $html_date = 'Datum';
+$html_sent = 'Poslano';
 $html_size = 'Veličina';
 $html_totalsize = 'Ukupna veličina';
+$html_kb = 'kB';
+$html_mb = 'MB';
+$html_gb = 'GB';
+$html_bytes = 'bajta';
 $html_filename = 'Ime datoteke';
+$html_cancel = 'Odustani';
+$html_no_mail = 'Nema poruka.';
 $html_msg = 'Poruka';
 $html_msgs = 'Poruke';
 $html_priority = 'Prioritet';
+$html_normal = 'Normalno';
 $html_select = 'Odaberi';
 $html_select_all = 'Obrni odabir';
 $html_wrap_none = 'Ništa';
 $html_mark_as = 'Označi kao';
 $html_read = 'pročitano';
 $html_unread = 'nepročitano';
-$html_contacts = '%1$s Kontakti';
+$html_add = 'Dodaj';
+$html_contacts = 'Kontakti od %1$s';
 $html_back = 'Nazad';
 $html_contact_first = 'Ime';
 $html_contact_last = 'Prezime';
 $html_contact_nick = 'Nadimak';
+$html_contact_mail = 'E-mail';
 $html_contact_err2 = 'Ne možete dodati novi kontakt';
+$html_contact_err3 = 'Nemate pravo pristupa na spisak kontakata';
+$html_contact_none = 'Nijedan kontakt nije pronađen.';
 $html_del_msg = 'Obriši odabrane poruke ?';
 $original_msg = '-- Prvobitna poruka --';
 $to_empty = 'Polje \'Za\' ne smije biti prazno !';
 $html_images_display = 'Prikaži slike';
+$lang_err_send_delay = 'Morate pričekati između dva maila';
+$lang_seconds = 'sekundi';
 $html_search = 'Pretraga';
