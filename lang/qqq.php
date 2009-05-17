@@ -28,6 +28,7 @@
  * @author Lloffiwr
  * @author McDutchie
  * @author Purodha
+ * @author Siebrand
  */
 
 $lang_dir = '"ltr" if your language uses left-to-right script, "rtl" if right-to-left.';
