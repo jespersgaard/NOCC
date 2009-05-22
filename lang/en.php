@@ -225,7 +225,7 @@ $html_contact_list = 'Contact list of %1$s';
 $html_contact_del = 'from the contact list';
 $html_contact_count = '%1$d Contacts';
 
-$html_contact_err1 = 'Maximum number of contacts is ';
+$html_contact_err1 = 'Maximum number of contacts is "%1$d"';
 $html_contact_err2 = 'You cannot add a new contact';
 $html_contact_err3 = 'You do not have access rights to contact list';
 $html_contact_none = 'No contacts could be found.';
