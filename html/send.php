@@ -232,7 +232,7 @@ function checkSendDelay() {
     if (last_send + send_delay < ( thisdate.getTime() / 1000 )) {
         return (true);
     } else {
-        alert('<?php echo(convertLang2Html( $lang_err_send_delay . ' (' . $conf->send_delay . ' ' . $lang_seconds . ').')) ?>');
+        alert('<?php echo( convertLang2Html( sprintf( $lang_err_send_delay, $conf->send_delay ) ) ) ?>');
         return (false);
     }
     

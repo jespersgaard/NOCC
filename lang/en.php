@@ -48,15 +48,11 @@ $no_locale_date_format = '%Y-%m-%d';
 // today?
 $default_time_format = '%I:%M %p';
 
-
 // Here is the configuration for the HTML
-
 $err_user_empty = 'The login field is empty';
 $err_passwd_empty = 'The password field is empty';
 
-
 // html message
-
 $alt_delete = 'Delete selected messages';
 $alt_delete_one = 'Delete the message';
 $alt_new_msg = 'New messages';
@@ -73,7 +69,6 @@ $html_on = 'on';
 $html_theme = 'Theme';
 
 // index.php
-
 $html_lang = 'Language';
 $html_welcome = 'Welcome to %1$s';
 $html_login = 'Login';
@@ -86,7 +81,6 @@ $html_retry = 'Retry';
 $html_remember = 'Remember settings';
 
 // prefs.php
-
 $html_msgperpage = 'Messages per page';
 $html_preferences = 'Preferences';
 $html_full_name = 'Full name';
@@ -265,6 +259,5 @@ $html_session_file_error = 'Unable to open session file for writing.';
 $html_login_not_allowed = 'This login is not allowed for connexion.';
 
 // Send delay
-$lang_err_send_delay = 'You must wait between two e-mails';
-$lang_seconds = 'seconds';
+$lang_err_send_delay = 'You must wait between two e-mails (%1$d seconds)';
 $html_search = 'Search';
