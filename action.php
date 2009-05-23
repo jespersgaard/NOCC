@@ -194,8 +194,8 @@ switch($action) {
         // Set body
         if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
             $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': '
-                    . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject
-                    . ': '. $content['subject'] . "\n\n" . enh_html_entity_decode(strip_tags($content['body'], ''));
+                    . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject_label
+                    . ' '. $content['subject'] . "\n\n" . enh_html_entity_decode(strip_tags($content['body'], ''));
         else {
             if (isset($conf->enable_reply_leadin) 
                     && $conf->enable_reply_leadin == true 
@@ -256,8 +256,8 @@ switch($action) {
         // Set body
         if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
             $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': '
-                    . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject
-                    . ': '. $content['subject'] . "\n\n" . enh_html_entity_decode(strip_tags($content['body'], ''));
+                    . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject_label
+                    . ' '. $content['subject'] . "\n\n" . enh_html_entity_decode(strip_tags($content['body'], ''));
         else {
             if (isset($conf->enable_reply_leadin) 
                     && $conf->enable_reply_leadin == true 
@@ -320,7 +320,7 @@ switch($action) {
                 if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
                     $mail_body .= $original_msg . $conf->crlf . $html_from . ': ' . $content['from'] . $conf->crlf
                             . $html_to . ': ' . $content['to'] . $conf->crlf . $html_sent.': ' . $content['complete_date']
-                            . $conf->crlf . $html_subject . ': '. $content['subject'] . $conf->crlf . $conf->crlf
+                            . $conf->crlf . $html_subject_label . ' '. $content['subject'] . $conf->crlf . $conf->crlf
                             . strip_tags2($content['body'], '') . $conf->crlf . $conf->crlf;
                 else {
                     $stripped_content = strip_tags2($content['body'], '');

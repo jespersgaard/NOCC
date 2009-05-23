@@ -77,7 +77,7 @@
        </td>
      </tr>
      <tr>
-       <td class="sendLabel"><label for="mail_subject"><?php echo $html_subject ?>:</label></td>
+       <td class="sendLabel"><label for="mail_subject"><?php echo $html_subject_label ?></label></td>
        <td class="sendData">
          <input class="button" type="text" name="mail_subject" id="mail_subject" size="60" maxlength="200" value="<?php echo (isset($mail_subject) ? htmlspecialchars($mail_subject) : '') ?>" />
        </td>

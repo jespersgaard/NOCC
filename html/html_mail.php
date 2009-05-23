@@ -36,7 +36,7 @@ if ($conf->use_verbose && $verbose == '0') { //If displaying "normal" header...
 
 if ($content['subject'] == '')
     $content['subject'] = $html_nosubject;
-  echo '<tr><th class="mailHeaderLabel">'.$html_subject.':</th><td class="mailHeaderData">'.htmlspecialchars($content['subject']).'</td></tr>';
+  echo '<tr><th class="mailHeaderLabel">'.$html_subject_label.'</th><td class="mailHeaderData">'.htmlspecialchars($content['subject']).'</td></tr>';
   echo '<tr><th class="mailHeaderLabel">'.$html_date.':</th><td class="mailHeaderData">'.$content['complete_date'].'</td></tr>';
   if($content['att'] != '') {
     echo $content['att'];
