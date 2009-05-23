@@ -185,16 +185,17 @@ switch($action) {
         $mail_messageid = urlencode($content['message_id']);
 
         $mail_to = !empty($content['reply_to']) ? $content['reply_to'] : $content['from'];
-        // Test for Re: in subject, should not be added twice ! 
+        // Test for Re: in subject, should not be added twice !
+        // (this will fail for most languages but English, the they may not use "Re:")
         if (!strcasecmp(substr($content['subject'], 0, 2), $html_reply_short))
             $mail_subject = $content['subject'];
         else
-            $mail_subject = $html_reply_short.': '.$content['subject'];
+            $mail_subject = $html_reply_short.' '.$content['subject'];
 
         // Set body
         if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
             $mail_body = $original_msg . "\n" . $html_from_label . ' ' . $content['from'] . "\n" . $html_to_label . ' '
-                    . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject_label
+                    . $content['to'] . "\n" . $html_sent_label.' ' . $content['complete_date'] . "\n" . $html_subject_label
                     . ' '. $content['subject'] . "\n\n" . enh_html_entity_decode(strip_tags($content['body'], ''));
         else {
             if (isset($conf->enable_reply_leadin) 
@@ -251,12 +252,12 @@ switch($action) {
         if (!strcasecmp(substr($content['subject'], 0, 2), $html_reply_short))
             $mail_subject = $content['subject'];
         else
-            $mail_subject = $html_reply_short.': '.$content['subject'];
+            $mail_subject = $html_reply_short.' '.$content['subject'];
 
         // Set body
         if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
             $mail_body = $original_msg . "\n" . $html_from_label . ' ' . $content['from'] . "\n" . $html_to_label . ' '
-                    . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject_label
+                    . $content['to'] . "\n" . $html_sent_label.' ' . $content['complete_date'] . "\n" . $html_subject_label
                     . ' '. $content['subject'] . "\n\n" . enh_html_entity_decode(strip_tags($content['body'], ''));
         else {
             if (isset($conf->enable_reply_leadin) 
@@ -310,7 +311,7 @@ switch($action) {
             }
 
             if (count($mail_list) == 1) {
-                $mail_subject = $html_forward_short.': '.$content['subject'];
+                $mail_subject = $html_forward_short.' '.$content['subject'];
             } else {
                 $mail_subject = '';
             }
@@ -319,7 +320,7 @@ switch($action) {
                 // Set body
                 if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
                     $mail_body .= $original_msg . $conf->crlf . $html_from_label . ' ' . $content['from'] . $conf->crlf
-                            . $html_to_label . ' ' . $content['to'] . $conf->crlf . $html_sent.': ' . $content['complete_date']
+                            . $html_to_label . ' ' . $content['to'] . $conf->crlf . $html_sent_label.' ' . $content['complete_date']
                             . $conf->crlf . $html_subject_label . ' '. $content['subject'] . $conf->crlf . $conf->crlf
                             . strip_tags2($content['body'], '') . $conf->crlf . $conf->crlf;
                 else {

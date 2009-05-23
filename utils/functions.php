@@ -245,7 +245,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
                 $link_att = '<tr><th class="mailHeaderLabel right">' . $html_att_label . '</th><td class="mailHeaderData">' . link_att($mail, $attach_tab, $conf->display_part_no) . '</td></tr>';
                 break;
             default:
-                $link_att = '<tr><th class="mailHeaderLabel right">' . $html_atts . ':</th><td class="mailHeaderData">' . link_att($mail, $attach_tab, $conf->display_part_no) . '</td></tr>';
+                $link_att = '<tr><th class="mailHeaderLabel right">' . $html_atts_label . '</th><td class="mailHeaderData">' . link_att($mail, $attach_tab, $conf->display_part_no) . '</td></tr>';
                 break;
         }
     }

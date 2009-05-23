@@ -52,7 +52,7 @@ if ($content['subject'] == '')
   if ($priority != '') {
     echo '<tr><th class="mailHeaderLabel">'.$html_priority_label.'</th><td class="mailHeaderData">'.$priority.'</td></tr>';
   }
-  echo '<tr><th class="mailHeaderLabel">' . $html_encoding . ':</th><td class="mailHeaderData">';
+  echo '<tr><th class="mailHeaderLabel">' . $html_encoding_label . '</th><td class="mailHeaderData">';
   echo '<form id="encoding" action="action.php" method="post"><div>';
   echo '<input type="hidden" name="action" value="' . $_REQUEST['action'] . '"/>';
   echo '<input type="hidden" name="mail" value="' . $_REQUEST['mail'] . '"/>';

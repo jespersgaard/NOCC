@@ -48,14 +48,14 @@ if (count($big_list) > 1) {
       <input type="hidden" name="submit_prefs" value="set" />
       <table>
          <tr>
-           <td class="prefsLabel"><label for="full_name"><?php echo convertLang2Html($html_full_name) ?>:</label></td>
+           <td class="prefsLabel"><label for="full_name"><?php echo convertLang2Html($html_full_name_label) ?></label></td>
            <td class="prefsData">
              <input class="button" type="text" name="full_name" id="full_name" value="<?php echo (isset($user_prefs->full_name)) ? $user_prefs->full_name : "" ?>" size="40"/>
            </td>
          </tr>
          <?php if ($conf->allow_address_change) { ?>
          <tr>
-           <td class="prefsLabel"><label for="email_address"><?php echo convertLang2Html($html_email_address) ?>:</label></td>
+           <td class="prefsLabel"><label for="email_address"><?php echo convertLang2Html($html_email_address_label) ?></label></td>
            <td class="prefsData">
              <input class="button" type="text" name="email_address" id="email_address" value="<?php echo (isset($user_prefs->email_address)) ? $user_prefs->email_address : get_default_from_address() ?>" size="40"/>
            </td>
@@ -66,7 +66,7 @@ if (count($big_list) > 1) {
       <legend><?php echo convertLang2Html($html_inbox); ?></legend>
       <table>
          <tr>
-           <td class="prefsLabel"><label for="msg_per_page"><?php echo convertLang2Html($html_msgperpage) ?>:</label></td>
+           <td class="prefsLabel"><label for="msg_per_page"><?php echo convertLang2Html($html_msgperpage_label) ?></label></td>
            <td class="prefsData">
              <input class="button" type="text" name="msg_per_page" id="msg_per_page" value="<?php echo (isset($user_prefs->msg_per_page)) ? $user_prefs->msg_per_page : $conf->msg_per_page ?>" size="3" maxlength="3"/>
            </td>
@@ -113,7 +113,7 @@ if (count($big_list) > 1) {
       <table>
          <?php if($conf->enable_reply_leadin) { ?>
          <tr>
-           <td class="prefsLabel"><label for="reply_leadin"><?php echo convertLang2Html($html_reply_leadin) ?>:</label></td>
+           <td class="prefsLabel"><label for="reply_leadin"><?php echo convertLang2Html($html_reply_leadin_label) ?></label></td>
            <td class="prefsData">
              <input class="button" type="text" name="reply_leadin" id="reply_leadin" value="<?php echo (isset($user_prefs->reply_leadin)) ? $user_prefs->reply_leadin : "" ?>" size="40"/>
            </td>
@@ -161,7 +161,7 @@ if (count($big_list) > 1) {
       <legend><?php echo convertLang2Html($html_signature); ?></legend>
       <table>
          <tr>
-           <td class="prefsLabel"><label for="signature"><?php echo convertLang2Html($html_signature) ?>:</label></td>
+           <td class="prefsLabel"><label for="signature"><?php echo convertLang2Html($html_signature_label) ?></label></td>
            <td class="prefsData">
              <?php if (isset($user_prefs->html_mail_send) && $user_prefs->html_mail_send && file_exists('fckeditor/fckeditor.php')) { 
                include('fckeditor/fckeditor.php');
@@ -193,14 +193,14 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="sent_folder" id="sent_folder" value="on" <?php if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder) echo 'checked="checked"'; ?> /><label for="sent_folder"><?php echo convertLang2Html($html_sent_folder) ?></label>: 
+             <input type="checkbox" name="sent_folder" id="sent_folder" value="on" <?php if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder) echo 'checked="checked"'; ?> /><label for="sent_folder"><?php echo convertLang2Html($html_sent_folder_label) ?></label>
              <select class="button" name="sent_folder_name"><?php echo join('', $sent_folders_list) ?></select>
            </td>
          </tr>
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="trash_folder" id="trash_folder" value="on" <?php if (isset($user_prefs->trash_folder) && $user_prefs->trash_folder) echo 'checked="checked"'; ?> /><label for="trash_folder"><?php echo convertLang2Html($html_trash_folder) ?></label>: 
+             <input type="checkbox" name="trash_folder" id="trash_folder" value="on" <?php if (isset($user_prefs->trash_folder) && $user_prefs->trash_folder) echo 'checked="checked"'; ?> /><label for="trash_folder"><?php echo convertLang2Html($html_trash_folder_label) ?></label>
              <select class="button" name="trash_folder_name"><?php echo join('', $trash_folders_list) ?></select>
            </td>
          </tr>
@@ -211,7 +211,7 @@ if (count($big_list) > 1) {
       <legend>NOCC</legend>
       <table>
          <tr>
-           <td class="prefsLabel"><label for="lang"><?php echo convertLang2Html($html_lang) ?>:</label></td>
+           <td class="prefsLabel"><label for="lang"><?php echo convertLang2Html($html_lang_label) ?></label></td>
            <td class="prefsData">
              <select class="button" name="lang" id="lang">
                <?php
@@ -229,7 +229,7 @@ if (count($big_list) > 1) {
          </tr>
          <?php if ($conf->use_theme == true) { ?>
          <tr>
-           <td class="prefsLabel"><label for="theme"><?php echo convertLang2Html($html_theme) ?>:</label></td>
+           <td class="prefsLabel"><label for="theme"><?php echo convertLang2Html($html_theme_label) ?></label></td>
            <td class="prefsData">
              <select class="button" name="theme" id="theme">
              <?php
