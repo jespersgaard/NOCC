@@ -15,7 +15,7 @@
  * @version    SVN: $Id$
  */
 
-/** Message documentation
+/** Message documentation (Message documentation)
  *
  * See the qqq 'language' for message documentation incl. usage of parameters
  * To improve a translation please visit http://translatewiki.net
@@ -42,7 +42,7 @@ $title_prev_page = '{{Identical|Previous page}}';
 $html_on = 'Message obsolete per [[Translating talk:NOCC|discussion]]';
 $html_passwd = '{{Identical|Password}}';
 $html_help = '{{Identical|Help}}';
-$html_msgperpage = 'Text before an input box in the user\'s \'preferences\'. The user chooses the number of messages to display together on each page of a list of messages.';
+$html_msgperpage_label = 'Text before an input box in the user\'s \'preferences\'. The user chooses the number of messages to display together on each page of a list of messages.';
 $html_preferences = '{{Identical|Preferences}}';
 $html_folder_subscribe = 'Part of the interface for managing folders, see the [[Translating talk:NOCC#NOCC_screenshots|screenshot]].';
 $html_folder_rename = 'Part of the interface for managing folders, see the [[Translating talk:NOCC#NOCC_screenshots|screenshot]]. It appears in the option to rename a folder: \'Rename [input box to select folder to be renamed] to [input box to write new name]\'.
