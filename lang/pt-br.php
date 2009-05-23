@@ -219,6 +219,5 @@ $html_seperate_msg_win = 'Mensagens em uma janela separada';
 $html_err_file_contacts = 'Impossível abrir arquivo de contatos para gravação.';
 $html_session_file_error = 'Impossível abrir arquivo de dessão para gravação.';
 $html_login_not_allowed = 'Este login não é permitido para conexão.';
-$lang_err_send_delay = 'Você tem de aguardar um pouco entre suas ações';
-$lang_seconds = 'segundos';
+$lang_err_send_delay = 'Você tem de aguardar um pouco entre suas ações (%1$d segundos)';
 $html_search = 'Buscar';

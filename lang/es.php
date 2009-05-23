@@ -216,6 +216,5 @@ $html_seperate_msg_win = 'Mensajes en una ventana separada';
 $html_err_file_contacts = 'No se pudo abrir el archivo de contactos para escritura.';
 $html_session_file_error = 'No se pudo abrir el archivo de sesiones para escritura.';
 $html_login_not_allowed = 'Este nombre de inicio de sesión no está permitido para conexión.';
-$lang_err_send_delay = 'Debes esperar entre dos correos';
-$lang_seconds = 'segundos';
+$lang_err_send_delay = 'Debes esperar entre dos correos (%1$d segundos)';
 $html_search = 'Buscar';

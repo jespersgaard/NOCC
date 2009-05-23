@@ -222,6 +222,5 @@ $html_seperate_msg_win = 'Nachricht in neuem Fenster öffnen';
 $html_err_file_contacts = 'Kann die Kontaktdatei nicht zum Schreiben öffnen.';
 $html_session_file_error = 'Kann die Sitzungsdatei nicht zum Schreiben öffnen.';
 $html_login_not_allowed = 'Diese Anmeldung ist nicht für die Verbindung zugelassen.';
-$lang_err_send_delay = 'Bitte lassen Sie etwas Zeit zwischen dem Versenden zweier E-Mails vergehen';
-$lang_seconds = 'Sekunden';
+$lang_err_send_delay = 'Bitte lassen Sie etwas Zeit zwischen dem Versenden zweier E-Mails vergehen (%1$d Sekunden)';
 $html_search = 'Suchen';

@@ -156,6 +156,5 @@ $html_del_msg = 'Obriši odabrane poruke ?';
 $original_msg = '-- Prvobitna poruka --';
 $to_empty = 'Polje \'Za\' ne smije biti prazno !';
 $html_images_display = 'Prikaži slike';
-$lang_err_send_delay = 'Morate pričekati između dva maila';
-$lang_seconds = 'sekundi';
+$lang_err_send_delay = 'Morate pričekati između dva maila (%1$d sekundi)';
 $html_search = 'Pretraga';

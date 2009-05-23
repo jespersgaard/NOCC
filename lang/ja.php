@@ -218,6 +218,5 @@ $html_seperate_msg_win = '分離ウィンドウのメッセージ';
 $html_err_file_contacts = 'アドレス帳を書き込むためにファイルを開けませんでした。';
 $html_session_file_error = 'セッションファイルを書き込みのために開くことができません。';
 $html_login_not_allowed = 'このログインは接続許可されていません。';
-$lang_err_send_delay = '2つのメールの合間を待たなければなりません';
-$lang_seconds = '秒';
+$lang_err_send_delay = '2つのメールの合間を待たなければなりません (%1$d秒)';
 $html_search = '検索';

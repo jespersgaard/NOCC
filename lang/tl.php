@@ -213,6 +213,5 @@ $html_seperate_msg_win = 'Mga mensaheng nasa loob ng nakahiwalay na bintana';
 $html_err_file_contacts = 'Hindi nagawang buksan ang talaksan ng mga kaugnayan para sa pagsusulat.';
 $html_session_file_error = 'Hindi nagawang buksan ang talaksan ng panahong inilaan para sa pagsusulat.';
 $html_login_not_allowed = 'Hindi pinapahintulutan ang ganitong paglagdang papasok para sa pag-ugnay.';
-$lang_err_send_delay = 'Dapat kang maghintay sa pagitan ng dalawang mga liham';
-$lang_seconds = 'mga segundo';
+$lang_err_send_delay = 'Dapat kang maghintay sa pagitan ng dalawang mga liham (%1$d mga segundo)';
 $html_search = 'Hanapin';

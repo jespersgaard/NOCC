@@ -215,6 +215,5 @@ $html_seperate_msg_win = 'Messages dans des fenêtres séparées';
 $html_err_file_contacts = 'Impossible d\'ouvrir le fichier des contacts';
 $html_session_file_error = 'Impossible d\'ouvrir le fichier des sessions';
 $html_login_not_allowed = 'Cet identifiant n\'est pas autorisé à se connecter.';
-$lang_err_send_delay = 'Vous devez attendre entre deux messages';
-$lang_seconds = 'secondes';
+$lang_err_send_delay = 'Vous devez attendre entre deux messages (%1$d secondes)';
 $html_search = 'Rechercher';

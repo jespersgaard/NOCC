@@ -148,6 +148,5 @@ $lang_could_not_connect = 'De Server konnt net erreecht ginn';
 $lang_invalid_msg_num = 'Falsche Nummer vum Messsage';
 $html_invalid_email_address = 'Net valabel e-Mailadress';
 $html_seperate_msg_win = 'Messagen a separate Fënsteren';
-$lang_err_send_delay = 'Dir musst tëschent 2 Maile waarden';
-$lang_seconds = 'Sekonnen';
+$lang_err_send_delay = 'Dir musst tëschent 2 Maile waarden (%1$d Sekonnen)';
 $html_search = 'Sichen';

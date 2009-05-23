@@ -214,6 +214,5 @@ $html_seperate_msg_win = 'Teachtaireachtaí i bhfuinneog ar leith';
 $html_err_file_contacts = 'Níor fhéidir comhad teagmhálaithe a oscail le haghaidh scríofa.';
 $html_session_file_error = 'Níorbh fhéidir comhad an tseisiúin a oscailt le haghaidh scríofa.';
 $html_login_not_allowed = 'Ní cheadaítear an logáil isteach seo don cheangal.';
-$lang_err_send_delay = 'Caithfidh tú fanacht idir dhá ríomhphost';
-$lang_seconds = 'soicind';
+$lang_err_send_delay = 'Caithfidh tú fanacht idir dhá ríomhphost (%1$d soicind)';
 $html_search = 'Cuardaigh';

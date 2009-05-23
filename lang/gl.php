@@ -215,6 +215,5 @@ $html_seperate_msg_win = 'Mensaxes nunha ventá separada';
 $html_err_file_contacts = 'Non se pode abrir o ficheiro de contactos.';
 $html_session_file_error = 'Non se pode abrir o ficheiro de inicio de sesión.';
 $html_login_not_allowed = 'Este rexistro non está permitido para a conexión.';
-$lang_err_send_delay = 'Debe agardar entre dous correos';
-$lang_seconds = 'segundos';
+$lang_err_send_delay = 'Debe agardar entre dous correos (%1$d segundos)';
 $html_search = 'Procurar';

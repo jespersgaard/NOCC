@@ -197,5 +197,4 @@ $html_invalid_wrap_msg = 'Ampiezza testo a capo non valida';
 $html_seperate_msg_win = 'Messaggi in finestre separate';
 $html_err_file_contacts = 'Impossibile aprire in scrittura il file dei contatti.';
 $html_session_file_error = 'Impossibile aprire in scrittura il file di sessione';
-$lang_seconds = 'secondi';
 $html_search = 'Cerca';

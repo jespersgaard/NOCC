@@ -216,6 +216,5 @@ $html_seperate_msg_win = 'İletiyi yeni bir pencerede göster';
 $html_err_file_contacts = 'Kişiler list dosyası bulunamadı.';
 $html_session_file_error = 'Oturum biliglerini yazma dosyası bulunamadı.';
 $html_login_not_allowed = 'Bu kullanıcının girişi engellenmiştir.';
-$lang_err_send_delay = 'İki posta arasında beklemeniz gerekir';
-$lang_seconds = 'saniye';
+$lang_err_send_delay = 'İki posta arasında beklemeniz gerekir (%1$d saniye)';
 $html_search = 'Ara';

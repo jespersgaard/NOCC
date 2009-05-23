@@ -215,6 +215,5 @@ $html_seperate_msg_win = 'Messages in fenestra separate';
 $html_err_file_contacts = 'Impossibile aperir le file de contactos pro scriber.';
 $html_session_file_error = 'Impossibile aperir le file de session pro scriber.';
 $html_login_not_allowed = 'Iste identitate non es permittite pro connexion.';
-$lang_err_send_delay = 'Tu debe attender inter duo messages';
-$lang_seconds = 'secundas';
+$lang_err_send_delay = 'Tu debe attender inter duo messages (%1$d secundas)';
 $html_search = 'Cercar';

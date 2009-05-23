@@ -203,5 +203,4 @@ $html_invalid_msg_per_page = 'Nombre de missatges per pàgina incorrecte';
 $html_invalid_wrap_msg = 'Ample d\'ajust de missatge incorrecte';
 $html_seperate_msg_win = 'Missatge a finestres separades';
 $html_err_file_contacts = 'No s\'ha pogut obrir el fitxer de contactes per escriure-hi.';
-$lang_seconds = 'segons';
 $html_search = 'Cerca';

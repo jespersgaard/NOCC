@@ -215,6 +215,5 @@ $html_seperate_msg_win = 'Messatges dins de fenètras separadas';
 $html_err_file_contacts = 'Impossible de dobrir lo fichièr dels contactes';
 $html_session_file_error = 'Impossible de dobrir lo fichièr de las sesilhas';
 $html_login_not_allowed = 'Aqueste identificant es pas autorizat a se connectar.';
-$lang_err_send_delay = 'Vos cal esperar entre dos messatges';
-$lang_seconds = 'segondas';
+$lang_err_send_delay = 'Vos cal esperar entre dos messatges (%1$d segondas)';
 $html_search = 'Recercar';

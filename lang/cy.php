@@ -216,6 +216,5 @@ $html_seperate_msg_win = 'Negeseuon mewn ffenestr arall';
 $html_err_file_contacts = 'Yn methu agor ffeil y cysylltiadau ar gyfer ysgrifennu.';
 $html_session_file_error = 'Yn methu agor ffeil sesiynau ar gyfer ysgrifennu.';
 $html_login_not_allowed = 'Nid yw\'r mewngofnodiad yma\'n ddilys ar gyfer y cyswllt hwn.';
-$lang_err_send_delay = 'Rhaid oedi cyn anfon e-bost arall';
-$lang_seconds = 'eiliadau';
+$lang_err_send_delay = 'Rhaid oedi cyn anfon e-bost arall (%1$d eiliadau)';
 $html_search = 'Chwilio';

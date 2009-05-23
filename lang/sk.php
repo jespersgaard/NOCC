@@ -216,6 +216,5 @@ $html_seperate_msg_win = 'Správy v samostatnom okne';
 $html_err_file_contacts = 'Nepodarilo sa otvoriť súbor kontaktov na zápis.';
 $html_session_file_error = 'Nepodarilo sa otvoriť súbor relácie na zápis.';
 $html_login_not_allowed = 'Toto prihlásienie nie je v spojení dovolené.';
-$lang_err_send_delay = 'Musíte počkať medzi dvomi emailami';
-$lang_seconds = 'sekúnd';
+$lang_err_send_delay = 'Musíte počkať medzi dvomi emailami (%1$d sekúnd)';
 $html_search = 'Hľadať';

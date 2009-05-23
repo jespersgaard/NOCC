@@ -183,5 +183,4 @@ $html_invalid_email_address = 'Virheellinen sähköpostiosoite';
 $html_seperate_msg_win = 'Viestit erillisessä ikkunassa';
 $html_err_file_contacts = 'Yhteystietotiedostoa ei voi avata kirjoitusta varten.';
 $html_session_file_error = 'Istuntotiedostoa ei voi avata kirjoitusta varten.';
-$lang_seconds = 'sekuntia';
 $html_search = 'Etsi';

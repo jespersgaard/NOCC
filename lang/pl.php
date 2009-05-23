@@ -217,6 +217,5 @@ $html_seperate_msg_win = 'Wiadomości w osobnym oknie';
 $html_err_file_contacts = 'Brak możliwości zapisu listy kontaktów.';
 $html_session_file_error = 'Nie można otworzyć pliku sesji do zapisu.';
 $html_login_not_allowed = 'Ten użytkownik nie ma uprawnień do połączenia.';
-$lang_err_send_delay = 'Musisz poczekać pomiędzy wysłaniem dwu wiadomości';
-$lang_seconds = 'sekund';
+$lang_err_send_delay = 'Musisz poczekać pomiędzy wysłaniem dwu wiadomości (%1$d sekund)';
 $html_search = 'Szukaj';
