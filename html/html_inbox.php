@@ -49,7 +49,7 @@
         echo $tmp['priority_text'];
         break;
       case '9': //Priority Number...
-        echo '<span title="' . $html_priority . ': ' . $tmp['priority_text'] . '">' . $tmp['priority'] . '</span>';
+        echo '<span title="' . $html_priority_label . ' ' . $tmp['priority_text'] . '">' . $tmp['priority'] . '</span>';
         break;
     }
     echo '</td>';

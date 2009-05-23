@@ -85,7 +85,7 @@
      <!-- If 'file_uploads=Off', we mustn't present the ability to do attachments -->
      <?php if(ini_get("file_uploads")) { ?>
      <tr>
-       <td class="sendLabel"><label for="mail_att"><?php echo $html_att ?>:</label></td>
+       <td class="sendLabel"><label for="mail_att"><?php echo $html_att_label ?></label></td>
        <td class="sendData">
          <input class="button" type="file" name="mail_att" id="mail_att" size="40" value="" />
          <input type="submit" class="button" onclick="btnClicked=this" name="sendaction" value="<?php echo $html_attach ?>" />
@@ -93,7 +93,7 @@
      </tr>
      <?php } ?>
      <tr>
-       <td class="sendLabel"><label for="priority"><?php echo $html_priority ?>:</label></td>
+       <td class="sendLabel"><label for="priority"><?php echo $html_priority_label ?></label></td>
        <td class="sendData">
          <select class="button" name="priority" id="priority">
            <option value="1 (Highest)"><?php echo $html_highest ?></option>

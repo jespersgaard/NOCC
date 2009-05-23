@@ -131,7 +131,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     global $conf;
     global $lang_locale;
     global $no_locale_date_format;
-    global $html_att, $html_atts;
+    global $html_att_label, $html_atts;
     global $lang_invalid_msg_num;
 
     $sort = $_SESSION['nocc_sort'];
@@ -242,7 +242,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
             case 0:
                 break;
             case 1:
-                $link_att = '<tr><th class="mailHeaderLabel right">' . $html_att . ':</th><td class="mailHeaderData">' . link_att($mail, $attach_tab, $conf->display_part_no) . '</td></tr>';
+                $link_att = '<tr><th class="mailHeaderLabel right">' . $html_att_label . '</th><td class="mailHeaderData">' . link_att($mail, $attach_tab, $conf->display_part_no) . '</td></tr>';
                 break;
             default:
                 $link_att = '<tr><th class="mailHeaderLabel right">' . $html_atts . ':</th><td class="mailHeaderData">' . link_att($mail, $attach_tab, $conf->display_part_no) . '</td></tr>';
