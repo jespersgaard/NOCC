@@ -33,7 +33,7 @@
     </p>
     <table>
       <tr>
-        <td class="sendLabel"><label for="mail_from"><?php echo $html_from ?>:</label></td>
+        <td class="sendLabel"><label for="mail_from"><?php echo $html_from_label ?></label></td>
         <td class="sendData">
           <?php if( isset($conf->allow_address_change) && $conf->allow_address_change ) { ?>
           <input class="button" type="text" name="mail_from" id="mail_from" size="60" value="<?php echo htmlspecialchars($mail_from) ?>" />
@@ -43,10 +43,10 @@
      <tr>
      <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
        <td class="sendLabel">
-         <label for="mail_to"><a href="javascript:void(0);" onclick="window.open('contacts.php?field=mail_to&amp;<?php echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_to ?></a>:</label>
+         <label for="mail_to"><a href="javascript:void(0);" onclick="window.open('contacts.php?field=mail_to&amp;<?php echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_to_label ?></a></label>
        </td>
      <?php } else { ?>
-       <td class="sendLabel"><label for="mail_to"><?php echo $html_to ?>:</label></td>
+       <td class="sendLabel"><label for="mail_to"><?php echo $html_to_label ?></label></td>
      <?php } ?>
        <td class="sendData">
          <input class="button" type="text" name="mail_to" id="mail_to" size="60" value="<?php echo (isset($mail_to) ? stripslashes(htmlspecialchars($mail_to)) : ''); ?>" />
@@ -55,10 +55,10 @@
      <tr>
      <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
        <td class="sendLabel">
-         <label for="mail_cc"><a href="javascript:void(0);" onclick="window.open('contacts.php?field=mail_cc&amp;<?php echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_cc ?></a>:</label>
+         <label for="mail_cc"><a href="javascript:void(0);" onclick="window.open('contacts.php?field=mail_cc&amp;<?php echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_cc_label ?></a></label>
        </td>
      <?php } else { ?>
-       <td class="sendLabel"><label for="mail_cc"><?php echo $html_cc ?>:</label></td>
+       <td class="sendLabel"><label for="mail_cc"><?php echo $html_cc_label ?></label></td>
      <?php } ?>
        <td class="sendData">
          <input class="button" type="text" name="mail_cc" id="mail_cc" size="60" value="<?php echo (isset($mail_cc) ? htmlspecialchars($mail_cc) : '') ?>" />
@@ -67,10 +67,10 @@
      <tr>
      <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>
        <td class="sendLabel">
-         <label for="mail_bcc"><a href="javascript:void(0);" onclick="window.open('contacts.php?field=mail_bcc&amp;<?php echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_bcc ?></a>:</label>
+         <label for="mail_bcc"><a href="javascript:void(0);" onclick="window.open('contacts.php?field=mail_bcc&amp;<?php echo session_name().'='.session_id() ?>','','scrollbars=yes,resizable=yes,width=500,height=250')"><?php echo $html_bcc_label ?></a></label>
        </td>
      <?php } else { ?>
-       <td class="sendLabel"><label for="mail_bcc"><?php echo $html_bcc ?>:</label></td>
+       <td class="sendLabel"><label for="mail_bcc"><?php echo $html_bcc_label ?></label></td>
      <?php } ?>
        <td class="sendData">
          <input class="button" type="text" name="mail_bcc" id="mail_bcc" size="60" value="<?php echo (isset($mail_bcc) ? htmlspecialchars($mail_bcc) : '') ?>" />

@@ -28,10 +28,10 @@ if (($content['next'] != '') && ($content['next'] != 0))
 echo "</td></tr>";
 
 if ($conf->use_verbose && $verbose == '0') { //If displaying "normal" header...
-  echo '<tr><th class="mailHeaderLabel">'.$html_from.':</th><td class="mailHeaderData">'.htmlspecialchars($content['from']).'</td></tr>';
-  echo '<tr><th class="mailHeaderLabel">'.$html_to.':</th><td class="mailHeaderData">'.htmlspecialchars($content['to']).'</td></tr>';
+  echo '<tr><th class="mailHeaderLabel">'.$html_from_label.'</th><td class="mailHeaderData">'.htmlspecialchars($content['from']).'</td></tr>';
+  echo '<tr><th class="mailHeaderLabel">'.$html_to_label.'</th><td class="mailHeaderData">'.htmlspecialchars($content['to']).'</td></tr>';
   if ($content['cc'] != '') {
-    echo '<tr><th class="mailHeaderLabel">'.$html_cc.':</th><td class="mailHeaderData">'.htmlspecialchars($content['cc']).'</td></tr>';
+    echo '<tr><th class="mailHeaderLabel">'.$html_cc_label.'</th><td class="mailHeaderData">'.htmlspecialchars($content['cc']).'</td></tr>';
   }
 
 if ($content['subject'] == '')

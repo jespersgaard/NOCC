@@ -193,7 +193,7 @@ switch($action) {
 
         // Set body
         if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
-            $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': '
+            $mail_body = $original_msg . "\n" . $html_from_label . ' ' . $content['from'] . "\n" . $html_to_label . ' '
                     . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject_label
                     . ' '. $content['subject'] . "\n\n" . enh_html_entity_decode(strip_tags($content['body'], ''));
         else {
@@ -255,7 +255,7 @@ switch($action) {
 
         // Set body
         if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
-            $mail_body = $original_msg . "\n" . $html_from . ': ' . $content['from'] . "\n" . $html_to . ': '
+            $mail_body = $original_msg . "\n" . $html_from_label . ' ' . $content['from'] . "\n" . $html_to_label . ' '
                     . $content['to'] . "\n" . $html_sent.': ' . $content['complete_date'] . "\n" . $html_subject_label
                     . ' '. $content['subject'] . "\n\n" . enh_html_entity_decode(strip_tags($content['body'], ''));
         else {
@@ -318,8 +318,8 @@ switch($action) {
             if (isset($conf->broken_forwarding) && $conf->broken_forwarding) {
                 // Set body
                 if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
-                    $mail_body .= $original_msg . $conf->crlf . $html_from . ': ' . $content['from'] . $conf->crlf
-                            . $html_to . ': ' . $content['to'] . $conf->crlf . $html_sent.': ' . $content['complete_date']
+                    $mail_body .= $original_msg . $conf->crlf . $html_from_label . ' ' . $content['from'] . $conf->crlf
+                            . $html_to_label . ' ' . $content['to'] . $conf->crlf . $html_sent.': ' . $content['complete_date']
                             . $conf->crlf . $html_subject_label . ' '. $content['subject'] . $conf->crlf . $conf->crlf
                             . strip_tags2($content['body'], '') . $conf->crlf . $conf->crlf;
                 else {
