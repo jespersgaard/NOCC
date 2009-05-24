@@ -162,7 +162,7 @@ $html_att_label = 'Attachment:';
 $html_atts = 'Attachments:';
 $html_att_unknown = '[unknown]';
 $html_attach = 'Attach';
-$html_attach_forget = 'You must attach your file before sending your message !';
+$html_attach_forget = 'You must attach your file before sending your message!';
 $html_attach_delete = 'Remove Selected';
 $html_attach_none = 'You must select a file to attach!';
 $html_sort_by = 'Sort by';
@@ -240,7 +240,7 @@ $html_del_msg = 'Delete selected messages?';
 $html_down_mail = 'Download';
 
 $original_msg = '-- Original Message --';
-$to_empty = 'The \'To\' field must not be empty !';
+$to_empty = 'The \'To\' field must not be empty!';
 
 // Images warning
 $html_images_warning = 'For your security, remote pictures are not displayed.';
