@@ -236,7 +236,7 @@ $html_contact_err1 = 'Maximum number of contacts is "%1$d"';
 $html_contact_err2 = 'You cannot add a new contact';
 $html_contact_err3 = 'You do not have access rights to contact list';
 $html_contact_none = 'No contacts could be found.';
-$html_del_msg = 'Delete selected messages ?';
+$html_del_msg = 'Delete selected messages?';
 $html_down_mail = 'Download';
 
 $original_msg = '-- Original Message --';
