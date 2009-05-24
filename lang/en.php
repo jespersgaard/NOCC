@@ -263,7 +263,7 @@ $html_seperate_msg_win = 'Messages in separate window';
 // Exceptions
 $html_err_file_contacts = 'Unable to open contacts file for writing.';
 $html_session_file_error = 'Unable to open session file for writing.';
-$html_login_not_allowed = 'This login is not allowed for connexion.';
+$html_login_not_allowed = 'This login is not allowed for connection.';
 
 // Send delay
 $lang_err_send_delay = 'You must wait between two e-mails (%1$d seconds)';
