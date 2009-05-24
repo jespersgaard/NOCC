@@ -24,6 +24,7 @@
  * @file
  *
  * @author Mathijs Kolenberg <mack@solcon.nl>
+ * @author McDutchie
  * @author Pieterjan Goppel <lp_leeki@euronet.nl>
  * @author SPQRobin
  * @author Sander Schroevers
@@ -109,7 +110,7 @@ $html_reapply_filters = 'Filters opnieuw toepassen';
 $html_filter_contains = 'bevat:';
 $html_filter_name = 'Filternaam';
 $html_filter_action = 'Filteractie';
-$html_filter_moveto = 'Verplaatsen naar map:';
+$html_filter_moveto = 'Verplaatsen naar';
 $html_select_one = '-- Selecteer --';
 $html_and = 'En';
 $html_new_msg_in = 'Nieuwe berichten in';
@@ -127,7 +128,7 @@ $html_remove_header = 'Berichtkoppen verbergen';
 $html_inbox = 'Postvak In';
 $html_new_msg = 'Nieuw Bericht';
 $html_reply = 'Antwoorden';
-$html_reply_short = 'RE:';
+$html_reply_short = 'Re:';
 $html_reply_all = 'Allemaal antwoorden';
 $html_forward = 'Doorsturen';
 $html_forward_short = 'FW:';
@@ -186,7 +187,7 @@ $html_send_confirmed = 'Het bericht is verzonden';
 $html_no_sendaction = 'Geen actie gespecificeerd, zet eventueel JavaScript aan.';
 $html_error_occurred = 'Er is een fout opgetreden';
 $html_prefs_file_error = 'Het instellingenbestand kan niet worden geopend.';
-$html_wrap = 'Terugloopbreedte voor uitgaande berichten:';
+$html_wrap = 'Aantal karakters voor terugloop voor uitgaande berichten:';
 $html_wrap_none = 'Geen terugloop';
 $html_usenet_separator = 'Gebruik scheidingslijn ("-- \n") voor handtekening';
 $html_mark_as = 'Markeren als';
