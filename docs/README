@@ -60,7 +60,8 @@ the Open Source community. The Web page of Nocc is http://nocc.sourceforge.net/
 'http://sf.net/projects/nocc/'. Announces are sent to the
 'nocc-announce' mailing lists: http://sf.net/mail/?group_id=12177
 
-   A public CVS server is also accessible: http://sf.net/cvs/?group_id=12177
+   A public SVN server is also accessible:
+http://sf.net/scm/?type=svn&group_id=12177
 
   Reporting bugs, sending suggestions or contributions
   ----------------------------------------------------
