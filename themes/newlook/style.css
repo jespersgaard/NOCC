@@ -18,16 +18,10 @@
 
 .menuOpts {
   color: #000000;
-  border-spacing: 0px;
 }
 
 .menuOpts input {
-  font-size: 13px;
   overflow: visible;
-}
-
-.menuOpts select {
-  font-size: 13px;
 }
 
 .button {
@@ -104,7 +98,7 @@ img {
 body {
   min-width: 40em;
   color: #000000;
-  background-color: #FFFFFF;
+  background-color: #EBEBEB;
   font-family: Arial, Helvetica, sans-serif;
   font-size: small;
 }
@@ -197,7 +191,7 @@ table {
 
 .mainmenu ul {
   margin: 0;
-  padding: 1px 0 1px 0;
+  padding: 1px 0;
   list-style-type: none;
 }
 
@@ -230,7 +224,7 @@ table {
 
 .submenu ul {
   margin: 0;
-  padding: 1px 0 1px 0;
+  padding: 1px 0;
   list-style-type: none;
 }
 
@@ -318,7 +312,8 @@ div.topNavigation img {
 }
 
 div.messageList {
-  background-color: #D2D2D2;
+  padding: .5em;
+  background: #FFFFFF url(./img/shtamp.png) top right no-repeat;
 }
 
 div.messageList table {
@@ -376,8 +371,7 @@ img.sort {
   margin-right: auto;
   text-align: center;
   font-size: larger;
-  background-color: #F5FCFF;
-  background: url(./img/shtamp.png) top center no-repeat;
+  background: #FFFFFF url(./img/shtamp.png) top center no-repeat;
   border: 1px solid #000000;
 }
 
@@ -407,16 +401,54 @@ img.sort {
 }
 
 #inboxTable {
+  margin: .5em 0;
+  border: 1px solid silver;
   border-collapse: collapse;
+}
+
+#inboxTable th {
+  text-align: left;
+  background-color: silver;
+  border-top: 1px solid silver;
+  border-bottom: 1px solid silver;
+}
+
+#inboxTable td {
+  border-top: 1px solid silver;
+  border-bottom: 1px solid silver;
 }
 
 #inboxTable .new {
   font-weight: bold;
 }
 
+#inboxTable .odd {
+  background-color: #FFFFFF;
+}
+
+#inboxTable .even {
+  background-color: #F0F0F0;
+}
+
+#inboxTable .odd > .sorted {
+  background-color: #FFFFCC;
+}
+
+#inboxTable .even > .sorted {
+  background-color: #FFFFAA;
+}
+
+#inboxTable .sorted {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
 #inboxTable th.sorted {
-  background-color: #FEEC85;
-  border: 1px dashed #222222;
+  background-color: #FFFF88;
+}
+
+#inboxTable td.sorted {
+  background-color: #FFFFCC;
 }
 
 #inboxTable .column0 {
@@ -431,20 +463,23 @@ img.sort {
   text-align: center;
 }
 
-#inboxTable tr.marked {
+#inboxTable tr.marked,
+#inboxTable tr.marked .sorted {
   background-color: #FFDEAD;
 }
 
 #inboxTable tr.odd:hover,
 #inboxTable tr.even:hover,
-#inboxTable tr.hover {
+#inboxTable tr.hover,
+#inboxTable tr.odd:hover .sorted,
+#inboxTable tr.even:hover .sorted,
+#inboxTable tr.hover .sorted {
   cursor: pointer;
   background-color: #FFC061;
 }
 
 #inboxStatus {
   text-align: center;
-  border-top: 1px dashed #222222;
 }
 
 .send {
@@ -452,7 +487,7 @@ img.sort {
   text-align: center;
   width: 100%;
   padding: 0px;
-  background-color: #F7F7F7;
+  background: #FFFFFF url(./img/shtamp.png) top right no-repeat;
 }
 
 .send table {
@@ -545,7 +580,7 @@ hr.mailAttachSep {
   text-align: center;
   padding: 0px;
   width: 100%;
-  background-color: #F7F7F7;
+  background-color: #F5F5F5;
 }
 
 .mailNav table {
@@ -556,18 +591,18 @@ hr.mailAttachSep {
 
 .mailSwitchHeaders {
  text-align: left;
- background-color: #F7F7F7;
+ background-color: #F5F5F5;
 }
 
 .mailHeaderLabel {
  font-weight: normal;
  text-align: right;
- background-color: #F7F7F7;
+ background-color: #F5F5F5;
 }
 
 .mailHeaderData {
   font-weight: bold;
-  background-color: #F7F7F7;
+  background-color: #F5F5F5;
   text-align: left;
 }
 
@@ -589,7 +624,7 @@ hr.mailAttachSep {
   border: 0px;
   text-align: center;
   padding: 3px;
-  background-color: #F7F7F7;
+  background-color: #F5F5F5;
   width: 100%;
 }
 
@@ -616,7 +651,7 @@ hr.mailAttachSep {
 
 .contactsListOdd {
   color: #000000;
-  background-color: #F7F7F7;
+  background-color: #F5F5F5;
 }
 
 .contactsListEven {
@@ -635,7 +670,7 @@ hr.mailAttachSep {
   text-align: center;
   padding: 0px;
   width: 100%;
-  background-color: #F7F7F7;
+  background: #FFFFFF url(./img/shtamp.png) top right no-repeat;
 }
 
 .prefs h3 {
