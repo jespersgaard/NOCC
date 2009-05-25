@@ -195,6 +195,7 @@ $html_logout = 'Logout';
 $html_msg = 'Message';
 $html_msgs = 'Messages';
 $html_configuration = 'This server is not well set up!';
+$html_priority = 'Priority';
 $html_priority_label = 'Priority:';
 $html_lowest = 'Lowest';
 $html_low = 'Low';

@@ -173,6 +173,7 @@ $html_logout = 'Abmelden';
 $html_msg = 'Nachricht';
 $html_msgs = 'Nachrichten';
 $html_configuration = 'Dieser Server ist nicht richtig konfiguriert!';
+$html_priority = 'Priorität';
 $html_priority_label = 'Priorität:';
 $html_lowest = 'Sehr niedrig';
 $html_low = 'Niedrig';
