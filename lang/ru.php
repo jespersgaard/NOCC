@@ -29,9 +29,7 @@
  * @author Sk
  */
 
-$charset = 'UTF-8';
 $lang_locale = 'ru_RU.UTF-8';
-$lang_dir = 'ltr';
 $default_date_format = '%d.%m.%Y';
 $no_locale_date_format = '%d.%m.%Y';
 $default_time_format = '%H:%M';

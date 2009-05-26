@@ -27,7 +27,6 @@
  * @author YaronSh
  */
 
-$charset = 'UTF-8';
 $lang_locale = 'he_IL.UTF-8';
 $lang_dir = 'rtl';
 $default_date_format = '%Y-%m-%d';

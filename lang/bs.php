@@ -26,9 +26,7 @@
  * @author CERminator
  */
 
-$charset = 'UTF-8';
 $lang_locale = 'bs_BS.UTF-8';
-$lang_dir = 'ltr';
 $default_date_format = '%d-%m-%Y';
 $no_locale_date_format = '%Y-%m-%d';
 $default_time_format = '%I:%M %p';

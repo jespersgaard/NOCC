@@ -26,9 +26,7 @@
  * @author McDutchie
  */
 
-$charset = 'UTF-8';
 $lang_locale = 'ia.UTF-8';
-$lang_dir = 'ltr';
 $default_date_format = '%Y-%m-%d';
 $no_locale_date_format = '%Y-%m-%d';
 $default_time_format = '%H:%M';

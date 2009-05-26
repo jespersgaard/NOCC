@@ -28,7 +28,6 @@
  * @author OsamaK
  */
 
-$charset = 'UTF-8';
 $lang_locale = 'ar_AR.UTF-8';
 $lang_dir = 'rtl';
 $default_date_format = '%A %d %B %Y';

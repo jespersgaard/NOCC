@@ -26,9 +26,7 @@
  * @author IAlex
  */
 
-$charset = 'UTF-8';
 $lang_locale = 'fr_FR.UTF-8';
-$lang_dir = 'ltr';
 $default_date_format = '%A %d %B %Y';
 $no_locale_date_format = '%d-%m-%Y';
 $default_time_format = '%H:%M';

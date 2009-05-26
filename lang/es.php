@@ -27,9 +27,7 @@
  * @author Gustavo Muslera <gmuslera@internet.com.uy>
  */
 
-$charset = 'UTF-8';
 $lang_locale = 'es_ES.UTF-8';
-$lang_dir = 'ltr';
 $default_date_format = '%Y-%m-%d';
 $no_locale_date_format = '%Y-%m-%d';
 $default_time_format = '%I:%M %p';

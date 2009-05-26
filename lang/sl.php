@@ -26,9 +26,7 @@
  * @author Borut Mrak <borut.mrak@ijs.si>
  */
 
-$charset = 'UTF-8';
 $lang_locale = 'sl_SI.UTF-8';
-$lang_dir = 'ltr';
 $default_date_format = '%d.%m.%Y';
 $no_locale_date_format = '%d.%m.%Y';
 $default_time_format = '%I:%M %p';

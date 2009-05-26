@@ -29,9 +29,7 @@
  * @author 青子守歌
  */
 
-$charset = 'UTF-8';
 $lang_locale = 'ja_JP.UTF-8';
-$lang_dir = 'ltr';
 $default_date_format = '%Y年%m月%d日';
 $no_locale_date_format = '%Y-%m-%d';
 $default_time_format = '%H:%M';

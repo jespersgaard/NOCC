@@ -27,9 +27,7 @@
  * @author Sion Pennant <sion.pennant@powys.gov.uk>
  */
 
-$charset = 'UTF-8';
 $lang_locale = 'cy_GB.UTF-8';
-$lang_dir = 'ltr';
 $default_date_format = '%Y-%m-%d';
 $no_locale_date_format = '%Y-%m-%d';
 $default_time_format = '%I:%M %p';

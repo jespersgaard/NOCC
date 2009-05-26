@@ -27,9 +27,7 @@
  * @author Rune Dalmo <runed@balder.narviknett.no>
  */
 
-$charset = 'UTF-8';
 $lang_locale = 'no_NO.UTF-8';
-$lang_dir = 'ltr';
 $default_date_format = '%d.%m.%y';
 $no_locale_date_format = '%d.%m.%y';
 $default_time_format = '%I:%M %p';

@@ -26,9 +26,7 @@
  * @author Vid Strpic <strpic@bofhlet.net>
  */
 
-$charset = 'UTF-8';
 $lang_locale = 'hr_HR.UTF-8';
-$lang_dir = 'ltr';
 $default_date_format = '%d-%m-%Y %H:%M';
 $no_locale_date_format = '%d-%m-%Y %H:%M';
 $default_time_format = 'Danas u %H:%M';

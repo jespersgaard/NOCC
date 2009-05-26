@@ -28,9 +28,7 @@
  * @author Yknok29
  */
 
-$charset = 'UTF-8';
 $lang_locale = 'ko_KR.UTF-8';
-$lang_dir = 'ltr';
 $default_date_format = '%Y-%m-%d';
 $no_locale_date_format = '%Y-%m-%d';
 $default_time_format = '%I:%M %p';

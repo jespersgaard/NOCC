@@ -25,7 +25,6 @@
  *
  */
 
-$charset = 'UTF-8';
 $lang_locale = 'fa.UTF-8';
 $lang_dir = 'rtl';
 $default_date_format = '%Y-%m-%d';
