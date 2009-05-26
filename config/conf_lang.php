@@ -111,7 +111,7 @@ $lang_array[$i]->label = 'Euskara';
 // Persian
 $i++;
 $lang_array[$i] = new lang();
-$lang_array[$i]->filename = 'farsi';
+$lang_array[$i]->filename = 'fa';
 $lang_array[$i]->label = 'فارسی';
 
 // French
@@ -305,14 +305,14 @@ $lang_array[$i]->label = '한국어';
 // Chinese (Simplified)
 $i++;
 $lang_array[$i] = new lang();
-$lang_array[$i]->filename = 'zh-gb';
+$lang_array[$i]->filename = 'zh-hans';
 $lang_array[$i]->label = '中文';
 
-// Chinese (Traditionnal)
+// Chinese (Traditional)
 $i++;
 $lang_array[$i] = new lang();
-$lang_array[$i]->filename = 'zh-tw';
-$lang_array[$i]->label = '古文 / 文言文';
+$lang_array[$i]->filename = 'zh-hant';
+$lang_array[$i]->label = '‪中文（繁體）';
 
 /* Message documentation (translateWiki.net specific)
 $i++;
