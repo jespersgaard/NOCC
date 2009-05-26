@@ -298,7 +298,7 @@ $lang_array[$i]->label = '日本語';
 // Korean
 $i++;
 $lang_array[$i] = new lang();
-$lang_array[$i]->filename = 'kr';
+$lang_array[$i]->filename = 'ko';
 $lang_array[$i]->label = '한국어';
 
 
