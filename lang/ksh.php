@@ -27,6 +27,7 @@
  */
 
 $charset = 'UTF-8';
+$lang_locale = 'en_US.UTF-8';
 $lang_dir = 'ltr';
 $default_date_format = '%d.%m.%Y';
 $no_locale_date_format = '%d.%m.%Y';
@@ -103,7 +104,7 @@ $html_filter_name = 'Däm Fellter singe Nahme';
 $html_filter_action = 'Däm Fellter sing Aufjab';
 $html_filter_moveto = 'Ömtrecke noh';
 $html_select_one = '--Donn eine ußsöhke--';
-$html_and = 'un';
+$html_and = 'Un';
 $html_new_msg_in = 'Neu Nohreeschte en';
 $html_or = 'udder';
 $html_move = 'Wuangersch hen donn';
@@ -163,6 +164,7 @@ $html_logout = 'Ußlogge';
 $html_msg = 'Nohreesch';
 $html_msgs = 'Nohreeschte';
 $html_configuration = 'Hee dä ßööver es nit joot opjesaz woode!';
+$html_priority = 'Weeschteschkeit';
 $html_priority_label = 'Weschteschkeit:';
 $html_lowest = 'Janz winnisch';
 $html_low = 'Winnisch';
@@ -177,8 +179,8 @@ $html_send_confirmed = 'Ding Nohreesch wood zom Ußlivere aanjenumme';
 $html_no_sendaction = 'Kein Akßjuhn aanjejovve. De künnts et ens me JavaSkrep Ennschallde versöhke.';
 $html_error_occurred = 'Ene Fähler es opjetrodde';
 $html_prefs_file_error = 'Mer kunnte de Datei met de Enshtellunge nit för zem erin Schriive opmaache.';
-$html_wrap = 'Donn de Reije en Nohreeschte för em Verscheke ömbresche noh:';
-$html_wrap_none = 'Jaa nit';
+$html_wrap = 'De Aanzahl Zeijshe, noh dänne de Reije en Nohreeschte för em Verscheke längstens ömbroche wääde:';
+$html_wrap_none = 'Jaa nit ömbräsche';
 $html_usenet_separator = 'Donn däm <i lang="en">usenet</i> sing „<code>-- \n</code>“ vör de „Ongerschreffte“ erin';
 $html_mark_as = 'Makeere als';
 $html_read = 'jelässe';

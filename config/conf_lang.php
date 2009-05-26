@@ -314,11 +314,15 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'zh-hant';
 $lang_array[$i]->label = '‪中文（繁體）';
 
-/* Message documentation (translateWiki.net specific)
+// Tamil
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'ta';
+$lang_array[$i]->label = '‪தமிழ்';
+
+/* Message documentation (translatewiki.net specific)
 $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'qqq';
 $lang_array[$i]->label = 'Message documentation';
 */
-
-?>

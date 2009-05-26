@@ -169,6 +169,7 @@ $html_logout = 'ログアウト';
 $html_msg = 'メッセージ';
 $html_msgs = '個のメッセージ';
 $html_configuration = 'このサーバーは正しくセットアップされていません！';
+$html_priority = '優先度';
 $html_priority_label = '優先度:';
 $html_lowest = '最低';
 $html_low = '低';

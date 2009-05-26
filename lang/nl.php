@@ -173,6 +173,7 @@ $html_logout = 'Uitloggen';
 $html_msg = 'Bericht';
 $html_msgs = 'Berichten';
 $html_configuration = 'Deze server is niet goed geconfigureerd';
+$html_priority = 'Prioriteit';
 $html_priority_label = 'Prioriteit:';
 $html_lowest = 'Laagste';
 $html_low = 'Laag';

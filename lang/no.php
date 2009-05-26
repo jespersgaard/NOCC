@@ -23,6 +23,7 @@
  * @ingroup Language
  * @file
  *
+ * @author Nghtwlkr
  * @author Rune Dalmo <runed@balder.narviknett.no>
  */
 
@@ -43,7 +44,7 @@ $alt_forward = 'Videresend';
 $title_next_msg = 'Neste melding';
 $title_prev_msg = 'Forrige melding';
 $html_on = 'til';
-$html_theme_label = 'Tema';
+$html_theme_label = 'Tema:';
 $html_lang = 'Språk';
 $html_welcome = 'Velkommen til %1$s';
 $html_login = 'Brukernavn';
@@ -52,10 +53,12 @@ $html_submit = 'Logg inn';
 $html_help = 'Hjelp';
 $html_wrong = 'Brukernavn eller passord er feil';
 $html_retry = 'Prøv igjen';
-$html_msgperpage_label = 'Beskjeder pr. side';
+$html_remember = 'Husk innstillinger';
+$html_lang_label = 'Språk:';
+$html_msgperpage_label = 'Meldinger per side:';
 $html_preferences = 'Innstillinger';
-$html_full_name_label = 'Fullt navn';
-$html_email_address_label = 'E-post - adresse';
+$html_full_name_label = 'Fullt navn:';
+$html_email_address_label = 'E-postadresse:';
 $html_ccself = 'Cc selv';
 $html_hide_addresses = 'Skjul adresser';
 $html_outlook_quoting = 'Outlook-liknende sitering';
@@ -75,7 +78,7 @@ $html_forward_short = 'Vs';
 $html_delete = 'Slett';
 $html_new = 'Ny';
 $html_mark = 'Slett';
-$html_att_label = 'Vedlagt fil';
+$html_att_label = 'Vedlegg:';
 $html_atts = 'Vedlagte filer';
 $html_att_unknown = '[ukjent]';
 $html_attach = 'Legg til';
@@ -96,9 +99,12 @@ $html_logout = 'Logg av';
 $html_msg = 'Melding';
 $html_msgs = 'Meldinger';
 $html_configuration = 'Denne serveren er ikke satt opp riktig !';
-$html_priority_label = 'Prioritet';
+$html_priority_label = 'Prioritet:';
+$html_lowest = 'Lavest';
 $html_low = 'Lav';
+$html_normal = 'Normal';
 $html_high = 'Høy';
+$html_highest = 'Høyest';
 $html_receipt = 'Krev en leveringsbekreftelse';
 $html_select = 'Velg';
 $html_loading_image = 'Laster bilde';
