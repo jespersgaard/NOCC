@@ -188,5 +188,5 @@ $html_smtp_error_unexpected = 'رد SMTP غير متوقع:';
 $lang_invalid_msg_num = 'عدد الرسائل السيئة';
 $html_invalid_email_address = 'عنوان بريد إلكتروني غير صحيح';
 $html_invalid_msg_per_page = 'عدد رسائل لكل صفحة غير صحيح';
-$lang_err_send_delay = 'يتعين عليك الانتظار بين الرسالتين (%1$d ثواني')';
+$lang_err_send_delay = 'يتعين عليك الانتظار بين الرسالتين (%1$d ثواني\')';
 $html_search = 'بحث';
