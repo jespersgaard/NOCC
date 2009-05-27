@@ -23,6 +23,14 @@ class lang {
   var $label="";
 }
 
+//TODO: Drop this variables!
+if (!isset($charset)) { //if NO charset defined...
+  $charset = 'UTF-8';
+}
+if (!isset($lang_dir)) { //if NO language direction defined...
+  $lang_dir = 'ltr';
+}
+
 $i = 0;
 
 // Arabic
