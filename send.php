@@ -167,6 +167,7 @@ switch($_REQUEST['sendaction']) {
                 // If the temporary file exists, attach it
                 if (file_exists($attach_array[$i]->tmp_file)) {
                     $fp = fopen($attach_array[$i]->tmp_file, 'rb');
+                    //TODO: Check if the file size is 0!
                     $file = fread($fp, $attach_array[$i]->file_size);
                     fclose($fp);
                     // add it to the message, by default it is encoded in base64

@@ -26,7 +26,6 @@
  * @author An13sa
  */
 
-$charset = 'UTF-8';
 $lang_locale = 'en_US.UTF-8';
 $alt_delete = 'Ezabatu aukeratutako mezuak';
 $alt_delete_one = 'Mezua ezabatu';

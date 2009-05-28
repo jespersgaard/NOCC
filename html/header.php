@@ -7,10 +7,7 @@ if (file_exists('./utils/proxy.php'))
 else
     die('./utils/proxy.php is missing');
 
-if(isset($charset))
-    header ("Content-type: text/html; Charset=$charset");
-else
-    header ("Content-type: text/html");
+header ("Content-type: text/html; Charset=UTF-8");
 
 // Don't call getPref unless session has been initialised enough for
 // prefs.php to find it's prefs file.
@@ -26,7 +23,7 @@ else {
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang ?>" lang="<?php echo $lang ?>">
     <head>
         <title>NOCC - Webmail</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=<?php echo convertLang2Html($charset); ?>" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="themes/<?php echo str_replace('..','',convertLang2Html($_SESSION['nocc_theme'])); ?>/style.css" rel="stylesheet" type="text/css" />
         <link href="themes/<?php echo str_replace('..','',convertLang2Html($_SESSION['nocc_theme'])); ?>/print.css" rel="stylesheet" media="print" type="text/css" />
         <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />

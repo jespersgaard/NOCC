@@ -18,10 +18,7 @@
 require_once ('./common.php');
 require_once ('./utils/proxy.php');
 
-if(isset($charset))
-  header ("Content-type: text/html; Charset=$charset");
-else
-  header ("Content-type: text/html");
+header ("Content-type: text/html; Charset=UTF-8");
 
 $pop = new nocc_imap($ev);
 if (NoccException::isException($ev)) {
@@ -40,7 +37,7 @@ $_SESSION['nocc_loggedin'] = 1;
   <title>NOCC - Webmail - <?php echo i18n_message($html_contact_list, $_SESSION["nocc_user"], 0); ?></title>
   <link href="themes/<?php echo $_SESSION['nocc_theme']; ?>/style.css" rel="stylesheet" type="text/css" />
   <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
-  <meta content="text/html; charset=<?php echo $charset ?>" http-equiv="Content-Type" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   <script type="text/javascript">
   <!--
     function toggleemail (bt, email)

@@ -24,8 +24,6 @@
  * @file
  */
 
-$charset = 'UTF-8';
-
 // Configuration for the days and months
 
 // What language to use (Here, english US --> en_US)

@@ -72,8 +72,8 @@
   $tz = substr($tz,0,-2).':'.substr($tz,-2);
   $ts = date('Y-m-d\\TH:i:s',$ts).$tz;
 
-  header('Content-Type: application/rss+xml; charset='.$charset);
-  echo "<?xml version=\"1.0\" encoding=\"$charset\" ?>\n";
+  header('Content-Type: application/rss+xml; charset=UTF-8);
+  echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
 ?>
   <rdf:RDF
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
