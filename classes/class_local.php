@@ -149,15 +149,13 @@ class nocc_imap
     }
 
     function renamemailbox(&$old_box, &$new_box, &$ev) {
-        global $charset;
-        if(!imap_renamemailbox($this->conn, '{'.$this->server.'}'.$old_box, '{'.$this->server.'}'.$this->namespace.mb_convert_encoding($new_box, 'UTF7-IMAP', $charset))) {
+        if(!imap_renamemailbox($this->conn, '{'.$this->server.'}'.$old_box, '{'.$this->server.'}'.$this->namespace.mb_convert_encoding($new_box, 'UTF7-IMAP', 'UTF-8'))) {
             $ev = new NoccException(imap_last_error());
         }
     }
 
     function createmailbox(&$new_box, &$ev) {
-        global $charset;
-        if(!imap_createmailbox($this->conn, '{'.$this->server.'}'.$this->namespace.mb_convert_encoding($new_box, 'UTF7-IMAP', $charset))) {
+        if(!imap_createmailbox($this->conn, '{'.$this->server.'}'.$this->namespace.mb_convert_encoding($new_box, 'UTF7-IMAP', 'UTF-8'))) {
             $ev = new NoccException(imap_last_error());
         }
     }
@@ -199,12 +197,12 @@ class nocc_imap
         return ($check->{'Driver'} == 'imap');
     }
 
-    function utf7_decode(&$thing) {
-        return imap_utf7_decode($thing);
+    function utf7_decode($text) {
+        return imap_utf7_decode($text);
     }
 
-    function utf7_encode(&$thing) {
-        return imap_utf7_encode($thing);
+    function utf7_encode($data) {
+        return imap_utf7_encode($data);
     }
 
     function utf8($mime_encoded_text) {
@@ -303,7 +301,6 @@ class nocc_imap
      */
     function html_folder_select($value, $selected = '') {
         $folders = $this->get_nice_subscribed($ev);
-        global $charset;
         if(NoccException::isException($ev)) {
                 return "<p class=\"error\">Error retrieving folder pulldown: ".$ev->getMessage()."</p>";
         }
@@ -314,7 +311,7 @@ class nocc_imap
 
         $html_select = "<select class=\"button\" id=\"$value\" name=\"$value\">\n";
         foreach($folders as $folder) {
-            $html_select .= "\t<option ".($folder == $selected ? "selected=\"selected\"" : "")." value=\"$folder\">".mb_convert_encoding($folder, $charset, 'UTF7-IMAP')."</option>\n";
+            $html_select .= "\t<option ".($folder == $selected ? "selected=\"selected\"" : "")." value=\"$folder\">".mb_convert_encoding($folder, 'UTF-8', 'UTF7-IMAP')."</option>\n";
         }
         $html_select .= "</select>\n";
         return $html_select;

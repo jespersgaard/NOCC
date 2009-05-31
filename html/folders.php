@@ -22,7 +22,7 @@ if (is_array($all_mailboxes)) {
 $select_list = array();
 if (count($big_list) > 1) {
   for ($i = 0; $i < count($big_list); $i++) {
-    array_push($select_list, "\t<option value=\"".$big_list[$i]."\">".mb_convert_encoding($big_list[$i], $charset, 'UTF7-IMAP')."</option>\n");
+    array_push($select_list, "\t<option value=\"".$big_list[$i]."\">".mb_convert_encoding($big_list[$i], 'UTF-8', 'UTF7-IMAP')."</option>\n");
   }
 }
 
