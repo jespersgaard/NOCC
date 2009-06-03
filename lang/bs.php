@@ -75,6 +75,7 @@ $html_manage_filters_link = 'Upravljaj email filterima';
 $html_use_graphical_smilies = 'Koristi grafičke smješke';
 $html_sent_folder_label = 'Kopiraj poslane e-mailove u predviđeni direktorij:';
 $html_trash_folder_label = 'Premjesti obrisane e-mailove u predviđeni direktorij:';
+$html_colored_quotes = 'Obojeni citati';
 $html_display_struct = 'Prikaži strukturisani tekst';
 $html_send_html_mail = 'Pošalji mail u HTML formatu';
 $html_folders = 'Direktoriji';

@@ -168,6 +168,7 @@ $html_logout = 'Αποσύνδεση';
 $html_msg = 'Μήνυμα';
 $html_msgs = 'Μηνύματα';
 $html_configuration = 'Αυτός ο διακομιστής δεν έχει οριστεί σωστά !';
+$html_priority = 'Προτεραιότητα';
 $html_priority_label = 'Προτεραιότητα:';
 $html_lowest = 'Χαμηλότατη';
 $html_low = 'Χαμηλή';

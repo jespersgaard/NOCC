@@ -31,9 +31,11 @@
  * @author Siebrand
  */
 
-$lang_dir = '"ltr" if your language uses left-to-right script, "rtl" if right-to-left.';
-$no_locale_date_format = '%-signs, and the letters following them, indicate parts of a date. So do not translate them, but adjust the whole date pattern to the format used in your languages environment.';
-$default_time_format = '%-signs, and the letters following them, indicate parts of a time. So do not translate them, but adjust the entire pattern to the format used in your languages environment.';
+$lang_locale = 'What language to use (Here, english US --> en_US). See [http://unicode.org/cldr/apps/survey CLDR] for more information';
+$lang_dir = '"ltr" if your language uses left-to-right script, "rtl" if right-to-left. Default is ltr.';
+$default_date_format = 'What format string should be passed to strftime() for messages sent on days other than today?';
+$no_locale_date_format = 'If the locale is not implemented on the host, how we display the date. %-signs, and the letters following them, indicate parts of a date. So do not translate them, but adjust the whole date pattern to the format used in your languages environment.';
+$default_time_format = 'What format string should be passed to strftime() for messages sent today? %-signs, and the letters following them, indicate parts of a time. So do not translate them, but adjust the entire pattern to the format used in your languages environment.';
 $alt_new_msg = '{{Identical|New messages}}';
 $alt_next = '{{Identical|Next}}';
 $alt_prev = '{{Identical|Previous}}';
@@ -47,6 +49,13 @@ $html_msgperpage_label = 'Text before an input box in the user\'s \'preferences\
 $html_preferences = '{{Identical|Preferences}}';
 $html_signature = '{{Identical|Signature}}';
 $html_signature_label = '{{Identical|Signature}}';
+$html_display_struct = 'This is a prompt of a yes/no switch. If set to true (yes), NOCC will render few simple formatting options commonly used in plaintext ASCII e-mail via html markup, such as:
+<span style="white-space:nowrap">"<code>+-</code>" → "&plusmn;"</span>, and
+<span style="white-space:nowrap">"<code>xyz^2</code>" → "xyz<sup>2</sup>"</span>, and
+<span style="white-space:nowrap">"<code>*strong*</code>" → "<strong>strong</strong>"</span>, and
+<span style="white-space:nowrap">"<code>/emphasised/</code>" → "<em>emphasised</em>"</span>, and
+<span style="white-space:nowrap">"<code>_underlined_</code>" → "<u>underlined</u>"</span>, and
+<span style="white-space:nowrap">"<code>|code|</code>" → "<code>code</code>"</span>.';
 $html_folder_subscribe = 'Part of the interface for managing folders, see the [[Translating talk:NOCC#NOCC_screenshots|screenshot]].';
 $html_folder_rename = 'Part of the interface for managing folders, see the [[Translating talk:NOCC#NOCC_screenshots|screenshot]]. It appears in the option to rename a folder: \'Rename [input box to select folder to be renamed] to [input box to write new name]\'.
 

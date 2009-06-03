@@ -75,6 +75,7 @@ $html_use_graphical_smilies = 'Belldsche för Laachjeseeschter (un esu) nämme';
 $html_sent_folder_label = 'Donn de eruß jeschek Nohreschte en e beschtemmp Verzeischnes koppeere:';
 $html_trash_folder_label = 'Donn de fottjeschmeße Nohreschte en e beschtemmp Verzeischnes koppeere:';
 $html_colored_quotes = 'En Bunt zitteere';
+$html_display_struct = 'Text met beshtemmpte eijnfache Fommaateerunge als <i lang="en">html</i> aanzeije';
 $html_send_html_mail = 'Donn Nohreschte em <code lang="en">HTML</code> Fommaat eruß schehke';
 $html_folders = 'Verzeischneße';
 $html_folders_create_failed = 'Dat Verzeischneß kunnt mer nit aanlääje!';
@@ -217,6 +218,6 @@ $html_invalid_wrap_msg = 'Dat es en onjöltijje Zahl fö de Zeijsche för de Rei
 $html_seperate_msg_win = 'Maach de Nohreeschte en enem extra Finster op';
 $html_err_file_contacts = 'Kunnt de Datei met de Kumtakte nicht för erin ze schriive opmaache.';
 $html_session_file_error = 'Mer kunnte de Datei met dä Date för Ding Sezung nit för erin ze Schriive opmaache.';
-$html_login_not_allowed = 'De bes enjelogg, ävver darfs domet hee di Verbendung nit bruche.';
+$html_login_not_allowed = 'Do bes enjelogg, ävver darfs domet hee di Verbendung nit bruche.';
 $lang_err_send_delay = 'Do moß zwesche zweij <i lang="en">e-mails</i> ze&nbsp;verschecke winnischßdenß %1$d&nbsp;Sekunde waade.';
 $html_search = 'Söhke';

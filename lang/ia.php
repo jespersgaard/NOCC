@@ -164,6 +164,7 @@ $html_logout = 'Clauder session';
 $html_msg = 'Message';
 $html_msgs = 'Messages';
 $html_configuration = 'Iste servitor non es ben configurate!';
+$html_priority = 'Prioritate';
 $html_priority_label = 'Prioritate:';
 $html_lowest = 'Minimal';
 $html_low = 'Basse';
