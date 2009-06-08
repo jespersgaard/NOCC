@@ -133,6 +133,8 @@ table {
 
 #popup {
   min-width: 0;
+  color: #000000;
+  background: #FFFFFF url(./img/shtamp.png) top right no-repeat;
 }
 
 #header h1 {
@@ -577,26 +579,28 @@ hr.mailAttachSep {
   text-align: left;
 }
 
+.contactAdd table {
+  width: 100%;
+  text-align: center;
+  color: #000000;
+  background-color: #F5F5F5;
+  border-collapse: collapse;
+}
+
+.contactAdd table td {
+  padding: 3px;
+}
+
 .contactsTitle {
   font-weight: bold;
-  text-decoration: none;
-  text-align: center;
-  background-color: #0099CC;
+  font-size: larger;
+  color: #000000;
+  background-color: #D6D6D6;
 }
 
 .contactsSubTitle {
   font-weight: bold;
-  text-decoration: none;
-  text-align: center;
-  color: #003298;
-}
-
-.contactsAdd table {
-  border: 0px;
-  text-align: center;
-  padding: 3px;
-  background-color: #F5F5F5;
-  width: 100%;
+  font-size: larger;
 }
 
 .contactsAddLabel {
@@ -607,17 +611,20 @@ hr.mailAttachSep {
  text-align: left;
 }
 
-.contactsList {
+.contactsList table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.contactsList {
-  width: 100%;
+.contactsList table th,
+.contactsList table td {
+  padding: 3px;
 }
 
 .contactsListHeader {
-  text-align: center;
-  background-color: #0099CC;
-  font-weight: bold;
+  text-align: left;
+  color: #000000;
+  background-color: #D6D6D6;
 }
 
 .contactsListOdd {
@@ -626,12 +633,11 @@ hr.mailAttachSep {
 }
 
 .contactsListEven {
-  color: #FFFFFF;
-  background-color: #006699;
+  color: #000000;
+  background-color: #EBEBEB;
 }
 
 .contactsAddLink {
-  color: #003298;
   text-align: center;
   font-weight: bold;
 }
