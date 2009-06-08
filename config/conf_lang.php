@@ -23,10 +23,7 @@ class lang {
   var $label="";
 }
 
-//TODO: Drop this variables!
-if (!isset($charset)) { //if NO charset defined...
-  $charset = 'UTF-8';
-}
+//TODO: Move to "lang" class?
 if (!isset($lang_dir)) { //if NO language direction defined...
   $lang_dir = 'ltr';
 }
@@ -230,7 +227,6 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'pt-br';
 $lang_array[$i]->label = 'Português Brasileiro';
 
-
 // Ripoarisch
 $i++;
 $lang_array[$i] = new lang();
@@ -308,7 +304,6 @@ $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'ko';
 $lang_array[$i]->label = '한국어';
-
 
 // Chinese (Simplified)
 $i++;

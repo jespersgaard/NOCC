@@ -22,9 +22,6 @@ require_once './classes/nocc_mailreader.php';
 /* ----------------------------------------------------- */
 
 function inbox(&$pop, $skip = 0, &$ev) {
-    global $conf;
-    global $charset;
-
     $user_prefs = $_SESSION['nocc_user_prefs'];
 
     $msg_list = array();
@@ -228,9 +225,9 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
           $body_charset = $_REQUEST['user_charset'];
         }
 
-        $body_converted = os_iconv( $body_charset, $GLOBALS['charset'], $body);
+        $body_converted = os_iconv( $body_charset, 'UTF-8', $body);
         $body = ($body_converted===FALSE) ? $body : $body_converted;
-        $tmp['charset'] = ($body_converted===FALSE) ? $body_charset : $GLOBALS['charset'];
+        $tmp['charset'] = ($body_converted===FALSE) ? $body_charset : 'UTF-8';
     }
     else
         array_push($attach_tab, $tmp);
@@ -635,8 +632,7 @@ function get_reply_all(&$from, &$to, &$cc) {
 /* ----------------------------------------------------- */
 
 // We need that to build a correct list of all the recipient when we send a message
-function cut_address(&$addr, &$charset) {
-    global $charset;
+function cut_address($addr, $charset) {
     // Strip slashes from input
     $addr = safestrip($addr);
 
@@ -695,7 +691,7 @@ function cut_address(&$addr, &$charset) {
 
 /* ----------------------------------------------------- */
 
-function view_part(&$pop, &$mail, $part_no, &$transfer, &$msg_charset, &$charset) {
+function view_part(&$pop, &$mail, $part_no, $transfer, $msg_charset) {
     if(isset($ev) && NoccException::isException($ev)) {
         return "<p class=\"error\">".$ev->getMessage."</p>";
     }
@@ -710,7 +706,7 @@ function view_part(&$pop, &$mail, $part_no, &$transfer, &$msg_charset, &$charset
     else
         $str = nl2br($text);
     //if (eregi('koi', $transfer) || eregi('windows-1251', $transfer))
-    //    $str = @convert_cyr_string($str, $msg_charset, $charset);
+    //    $str = @convert_cyr_string($str, $msg_charset, 'UTF-8');
     return ($str);
 }
 
@@ -1048,8 +1044,7 @@ function loadSession(&$ev, &$key) {
 
 // Convert a language string to HTML
 function convertLang2Html($langstring) {
-    global $charset;
-    return htmlentities($langstring, ENT_COMPAT, $charset);
+    return htmlentities($langstring, ENT_COMPAT, 'UTF-8');
 }
 
 // Wrapper for iconv if GNU iconv is not used
@@ -1080,7 +1075,6 @@ function os_iconv($input_charset, $output_charset, &$text) {
 
 // Build a folder breadcrumb navigation...
 function buildfolderlink($folder) {
-    global $charset;
     $folderpath = '';
     // split the string at the periods
     $elements = explode('.', $folder);
@@ -1090,7 +1084,7 @@ function buildfolderlink($folder) {
             echo ".";
         }
         $folderpath = $folderpath . $elements[$i];
-        echo "<a href=\"". $_SERVER['PHP_SELF'] . "?folder=" . $folderpath . "\">" . mb_convert_encoding($elements[$i], $charset, 'UTF7-IMAP') . "</a>";
+        echo "<a href=\"". $_SERVER['PHP_SELF'] . "?folder=" . $folderpath . "\">" . mb_convert_encoding($elements[$i], 'UTF-8', 'UTF7-IMAP') . "</a>";
     }
     echo "\n";
 }

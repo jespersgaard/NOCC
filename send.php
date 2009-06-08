@@ -100,7 +100,7 @@ switch($_REQUEST['sendaction']) {
         $_SESSION['nocc_attach_array'] = $attach_array;
 
         // Displaying the sending form with the new attachments array
-        //header("Content-type: text/html; Charset=$charset");
+        //header("Content-type: text/html; Charset=UTF-8");
         require ('./html/header.php');
         require ('./html/menu_inbox.php');
         require ('./html/send.php');
@@ -113,9 +113,9 @@ switch($_REQUEST['sendaction']) {
         $mail->crlf = $conf->crlf;
         $mail->smtp_server = $_SESSION['nocc_smtp_server'];
         $mail->smtp_port = $_SESSION['nocc_smtp_port'];
-        $mail->charset = $charset;
+        $mail->charset = 'UTF-8';
         $trim_mail_from = trim($mail_from);
-        $mail->from = cut_address($trim_mail_from, $charset);
+        $mail->from = cut_address($trim_mail_from, 'UTF-8');
         $mail->from = $mail->from[0];
         $mail->priority = $_REQUEST['priority'];
         $mail->receipt = isset($_REQUEST['receipt']);
@@ -127,17 +127,17 @@ switch($_REQUEST['sendaction']) {
         $mail->headers .= 'User-Agent: ' . $conf->nocc_name . ' <' . $conf->nocc_url . '>';
         $trim_mail_to = trim($mail_to);
         $trim_mail_cc = trim($mail_cc);
-        $mail->to = cut_address($trim_mail_to, $charset);
-        $mail->cc = cut_address($trim_mail_cc, $charset);
+        $mail->to = cut_address($trim_mail_to, 'UTF-8');
+        $mail->cc = cut_address($trim_mail_cc, 'UTF-8');
         $user_prefs = $_SESSION['nocc_user_prefs'];
         if(isset($user_prefs->cc_self) && $user_prefs->cc_self) {
             array_unshift($mail->cc, $mail->from);
         }
         $trim_mail_bcc = trim($mail_bcc);
-        $mail->bcc = cut_address($trim_mail_bcc, $charset);
+        $mail->bcc = cut_address($trim_mail_bcc, 'UTF-8');
         if ($mail_subject != '') {
             $mail_subject = trim($mail_subject);
-            $mail->subject = '=?'.$charset.'?B?' . base64_encode($mail_subject) . '?=';
+            $mail->subject = '=?UTF-8?B?' . base64_encode($mail_subject) . '?=';
         }
 
         // Append advertisement tag, if set
@@ -232,7 +232,7 @@ switch($_REQUEST['sendaction']) {
         } else {
             $ev = new NoccException( sprintf( $lang_err_send_delay, $conf->send_delay ) );
         }
-        header("Content-type: text/html; Charset=$charset");
+        header("Content-type: text/html; Charset=UTF-8");
         if (NoccException::isException($ev)) {
             // Error while sending the message, display an error message
             require ('./html/header.php');
@@ -267,7 +267,7 @@ switch($_REQUEST['sendaction']) {
         $_SESSION['nocc_attach_array'] = $tmp_array;
 
         // Displaying the sending form with the new attachment array 
-        header("Content-type: text/html; Charset=$charset");
+        header("Content-type: text/html; Charset=UTF-8");
         require ('./html/header.php');
         require ('./html/menu_inbox.php');
         require ('./html/send.php');
@@ -277,7 +277,7 @@ switch($_REQUEST['sendaction']) {
 
     default:
         // Nothing was set in the sendaction (e.g. no javascript enabled)
-        header("Content-type: text/html; Charset=$charset");
+        header("Content-type: text/html; Charset=UTF-8");
         $ev = new NoccException("$html_no_sendaction");
         require ('./html/header.php');
         require ('./html/menu_inbox.php');

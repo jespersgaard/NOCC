@@ -281,17 +281,16 @@ class nocc_imap
     }
 
     function mime_header_decode(&$header) {
-        $output_charset = $GLOBALS['charset'];
         $source = imap_mime_header_decode($header);
         $result[] = new result;
         $result[0]->text='';
         $result[0]->charset='ISO-8859-1';
         for ($j = 0; $j < count($source); $j++ ) {
-            $element_charset =  ($source[$j]->charset == "default") ? detect_charset($source[$j]->text) : $source[$j]->charset;
+            $element_charset =  ($source[$j]->charset == 'default') ? detect_charset($source[$j]->text) : $source[$j]->charset;
 
-            $element_converted = os_iconv( $element_charset, $output_charset, $source[$j]->text);
+            $element_converted = os_iconv( $element_charset, 'UTF-8', $source[$j]->text);
             $result[$j]->text = $element_converted;
-            $result[$j]->charset = $output_charset;
+            $result[$j]->charset = 'UTF-8';
         }
         return $result;
     }
