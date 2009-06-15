@@ -23,12 +23,6 @@ class NOCC_Theme {
     var $_path;
     var $_realpath;
     
-    var $_stylesheet;
-    var $_printstylesheet;
-    
-    var $_customheader;
-    var $_customfooter;
-    
     /**
      * Initialize the theme wrapper
      */
@@ -37,12 +31,6 @@ class NOCC_Theme {
         $this->_name = str_replace('..', '', $name);
         $this->_path = 'themes/' . $this->_name;
         $this->_realpath = realpath($this->_path);
-        
-        $this->_stylesheet = $this->_path . '/style.css';
-        $this->_printstylesheet = $this->_path . '/print.css';
-        
-        $this->_customheader = $this->_realpath . '/header.php';
-        $this->_customfooter = $this->_realpath . '/footer.php';
     }
     
     /**
@@ -78,7 +66,7 @@ class NOCC_Theme {
      * @return string Stylesheet
      */
     function getStylesheet() {
-        return $this->_stylesheet;
+        return $this->_path . '/style.css';
     }
     
     /**
@@ -87,7 +75,7 @@ class NOCC_Theme {
      * @return string Print stylesheet
      */
     function getPrintStylesheet() {
-        return $this->_printstylesheet;
+        return $this->_path . '/print.css';
     }
     
     /**
@@ -108,7 +96,7 @@ class NOCC_Theme {
      * @return string Custom header
      */
     function getCustomHeader() {
-        return $this->_customheader;
+        return $this->_realpath . '/header.php';
     }
     
     /**
@@ -117,7 +105,7 @@ class NOCC_Theme {
      * @return string Custom footer
      */
     function getCustomFooter() {
-        return $this->_customfooter;
+        return $this->_realpath . '/footer.php';
     }
 }
 ?>
