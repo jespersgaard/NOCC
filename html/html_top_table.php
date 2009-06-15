@@ -25,7 +25,7 @@ if ($pop->is_imap()) {
         $fldr_line .= "</div></form>";
     }
     if($pop->folder == 'INBOX') {
-        $reapply_filters = '<form method="post" action="'.$_SERVER['PHP_SELF'].'\"><div>'.
+        $reapply_filters = '<form method="post" action="'.$_SERVER['PHP_SELF'].'"><div>'.
             '<label for="reapply_filters"><input type="checkbox" name="reapply_filters" id="reapply_filters" value="1" /> '.
             $html_reapply_filters.'</label> <input class="button" type="submit" value="'.$html_submit.'" /></div></form>';
     }
