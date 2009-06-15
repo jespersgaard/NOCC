@@ -107,5 +107,29 @@ class NOCC_Theme {
     function getCustomFooter() {
         return $this->_realpath . '/footer.php';
     }
+    
+    /**
+     * Replace text smilies with graphical smilies
+     *
+     * @param string $body String with text smilies
+     * @return string String with graphical smilies (HTML)
+     */
+    function replaceTextSmilies($body) {
+        $smiliespath = $this->_path . '/img/smilies';
+        
+        $body = ereg_replace('\;-?\)', '<img src="' . $smiliespath . '/wink.png" alt="wink"/>', $body); // ;-) ;)
+        $body = ereg_replace('\;-?D', '<img src="' . $smiliespath . '/grin.png" alt="grin"/>', $body); // ;-D ;D
+        $body = ereg_replace(':\'\(?', '<img src="' . $smiliespath . '/cry.png" alt="cry"/>', $body); // :'( :'
+        $body = ereg_replace(':-?[xX]', '<img src="' . $smiliespath . '/confused.png" alt="confused"/>', $body); // :-x :X
+        $body = ereg_replace(':-?\[\)', '<img src="' . $smiliespath . '/embarassed.png" alt="embarassed"/>', $body); // :-[) :[)
+        $body = ereg_replace(':-?\*', '<img src="' . $smiliespath . '/love.png" alt="love"/>', $body); // :-* :*
+        $body = ereg_replace(':-?[pP]', '<img src="' . $smiliespath . '/tongue.png" alt="tongue"/>', $body); // :-p :P
+        $body = ereg_replace(':-?\)', '<img src="' . $smiliespath . '/happy.png" alt="happy"/>', $body); // :-) :)
+        $body = ereg_replace(':-?\(', '<img src="' . $smiliespath . '/unhappy.png" alt="unhappy"/>', $body); // :-( :(
+        $body = ereg_replace(':-[oO]', '<img src="' . $smiliespath . '/surprised.png" alt="surprised"/>', $body); // :-o :-O
+        $body = ereg_replace('8-?\)', '<img src="' . $smiliespath . '/cool.png" alt="cool"/>', $body); // 8-) 8)
+        
+        return $body;
+    }
 }
 ?>
