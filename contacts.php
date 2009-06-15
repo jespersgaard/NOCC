@@ -29,13 +29,15 @@ if (NoccException::isException($ev)) {
 }   
 $pop->close();
 
+$theme = new NOCC_Theme($_SESSION['nocc_theme']);
+
 $_SESSION['nocc_loggedin'] = 1;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang ?>" lang="<?php echo $lang ?>">
 <head>
   <title>NOCC - Webmail - <?php echo i18n_message($html_contact_list, $_SESSION["nocc_user"], 0); ?></title>
-  <link href="themes/<?php echo $_SESSION['nocc_theme']; ?>/style.css" rel="stylesheet" type="text/css" />
+  <link href="<?php echo $theme->getStylesheet(); ?>" rel="stylesheet" type="text/css" />
   <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   <script type="text/javascript">

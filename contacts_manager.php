@@ -29,6 +29,8 @@ if (NoccException::isException($ev)) {
 }               
 $pop->close();
 
+$theme = new NOCC_Theme($_SESSION['nocc_theme']);
+
 // Load the contact list
 $path = $conf->prefs_dir . "/" . $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'].".contacts";
 $contacts = load_list ($path);
@@ -39,7 +41,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang ?>" lang="<?php echo $lang ?>">
 <head>
   <title>NOCC - Webmail - <?php echo $html_contact_list . " " . $_SESSION["nocc_user"]; ?></title>
-  <link href="themes/<?php echo $_SESSION['nocc_theme']; ?>/style.css" rel="stylesheet" type="text/css" />
+  <link href="<?php echo $theme->getStylesheet(); ?>" rel="stylesheet" type="text/css" />
   <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   <script type="text/javascript">

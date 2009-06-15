@@ -16,13 +16,15 @@
 
 require_once './common.php';
 $lang = $_SESSION['nocc_lang'];
+
+$theme = new NOCC_Theme($_SESSION['nocc_theme']);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang ?>" lang="<?php echo $lang ?>">
 <head>
-<title>NOCC - Webmail - <?php echo $html_help ?></title>
-<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-<link href="themes/<?php echo $_SESSION['nocc_theme'] ?>/style.css" rel="stylesheet" type="text/css" />
+  <title>NOCC - Webmail - <?php echo $html_help ?></title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <link href="<?php echo $theme->getStylesheet(); ?>" rel="stylesheet" type="text/css" />
 </head>
 <body dir="<?php echo $lang_dir; ?>">
 
