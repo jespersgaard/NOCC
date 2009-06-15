@@ -136,7 +136,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
                 </tr>
                 <tr class="errorText">
                   <td>
-                    <p><?php echo convertLang2Html( sprintf( $html_contact_err1, $conf->contact_number_max ) ) ?></p>
+                    <p><?php echo i18n_message ( $html_contact_err1, $conf->contact_number_max ) ?></p>
                     <p><?php echo convertLang2Html($html_contact_err2) ?>.</p>
                     <p><a href="<?php echo $_SERVER['PHP_SELF']; ?>"><?php echo $html_back; ?></a></p>
                   </td>

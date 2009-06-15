@@ -230,7 +230,7 @@ switch($_REQUEST['sendaction']) {
             $ev = $mail->send($conf);
             $_SESSION['last_send'] = time ();
         } else {
-            $ev = new NoccException( sprintf( $lang_err_send_delay, $conf->send_delay ) );
+            $ev = new NoccException( i18n_message ( $lang_err_send_delay, $conf->send_delay ) );
         }
         header("Content-type: text/html; Charset=UTF-8");
         if (NoccException::isException($ev)) {
