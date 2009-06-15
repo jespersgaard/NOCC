@@ -22,12 +22,12 @@ NOCC 1.8  ?? ??, ??
     * Change "Forward" abbreviation from "Fw" to "Fwd" (Tim Gerundt).
     * Removed ".svn" folders from theme selections (Tobias Mathes).
     * Formatting of language file has been modified, for coorperation
-      with TranslateWiki.net (Siebrand Mazeland).
-    * Language files update (Siebrand Mazeland, TranslateWiki.net).
+      with translatewiki.net (Siebrand Mazeland).
+    * Language files update (Siebrand Mazeland, translatewiki.net).
     * Drop fixed pixel font sizes from themes (Tim Gerundt).
     * Use new Theme class (Tim Gerundt).
 
-NOCC 1.7  January 01, 2008
+NOCC 1.7  January 01, 2009
 
   Bugs
     * Bug #2184243 : inconcistent reporting of new mail (Michiel van Loon).
