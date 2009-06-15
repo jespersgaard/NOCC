@@ -25,6 +25,7 @@ NOCC 1.8  ?? ??, ??
       with TranslateWiki.net (Siebrand Mazeland).
     * Language files update (Siebrand Mazeland, TranslateWiki.net).
     * Drop fixed pixel font sizes from themes (Tim Gerundt).
+    * Use new Theme class (Tim Gerundt).
 
 NOCC 1.7  January 01, 2008
 

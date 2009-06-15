@@ -13,7 +13,9 @@ header ("Content-type: text/html; Charset=UTF-8");
 // prefs.php to find it's prefs file.
 $header_display_address = get_default_from_address();
 
-$custom_header = './themes/' . str_replace('..','',convertLang2Html($_SESSION['nocc_theme'])) . '/header.php';
+$theme = new NOCC_Theme($_SESSION['nocc_theme']);
+
+$custom_header = $theme->getCustomHeader();
 if(file_exists($custom_header)) {
     include($custom_header);
 }
@@ -24,8 +26,8 @@ else {
     <head>
         <title>NOCC - Webmail</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link href="themes/<?php echo str_replace('..','',convertLang2Html($_SESSION['nocc_theme'])); ?>/style.css" rel="stylesheet" type="text/css" />
-        <link href="themes/<?php echo str_replace('..','',convertLang2Html($_SESSION['nocc_theme'])); ?>/print.css" rel="stylesheet" media="print" type="text/css" />
+        <link href="<?php echo $theme->getStylesheet(); ?>" rel="stylesheet" type="text/css" />
+        <link href="<?php echo $theme->getPrintStylesheet(); ?>" rel="stylesheet" media="print" type="text/css" />
         <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <script src="js/nocc.js" type="text/javascript"></script>
 <?php
