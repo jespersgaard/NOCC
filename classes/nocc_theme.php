@@ -91,6 +91,18 @@ class NOCC_Theme {
     }
     
     /**
+     * Get the favicon from the theme
+     *
+     * @return string Favicon
+     */
+    function getFavicon() {
+        if (file_exists($this->_realpath . '/favicon.ico')) //if theme favicon exists...
+            return $this->_path . '/favicon.ico';
+        else //if NO theme favicon exists...
+            return 'favicon.ico';
+    }
+    
+    /**
      * Get the custom header from the theme
      *
      * @return string Custom header

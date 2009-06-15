@@ -42,7 +42,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
 <head>
   <title>NOCC - Webmail - <?php echo $html_contact_list . " " . $_SESSION["nocc_user"]; ?></title>
   <link href="<?php echo $theme->getStylesheet(); ?>" rel="stylesheet" type="text/css" />
-  <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <link href="<?php echo $theme->getFavicon(); ?>" rel="shortcut icon" type="image/x-icon" />
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   <script type="text/javascript">
   <!--

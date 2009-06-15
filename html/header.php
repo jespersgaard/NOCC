@@ -28,7 +28,7 @@ else {
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="<?php echo $theme->getStylesheet(); ?>" rel="stylesheet" type="text/css" />
         <link href="<?php echo $theme->getPrintStylesheet(); ?>" rel="stylesheet" media="print" type="text/css" />
-        <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link href="<?php echo $theme->getFavicon(); ?>" rel="shortcut icon" type="image/x-icon" />
         <script src="js/nocc.js" type="text/javascript"></script>
 <?php
   // if message is opened in another window, we reload the opener window

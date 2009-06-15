@@ -38,7 +38,7 @@ $_SESSION['nocc_loggedin'] = 1;
 <head>
   <title>NOCC - Webmail - <?php echo i18n_message($html_contact_list, $_SESSION["nocc_user"], 0); ?></title>
   <link href="<?php echo $theme->getStylesheet(); ?>" rel="stylesheet" type="text/css" />
-  <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <link href="<?php echo $theme->getFavicon(); ?>" rel="shortcut icon" type="image/x-icon" />
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   <script type="text/javascript">
   <!--
