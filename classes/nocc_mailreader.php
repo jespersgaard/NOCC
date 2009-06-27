@@ -53,6 +53,14 @@ class NOCC_MailReader {
         if ($structure->ifsubtype) {
           $this->_subtype = $structure->subtype;
         }
+        $this->_description = '';
+        if ($structure->ifdescription) {
+          $this->_description = $structure->description;
+        }
+        $this->_disposition = '';
+        if ($structure->ifdisposition) {
+          $this->_disposition = $structure->disposition;
+        }
         $this->_parts = NULL;
         if (isset($structure->parts)) {
           $this->_parts = $structure->parts;
@@ -201,6 +209,24 @@ class NOCC_MailReader {
      */
     function getSubtype() {
         return $this->_subtype;
+    }
+    
+    /**
+     * Get the content description from the mail
+     *
+     * @return string Content description
+     */
+    function getDescription() {
+        return $this->_description;
+    }
+    
+    /**
+     * Get the disposition from the mail
+     *
+     * @return string Disposition
+     */
+    function getDisposition() {
+        return $this->_disposition;
     }
     
     /**
