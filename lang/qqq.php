@@ -67,7 +67,10 @@ $html_folder_delete = 'Part of the interface for managing folders, see the [[Tra
 {{Identical|Delete}}';
 $html_folder_to = 'Part of the interface for managing folders, see the [[Translating talk:NOCC#NOCC_screenshots|screenshot]]. It appears in the option to rename a folder: \'Rename [input box to select folder to be renamed] to [input box to write new name]\'.';
 $html_filter_remove = '{{Identical|Delete}}';
-$html_and = '{{Identical|And}}';
+$html_and = '{{Identical|And}}
+
+The word is used as \'And\' for three filter fields, each on a row of its own. See [[:File:Nocc filter.png|screenshot of the NOCC Filter preferences]].';
+$html_or = '{{Identical|Or}}';
 $html_move = '{{Identical|Move}}';
 $html_page = '{{Identical|Page}}';
 $html_of = 'Appears at the top of a mailbox, to navigate between the pages of a mailbox. \'of\' is part of \'Page x of y\', where n is a page number in an input box and y is the total number of pages in the mailbox. See the [[Translating_talk:NOCC#NOCC_screenshots|screenshot]].';

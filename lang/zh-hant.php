@@ -15,7 +15,7 @@
  * @version    SVN: $Id$
  */
 
-/** Chinese (Taiwan) (‪中文(台灣)‬)
+/** Traditional Chinese (‪中文(繁體)‬)
  *
  * See the qqq 'language' for message documentation incl. usage of parameters
  * To improve a translation please visit http://translatewiki.net

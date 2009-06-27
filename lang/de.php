@@ -31,6 +31,7 @@
  * @author Tim Gerundt <tim AT gerundt DOT de>
  * @author Twobee
  * @author Umherirrender
+ * @author Xqt
  */
 
 $lang_locale = 'de_DE.UTF-8';
