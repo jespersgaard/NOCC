@@ -20,7 +20,8 @@
  */
 class NOCC_MailReader {
     var $_structure;
-    var $_type, $_subtype;
+    var $_type, $_encoding, $_subtype;
+    var $_description, $_disposition;
     var $_parts;
     var $_charset;
     var $_totalbytes;
