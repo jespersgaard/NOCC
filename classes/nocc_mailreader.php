@@ -48,6 +48,7 @@ class NOCC_MailReader {
         $this->_structure = $structure;
         
         $this->_type = $structure->type;
+        $this->_encoding = $structure->encoding;
         $this->_subtype = '';
         if ($structure->ifsubtype) {
           $this->_subtype = $structure->subtype;
@@ -165,6 +166,15 @@ class NOCC_MailReader {
      */
     function getType() {
         return $this->_type;
+    }
+    
+    /**
+     * Get the body transfer encoding from the mail
+     *
+     * @return integer Body transfer encoding
+     */
+    function getEncoding() {
+        return $this->_encoding;
     }
     
     /**
