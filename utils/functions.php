@@ -180,7 +180,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     if ($struct_msg->type == 3 || (isset($struct_msg->parts) && (sizeof($struct_msg->parts) > 0)))
         GetPart($attach_tab, $struct_msg, NULL, $conf->display_rfc822);
     else {
-        GetSinglePart($attach_tab, $struct_msg, $mail_reader->getHeader());
+        GetSinglePart($attach_tab, $mail_reader);
     }
 
     // If we are showing all headers, gather them into a header array
@@ -430,61 +430,25 @@ function GetPart(&$attach_tab, $this_part, $part_no, $display_rfc822) {
 
 // BUG: returns text/plain when Content-Type: application/x-zip (e.g.)
 
-function GetSinglePart(&$attach_tab, $this_part, $header) {
+function GetSinglePart(&$attach_tab, $mailreader) {
+    $header = $mailreader->getHeader();
     if (eregi('text/html', $header))
         $full_mime_type = 'text/html';
     else
         $full_mime_type = 'text/plain';
-    if (isset($this_part->encoding))
-    {
-        switch ($this_part->encoding)
-        {
-            case 0:
-                $encoding = '7BIT';
-                break;
-            case 1:
-                $encoding = '8BIT';
-                break;
-            case 2:
-                $encoding = 'BINARY';
-                break;
-            case 3:
-                $encoding = 'BASE64';
-                break;
-            case 4:
-                $encoding = 'QUOTED-PRINTABLE';
-                break;
-            case 5:
-                $encoding = 'OTHER';
-                break;
-            default:
-                $encoding = 'none';
-                break;
-        }
-    }
-    else
-        $encoding = '7BIT';
-    $charset = '';
-    if ($this_part->ifparameters)
-        while ($obj = array_pop($this_part->parameters))
-            if (strtolower($obj->attribute) == 'charset')
-            {
-                $charset = $obj->value;
-                break;
-            }
-            $tmp = Array(
-                'number' => 1,
-                'id' => $this_part->ifid ? $this_part->id : 0,
-                'name' => '',
-                'mime' => $full_mime_type,
-                'transfer' => $encoding,
-                'disposition' => $this_part->ifdisposition ? $this_part->disposition : '',
-                'charset' => $charset
-            );
-            if(isset($this_part->bytes))
-                $tmp['size'] = ($this_part->bytes > 1000) ? ceil($this_part->bytes / 1000) : 1;
+    $this_part = $mailreader->getStructure();
+    $tmp = Array(
+        'number' => 1,
+        'id' => $this_part->ifid ? $this_part->id : 0,
+        'name' => '',
+        'mime' => $full_mime_type,
+        'transfer' => $mailreader->getEncoding(),
+        'disposition' => $mailreader->GetDisposition(),
+        'charset' => $mailreader->getCharset(),
+        'size' => $mailreader->getSize()
+    );
 
-            array_unshift($attach_tab, $tmp);
+    array_unshift($attach_tab, $tmp);
 }
 
 /* ----------------------------------------------------- */
