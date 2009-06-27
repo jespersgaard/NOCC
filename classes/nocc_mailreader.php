@@ -20,8 +20,12 @@
  */
 class NOCC_MailReader {
     var $_structure;
-    var $_type, $_encoding, $_subtype;
-    var $_description, $_disposition;
+    var $_type;
+    var $_encoding;
+    var $_subtype;
+    var $_description;
+    var $_id;
+    var $_disposition;
     var $_parts;
     var $_charset;
     var $_totalbytes;
@@ -57,6 +61,10 @@ class NOCC_MailReader {
         $this->_description = '';
         if ($structure->ifdescription) {
           $this->_description = $structure->description;
+        }
+        $this->_id = 0;
+        if ($structure->ifid) {
+          $this->_id = $structure->id;
         }
         $this->_disposition = '';
         if ($structure->ifdisposition) {
@@ -219,6 +227,15 @@ class NOCC_MailReader {
      */
     function getDescription() {
         return $this->_description;
+    }
+    
+    /**
+     * Get the identification from the mail
+     *
+     * @return int Identification
+     */
+    function getId() {
+        return $this->_id;
     }
     
     /**

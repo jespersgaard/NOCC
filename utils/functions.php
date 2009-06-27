@@ -436,10 +436,9 @@ function GetSinglePart(&$attach_tab, $mailreader) {
         $full_mime_type = 'text/html';
     else
         $full_mime_type = 'text/plain';
-    $this_part = $mailreader->getStructure();
     $tmp = Array(
         'number' => 1,
-        'id' => $this_part->ifid ? $this_part->id : 0,
+        'id' => $mailreader->getId(),
         'name' => '',
         'mime' => $full_mime_type,
         'transfer' => $mailreader->getEncoding(),
