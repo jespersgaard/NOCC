@@ -178,6 +178,23 @@ class NOCC_MailReader {
     }
     
     /**
+     * Get the body transfer encoding text from the mail
+     *
+     * @return string Body transfer encoding text
+     */
+    function getEncodingText() {
+        switch($this->_encoding) {
+            case 0: return '7BIT'; break;
+            case 1: return '8BIT'; break;
+            case 2: return 'BINARY'; break;
+            case 3: return 'BASE64'; break;
+            case 4: return 'QUOTED-PRINTABLE'; break;
+            case 5: return 'OTHER'; break;
+            default: return 'none';
+        }
+    }
+    
+    /**
      * Get the MIME subtype from the mail
      *
      * @return string MIME subtype
