@@ -47,17 +47,11 @@ function inbox(&$pop, $skip = 0, &$ev) {
 
     for ($i = $start_msg; $i < $end_msg; $i++)
     {
-        $subject = $from = $to = '';
+        $from = $to = '';
         $msgnum = $sorted[$i];
         $pop_msgno_msgnum = $pop->msgno($msgnum);
         $mail_reader = new NOCC_MailReader($pop_msgno_msgnum, $pop, $ev);
         if(NoccException::isException($ev)) return;
-
-        // Get message charset
-        $msg_charset = $mail_reader->getCharset();
-
-        // Get subject
-        $subject = $mail_reader->getSubject();
 
         // Get from
         $from = $mail_reader->getFromAddress();
@@ -66,7 +60,6 @@ function inbox(&$pop, $skip = 0, &$ev) {
         $to = $mail_reader->getToAddress();
         $to = str_replace(',', ', ', $to);
 
-        $msg_size = $mail_reader->getSize();
         if ($mail_reader->hasAttachments() == true) {
             $attach = '<img src="themes/' . $_SESSION['nocc_theme'] . '/img/attach.png" alt="" />';
         } else {
@@ -111,11 +104,11 @@ function inbox(&$pop, $skip = 0, &$ev) {
                 'attach' => $attach,
                 'to' => $to,
                 'from' => $from,
-                'subject' => $subject, 
+                'subject' => $mail_reader->getSubject(), 
                 'date' => $date,
                 'time' => $time,
                 'complete_date' => $date . ' ' . $time,
-                'size' => $msg_size,
+                'size' => $mail_reader->getSize(),
                 'priority' => $mail_reader->getPriority(),
                 'priority_text' => $mail_reader->getPriorityText(),
                 'sort' => $sort,
@@ -137,7 +130,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     $lang = $_SESSION['nocc_lang'];
 
     // Clear variables
-    $body = $subject = $from = $to = $cc = $reply_to = '';
+    $body = $from = $to = $cc = $reply_to = '';
 
     // Message Found boolean
     $msg_found = 0;
@@ -248,12 +241,6 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
         }
     }
 
-    //Get message charset
-    $msg_charset = $mail_reader->getCharset();
-
-    // Get subject
-    $subject = $mail_reader->getSubject();
-
     // Get from
     $from = $mail_reader->getFromAddress();
 
@@ -277,7 +264,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
         'to' => $to,
         'cc' => $cc,
         'reply_to' => $reply_to,
-        'subject' => $subject,
+        'subject' => $mail_reader->getSubject(),
         'date' => $date,
         'time' => $time,
         'complete_date' => $date . ' ' . $time,
