@@ -47,14 +47,11 @@ function inbox(&$pop, $skip = 0, &$ev) {
 
     for ($i = $start_msg; $i < $end_msg; $i++)
     {
-        $from = $to = '';
+        $to = '';
         $msgnum = $sorted[$i];
         $pop_msgno_msgnum = $pop->msgno($msgnum);
         $mail_reader = new NOCC_MailReader($pop_msgno_msgnum, $pop, $ev);
         if(NoccException::isException($ev)) return;
-
-        // Get from
-        $from = $mail_reader->getFromAddress();
 
         // Get to
         $to = $mail_reader->getToAddress();
@@ -103,7 +100,7 @@ function inbox(&$pop, $skip = 0, &$ev) {
                 'number' => $pop->msgno($msgnum),
                 'attach' => $attach,
                 'to' => $to,
-                'from' => $from,
+                'from' => $mail_reader->getFromAddress(),
                 'subject' => $mail_reader->getSubject(), 
                 'date' => $date,
                 'time' => $time,
@@ -130,7 +127,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     $lang = $_SESSION['nocc_lang'];
 
     // Clear variables
-    $body = $from = $to = $cc = $reply_to = '';
+    $body = $to = $cc = '';
 
     // Message Found boolean
     $msg_found = 0;
@@ -241,9 +238,6 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
         }
     }
 
-    // Get from
-    $from = $mail_reader->getFromAddress();
-
     // Get to
     $to = $mail_reader->getToAddress();
     $to = str_replace(',', ', ', $to);
@@ -252,18 +246,15 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     $cc = $mail_reader->getCcAddress();
     $cc = str_replace(',', ', ', $cc);
 
-    // Get reply to
-    $reply_to = $mail_reader->getReplyToAddress();
-    
     $timestamp = $mail_reader->getTimestamp();
     $date = format_date($timestamp, $lang);
     $time = format_time($timestamp, $lang);
     $content = Array(
         'message_id' => $mail_reader->getMessageId(),
-        'from' => $from,
+        'from' => $mail_reader->getFromAddress(),
         'to' => $to,
         'cc' => $cc,
-        'reply_to' => $reply_to,
+        'reply_to' => $mail_reader->getReplyToAddress(),
         'subject' => $mail_reader->getSubject(),
         'date' => $date,
         'time' => $time,
