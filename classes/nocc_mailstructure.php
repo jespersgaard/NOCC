@@ -50,7 +50,10 @@ class NOCC_MailStructure {
      * @return integer Primary body type
      */
     function getType() {
-        return $this->_structure->type;
+        if (isset($this->_structure->type)) {
+            return $this->_structure->type;
+        }
+        return 0;
     }
     
     /**
@@ -59,7 +62,7 @@ class NOCC_MailStructure {
      * @return string Primary body type text
      */
     function getTypeText() {
-        return $this->convertTypeToText($this->_structure->type);
+        return $this->convertTypeToText($this->getType());
     }
     
     /**
@@ -68,7 +71,10 @@ class NOCC_MailStructure {
      * @return integer Body transfer encoding
      */
     function getEncoding() {
-        return $this->_structure->encoding;
+        if (isset($this->_structure->encoding)) {
+            return $this->_structure->encoding;
+        }
+        return 0;
     }
     
     /**
@@ -77,7 +83,7 @@ class NOCC_MailStructure {
      * @return string Body transfer encoding text
      */
     function getEncodingText() {
-        return $this->convertEncodingToText($this->_structure->encoding);
+        return $this->convertEncodingToText($this->getEncoding());
     }
     
     /**
@@ -210,7 +216,7 @@ class NOCC_MailStructure {
      * @return string Primary body type text
      * @static
      */
-    function convertTypeToText($type, $defaulttypetext = '') {
+    function convertTypeToText($type, $defaulttypetext = 'unknown') {
         switch($type) {
             case 0: return 'text'; break;
             case 1: return 'multipart'; break;
@@ -220,9 +226,8 @@ class NOCC_MailStructure {
             case 5: return 'image'; break;
             case 6: return 'video'; break;
             case 7: return 'other'; break;
-            default: return 'unknown';
+            default: return $defaulttypetext;
         }
-        return $defaulttypetext;
     }
     
     /**
