@@ -17,6 +17,10 @@
  * Wrapping a imap_fetchstructure() object
  *
  * @package    NOCC
+ * @todo Add getDparameters() function!
+ * @todo Add getParameters() function!
+ * @todo Add getName() or getFileName() function?
+ * @todo Add _getValueFromParameters() function?
  */
 class NOCC_MailStructure {
     /**
@@ -186,7 +190,7 @@ class NOCC_MailStructure {
      */
     function getParts() {
         if (isset($this->_structure->parts)) {
-          $this->_parts = $this->_structure->parts;
+          return $this->_structure->parts;
         }
         return array();
     }
