@@ -234,7 +234,7 @@ class NOCC_MailReader {
     /**
      * Get the identification from the mail
      *
-     * @return int Identification
+     * @return integer Identification
      */
     function getId() {
         return $this->_id;
@@ -393,6 +393,7 @@ class NOCC_MailReader {
      * Decode MIME header
      *
      * @return string Decoded MIME header
+     * @access private
      */
     function _decodeMimeHeader($mimeheader, $charset) {
         $decodedheader = '';
@@ -416,6 +417,7 @@ class NOCC_MailReader {
      *
      * @param string $sValue literal priority name
      * @return integer
+     * @access private
      *
      * @copyright &copy; 2003-2007 The SquirrelMail Project Team
      * @license http://opensource.org/licenses/gpl-license.php GNU Public License

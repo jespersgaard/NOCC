@@ -19,12 +19,28 @@
  * @package    NOCC
  */
 class NOCC_Theme {
+    /**
+     * Name
+     * @access private
+     */
     var $_name;
+    
+    /**
+     * Path
+     * @access private
+     */
     var $_path;
+    
+    /**
+     * Real path
+     * @access private
+     */
     var $_realpath;
     
     /**
      * Initialize the theme wrapper
+     *
+     * @param string $name Theme name
      */
     function NOCC_Theme($name) {
         //TODO: convertLang2Html($name) necessary?
