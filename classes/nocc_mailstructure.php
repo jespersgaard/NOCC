@@ -19,11 +19,16 @@
  * @package    NOCC
  */
 class NOCC_MailStructure {
+    /**
+     * imap_fetchstructure() object
+     * @access private
+     */
     var $_structure;
     
     /**
      * Initialize the wrapper
      *
+     * @param object $structure imap_fetchstructure() object
      * @todo Throw exception, if no vaild structure? 
      */
     function NOCC_MailStructure($structure) {
@@ -31,9 +36,9 @@ class NOCC_MailStructure {
     }
     
     /**
-     * Get the structure
+     * Get the complete imap_fetchstructure() object
      *
-     * @return array Structure array
+     * @return object
      */
     function getStructure() {
         return $this->_structure;
@@ -84,11 +89,36 @@ class NOCC_MailStructure {
     /**
      * Get the identification from the structure
      *
-     * @return int Identification
+     * @todo Return really a integer value?
+     * @return integer Identification
      */
     function getId() {
         if ($this->_structure->ifid) {
           return $this->_structure->id;
+        }
+        return 0;
+    }
+    
+    /**
+     * Get the number of lines from the structure
+     *
+     * @return integer Number of lines
+     */
+    function getLines() {
+        if (isset($this->_structure->lines)) {
+            return $this->_structure->lines;
+        }
+        return 0;
+    }
+    
+    /**
+     * Get the number of bytes from the structure
+     *
+     * @return integer Number of bytes
+     */
+    function getBytes() {
+        if (isset($this->_structure->bytes)) {
+            return $this->_structure->bytes;
         }
         return 0;
     }
@@ -99,32 +129,22 @@ class NOCC_MailStructure {
      * @return string Disposition
      */
     function getDisposition() {
-        if ($structure->ifdisposition) {
-          return $structure->disposition;
+        if ($this->_structure->ifdisposition) {
+          return $this->_structure->disposition;
         }
         return '';
     }
     
     /**
-     * Get the size from the structure in kilobyte
-     *
-     * @return integer Size in kilobyte
-     */
-    function getSize() {
-        //TODO: Wrote
-        return 1;
-    }
-    
-    /**
      * Get the parts from the structure
      *
-     * @return integer Size in kilobyte
+     * @return array Parts
      */
     function getParts() {
-        if (isset($structure->parts)) {
-          $this->_parts = $structure->parts;
+        if (isset($this->_structure->parts)) {
+          $this->_parts = $this->_structure->parts;
         }
-        return NULL;
+        return array();
     }
     
     /**
