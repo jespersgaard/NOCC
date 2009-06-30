@@ -373,32 +373,7 @@ function GetPart(&$attach_tab, $this_part, $part_no, $display_rfc822) {
         $mime_type = 'text';
     $full_mime_type = $mime_type . '/' . $this_part->subtype;
     if (isset($this_part->encoding))
-    {
-        switch ($this_part->encoding)
-        {
-            case 0:
-                $encoding = '7BIT';
-                break;
-            case 1:
-                $encoding = '8BIT';
-                break;
-            case 2:
-                $encoding = 'BINARY';
-                break;
-            case 3:
-                $encoding = 'BASE64';
-                break;
-            case 4:
-                $encoding = 'QUOTED-PRINTABLE';
-                break;
-            case 5:
-                $encoding = 'OTHER';
-                break;
-            default:
-                $encoding = 'none';
-                break;
-        }
-    }
+        $encoding = NOCC_MailStructure::convertEncodingToText($this_part->encoding, 'none');
     else
         $encoding = '7BIT';
     if (($full_mime_type == 'message/RFC822' && $display_rfc822 == true) || ($mime_type != 'multipart' && $full_mime_type != 'message/RFC822'))

@@ -211,7 +211,7 @@ class NOCC_MailStructure {
      * @static
      */
     function convertTypeToText($type, $defaulttypetext = '') {
-        switch($this->getType()) {
+        switch($type) {
             case 0: return 'text'; break;
             case 1: return 'multipart'; break;
             case 2: return 'message'; break;
@@ -234,7 +234,7 @@ class NOCC_MailStructure {
      * @static
      */
     function convertEncodingToText($encoding, $defaultencodingtext = '') {
-        switch($this->getEncoding()) {
+        switch($encoding) {
             case 0: return '7BIT'; break;
             case 1: return '8BIT'; break;
             case 2: return 'BINARY'; break;
