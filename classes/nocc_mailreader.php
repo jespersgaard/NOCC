@@ -13,6 +13,8 @@
  * @version    SVN: $Id$
  */
 
+require_once 'nocc_mailstructure.php';
+
 /**
  * Reading details from a mail
  *
