@@ -188,6 +188,26 @@ class NOCC_MailReader {
     }
     
     /**
+     * Get the primary body type text from the mail
+     *
+     * @return string Primary body type text
+     */
+    function getTypeText($defaulttypetext = 'text') {
+        switch($this->_type) {
+            case 0: return 'text'; break;
+            case 1: return 'multipart'; break;
+            case 2: return 'message'; break;
+            case 3: return 'application'; break;
+            case 4: return 'audio'; break;
+            case 5: return 'image'; break;
+            case 6: return 'video'; break;
+            case 7: return 'other'; break;
+            default: return 'unknown';
+        }
+        return $defaulttypetext;
+    }
+    
+    /**
      * Get the body transfer encoding from the mail
      *
      * @return integer Body transfer encoding
