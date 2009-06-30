@@ -54,6 +54,15 @@ class NOCC_MailStructure {
     }
     
     /**
+     * Get the primary body type text from the structure
+     *
+     * @return string Primary body type text
+     */
+    function getTypeText() {
+        return $this->convertTypeToText($this->_structure->type);
+    }
+    
+    /**
      * Get the body transfer encoding from the structure
      *
      * @return integer Body transfer encoding
@@ -191,6 +200,29 @@ class NOCC_MailStructure {
             }
         }
         return $defaultcharset;
+    }
+    
+    /**
+     * Convert the primary body type to text
+     *
+     * @param integer $type Primary body type
+     * @param string $defaulttypetext Default primary body type text
+     * @return string Primary body type text
+     * @static
+     */
+    function convertTypeToText($type, $defaulttypetext = '') {
+        switch($this->getType()) {
+            case 0: return 'text'; break;
+            case 1: return 'multipart'; break;
+            case 2: return 'message'; break;
+            case 3: return 'application'; break;
+            case 4: return 'audio'; break;
+            case 5: return 'image'; break;
+            case 6: return 'video'; break;
+            case 7: return 'other'; break;
+            default: return 'unknown';
+        }
+        return $defaulttypetext;
     }
     
     /**
