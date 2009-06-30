@@ -124,6 +124,25 @@ class NOCC_MailStructure {
     }
     
     /**
+     * Get the total number of bytes from the structure
+     *
+     * @return integer Total number of bytes
+     */
+    function getTotalBytes() {
+        $totalbytes = $this->getBytes();
+        if ($totalbytes == 0) { //if a mail has ANY attachements, $structure->bytes is ALWAYS empty...
+            if (isset($this->_structure->parts)) {
+                for ($i = 0; $i < count($this->_structure->parts); $i++) { //for all parts...
+                    if (isset($this->_structure->parts[$i]->bytes)) {
+                        $totalbytes += $this->_structure->parts[$i]->bytes;
+                    }
+                }
+            }
+        }
+        return $totalbytes;
+    }
+    
+    /**
      * Get the disposition from the structure
      *
      * @return string Disposition
@@ -150,11 +169,18 @@ class NOCC_MailStructure {
     /**
      * Get the charset from the structure
      *
+     * @param string $defaultcharset Default charset
      * @return string Charset
      */
-    function getCharset() {
-        //TODO: Wrote
-        return '';
-    }    
+    function getCharset($defaultcharset = '') {
+        if ($this->_structure->ifparameters) {
+            foreach ($this->_structure->parameters as $parameter) { //for all parameters...
+                if (strtolower($parameter->attribute) == 'charset') {
+                    return $parameter->value;
+                }
+            }
+        }
+        return $defaultcharset;
+    }
 }
 ?>
