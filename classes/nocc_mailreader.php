@@ -19,6 +19,8 @@ require_once 'nocc_mailstructure.php';
  * Reading details from a mail
  *
  * @package    NOCC
+ * @todo Move some logic to a NOCC_HeaderInfo class!
+ * @todo Move some logic to a NOCC_Header class?
  */
 class NOCC_MailReader {
     var $_structure;
@@ -117,6 +119,10 @@ class NOCC_MailReader {
                 case 'priority':
                     $this->_priority = $this->_parsePriority($header_field[1]);
                     break;
+                //TODO: Read Content-Type!
+                //case 'content-type':
+                //    $this->_contenttype = '';
+                //    break;
             }
         }
         //--------------------------------------------------------------------------------
