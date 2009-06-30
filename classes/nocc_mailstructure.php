@@ -65,13 +65,14 @@ class NOCC_MailStructure {
     /**
      * Get the MIME subtype from the structure
      *
+     * @param string $defaultsubtype Default MIME subtype
      * @return string MIME subtype
      */
-    function getSubtype() {
+    function getSubtype($defaultsubtype = '') {
         if ($this->_structure->ifsubtype) {
           return $this->_structure->subtype;
         }
-        return '';
+        return $defaultsubtype;
     }
     
     /**

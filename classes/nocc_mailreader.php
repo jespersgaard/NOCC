@@ -28,7 +28,6 @@ class NOCC_MailReader {
     var $_description;
     var $_id;
     var $_disposition;
-    var $_parts;
     var $_charset;
     var $_totalbytes;
     
@@ -52,62 +51,17 @@ class NOCC_MailReader {
         // Get values from structure...
         //--------------------------------------------------------------------------------
         $structure = $pop->fetchstructure($msgno, $ev);
+        $mailstructure = new NOCC_MailStructure($structure);
         $this->_structure = $structure;
         
-        $this->_type = $structure->type;
-        $this->_encoding = $structure->encoding;
-        $this->_subtype = '';
-        if ($structure->ifsubtype) {
-          $this->_subtype = $structure->subtype;
-        }
-        $this->_description = '';
-        if ($structure->ifdescription) {
-          $this->_description = $structure->description;
-        }
-        $this->_id = 0;
-        if ($structure->ifid) {
-          $this->_id = $structure->id;
-        }
-        $this->_disposition = '';
-        if ($structure->ifdisposition) {
-          $this->_disposition = $structure->disposition;
-        }
-        $this->_parts = NULL;
-        if (isset($structure->parts)) {
-          $this->_parts = $structure->parts;
-        }
-        //--------------------------------------------------------------------------------
-        
-        //--------------------------------------------------------------------------------
-        // Get the charset from the mail...
-        //--------------------------------------------------------------------------------
-        $this->_charset = 'ISO-8859-1';
-        if ($structure->ifparameters) {
-            foreach ($structure->parameters as $parameter) { //for all parameters...
-                if (strtolower($parameter->attribute) == 'charset') {
-                    $this->_charset = $parameter->value;
-                    break;
-                }
-            }
-        }
-        //--------------------------------------------------------------------------------
-        
-        //--------------------------------------------------------------------------------
-        // Get the total bytes from the mail...
-        //--------------------------------------------------------------------------------
-        $this->_totalbytes = 0;
-        if (isset($structure->bytes)) {
-            $this->_totalbytes = $structure->bytes;
-        }
-        if ($this->_totalbytes == 0) { //if a mail has ANY attachements, $structure->bytes is ALWAYS empty...
-            if (isset($structure->parts)) {
-                for ($i = 0; $i < count($structure->parts); $i++) { //for all parts...
-                    if (isset($structure->parts[$i]->bytes)) {
-                        $this->_totalbytes += $structure->parts[$i]->bytes;
-                    }
-                }
-            }
-        }
+        $this->_type = $mailstructure->getType();
+        $this->_encoding = $mailstructure->getEncoding();
+        $this->_subtype = $mailstructure->getSubtype();
+        $this->_description = $mailstructure->getDescription();
+        $this->_id = $mailstructure->getId();
+        $this->_disposition = $mailstructure->getDisposition();
+        $this->_charset = $mailstructure->getCharset('ISO-8859-1');
+        $this->_totalbytes = $mailstructure->getTotalBytes();
         //--------------------------------------------------------------------------------
         
         //--------------------------------------------------------------------------------
