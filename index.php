@@ -110,7 +110,7 @@ require ('./html/header.php');
                   if ($conf->hide_lang_select_from_login_page == false) {
                 ?>
                 <tr>
-                  <th><label for="lang"><?php echo $html_lang ?></label></th>
+                  <th><label for="lang"><?php echo $html_lang_label ?></label></th>
                   <td>
                   <select class="button" name="lang" id="lang" onchange="updateLoginPage()">
                   <?php
@@ -141,7 +141,7 @@ require ('./html/header.php');
                   {
                 ?>
                 <tr>
-                <th><label for="theme"><?php echo $html_theme ?></label></th>
+                <th><label for="theme"><?php echo $html_theme_label ?></label></th>
                 <td>
                 <select class="button" name="theme" id="theme" onchange="updateLoginPage()">
                 <?php

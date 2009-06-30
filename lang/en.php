@@ -67,7 +67,6 @@ $html_on = 'on';
 $html_theme_label = 'Theme:';
 
 // index.php
-$html_lang = 'Language';
 $html_welcome = 'Welcome to %1$s';
 $html_login = 'Login';
 $html_passwd = 'Password';
