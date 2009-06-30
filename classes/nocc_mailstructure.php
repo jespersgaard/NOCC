@@ -63,6 +63,15 @@ class NOCC_MailStructure {
     }
     
     /**
+     * Get the body transfer encoding text from the structure
+     *
+     * @return string Body transfer encoding text
+     */
+    function getEncodingText() {
+        return $this->convertEncodingToText($this->_structure->encoding);
+    }
+    
+    /**
      * Get the MIME subtype from the structure
      *
      * @param string $defaultsubtype Default MIME subtype
@@ -182,6 +191,26 @@ class NOCC_MailStructure {
             }
         }
         return $defaultcharset;
+    }
+    
+    /**
+     * Convert the body transfer encoding to text
+     *
+     * @param integer $encoding Body transfer encoding
+     * @param string $defaultencodingtext Default encoding text
+     * @return string Body transfer encoding text
+     * @static
+     */
+    function convertEncodingToText($encoding, $defaultencodingtext = '') {
+        switch($this->getEncoding()) {
+            case 0: return '7BIT'; break;
+            case 1: return '8BIT'; break;
+            case 2: return 'BINARY'; break;
+            case 3: return 'BASE64'; break;
+            case 4: return 'QUOTED-PRINTABLE'; break;
+            case 5: return 'OTHER'; break;
+            default: return $defaultencodingtext;
+        }
     }
 }
 ?>
