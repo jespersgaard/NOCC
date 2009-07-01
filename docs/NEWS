@@ -1,4 +1,4 @@
-NOCC 1.8  ?? ??, ??
+NOCC 1.8  July 01, 2009
 
   Bugs
     * Bug #2593952 : User-friendly error message, if config file missing
@@ -25,6 +25,7 @@ NOCC 1.8  ?? ??, ??
       with translatewiki.net (Siebrand Mazeland).
     * Language files update (Siebrand Mazeland, translatewiki.net).
     * Drop fixed pixel font sizes from themes (Tim Gerundt).
+    * Small updates for "newlook" theme (Tim Gerundt).
     * Use new Theme class (Tim Gerundt).
     * Themes supports now own favions (Tim Gerundt).
 
