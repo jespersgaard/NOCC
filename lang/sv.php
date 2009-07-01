@@ -49,7 +49,6 @@ $title_next_msg = 'Nästa';
 $title_prev_msg = 'Föregående';
 $html_on = 'På';
 $html_theme_label = 'Tema:';
-$html_lang = 'Språk';
 $html_welcome = 'Välkommen till %1$s';
 $html_login = 'Användarnamn';
 $html_passwd = 'Lösenord';

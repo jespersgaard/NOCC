@@ -46,7 +46,6 @@ $title_next_msg = 'Slijedeća poruka';
 $title_prev_msg = 'Prethodna poruka';
 $html_on = 'na';
 $html_theme_label = 'Tema:';
-$html_lang = 'Jezik';
 $html_welcome = 'Dobrodošli na %1$s';
 $html_login = 'Prijava';
 $html_passwd = 'Šifra';

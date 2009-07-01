@@ -50,7 +50,6 @@ $title_next_msg = 'Επόμενο μήνυμα';
 $title_prev_msg = 'Προηγούμενο μήνυμα';
 $html_on = 'επί';
 $html_theme_label = 'Θέμα:';
-$html_lang = 'Γλώσσα';
 $html_welcome = 'Καλώς ήρθατε στο %1$s';
 $html_login = 'Ονομα λογαριασμού';
 $html_passwd = 'Κωδικός';

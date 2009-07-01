@@ -47,7 +47,6 @@ $title_next_msg = 'Sonraki İleti';
 $title_prev_msg = 'Önceki İleti';
 $html_on = 'HTML etkin kıl';
 $html_theme_label = 'Biçim';
-$html_lang = 'Dil';
 $html_welcome = '%1$s\'e Hoş Geldiniz';
 $html_login = 'Kullanıcı Adı';
 $html_passwd = 'Parola';

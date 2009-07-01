@@ -47,7 +47,6 @@ $title_prev_page = 'Előző oldal';
 $title_next_msg = 'Következõ üzenet';
 $title_prev_msg = 'Elõzõ üzenet';
 $html_theme_label = 'Téma';
-$html_lang = 'Nyelv';
 $html_welcome = 'Üdvözli a %1$s';
 $html_login = 'Azonosító';
 $html_passwd = 'Jelszó';

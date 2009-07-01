@@ -23,6 +23,7 @@
  * @ingroup Language
  * @file
  *
+ * @author Firilacroco
  * @author Nicu Buculei <nicubunu@yahoo.com>
  */
 
@@ -41,8 +42,7 @@ $alt_forward = 'Redirectionare';
 $title_next_msg = 'Mesaj urmator';
 $title_prev_msg = 'Mesaj anterior';
 $html_on = 'activ';
-$html_theme_label = 'Tema';
-$html_lang = 'Limba';
+$html_theme_label = 'Tema:';
 $html_welcome = 'Bun venit la %1$s';
 $html_login = 'Nume';
 $html_passwd = 'Parola';
@@ -50,10 +50,10 @@ $html_submit = 'Trimit';
 $html_help = 'Ajutor';
 $html_wrong = 'Numele sau parola sunt incorecte';
 $html_retry = 'Alta incercare';
-$html_msgperpage_label = 'Messages per page';
+$html_msgperpage_label = 'Mesaje pe pagină:';
 $html_preferences = 'Preferinte';
-$html_full_name_label = 'Nume complet';
-$html_email_address_label = 'Adresa e-mail';
+$html_full_name_label = 'Nume complet:';
+$html_email_address_label = 'Adresa de e-mail:';
 $html_ccself = 'Cc auto';
 $html_hide_addresses = 'Ascunde adrese';
 $html_outlook_quoting = 'Cotare in stil Outlook';
@@ -70,7 +70,7 @@ $html_forward = 'Redirectionare';
 $html_delete = 'Stergere';
 $html_new = 'Nou';
 $html_mark = 'Stergere';
-$html_att_label = 'Fisier atasat';
+$html_att_label = 'Fişier ataşat:';
 $html_atts = 'Fisiere atasate';
 $html_att_unknown = '[necunoscut]';
 $html_attach = 'Atasare';
@@ -81,7 +81,7 @@ $html_sort = 'Sortare';
 $html_from = 'De la';
 $html_subject = 'Subiect';
 $html_date = 'Data';
-$html_sent = 'Trimite';
+$html_sent = 'Trimis:';
 $html_wrote = 'a scris';
 $html_size = 'Marime';
 $html_totalsize = 'Marime Totala';
@@ -95,7 +95,7 @@ $html_logout = 'Iesire';
 $html_msg = 'Mesaj';
 $html_msgs = 'Mesaje';
 $html_configuration = 'Serverul nu e corect configurat !';
-$html_priority_label = 'Prioritate';
+$html_priority_label = 'Prioritate:';
 $html_low = 'Mica';
 $html_normal = 'Normala';
 $html_high = 'Mare';

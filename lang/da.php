@@ -42,7 +42,6 @@ $title_next_msg = 'Næste';
 $title_prev_msg = 'Forrige';
 $html_on = 'til';
 $html_theme_label = 'Tema';
-$html_lang = 'Sprog';
 $html_welcome = 'Velkommen til %1$s';
 $html_login = 'Brugernavn';
 $html_passwd = 'Kodeord';

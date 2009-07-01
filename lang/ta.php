@@ -45,7 +45,6 @@ $title_next_msg = 'அடுத்த தகவல்';
 $title_prev_msg = 'முந்தைய தகவல்';
 $html_on = 'செயல் படுத்து';
 $html_theme_label = 'கருப்பொருள்';
-$html_lang = 'மொழி';
 $html_welcome = '%1$s வரவேற்கிறோம்';
 $html_login = 'நுழை';
 $html_passwd = 'ரகசிய சொல்';

@@ -38,7 +38,6 @@ $title_next_page = 'Hurrengo orria';
 $title_prev_page = 'Aurreko orria';
 $title_next_msg = 'Hurrengo mezua';
 $title_prev_msg = 'Aurreko mezua';
-$html_lang = 'Hizkuntza';
 $html_login = 'Saioa hasi';
 $html_passwd = 'Pasahitza';
 $html_submit = 'Baieztatu';

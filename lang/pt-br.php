@@ -50,7 +50,6 @@ $title_next_msg = 'Próxima mensagem';
 $title_prev_msg = 'Mensagem anterior';
 $html_on = 'Ligado';
 $html_theme_label = 'Tema';
-$html_lang = 'Linguagem';
 $html_welcome = 'Bem vindo ao %1$s';
 $html_login = 'Usuário';
 $html_passwd = 'Senha';

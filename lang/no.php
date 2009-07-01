@@ -43,7 +43,6 @@ $title_next_msg = 'Neste melding';
 $title_prev_msg = 'Forrige melding';
 $html_on = 'til';
 $html_theme_label = 'Tema:';
-$html_lang = 'Språk';
 $html_welcome = 'Velkommen til %1$s';
 $html_login = 'Brukernavn';
 $html_passwd = 'Passord';

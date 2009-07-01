@@ -48,7 +48,6 @@ $title_next_msg = '다음 글';
 $title_prev_msg = '이전 글';
 $html_on = '선택';
 $html_theme_label = '테마';
-$html_lang = '언어';
 $html_welcome = '%1$s에 오신 것을 환영합니다';
 $html_login = '접속아이디';
 $html_passwd = '비밀번호';

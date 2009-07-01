@@ -43,7 +43,6 @@ $alt_forward = 'העברה';
 $title_next_msg = 'ההודעה הבאה';
 $title_prev_msg = 'ההודעות הבאות';
 $html_on = 'בזמן';
-$html_lang = 'שפה';
 $html_welcome = 'ברוכים הבאים אל %1$s';
 $html_login = 'שם המשתמש';
 $html_passwd = 'סיסמה';

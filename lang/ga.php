@@ -45,7 +45,6 @@ $title_next_msg = 'An chéad teachtaireacht eile';
 $title_prev_msg = 'Teachtaireacht roimhe';
 $html_on = 'ar';
 $html_theme_label = 'Téama';
-$html_lang = 'Teanga';
 $html_welcome = 'Fáilte go %1$s';
 $html_login = 'Logáil isteach';
 $html_passwd = 'Focal faire';

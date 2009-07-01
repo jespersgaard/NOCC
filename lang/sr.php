@@ -42,7 +42,6 @@ $title_next_msg = 'Sledeca poruka';
 $title_prev_msg = 'Prethodna poruka';
 $html_on = 'ukljucen';
 $html_theme_label = 'Tema';
-$html_lang = 'Jezik';
 $html_welcome = 'Dobrodošli %1$s';
 $html_login = 'Korisničko ime';
 $html_passwd = 'Šifra';

@@ -44,7 +44,6 @@ $title_prev_page = 'Предишна страница';
 $title_next_msg = 'Следващо писмо';
 $title_prev_msg = 'Предишно писмо';
 $html_theme_label = 'Дизайн';
-$html_lang = 'Език';
 $html_welcome = 'Добре дошли %1$s!';
 $html_login = 'Име';
 $html_passwd = 'Парола';

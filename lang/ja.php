@@ -49,7 +49,6 @@ $title_next_msg = '次のメッセージ';
 $title_prev_msg = '前のメッセージ';
 $html_on = 'オン';
 $html_theme_label = 'テーマ:';
-$html_lang = '言語';
 $html_welcome = '%1$sへようこそ';
 $html_login = 'ログイン';
 $html_passwd = 'パスワード';

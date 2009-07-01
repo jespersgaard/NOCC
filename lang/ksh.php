@@ -45,7 +45,6 @@ $title_next_msg = 'Nächs Nohreesch';
 $title_prev_msg = 'Vörijje Nohreesch';
 $html_on = 'aan';
 $html_theme_label = 'Jeschtalldong:';
-$html_lang = 'Shprooch';
 $html_welcome = 'Welkumme bei %1$s';
 $html_login = 'Enlogge';
 $html_passwd = 'Paßwoot';

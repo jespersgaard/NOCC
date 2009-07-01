@@ -50,7 +50,6 @@ $title_next_msg = 'Следующее';
 $title_prev_msg = 'Предыдущее';
 $html_on = 'Вкл.';
 $html_theme_label = 'Оформление:';
-$html_lang = 'Язык';
 $html_welcome = 'Добро пожаловать в %1$s';
 $html_login = 'Имя';
 $html_passwd = 'Пароль';

@@ -53,7 +53,6 @@ $title_next_msg = 'Volgend bericht';
 $title_prev_msg = 'Vorig bericht';
 $html_on = 'aan';
 $html_theme_label = 'Weergave:';
-$html_lang = 'Taal';
 $html_welcome = 'Welkom bij %1$s';
 $html_login = 'Gebruikersnaam';
 $html_passwd = 'Wachtwoord';

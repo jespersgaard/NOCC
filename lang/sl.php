@@ -41,7 +41,6 @@ $alt_forward = 'Naprej';
 $title_next_msg = 'Naslednji';
 $title_prev_msg = 'Prejnji';
 $html_theme_label = 'tema';
-$html_lang = 'Jezik';
 $html_welcome = 'Dobrodoli v %1$s';
 $html_login = 'Uporabniko ime';
 $html_passwd = 'Geslo';

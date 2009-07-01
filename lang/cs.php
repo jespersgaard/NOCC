@@ -47,7 +47,6 @@ $title_next_msg = 'Další zpráva';
 $title_prev_msg = 'Předchozí zpráva';
 $html_on = 'na';
 $html_theme_label = 'Téma';
-$html_lang = 'Jazyk';
 $html_welcome = 'Vítejte v %1$s';
 $html_login = 'Jméno';
 $html_passwd = 'Heslo';

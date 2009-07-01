@@ -42,7 +42,6 @@ $title_next_msg = 'Næsta bréf';
 $title_prev_msg = 'Fyrra bréf';
 $html_on = 'á';
 $html_theme_label = 'Þema';
-$html_lang = 'Tungumál';
 $html_welcome = 'Velkomin/n í %1$s';
 $html_login = 'Notendanafn';
 $html_passwd = 'Lykilorð';

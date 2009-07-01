@@ -23,6 +23,7 @@
  * @ingroup Language
  * @file
  *
+ * @author Suradnik13
  * @author Vid Strpic <strpic@bofhlet.net>
  */
 
@@ -42,7 +43,6 @@ $title_next_msg = 'Sledeca poruka';
 $title_prev_msg = 'Prethodna poruka';
 $html_on = 'ukljucen';
 $html_theme_label = 'Tema';
-$html_lang = 'Jezik';
 $html_welcome = 'Dobrodošli %1$s';
 $html_login = 'Korisničko ime';
 $html_passwd = 'Šifra';
@@ -99,7 +99,7 @@ $html_low = 'Nizak';
 $html_normal = 'Normalan';
 $html_high = 'Visok';
 $html_receipt = 'Request a return receipt';
-$html_select = 'Selektiraj';
+$html_select = 'Odaberi';
 $html_loading_image = 'Ucitavam sliku';
 $html_send_confirmed = 'Vasa poruka je isporucena';
 $html_no_sendaction = 'Nista nije specificirano - ukljucite JavaScript.';

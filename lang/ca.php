@@ -48,7 +48,6 @@ $title_next_msg = 'Missatge següent';
 $title_prev_msg = 'Missatge anterior';
 $html_on = 'a';
 $html_theme_label = 'Assumpte:';
-$html_lang = 'Idioma';
 $html_welcome = 'Benvingut a %1$s';
 $html_login = 'Usuari';
 $html_passwd = 'Contrasenya';

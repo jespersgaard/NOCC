@@ -46,7 +46,6 @@ $title_next_msg = 'Negschti Nochricht';
 $title_prev_msg = 'Vorigi Nochricht';
 $html_on = 'an';
 $html_theme_label = 'Thema:';
-$html_lang = 'Sproch';
 $html_welcome = 'Willchu bi %1$s';
 $html_login = 'Aamälde';
 $html_passwd = 'Passwort';

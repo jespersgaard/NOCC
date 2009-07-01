@@ -48,7 +48,6 @@ $title_next_msg = 'จดหมายถัดไป';
 $title_prev_msg = 'จดหมายก่อนหน้า';
 $html_on = 'เปิด';
 $html_theme_label = 'รูปแบบ:';
-$html_lang = 'ภาษา';
 $html_welcome = 'ยินดีต้อนรับสู่ %1$s';
 $html_login = 'ชื่อผู้ใช้';
 $html_passwd = 'รหัสผ่าน';

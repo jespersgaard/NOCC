@@ -41,7 +41,6 @@ $title_next_msg = 'Nākošā vēstule';
 $title_prev_msg = 'Iepriekšējā vēstule';
 $html_on = 'ieslēgt';
 $html_theme_label = 'Izskats';
-$html_lang = 'Valoda';
 $html_welcome = 'Laipni lūgti %1$s';
 $html_login = 'Lietotājvārds';
 $html_passwd = 'Parole';

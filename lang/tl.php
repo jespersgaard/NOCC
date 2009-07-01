@@ -46,7 +46,6 @@ $title_next_msg = 'Susunod na mensahe';
 $title_prev_msg = 'Sinundang mensahe';
 $html_on = 'nasa ibabaw ng';
 $html_theme_label = 'Paksang-diwa';
-$html_lang = 'Wika';
 $html_welcome = 'Maligayang pagdating sa %1$s';
 $html_login = 'Lumagdang papasok';
 $html_passwd = 'Salitang-hudyat';

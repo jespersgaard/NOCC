@@ -46,7 +46,6 @@ $title_next_msg = 'Messatge seguent';
 $title_prev_msg = 'Messatge precedent';
 $html_on = 'sus';
 $html_theme_label = 'Tèma :';
-$html_lang = 'Lenga';
 $html_welcome = 'Benvenguda a %1$s';
 $html_login = 'Identificant';
 $html_passwd = 'Senhal';

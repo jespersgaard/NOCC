@@ -47,7 +47,6 @@ $title_next_msg = 'Neges nesaf';
 $title_prev_msg = 'Neges flaenorol';
 $html_on = 'ar';
 $html_theme_label = 'Thema:';
-$html_lang = 'Iaith';
 $html_welcome = 'Croeso i %1$s';
 $html_login = 'Mewngofnodi';
 $html_passwd = 'Cyfrinair';

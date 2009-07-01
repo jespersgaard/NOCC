@@ -46,7 +46,6 @@ $title_next_msg = 'Message suivant';
 $title_prev_msg = 'Message précédent';
 $html_on = 'sur';
 $html_theme_label = 'Thème :';
-$html_lang = 'Langue';
 $html_welcome = 'Bienvenue à %1$s';
 $html_login = 'Identifiant';
 $html_passwd = 'Mot de passe';

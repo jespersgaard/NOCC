@@ -42,7 +42,6 @@ $title_next_msg = '下一个邮件';
 $title_prev_msg = '上一个邮件';
 $html_on = '打开';
 $html_theme_label = '主题';
-$html_lang = '语言';
 $html_welcome = '欢迎 %1$s';
 $html_login = '登录';
 $html_passwd = '密码';

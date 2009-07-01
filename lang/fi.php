@@ -46,7 +46,6 @@ $title_prev_page = 'Edellinen sivu';
 $title_next_msg = 'Seuraava viesti';
 $title_prev_msg = 'Edellinen viesti';
 $html_theme_label = 'Teema';
-$html_lang = 'Kieli';
 $html_welcome = 'Tervetuloa %1$s';
 $html_login = 'Käyttäjätunnus';
 $html_passwd = 'Salasana';

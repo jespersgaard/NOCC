@@ -47,7 +47,6 @@ $title_next_msg = 'Neste';
 $title_prev_msg = 'Førre';
 $html_on = 'til';
 $html_theme_label = 'Bunad';
-$html_lang = 'Målføre';
 $html_welcome = 'Velkommen til %1$s';
 $html_login = 'Brukarnamn';
 $html_passwd = 'Kjenneord';

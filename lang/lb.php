@@ -45,7 +45,6 @@ $title_next_msg = 'Nächste Message';
 $title_prev_msg = 'Virege Message';
 $html_on = 'op';
 $html_theme_label = 'Thema:';
-$html_lang = 'Sprooch';
 $html_welcome = 'Wëllkomm op %1$s';
 $html_passwd = 'Passwuert';
 $html_help = 'Hëllef';

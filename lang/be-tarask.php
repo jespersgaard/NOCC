@@ -47,7 +47,6 @@ $title_next_msg = 'Наступнае паведамленьне';
 $title_prev_msg = 'Папярэдняе паведамленьне';
 $html_on = 'Уключана';
 $html_theme_label = 'Афармленьне:';
-$html_lang = 'Мова';
 $html_welcome = 'Запрашаем у %1$s';
 $html_login = 'Імя карыстальніка';
 $html_passwd = 'Пароль';
