@@ -1,6 +1,7 @@
 NOCC 1.9  ???? ??, ????
 
   Bugs
+    * Bug #2816859 : Problems with mail encoding (Tim Gerundt).
     * Bug #2816844 : Missing "Attachments:" label (Tim Gerundt).
 
 NOCC 1.8  July 01, 2009

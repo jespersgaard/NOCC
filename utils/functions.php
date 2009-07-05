@@ -394,7 +394,7 @@ function GetSinglePart(&$attach_tab, $mailreader) {
         'id' => $mailreader->getId(),
         'name' => '',
         'mime' => $full_mime_type,
-        'transfer' => $mailreader->getEncoding(),
+        'transfer' => $mailreader->getEncodingText(),
         'disposition' => $mailreader->getDisposition(),
         'charset' => $mailreader->getCharset(),
         'size' => $mailreader->getSize()
