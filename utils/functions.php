@@ -119,7 +119,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     global $conf;
     global $lang_locale;
     global $no_locale_date_format;
-    global $html_att_label, $html_atts;
+    global $html_att_label, $html_atts_label;
     global $lang_invalid_msg_num;
 
     $sort = $_SESSION['nocc_sort'];
