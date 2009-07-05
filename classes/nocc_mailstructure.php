@@ -18,7 +18,6 @@
  *
  * @package    NOCC
  * @todo Add getName() or getFileName() function?
- * @todo Add _getValueFromParameters() function?
  */
 class NOCC_MailStructure {
     /**
@@ -206,6 +205,25 @@ class NOCC_MailStructure {
     }
     
     /**
+     * Get a value from the parameters
+     *
+     * @param string $attribute Attribute
+     * @param string $defaultvalue Default value
+     * @return string Value
+     */
+    function getValueFromParameters($attribute, $defaultvalue = '') {
+        $attribute = strtolower($attribute);
+        if ($this->_structure->ifparameters) {
+            foreach ($this->_structure->parameters as $parameter) { //for all parameters...
+                if (strtolower($parameter->attribute) == $attribute) {
+                    return $parameter->value;
+                }
+            }
+        }
+        return $defaultvalue;
+    }
+    
+    /**
      * Get the parts from the structure
      *
      * @return array Parts
@@ -224,14 +242,7 @@ class NOCC_MailStructure {
      * @return string Charset
      */
     function getCharset($defaultcharset = '') {
-        if ($this->_structure->ifparameters) {
-            foreach ($this->_structure->parameters as $parameter) { //for all parameters...
-                if (strtolower($parameter->attribute) == 'charset') {
-                    return $parameter->value;
-                }
-            }
-        }
-        return $defaultcharset;
+        return $this->getValueFromParameters('Charset', $defaultcharset);
     }
     
     /**
