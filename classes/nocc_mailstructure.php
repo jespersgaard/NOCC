@@ -17,8 +17,6 @@
  * Wrapping a imap_fetchstructure() object
  *
  * @package    NOCC
- * @todo Add getDparameters() function!
- * @todo Add getParameters() function!
  * @todo Add getName() or getFileName() function?
  * @todo Add _getValueFromParameters() function?
  */
@@ -181,6 +179,30 @@ class NOCC_MailStructure {
           return $this->_structure->disposition;
         }
         return '';
+    }
+    
+    /**
+     * Get the Content-disposition MIME header parameters from the structure
+     *
+     * @return array Content-disposition MIME header parameters
+     */
+    function getDparameters() {
+        if ($this->_structure->ifdparameters) {
+          return $this->_structure->dparameters;
+        }
+        return array();
+    }
+    
+    /**
+     * Get the parameters from the structure
+     *
+     * @return array Parameters
+     */
+    function getParameters() {
+        if ($this->_structure->ifparameters) {
+          return $this->_structure->parameters;
+        }
+        return array();
     }
     
     /**
