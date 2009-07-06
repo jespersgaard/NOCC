@@ -279,7 +279,9 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
 
 // based on a function from matt@bonneau.net
 function GetPart(&$attach_tab, $this_part, $part_no, $display_rfc822) {
-    $att_name = '[unknown]';
+    global $html_att_unknown;
+
+    $att_name = $html_att_unknown;
     if ($this_part->ifdescription == true)
         $att_name = $this_part->description;
     for ($i = 0; $i < count($this_part->parameters); $i++)
