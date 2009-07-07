@@ -63,7 +63,6 @@ $title_next_page = 'Next page';
 $title_prev_page = 'Previous page';
 $title_next_msg = 'Next message';
 $title_prev_msg = 'Previous message';
-$html_on = 'on';
 $html_theme_label = 'Theme:';
 
 // index.php
