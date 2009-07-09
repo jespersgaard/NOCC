@@ -386,8 +386,7 @@ function GetPart(&$attach_tab, $this_part, $part_no, $display_rfc822) {
 // BUG: returns text/plain when Content-Type: application/x-zip (e.g.)
 
 function GetSinglePart(&$attach_tab, $mailreader) {
-    $header = $mailreader->getHeader();
-    if (eregi('text/html', $header))
+    if ($mailreader->isHtmlMail())
         $full_mime_type = 'text/html';
     else
         $full_mime_type = 'text/plain';

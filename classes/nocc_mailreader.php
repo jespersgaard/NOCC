@@ -351,6 +351,16 @@ class NOCC_MailReader {
     }
     
     /**
+     * Is the mail a HTML mail?
+     * @todo Drop property, if we have a getContentType() or getFullMimeType() property
+     *
+     * @return bool Is HTML mail?
+     */
+    function isHtmlMail() {
+        return eregi('text/html', $this->_header);
+    }
+    
+    /**
      * Decode MIME header
      *
      * @return string Decoded MIME header
