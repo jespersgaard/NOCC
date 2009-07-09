@@ -1,4 +1,4 @@
-NOCC 1.8.1  ???? ??, ????
+NOCC 1.8.1  July 09, 2009
 
   Bugs
     * Bug #2816859 : Problems with mail encoding (Tim Gerundt).
@@ -6,6 +6,7 @@ NOCC 1.8.1  ???? ??, ????
 
   Misc
     * Use translation for [unknown] attachments (Tim Gerundt).
+    * Language files update (Siebrand Mazeland, translatewiki.net).
 
 NOCC 1.8  July 01, 2009
 
