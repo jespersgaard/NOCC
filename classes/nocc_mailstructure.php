@@ -246,6 +246,15 @@ class NOCC_MailStructure {
     }
     
     /**
+     * Get the internet media type (MIME type) from the structure
+     *
+     * @return string Internet media type
+     */
+    function getInternetMediaType() {
+        return $this->getTypeText() . '/' . $this->getSubtype();
+    }
+    
+    /**
      * Convert the primary body type to text
      *
      * @param integer $type Primary body type
