@@ -3,23 +3,23 @@
 // This function allows you to customise the default e-mail address
 function get_default_from_address() {
     if(!isset($_SESSION['nocc_user_prefs']))
-    return '';
+        return '';
 
     $user_prefs = $_SESSION['nocc_user_prefs'];
-    $from_address = "";
+    $from_address = '';
 
     // Determine e-mail address
     if(!empty($user_prefs->email_address))
         $from_address = $user_prefs->email_address;
     else {
         if (isset($_SESSION['nocc_login_with_domain']) and $_SESSION['nocc_login_with_domain'] == 1) {
-        $from_address = $_SESSION['nocc_login'];
+            $from_address = $_SESSION['nocc_login'];
         } else if (ereg("([A-Za-z0-9]+)@([A-Za-z0-9]+)", $_SESSION['nocc_login'], $regs)) {
             $from_address = $_SESSION['nocc_login'];
         } else {
-        $from_address = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
+            $from_address = $_SESSION['nocc_user'] . '@' . $_SESSION['nocc_domain'];
         }
-    if($from_address == '@') {
+        if ($from_address == '@') {
             return '';
         }
     }
