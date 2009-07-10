@@ -53,7 +53,7 @@ class mime_mail
         $this->crlf = null;
         $this->priority = '3 (Normal)';
         $this->receipt = false;
-    $this->return = null;
+        $this->return = null;
     }
 
     /*
@@ -161,17 +161,17 @@ class mime_mail
         if (!empty($this->headers))
             $mime .= $this->headers . $this->crlf;
 
-    // Strip lonely "\r\n.\r\n" in order to avoid STMP errors
-    $mime = str_replace("\r\n.\r\n", "\r\n..\r\n", $mime);
+        // Strip lonely "\r\n.\r\n" in order to avoid STMP errors
+        $mime = str_replace("\r\n.\r\n", "\r\n..\r\n", $mime);
 
         $mail_format = '';
         if (isset($_SESSION['html_mail_send']) && $_SESSION['html_mail_send']) {
-          $mail_format = 'text/html';
+            $mail_format = 'text/html';
         } else {
-          $mail_format = 'text/plain';
+            $mail_format = 'text/plain';
         }
 
-    if (sizeof($this->parts) >= 1)
+        if (sizeof($this->parts) >= 1)
         {
             $this->add_attachment($this->body,  '',  $mail_format, 'quoted-printable', $this->charset);
             $mime .= 'MIME-Version: 1.0' . $this->crlf . $this->build_multipart();
