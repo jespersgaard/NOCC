@@ -117,11 +117,11 @@ class nocc_imap
 
     function sort(&$sort, &$sortdir, &$ev, $useuid) {
         switch($sort) {
-          case '1': $imapsort = SORTFROM; break;
-          case '2': $imapsort = SORTTO; break;
-          case '3': $imapsort = SORTSUBJECT; break;
-          case '4': $imapsort = SORTARRIVAL; break;
-          case '5': $imapsort = SORTSIZE; break;
+            case '1': $imapsort = SORTFROM; break;
+            case '2': $imapsort = SORTTO; break;
+            case '3': $imapsort = SORTSUBJECT; break;
+            case '4': $imapsort = SORTARRIVAL; break;
+            case '5': $imapsort = SORTSIZE; break;
         }
         if ($useuid) {
             return imap_sort($this->conn, $imapsort, $sortdir, SE_UID|SE_NOPREFETCH);
@@ -234,10 +234,11 @@ class nocc_imap
         $ev = new NoccException("imap_getsubscribed: ".imap_last_error());
         return;
     }
-    
+
     function mail_mark_read(&$mail, &$ev) {
         return imap_setflag_full($this->conn,  imap_uid($this->conn, $mail), "\\Seen", ST_UID);
     }
+
     function mail_mark_unread(&$mail, &$ev) {
         return imap_clearflag_full($this->conn, imap_uid($this->conn, $mail), "\\Seen",ST_UID);
     }
@@ -301,10 +302,10 @@ class nocc_imap
     function html_folder_select($value, $selected = '') {
         $folders = $this->get_nice_subscribed($ev);
         if(NoccException::isException($ev)) {
-                return "<p class=\"error\">Error retrieving folder pulldown: ".$ev->getMessage()."</p>";
+            return "<p class=\"error\">Error retrieving folder pulldown: ".$ev->getMessage()."</p>";
         }
         if(!is_array($folders) || count($folders) < 1) {
-                return "<p class=\"error\">Not currently subscribed to any mailboxes</p>";
+            return "<p class=\"error\">Not currently subscribed to any mailboxes</p>";
         }
         reset($folders);
 
@@ -345,14 +346,14 @@ class nocc_imap
     }
 
     function get_quota_usage(&$mailbox) {
-      return imap_get_quotaroot($this->conn, $mailbox);
+        return imap_get_quotaroot($this->conn, $mailbox);
     }
       
     function status(&$foldername) {
-      return imap_status($this->conn, $foldername, SA_ALL);
+        return imap_status($this->conn, $foldername, SA_ALL);
     }
 
-    /*
+    /**
      * Test function
      */
     function test() {
@@ -371,16 +372,16 @@ class nocc_imap
         print "<p>Size: "    . $check->Size    ."</p>\n" ;
     }
 
-    /*
+    /**
      * Convert text smilies to graphical smilies
      */
     function graphicalsmilies($body) {
-      $user_prefs = $_SESSION['nocc_user_prefs'];
-      if (isset($user_prefs->graphical_smilies) && $user_prefs->graphical_smilies) {
-        $theme = new NOCC_Theme($_SESSION['nocc_theme']);
-        $body = $theme->replaceTextSmilies($body);
-      }
-      return ($body);
+        $user_prefs = $_SESSION['nocc_user_prefs'];
+        if (isset($user_prefs->graphical_smilies) && $user_prefs->graphical_smilies) {
+            $theme = new NOCC_Theme($_SESSION['nocc_theme']);
+            $body = $theme->replaceTextSmilies($body);
+        }
+        return ($body);
     }
 }
 

@@ -88,7 +88,7 @@ class NOCCUserFilters {
          */
         function commit(&$ev) {
                 global $conf;
-        global $html_prefs_file_error;
+                global $html_prefs_file_error;
 
                 // Do we need to write?
                 if(!$this->dirty_flag) return;
@@ -99,10 +99,10 @@ class NOCCUserFilters {
                         $ev = new NoccException($html_prefs_file_error);
                         return;
                 }
-        if(!is_writeable($conf->prefs_dir)) {
-            $ev = new NoccException($html_prefs_file_error);
-            return;
-        }
+                if(!is_writeable($conf->prefs_dir)) {
+                    $ev = new NoccException($html_prefs_file_error);
+                    return;
+                }
                 $file = fopen($filename, 'w');
                 if(!$file) {
                         $ev = new NoccException($html_prefs_file_error);
@@ -122,7 +122,7 @@ class NOCCUserFilters {
 
                 $this->dirty_flag = 0;
         }
-    
+
         /*
          * Create the filter select box for the prefs page
          */
