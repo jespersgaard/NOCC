@@ -64,5 +64,30 @@ class NOCC_Session {
     function setQuotaEnable($value) {
         $_SESSION['quota_enable'] = $value;
     }
+    
+    /**
+     * Get quota type (STORAGE or MESSAGE) from the session
+     *
+     * @return string Quota type
+     * @static
+     * @todo Check for STORAGE or MESSAGE?
+     */
+    function getQuotaType() {
+        if (isset($_SESSION['quota_type'])) {
+            return $_SESSION['quota_type'];
+        }
+        return 'STORAGE';
+    }
+    
+    /**
+     * Set quota type (STORAGE or MESSAGE) from the session
+     *
+     * @param string $value Quota type
+     * @static
+     * @todo Check for STORAGE or MESSAGE?
+     */
+    function setQuotaType($value) {
+        $_SESSION['quota_type'] = $value;
+    }
 }
 ?>

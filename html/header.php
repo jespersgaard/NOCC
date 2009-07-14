@@ -41,6 +41,7 @@ else {
     echo ("        </script>\n");
     $_SESSION['message_deleted'] = "false";
   }
+  //TODO: Why check for $_SESSION['quota_type'])?
   if (isset($_SESSION['quota_type'])) {
     $rss_url = "rss.php";
     $rss_url .= '?nocc_lang=' . base64_encode($_SESSION['nocc_lang']);
