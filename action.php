@@ -133,7 +133,7 @@ switch($action) {
         break;
 
     case 'logout':
-        require_once_once './utils/proxy.php';
+        require_once './utils/proxy.php';
         header("Location: ".$conf->base_url."logout.php");
         break;
 
@@ -182,7 +182,8 @@ switch($action) {
             break;
         }
 
-        $mail_messageid = urlencode($content['message_id']);
+#        $mail_messageid = urlencode($content['message_id']);
+        echo $mail_messageid = $content['message_id'];
 
         $mail_to = !empty($content['reply_to']) ? $content['reply_to'] : $content['from'];
         // Test for Re: in subject, should not be added twice !
