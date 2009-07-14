@@ -44,7 +44,7 @@ if ($pop->is_imap()) {
                         <a class="rss" href="<?php echo $rss_url ?>" title="RSS"><span class="rssText">(RSS)</span></a>
                         &nbsp;
                         <?php
-                          if (isset($_SESSION['quota_enable']) && $_SESSION['quota_enable'] == true) { 
+                          if (NOCC_Session::getQuotaEnable() == true) {
                               if ($_SESSION['quota_type'] == 'STORAGE') {
                                   echo '<span class="currentQuota">' . format_quota($_SESSION['quota'][$_SESSION['quota_type']]['usage']) . '</span><span class="maxQuota"> / ' . format_quota($_SESSION['quota'][$_SESSION['quota_type']]['limit']) . '</span>';
                               } else {
