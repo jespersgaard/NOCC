@@ -29,7 +29,7 @@ if(isset($_REQUEST['remember']))
 
 // Refresh quota usage
 if (!isset($_REQUEST['sort'])) {
-    if (isset($_SESSION['quota_enable']) && $_SESSION['quota_enable'] == true) {
+    if (NOCC_Session::getQuotaEnable() == true) {
         $pop = new nocc_imap($ev);
         if (NoccException::isException($ev)) {
             require ('./html/header.php');

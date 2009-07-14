@@ -41,5 +41,28 @@ class NOCC_Session {
     function setSmtpServer($value) {
         $_SESSION['nocc_smtp_server'] = $value;
     }
+    
+    /**
+     * Get quota enabling from the session
+     *
+     * @return bool Quota enabled?
+     * @static
+     */
+    function getQuotaEnable() {
+        if (isset($_SESSION['quota_enable'])) {
+            return $_SESSION['quota_enable'];
+        }
+        return false;
+    }
+    
+    /**
+     * Set quota enabling from the session
+     *
+     * @param bool $value Quota enabled?
+     * @static
+     */
+    function setQuotaEnable($value) {
+        $_SESSION['quota_enable'] = $value;
+    }
 }
 ?>
