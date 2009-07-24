@@ -70,8 +70,9 @@ if (isset($conf->contact_ldap)) {
     $conf->contact_ldap = false;
   }
 
-  // Disable LDAP SSL, if SSL is NOT supported
+  // Disable LDAP, if LDAP SSL is not supported
   if (($conf->contact_ldap === true) && ($conf->contact_ldap_options['ssl'] === true) && !extension_loaded('openssl')) {
+      $conf->contact_ldap = false;
       $conf->contact_ldap_options['ssl'] = false;
   }
 }
