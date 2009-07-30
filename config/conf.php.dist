@@ -136,8 +136,8 @@ $conf->domains[$i]->login_allowed = array();
 $conf->domains[$i]->smtp_auth_method = '';
 $conf->domains[$i]->imap_namespace = "INBOX.";
 $conf->domains[$i]->have_ucb_pop_server = false;
-$conf->domains[$i]->quota_enable=false;
-$conf->domains[$i]->quota_type='STORAGE';
+$conf->domains[$i]->quota_enable = false;
+$conf->domains[$i]->quota_type = 'STORAGE';
 
 // If you want to add more domains, uncomment the following
 // lines and fill them in
@@ -156,8 +156,8 @@ $conf->domains[$i]->quota_type='STORAGE';
 //$conf->domains[$i]->smtp_auth_method = '';
 //$conf->domains[$i]->imap_namespace = "INBOX.";
 //$conf->domains[$i]->have_ucb_pop_server = false;
-//$conf->domains[$i]->quota_enable=false;
-//$conf->domains[$i]->quota_type='STORAGE';
+//$conf->domains[$i]->quota_enable = false;
+//$conf->domains[$i]->quota_type = 'STORAGE';
 
 //$i++;
 //$conf->domains[$i]->domain = '';
@@ -173,8 +173,8 @@ $conf->domains[$i]->quota_type='STORAGE';
 //$conf->domains[$i]->smtp_auth_method = '';
 //$conf->domains[$i]->imap_namespace = "INBOX.";
 //$conf->domains[$i]->have_ucb_pop_server = false;
-//$conf->domains[$i]->quota_enable=false;
-//$conf->domains[$i]->quota_type='STORAGE';
+//$conf->domains[$i]->quota_enable = false;
+//$conf->domains[$i]->quota_type = 'STORAGE';
 
 // Column order from the messages list
 //  1 = From
