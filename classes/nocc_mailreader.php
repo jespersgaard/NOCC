@@ -41,6 +41,7 @@ class NOCC_MailReader {
     var $_replytoaddress;
     var $_timestamp;
     var $_isunread;
+    var $_isflagged;
     
     var $_header;
     var $_priority;
@@ -98,9 +99,12 @@ class NOCC_MailReader {
         $this->_timestamp = rtrim($headerinfo->udate);
         
         $this->_isunread = false;
+        $this->_isflagged = false;
         if ($pop->is_imap()) {
             if (($headerinfo->Unseen == 'U') || ($headerinfo->Recent == 'N'))
                 $this->_isunread = true;
+            if ($headerinfo->Flagged == 'F')
+                $this->_isflagged = true;
         }
         //--------------------------------------------------------------------------------
 
@@ -312,6 +316,15 @@ class NOCC_MailReader {
      */
     function isUnread() {
         return ($this->_isunread);
+    }
+    
+    /**
+     * Is the mail flagged?
+     *
+     * @return boolean Is flagged?
+     */
+    function isFlagged() {
+        return ($this->_isflagged);
     }
     
     /**
