@@ -345,8 +345,8 @@ class nocc_imap
         return $subscribed;
     }
 
-    function get_quota_usage(&$mailbox) {
-        return imap_get_quotaroot($this->conn, $mailbox);
+    function get_quota_usage($mailbox) {
+        return @imap_get_quotaroot($this->conn, $mailbox);
     }
       
     function status(&$foldername) {
