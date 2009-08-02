@@ -1008,34 +1008,6 @@ function buildfolderlink($folder) {
     echo "\n";
 }
 
-
-function format_quota($bytes) {
-    // load translated abbreviations
-    global $html_bytes, $html_kb, $html_mb, $html_gb;
-
-    if ($bytes >= 1048576) {
-        // Gigabyte or greater
-        $_size = round($bytes / 1024 / 1024);
-        $formated_quota = $_size.' '.$html_gb;
-        
-        return $formated_quota;
-    } elseif (($bytes < 1048576) && ($bytes >= 1024)) {
-        // Megabyte, but not Gigabyte
-        $_size = round($bytes / 1024);
-        $formated_quota = $_size.' '.$html_mb;
-
-        return $formated_quota;
-    } else {
-        // kilobytes
-        $_size = $bytes;
-        $formated_quota = $_size.' '.$html_kb;
-
-        return $formated_quota;
-    }
-
-    return FALSE;    
-}
-
 //...
 function get_page_nav($pages, $skip) {
   global $html_page, $html_of, $alt_prev, $title_prev_page, $alt_next, $title_next_page;

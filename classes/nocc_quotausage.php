@@ -47,6 +47,15 @@ class NOCC_QuotaUsage {
     }
     
     /**
+     * Get the current formatted size of the mailbox in KB/MB/GB
+     *
+     * @return int Current formatted mailbox size in KB/MB/GB
+     */
+    function getFormattedStorageUsage() {
+        return $this->getFormattedSize($this->getStorageUsage());
+    }
+    
+    /**
      * Get the maximum size of the mailbox in KB
      *
      * @return int Maximum mailbox size in KB
@@ -56,6 +65,15 @@ class NOCC_QuotaUsage {
             return $this->_quotausage['STORAGE']['limit'];
         }
         return 0;
+    }
+    
+    /**
+     * Get the maximum formatted size of the mailbox in KB/MB/GB
+     *
+     * @return int Maximum formatted mailbox size in KB/MB/GB
+     */
+    function getFormattedStorageLimit() {
+        return $this->getFormattedSize($this->getStorageLimit());
     }
     
     /**
@@ -89,6 +107,28 @@ class NOCC_QuotaUsage {
      */
     function isSupported() {
         return is_array($this->_quotausage);
+    }
+    
+    /**
+     * Get a formatted size from a kilobyte number in KB/MB/GB
+     *
+     * @return string Formatted size in KB/MB/GB
+     */
+    function getFormattedSize($kilobytes) {
+        // load translated abbreviations
+        global $html_kb, $html_mb, $html_gb;
+
+        if ($kilobytes >= 1048576) { //If gigabytes...
+            $size = round($kilobytes / 1024 / 1024);
+            return $size . ' ' . $html_gb;
+        }
+        elseif (($kilobytes < 1048576) && ($kilobytes >= 1024)) { //If megabytes...
+            $size = round($kilobytes / 1024);
+            return $size . ' ' . $html_mb;
+        }
+        else { //If kilobytes...
+            return $kilobytes . ' ' . $html_kb;
+        }
     }
 }
 ?>

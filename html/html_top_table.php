@@ -49,7 +49,7 @@ if ($pop->is_imap()) {
                               $quotausage = new NOCC_QuotaUsage($_SESSION['quota']);
                               if ($quotausage->isSupported()) { //if quota usage is supported...
                                   if ($_SESSION['quota_type'] == 'STORAGE') {
-                                      echo '<span class="currentQuota">' . format_quota($quotausage->getStorageUsage()) . '</span><span class="maxQuota"> / ' . format_quota($quotausage->getStorageLimit()) . '</span>';
+                                      echo '<span class="currentQuota">' . $quotausage->getFormattedStorageUsage() . '</span><span class="maxQuota"> / ' . $quotausage->getFormattedStorageLimit() . '</span>';
                                   } else {
                                       echo '<span class="currentQuota">' . $quotausage->getMessageUsage() . ' ' . $html_msgs . '</span><span class="maxQuota"> / ' . $quotausage->getMessageLimit() . ' ' . $html_msgs . '</span>';
                                   }
