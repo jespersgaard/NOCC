@@ -33,5 +33,62 @@ class NOCC_QuotaUsage {
     function NOCC_QuotaUsage($quotausage) {
         $this->_quotausage = $quotausage;
     }
+    
+    /**
+     * Get the current size of the mailbox in KB
+     *
+     * @return int Current mailbox size in KB
+     */
+    function getStorageUsage() {
+        if (isset($this->_quotausage['STORAGE']['usage'])) {
+            return $this->_quotausage['STORAGE']['usage'];
+        }
+        return 0;
+    }
+    
+    /**
+     * Get the maximum size of the mailbox in KB
+     *
+     * @return int Maximum mailbox size in KB
+     */
+    function getStorageLimit() {
+        if (isset($this->_quotausage['STORAGE']['limit'])) {
+            return $this->_quotausage['STORAGE']['limit'];
+        }
+        return 0;
+    }
+    
+    /**
+     * Get the current number of messages in the mailbox
+     *
+     * @return int Current number of mailbox messages
+     */
+    function getMessageUsage() {
+        if (isset($this->_quotausage['MESSAGE']['usage'])) {
+            return $this->_quotausage['MESSAGE']['usage'];
+        }
+        return 0;
+    }
+    
+    /**
+     * Get the maximum number of messages in the mailbox
+     *
+     * @return int Maximum number of mailbox messages
+     */
+    function getMessageLimit() {
+        if (isset($this->_quotausage['MESSAGE']['limit'])) {
+            return $this->_quotausage['MESSAGE']['limit'];
+        }
+        return 0;
+    }
+    
+    /**
+     * Is the quota usage supported?
+     *
+     * @return bool Is supported?
+     */
+    function isSupported() {
+        return is_array($this->_quotausage);
+    }
 }
 ?>
