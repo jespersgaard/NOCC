@@ -19,6 +19,7 @@
 require_once './classes/class_local.php';
 require_once './classes/nocc_mailreader.php';
 require_once './classes/nocc_theme.php';
+require_once './classes/nocc_quotausage.php';
 
 /* ----------------------------------------------------- */
 

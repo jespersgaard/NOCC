@@ -45,10 +45,14 @@ if ($pop->is_imap()) {
                         &nbsp;
                         <?php
                           if (NOCC_Session::getQuotaEnable() == true) {
-                              if ($_SESSION['quota_type'] == 'STORAGE') {
-                                  echo '<span class="currentQuota">' . format_quota($_SESSION['quota'][$_SESSION['quota_type']]['usage']) . '</span><span class="maxQuota"> / ' . format_quota($_SESSION['quota'][$_SESSION['quota_type']]['limit']) . '</span>';
-                              } else {
-                                  echo '<span class="currentQuota">' . $_SESSION['quota'][$_SESSION['quota_type']]['usage'] . $html_msgs . '</span><span class="maxQuota"> / ' . $_SESSION['quota'][$_SESSION['quota_type']]['limit'] . $html_msgs . '</span>';
+                              //TODO: Move quota to a other place? Separate more from message number!
+                              $quotausage = new NOCC_QuotaUsage($_SESSION['quota']);
+                              if ($quotausage->isSupported()) { //if quota usage is supported...
+                                  if ($_SESSION['quota_type'] == 'STORAGE') {
+                                      echo '<span class="currentQuota">' . format_quota($quotausage->getStorageUsage()) . '</span><span class="maxQuota"> / ' . format_quota($quotausage->getStorageLimit()) . '</span>';
+                                  } else {
+                                      echo '<span class="currentQuota">' . $quotausage->getMessageUsage() . ' ' . $html_msgs . '</span><span class="maxQuota"> / ' . $quotausage->getMessageLimit() . ' ' . $html_msgs . '</span>';
+                                  }
                               }
                           }
                         ?>
