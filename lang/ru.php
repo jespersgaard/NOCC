@@ -25,6 +25,7 @@
  *
  * @author Anton Jakimov <t0xa@ls2.lv>
  * @author EugeneZelenko
+ * @author Lockal
  * @author Sergey Frolovithev <serg@spylog.ru>
  * @author Sk
  * @author Александр Сигачёв
@@ -48,7 +49,6 @@ $title_next_page = 'Следующая страница';
 $title_prev_page = 'Предыдущая страница';
 $title_next_msg = 'Следующее';
 $title_prev_msg = 'Предыдущее';
-$html_on = 'Вкл.';
 $html_theme_label = 'Оформление:';
 $html_welcome = 'Добро пожаловать в %1$s';
 $html_login = 'Имя';
@@ -131,7 +131,7 @@ $html_delete = 'Удалить';
 $html_new = 'Новое';
 $html_mark = 'Удалить';
 $html_att_label = 'Прикрепленный файл:';
-$html_atts_label = 'Прикрепленные файлы';
+$html_atts_label_label = 'Прикрепленные файлы:';
 $html_att_unknown = '[неизвестно]';
 $html_attach = 'Прикрепить файл';
 $html_attach_forget = 'Вы должны прикрепить файл до отправки сообщения!';

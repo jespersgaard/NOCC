@@ -41,7 +41,6 @@ $alt_next = '{{Identical|Next}}';
 $alt_prev = '{{Identical|Previous}}';
 $title_next_page = '{{Identical|Next page}}';
 $title_prev_page = '{{Identical|Previous page}}';
-$html_on = 'Message obsolete per [[Translating talk:NOCC|discussion]]';
 $html_passwd = '{{Identical|Password}}';
 $html_help = '{{Identical|Help}}';
 $html_lang_label = '{{Identical|Language}}';
@@ -67,6 +66,7 @@ $html_folder_delete = 'Part of the interface for managing folders, see the [[Tra
 {{Identical|Delete}}';
 $html_folder_to = 'Part of the interface for managing folders, see the [[Translating talk:NOCC#NOCC_screenshots|screenshot]]. It appears in the option to rename a folder: \'Rename [input box to select folder to be renamed] to [input box to write new name]\'.';
 $html_filter_remove = '{{Identical|Delete}}';
+$html_filter_contains = 'Used in the e-mail filter settings form. See [[:File:Nocc filter.png|screenshot]] for usage.';
 $html_and = '{{Identical|And}}
 
 The word is used as \'And\' for three filter fields, each on a row of its own. See [[:File:Nocc filter.png|screenshot of the NOCC Filter preferences]].';

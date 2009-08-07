@@ -23,6 +23,7 @@
  * @ingroup Language
  * @file
  *
+ * @author Yyy
  */
 
 $lang_locale = 'en_US.UTF-8';
@@ -39,8 +40,7 @@ $alt_reply_all = 'Atbildēt visiem';
 $alt_forward = 'Pārsūtīt';
 $title_next_msg = 'Nākošā vēstule';
 $title_prev_msg = 'Iepriekšējā vēstule';
-$html_on = 'ieslēgt';
-$html_theme_label = 'Izskats';
+$html_theme_label = 'Izskats:';
 $html_welcome = 'Laipni lūgti %1$s';
 $html_login = 'Lietotājvārds';
 $html_passwd = 'Parole';
@@ -50,8 +50,8 @@ $html_server = 'Serveris';
 $html_wrong = 'Lietotājvārds un parole nav pareizi';
 $html_retry = 'Mēģināt vēlreiz';
 $html_preferences = 'Uzstādījumi';
-$html_full_name_label = 'Pilns vārds';
-$html_email_address_label = 'E-pasta adrese';
+$html_full_name_label = 'Pilns vārds:';
+$html_email_address_label = 'E-pasta adrese:';
 $html_ccself = 'Cc pašam';
 $html_hide_addresses = 'Slēpt adreses';
 $html_outlook_quoting = 'Outlook-stila citēšana';
@@ -68,8 +68,7 @@ $html_forward = 'Pārsūtīt';
 $html_delete = 'Dzēst';
 $html_new = 'Jauns';
 $html_mark = 'Dzēst';
-$html_att_label = 'Pielikums';
-$html_atts_label = 'Pielikumi';
+$html_att_label = 'Pielikums:';
 $html_att_unknown = '[nezināms]';
 $html_attach = 'Piespraust';
 $html_attach_forget = 'Jums ir jāpiesprauž fails pirms sūtīšanas !';
@@ -79,7 +78,7 @@ $html_sort = 'Kārtot';
 $html_from = 'No';
 $html_subject = 'Tēma';
 $html_date = 'Datums';
-$html_sent = 'Sūtīt';
+$html_sent = 'Sūtīt:';
 $html_wrote = 'rakstīja';
 $html_size = 'Izmērs';
 $html_totalsize = 'Kopējais izmērs';
@@ -93,7 +92,7 @@ $html_logout = 'Beigt darbu';
 $html_msg = 'Vēstule';
 $html_msgs = 'Vēstules';
 $html_configuration = 'Serveris nav pareizi nokonfigurēts !';
-$html_priority_label = 'Prioritāte';
+$html_priority_label = 'Prioritāte:';
 $html_low = 'Zema';
 $html_normal = 'Normāla';
 $html_high = 'Augsta';

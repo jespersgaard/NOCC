@@ -71,7 +71,6 @@ $html_delete = 'Brii';
 $html_new = 'Novo';
 $html_mark = 'Izbrii';
 $html_att_label = 'Priponka';
-$html_atts_label = 'Priponke';
 $html_att_unknown = '[neznan]';
 $html_attach = 'Pripni';
 $html_attach_forget = 'Datoteko morate pripeti pred poiiljanjem sporočila!';

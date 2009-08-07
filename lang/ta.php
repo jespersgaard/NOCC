@@ -24,6 +24,7 @@
  * @file
  *
  * @author Naveen
+ * @author Naveen
  */
 
 $default_date_format = '%Y-%m-%d';
@@ -43,7 +44,6 @@ $title_next_page = 'அடுத்த பக்கம்';
 $title_prev_page = 'முந்தைய பக்கம்';
 $title_next_msg = 'அடுத்த தகவல்';
 $title_prev_msg = 'முந்தைய தகவல்';
-$html_on = 'செயல் படுத்து';
 $html_theme_label = 'கருப்பொருள்';
 $html_welcome = '%1$s வரவேற்கிறோம்';
 $html_login = 'நுழை';
@@ -126,7 +126,6 @@ $html_delete = 'அழி';
 $html_new = 'புதிய';
 $html_mark = 'அழி';
 $html_att_label = 'இணைப்பு';
-$html_atts_label = 'இணைப்புகள்:';
 $html_att_unknown = '[அறியாத]';
 $html_attach = 'இணை';
 $html_attach_forget = 'தகவலை அனுப்புவதற்கு முன் கொப்ப்புகளை இணையுங்கள்';

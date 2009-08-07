@@ -84,7 +84,6 @@ $html_delete = 'پاک کردن';
 $html_new = 'جديد';
 $html_mark = 'پاک کردن';
 $html_att_label = 'ضميمه';
-$html_atts_label = 'ضميمه ها';
 $html_att_unknown = '[ناشناخته]';
 $html_attach = 'ضميمه کن';
 $html_attach_forget = 'شما بايد فايل خود را قبل از فرستادن ضميمه کنيد';
