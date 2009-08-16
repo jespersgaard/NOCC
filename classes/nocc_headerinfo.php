@@ -62,6 +62,114 @@ class NOCC_HeaderInfo {
     }
     
     /**
+     * Get the message id from the header info
+     *
+     * @return string Message id
+     */
+    function getMessageId() {
+        if (isset($this->_headerinfo->message_id)) {
+            return $this->_headerinfo->message_id;
+        }
+        return '';
+    }
+    
+    /**
+     * Get the subject from the header info
+     *
+     * @return string Subject
+     */
+    function getSubject() {
+        if (isset($this->_headerinfo->subject)) {
+            return $this->_decodeMimeHeader($this->_headerinfo->subject, $this->_defaultcharset);
+        }
+        return '';
+    }
+    
+    /**
+     * Get the "From" address from the header info
+     *
+     * @return string "From" address
+     */
+    function getFromAddress() {
+        if (isset($this->_headerinfo->fromaddress)) {
+            return $this->_decodeMimeHeader($this->_headerinfo->fromaddress, $this->_defaultcharset);
+        }
+        return '';
+    }
+    
+    /**
+     * Get the "To" address from the header info
+     *
+     * @return string "To" address
+     */
+    function getToAddress() {
+        if (isset($this->_headerinfo->toaddress)) {
+            return $this->_decodeMimeHeader($this->_headerinfo->toaddress, $this->_defaultcharset);
+        }
+        return '';
+    }
+    
+    /**
+     * Get the "Cc" address from the header info
+     *
+     * @return string "Cc" address
+     */
+    function getCcAddress() {
+        if (isset($this->_headerinfo->ccaddress)) {
+            return $this->_decodeMimeHeader($this->_headerinfo->ccaddress, $this->_defaultcharset);
+        }
+        return '';
+    }
+    
+    /**
+     * Get the "Reply-To" address from the header info
+     *
+     * @return string "Reply-To" address
+     */
+    function getReplyToAddress() {
+        if (isset($this->_headerinfo->reply_toaddress)) {
+            return $this->_decodeMimeHeader($this->_headerinfo->reply_toaddress, $this->_defaultcharset);
+        }
+        return '';
+    }
+    
+    /**
+     * Get the date (in Unix time) from the header info
+     *
+     * @return int Date in Unix time
+     */
+    function getTimestamp() {
+        if (isset($this->_headerinfo->udate)) {
+            return $this->_headerinfo->udate;
+        }
+        return 0;
+    }
+    
+    /**
+     * Is the mail unread?
+     *
+     * @return boolean Is unread?
+     */
+    function isUnread() {
+        if (($this->_headerinfo->Unseen == 'U') || ($this->_headerinfo->Recent == 'N')) {
+            return true;
+        }
+        return false;
+    }
+    
+    /**
+     * Is the mail flagged?
+     *
+     * @return boolean Is flagged?
+     */
+    function isFlagged() {
+        if ($this->_headerinfo->Flagged == 'F') {
+            return true;
+        }
+        return false;
+    }
+    
+    /**
      * Decode MIME header
      *
      * @param string $mimeheader Encoded MIME header

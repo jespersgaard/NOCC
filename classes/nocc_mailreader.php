@@ -14,6 +14,7 @@
  */
 
 require_once 'nocc_mailstructure.php';
+require_once 'nocc_headerinfo.php';
 
 /**
  * Reading details from a mail
@@ -71,40 +72,21 @@ class NOCC_MailReader {
         // Get values from header info...
         //--------------------------------------------------------------------------------
         $headerinfo = $pop->headerinfo($msgno, $ev);
+        $mailheaderinfo = new NOCC_HeaderInfo($headerinfo, $this->_charset);
         
-        $this->_messageid = '';
-        if (isset($headerinfo->message_id)) {
-            $this->_messageid = $headerinfo->message_id;
-        }
-        $this->_subject = '';
-        if (isset($headerinfo->subject)) {
-            $this->_subject = $this->_decodeMimeHeader($headerinfo->subject, $this->_charset);
-        }
-        $this->_fromaddress = '';
-        if (isset($headerinfo->fromaddress)) {
-            $this->_fromaddress = $this->_decodeMimeHeader($headerinfo->fromaddress, $this->_charset);
-        }
-        $this->_toaddress = '';
-        if (isset($headerinfo->toaddress)) {
-            $this->_toaddress = $this->_decodeMimeHeader($headerinfo->toaddress, $this->_charset);
-        }
-        $this->_ccaddress = '';
-        if (isset($headerinfo->ccaddress)) {
-            $this->_ccaddress = $this->_decodeMimeHeader($headerinfo->ccaddress, $this->_charset);
-        }
-        $this->_replytoaddress = '';
-        if (isset($headerinfo->reply_toaddress)) {
-            $this->_replytoaddress = $this->_decodeMimeHeader($headerinfo->reply_toaddress, $this->_charset);
-        }
-        $this->_timestamp = rtrim($headerinfo->udate);
+        $this->_messageid = $mailheaderinfo->getMessageId();
+        $this->_subject = $mailheaderinfo->getSubject();
+        $this->_fromaddress = $mailheaderinfo->getFromAddress();
+        $this->_toaddress = $mailheaderinfo->getToAddress();
+        $this->_ccaddress = $mailheaderinfo->getCcAddress();
+        $this->_replytoaddress = $mailheaderinfo->getReplyToAddress();
+        $this->_timestamp = $mailheaderinfo->getTimestamp();
         
         $this->_isunread = false;
         $this->_isflagged = false;
         if ($pop->is_imap()) {
-            if (($headerinfo->Unseen == 'U') || ($headerinfo->Recent == 'N'))
-                $this->_isunread = true;
-            if ($headerinfo->Flagged == 'F')
-                $this->_isflagged = true;
+            $this->_isunread = $mailheaderinfo->isUnread();
+            $this->_isflagged = $mailheaderinfo->isFlagged();
         }
         //--------------------------------------------------------------------------------
 
@@ -303,7 +285,7 @@ class NOCC_MailReader {
     /**
      * Get the date (in Unix time) from the mail
      *
-     * @return string Date in Unix time
+     * @return int Date in Unix time
      */
     function getTimestamp() {
         return ($this->_timestamp);
@@ -371,25 +353,6 @@ class NOCC_MailReader {
      */
     function isHtmlMail() {
         return eregi('text/html', $this->_header);
-    }
-    
-    /**
-     * Decode MIME header
-     *
-     * @return string Decoded MIME header
-     * @access private
-     */
-    function _decodeMimeHeader($mimeheader, $charset) {
-        $decodedheader = '';
-        if (isset($mimeheader)) {
-            $mimeheader = str_replace('x-unknown', $charset, $mimeheader);
-            
-            $decoded = nocc_imap::mime_header_decode($mimeheader);
-            for ($i = 0; $i < count($decoded); $i++) { //for all elements...
-                $decodedheader .= $decoded[$i]->text;
-            }
-        }
-        return $decodedheader;
     }
     
     /**
