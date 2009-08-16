@@ -1,6 +1,7 @@
 NOCC 1.9  ???? ??, ????
 
   Bugs
+    * Bug #2838547 : Mail download don't include attachments (Tim Gerundt).
     * Bug #2838521 : HTML code get not replaced in text attachments (Tim
       Gerundt).
 

@@ -35,13 +35,8 @@ $headerinfo = $pop->headerinfo($mail, $ev);
 $mailheaderinfo = new NOCC_HeaderInfo($headerinfo);
 $subject = $mailheaderinfo->getSubject();
 
-$part = 1;
-$file = $pop->fetchheader($mail, $ev);
-//TODO: Need we really so much \r\n?
-//TODO: Add attachments too!
-$file .= "\r\n\r\n";
-$file .= $pop->qprint($pop->fetchbody($mail, $part, $ev));
-$file .= "\r\n\r\n";
+$part = '';
+$file = $pop->fetchbody($mail, $part, $ev);
 $pop->close();
 
 $filename = ($subject) ? ereg_replace('[\\/:\*\?"<>\|;]', '_', str_replace('&nbsp;', ' ', $subject)) . ".eml" : "no_subject.eml";
