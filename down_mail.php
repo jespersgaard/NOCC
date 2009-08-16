@@ -31,20 +31,12 @@ if (NoccException::isException($ev)) {
     return;
 }
 
-//TODO: Use NOCC_MailReader?
-$msg_headerinfo = $pop->headerinfo($mail, $ev);
-$header = $pop->fetchheader($mail, $ev);
-if (isset($msg_headerinfo->subject)) {
-    $subject_array = $pop->mime_header_decode($msg_headerinfo->subject);
-    for ($subject = "", $j = 0; $j < count($subject_array); $j++)
-            $subject .= $subject_array[$j]->text;
-}
-else {
-    $subject="";
-}
+$headerinfo = $pop->headerinfo($mail, $ev);
+$mailheaderinfo = new NOCC_HeaderInfo($headerinfo);
+$subject = $mailheaderinfo->getSubject();
 
 $part = 1;
-$file = $header;
+$file = $pop->fetchheader($mail, $ev);
 //TODO: Need we really so much \r\n?
 //TODO: Add attachments too!
 $file .= "\r\n\r\n";
