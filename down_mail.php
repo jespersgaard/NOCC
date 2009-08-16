@@ -31,6 +31,7 @@ if (NoccException::isException($ev)) {
     return;
 }
 
+//TODO: Use NOCC_MailReader?
 $msg_headerinfo = $pop->headerinfo($mail, $ev);
 $header = $pop->fetchheader($mail, $ev);
 if (isset($msg_headerinfo->subject)) {
@@ -44,9 +45,12 @@ else {
 
 $part = 1;
 $file = $header;
+//TODO: Need we really so much \r\n?
+//TODO: Add attachments too!
 $file .= "\r\n\r\n";
 $file .= $pop->qprint($pop->fetchbody($mail, $part, $ev));
 $file .= "\r\n\r\n";
+$pop->close();
 
 $filename = ($subject) ? ereg_replace('[\\/:\*\?"<>\|;]', '_', str_replace('&nbsp;', ' ', $subject)) . ".eml" : "no_subject.eml";
 $isIE = $isIE6 = 0;
@@ -89,8 +93,6 @@ if (NoccException::isException($ev)) {
     require ('./html/footer.php');
     return;
 }
-
-$pop->close();
 
 header('Content-Length: ' . strlen($file));
 echo ($file);
