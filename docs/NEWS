@@ -5,6 +5,9 @@ NOCC 1.9  ???? ??, ????
     * Bug #2838521 : HTML code get not replaced in text attachments (Tim
       Gerundt).
 
+  Misc
+    * Fix syntax error in RSS feed script (Tim Gerundt).
+
 NOCC 1.8.1  July 09, 2009
 
   Bugs
