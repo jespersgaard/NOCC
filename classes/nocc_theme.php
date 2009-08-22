@@ -38,15 +38,23 @@ class NOCC_Theme {
     var $_realpath;
     
     /**
+     * Exists?
+     * @access private
+     */
+    var $_exists;
+    
+    /**
      * Initialize the theme wrapper
      *
      * @param string $name Theme name
      */
     function NOCC_Theme($name) {
         //TODO: convertLang2Html($name) necessary?
+        //TODO: safestrip?
         $this->_name = str_replace('..', '', $name);
         $this->_path = 'themes/' . $this->_name;
         $this->_realpath = realpath($this->_path);
+        $this->_exists = file_exists($this->_realpath);
     }
     
     /**
@@ -74,6 +82,15 @@ class NOCC_Theme {
      */
     function getRealPath() {
         return $this->_realpath;
+    }
+    
+    /**
+     * Exists the theme?
+     *
+     * @return bool Exists?
+     */
+    function exists() {
+        return $this->_exists;
     }
     
     /**
