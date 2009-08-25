@@ -30,6 +30,7 @@ else {
 }
 
 require_once './classes/nocc_session.php';
+require_once './classes/nocc_security.php';
 require_once './classes/user_prefs.php';
 require_once('./classes/user_filters.php');
 require_once './utils/functions.php';

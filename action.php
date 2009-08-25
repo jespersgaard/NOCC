@@ -61,12 +61,7 @@ switch($action) {
         $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
         // Display or hide distant HTML images
         if (!isset($_REQUEST['display_images']) || $_REQUEST['display_images'] != 1) {
-            $content['body'] = eregi_replace('src="?[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]"?', 'src="none"', $content['body']);
-            $content['body'] = eregi_replace('src[[:space:]]*=[[:space:]]*"?[[:space:]]*[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/][[:space:]]*"?', 'src="none"', $content['body']);
-            $content['body'] = eregi_replace('background="?[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]"?', 'background="none"', $content['body']);
-            $content['body'] = eregi_replace('background[[:space:]]*=[[:space:]]*"?[[:space:]]*[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/][[:space:]]*"?', 'background="none"', $content['body']);
-            $content['body'] = eregi_replace('url\([[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]\)', 'url(none)', $content['body']);
-            $content['body'] = eregi_replace('url[[:space:]]*\([[:space:]]*[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/][[:space:]]*\)', 'url(none)', $content['body']);
+            $content['body'] = NOCC_Security::disableHtmlImages($content['body']);
         }
         // Display embedded HTML images
         $tmp_attach_tab = $attach_tab;

@@ -7,6 +7,7 @@ NOCC 1.9  ???? ??, ????
 
   Misc
     * Fix syntax error in RSS feed script (Tim Gerundt).
+    * Optimize regexs for remote image security (Tim Gerundt).
 
 NOCC 1.8.1  July 09, 2009
 
