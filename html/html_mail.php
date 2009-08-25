@@ -5,7 +5,7 @@
   if (!isset($conf->loaded))
     die('Hacking attempt');
 
-$has_images = eregi('src="none"', $content['body']) || eregi('url\(none\)', $content['body']);
+$has_images = NOCC_Security::hasDisabledHtmlImages($content['body']);
 $display_images = (isset($_REQUEST['display_images']) && $_REQUEST['display_images'] == 1) ? '1' : '0';
 
 // Show/hide header link

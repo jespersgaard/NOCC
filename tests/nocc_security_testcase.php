@@ -32,13 +32,13 @@ class NOCC_Security_TestCase extends UnitTestCase {
   <dt>normal image with single quote<dt>
   <dd><img src=\'http://nocc.sourceforge.net/engine/images/logo.png\' /></dd>
   <dt>normal image without quote<dt>
-  <dd><img src=http://nocc.sourceforge.net/engine/images/logo.png /></dd>
+  <dd><img Src=http://nocc.sourceforge.net/engine/images/logo.png /></dd>
   <dt>normal image with whitespace and double quote<dt>
   <dd><img src = "http://nocc.sourceforge.net/engine/images/logo.png " /></dd>
   <dt>normal image with whitespace and single quote<dt>
   <dd><img src = \'http://nocc.sourceforge.net/engine/images/logo.png \' /></dd>
   <dt>normal image with whitespace and without quote<dt>
-  <dd><img src = http://nocc.sourceforge.net/engine/images/logo.png /></dd>
+  <dd><img srC = http://nocc.sourceforge.net/engine/images/logo.png /></dd>
 </dl>
 
 <table>
@@ -49,7 +49,7 @@ class NOCC_Security_TestCase extends UnitTestCase {
     <td background=\'http://nocc.sourceforge.net/engine/images/logo.png\'>background with single quote</td>
   </tr>
   <tr>
-    <td background=http://nocc.sourceforge.net/engine/images/logo.png>background without quote</td>
+    <td BackGround=http://nocc.sourceforge.net/engine/images/logo.png>background without quote</td>
   </tr>
   <tr>
     <td background = "http://nocc.sourceforge.net/engine/images/logo.png ">background with whitespace and double quote</td>
@@ -62,7 +62,7 @@ class NOCC_Security_TestCase extends UnitTestCase {
   </tr>
 </table>
 
-<p style="background:url(http://nocc.sourceforge.net/engine/images/logo.png)">background-style</p>
+<p style="BackGround:Url(http://nocc.sourceforge.net/engine/images/logo.png)">background-style</p>
 <p style="background:url(\'http://nocc.sourceforge.net/engine/images/logo.png\')">background-style with single quote</p>
 <p style=" background : url( http://nocc.sourceforge.net/engine/images/logo.png ) ">background-style with whitespace</p>
 <p style="background : url( \'http://nocc.sourceforge.net/engine/images/logo.png \')">background-style with whitespace and single quote</p>';
@@ -104,12 +104,21 @@ class NOCC_Security_TestCase extends UnitTestCase {
   </tr>
 </table>
 
-<p style="background:url(none)">background-style</p>
+<p style="BackGround:url(none)">background-style</p>
 <p style="background:url(none)">background-style with single quote</p>
 <p style=" background : url(none) ">background-style with whitespace</p>
 <p style="background : url(none)">background-style with whitespace and single quote</p>';
         
         $this->assertEqual($expected, NOCC_Security::disableHtmlImages($html));
+    }
+
+    function testHasDisabledHtmlImages() {
+        $this->assertFalse(NOCC_Security::hasDisabledHtmlImages(''));
+        
+        $this->assertTrue(NOCC_Security::hasDisabledHtmlImages('<dd><img src="none"/></dd>'), 'src="none"');
+        $this->assertTrue(NOCC_Security::hasDisabledHtmlImages('<td background="none">...</td>'), 'background="none"');
+        $this->assertTrue(NOCC_Security::hasDisabledHtmlImages('<p style="background:url(none)">...</p>'), 'background:url(none)');
+        $this->assertTrue(NOCC_Security::hasDisabledHtmlImages('<p style="background : url(none)">...</p>'), 'background : url(none)');
     }
 }
 

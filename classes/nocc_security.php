@@ -32,5 +32,16 @@ class NOCC_Security {
         $body = eregi_replace('url[[:space:]]*\([[:space:]]*\'?[[:space:]]*[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/][[:space:]]*\'?[[:space:]]*\)', 'url(none)', $body); //url ( xzy ) OR url ( 'xyz' )
         return $body;
     }
+    
+    /**
+     * Has disabled HTML images?
+     *
+     * @param string $body HTML body
+     * @return bool Has disabled HTML images?
+     * @static
+     */
+    function hasDisabledHtmlImages($body) {
+        return eregi('src="none"', $body) || eregi('background="none"', $body) || eregi('url\(none\)', $body);
+    }
 }
 ?>
