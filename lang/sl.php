@@ -24,6 +24,7 @@
  * @file
  *
  * @author Borut Mrak <borut.mrak@ijs.si>
+ * @author Smihael
  */
 
 $lang_locale = 'sl_SI.UTF-8';
@@ -38,18 +39,24 @@ $alt_new_msg = 'Nova sporočila';
 $alt_reply = 'Odgovori';
 $alt_reply_all = 'Odgovori vsem';
 $alt_forward = 'Naprej';
+$alt_next = 'Naprej';
+$alt_prev = 'Nazaj';
+$title_next_page = 'Naslednja stran';
+$title_prev_page = 'Prejšnja stran';
 $title_next_msg = 'Naslednji';
-$title_prev_msg = 'Prejnji';
-$html_theme_label = 'tema';
-$html_welcome = 'Dobrodoli v %1$s';
-$html_login = 'Uporabniko ime';
+$title_prev_msg = 'Prejšnji';
+$html_theme_label = 'Tema:';
+$html_welcome = 'Dobrodošli v %1$s';
+$html_login = 'Prijava';
 $html_passwd = 'Geslo';
-$html_submit = 'Prijava';
+$html_submit = 'Pošlji';
 $html_help = 'Pomoč';
-$html_server = 'Strenik';
-$html_wrong = 'Uporabniko ime ali geslo je napačno';
+$html_server = 'Strežnik';
+$html_wrong = 'Uporabniško ime ali geslo je napačno';
 $html_retry = 'Poskusi ponovno';
-$html_msgperpage_label = 'Messages per page';
+$html_remember = 'Zapomni si nastavitve';
+$html_lang_label = 'Jezik:';
+$html_msgperpage_label = 'Sporočil na stran:';
 $html_preferences = 'Nastavitve';
 $html_full_name_label = 'Ime';
 $html_email_address_label = 'E-mail naslov';

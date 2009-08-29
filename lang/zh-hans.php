@@ -24,6 +24,7 @@
  * @file
  *
  * @author Liu Hong <loyaliu@21cn.com>
+ * @author PhiLiP
  */
 
 $lang_locale = 'zh_CN.UTF-8';
@@ -49,6 +50,8 @@ $html_help = '帮助';
 $html_server = '服务器';
 $html_wrong = '用户名或则密码不正确';
 $html_retry = '重试';
+$html_folder_rename = '重命名';
+$html_and = '和';
 $html_view_header = '浏览邮件头';
 $html_remove_header = '隐藏邮件头';
 $html_inbox = '收件箱';

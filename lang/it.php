@@ -23,6 +23,7 @@
  * @ingroup Language
  * @file
  *
+ * @author Darth Kule
  * @author Francesco Andreozzi <ozzo@lauratiamo.it>
  * @author Gianfranco
  * @author Guido Venturini <guido@technojuice.com>
@@ -192,4 +193,4 @@ $html_invalid_wrap_msg = 'Ampiezza testo a capo non valida';
 $html_seperate_msg_win = 'Messaggi in finestre separate';
 $html_err_file_contacts = 'Impossibile aprire in scrittura il file dei contatti.';
 $html_session_file_error = 'Impossibile aprire in scrittura il file di sessione';
-$html_search = 'Cerca';
+$html_search = 'Ricerca';

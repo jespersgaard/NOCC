@@ -130,6 +130,7 @@ $html_delete = 'Διαγραφή';
 $html_new = 'Νέο';
 $html_mark = 'Διαγραφή';
 $html_att_label = 'Συνημμένο:';
+$html_atts_label_label = 'Συνημμένα:';
 $html_att_unknown = '[άγνωστο]';
 $html_attach = 'Επισύναψη';
 $html_attach_forget = 'Πρέπει να συννάψετε το αρχείο πρίν στείλετε το μήνυμα !';

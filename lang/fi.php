@@ -25,6 +25,7 @@
  *
  * @author Crt
  * @author Jarmo Järvenpää <Jarmo.Jarvenpaa@softers.net>
+ * @author Silvonen
  */
 
 $lang_locale = 'fi_FI.UTF-8';
@@ -46,7 +47,7 @@ $title_prev_page = 'Edellinen sivu';
 $title_next_msg = 'Seuraava viesti';
 $title_prev_msg = 'Edellinen viesti';
 $html_theme_label = 'Teema:';
-$html_welcome = 'Tervetuloa %1$s';
+$html_welcome = 'Tervetuloa – %1$s';
 $html_login = 'Käyttäjätunnus';
 $html_passwd = 'Salasana';
 $html_submit = 'Kirjaudu sisään';
@@ -73,6 +74,7 @@ $html_manage_filters_link = 'Hallitse sähköpostisuodattimia';
 $html_use_graphical_smilies = 'Käytä graafisia hymiöitä';
 $html_sent_folder_label = 'Kopioi lähetetyt sähköpostit omaan kansioonsa:';
 $html_trash_folder_label = 'Siirrä poistetut sähköpostit omaan kansioonsa:';
+$html_display_struct = 'Näytä rakenteinen teksti';
 $html_send_html_mail = 'Lähetä posti HTML-muodossa';
 $html_folders = 'Kansiot';
 $html_folders_create_failed = 'Kansiota ei voitu luoda.';
@@ -120,10 +122,13 @@ $html_attach_forget = 'Sinun täytyy liittää tiedosto(t) ennen lähetystä.';
 $html_attach_delete = 'Poista valitut';
 $html_attach_none = 'Sinun täytyy valita liitettävä tiedosto.';
 $html_sort_by = 'Järjestele';
+$html_sort = 'Lajittele';
 $html_from = 'Keneltä';
+$html_from_label = 'Lähettäjä:';
 $html_subject = 'Aihe';
 $html_subject_label = 'Aihe:';
 $html_date = 'Päivä';
+$html_date_label = 'Päiväys:';
 $html_sent = 'Lähetä:';
 $html_wrote = 'kirjoitti';
 $html_size = 'Koko';
@@ -131,7 +136,10 @@ $html_totalsize = 'Kokonaismäärä';
 $html_bytes = 'tavua';
 $html_filename = 'Tiedostonimi';
 $html_to = 'Kenelle';
+$html_to_label = 'Vastaanottaja:';
 $html_cc = 'Kopio';
+$html_cc_label = 'Kopio:';
+$html_bcc_label = 'Piilokopio:';
 $html_nosubject = 'Ei aihetta';
 $html_send = 'Lähetä';
 $html_cancel = 'Peruuta';
@@ -155,11 +163,12 @@ $html_no_sendaction = 'Toimintoa ei määritelty. Kokeile sallia JavaScriptin su
 $html_error_occurred = 'Tapahtui virhe';
 $html_prefs_file_error = 'Asetustiedostoa ei voi avata kirjoitusta varten.';
 $html_wrap_none = 'Ei rivitystä';
+$html_usenet_separator = 'Usenet-erotin ("-- \n") ennen allekirjoitusta';
 $html_mark_as = 'Merkitse';
 $html_unread = 'lukematon';
 $html_encoding_label = 'Merkistökoodaus:';
 $html_add = 'Lisää';
-$html_contacts = '%1$s Yhteystiedot';
+$html_contacts = 'Yhteystiedot – %1$s';
 $html_modify = 'Muuta';
 $html_back = 'Takaisin';
 $html_contact_add = 'Lisää uusi yhteystieto';

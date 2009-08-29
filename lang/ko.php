@@ -23,6 +23,7 @@
  * @ingroup Language
  * @file
  *
+ * @author Kwj2772
  * @author Mhha
  * @author Roh,Kyoung-Min <rohbin@dreamwiz.com>
  * @author Yknok29
@@ -59,7 +60,7 @@ $html_remember = '설정내용 기억하기';
 $html_msgperpage_label = '페이지당 메세지의 숫자';
 $html_preferences = '선택사항';
 $html_full_name_label = '성명';
-$html_email_address_label = '이메일 주소';
+$html_email_address_label = '이메일 주소:';
 $html_ccself = '본인참조';
 $html_hide_addresses = '숨은 주소들';
 $html_outlook_quoting = '아웃룩 형식 인용';
