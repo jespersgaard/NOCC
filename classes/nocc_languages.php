@@ -69,7 +69,7 @@ class NOCC_Languages {
      *
      * @return int Count
      */
-    function getCount() {
+    function count() {
       return count($this->_languages);
     }
 }

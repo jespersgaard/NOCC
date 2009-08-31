@@ -56,7 +56,7 @@ class NOCC_Themes {
      *
      * @return int Count
      */
-    function getCount() {
+    function count() {
       return count($this->_themes);
     }
 }

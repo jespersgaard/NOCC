@@ -27,19 +27,19 @@ class NOCC_Themes_TestCase extends UnitTestCase {
     function test1() {
         $themes = new NOCC_Themes('');
         
-        $this->assertEqual(0, $themes->getCount(), 'getCount() - %s');
+        $this->assertEqual(0, $themes->count(), 'count() - %s');
     }
 
     function test2() {
         $themes = new NOCC_Themes('./themes');
         
-        $this->assertEqual(2, $themes->getCount(), 'getCount() - %s');
+        $this->assertEqual(2, $themes->count(), 'count() - %s');
     }
 
     function test3() {
         $themes = new NOCC_Themes('./themes/');
         
-        $this->assertEqual(2, $themes->getCount(), 'getCount() - %s');
+        $this->assertEqual(2, $themes->count(), 'count() - %s');
     }
 }
 

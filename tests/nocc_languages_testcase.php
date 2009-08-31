@@ -27,19 +27,19 @@ class NOCC_Languages_TestCase extends UnitTestCase {
     function test1() {
         $languages = new NOCC_Languages('');
         
-        $this->assertEqual(0, $languages->getCount(), 'getCount() - %s');
+        $this->assertEqual(0, $languages->count(), 'count() - %s');
     }
 
     function test2() {
         $languages = new NOCC_Languages('./lang');
         
-        $this->assertEqual(3, $languages->getCount(), 'getCount() - %s');
+        $this->assertEqual(3, $languages->count(), 'count() - %s');
     }
 
     function test3() {
         $languages = new NOCC_Languages('./lang/');
         
-        $this->assertEqual(3, $languages->getCount(), 'getCount() - %s');
+        $this->assertEqual(3, $languages->count(), 'count() - %s');
     }
 }
 
