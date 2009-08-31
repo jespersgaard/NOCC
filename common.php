@@ -154,11 +154,11 @@ $lang = str_replace('/','',$lang);
 
 // load english (nocc default), to be overwritten by translation,
 // fixes missing translation issue
-if ($lang != 'en') {
-require ('./lang/'. $conf->default_lang.'.php');
-}
+require './lang/en.php';
 
-require ('./lang/'. $lang.'.php');
+if ($lang != 'en') {
+  require './lang/'. $lang . '.php';
+}
 
 // Start with default smtp server/port, override later
 if (empty($_SESSION['nocc_smtp_server']))
