@@ -49,12 +49,24 @@ class NOCC_Theme {
      * @param string $name Theme name
      */
     function NOCC_Theme($name) {
-        //TODO: convertLang2Html($name) necessary?
-        //TODO: safestrip?
-        $this->_name = str_replace('..', '', $name);
-        $this->_path = 'themes/' . $this->_name;
-        $this->_realpath = realpath($this->_path);
-        $this->_exists = file_exists($this->_realpath);
+        $this->_name = '';
+        $this->_path = '';
+        $this->_realpath = '';
+        $this->_exists = false;
+        
+        $name = strip_tags($name);
+        $name = str_replace('..', '', $name);
+        $name = str_replace('/','',$name);
+        if (!empty($name)) { //if the name exists...
+            $this->_name = $name;
+            $path = 'themes/' . $name;
+            $realpath = realpath($path);
+            if (!empty($realpath)) { //if the real path exists...
+                $this->_path = $path;
+                $this->_realpath = $realpath;
+                $this->_exists = true;
+            }
+        }
     }
     
     /**
@@ -99,7 +111,10 @@ class NOCC_Theme {
      * @return string Stylesheet
      */
     function getStylesheet() {
-        return $this->_path . '/style.css';
+        if ($this->_exists) { //if exists...
+            return $this->_path . '/style.css';
+        }
+        return '';
     }
     
     /**
@@ -108,7 +123,10 @@ class NOCC_Theme {
      * @return string Print stylesheet
      */
     function getPrintStylesheet() {
-        return $this->_path . '/print.css';
+        if ($this->_exists) { //if exists...
+            return $this->_path . '/print.css';
+        }
+        return '';
     }
     
     /**
@@ -129,7 +147,9 @@ class NOCC_Theme {
      * @return string Custom header
      */
     function getCustomHeader() {
-        return $this->_realpath . '/header.php';
+        if ($this->_exists) { //if exists...
+            return $this->_realpath . '/header.php';
+        }
     }
     
     /**
@@ -138,7 +158,9 @@ class NOCC_Theme {
      * @return string Custom footer
      */
     function getCustomFooter() {
-        return $this->_realpath . '/footer.php';
+        if ($this->_exists) { //if exists...
+            return $this->_realpath . '/footer.php';
+        }
     }
     
     /**
