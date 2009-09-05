@@ -32,21 +32,23 @@ class NOCC_Themes {
      */
     function NOCC_Themes($path) {
         $this->_themes = array();
-        if (is_dir($path)) { //if is directory...
-            if (substr($path, -1) != '/') { //if NOT ends with '/'...
-              $path .= '/';
-            }
-            
-            //TODO: Move some code to a NOCC_Directory class?
-            if ($handle = opendir($path)) { //if can open the directory...
-                while (false !== ($name = readdir($handle))) { //for each item...
-                    if ($name != '.' && $name != '..' && is_dir($path . $name)) { //if subdirectory...
-                        if (is_file($path . $name . '\style.css')) { //if style.css exists...
-                            $this->_themes[$name] = $path . $name;
+        if (isset($path)) { //if path is set...
+            if (is_dir($path)) { //if is directory...
+                if (substr($path, -1) != '/') { //if NOT ends with '/'...
+                  $path .= '/';
+                }
+                
+                //TODO: Move some code to a NOCC_Directory class?
+                if ($handle = opendir($path)) { //if can open the directory...
+                    while (false !== ($name = readdir($handle))) { //for each item...
+                        if ($name != '.' && $name != '..' && is_dir($path . $name)) { //if subdirectory...
+                            if (is_file($path . $name . '\style.css')) { //if style.css exists...
+                                $this->_themes[$name] = $path . $name;
+                            }
                         }
                     }
+                    closedir($handle);
                 }
-                closedir($handle);
             }
         }
     }
@@ -57,7 +59,7 @@ class NOCC_Themes {
      * @return int Count
      */
     function count() {
-      return count($this->_themes);
+        return count($this->_themes);
     }
 }
 ?>
