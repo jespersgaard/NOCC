@@ -72,5 +72,36 @@ class NOCC_Languages {
     function count() {
       return count($this->_languages);
     }
+    
+    /**
+     * Parce the "Accept-Language" header...
+     *
+     * @param string acceptLanguageHeader "Accept-Language" header
+     * @return array Accepted languages
+     * @static
+     */
+    function parseAcceptLanguageHeader($acceptLanguageHeader) {
+        $languages = array();
+        if (isset($acceptLanguageHeader) && !empty($acceptLanguageHeader)) { //if the "Accept-Language" header is set...
+            $acceptLanguageHeader = strtolower($acceptLanguageHeader);
+            $acceptLanguageHeader = str_replace(' ', '', $acceptLanguageHeader);
+            $acceptLanguageHeader = str_replace('q=', '', $acceptLanguageHeader);
+            
+            $lang_quality = '1.0';
+            $accepted_languages = split(',', $acceptLanguageHeader);
+            foreach ($accepted_languages as $accepted_language) { //for all accepted languages...
+                $tmp = split(';', $accepted_language);
+                
+                if (isset($tmp[0]) && !empty($tmp[0])) { //if found language ID...
+                    $lang_id = $tmp[0];
+                    if (isset($tmp[1]) && !empty($tmp[1])) { //if found language quality...
+                        $lang_quality = $tmp[1];
+                    }
+                    $languages[$lang_id] = $lang_quality;
+                }
+            }
+        }
+        return $languages;
+    }
 }
 ?>
