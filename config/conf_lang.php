@@ -30,6 +30,12 @@ if (!isset($lang_dir)) { //if NO language direction defined...
 
 $i = 0;
 
+// Afrikaans
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'af';
+$lang_array[$i]->label = 'Afrikaans';
+
 // Arabic
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'ar';
@@ -154,6 +160,12 @@ $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'ia';
 $lang_array[$i]->label = 'Interlingua';
+
+// Indonesian
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'id';
+$lang_array[$i]->label = 'Bahasa Indonesia';
 
 // Icelandic
 $i++;
