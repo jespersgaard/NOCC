@@ -41,6 +41,16 @@ class NOCC_Themes_TestCase extends UnitTestCase {
         
         $this->assertEqual(2, $themes->count(), 'count() - %s');
     }
+
+    function testExists() {
+        $languages = new NOCC_Themes('./themes');
+        
+        $this->assertFalse(@$languages->exists(), 'exists() - %s');
+        $this->assertFalse($languages->exists(''), 'exists("") - %s');
+        $this->assertFalse($languages->exists('notexists'), 'exists("notexists") - %s');
+        $this->assertTrue($languages->exists('test1'), 'exists("test1") - %s');
+        $this->assertTrue($languages->exists('TEST1'), 'exists("TEST1") - %s');
+    }
 }
 
 $test = &new NOCC_Themes_TestCase();

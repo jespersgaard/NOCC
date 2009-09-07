@@ -76,9 +76,24 @@ class NOCC_Languages {
     }
     
     /**
+     * Exists the language?
+     *
+     * @param string $langId Language ID
+     * @return bool Exists?
+     */
+    function exists($langId) {
+        if (isset($langId) && !empty($langId)) { //if language ID is set...
+            $langId = strtolower($langId);
+            
+            return array_key_exists($langId, $this->_languages);
+        }
+        return false;
+    }
+    
+    /**
      * Parce the "Accept-Language" header...
      *
-     * @param string acceptLanguageHeader "Accept-Language" header
+     * @param string $acceptLanguageHeader "Accept-Language" header
      * @return array Accepted languages
      * @static
      */

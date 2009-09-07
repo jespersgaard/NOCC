@@ -42,6 +42,16 @@ class NOCC_Languages_TestCase extends UnitTestCase {
         $this->assertEqual(3, $languages->count(), 'count() - %s');
     }
 
+    function testExists() {
+        $languages = new NOCC_Languages('./lang');
+        
+        $this->assertFalse(@$languages->exists(), 'exists() - %s');
+        $this->assertFalse($languages->exists(''), 'exists("") - %s');
+        $this->assertFalse($languages->exists('notexists'), 'exists("notexists") - %s');
+        $this->assertTrue($languages->exists('de'), 'exists("de") - %s');
+        $this->assertTrue($languages->exists('DE'), 'exists("DE") - %s');
+    }
+
     function testParseAcceptLanguageHeader() {
         $this->assertEqual(0, count(@NOCC_Languages::parseAcceptLanguageHeader()), 'parseHttpAcceptLanguage() - %s');
         $this->assertEqual(0, count(NOCC_Languages::parseAcceptLanguageHeader('')), 'parseHttpAcceptLanguage("") - %s');

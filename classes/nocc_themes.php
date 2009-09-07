@@ -61,5 +61,20 @@ class NOCC_Themes {
     function count() {
         return count($this->_themes);
     }
+    
+    /**
+     * Exists the theme?
+     *
+     * @param string $themeName Theme name
+     * @return bool Exists?
+     */
+    function exists($themeName) {
+        if (isset($themeName) && !empty($themeName)) { //if theme name is set...
+            $themeName = strtolower($themeName);
+            
+            return array_key_exists($themeName, $this->_themes);
+        }
+        return false;
+    }
 }
 ?>
