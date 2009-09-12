@@ -113,25 +113,40 @@ if ($pwd_to_encrypt == true) {
     $_SESSION['nocc_passwd'] = encpass($_SESSION['nocc_passwd'], $conf->master_key);
 }
 
-if (isset($_REQUEST['lang']))
-    $_SESSION['nocc_lang'] = safestrip($_REQUEST['lang']);
 if (isset($_REQUEST['sort']))
     $_SESSION['nocc_sort'] = safestrip($_REQUEST['sort']);
 if (isset($_REQUEST['sortdir']))
     $_SESSION['nocc_sortdir'] = safestrip($_REQUEST['sortdir']);
 
-// Need to wait on the language before checking it
-$lang = $conf->default_lang;
-if (isset($_SESSION['nocc_lang']))
-    $lang = $_SESSION['nocc_lang'];
-else {
-    if (!isset($conf->force_default_lang) || !$conf->force_default_lang) {
-        $languages = new NOCC_Languages('./lang', $conf->default_lang);
-        $lang = $languages->detectFromBrowser();
-        unset($languages);
+//--------------------------------------------------------------------------------
+// Set and load the language...
+//--------------------------------------------------------------------------------
+$languages = new NOCC_Languages('./lang', $conf->default_lang);
+
+if (isset($_REQUEST['lang'])) { //if a language is requested...
+    if ($languages->setSelectedLangId($_REQUEST['lang'])) { //if the language exists...
+        $_SESSION['nocc_lang'] = $languages->getSelectedLangId();
     }
-    $_SESSION['nocc_lang'] = $lang;
 }
+
+if (isset($_SESSION['nocc_lang'])) { //if session language already set...
+    $languages->setSelectedLangId($_SESSION['nocc_lang']);
+}
+else { //if session language NOT already set...
+    if (!isset($conf->force_default_lang) || !$conf->force_default_lang) { //if NOT force default language...
+        $languages->detectFromBrowser();
+    }
+    $_SESSION['nocc_lang'] = $languages->getSelectedLangId();
+}
+$lang = $languages->getSelectedLangId();
+
+require './lang/en.php';
+if ($lang != 'en') { //if NOT English...
+    require './lang/'. $lang . '.php';
+}
+
+unset($languages);
+//--------------------------------------------------------------------------------
 
 // If we have requested a particular theme
 if(isset($_REQUEST['theme']))
@@ -140,18 +155,6 @@ if(isset($_REQUEST['theme']))
 // If we haven't chosen, or are forced to use a particular theme...
 if(!$conf->use_theme || !isset($_SESSION['nocc_theme']))
     $_SESSION['nocc_theme'] = $conf->default_theme;
-
-// Import language translation variables
-$lang = str_replace('..','',$lang);
-$lang = str_replace('/','',$lang);
-
-// load english (nocc default), to be overwritten by translation,
-// fixes missing translation issue
-require './lang/en.php';
-
-if ($lang != 'en') {
-  require './lang/'. $lang . '.php';
-}
 
 // Start with default smtp server/port, override later
 if (empty($_SESSION['nocc_smtp_server']))
@@ -301,6 +304,7 @@ if(isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
 
     // Set lang from user prefs
     if (isset($user_prefs->lang) && $user_prefs->lang != '') {
+        //TODO: Move to language loading!
         $_SESSION['nocc_lang'] = $user_prefs->lang;
         $lang = $_SESSION['nocc_lang'];
         $lang = str_replace('..','',$lang);
