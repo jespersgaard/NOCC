@@ -106,7 +106,7 @@ class NOCC_Languages {
     /**
      * Detect the language from the browser...
      *
-     * @return string Detected language ID?
+     * @return string Language ID
      */
     function detectFromBrowser() {
         if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) { //if the "Accept-Language" header is set...
@@ -117,7 +117,7 @@ class NOCC_Languages {
                 }
             }
         }
-        return '';
+        return $this->_defaultLangId;
     }
     
     /**

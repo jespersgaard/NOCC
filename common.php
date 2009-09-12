@@ -31,6 +31,7 @@ else {
 
 require_once './classes/nocc_session.php';
 require_once './classes/nocc_security.php';
+require_once './classes/nocc_languages.php';
 require_once './classes/user_prefs.php';
 require_once('./classes/user_filters.php');
 require_once './utils/functions.php';
@@ -124,18 +125,10 @@ $lang = $conf->default_lang;
 if (isset($_SESSION['nocc_lang']))
     $lang = $_SESSION['nocc_lang'];
 else {
-    if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) && (!isset($conf->force_default_lang) || !$conf->force_default_lang)) {
-        $ar_lang = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
-        while ($accept_lang = array_shift($ar_lang)) {
-            $tmp = explode(';', $accept_lang);
-            $tmp[0] = strtolower($tmp[0]);
-            if (file_exists('./lang/' . $tmp[0] . '.php')) {
-                $lang = $tmp[0];
-                break;
-            }
-        }
-    } else {
-      $lang = $conf->default_lang;
+    if (!isset($conf->force_default_lang) || !$conf->force_default_lang) {
+        $languages = new NOCC_Languages('./lang', $conf->default_lang);
+        $lang = $languages->detectFromBrowser();
+        unset($languages);
     }
     $_SESSION['nocc_lang'] = $lang;
 }
