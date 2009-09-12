@@ -32,6 +32,12 @@ class NOCC_Languages {
     var $_defaultLangId ;
     
     /**
+     * Selected language ID
+     * @access private
+     */
+    var $_selectedLangId ;
+    
+    /**
      * Initialize the languages wrapper
      *
      * @param string $path Languages path (relative)
@@ -40,6 +46,7 @@ class NOCC_Languages {
     function NOCC_Languages($path, $defaultLangId = '') {
         $this->_languages = array();
         $this->_defaultLangId = 'en';
+        $this->_selectedLangId = '';
         
         if (isset($path) && is_string($path) && !empty($path)) { //if path is set...
             if (is_dir($path)) { //if is directory...
@@ -65,7 +72,7 @@ class NOCC_Languages {
                             }
                             //--------------------------------------------------------------------------------
                             if (strtolower($extension) == 'php') {
-                                $this->_languages[$basename] = $path . $name;
+                                $this->_languages[strtolower($basename)] = $path . $name;
                             }
                         }
                     }
@@ -113,6 +120,7 @@ class NOCC_Languages {
             $acceptedLanguages = $this->parseAcceptLanguageHeader($_SERVER['HTTP_ACCEPT_LANGUAGE']);
             foreach ($acceptedLanguages as $langId => $langQuality) { //for all accepted languages...
                 if ($this->exists($langId)) { //if the language exists...
+                    $this->_selectedLangId = $langId;
                     return $langId;
                 }
             }
@@ -127,6 +135,46 @@ class NOCC_Languages {
      */
     function getDefaultLangId() {
         return $this->_defaultLangId;
+    }
+    
+    /**
+     * Set the default language ID
+     *
+     * @param string $langId Default language ID
+     * @return bool Successful?
+     */
+    function setDefaultLangId($langId) {
+        if ($this->exists($langId)) { //if the language exists...
+            $this->_defaultLangId = strtolower($langId);
+            return true;
+        }
+        return false;
+    }
+    
+    /**
+     * Get the selected language ID
+     *
+     * @return string Selected language ID
+     */
+    function getSelectedLangId() {
+        if (!empty($this->_selectedLangId)) { //if a language is selected...
+            return $this->_selectedLangId;
+        }
+        return $this->_defaultLangId;
+    }
+    
+    /**
+     * Set the selected language ID
+     *
+     * @param string $langId Selected language ID
+     * @return bool Successful?
+     */
+    function setSelectedLangId($langId) {
+        if ($this->exists($langId)) { //if the language exists...
+            $this->_selectedLangId = strtolower($langId);
+            return true;
+        }
+        return false;
     }
     
     /**
