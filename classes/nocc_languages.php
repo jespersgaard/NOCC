@@ -26,12 +26,21 @@ class NOCC_Languages {
     var $_languages;
     
     /**
+     * Default language ID
+     * @access private
+     */
+    var $_defaultLangId ;
+    
+    /**
      * Initialize the languages wrapper
      *
      * @param string $path Languages path (relative)
+     * @param string $defaultLangId Default language ID
      */
-    function NOCC_Languages($path) {
+    function NOCC_Languages($path, $defaultLangId = '') {
         $this->_languages = array();
+        $this->_defaultLangId = 'en';
+        
         if (isset($path) && is_string($path) && !empty($path)) { //if path is set...
             if (is_dir($path)) { //if is directory...
                 if (substr($path, -1) != '/') { //if NOT ends with '/'...
@@ -61,6 +70,10 @@ class NOCC_Languages {
                         }
                     }
                     closedir($handle);
+                }
+                
+                if ($this->exists($defaultLangId)) { //if the language exists...
+                    $this->_defaultLangId = strtolower($defaultLangId);
                 }
             }
         }
@@ -105,6 +118,15 @@ class NOCC_Languages {
             }
         }
         return '';
+    }
+    
+    /**
+     * Get the default language ID
+     *
+     * @return string Default language ID
+     */
+    function getDefaultLangId() {
+        return $this->_defaultLangId;
     }
     
     /**

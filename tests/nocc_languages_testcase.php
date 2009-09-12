@@ -28,24 +28,35 @@ class NOCC_Languages_TestCase extends UnitTestCase {
         $languages = new NOCC_Languages('');
         
         $this->assertEqual(0, $languages->count(), 'count() - %s');
+        $this->assertEqual('en', $languages->getDefaultLangId(), 'getDefaultLangId() - %s');
     }
 
     function test2() {
-        $languages = new NOCC_Languages('./lang');
+        $languages = new NOCC_Languages('./lang', 'de');
         
         $this->assertEqual(3, $languages->count(), 'count() - %s');
+        $this->assertEqual('de', $languages->getDefaultLangId(), 'getDefaultLangId() - %s');
     }
 
     function test3() {
-        $languages = new NOCC_Languages('./lang/');
+        $languages = new NOCC_Languages('./lang/', 'DE');
         
         $this->assertEqual(3, $languages->count(), 'count() - %s');
+        $this->assertEqual('de', $languages->getDefaultLangId(), 'getDefaultLangId() - %s');
     }
 
     function test4() {
-        $languages = new NOCC_Languages(array('./lang/'));
+        $languages = new NOCC_Languages(array('bug'));
         
         $this->assertEqual(0, $languages->count(), 'count() - %s');
+        $this->assertEqual('en', $languages->getDefaultLangId(), 'getDefaultLangId() - %s');
+    }
+
+    function test5() {
+        $languages = new NOCC_Languages('./lang/', array('bug'));
+        
+        $this->assertEqual(3, $languages->count(), 'count() - %s');
+        $this->assertEqual('en', $languages->getDefaultLangId(), 'getDefaultLangId() - %s');
     }
 
     function testExists() {
@@ -61,7 +72,7 @@ class NOCC_Languages_TestCase extends UnitTestCase {
 
     function testParseAcceptLanguageHeader() {
         $this->assertEqual(0, count(@NOCC_Languages::parseAcceptLanguageHeader()), 'parseHttpAcceptLanguage() - %s');
-        $this->assertEqual(0, count(NOCC_Languages::parseAcceptLanguageHeader(array('de'))), 'parseHttpAcceptLanguage(array("de")) - %s');
+        $this->assertEqual(0, count(NOCC_Languages::parseAcceptLanguageHeader(array('bug'))), 'parseHttpAcceptLanguage(array("bug")) - %s');
         $this->assertEqual(0, count(NOCC_Languages::parseAcceptLanguageHeader('')), 'parseHttpAcceptLanguage("") - %s');
         $this->assertEqual(1, count(NOCC_Languages::parseAcceptLanguageHeader('de')), 'parseHttpAcceptLanguage("de") - %s');
         $this->assertEqual(1, count(NOCC_Languages::parseAcceptLanguageHeader('de-de')), 'parseHttpAcceptLanguage("de-de") - %s');
