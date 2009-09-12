@@ -91,6 +91,23 @@ class NOCC_Languages {
     }
     
     /**
+     * Detect the language from the browser...
+     *
+     * @return string Detected language ID?
+     */
+    function detectFromBrowser() {
+        if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) { //if the "Accept-Language" header is set...
+            $acceptedLanguages = $this->parseAcceptLanguageHeader($_SERVER['HTTP_ACCEPT_LANGUAGE']);
+            foreach ($acceptedLanguages as $langId => $langQuality) { //for all accepted languages...
+                if ($this->exists($langId)) { //if the language exists...
+                    return $langId;
+                }
+            }
+        }
+        return '';
+    }
+    
+    /**
      * Parce the "Accept-Language" header...
      *
      * @param string $acceptLanguageHeader "Accept-Language" header
