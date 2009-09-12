@@ -32,7 +32,7 @@ class NOCC_Languages {
      */
     function NOCC_Languages($path) {
         $this->_languages = array();
-        if (isset($path) && !empty($path)) { //if path is set...
+        if (isset($path) && is_string($path) && !empty($path)) { //if path is set...
             if (is_dir($path)) { //if is directory...
                 if (substr($path, -1) != '/') { //if NOT ends with '/'...
                   $path .= '/';
@@ -82,7 +82,7 @@ class NOCC_Languages {
      * @return bool Exists?
      */
     function exists($langId) {
-        if (isset($langId) && !empty($langId)) { //if language ID is set...
+        if (isset($langId) && is_string($langId) && !empty($langId)) { //if language ID is set...
             $langId = strtolower($langId);
             
             return array_key_exists($langId, $this->_languages);
@@ -99,22 +99,22 @@ class NOCC_Languages {
      */
     function parseAcceptLanguageHeader($acceptLanguageHeader) {
         $languages = array();
-        if (isset($acceptLanguageHeader) && !empty($acceptLanguageHeader)) { //if the "Accept-Language" header is set...
+        if (isset($acceptLanguageHeader) && is_string($acceptLanguageHeader) && !empty($acceptLanguageHeader)) { //if the "Accept-Language" header is set...
             $acceptLanguageHeader = strtolower($acceptLanguageHeader);
             $acceptLanguageHeader = str_replace(' ', '', $acceptLanguageHeader);
             $acceptLanguageHeader = str_replace('q=', '', $acceptLanguageHeader);
             
-            $lang_quality = '1.0';
-            $accepted_languages = split(',', $acceptLanguageHeader);
-            foreach ($accepted_languages as $accepted_language) { //for all accepted languages...
-                $tmp = split(';', $accepted_language);
+            $langQuality = '1.0';
+            $acceptedLanguages = split(',', $acceptLanguageHeader);
+            foreach ($acceptedLanguages as $acceptedLanguage) { //for all accepted languages...
+                $tmp = split(';', $acceptedLanguage);
                 
                 if (isset($tmp[0]) && !empty($tmp[0])) { //if found language ID...
                     $lang_id = $tmp[0];
                     if (isset($tmp[1]) && !empty($tmp[1])) { //if found language quality...
-                        $lang_quality = $tmp[1];
+                        $langQuality = $tmp[1];
                     }
-                    $languages[$lang_id] = $lang_quality;
+                    $languages[$lang_id] = $langQuality;
                 }
             }
         }
