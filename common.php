@@ -144,8 +144,6 @@ require './lang/en.php';
 if ($lang != 'en') { //if NOT English...
     require './lang/'. $lang . '.php';
 }
-
-unset($languages);
 //--------------------------------------------------------------------------------
 
 // If we have requested a particular theme
@@ -302,15 +300,25 @@ if(isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
     }
     $user_prefs = $_SESSION['nocc_user_prefs'];
 
-    // Set lang from user prefs
+    //--------------------------------------------------------------------------------
+    // Set and load the user prefs language...
+    //--------------------------------------------------------------------------------
+    //TODO: Move to normal language loading!
     if (isset($user_prefs->lang) && $user_prefs->lang != '') {
-        //TODO: Move to language loading!
-        $_SESSION['nocc_lang'] = $user_prefs->lang;
-        $lang = $_SESSION['nocc_lang'];
-        $lang = str_replace('..','',$lang);
-        $lang = str_replace('/','',$lang);
-        require ('./lang/'. $lang.'.php');
+        $userLang = $languages->getSelectedLangId();
+        if ($languages->setSelectedLangId($user_prefs->lang)) { //if the language exists...
+            $userLang = $languages->getSelectedLangId();
+            if (($userLang != 'en') && ($userLang != $lang)) { //if NOT English AND current language...
+                $_SESSION['nocc_lang'] = $languages->getSelectedLangId();
+                $lang = $languages->getSelectedLangId();
+                
+                require './lang/'. $lang . '.php';
+            }
+        }
+        unset($userLang);
     }
+    unset($languages);
+    //--------------------------------------------------------------------------------
 
     // Set theme from user prefs
     if ($conf->use_theme == true && isset($user_prefs->theme)) {
@@ -344,5 +352,4 @@ require_once ('./config/conf_charset.php');
 if (isset($conf->memory_limit) && $conf->memory_limit != '') {
     @ini_set ( "memory_limit", $conf->memory_limit);
 }
-
 ?>
