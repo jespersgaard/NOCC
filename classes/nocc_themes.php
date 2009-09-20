@@ -21,18 +21,21 @@
 class NOCC_Themes {
     /**
      * Themes
+     * @var array
      * @access private
      */
     var $_themes;
 
     /**
      * Default theme name
+     * @var string
      * @access private
      */
     var $_defaultThemeName;
 
     /**
      * Selected theme name
+     * @var string
      * @access private
      */
     var $_selectedThemeName;

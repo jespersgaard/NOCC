@@ -22,6 +22,7 @@
 class NOCC_MailStructure {
     /**
      * imap_fetchstructure() object
+     * @var object
      * @access private
      */
     var $_structure;

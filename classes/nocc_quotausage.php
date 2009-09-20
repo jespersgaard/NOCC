@@ -21,6 +21,7 @@
 class NOCC_QuotaUsage {
     /**
      * imap_get_quotaroot() array
+     * @var array
      * @access private
      */
     var $_quotausage;

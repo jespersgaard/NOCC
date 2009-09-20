@@ -21,21 +21,24 @@
 class NOCC_Languages {
     /**
      * Languages
+     * @var array
      * @access private
      */
     var $_languages;
     
     /**
      * Default language ID
+     * @var string
      * @access private
      */
-    var $_defaultLangId ;
+    var $_defaultLangId;
     
     /**
      * Selected language ID
+     * @var string
      * @access private
      */
-    var $_selectedLangId ;
+    var $_selectedLangId;
     
     /**
      * Initialize the languages wrapper

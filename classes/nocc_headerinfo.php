@@ -21,12 +21,14 @@
 class NOCC_HeaderInfo {
     /**
      * imap_headerinfo() object
+     * @var object
      * @access private
      */
     var $_headerinfo;
     
     /**
      * Default charset
+     * @var string
      * @access private
      */
     var $_defaultcharset;

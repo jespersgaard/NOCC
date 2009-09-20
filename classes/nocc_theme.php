@@ -21,24 +21,28 @@
 class NOCC_Theme {
     /**
      * Name
+     * @var string
      * @access private
      */
     var $_name;
     
     /**
      * Path
+     * @var string
      * @access private
      */
     var $_path;
     
     /**
      * Real path
+     * @var string
      * @access private
      */
     var $_realpath;
     
     /**
      * Exists?
+     * @var bool
      * @access private
      */
     var $_exists;
