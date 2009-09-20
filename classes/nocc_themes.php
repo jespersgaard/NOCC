@@ -24,14 +24,30 @@ class NOCC_Themes {
      * @access private
      */
     var $_themes;
-    
+
+    /**
+     * Default theme name
+     * @access private
+     */
+    var $_defaultThemeName;
+
+    /**
+     * Selected theme name
+     * @access private
+     */
+    var $_selectedThemeName;
+
     /**
      * Initialize the themes wrapper
      *
      * @param string $path Themes path (relative)
+     * @param string $defaultThemeName Default theme name
      */
-    function NOCC_Themes($path) {
+    function NOCC_Themes($path, $defaultThemeName = '') {
         $this->_themes = array();
+        $this->_defaultThemeName = 'standard';
+        $this->_selectedThemeName = '';
+
         if (isset($path) && is_string($path) && !empty($path)) { //if path is set...
             if (is_dir($path)) { //if is directory...
                 if (substr($path, -1) != '/') { //if NOT ends with '/'...
@@ -43,11 +59,15 @@ class NOCC_Themes {
                     while (false !== ($name = readdir($handle))) { //for each item...
                         if ($name != '.' && $name != '..' && is_dir($path . $name)) { //if subdirectory...
                             if (is_file($path . $name . '\style.css')) { //if style.css exists...
-                                $this->_themes[$name] = $path . $name;
+                                $this->_themes[strtolower($name)] = $path . $name;
                             }
                         }
                     }
                     closedir($handle);
+                }
+
+                if ($this->exists($defaultThemeName)) { //if the theme exists...
+                    $this->_defaultThemeName = strtolower($defaultThemeName);
                 }
             }
         }
@@ -73,6 +93,55 @@ class NOCC_Themes {
             $themeName = strtolower($themeName);
             
             return array_key_exists($themeName, $this->_themes);
+        }
+        return false;
+    }
+
+    /**
+     * Get the default theme name
+     *
+     * @return string Default theme name
+     */
+    function getDefaultThemeName() {
+        return $this->_defaultThemeName;
+    }
+
+    /**
+     * Set the default theme name
+     *
+     * @param string $themeName Default theme name
+     * @return bool Successful?
+     */
+    function setDefaultThemeName($themeName) {
+        if ($this->exists($themeName)) { //if the theme exists...
+            $this->_defaultThemeName = strtolower($themeName);
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Get the selected theme name
+     *
+     * @return string Selected theme name
+     */
+    function getSelectedThemeName() {
+        if (!empty($this->_selectedThemeName)) { //if a theme is selected...
+            return $this->_selectedThemeName;
+        }
+        return $this->_defaultThemeName;
+    }
+
+    /**
+     * Set the selected theme name
+     *
+     * @param string $themeName Selected theme name
+     * @return bool Successful?
+     */
+    function setSelectedThemeName($themeName) {
+        if ($this->exists($themeName)) { //if the theme exists...
+            $this->_selectedThemeName = strtolower($themeName);
+            return true;
         }
         return false;
     }
