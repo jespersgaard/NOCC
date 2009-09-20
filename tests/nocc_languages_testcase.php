@@ -85,10 +85,10 @@ class NOCC_Languages_TestCase extends UnitTestCase {
         $this->assertFalse($languages->setDefaultLangId(''), 'setDefaultLangId("") - %s');
         $this->assertEqual('en', $languages->getDefaultLangId(), 'getDefaultLangId() - %s');
         $this->assertFalse($languages->setDefaultLangId('notexists'), 'setDefaultLangId("notexists") - %s');
+        $this->assertEqual('en', $languages->getDefaultLangId(), 'getDefaultLangId() - %s');
         $this->assertFalse($languages->setDefaultLangId('../../../../../../../etc/passwd%00'), 'setDefaultLangId("passwd") - %s');
         $this->assertEqual('en', $languages->getDefaultLangId(), 'getDefaultLangId() - %s');
         $this->assertFalse($languages->setDefaultLangId('<script>alert(document.cookie)</script>'), 'setDefaultLangId("alert()") - %s');
-        $this->assertEqual('en', $languages->getDefaultLangId(), 'getDefaultLangId() - %s');
         $this->assertEqual('en', $languages->getDefaultLangId(), 'getDefaultLangId() - %s');
         $this->assertTrue($languages->setDefaultLangId('se'), 'setDefaultLangId("se") - %s');
         $this->assertEqual('se', $languages->getDefaultLangId(), 'getDefaultLangId() - %s');
