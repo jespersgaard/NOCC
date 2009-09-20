@@ -32,6 +32,7 @@ else {
 require_once './classes/nocc_session.php';
 require_once './classes/nocc_security.php';
 require_once './classes/nocc_languages.php';
+require_once './classes/nocc_themes.php';
 require_once './classes/user_prefs.php';
 require_once('./classes/user_filters.php');
 require_once './utils/functions.php';
@@ -121,8 +122,9 @@ if (isset($_REQUEST['sortdir']))
 //--------------------------------------------------------------------------------
 // Set and load the language...
 //--------------------------------------------------------------------------------
-$languages = new NOCC_Languages('./lang', $conf->default_lang);
+$languages = new NOCC_Languages('./lang/', $conf->default_lang);
 
+//TODO: Check $_REQUEST['lang'] also when force_default_lang?
 if (isset($_REQUEST['lang'])) { //if a language is requested...
     if ($languages->setSelectedLangId($_REQUEST['lang'])) { //if the language exists...
         $_SESSION['nocc_lang'] = $languages->getSelectedLangId();
@@ -146,13 +148,22 @@ if ($lang != 'en') { //if NOT English...
 }
 //--------------------------------------------------------------------------------
 
-// If we have requested a particular theme
-if(isset($_REQUEST['theme']))
-    $_SESSION['nocc_theme'] = safestrip($_REQUEST['theme']);
+//--------------------------------------------------------------------------------
+// Set the theme...
+//--------------------------------------------------------------------------------
+$themes = new NOCC_Themes('./themes/', $conf->default_theme);
 
-// If we haven't chosen, or are forced to use a particular theme...
-if(!$conf->use_theme || !isset($_SESSION['nocc_theme']))
-    $_SESSION['nocc_theme'] = $conf->default_theme;
+//TODO: Check $_REQUEST['theme'] also when NOT use_theme?
+if (isset($_REQUEST['theme'])) { //if a theme is requested...
+    if ($themes->setSelectedThemeName($_REQUEST['theme'])) { //if the theme exists...
+        $_SESSION['nocc_theme'] = $themes->getSelectedThemeName();
+    }
+}
+
+if (!isset($_SESSION['nocc_theme'])) { //if session theme NOT already set...
+    $_SESSION['nocc_theme'] = $themes->getDefaultThemeName();
+}
+//--------------------------------------------------------------------------------
 
 // Start with default smtp server/port, override later
 if (empty($_SESSION['nocc_smtp_server']))
@@ -320,16 +331,19 @@ if(isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
     unset($languages);
     //--------------------------------------------------------------------------------
 
-    // Set theme from user prefs
-    if ($conf->use_theme == true && isset($user_prefs->theme)) {
-        // evaluate if the theme in user preferences still exists
-        if (!is_dir('./themes/'.$user_prefs->theme)) {
-            $_SESSION['nocc_theme'] = $conf->default_theme;
+    //--------------------------------------------------------------------------------
+    // Set the user prefs theme...
+    //--------------------------------------------------------------------------------
+    //TODO: Move to normal theme loading!
+    if (isset($conf->use_theme) && ($conf->use_theme == true)) { //if allow theme changing...
+        if (isset($user_prefs->theme) && $user_prefs->theme != '') {
+            if ($themes->setSelectedThemeName($user_prefs->theme)) { //if the theme exists...
+                $_SESSION['nocc_theme'] = $themes->getSelectedThemeName();
+            }
         }
-        else {
-            $_SESSION['nocc_theme'] = $user_prefs->theme;
-       }
     }
+    unset($themes);
+    //--------------------------------------------------------------------------------
 
     // Filters
     if (!empty($conf->prefs)) {
