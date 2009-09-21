@@ -16,8 +16,13 @@
 
 require_once './classes/exception.php';
 
-class mime_mail 
-{
+/**
+ * Building and sending a mail
+ *
+ * @package    NOCC
+ * @todo Rename to NOCC_MimeMail?
+ */
+class mime_mail {
     var $parts;
     var $to;
     var $cc;
@@ -33,12 +38,10 @@ class mime_mail
     var $priority;
     var $receipt;
 
-    /*
-     *     void mime_mail()
-     *     class constructor
-     */         
-    function mime_mail()
-    {
+    /**
+     * Initialize the mail object
+     */
+    function mime_mail() {
         $this->parts = Array();
         $this->to =  Array();
         $this->cc = Array();
@@ -56,12 +59,16 @@ class mime_mail
         $this->return = null;
     }
 
-    /*
-     *     void add_attachment(string message, [string name], [string ctype], [string encoding], [string charset])
-     *     Add an attachment to the mail object
-     */ 
-    function add_attachment($message, $name, $ctype, $encoding, $charset)
-    {
+    /**
+     * Add an attachment to the mail object
+     * 
+     * @param string $message
+     * @param string $name
+     * @param string $ctype
+     * @param string $encoding
+     * @param string $charset 
+     */
+    function add_attachment($message, $name, $ctype, $encoding, $charset) {
         $this->parts[] = array (
             'ctype' => $ctype,
             'message' => $message,
@@ -71,12 +78,13 @@ class mime_mail
         );
     }
 
-    /*
-     *      void build_message(array part)
-     *      Build message parts of a multipart mail
+    /**
+     * Build message parts of a multipart mail
+     *
+     * @param array $part
+     * @return string
      */ 
-    function build_message($part)
-    {
+    function build_message($part) {
         $message = $part['message'];
         $encoding = $part['encoding'];
         $charset = $part['charset'];
@@ -100,12 +108,12 @@ class mime_mail
         return($val);
     }
 
-    /*
-     *      void build_multipart()
-     *      Build a multipart mail
+    /**
+     * Build a multipart mail
+     *
+     * @return string
      */ 
-    function build_multipart() 
-    {
+    function build_multipart() {
         $boundary = 'NextPart'.md5(uniqid(time()));
         $multipart = 'Content-Type: multipart/mixed;' . $this->crlf . "\tboundary=\"$boundary\"" . $this->crlf . $this->crlf . 'This is a MIME encoded message.' . $this->crlf . $this->crlf . '--' . $boundary;
         
@@ -114,12 +122,12 @@ class mime_mail
         return ($multipart .= '--' . $this->crlf);
     }
 
-    /*
-     *        void build_body()
-     *        build a non multipart mail
+    /**
+     * Build a non multipart mail
+     *
+     * @return ???
      */
-    function build_body()
-    {
+    function build_body() {
         if (sizeof($this->parts) == 1)
             $part = $this->build_message($this->parts[0]);
         else
@@ -127,19 +135,18 @@ class mime_mail
         return ($part . $this->crlf);
     }
 
-    /*
-     *      void send()
-     *      Send the mail (last class-function to be called)
+    /**
+     * Send the mail (last class-function to be called)
+     *
+     * @param $conf
+     * @return mixed
      */ 
-    function send(&$conf) 
-    {
+    function send(&$conf) {
         $mime = '';
-        if (($this->smtp_server != '' && $this->smtp_port != ''))
-        {
+        if (($this->smtp_server != '' && $this->smtp_port != '')) {
             if ($this->to[0] != '')
                 $mime .= 'To: ' . join(', ', $this->to) . $this->crlf;
-            if (!empty($this->subject))
-            {
+            if (!empty($this->subject)) {
                 $mime .= 'Subject: ' . $this->subject . $this->crlf;
             }
         }
@@ -167,17 +174,16 @@ class mime_mail
         $mail_format = '';
         if (isset($_SESSION['html_mail_send']) && $_SESSION['html_mail_send']) {
             $mail_format = 'text/html';
-        } else {
+        }
+        else {
             $mail_format = 'text/plain';
         }
 
-        if (sizeof($this->parts) >= 1)
-        {
+        if (sizeof($this->parts) >= 1) {
             $this->add_attachment($this->body,  '',  $mail_format, 'quoted-printable', $this->charset);
             $mime .= 'MIME-Version: 1.0' . $this->crlf . $this->build_multipart();
         }
-        else
-        {
+        else {
             $this->add_attachment($this->body,  '',  $mail_format, '8bit', $this->charset);
             $mime .= 'MIME-Version: 1.0' . $this->crlf . $this->build_body();
         }
@@ -189,8 +195,7 @@ class mime_mail
 
         // Whether or not to use SMTP or sendmail
         // depends on the config file (conf.php)
-        if ($this->smtp_server == '' || $this->smtp_port == '')
-        {
+        if ($this->smtp_server == '' || $this->smtp_port == '') {
             $rcpt_to = join(', ', $this->to);
             if (ereg("[4-9]\.[0-9]\.[0-9].*", phpversion()))
                 $ev = @mail($rcpt_to, $this->subject, '', $mime, '-f' . $this->strip_comment($this->from));
@@ -215,8 +220,7 @@ class mime_mail
             if ($ev != true)
                 return (new NoccException('unable to send message, SMTP server unreachable'));
         }
-        else
-        {
+        else {
             $smtp = new smtp();
             if (!empty($smtp))
             {
@@ -254,6 +258,12 @@ class mime_mail
         }
     }
 
+    /**
+     * ...
+     *
+     * @param array $array
+     * @return array
+     */
     function strip_comment_array($array) {
         for($i = 0; $i < count($array); $i++) {
             $array[$i] = $this->strip_comment($array[$i]);
@@ -261,6 +271,12 @@ class mime_mail
         return $array;
     }
 
+    /**
+     * ...
+     *
+     * @param string $address
+     * @return string
+     */
     function strip_comment($address) {
         $pos = strrpos($address, '<');
         if ($pos === false) {
@@ -270,6 +286,5 @@ class mime_mail
             return substr($address, $pos);
         }
     }
-
-}  // end of class
+}
 ?>
