@@ -67,6 +67,7 @@ class mime_mail {
      * @param string $ctype
      * @param string $encoding
      * @param string $charset 
+     * @todo Rename to addAttachment()?
      */
     function add_attachment($message, $name, $ctype, $encoding, $charset) {
         $this->parts[] = array (
@@ -83,6 +84,8 @@ class mime_mail {
      *
      * @param array $part
      * @return string
+     * @access private
+     * @todo Rename to _buildMessage()?
      */ 
     function build_message($part) {
         $message = $part['message'];
@@ -112,6 +115,8 @@ class mime_mail {
      * Build a multipart mail
      *
      * @return string
+     * @access private
+     * @todo Rename to _buildMultipart()?
      */ 
     function build_multipart() {
         $boundary = 'NextPart'.md5(uniqid(time()));
@@ -125,7 +130,9 @@ class mime_mail {
     /**
      * Build a non multipart mail
      *
-     * @return ???
+     * @return string
+     * @access private
+     * @todo Rename to _buildBody()?
      */
     function build_body() {
         if (sizeof($this->parts) == 1)
@@ -263,6 +270,8 @@ class mime_mail {
      *
      * @param array $array
      * @return array
+     * @access private
+     * @todo Rename!
      */
     function strip_comment_array($array) {
         for($i = 0; $i < count($array); $i++) {
@@ -276,6 +285,8 @@ class mime_mail {
      *
      * @param string $address
      * @return string
+     * @access private
+     * @todo Rename!
      */
     function strip_comment($address) {
         $pos = strrpos($address, '<');
