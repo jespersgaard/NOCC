@@ -30,6 +30,7 @@ class NOCC_Themes_TestCase extends UnitTestCase {
         $this->assertEqual(0, $themes->count(), 'count() - %s');
         $this->assertEqual('standard', $themes->getDefaultThemeName(), 'getDefaultThemeName() - %s');
         $this->assertEqual('standard', $themes->getSelectedThemeName(), 'getSelectedThemeName() - %s');
+        $this->assertEqual(0, count($themes->getThemeNames()), 'getThemeNames() - %s');
     }
 
     function test2() {
@@ -38,6 +39,7 @@ class NOCC_Themes_TestCase extends UnitTestCase {
         $this->assertEqual(2, $themes->count(), 'count() - %s');
         $this->assertEqual('test1', $themes->getDefaultThemeName(), 'getDefaultThemeName() - %s');
         $this->assertEqual('test1', $themes->getSelectedThemeName(), 'getSelectedThemeName() - %s');
+        $this->assertEqual(2, count($themes->getThemeNames()), 'getThemeNames() - %s');
     }
 
     function test3() {
@@ -46,6 +48,7 @@ class NOCC_Themes_TestCase extends UnitTestCase {
         $this->assertEqual(2, $themes->count(), 'count() - %s');
         $this->assertEqual('test1', $themes->getDefaultThemeName(), 'getDefaultThemeName() - %s');
         $this->assertEqual('test1', $themes->getSelectedThemeName(), 'getSelectedThemeName() - %s');
+        $this->assertEqual(2, count($themes->getThemeNames()), 'getThemeNames() - %s');
     }
 
     function test4() {
@@ -54,6 +57,7 @@ class NOCC_Themes_TestCase extends UnitTestCase {
         $this->assertEqual(0, $themes->count(), 'count() - %s');
         $this->assertEqual('standard', $themes->getDefaultThemeName(), 'getDefaultThemeName() - %s');
         $this->assertEqual('standard', $themes->getSelectedThemeName(), 'getSelectedThemeName() - %s');
+        $this->assertEqual(0, count($themes->getThemeNames()), 'getThemeNames() - %s');
     }
 
     function test5() {
@@ -62,6 +66,7 @@ class NOCC_Themes_TestCase extends UnitTestCase {
         $this->assertEqual(2, $themes->count(), 'count() - %s');
         $this->assertEqual('standard', $themes->getDefaultThemeName(), 'getDefaultThemeName() - %s');
         $this->assertEqual('standard', $themes->getSelectedThemeName(), 'getSelectedThemeName() - %s');
+        $this->assertEqual(2, count($themes->getThemeNames()), 'getThemeNames() - %s');
     }
 
     function testExists() {
@@ -73,6 +78,15 @@ class NOCC_Themes_TestCase extends UnitTestCase {
         $this->assertFalse($themes->exists('notexists'), 'exists("notexists") - %s');
         $this->assertTrue($themes->exists('test1'), 'exists("test1") - %s');
         $this->assertTrue($themes->exists('TEST1'), 'exists("TEST1") - %s');
+    }
+
+    function testGetThemeNames() {
+        $themes = new NOCC_Themes('./themes');
+        $themeNames = $themes->getThemeNames();
+        
+        $this->assertEqual(2, count($themeNames), 'count($themeNames) - %s');
+        $this->assertEqual('test1', $themeNames[0], '$themeNames[0] - %s');
+        $this->assertEqual('test2', $themeNames[1], '$themeNames[1] - %s');
     }
 
     function testSetDefaultThemeName() {

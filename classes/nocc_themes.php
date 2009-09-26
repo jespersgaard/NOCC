@@ -75,7 +75,7 @@ class NOCC_Themes {
             }
         }
     }
-    
+
     /**
      * Get the count from the themes
      *
@@ -98,6 +98,15 @@ class NOCC_Themes {
             return array_key_exists($themeName, $this->_themes);
         }
         return false;
+    }
+
+    /**
+     * Get the theme names
+     *
+     * @return array Theme names
+     */
+    function getThemeNames() {
+        return array_keys($this->_themes);
     }
 
     /**

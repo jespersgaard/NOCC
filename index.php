@@ -145,18 +145,16 @@ require ('./html/header.php');
                 <td>
                 <select class="button" name="theme" id="theme" onchange="updateLoginPage()">
                 <?php
-                    $handle = opendir('./themes');
-                    while (($file = readdir($handle)) != false) 
-                    {
-                      if (($file != '.') && ($file != '..') && ($file != '.svn'))
-                      {
-                        echo '<option value="'.$file.'"';
-                        if ($file == $_SESSION['nocc_theme'])
-                          echo ' selected="selected"';
-                        echo '>'.$file.'</option>';
-                      }
+                    $themes = new NOCC_Themes('./themes/', $_SESSION['nocc_theme']);
+                    foreach ($themes->getThemeNames() as $themeName) { //for all theme names...
+                        echo '<option value="' . $themeName . '"';
+                        if ($themeName == $_SESSION['nocc_theme']) { //if selected theme...
+                            echo ' selected="selected"';
+                        }
+                        echo '>' . $themeName . '</option>';
                     }
-                    closedir($handle); 
+                    unset($themeName);
+                    unset($themes);
                 ?>
                 </select>
                 </td>
