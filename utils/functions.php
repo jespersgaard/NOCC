@@ -21,8 +21,14 @@ require_once './classes/nocc_mailreader.php';
 require_once './classes/nocc_theme.php';
 require_once './classes/nocc_quotausage.php';
 
-/* ----------------------------------------------------- */
-
+/**
+ * ...
+ * @param object $pop
+ * @param int $skip
+ * @param object $ev
+ * @return array
+ * @todo Rename!
+ */
 function inbox(&$pop, $skip = 0, &$ev) {
     $user_prefs = $_SESSION['nocc_user_prefs'];
 
@@ -46,8 +52,7 @@ function inbox(&$pop, $skip = 0, &$ev) {
         return $msg_list;
     }
 
-    for ($i = $start_msg; $i < $end_msg; $i++)
-    {
+    for ($i = $start_msg; $i < $end_msg; $i++) {
         $to = '';
         $msgnum = $sorted[$i];
         $pop_msgno_msgnum = $pop->msgno($msgnum);
@@ -60,15 +65,15 @@ function inbox(&$pop, $skip = 0, &$ev) {
 
         if ($mail_reader->hasAttachments() == true) {
             $attach = '<img src="themes/' . $_SESSION['nocc_theme'] . '/img/attach.png" alt="" />';
-        } else {
+        }
+        else {
             $attach = '&nbsp;';
         }
         // Check Status Line with UCB POP Server to
         // see if this is a new message. This is a
         // non-RFC standard line header.
         // Set this in conf.php
-        if ($_SESSION['ucb_pop_server'])
-        {
+        if ($_SESSION['ucb_pop_server']) {
             $header_msg = $mail_reader->getHeader();
             if(NoccException::isException($ev)) return;
             $header_lines = explode("\r\n", $header_msg);
@@ -79,8 +84,7 @@ function inbox(&$pop, $skip = 0, &$ev) {
                     $new_mail_from_header = $header_value;
             }
         }
-        else
-        {
+        else {
             if ($mail_reader->isUnread() == true) {
                 $new_mail_from_header = '';
             }
@@ -115,7 +119,22 @@ function inbox(&$pop, $skip = 0, &$ev) {
     return ($msg_list);
 }
 
-/* ----------------------------------------------------- */
+/**
+ * ...
+ * @global object $conf
+ * @global string $lang_locale
+ * @global string $no_locale_date_format
+ * @global string $html_att_label
+ * @global string $html_atts_label
+ * @global string $lang_invalid_msg_num
+ * @param object $pop
+ * @param array $attach_tab
+ * @param int $mail
+ * @param int $verbose
+ * @param object $ev
+ * @return array
+ * @todo Rename!
+ */
 function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     global $conf;
     global $lang_locale;
@@ -140,8 +159,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
 
     // Finding the next and previous message number
     $prev_msg = $next_msg = 0;
-    for ($i = 0; $i < sizeof($sorted); $i++)
-    {
+    for ($i = 0; $i < sizeof($sorted); $i++) {
         if ($mail == $sorted[$i])
         {
             $prev_msg = ($i - 1 >= 0) ? $sorted[$i - 1] : 0;
@@ -151,11 +169,10 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
         }
     }
 
-    if(!$msg_found)
-      {
+    if(!$msg_found) {
         $ev = new NoccException($lang_invalid_msg_num);
         return;
-      }
+    }
 
     // Get number of messages (why?)
     $num_messages = $pop->num_msg();
@@ -184,14 +201,14 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     $tmp = array_pop($attach_tab);
     if ($struct_msg->type == 3) {
         $body = '';
-    } else {
+    }
+    else {
         $body = $pop->fetchbody($mail, $tmp['number'], $ev);
     }
     if(NoccException::isException($ev)) return;
 
     $body_charset = '';
-    if (eregi('text/html', $tmp['mime']) || eregi('text/plain', $tmp['mime']))
-    {
+    if (eregi('text/html', $tmp['mime']) || eregi('text/plain', $tmp['mime'])) {
         if ($tmp['transfer'] == 'QUOTED-PRINTABLE')
             $body = nocc_imap::qprint($body);
         if ($tmp['transfer'] == 'BASE64')
@@ -224,10 +241,8 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     else
         array_push($attach_tab, $tmp);
     $link_att = '';
-    if ($struct_msg->subtype != 'ALTERNATIVE' && $struct_msg->subtype != 'RELATED')
-    {
-        switch (sizeof($attach_tab))
-        {
+    if ($struct_msg->subtype != 'ALTERNATIVE' && $struct_msg->subtype != 'RELATED') {
+        switch (sizeof($attach_tab)) {
             case 0:
                 break;
             case 1:
@@ -276,17 +291,22 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     return ($content);
 }
 
-/* ----------------------------------------------------- */
-
-// based on a function from matt@bonneau.net
+/**
+ * ...
+ * Based on a function from matt@bonneau.net
+ * @global string $html_att_unknown
+ * @param array $attach_tab
+ * @param object $this_part
+ * @param string $part_no
+ * @param bool $display_rfc822
+ */
 function GetPart(&$attach_tab, $this_part, $part_no, $display_rfc822) {
     global $html_att_unknown;
 
     $att_name = $html_att_unknown;
     if ($this_part->ifdescription == true)
         $att_name = $this_part->description;
-    for ($i = 0; $i < count($this_part->parameters); $i++)
-    {
+    for ($i = 0; $i < count($this_part->parameters); $i++) {
         // PHP 5.x doesn't allow to convert a stdClass object to an array
         // We sometimes have this issue with Mailer daemon reports
         if (!(get_class($this_part->parameters) == "stdClass") &&
@@ -299,17 +319,14 @@ function GetPart(&$attach_tab, $this_part, $part_no, $display_rfc822) {
             }
         }
     }
-    if (isset($this_part->type))
-    {
-        switch ($this_part->type)
-        {
+    if (isset($this_part->type)) {
+        switch ($this_part->type) {
             case 0:
                 $mime_type = 'text';
                 break;
             case 1:
                 $mime_type = 'multipart';
-                for ($i = 0; $i < count($this_part->parts); $i++)
-                {
+                for ($i = 0; $i < count($this_part->parts); $i++) {
                     if ($part_no != '') {
                         if (substr($part_no,-1) != '.')
                             $part_no = $part_no . '.';
@@ -382,10 +399,12 @@ function GetPart(&$attach_tab, $this_part, $part_no, $display_rfc822) {
     }
 }
 
-/* ----------------------------------------------------- */
-
-// BUG: returns text/plain when Content-Type: application/x-zip (e.g.)
-
+/**
+ * ...
+ * @param array $attach_tab
+ * @param object $mailreader
+ * @todo Returns text/plain when Content-Type: application/x-zip (e.g.)
+ */
 function GetSinglePart(&$attach_tab, $mailreader) {
     if ($mailreader->isHtmlMail())
         $full_mime_type = 'text/html';
@@ -405,15 +424,18 @@ function GetSinglePart(&$attach_tab, $mailreader) {
     array_unshift($attach_tab, $tmp);
 }
 
-/* ----------------------------------------------------- */
-
+/**
+ * ...
+ * @param string $body
+ * @param string $mime
+ * @return string
+ */
 function remove_stuff(&$body, &$mime) {
     $PHP_SELF = $_SERVER['PHP_SELF'];
 
     $lang = $_SESSION['nocc_lang'];
 
-    if (eregi('html', $mime))
-    {
+    if (eregi('html', $mime)) {
         $to_removed_array = array (
             "'<html>'si",
             "'</html>'si",
@@ -437,8 +459,7 @@ function remove_stuff(&$body, &$mime) {
         $body = eregi_replace("href=\"([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)\"","href=\"\\1\" target=\"_blank\"", $body);
         $body = eregi_replace("href=([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)","href=\"\\1\" target=\"_blank\"", $body);
     }
-    elseif (eregi('plain', $mime))
-    {
+    elseif (eregi('plain', $mime)) {
         $user_prefs = $_SESSION['nocc_user_prefs'];
         $body = htmlspecialchars($body);
         $body = eregi_replace("(http|https|ftp)://([a-zA-Z0-9+-=%&:_.~?]+[#a-zA-Z0-9+]*)","<a href=\"\\1://\\2\" target=\"_blank\">\\1://\\2</a>", $body);
@@ -471,15 +492,20 @@ function remove_stuff(&$body, &$mime) {
     return ($body);
 }
 
-/* ----------------------------------------------------- */
-
+/**
+ * ...
+ * @global string $html_kb
+ * @param int $mail
+ * @param array $attach_tab
+ * @param bool $display_part_no
+ * @return string
+ */
 function link_att(&$mail, $attach_tab, &$display_part_no) {
     global $html_kb;
     sort($attach_tab);
     $link = '';
     while ($tmp = array_shift($attach_tab)) {
-        if (!empty($tmp['name']))
-        {
+        if (!empty($tmp['name'])) {
             $mime = str_replace('/', '-', $tmp['mime']);
             if ($display_part_no == true)
                 $link .= $tmp['number'] . '&nbsp;&nbsp;';
@@ -492,9 +518,16 @@ function link_att(&$mail, $attach_tab, &$display_part_no) {
     return ($link);
 }
 
-/* ----------------------------------------------------- */
-// Return date formatted as a string, according to locale
-
+/**
+ * Return date formatted as a string, according to locale
+ * @global string $default_date_format
+ * @global string $lang_locale
+ * @global string $no_locale_date_format
+ * @param int $date
+ * @param string $lang
+ * @return string
+ * @todo Why is $lang not used?
+ */
 function format_date(&$date, &$lang) {
     global $default_date_format;
     global $lang_locale;
@@ -512,6 +545,15 @@ function format_date(&$date, &$lang) {
     return strftime($default_date_format, $date); 
 }
 
+/**
+ * ...
+ * @global string $default_time_format
+ * @global string $lang_locale
+ * @param int $time
+ * @param string $lang
+ * @return string
+ * @todo Why is $lang not used?
+ */
 function format_time(&$time, &$lang) {
     global $default_time_format;
     global $lang_locale;
@@ -527,10 +569,13 @@ function format_time(&$time, &$lang) {
     return strftime($default_time_format, $time); 
 }
 
-
-/* ----------------------------------------------------- */
-
-// this function build an array with all the recipients of the message for later reply or reply all 
+/**
+ * This function build an array with all the recipients of the message for later reply or reply all
+ * @param string $from
+ * @param string $to
+ * @param string $cc
+ * @return string
+ */
 function get_reply_all(&$from, &$to, &$cc) {
     $login = $_SESSION['nocc_login'];
     $domain = $_SESSION['nocc_domain'];
@@ -548,9 +593,12 @@ function get_reply_all(&$from, &$to, &$cc) {
     return ($rcpt);
 }
 
-/* ----------------------------------------------------- */
-
-// We need that to build a correct list of all the recipient when we send a message
+/**
+ * We need that to build a correct list of all the recipient when we send a message
+ * @param string $addr
+ * @param string $charset
+ * @return array
+ */
 function cut_address($addr, $charset) {
     // Strip slashes from input
     $addr = safestrip($addr);
@@ -590,14 +638,12 @@ function cut_address($addr, $charset) {
     }
 
     // Loop through addresses
-    for ($i = 0; $i < sizeof($addresses); $i++)
-    {
+    for ($i = 0; $i < sizeof($addresses); $i++) {
         // Wrap address in brackets, if not already
         $pos = strrpos($addresses[$i], '<');
         if (!is_int($pos))
             $addresses[$i] = '<'.$addresses[$i].'>';
-        else
-        {
+        else {
             $name = '';
             if ($pos != 0)
                 $name = '=?'.$charset.'?B?'.base64_encode(substr($addresses[$i], 0, $pos - 1)).'?=';
@@ -608,8 +654,15 @@ function cut_address($addr, $charset) {
     return ($addresses);
 }
 
-/* ----------------------------------------------------- */
-
+/**
+ * ...
+ * @param object $pop
+ * @param int $mail
+ * @param string $part_no
+ * @param string $transfer
+ * @param string $msg_charset
+ * @return string
+ */
 function view_part(&$pop, &$mail, $part_no, $transfer, $msg_charset) {
     if(isset($ev) && NoccException::isException($ev)) {
         return "<p class=\"error\">".$ev->getMessage."</p>";
@@ -629,8 +682,13 @@ function view_part(&$pop, &$mail, $part_no, $transfer, $msg_charset) {
     return ($str);
 }
 
-/* ----------------------------------------------------- */
-
+/**
+ * ...
+ * @param string $string
+ * @param string $charset
+ * @return string
+ * @todo Unused?
+ */
 function encode_mime(&$string, &$charset) { 
     $string = rawurlencode($string);
     $string = str_replace('%', '=', $string);
@@ -638,10 +696,11 @@ function encode_mime(&$string, &$charset) {
     return ($string);
 } 
 
-/* ----------------------------------------------------- */
-
-// This function removes temporary attachment files and
-// removes any attachment information from the session
+/**
+ * This function removes temporary attachment files and
+ * removes any attachment information from the session
+ * @global object $conf
+ */
 function clear_attachments() {
     global $conf;
     if (isset($_SESSION['nocc_attach_array']) && is_array($_SESSION['nocc_attach_array']))
@@ -650,11 +709,14 @@ function clear_attachments() {
     unset($_SESSION['nocc_attach_array']);
 }
 
-/* ----------------------------------------------------- */
-
-// This function chops the <mail@domain.com> bit from a 
-// full 'Blah Blah <mail@domain.com>' address, or not
-// depending on the 'hide_addresses' preference.
+/**
+ * This function chops the <mail@domain.com> bit from a 
+ * full 'Blah Blah <mail@domain.com>' address, or not
+ * depending on the 'hide_addresses' preference.
+ * @global object $html_att_unknown
+ * @param string $address
+ * @return string
+ */
 function display_address(&$address) {
     global $html_att_unknown;
     // Check for null
@@ -688,8 +750,13 @@ function display_address(&$address) {
     return $address;
 }
 
-/* ----------------------------------------------------- */
-
+/**
+ * ...
+ * @param string $body
+ * @param string $from
+ * @param string $html_wrote
+ * @return string
+ */
 function mailquote(&$body, &$from, $html_wrote) {
     $user_prefs = $_SESSION['nocc_user_prefs'];
 
@@ -746,20 +813,28 @@ function mailquote(&$body, &$from, $html_wrote) {
     return($from . ' ' . $html_wrote . " :\n\n" . $body);
 
 }
-/* ----------------------------------------------------- */
 
-// If running with magic_quotes_gpc (get/post/cookie) set
-// in php.ini, we will need to strip slashes from every
-// field we receive from a get/post operation.
+/**
+ * If running with magic_quotes_gpc (get/post/cookie) set
+ * in php.ini, we will need to strip slashes from every
+ * field we receive from a get/post operation.
+ * @param string $string
+ * @return string
+ */
 function safestrip(&$string) {
     if(get_magic_quotes_gpc())
         $string = stripslashes($string);
     return $string;
 }
 
-
-// Wrap outgoing messages to
-function wrap_outgoing_msg ($txt, $length, $newline) {
+/**
+ * Wrap outgoing messages to
+ * @param string $txt
+ * @param int $length
+ * @param string $newline
+ * @return string
+ */
+function wrap_outgoing_msg($txt, $length, $newline) {
     $msg = '';
     // cut message in segment
     $tbl = explode ("\r\n", $txt);
@@ -785,7 +860,12 @@ function wrap_outgoing_msg ($txt, $length, $newline) {
     return $msg;
 }
 
-function escape_dots ($txt) {
+/**
+ * ...
+ * @param string $txt
+ * @return string
+ */
+function escape_dots($txt) {
     $crlf = "\r\n";
     $msg = '';
 
@@ -802,6 +882,12 @@ function escape_dots ($txt) {
     return $msg;
 }
 
+/**
+ * ...
+ * @param string $string
+ * @param string $allow
+ * @return string
+ */
 function strip_tags2(&$string, $allow) {
     $string = eregi_replace('<<', '<nocc_less_than_tag><', $string);
     $string = eregi_replace('>>', '><nocc_greater_than_tag>;', $string);
@@ -810,9 +896,11 @@ function strip_tags2(&$string, $allow) {
     return eregi_replace('<nocc_greater_than_tag>', '>', $string);
 }
 
-/* ----------------------------------------------------- */
-
-// Check e-mail address and return TRUE if it looks valid.
+/**
+ * Check e-mail address and return TRUE if it looks valid.
+ * @param string $email
+ * @return bool
+ */
 function valid_email($email) {
     /* Regex of valid characters */
     $regexp = "^[A-Za-z0-9\._-]+@([A-Za-z0-9][A-Za-z0-9-]{1,62})(\.[A-Za-z0-9][A-Za-z0-9-]{1,62})+$";
@@ -821,8 +909,14 @@ function valid_email($email) {
     return TRUE;
 }
 
+/**
+ * ...
+ * @global object $conf
+ * @return int
+ */
 function get_per_page() {
     global $conf;
+
     $user_prefs = $_SESSION['nocc_user_prefs'];
     $msg_per_page = 0;
     if (isset($conf->msg_per_page))
@@ -836,9 +930,13 @@ function get_per_page() {
     return $msg_per_page;
 }
 
-// ============================ Contact List ==================================
-
-function load_list ($path) {
+/**
+ * ...
+ * @param string $path
+ * @return array
+ * @todo Rename!
+ */
+function load_list($path) {
    $fp = @fopen($path, "r");
    if (!$fp)
        return array();
@@ -856,16 +954,24 @@ function load_list ($path) {
    return $contacts;
 }
 
-
-function save_list ($path, $contacts, $conf, &$ev) {
+/**
+ * ...
+ * @param string $path
+ * @param array $contacts
+ * @param object $conf
+ * @param object $ev
+ * @return bool
+ * @todo Rename!
+ */
+function save_list($path, $contacts, $conf, &$ev) {
     include ('lang/' . $_SESSION['nocc_lang'] . '.php');
     if (file_exists($path) && !is_writable($path)) {
         $ev = new NoccException($html_err_file_contacts);
-        return;
+        return false;
     }
     if (!is_writeable($conf->prefs_dir)) {
         $ev = new NoccException($html_err_file_contacts);
-        return;
+        return false;
     }
     $fp = fopen($path, "w");
 
@@ -875,16 +981,26 @@ function save_list ($path, $contacts, $conf, &$ev) {
     }
 
     fclose($fp);
+    return true;
 }
 
-// Convert html entities to normal characters
-function unhtmlentities ($string) {
+/**
+ * Convert html entities to normal characters
+ * @param string $string
+ * @return string
+ */
+function unhtmlentities($string) {
     $trans_tbl = get_html_translation_table (HTML_ENTITIES);
     $trans_tbl = array_flip ($trans_tbl);
     return strtr ($string, $trans_tbl);
 }
 
-// Convert mail data (from, to, ...) to HTML
+/**
+ * Convert mail data (from, to, ...) to HTML
+ * @param string $maildata
+ * @param int $cutafter
+ * @return string
+ */
 function convertMailData2Html($maildata, $cutafter = 0) {
     if (($cutafter > 0) && (strlen($maildata) > $cutafter)) {
         return htmlspecialchars(substr($maildata, 0, $cutafter)) . '&hellip;';
@@ -893,7 +1009,12 @@ function convertMailData2Html($maildata, $cutafter = 0) {
     }
 }
 
-// Save session informations.
+/**
+ * Save session informations
+ * @global object $conf
+ * @param object $ev
+ * @return bool
+ */
 function saveSession(&$ev) {
     global $conf;
     if (!empty($conf->prefs_dir)) {
@@ -922,23 +1043,31 @@ function saveSession(&$ev) {
         $filename = $conf->prefs_dir . '/' . $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'] . '.session';
         if (file_exists($filename) && !is_writable($filename)) {
             $ev = new NoccException($html_session_file_error);
-            return;
+            return false;
         }
         if (!is_writable($conf->prefs_dir)) {
             $ev = new NoccException($html_session_file_error);
-            return;
+            return false;
         }
         $file = fopen($filename, 'w');
         if (!$file) {
             $ev = new NoccException($html_session_file_error);
-            return;
+            return false;
         }
         fwrite ($file, $cookie_string . "\n");
         fclose ($file);
+        return true;
     }
+    return false;
 }
 
-// Restore session informations.
+/**
+ * Restore session informations
+ * @global object $conf
+ * @param object $ev
+ * @param string $key
+ * @return string
+ */
 function loadSession(&$ev, &$key) {
     global $conf;
 
@@ -961,12 +1090,22 @@ function loadSession(&$ev, &$key) {
     return $line;
 }
 
-// Convert a language string to HTML
+/**
+ * Convert a language string to HTML
+ * @param string $langstring
+ * @return string
+ */
 function convertLang2Html($langstring) {
     return htmlentities($langstring, ENT_COMPAT, 'UTF-8');
 }
 
-// Wrapper for iconv if GNU iconv is not used
+/**
+ * Wrapper for iconv if GNU iconv is not used
+ * @param string $input_charset
+ * @param string $output_charset
+ * @param string $text
+ * @return string
+ */
 function os_iconv($input_charset, $output_charset, &$text) {
     if (strlen($text) == 0) {
         return $text;
@@ -992,7 +1131,10 @@ function os_iconv($input_charset, $output_charset, &$text) {
     return @iconv($input_charset, $output_charset, $text);
 }
 
-// Build a folder breadcrumb navigation...
+/**
+ * Build a folder breadcrumb navigation...
+ * @param string $folder 
+ */
 function buildfolderlink($folder) {
     $folderpath = '';
     // split the string at the periods
@@ -1008,7 +1150,18 @@ function buildfolderlink($folder) {
     echo "\n";
 }
 
-//...
+/**
+ * ...
+ * @global string $html_page
+ * @global string $html_of
+ * @global string $alt_prev
+ * @global string $title_prev_page
+ * @global string $alt_next
+ * @global string $title_next_page
+ * @param int $pages
+ * @param int $skip
+ * @return string
+ */
 function get_page_nav($pages, $skip) {
   global $html_page, $html_of, $alt_prev, $title_prev_page, $alt_next, $title_next_page;
   
