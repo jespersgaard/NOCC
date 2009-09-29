@@ -27,6 +27,7 @@
  * @author Eduardo.mps
  * @author GKnedo
  * @author Giovani Zamboni <zambaxtz@terra.com.br>
+ * @author Luckas Blade
  * @author Renato Frederick <frederick@dahype.org>
  */
 
@@ -58,6 +59,7 @@ $html_server = 'Servidor';
 $html_wrong = 'O usuário ou a senha estão incorretos';
 $html_retry = 'Repetir';
 $html_remember = 'Lembrar Configurações';
+$html_lang_label = 'Língua:';
 $html_msgperpage_label = 'Mensagens por página:';
 $html_preferences = 'Preferências';
 $html_full_name_label = 'Nome Completo:';
@@ -68,6 +70,7 @@ $html_outlook_quoting = 'Quotas no estilo Outlook';
 $html_reply_to = 'Responder para';
 $html_use_signature = 'Usar Assinatura';
 $html_signature = 'Assinatura';
+$html_signature_label = 'Assinatura:';
 $html_reply_leadin_label = 'Responder com prefixo:';
 $html_prefs_updated = 'Preferências Atualizada';
 $html_manage_folders_link = 'Gerenciar Pastas IMAP';
@@ -136,8 +139,11 @@ $html_attach_none = 'Você precisa selecionar um arquivo para anexar!';
 $html_sort_by = 'Ordenar por';
 $html_sort = 'Ordenar';
 $html_from = 'De';
+$html_from_label = 'De:';
 $html_subject = 'Assunto';
+$html_subject_label = 'Assunto:';
 $html_date = 'Data';
+$html_date_label = 'Data:';
 $html_sent = 'Enviado:';
 $html_wrote = 'escreveu';
 $html_size = 'Tamanho';
@@ -148,6 +154,7 @@ $html_gb = 'GB';
 $html_bytes = 'bytes';
 $html_filename = 'Nome do Arquivo';
 $html_to = 'Para';
+$html_to_label = 'Para:';
 $html_cc = 'Cc';
 $html_bcc_label = 'Cco:';
 $html_nosubject = 'Sem assunto';
@@ -158,6 +165,7 @@ $html_logout = 'Sair';
 $html_msg = 'Mensagem';
 $html_msgs = 'Mensagens';
 $html_configuration = 'Este servidor ainda não esta bem configurado !';
+$html_priority = 'Prioridade';
 $html_priority_label = 'Prioridade:';
 $html_lowest = 'Mais Baixo';
 $html_low = 'Baixa';
@@ -214,5 +222,5 @@ $html_seperate_msg_win = 'Mensagens em uma janela separada';
 $html_err_file_contacts = 'Impossível abrir arquivo de contatos para gravação.';
 $html_session_file_error = 'Impossível abrir arquivo de dessão para gravação.';
 $html_login_not_allowed = 'Este login não é permitido para conexão.';
-$lang_err_send_delay = 'Você tem de aguardar um pouco entre suas ações (%1$d segundos)';
+$lang_err_send_delay = 'Você deve aguardar entre dois e-mails (%1$d segundos)';
 $html_search = 'Buscar';

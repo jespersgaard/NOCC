@@ -127,6 +127,7 @@ $html_delete = 'Выдаліць';
 $html_new = 'Новае';
 $html_mark = 'Выдаліць';
 $html_att_label = 'Далучэньне:';
+$html_atts_label_label = 'Далучэньні:';
 $html_att_unknown = '[невядомы]';
 $html_attach = 'Далучыць';
 $html_attach_forget = 'Вы павінны далучыць Ваш файл перад дасылкай Вашага паведамленьня!';

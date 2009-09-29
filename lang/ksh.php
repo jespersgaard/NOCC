@@ -146,6 +146,7 @@ $html_totalsize = 'Ömfang zosamme jenumme';
 $html_kb = 'K';
 $html_mb = 'M';
 $html_gb = 'G';
+$html_bytes = '<i lang="en">Bytes</i>';
 $html_filename = 'Dä Datei iere Name';
 $html_to = 'Aan';
 $html_to_label = 'Aan:';

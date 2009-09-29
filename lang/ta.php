@@ -24,7 +24,6 @@
  * @file
  *
  * @author Naveen
- * @author Naveen
  */
 
 $default_date_format = '%Y-%m-%d';

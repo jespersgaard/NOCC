@@ -26,6 +26,7 @@
  * @author David Gimeno i Ayuso <info@sima-pc.com>
  * @author MuRe
  * @author Solde
+ * @author Ssola
  */
 
 $lang_locale = 'ca_ES.UTF-8';
@@ -128,6 +129,7 @@ $html_delete = 'Elimina';
 $html_new = 'Nou';
 $html_mark = 'Elimina';
 $html_att_label = 'Adjunt:';
+$html_atts_label_label = 'Fitxers adjunts:';
 $html_att_unknown = '[desconegut]';
 $html_attach = 'Adjuntar';
 $html_attach_forget = 'Heu d\'adjuntar el fitxer abans d\'enviar el vostre missatge!';
