@@ -6,6 +6,7 @@ NOCC 1.9  ???? ??, ????
       Gerundt).
 
   Misc
+    * Fix "unknown" attachment filename in some cases (Piotr Stęclik).
     * Fix syntax error in RSS feed script (Tim Gerundt).
     * Optimize regexs for remote image security (Tim Gerundt).
 

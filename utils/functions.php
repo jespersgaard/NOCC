@@ -312,13 +312,21 @@ function GetPart(&$attach_tab, $this_part, $part_no, $display_rfc822) {
         if (!(get_class($this_part->parameters) == "stdClass") &&
                 !(get_class($this_part->parameters) == "stdclass")) { 
             $param = $this_part->parameters[$i];
-            if ((($param->attribute == 'NAME') || ($param->attribute == 'name')) && ($param->value != ''))
-            {
+            if ((($param->attribute == 'NAME') || ($param->attribute == 'name')) && ($param->value != '')) {
                 $att_name = $param->value;
                 break;
             }
         }
     }
+    if ($att_name == $html_att_unknown && $this_part->ifdparameters) {
+        foreach ($this_part->dparameters as $param) {
+            if (($param->attribute == "FILENAME" || $param->attribute == "filename") && ($param->value != '')) {
+                $att_name = $param->value;
+                break;
+            }
+        }
+    }
+
     if (isset($this_part->type)) {
         switch ($this_part->type) {
             case 0:
