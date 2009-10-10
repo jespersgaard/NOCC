@@ -17,10 +17,10 @@
 require_once './common.php';
 
 class attached_file {
-    var $file_name = "";
-    var $tmp_file = "";
-    var $file_size = "";
-    var $file_mime = "";
+    var $file_name = '';
+    var $tmp_file = '';
+    var $file_size = '';
+    var $file_mime = '';
 }
 
 if (!isset($_SESSION['nocc_loggedin'])) {
@@ -66,7 +66,7 @@ if (ini_get("file_uploads")) {
 $mail_receipt = isset($_REQUEST['receipt']);
 $mail_priority = safestrip($_REQUEST['priority']);
 
-switch($_REQUEST['sendaction']) {
+switch ($_REQUEST['sendaction']) {
     case unhtmlentities($html_attach):
         // Counting the attachments number in the array
         if (!isset($_SESSION['nocc_attach_array']))
@@ -114,27 +114,24 @@ switch($_REQUEST['sendaction']) {
         $mail->smtp_server = $_SESSION['nocc_smtp_server'];
         $mail->smtp_port = $_SESSION['nocc_smtp_port'];
         $mail->charset = 'UTF-8';
-        $trim_mail_from = trim($mail_from);
-        $mail->from = cut_address($trim_mail_from, 'UTF-8');
+        //TODO: No nice to use $mail->from as temp variable!
+        $mail->from = cut_address(trim($mail_from), 'UTF-8');
         $mail->from = $mail->from[0];
         $mail->priority = $_REQUEST['priority'];
         $mail->receipt = isset($_REQUEST['receipt']);
-        $mail->headers = "";
+        $mail->headers = '';
         if (!empty($_REQUEST['mail_messageid'])) {
             $mail->headers .= 'References: ' . urldecode($_REQUEST['mail_messageid']) . $mail->crlf;
             $mail->headers .= 'In-Reply-To: ' . urldecode($_REQUEST['mail_messageid']) . $mail->crlf;
         }
         $mail->headers .= 'User-Agent: ' . $conf->nocc_name . ' <' . $conf->nocc_url . '>';
-        $trim_mail_to = trim($mail_to);
-        $trim_mail_cc = trim($mail_cc);
-        $mail->to = cut_address($trim_mail_to, 'UTF-8');
-        $mail->cc = cut_address($trim_mail_cc, 'UTF-8');
+        $mail->to = cut_address(trim($mail_to), 'UTF-8');
+        $mail->cc = cut_address(trim($mail_cc), 'UTF-8');
         $user_prefs = $_SESSION['nocc_user_prefs'];
         if(isset($user_prefs->cc_self) && $user_prefs->cc_self) {
             array_unshift($mail->cc, $mail->from);
         }
-        $trim_mail_bcc = trim($mail_bcc);
-        $mail->bcc = cut_address($trim_mail_bcc, 'UTF-8');
+        $mail->bcc = cut_address(trim($mail_bcc), 'UTF-8');
         if ($mail_subject != '') {
             $mail_subject = trim($mail_subject);
             $mail->subject = '=?UTF-8?B?' . base64_encode($mail_subject) . '?=';
