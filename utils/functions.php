@@ -840,6 +840,7 @@ function safestrip(&$string) {
  * @param string $txt
  * @param int $length
  * @param string $newline
+ * @todo Move to class_send.php?
  * @return string
  */
 function wrap_outgoing_msg($txt, $length, $newline) {
@@ -872,6 +873,7 @@ function wrap_outgoing_msg($txt, $length, $newline) {
  * ...
  * @param string $txt
  * @return string
+ * @todo Move to class_send.php?
  */
 function escape_dots($txt) {
     $crlf = "\r\n";
@@ -902,19 +904,6 @@ function strip_tags2(&$string, $allow) {
     $string = strip_tags($string, $allow . '<nocc_less_than_tag><nocc_greater_than_tag>');
     $string = eregi_replace('<nocc_less_than_tag>', '<', $string);
     return eregi_replace('<nocc_greater_than_tag>', '>', $string);
-}
-
-/**
- * Check e-mail address and return TRUE if it looks valid.
- * @param string $email
- * @return bool
- */
-function valid_email($email) {
-    /* Regex of valid characters */
-    $regexp = "^[A-Za-z0-9\._-]+@([A-Za-z0-9][A-Za-z0-9-]{1,62})(\.[A-Za-z0-9][A-Za-z0-9-]{1,62})+$";
-    if(!ereg($regexp, $email))
-        return FALSE;
-    return TRUE;
 }
 
 /**

@@ -58,6 +58,18 @@ class NOCC_MailAddress_TestCase extends UnitTestCase {
         $this->assertEqual('', $mailAddress->getName(), 'getName() - %s');
         $this->assertEqual('', $mailAddress->getAddress(), 'getAddress() - %s');
     }
+
+    function testIsValidAddress() {
+        $this->assertFalse(NOCC_MailAddress::isValidAddress(''));
+        $this->assertFalse(NOCC_MailAddress::isValidAddress('bug'), 'bug - %s');
+        $this->assertTrue(NOCC_MailAddress::isValidAddress('foo@bar.org'), 'foo@bar.org - %s');
+        $this->assertTrue(NOCC_MailAddress::isValidAddress('foo.foo@bar.bar.org'), 'foo.foo@bar.bar.org - %s');
+        $this->assertTrue(NOCC_MailAddress::isValidAddress('foo-foo@bar-bar.org'), 'foo-foo@bar-bar.org - %s');
+        $this->assertTrue(NOCC_MailAddress::isValidAddress('foo_foo@bar.org'), 'foo_foo@bar.org - %s');
+        $this->assertFalse(NOCC_MailAddress::isValidAddress('foo@bar'), 'foo@bar - %s');
+        $this->assertFalse(NOCC_MailAddress::isValidAddress('bar.org'), 'bar.org - %s');
+        $this->assertFalse(NOCC_MailAddress::isValidAddress('foo @ bar.org'), 'foo @ bar.org - %s');
+    }
 }
 
 $test = &new NOCC_MailAddress_TestCase();

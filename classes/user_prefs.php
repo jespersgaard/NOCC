@@ -15,6 +15,7 @@
  */
 
 require_once './classes/exception.php';
+require_once 'nocc_mailaddress.php';
 
 class NOCCUserPrefs {
     var $key;
@@ -206,7 +207,7 @@ class NOCCUserPrefs {
         global $html_invalid_wrap_msg;
 
         if($conf->allow_address_change) {
-            if(!valid_email($this->email_address)) {
+            if(!NOCC_MailAddress::isValidAddress($this->email_address)) {
                 $ev = new NoccException($html_invalid_email_address);
                 return;
             }

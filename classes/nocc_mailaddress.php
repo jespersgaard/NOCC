@@ -79,5 +79,21 @@ class NOCC_MailAddress {
     function getAddress() {
         return $this->_address;
     }
+
+    /**
+     * Is valid mail address?
+     *
+     * @param string $address Mail address
+     * @return bool Valid?
+     * @static
+     */
+    function isValidAddress($address) {
+        //TODO: Check better!
+        $regexp = "^[A-Za-z0-9\._-]+@([A-Za-z0-9][A-Za-z0-9-]{1,62})(\.[A-Za-z0-9][A-Za-z0-9-]{1,62})+$";
+        if (ereg($regexp, $address)) { //if valid address...
+            return true;
+        }
+        return false;
+    }
 }
 ?>
