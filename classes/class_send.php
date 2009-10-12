@@ -14,7 +14,7 @@
  * @version    SVN: $Id$
  */
 
-require_once './classes/exception.php';
+require_once 'exception.php';
 
 /**
  * Building and sending a mail
@@ -50,7 +50,7 @@ class mime_mail {
         $this->headers = null;
         $this->subject =  null;
         $this->body =  null;
-        $this->smtp_server =  'localhost';
+        $this->smtp_server = 'localhost';
         $this->smtp_port = 25;
         $this->charset = 'iso-8859-1';
         $this->crlf = null;
@@ -91,15 +91,12 @@ class mime_mail {
         $message = $part['message'];
         $encoding = $part['encoding'];
         $charset = $part['charset'];
-        switch($encoding)
-        {
+        switch($encoding) {
             case 'base64':
                 $message = chunk_split(base64_encode($message));
                 break;
             case 'quoted-printable':
                 $message = nocc_imap::i8bit($message);
-                break;
-            default:
                 break;
         }
         $val = 'Content-Type: ' . $part['ctype'] . ';';
@@ -229,8 +226,7 @@ class mime_mail {
         }
         else {
             $smtp = new smtp();
-            if (!empty($smtp))
-            {
+            if (!empty($smtp)) {
                 $smtp->smtp_server = $this->smtp_server;
                 $smtp->port = $this->smtp_port;
                 $smtp->from = $this->strip_comment($this->from);

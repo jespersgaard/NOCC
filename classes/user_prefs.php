@@ -14,7 +14,7 @@
  * @version    SVN: $Id$
  */
 
-require_once './classes/exception.php';
+require_once 'exception.php';
 require_once 'nocc_mailaddress.php';
 
 class NOCCUserPrefs {

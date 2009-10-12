@@ -18,7 +18,7 @@
  * @version    SVN: $Id$
  */
 
-require_once './classes/exception.php';
+require_once 'exception.php';
 require_once './utils/detect_cyr_charset.php';
 require_once './utils/crypt.php';
 

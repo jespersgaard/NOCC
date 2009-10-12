@@ -13,7 +13,7 @@
  * @version    SVN: $Id$
  */
 
-require_once './classes/exception.php';
+require_once 'exception.php';
 
 class NOCCUserFilters {
         var $key;
