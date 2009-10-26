@@ -201,6 +201,7 @@ $html_highest = 'Highest';
 $html_receipt = 'Request a return receipt';
 $html_select = 'Select';
 $html_select_all = 'Invert Selection';
+$html_select_contacts = 'Select contacts';
 $html_loading_image = 'Loading image';
 $html_send_confirmed = 'Your e-mail was accepted for delivery';
 $html_no_sendaction = 'No action specified. Try enabling JavaScript.';

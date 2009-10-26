@@ -180,6 +180,7 @@ $html_highest = 'Sehr hoch';
 $html_receipt = 'Lesebestätigung anfordern';
 $html_select = 'Auswahl';
 $html_select_all = 'Invertiere Auswahl';
+$html_select_contacts = 'Kontakte auswählen';
 $html_loading_image = 'Lade Bild';
 $html_send_confirmed = 'Ihre Mail wurde verschickt.';
 $html_no_sendaction = 'Keine Aktion angegeben. Versuchen Sie es mit eingeschaltetem JavaScript.';
