@@ -68,10 +68,11 @@ $html_theme_label = 'Theme:';
 // index.php
 $html_welcome = 'Welcome to %1$s';
 $html_login = 'Login';
-$html_passwd = 'Password';
+$html_user_label = 'User:';
+$html_passwd_label = 'Password:';
 $html_submit = 'Submit';
 $html_help = 'Help';
-$html_server = 'Server';
+$html_server_label = 'Server:';
 $html_wrong = 'The login or the password are incorrect';
 $html_retry = 'Retry';
 $html_remember = 'Remember settings';

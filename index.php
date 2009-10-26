@@ -44,54 +44,48 @@ require ('./html/header.php');
 <!-- abcdefghijklmnopqrstuvwxyz 01234567890 -->
 <!-- abcdefghijklmnopqrstuvwxyz 01234567890 -->
 <!-- abcdefghijklmnopqrstuvwxyz 01234567890 -->
-                  <th><label for="user"><?php echo $html_login; ?></label></th>
+                  <th><label for="user"><?php echo $html_user_label; ?></label></th>
                   <td>
                     <input class="button" type="text" name="user" id="user" size="15" value="<?php if(isset($REMOTE_USER)) echo $REMOTE_USER; ?>"/>
                     <?php
-                      if (count($conf->domains) > 1)
-                      {
+                      if (count($conf->domains) > 1) {
                         //Add fill-in domain
                         if( isset($conf->typed_domain_login) )
                           echo '<label for="fillindomain">@</label> <input class="button" type="text" name="fillindomain" id="fillindomain">';
                         else if ( isset($conf->vhost_domain_login) && $conf->vhost_domain_login == true ) {
                           $i = 0;
-                          while (!empty($conf->domains[$i]->in))
-                          {
+                          while (!empty($conf->domains[$i]->in)) {
                             if (strpos($_SERVER["HTTP_HOST"],$conf->domains[$i]->domain))
                               echo '<input type="hidden" name="domainnum" id="domainnum" value="' . $i . '" />'."\n";
                               $i++;
                           }
                         }    
-                        else
-                        {
+                        else {
                           echo '<label for="domainnum">@</label> <select class="button" name="domainnum" id="domainnum">';
                           $i = 0;
-                          while (!empty($conf->domains[$i]->in))
-                          {
+                          while (!empty($conf->domains[$i]->in)) {
                             echo "<option value=\"$i\">".$conf->domains[$i]->domain.'</option>';
                             $i++;
                           }
                           echo '</select>'."\n";
                         }
                       }
-                      else
-                      {
+                      else {
                         echo '<input type="hidden" name="domainnum" value="0" id="domainnum" />'."\n";
                       }
                     ?>
                   </td>
                 </tr>
                 <tr> 
-                  <th><label for="passwd"><?php echo $html_passwd ?></label></th>
+                  <th><label for="passwd"><?php echo $html_passwd_label ?></label></th>
                   <td> 
                     <input class="button" type="password" name="passwd" id="passwd" size="15" />
                   </td>
                 </tr>
                 <?php
-                  if ($conf->domains[0]->in == '')
-                  {
+                  if ($conf->domains[0]->in == '') {
                     echo '<tr>';
-                    echo '<th><label for="server">'.$html_server.'</label></th>';
+                    echo '<th><label for="server">' . $html_server_label . '</label></th>';
                     echo '<td>';
                     echo '<input class="button" type="text" name="server" id="server" value="mail.example.com" size="15" /><br /><input class="button" type="text" size="4" name="port" value="143" />';
                     echo '<select class="button" name="servtype" onchange="updateLoginPort()">';
@@ -115,30 +109,25 @@ require ('./html/header.php');
                   <select class="button" name="lang" id="lang" onchange="updateLoginPage()">
                   <?php
                   
-                  foreach ($lang_array as $_lang_key => $_lang_var)
-                    {
-                      if (file_exists('lang/' . $_lang_var->filename . '.php'))
-                        {
+                  foreach ($lang_array as $_lang_key => $_lang_var) {
+                      if (file_exists('lang/' . $_lang_var->filename . '.php')) {
                           echo '<option value="' . $_lang_var->filename . '"';
 
-                          if ($_SESSION['nocc_lang'] == $_lang_var->filename)
-                            {
+                          if ($_SESSION['nocc_lang'] == $_lang_var->filename) {
                               echo ' selected="selected"';
-                            }
+                          }
 
                           echo '>' . convertLang2Html($_lang_var->label) . '</option>';
-                        }
-                    }
-
-                    echo '</select>'."\n";
+                      }
+                  }
                   ?>
+                  </select>
                   </td>
                 </tr>
                 <?php
                   }
 
-                  if ($conf->use_theme == true && $conf->hide_theme_select_from_login_page == false) 
-                  {
+                  if ($conf->use_theme == true && $conf->hide_theme_select_from_login_page == false) {
                 ?>
                 <tr>
                 <th><label for="theme"><?php echo $html_theme_label ?></label></th>
@@ -172,7 +161,7 @@ require ('./html/header.php');
                 </tr>
                 <?php } ?>
               </table>
-              <p><input name="enter" class="button" type="submit" value="<?php echo $html_submit ?>" /></p>
+              <p><input name="enter" class="button" type="submit" value="<?php echo $html_login ?>" /></p>
             </div>
             </form>
             <script type="text/javascript">

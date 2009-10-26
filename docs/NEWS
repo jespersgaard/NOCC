@@ -6,6 +6,7 @@ NOCC 1.9  ???? ??, ????
       Gerundt).
 
   Misc
+    * Small renamings at the login page (Tim Gerundt).
     * Make "Select contacts" more visible at mail writing (Tim Gerundt).
     * Fix "unknown" attachment filename in some cases (Piotr Stęclik).
     * Fix syntax error in RSS feed script (Tim Gerundt).
