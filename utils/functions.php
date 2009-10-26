@@ -294,16 +294,16 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
 /**
  * ...
  * Based on a function from matt@bonneau.net
- * @global string $html_att_unknown
+ * @global string $html_unknown
  * @param array $attach_tab
  * @param object $this_part
  * @param string $part_no
  * @param bool $display_rfc822
  */
 function GetPart(&$attach_tab, $this_part, $part_no, $display_rfc822) {
-    global $html_att_unknown;
+    global $html_unknown;
 
-    $att_name = $html_att_unknown;
+    $att_name = $html_unknown;
     if ($this_part->ifdescription == true)
         $att_name = $this_part->description;
     for ($i = 0; $i < count($this_part->parameters); $i++) {
@@ -318,7 +318,7 @@ function GetPart(&$attach_tab, $this_part, $part_no, $display_rfc822) {
             }
         }
     }
-    if ($att_name == $html_att_unknown && $this_part->ifdparameters) {
+    if ($att_name == $html_unknown && $this_part->ifdparameters) {
         foreach ($this_part->dparameters as $param) {
             if (($param->attribute == "FILENAME" || $param->attribute == "filename") && ($param->value != '')) {
                 $att_name = $param->value;
@@ -721,15 +721,15 @@ function clear_attachments() {
  * This function chops the <mail@domain.com> bit from a 
  * full 'Blah Blah <mail@domain.com>' address, or not
  * depending on the 'hide_addresses' preference.
- * @global object $html_att_unknown
+ * @global object $html_unknown
  * @param string $address
  * @return string
  */
 function display_address(&$address) {
-    global $html_att_unknown;
+    global $html_unknown;
     // Check for null
     if($address == '')
-        return $html_att_unknown;
+        return $html_unknown;
 
     // Get preference
     $user_prefs = $_SESSION['nocc_user_prefs'];
