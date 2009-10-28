@@ -49,7 +49,6 @@ $title_prev_msg = 'Forrige melding';
 $html_theme_label = 'Tema:';
 $html_welcome = 'Velkommen til %1$s';
 $html_login = 'Brukernavn';
-$html_passwd = 'Passord';
 $html_submit = 'Logg inn';
 $html_help = 'Hjelp';
 $html_wrong = 'Brukernavn eller passord er feil';

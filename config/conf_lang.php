@@ -53,6 +53,12 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'bg';
 $lang_array[$i]->label = 'Български';
 
+// Breton
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'br';
+$lang_array[$i]->label = 'Brezhoneg';
+
 // Bosnian
 $i++;
 $lang_array[$i] = new lang();

@@ -37,7 +37,7 @@ $lang_dir = 'ltr';
 
 // What format string should we pass to strftime() for messages sent on
 // days other than today?
-$default_date_format = '%Y-%m-%d'; 
+$default_date_format = '%Y-%m-%d';
 
 // If the local is not implemented on the host, how we display the date
 $no_locale_date_format = '%Y-%m-%d';

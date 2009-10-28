@@ -48,7 +48,6 @@ $title_prev_msg = 'Precedente';
 $html_theme_label = 'Tema';
 $html_welcome = 'Benvenuto in %1$s';
 $html_login = 'Utente';
-$html_passwd = 'Password';
 $html_submit = 'Ok';
 $html_help = 'Aiuto';
 $html_wrong = 'Login o password non corretti';
