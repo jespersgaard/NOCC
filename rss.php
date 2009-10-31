@@ -40,6 +40,7 @@
   $_SESSION['quota_type'] = base64_decode($_REQUEST['quota_type']);
 
   if(!isset($_SESSION['nocc_user_prefs'])) {
+      $user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
       $_SESSION['nocc_user_prefs'] = NOCCUserPrefs::read($user_key, $ev);
       if(NoccException::isException($ev)) {
               echo "<p>User prefs error ($user_key): ".$ev->getMessage()."</p>";
