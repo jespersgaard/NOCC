@@ -23,19 +23,75 @@ require_once 'exception.php';
  * @todo Rename to NOCC_MimeMail?
  */
 class mime_mail {
+    /**
+     * Parts
+     * @var array
+     */
     var $parts;
+    /**
+     * To addresses
+     * @var array
+     */
     var $to;
+    /**
+     * CC addresses
+     * @var array
+     */
     var $cc;
+    /**
+     * BCC addresses
+     * @var array
+     */
     var $bcc;
+    /**
+     * From address
+     * @var string
+     */
     var $from;
+    /**
+     * Headers
+     * @var string
+     */
     var $headers;
+    /**
+     * Subject
+     * @var string
+     */
     var $subject;
+    /**
+     * Body
+     * @var string
+     */
     var $body;
+    /**
+     * SMTP Server
+     * @var string
+     */
     var $smtp_server;
+    /**
+     * SMTP Port
+     * @var int
+     */
     var $smtp_port;
+    /**
+     * Charset
+     * @var string
+     */
     var $charset;
+    /**
+     * Linefeed
+     * @var string
+     */
     var $crlf;
+    /**
+     * Priority
+     * @var string
+     */
     var $priority;
+    /**
+     * Receipt
+     * @var bool
+     */
     var $receipt;
 
     /**
@@ -56,7 +112,6 @@ class mime_mail {
         $this->crlf = null;
         $this->priority = '3 (Normal)';
         $this->receipt = false;
-        $this->return = null;
     }
 
     /**
@@ -80,14 +135,13 @@ class mime_mail {
     }
 
     /**
-     * Build message parts of a multipart mail
+     * Build a message part
      *
      * @param array $part
      * @return string
      * @access private
-     * @todo Rename to _buildMessage()?
      */ 
-    function build_message($part) {
+    function _buildMessage($part) {
         $message = $part['message'];
         $encoding = $part['encoding'];
         $charset = $part['charset'];
@@ -113,27 +167,25 @@ class mime_mail {
      *
      * @return string
      * @access private
-     * @todo Rename to _buildMultipart()?
      */ 
-    function build_multipart() {
+    function _buildMultipart() {
         $boundary = 'NextPart'.md5(uniqid(time()));
         $multipart = 'Content-Type: multipart/mixed;' . $this->crlf . "\tboundary=\"$boundary\"" . $this->crlf . $this->crlf . 'This is a MIME encoded message.' . $this->crlf . $this->crlf . '--' . $boundary;
         
         for($i = sizeof($this->parts) - 1; $i >= 0; $i--) 
-            $multipart .= $this->crlf . $this->build_message($this->parts[$i]) . '--'.$boundary;
+            $multipart .= $this->crlf . $this->_buildMessage($this->parts[$i]) . '--'.$boundary;
         return ($multipart .= '--' . $this->crlf);
     }
 
     /**
-     * Build a non multipart mail
+     * Build a none multipart mail
      *
      * @return string
      * @access private
-     * @todo Rename to _buildBody()?
      */
-    function build_body() {
+    function _buildNoneMultipart() {
         if (sizeof($this->parts) == 1)
-            $part = $this->build_message($this->parts[0]);
+            $part = $this->_buildMessage($this->parts[0]);
         else
             $part = '';
         return ($part . $this->crlf);
@@ -185,11 +237,11 @@ class mime_mail {
 
         if (sizeof($this->parts) >= 1) {
             $this->add_attachment($this->body,  '',  $mail_format, 'quoted-printable', $this->charset);
-            $mime .= 'MIME-Version: 1.0' . $this->crlf . $this->build_multipart();
+            $mime .= 'MIME-Version: 1.0' . $this->crlf . $this->_buildMultipart();
         }
         else {
             $this->add_attachment($this->body,  '',  $mail_format, '8bit', $this->charset);
-            $mime .= 'MIME-Version: 1.0' . $this->crlf . $this->build_body();
+            $mime .= 'MIME-Version: 1.0' . $this->crlf . $this->_buildNoneMultipart();
         }
 
         // We enforce $conf->crlf option as mixed "\r\n" (coming from NOCC
