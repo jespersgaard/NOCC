@@ -199,6 +199,7 @@ $html_low = 'Low';
 $html_normal = 'Normal';
 $html_high = 'High';
 $html_highest = 'Highest';
+$html_flagged = 'Flagged';
 $html_receipt = 'Request a return receipt';
 $html_select = 'Select';
 $html_select_all = 'Invert Selection';

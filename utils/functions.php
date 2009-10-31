@@ -113,6 +113,7 @@ function inbox(&$pop, $skip = 0, &$ev) {
                 'size' => $mail_reader->getSize(),
                 'priority' => $mail_reader->getPriority(),
                 'priority_text' => $mail_reader->getPriorityText(),
+                'flagged' => $mail_reader->isFlagged(),
                 'sort' => $sort,
                 'sortdir' => $sortdir);
     }

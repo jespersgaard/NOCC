@@ -178,6 +178,7 @@ $html_low = 'Niedrig';
 $html_normal = 'Normal';
 $html_high = 'Hoch';
 $html_highest = 'Sehr hoch';
+$html_flagged = 'Kennzeichnung';
 $html_receipt = 'Lesebestätigung anfordern';
 $html_select = 'Auswahl';
 $html_select_all = 'Invertiere Auswahl';

@@ -51,6 +51,11 @@
       case '9': //Priority Number...
         echo '<span title="' . $html_priority_label . ' ' . $tmp['priority_text'] . '">' . $tmp['priority'] . '</span>';
         break;
+      case '10': //Flagged...
+        if ($tmp['flagged']) {
+          echo '<span title="' . $html_flagged . '">*</span>';
+        }
+        break;
     }
     echo '</td>';
   }
