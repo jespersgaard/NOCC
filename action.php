@@ -102,7 +102,7 @@ switch($action) {
                 echo '<hr class="mailAttachSep" />';
                 echo '<div class="mailTextAttach">';
                 //TODO: Replace URLs and Smilies in text/plain attachment?
-                echo htmlspecialchars(view_part($pop, $_REQUEST['mail'], $tmp['number'], $tmp['transfer'], $tmp['charset']));
+                echo view_part($pop, $_REQUEST['mail'], $tmp['number'], $tmp['transfer'], $tmp['charset']);
                 echo '</div> <!-- .mailTextAttach -->';
             }
             if ($conf->display_img_attach && (eregi('image', $tmp['mime']) && ($tmp['number'] != ''))) {

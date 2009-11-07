@@ -674,21 +674,21 @@ function cut_address($addr, $charset) {
  */
 function view_part(&$pop, &$mail, $part_no, $transfer, $msg_charset) {
     if(isset($ev) && NoccException::isException($ev)) {
-        return "<p class=\"error\">".$ev->getMessage."</p>";
+        return '<p class="error">' . $ev->getMessage . '</p>';
     }
     $text = $pop->fetchbody($mail, $part_no, $ev);
     if(NoccException::isException($ev)) {
-        return "<p class=\"error\">".$ev->getMessage."</p>";
+        return '<p class="error">' . $ev->getMessage . '</p>';
     }
     if ($transfer == 'BASE64')
-        $str = nl2br(nocc_imap::base64($text));
+        return nl2br(htmlspecialchars(nocc_imap::base64($text)));
     elseif($transfer == 'QUOTED-PRINTABLE')
-        $str = nl2br(quoted_printable_decode($text));
+        return nl2br(htmlspecialchars(quoted_printable_decode($text)));
     else
-        $str = nl2br($text);
+        return nl2br(htmlspecialchars($text));
     //if (eregi('koi', $transfer) || eregi('windows-1251', $transfer))
     //    $str = @convert_cyr_string($str, $msg_charset, 'UTF-8');
-    return ($str);
+    return '';
 }
 
 /**
