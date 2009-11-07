@@ -304,29 +304,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
 function GetPart(&$attach_tab, $this_part, $part_no, $display_rfc822) {
     global $html_unknown;
 
-    $att_name = $html_unknown;
-    if ($this_part->ifdescription == true)
-        $att_name = $this_part->description;
-    for ($i = 0; $i < count($this_part->parameters); $i++) {
-        // PHP 5.x doesn't allow to convert a stdClass object to an array
-        // We sometimes have this issue with Mailer daemon reports
-        if (!(get_class($this_part->parameters) == "stdClass") &&
-                !(get_class($this_part->parameters) == "stdclass")) { 
-            $param = $this_part->parameters[$i];
-            if ((($param->attribute == 'NAME') || ($param->attribute == 'name')) && ($param->value != '')) {
-                $att_name = $param->value;
-                break;
-            }
-        }
-    }
-    if ($att_name == $html_unknown && $this_part->ifdparameters) {
-        foreach ($this_part->dparameters as $param) {
-            if (($param->attribute == "FILENAME" || $param->attribute == "filename") && ($param->value != '')) {
-                $att_name = $param->value;
-                break;
-            }
-        }
-    }
+    $mailstructure = new NOCC_MailStructure($this_part);
 
     if (isset($this_part->type)) {
         switch ($this_part->type) {
@@ -379,28 +357,16 @@ function GetPart(&$attach_tab, $this_part, $part_no, $display_rfc822) {
     else
         $mime_type = 'text';
     $full_mime_type = $mime_type . '/' . $this_part->subtype;
-    if (isset($this_part->encoding))
-        $encoding = NOCC_MailStructure::convertEncodingToText($this_part->encoding, 'none');
-    else
-        $encoding = '7BIT';
     if (($full_mime_type == 'message/RFC822' && $display_rfc822 == true) || ($mime_type != 'multipart' && $full_mime_type != 'message/RFC822'))
     {
-        $charset = '';
-        if ($this_part->ifparameters)
-            while ($obj = array_pop($this_part->parameters))
-                if (strtolower($obj->attribute) == 'charset')
-                {
-                    $charset = $obj->value;
-                    break;
-                }
         $tmp = Array(
             'number' => ($part_no != '' ? $part_no : 1),
             'id' => $this_part->ifid ? $this_part->id : 0,
-            'name' => $att_name,
+            'name' => $mailstructure->getName($html_unknown),
             'mime' => $full_mime_type,
-            'transfer' => $encoding,
-            'disposition' => $this_part->ifdisposition ? $this_part->disposition : '',
-            'charset' => $charset,
+            'transfer' => $mailstructure->getEncodingText(),
+            'disposition' => $mailstructure->getDisposition(),
+            'charset' => $mailstructure->getCharset(),
             'size' => ($this_part->bytes > 1000) ? ceil($this_part->bytes / 1000) : 1
         );
 
