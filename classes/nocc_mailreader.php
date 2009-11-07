@@ -79,14 +79,59 @@ class NOCC_MailReader {
      */
     var $_totalbytes;
 
+    /**
+     * Message ID
+     * @var string
+     * @access private
+     */
     var $_messageid;
+    /**
+     * Subject
+     * @var string
+     * @access private
+     */
     var $_subject;
+    /**
+     * "From" address
+     * @var string
+     * @access private
+     */
     var $_fromaddress;
+    /**
+     * "To" address
+     * @var string
+     * @access private
+     */
     var $_toaddress;
+    /**
+     * "Cc" address
+     * @var string
+     * @access private
+     */
     var $_ccaddress;
+    /**
+     * "Reply-To" address
+     * @var string
+     * @access private
+     */
     var $_replytoaddress;
+    /**
+     * Timestamp
+     * @var integer
+     * @access private
+     */
     var $_timestamp;
+    /**
+     * Is unread?
+     * @var bool
+     * @access private
+     */
     var $_isunread;
+    /**
+     * Is flagged?
+     * @var bool
+     * @access private
+     */
     var $_isflagged;
 
     /**
@@ -181,6 +226,7 @@ class NOCC_MailReader {
     
     /**
      * Get the primary body type from the mail
+     * @todo Really needed outside?
      *
      * @return integer Primary body type
      */
@@ -190,6 +236,7 @@ class NOCC_MailReader {
     
     /**
      * Get the primary body type text from the mail
+     * @todo Really needed outside?
      *
      * @return string Primary body type text
      */
@@ -217,6 +264,7 @@ class NOCC_MailReader {
     
     /**
      * Get the MIME subtype from the mail
+     * @todo Really needed outside?
      *
      * @return string MIME subtype
      */
