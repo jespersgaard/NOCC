@@ -16,6 +16,7 @@
  */
 
 require_once ('./common.php');
+require_once ('./classes/nocc_contacts.php');
 require_once ('./utils/proxy.php');
 
 header ("Content-type: text/html; Charset=UTF-8");
@@ -209,7 +210,7 @@ $_SESSION['nocc_loggedin'] = 1;
       <?php
 	  if (empty($_REQUEST['is_ldap'])) {
         $path = $conf->prefs_dir . "/" .$_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'].".contacts";
-        $contacts = load_list ($path);
+        $contacts = NOCC_Contacts::loadList($path);
 
         for ($i = 0; $i < count ($contacts); ++$i)
         {

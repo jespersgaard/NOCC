@@ -895,60 +895,6 @@ function get_per_page() {
 }
 
 /**
- * ...
- * @param string $path
- * @return array
- * @todo Rename!
- */
-function load_list($path) {
-   $fp = @fopen($path, "r");
-   if (!$fp)
-       return array();
-   // Create the contact list
-   $contacts = array ();
-   // Load the contact list
-   while(!feof ($fp)) {
-       $buffer = trim(fgets($fp, 4096));
-       if ($buffer != "")
-           array_push ($contacts, $buffer);
-   }
-
-   fclose($fp);
-   // return the list
-   return $contacts;
-}
-
-/**
- * ...
- * @param string $path
- * @param array $contacts
- * @param object $conf
- * @param object $ev
- * @return bool
- * @todo Rename!
- */
-function save_list($path, $contacts, $conf, &$ev) {
-    include ('lang/' . $_SESSION['nocc_lang'] . '.php');
-    if (file_exists($path) && !is_writable($path)) {
-        $ev = new NoccException($html_err_file_contacts);
-        return false;
-    }
-    if (!is_writeable($conf->prefs_dir)) {
-        $ev = new NoccException($html_err_file_contacts);
-        return false;
-    }
-    $fp = fopen($path, "w");
-
-    for ($i = 0; $i < count ($contacts); ++$i) {
-        if (trim($contacts[$i]) != "")
-            fwrite ($fp, $contacts[$i]."\n");
-    }
-
-    fclose($fp);
-    return true;
-}
-
-/**
  * Convert html entities to normal characters
  * @param string $string
  * @return string

@@ -16,6 +16,7 @@
  */
 
 require_once ('./common.php');
+require_once ('./classes/nocc_contacts.php');
 require_once ('./utils/proxy.php');
 
 header ("Content-type: text/html; Charset=UTF-8");
@@ -33,7 +34,7 @@ $theme = new NOCC_Theme($_SESSION['nocc_theme']);
 
 // Load the contact list
 $path = $conf->prefs_dir . "/" . $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'].".contacts";
-$contacts = load_list ($path);
+$contacts = NOCC_Contacts::loadList($path);
 
 $query_str = session_name("NOCCSESSID") . "=" . session_id();
 ?>
@@ -174,7 +175,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
           {
             $line = $_POST['first'] . "\t" . $_POST['last'] . "\t" . $_POST['nick'] . "\t" . $_POST['email'];
             array_push ($contacts, $line);
-            save_list ($path, $contacts, $conf, $ev);
+            NOCC_Contacts::saveList($path, $contacts, $conf, $ev);
             if (NoccException::isException($ev)) {
               require ('./html/error.php');
               require ('./html/footer.php');
@@ -185,14 +186,14 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
           {
             $line = $_POST['first'] . "\t" . $_POST['last'] . "\t" . $_POST['nick'] . "\t" . $_POST['email'];
             $contacts[$_POST['id']] = $line;
-            save_list ($path, $contacts, $conf, $ev);
+            NOCC_Contacts::saveList($path, $contacts, $conf, $ev);
             if (NoccException::isException($ev)) {
               require ('./html/error.php');
               require ('./html/footer.php');
               break;
             }
           }
-          $contacts = load_list ($path);
+          $contacts = NOCC_Contacts::loadList($path);
         }
         else {
           echo "<script type=\"text/javascript\">alert (\"Error : Email Field is empty.\");</script>";
@@ -209,13 +210,13 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
         for ($i = 0; $i < count ($contacts); ++$i)
           if ($_GET['id'] != $i)
             $new_contacts[] = $contacts[$i];
-        save_list ($path, $new_contacts, $conf, $ev);
+        NOCC_Contacts::saveList($path, $new_contacts, $conf, $ev);
         if (NoccException::isException($ev)) {
           require ('./html/error.php');
           require ('./html/footer.php');
           break;
         }
-        $contacts = load_list ($path);
+        $contacts = NOCC_Contacts::loadList($path);
         ;
 
       default:
