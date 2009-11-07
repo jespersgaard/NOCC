@@ -17,7 +17,6 @@
  * Wrapping a imap_fetchstructure() object
  *
  * @package    NOCC
- * @todo Add getName() or getFileName() function?
  */
 class NOCC_MailStructure {
     /**
@@ -254,7 +253,27 @@ class NOCC_MailStructure {
         }
         return array();
     }
-    
+
+    /**
+     * Get the (file) name from the structure
+     *
+     * @param string $defaultname Default (file) name
+     * @return string (File) name
+     */
+    function getName($defaultname = '') {
+        $name = $this->getValueFromParameters('name');
+        if (!empty($name)) { //if "name" parameter exists...
+            return $name;
+        }
+        else { //if "name" parameter NOT exists...
+            $filename = $this->getValueFromDparameters('filename');
+            if (!empty($filename)) { //if "filename" parameter exists...
+                return $filename;
+            }
+        }
+        return $defaultname;
+    }
+
     /**
      * Get the charset from the structure
      *
