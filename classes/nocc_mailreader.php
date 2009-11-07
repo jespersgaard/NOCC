@@ -24,16 +24,61 @@ require_once 'nocc_headerinfo.php';
  * @todo Move some logic to a NOCC_Header class?
  */
 class NOCC_MailReader {
+    /**
+     * Structure
+     * @var array
+     * @access private
+     */
     var $_structure;
+    /**
+     * Type
+     * @var integer
+     * @access private
+     */
     var $_type;
+    /**
+     * Encoding
+     * @var integer
+     * @access private
+     */
     var $_encoding;
+    /**
+     * Subtype
+     * @var string
+     * @access private
+     */
     var $_subtype;
+    /**
+     * Description
+     * @var string
+     * @access private
+     */
     var $_description;
+    /**
+     * ID
+     * @var integer
+     * @access private
+     */
     var $_id;
+    /**
+     * Disposition
+     * @var string
+     * @access private
+     */
     var $_disposition;
+    /**
+     * Charset
+     * @var string
+     * @access private
+     */
     var $_charset;
+    /**
+     * Total bytes
+     * @var integer
+     * @access private
+     */
     var $_totalbytes;
-    
+
     var $_messageid;
     var $_subject;
     var $_fromaddress;
@@ -43,8 +88,18 @@ class NOCC_MailReader {
     var $_timestamp;
     var $_isunread;
     var $_isflagged;
-    
+
+    /**
+     * Header
+     * @var string
+     * @access private
+     */
     var $_header;
+    /**
+     * Priority
+     * @var integer
+     * @access private
+     */
     var $_priority;
     
     /**
@@ -285,7 +340,7 @@ class NOCC_MailReader {
     /**
      * Get the date (in Unix time) from the mail
      *
-     * @return int Date in Unix time
+     * @return integer Date in Unix time
      */
     function getTimestamp() {
         return ($this->_timestamp);
