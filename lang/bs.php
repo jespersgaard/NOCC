@@ -170,6 +170,7 @@ $html_low = 'Nizak';
 $html_normal = 'Normalno';
 $html_high = 'Visok';
 $html_highest = 'Najviši';
+$html_flagged = 'Označen';
 $html_receipt = 'Zahtjevaj potvrdu o prijemu';
 $html_select = 'Odaberi';
 $html_select_all = 'Obrni odabir';

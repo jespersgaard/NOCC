@@ -170,6 +170,7 @@ $html_low = 'Baissa';
 $html_normal = 'Normala';
 $html_high = 'Nauta';
 $html_highest = 'Maximala';
+$html_flagged = 'Marcat';
 $html_receipt = 'Acusat de recepcion';
 $html_select = 'Seleccionar';
 $html_select_all = 'Inversar la seleccion';

@@ -175,6 +175,7 @@ $html_low = 'Низкий';
 $html_normal = 'Нормальный';
 $html_high = 'Высокий';
 $html_highest = 'Выше';
+$html_flagged = 'Отмеченные';
 $html_receipt = 'Запросить уведомление о прочтении';
 $html_select = 'Выбрать';
 $html_select_all = 'Инвертировать выбор';

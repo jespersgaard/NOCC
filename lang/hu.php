@@ -174,6 +174,7 @@ $html_low = 'Alacsony';
 $html_normal = 'Normál';
 $html_high = 'Magas';
 $html_highest = 'Legmagasabb';
+$html_flagged = 'Megjelölve';
 $html_receipt = 'Visszajelzés kérése';
 $html_select = 'Kiválaszt';
 $html_select_all = 'Kijelölés megfordítása';

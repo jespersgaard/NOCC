@@ -177,6 +177,7 @@ $html_low = 'Laag';
 $html_normal = 'Normaal';
 $html_high = 'Hoog';
 $html_highest = 'Hoogste';
+$html_flagged = 'Gemarkeerd';
 $html_receipt = 'Ontvangstbevestiging';
 $html_select = 'Selecteren';
 $html_select_all = 'Selectie omdraaien';

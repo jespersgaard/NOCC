@@ -170,6 +170,7 @@ $html_low = 'Izel';
 $html_normal = 'Ordinal';
 $html_high = 'Uhel';
 $html_highest = 'Uhelañ';
+$html_flagged = 'Merket';
 $html_receipt = 'Goulenn un testeni resev';
 $html_select = 'Diuzañ';
 $html_select_all = 'Eilpennañ an diuzadenn';
