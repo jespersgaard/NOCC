@@ -39,7 +39,7 @@ $part = '';
 $file = $pop->fetchbody($mail, $part, $ev);
 $pop->close();
 
-$filename = ($subject) ? ereg_replace('[\\/:\*\?"<>\|;]', '_', str_replace('&nbsp;', ' ', $subject)) . ".eml" : "no_subject.eml";
+$filename = ($subject) ? preg_replace('{[\[\]\\/:\*\?"<>\|;]}', '_', str_replace('&nbsp;', ' ', $subject)) . ".eml" : "no_subject.eml";
 $isIE = $isIE6 = 0;
 
 // Set correct http headers.

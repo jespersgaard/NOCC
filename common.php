@@ -178,7 +178,7 @@ if (isset($_SESSION['nocc_user']) && !isset($_SESSION['nocc_login']))
 // Check allowed chars for login
 if (isset($_SESSION['nocc_login']) && $_SESSION['nocc_login'] != ''
         && isset($conf->allowed_char) && $conf->allowed_char != ''
-        && !ereg($conf->allowed_char, $_SESSION['nocc_login'])) {
+        && !preg_match("|".$conf->allowed_char."|", $_SESSION['nocc_login'])) {
     $ev = new NoccException($html_wrong);
     require ('./html/header.php');
     require ('./html/error.php');
@@ -263,7 +263,7 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
         if (isset($conf->domains[$domainnum]->login_with_domain_character)
                 && $conf->domains[$domainnum]->login_with_domain_character != '') {
             $_SESSION['nocc_login'] .= $conf->domains[$domainnum]->login_with_domain_character . $_SESSION['nocc_domain'];
-        } else if (ereg("([A-Za-z0-9]+)@([A-Za-z0-9]+)",$_SESSION['nocc_login'], $regs)) {
+        } else if (preg_match("|([A-Za-z0-9]+)@([A-Za-z0-9]+)|",$_SESSION['nocc_login'], $regs)) {
             $_SESSION['nocc_login'] = $_SESSION['nocc_login'];
             $_SESSION['nocc_domain'] = $regs[2];
         } else {

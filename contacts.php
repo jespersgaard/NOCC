@@ -118,7 +118,7 @@ $_SESSION['nocc_loggedin'] = 1;
 					
 					// toggle activated tab
 					if ($contacts_ldap === true) {
-						print( '<a href="'. $_SERVER['PHP_SELF'] .'">' . $tab_title_personal .'</a>' );
+						print( '<a href="'. $_SERVER['PHP_SELF'] . '?field='.$_GET['field'] .'&NOCCSESSID='.$_GET['NOCCSESSID'] .'">' . $tab_title_personal .'</a>' );
 					}
 					else {
 						echo $tab_title_personal;
@@ -131,7 +131,7 @@ $_SESSION['nocc_loggedin'] = 1;
 					
 					// toggle activated tab
 					if ($contacts_ldap === false) {
-						print( '<a href="'. $_SERVER['PHP_SELF'] .'?is_ldap=1">' . $tab_title_group .'</a>' );
+						print( '<a href="'. $_SERVER['PHP_SELF'] .'?is_ldap=1&field='.$_GET['field'].'&NOCCSESSID='.$_GET['NOCCSESSID'].'">' . $tab_title_group .'</a>' );
 					}
 					else {
 						echo $tab_title_group;
@@ -353,8 +353,8 @@ $_SESSION['nocc_loggedin'] = 1;
 				}
 				
 				// check if email is provided in LDAP entry
-				if (isset($contact_email_list)) {
-					$contact_email = $list_val[$contact_email_list][0];
+				if (isset($contact_list_email)) {
+					$contact_email = $list_val[$contact_list_email][0];
 				}
 				else {
 					$contact_email = $list_val[$contact_list_uid][0].$contact_suffix;

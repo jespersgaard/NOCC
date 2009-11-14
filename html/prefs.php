@@ -9,7 +9,7 @@ $big_list = array();
 if (is_array($all_mailboxes)) {
   reset($all_mailboxes);
   while (list($junk, $val) = each($all_mailboxes)) {
-    list($junk,$name) = split($pop->server .'}', $val->name);
+    list($junk,$name) = preg_split("|".$pop->server .'}|', $val->name);
     if (strlen($name) <= 32) {
       array_push($big_list, $name);
     }

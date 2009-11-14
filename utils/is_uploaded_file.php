@@ -20,6 +20,6 @@ function is_uploaded_file($filename)
     if (!$tmp_file = ini_get('upload_tmp_dir'))
         $tmp_file = dirname(tempnam('', ''));
     $tmp_file .= '/' . basename($filename);
-    return (ereg_replace('/+', '/', $tmp_file) == $filename);
+    return (preg_replace('|/+|', '/', $tmp_file) == $filename);
 }
 ?>

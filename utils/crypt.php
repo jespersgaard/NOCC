@@ -56,13 +56,13 @@ function genkey($keylength, $cookiename)
 //it as a cookie.
 // Returns the key, though I don't see a need in doing that.
 
-  $rkey = substr(ereg_replace("[^A-Za-z0-9]",
+  $rkey = substr(preg_replace("|[^A-Za-z0-9]|",
                   "",
                   crypt(time())) .
-         ereg_replace("[^A-Za-z0-9]",
+         preg_replace("|[^A-Za-z0-9]|",
                   "",
                   crypt(time())) .
-         ereg_replace("[^A-Za-z0-9]",
+         preg_replace("[|^A-Za-z0-9]|",
                   "",
                   crypt(time())),
          0, $keylength);

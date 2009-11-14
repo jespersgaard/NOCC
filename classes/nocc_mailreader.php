@@ -455,7 +455,7 @@ class NOCC_MailReader {
      * @return bool Is HTML mail?
      */
     function isHtmlMail() {
-        return eregi('text/html', $this->_header);
+        return preg_match('|text/html|i', $this->_header);
     }
     
     /**

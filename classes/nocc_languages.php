@@ -195,9 +195,9 @@ class NOCC_Languages {
             $acceptLanguageHeader = str_replace('q=', '', $acceptLanguageHeader);
             
             $langQuality = '1.0';
-            $acceptedLanguages = split(',', $acceptLanguageHeader);
+            $acceptedLanguages = explode(',', $acceptLanguageHeader);
             foreach ($acceptedLanguages as $acceptedLanguage) { //for all accepted languages...
-                $tmp = split(';', $acceptedLanguage);
+                $tmp = explode(';', $acceptedLanguage);
                 
                 if (isset($tmp[0]) && !empty($tmp[0])) { //if found language ID...
                     $lang_id = $tmp[0];

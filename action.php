@@ -67,11 +67,11 @@ switch($action) {
         $tmp_attach_tab = $attach_tab;
         $i = 0;
         while ($tmp = array_pop($tmp_attach_tab)) {
-            if ($conf->display_img_attach && (eregi('image', $tmp['mime']) && ($tmp['number'] != '')))
+            if ($conf->display_img_attach && (stripos($tmp['mime'],'image') && ($tmp['number'] != '')))
             {
                 $exploded = explode('/', $tmp['mime']);
                 $img_type = array_pop($exploded);
-                if (eregi('JPEG', $img_type) || eregi('JPG', $img_type) || eregi('GIF', $img_type) || eregi ('PNG', $img_type)) {
+                if (preg_match('|JP[E]?G|i', $img_type) || stripos($img_typ,'GIF') || stripos($img_type,'PNG')) {
                     $new_img_src = 'src="get_img.php?mail=' . $_REQUEST['mail'].'&amp;num='
                             . $tmp['number'] . '&amp;mime=' . $img_type . '&amp;transfer=' . $tmp['transfer'] . '"';
                     $img_id = str_replace('<', '', $tmp['id']);
@@ -98,18 +98,18 @@ switch($action) {
         while ($tmp = array_pop($attach_tab)) {
             // $attach_tab is the array of attachments
             // If it's a text/plain, display it
-            if ((!eregi('ATTACHMENT', $tmp['disposition'])) && $conf->display_text_attach && (eregi('text/plain', $tmp['mime']))) {
+            if ((!stripos($tmp['disposition'],'ATTACHMENT')) && $conf->display_text_attach && (stripos($tmp['mime'],'text/plain'))) {
                 echo '<hr class="mailAttachSep" />';
                 echo '<div class="mailTextAttach">';
                 //TODO: Replace URLs and Smilies in text/plain attachment?
                 echo view_part($pop, $_REQUEST['mail'], $tmp['number'], $tmp['transfer'], $tmp['charset']);
                 echo '</div> <!-- .mailTextAttach -->';
             }
-            if ($conf->display_img_attach && (eregi('image', $tmp['mime']) && ($tmp['number'] != ''))) {
+            if ($conf->display_img_attach && (stripos($tmp['mime'],'image') && ($tmp['number'] != ''))) {
                 // if it's an image, display it
                 $exploded = explode('/', $tmp['mime']);
                 $img_type = array_pop($exploded);
-                if (eregi('JPEG', $img_type) || eregi('JPG', $img_type) || eregi('GIF', $img_type) || eregi ('PNG', $img_type))
+                if (preg_match('|JP[E]?G|i', $img_type) || tripos($img_type,'JPG') || stripos($img_type,'GIF') || stripos($img_type,'PNG'))
                 {
                     echo '<hr class="mailAttachSep" />';
                     echo '<div class="mailImgAttach">';

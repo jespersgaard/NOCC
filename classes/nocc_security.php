@@ -27,9 +27,9 @@ class NOCC_Security {
      * @static
      */
     function disableHtmlImages($body) {
-        $body = eregi_replace('src[[:space:]]*=[[:space:]]*["\']?[[:space:]]*[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/][[:space:]]*["\']?', 'src="none"', $body); //src = "xyz" OR src = 'xyz' OR src = xyz
-        $body = eregi_replace('background[[:space:]]*=[[:space:]]*["\']?[[:space:]]*[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/][[:space:]]*["\']?', 'background="none"', $body); //background = "xyz" OR background = 'xyz' OR background = xyz
-        $body = eregi_replace('url[[:space:]]*\([[:space:]]*\'?[[:space:]]*[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/][[:space:]]*\'?[[:space:]]*\)', 'url(none)', $body); //url ( xzy ) OR url ( 'xyz' )
+        $body = preg_replace('|src[\s]*=[\s]*["\']?[\s]*[A-Za-z]+://[^<>\s]+[A-Za-z0-9/][\s]*["\']?|i', 'src="none"', $body); //src = "xyz" OR src = 'xyz' OR src = xyz
+        $body = preg_replace('|background[\s]*=[\s]*["\']?[\s]*[A-Za-z]+://[^<>\s]+[A-Za-z0-9/][\s]*["\']?|i', 'background="none"', $body); //background = "xyz" OR background = 'xyz' OR background = xyz
+        $body = preg_replace('|url[\s]*\([\s]*\'?[\s]*[A-Za-z]+://[^<>\s]+[A-Za-z0-9/][\s]*\'?[\s]*\)|i', 'url(none)', $body); //url ( xzy ) OR url ( 'xyz' )
         return $body;
     }
     
@@ -41,7 +41,7 @@ class NOCC_Security {
      * @static
      */
     function hasDisabledHtmlImages($body) {
-        return eregi('src="none"', $body) || eregi('background="none"', $body) || eregi('url\(none\)', $body);
+        return stripos($body,'src="none"') || stripos($body,'background="none"') || stripos($body,'url\(none\)');
     }
 }
 ?>
