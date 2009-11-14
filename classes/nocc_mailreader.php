@@ -15,13 +15,12 @@
 
 require_once 'nocc_mailstructure.php';
 require_once 'nocc_headerinfo.php';
+require_once 'nocc_header.php';
 
 /**
  * Reading details from a mail
  *
  * @package    NOCC
- * @todo Move some logic to a NOCC_HeaderInfo class!
- * @todo Move some logic to a NOCC_Header class?
  */
 class NOCC_MailReader {
     /**
@@ -136,16 +135,10 @@ class NOCC_MailReader {
 
     /**
      * Header
-     * @var string
+     * @var NOCC_Header
      * @access private
      */
     var $_header;
-    /**
-     * Priority
-     * @var integer
-     * @access private
-     */
-    var $_priority;
     
     /**
      * Initialize the mail reader
@@ -191,26 +184,10 @@ class NOCC_MailReader {
         //--------------------------------------------------------------------------------
 
         //--------------------------------------------------------------------------------
-        // Get values from header...
+        // Get header...
         //--------------------------------------------------------------------------------
-        $this->_header = $pop->fetchheader($msgno, $ev);
-        
-        $this->_priority = 3;
-        $header_lines = explode("\r\n", $this->_header);
-        foreach ($header_lines as $header_line) { //for all header lines...
-            $header_field = explode(':', $header_line);
-            switch (strtolower($header_field[0])) {
-                case 'x-priority':
-                case 'importance':
-                case 'priority':
-                    $this->_priority = $this->_parsePriority($header_field[1]);
-                    break;
-                //TODO: Read Content-Type!
-                //case 'content-type':
-                //    $this->_contenttype = '';
-                //    break;
-            }
-        }
+        $header = $pop->fetchheader($msgno, $ev);
+        $this->_header = new NOCC_Header($header);
         //--------------------------------------------------------------------------------
     }
     
@@ -418,7 +395,7 @@ class NOCC_MailReader {
      * @return string RFC2822 format header
      */
     function getHeader() {
-        return $this->_header;
+        return $this->_header->getHeader();
     }
     
     /**
@@ -427,7 +404,7 @@ class NOCC_MailReader {
      * @return integer Priority
      */
     function getPriority() {
-        return $this->_priority;
+        return $this->_header->getPriority();
     }
     
     /**
@@ -436,16 +413,7 @@ class NOCC_MailReader {
      * @return string Priority text
      */
     function getPriorityText() {
-        global $html_highest, $html_high, $html_normal, $html_low, $html_lowest;
-        
-        switch ($this->_priority) {
-            case 1: return $html_highest; break;
-            case 2: return $html_high; break;
-            case 3: return $html_normal; break;
-            case 4: return $html_low; break;
-            case 5: return $html_lowest; break;
-            default: return '';
-        }
+        return $this->_header->getPriorityText();
     }
     
     /**
@@ -455,38 +423,7 @@ class NOCC_MailReader {
      * @return bool Is HTML mail?
      */
     function isHtmlMail() {
-        return preg_match('|text/html|i', $this->_header);
-    }
-    
-    /**
-     * Normalise the different Priority headers into a uniform value,
-     * namely that of the X-Priority header (1, 3, 5). Supports:
-     * Priority, X-Priority, Importance.
-     * X-MS-Mail-Priority is not parsed because it always coincides
-     * with one of the other headers.
-     *
-     * @param string $sValue literal priority name
-     * @return integer
-     * @access private
-     *
-     * @copyright &copy; 2003-2007 The SquirrelMail Project Team
-     * @license http://opensource.org/licenses/gpl-license.php GNU Public License
-     */
-    function _parsePriority($sValue) {
-        // don't use function call inside array_shift.
-        $aValue = preg_split('/\s/',trim($sValue));
-        $value = strtolower(array_shift($aValue));
-
-        if ( is_numeric($value) ) {
-            return $value;
-        }
-        if ( $value == 'urgent' || $value == 'high' ) {
-            return 2;
-        } elseif ( $value == 'non-urgent' || $value == 'low' ) {
-            return 4;
-        }
-        // default is normal priority
-        return 3;
+        return preg_match('|text/html|i', $this->_header->getHeader());
     }
 }
 ?>
