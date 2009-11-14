@@ -59,7 +59,7 @@ class NOCC_Header {
                     break;
                 case 'content-type':
                     $content_type = explode(';', $header_field[1]);
-                    $this->_contenttype = $content_type[0];
+                    $this->_contenttype = trim($content_type[0]);
                     break;
             }
         }
