@@ -63,12 +63,6 @@ function inbox(&$pop, $skip = 0, &$ev) {
         $to = $mail_reader->getToAddress();
         $to = str_replace(',', ', ', $to);
 
-        if ($mail_reader->hasAttachments() == true) {
-            $attach = '<img src="themes/' . $_SESSION['nocc_theme'] . '/img/attach.png" alt="" />';
-        }
-        else {
-            $attach = '&nbsp;';
-        }
         // Check Status Line with UCB POP Server to
         // see if this is a new message. This is a
         // non-RFC standard line header.
@@ -103,7 +97,7 @@ function inbox(&$pop, $skip = 0, &$ev) {
                 'index' => $i,
                 'new' => $newmail, 
                 'number' => $pop->msgno($msgnum),
-                'attach' => $attach,
+                'attach' => $mail_reader->hasAttachments(),
                 'to' => $to,
                 'from' => $mail_reader->getFromAddress(),
                 'subject' => $mail_reader->getSubject(), 
@@ -318,6 +312,8 @@ function GetPart(&$attach_tab, $this_part, $part_no, $display_rfc822) {
                         if (substr($part_no,-1) != '.')
                             $part_no = $part_no . '.';
                     }
+                    //TODO: Gibt Probleme bei der "RE: Re[2]: Tuer zu Ihrem Wunsch"
+                    //TODO: Überprüfen, ob es den ALTERNATIVE Part überhaupt gibt!
                     // if it's an alternative, we skip the text part to only keep the HTML part
                     if ($this_part->subtype == 'ALTERNATIVE')// && $read == true)
                         GetPart($attach_tab, $this_part->parts[++$i], $part_no . ($i + 1), $display_rfc822);
@@ -924,6 +920,7 @@ function convertMailData2Html($maildata, $cutafter = 0) {
  * @global object $conf
  * @param object $ev
  * @return bool
+ * @todo Move to NOCC_Session class?
  */
 function saveSession(&$ev) {
     global $conf;
@@ -977,6 +974,7 @@ function saveSession(&$ev) {
  * @param object $ev
  * @param string $key
  * @return string
+ * @todo Move to NOCC_Session class?
  */
 function loadSession(&$ev, &$key) {
     global $conf;

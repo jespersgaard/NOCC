@@ -43,7 +43,12 @@
         echo $tmp['new'];
         break;
       case '7': //Attachment...
-        echo $tmp['attach'];
+        if ($tmp['attach'] == true) { //if has attachments...
+          echo '<img src="themes/' . $_SESSION['nocc_theme'] . '/img/attach.png" alt="" />';
+        }
+        else { //if NOT has attachments...
+          echo '&nbsp;';
+        }
         break;
       case '8': //Priority Text...
         echo $tmp['priority_text'];
