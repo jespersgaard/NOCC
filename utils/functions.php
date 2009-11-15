@@ -63,11 +63,13 @@ function inbox(&$pop, $skip = 0, &$ev) {
         $to = $mail_reader->getToAddress();
         $to = str_replace(',', ', ', $to);
 
+        $newmail = $mail_reader->isUnread();
         // Check Status Line with UCB POP Server to
         // see if this is a new message. This is a
         // non-RFC standard line header.
         // Set this in conf.php
         if ($_SESSION['ucb_pop_server']) {
+            //TODO: Get UCB Status from NOCC_Header?
             $header_msg = $mail_reader->getHeader();
             if(NoccException::isException($ev)) return;
             $header_lines = explode("\r\n", $header_msg);
@@ -75,27 +77,19 @@ function inbox(&$pop, $skip = 0, &$ev) {
             {
                 list ($header_field, $header_value) = explode(':', $v);
                 if ($header_field == 'Status') 
-                    $new_mail_from_header = $header_value;
+                    if ($header_value == '')
+                        $newmail = true;
+                    else
+                        $newmail = false;
             }
         }
-        else {
-            if ($mail_reader->isUnread() == true) {
-                $new_mail_from_header = '';
-            }
-            else {
-                $new_mail_from_header = '&nbsp;';
-            }
-        }
-        if ($new_mail_from_header == '')
-            $newmail = '<img src="themes/' . $_SESSION['nocc_theme'] . '/img/new.png" alt=""/>';
-        else
-            $newmail = '&nbsp;';
+        
         $timestamp = $mail_reader->getTimestamp();
         $date = format_date($timestamp, $lang);
         $time = format_time($timestamp, $lang);
         $msg_list[$i] =  Array(
                 'index' => $i,
-                'new' => $newmail, 
+                'new' => $newmail,
                 'number' => $pop->msgno($msgnum),
                 'attach' => $mail_reader->hasAttachments(),
                 'to' => $to,

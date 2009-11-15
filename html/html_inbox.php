@@ -7,7 +7,7 @@
   
   $new_class = '';
   if ($_SESSION['ucb_pop_server'] || $pop->is_imap()) {
-    if ($tmp['new'] != '' && $tmp['new'] != null && $tmp['new'] != "&nbsp;") {
+    if ($tmp['new'] == true) { //if unread...
       $new_class = ' new';
     }
   }
@@ -40,7 +40,12 @@
         echo $tmp['size'] . $html_kb;
         break;
       case '6': //Read/Unread...
-        echo $tmp['new'];
+        if ($tmp['new'] == true) { //if unread...
+          echo '<img src="themes/' . $_SESSION['nocc_theme'] . '/img/new.png" alt="" />';
+        }
+        else { //if read...
+          echo '&nbsp;';
+        }
         break;
       case '7': //Attachment...
         if ($tmp['attach'] == true) { //if has attachments...
