@@ -114,6 +114,12 @@ $tab_mail = $tab_mail_bak;
 
 <?php
 while ($tmp = array_shift($tab_mail)) {
+  $mail_summery = '';
+  if ($tmp['attach'] == true) { //if has attachments...
+    $mail_summery .= '<img src="' . $conf->base_url . 'themes/' . $_SESSION['nocc_theme'] . '/img/attach.png" alt="" />';
+  }
+  $mail_summery .= $html_size . ': ' . $tmp['size'] . ' ' . $html_kb . '<br /><br />';
+
   $attach_tab = array();
   $content = @aff_mail($pop, $attach_tab, $tmp['number'], 0, $ev);
 ?>
@@ -126,32 +132,24 @@ while ($tmp = array_shift($tab_mail)) {
     <dc:subject>Email</dc:subject>
     <description>
       <![CDATA[
-        <?php 
-        if ($tmp['attach'] == true) { //if has attachments...
-          echo '<img src="' . $conf->base_url . 'themes/' . $_SESSION['nocc_theme'] . '/img/attach.png" alt="" />';
-        }
-        echo $html_size . ": " . $tmp['size'] . " " . $html_kb ?> <br /><br />
         <?php
           if (NoccException::isException($ev)) {
             require ('./html/error.php');
             exit;
           }
-          echo substr(strip_tags($content['body'], '<br>'), 0, 200) . '&hellip;';  
+          echo $mail_summery;
+          echo substr(strip_tags($content['body'], '<br />'), 0, 200) . '&hellip;';
         ?>
       ]]>
     </description>
     <content:encoded>
       <![CDATA[
         <?php
-        if ($tmp['attach'] == true) { //if has attachments...
-          echo '<img src="' . $conf->base_url . 'themes/' . $_SESSION['nocc_theme'] . '/img/attach.png" alt="" />';
-        }
-        echo $html_size . ": " . $tmp['size'] . " " . $html_kb ?> <br /><br />
-        <?php
           if (NoccException::isException($ev)) {
             require ('./html/error.php');
             exit;
           }
+          echo $mail_summery;
           echo $content['body'];
         ?>
       ]]>
