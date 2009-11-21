@@ -114,6 +114,8 @@ $tab_mail = $tab_mail_bak;
 
 <?php
 while ($tmp = array_shift($tab_mail)) {
+  $attach_tab = array();
+  $content = @aff_mail($pop, $attach_tab, $tmp['number'], 0, $ev);
 ?>
   <item rdf:about="<?php echo $conf->base_url . 'action.php?action=aff_mail&amp;mail='.$tmp['number'].'&amp;verbose=0&amp;rss=true&amp;nocc_folder='.$_SESSION['nocc_folder'] ?>">
     <title><?php echo htmlspecialchars($tmp['subject']) ?></title>
@@ -130,8 +132,6 @@ while ($tmp = array_shift($tab_mail)) {
         }
         echo $html_size . ": " . $tmp['size'] . " " . $html_kb ?> <br /><br />
         <?php
-          $attach_tab = array();
-          $content = aff_mail($pop, $attach_tab, $tmp['number'], 0, $ev);
           if (NoccException::isException($ev)) {
             require ('./html/error.php');
             exit;
@@ -148,8 +148,6 @@ while ($tmp = array_shift($tab_mail)) {
         }
         echo $html_size . ": " . $tmp['size'] . " " . $html_kb ?> <br /><br />
         <?php
-          $attach_tab = array();
-          $content = aff_mail($pop, $attach_tab, $tmp['number'], 0, $ev);
           if (NoccException::isException($ev)) {
             require ('./html/error.php');
             exit;
