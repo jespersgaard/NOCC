@@ -142,7 +142,11 @@ while ($tmp = array_shift($tab_mail)) {
     </description>
     <content:encoded>
       <![CDATA[
-        <?php echo str_replace("themes/", $conf->base_url . "themes/", $tmp['attach']) ?> <?php echo $html_size . ": " . $tmp['size'] . " " . $html_kb ?> <br /><br />
+        <?php
+        if ($tmp['attach'] == true) { //if has attachments...
+          echo '<img src="' . $conf->base_url . 'themes/' . $_SESSION['nocc_theme'] . '/img/attach.png" alt="" />';
+        }
+        echo $html_size . ": " . $tmp['size'] . " " . $html_kb ?> <br /><br />
         <?php
           $attach_tab = array();
           $content = aff_mail($pop, $attach_tab, $tmp['number'], 0, $ev);
