@@ -25,6 +25,7 @@
  *
  * @author Crazymadlover
  * @author JS <jorge.silva@ciberlink.pt>
+ * @author Malafaya
  * @author Paulo Matos <paulo.matos@fct.unl.pt>
  * @author Waldir
  * @author sena <sena@smux.net>
@@ -51,11 +52,15 @@ $title_prev_msg = 'Anterior';
 $html_theme_label = 'Tema:';
 $html_welcome = 'Benvindo ao %1$s';
 $html_login = 'Identificador';
+$html_user_label = 'Utilizador:';
+$html_passwd_label = 'Palavra-passe:';
 $html_submit = 'Entrar';
 $html_help = 'Ajuda';
+$html_server_label = 'Servidor:';
 $html_wrong = 'Identificador ou senha incorrectos';
 $html_retry = 'Tentar novamente';
 $html_remember = 'Gravar as configurações';
+$html_lang_label = 'Língua:';
 $html_msgperpage_label = 'Mensagens por página:';
 $html_preferences = 'Preferências';
 $html_full_name_label = 'Nome completo:';
@@ -66,6 +71,7 @@ $html_outlook_quoting = 'Citação ao estilo Outlook';
 $html_reply_to = 'Responder para';
 $html_use_signature = 'Utilizar assinatura';
 $html_signature = 'Assinatura';
+$html_signature_label = 'Assinatura:';
 $html_reply_leadin_label = 'Responder com prefixo:';
 $html_prefs_updated = 'Preferências actualizadas';
 $html_manage_folders_link = 'Gerir Pastas IMAP';
@@ -112,8 +118,11 @@ $html_attach_delete = 'Retirar Ficheiros Seleccionados';
 $html_sort_by = 'Ordenar por';
 $html_sort = 'Ordenar';
 $html_from = 'De';
+$html_from_label = 'De:';
 $html_subject = 'Assunto';
+$html_subject_label = 'Assunto:';
 $html_date = 'Data';
+$html_date_label = 'Data:';
 $html_sent = 'Enviado:';
 $html_wrote = 'escreveu';
 $html_size = 'Tamanho';
