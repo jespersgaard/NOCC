@@ -161,6 +161,12 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'hr';
 $lang_array[$i]->label = 'Hrvatski';
 
+// Upper Sorbian
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'hsb';
+$lang_array[$i]->label = 'Hornjoserbsce';
+
 // Interlingua
 $i++;
 $lang_array[$i] = new lang();
@@ -202,6 +208,12 @@ $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'hu';
 $lang_array[$i]->label = 'Magyar';
+
+// Nepali
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'ne';
+$lang_array[$i]->label = 'नेपाली';
 
 // Dutch
 $i++;
