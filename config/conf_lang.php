@@ -89,6 +89,12 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'da';
 $lang_array[$i]->label = 'Dansk';
 
+// Lower Sorbian
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'dsb';
+$lang_array[$i]->label = 'Dolnoserbski';
+
 // German
 $i++;
 $lang_array[$i] = new lang();

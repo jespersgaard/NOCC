@@ -24,6 +24,7 @@
  * @file
  *
  * @author Crazymadlover
+ * @author Hamilton Abreu
  * @author JS <jorge.silva@ciberlink.pt>
  * @author Malafaya
  * @author Paulo Matos <paulo.matos@fct.unl.pt>
@@ -45,7 +46,7 @@ $alt_reply_all = 'Responder a todos';
 $alt_forward = 'Reencaminhar';
 $alt_next = 'Próximo';
 $alt_prev = 'Anterior';
-$title_next_page = 'Próxima página';
+$title_next_page = 'Página seguinte';
 $title_prev_page = 'Página anterior';
 $title_next_msg = 'Próxima';
 $title_prev_msg = 'Anterior';
