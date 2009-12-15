@@ -212,10 +212,7 @@ class mime_mail {
             $mime .= 'Cc: ' . join(', ', $this->cc) . $this->crlf;
         if (count($this->bcc) > 0 && $this->bcc[0] != '')
             $mime .= 'Bcc: ' . join(', ', $this->bcc) . $this->crlf;
-        if (preg_match("|[4-9]\.[0-9]\.[4-9].*|", phpversion()) || preg_match("|[5-9]\.[0-9]\.[0-9].*|", phpversion())) // isn't this a strange way to test for version >= 4.0.0?
-            $mime .= 'Date: ' . date("r") . $this->crlf;
-        else
-            $mime .= 'Date: ' . date("D, j M Y H:i:s T") . $this->crlf;
+        $mime .= 'Date: ' . date('r') . $this->crlf;
         if (!empty($this->from))
             $mime .= 'Reply-To: ' . $this->from . $this->crlf . 'Errors-To: '.$this->from . $this->crlf;
         if ($this->receipt != false)
@@ -253,10 +250,7 @@ class mime_mail {
         // depends on the config file (conf.php)
         if ($this->smtp_server == '' || $this->smtp_port == '') {
             $rcpt_to = join(', ', $this->to);
-            if (preg_match("|[4-9]\.[0-9]\.[0-9].*|", phpversion()))
-                $ev = @mail($rcpt_to, $this->subject, '', $mime, '-f' . $this->strip_comment($this->from));
-            else
-                $ev = @mail($rcpt_to, $this->subject, '', $mime);
+            $ev = @mail($rcpt_to, $this->subject, '', $mime, '-f' . $this->strip_comment($this->from));
                 
             $user_prefs = $_SESSION['nocc_user_prefs'];
             if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder && isset($user_prefs->sent_folder_name) && $user_prefs->sent_folder_name !=null && $user_prefs->sent_folder_name != ""){
