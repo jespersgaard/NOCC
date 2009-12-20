@@ -41,6 +41,11 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'ar';
 $lang_array[$i]->label = 'العربية';
 
+// Egyptian Spoken Arabic
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'arz';
+$lang_array[$i]->label = 'مصرى';
+
 // Belarusian
 $i++;
 $lang_array[$i] = new lang();

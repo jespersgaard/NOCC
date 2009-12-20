@@ -23,6 +23,7 @@
  * @ingroup Language
  * @file
  *
+ * @author Kuvaly
  * @author Lukas Mizoch <ragimiri@gmail.com>
  * @author Ragimiri
  * @author Vaclav Habr <habr@fonet.cz>
@@ -48,9 +49,12 @@ $title_next_msg = 'Další zpráva';
 $title_prev_msg = 'Předchozí zpráva';
 $html_theme_label = 'Téma:';
 $html_welcome = 'Vítejte v %1$s';
-$html_login = 'Jméno';
+$html_login = 'Přihlášení';
+$html_user_label = 'Uživatel:';
+$html_passwd_label = 'Heslo:';
 $html_submit = 'Potvrdit';
 $html_help = 'Pomoc';
+$html_server_label = 'Server:';
 $html_wrong = 'Prihlašovací jméno a heslo nesouhlasí';
 $html_retry = 'Zkusit znovu';
 $html_remember = 'Pamatovat nastavení';
@@ -172,6 +176,7 @@ $html_highest = 'Nejvyšší';
 $html_receipt = 'Potvrdit čtení';
 $html_select = 'Vybrat';
 $html_select_all = 'Invertovat výběr';
+$html_select_contacts = 'Vyberte kontakty';
 $html_loading_image = 'Nahrávám obrázek';
 $html_send_confirmed = 'Váš dopis byl přijat k doručení';
 $html_no_sendaction = 'Nedefinovaná akce. Zkuste povolit JavaScript.';
