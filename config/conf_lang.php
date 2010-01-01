@@ -220,6 +220,12 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'hu';
 $lang_array[$i]->label = 'Magyar';
 
+// Macedonian
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'mk';
+$lang_array[$i]->label = 'Македонски';
+
 // Nepali
 $i++;
 $lang_array[$i] = new lang();

@@ -26,6 +26,7 @@
  * @author Crazymadlover
  * @author Hamilton Abreu
  * @author JS <jorge.silva@ciberlink.pt>
+ * @author Luckas Blade
  * @author Malafaya
  * @author Paulo Matos <paulo.matos@fct.unl.pt>
  * @author Waldir
@@ -82,6 +83,10 @@ $html_sent_folder_label = 'Copiar e-mails enviados em uma pasta específica:';
 $html_trash_folder_label = 'Mover emails apagados em uma pasta específica:';
 $html_colored_quotes = 'Cotações coloridas';
 $html_display_struct = 'Mostrar texto estruturado';
+$html_send_html_mail = 'Enviar e-mail em formato HTML';
+$html_folders = 'Pastas';
+$html_folder_rename = 'Renomear';
+$html_folder_delete = 'Deletar';
 $html_filter_remove = 'Apagar';
 $html_filter_body = 'Conteúdo da Mensagem';
 $html_filter_subject = 'Assunto da Mensaagem';
@@ -89,6 +94,7 @@ $html_filter_to = 'Campo \'Para\'';
 $html_filter_cc = 'Campo \'Cc\'';
 $html_filter_from = 'Campo \'De\'';
 $html_filter_change_tip = 'Para alterar um filtro gravá-lo novamente.';
+$html_filter_name = 'Nome do filtro';
 $html_select_one = '--Escolha--';
 $html_and = 'E';
 $html_new_msg_in = 'Novas mensagens em';
@@ -128,8 +134,13 @@ $html_sent = 'Enviado:';
 $html_wrote = 'escreveu';
 $html_size = 'Tamanho';
 $html_totalsize = 'Tamanho Total';
+$html_kb = 'kB';
+$html_mb = 'MB';
+$html_gb = 'GB';
+$html_bytes = 'bytes';
 $html_filename = 'Ficheiro';
 $html_to = 'Para';
+$html_to_label = 'Para:';
 $html_nosubject = 'Sem assunto';
 $html_send = 'Enviar';
 $html_cancel = 'Cancelar';
@@ -138,16 +149,31 @@ $html_logout = 'Sair';
 $html_msg = 'Mensagem';
 $html_msgs = 'Mensagens';
 $html_configuration = 'Este servidor não está correctamente configurado !';
+$html_priority = 'Prioridade';
 $html_priority_label = 'Prioridade:';
 $html_low = 'Baixa';
+$html_normal = 'Normal';
 $html_high = 'Alta';
 $html_receipt = 'Requer confirmação';
 $html_select = 'Seleccionar';
+$html_select_all = 'Inverter seleção';
+$html_select_contacts = 'Selecionar contatos';
 $html_loading_image = 'Carregando imagem';
 $html_send_confirmed = 'A mensagem foi aceite para envio';
 $html_no_sendaction = 'Acção não indicada. Tente activar o JavaScript.';
 $html_error_occurred = 'Ocorreu um erro';
 $html_prefs_file_error = 'Não foi possível abrir o ficheiro de preferenças para escrita.';
+$html_mark_as = 'Marcar como';
+$html_add = 'Adicionar';
+$html_modify = 'Modificar';
+$html_back = 'Voltar';
+$html_contact_add = 'Adicionar novo contato';
+$html_contact_mod = 'Modificar um contato';
+$html_contact_nick = 'Apelido';
+$html_contact_mail = 'E-mail';
+$html_contact_del = 'da lista de contatos';
+$html_contact_err2 = 'Você não pode adicionar um novo contato';
+$html_contact_none = 'Nenhum contato foi encontrado.';
 $original_msg = '-- Mensagem Original --';
 $to_empty = 'O campo \'Para\' tem de ser preenchido !';
 $html_smtp_error_no_conn = 'Não foi possível estabelecer ligação ao servidor de SMTP';
@@ -156,3 +182,4 @@ $lang_could_not_connect = 'Não foi possível estabelecer ligação ao servidor'
 $html_file_upload_attack = 'Possível ataque de \'upload\' de ficheiros';
 $html_invalid_email_address = 'Endereço de e-mail inválido';
 $html_seperate_msg_win = 'Mensagens em janela separada';
+$lang_err_send_delay = 'Você deve aguardar entre dois e-mails (%1$d segundos)';
