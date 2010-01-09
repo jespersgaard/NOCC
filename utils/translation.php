@@ -16,7 +16,7 @@
  */
 
 
-  function i18n_message($func_str_translation = NULL, $func_str_insert = NULL, $func_convert = 1) {
+  function i18n_message($func_str_translation = null, $func_str_insert = null, $func_convert = 1) {
   
     if ((!is_null($func_str_translation)) && (!is_null($func_str_insert))) {
 
@@ -33,5 +33,5 @@
       return $func_output;
     }
 
-    return FALSE;
+    return false;
   }

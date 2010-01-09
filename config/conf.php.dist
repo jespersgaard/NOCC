@@ -418,7 +418,7 @@ $conf->contact_ldap_options['dn'] = 'dc=nocc, dc=sourceforge, dc=net';
 $conf->contact_ldap_options['filter'] = '(|(uid=%s))';
 
 // Field order must be: uid (username), cn (common name) (or first name), FALSE (or last name), FALSE (or email)
-$conf->contact_ldap_options['attributes'] = array("uid", "cn", FALSE, FALSE);
+$conf->contact_ldap_options['attributes'] = array("uid", "cn", false, false);
 
 // LDAP enable search
 $conf->contact_ldap_options['search'] = true;

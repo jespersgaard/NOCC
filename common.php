@@ -298,7 +298,7 @@ if (isset($_REQUEST['server'])) {
 
 // Cache the user's preferences/filters
 if(isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
-    $ev = NULL;
+    $ev = null;
     $user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
 
     // Preferences

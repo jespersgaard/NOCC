@@ -175,7 +175,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     // If there are attachments, populate the attachment array, otherwise
     // just get the main body as a single-element array
     if ($struct_msg->type == 3 || (isset($struct_msg->parts) && (sizeof($struct_msg->parts) > 0)))
-        GetPart($attach_tab, $struct_msg, NULL, $conf->display_rfc822);
+        GetPart($attach_tab, $struct_msg, null, $conf->display_rfc822);
     else {
         GetSinglePart($attach_tab, $mail_reader);
     }
@@ -224,8 +224,8 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
         }
 
         $body_converted = os_iconv( $body_charset, 'UTF-8', $body);
-        $body = ($body_converted===FALSE) ? $body : $body_converted;
-        $tmp['charset'] = ($body_converted===FALSE) ? $body_charset : 'UTF-8';
+        $body = ($body_converted===false) ? $body : $body_converted;
+        $tmp['charset'] = ($body_converted===false) ? $body_charset : 'UTF-8';
     }
     else
         array_push($attach_tab, $tmp);

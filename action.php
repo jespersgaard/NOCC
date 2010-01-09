@@ -21,7 +21,7 @@ require_once './common.php';
 clear_attachments();
 
 // Reset exception vector
-$ev = NULL;
+$ev = null;
 
 $remember = '';
 if(isset($_REQUEST['remember']))
@@ -630,15 +630,15 @@ switch($action) {
                         $filters = NOCCUserFilters::read($user_key, $ev);
                         if(NoccException::isException($ev)) {
                             error_log("Error reading filters for user '$user_key': ".$ev->getMessage());
-                            $filters = NULL;
-                            $ev = NULL;
+                            $filters = null;
+                            $ev = null;
                         }
 
                         $small_search = 'unseen ';
                         if (isset($_REQUEST['reapply_filters']) && $_REQUEST['reapply_filters'] == 1) {
                             $small_search = '';
                         }
-                        if ($filters!=null) {
+                        if ($filters != null) {
                             foreach($filters->filterset as $name => $filter) {
                                 $filter_messages = $pop->search($small_search . $filter['SEARCH'],'',$ev);
                                 if (is_array($filter_messages)) {
@@ -657,7 +657,7 @@ switch($action) {
                     $pop->expunge($ev);
                     if(NoccException::isException($ev)) {
                         error_log("Error expunging mail for user '$user_key': ".$ev->getMessage());
-                        $ev = NULL;
+                        $ev = null;
                     }
                 }
             }
