@@ -224,7 +224,7 @@ function checkSendDelay() {
     if (last_send + send_delay < ( thisdate.getTime() / 1000 )) {
         return (true);
     } else {
-        alert('<?php echo( i18n_message ( $lang_err_send_delay, $conf->send_delay ) ) ?>');
+        alert('<?php echo(i18n_message($lang_err_send_delay, $conf->send_delay)) ?>');
         return (false);
     }
     

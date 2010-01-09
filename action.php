@@ -595,7 +595,7 @@ switch($action) {
                 $_SESSION["nocc_login"] = "";
                 $_SESSION["nocc_user_prefs"] = "";
                 session_destroy();
-                setcookie ("NoccIdent");
+                setcookie("NoccIdent");
             }
             require ('./html/header.php');
             require ('./html/error.php');
@@ -617,7 +617,7 @@ switch($action) {
                     break;
                 }
                 //store cookie for thirty days
-                setcookie ('NoccIdent', $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'], time()+60*60*24*30);
+                setcookie('NoccIdent', $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'], time()+60*60*24*30);
             }
         }
 

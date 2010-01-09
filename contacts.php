@@ -19,7 +19,7 @@ require_once ('./common.php');
 require_once ('./classes/nocc_contacts.php');
 require_once ('./utils/proxy.php');
 
-header ("Content-type: text/html; Charset=UTF-8");
+header("Content-type: text/html; Charset=UTF-8");
 
 $pop = new nocc_imap($ev);
 if (NoccException::isException($ev)) {
@@ -212,9 +212,9 @@ $_SESSION['nocc_loggedin'] = 1;
         $path = $conf->prefs_dir . "/" .$_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'].".contacts";
         $contacts = NOCC_Contacts::loadList($path);
 
-        for ($i = 0; $i < count ($contacts); ++$i)
+        for ($i = 0; $i < count($contacts); ++$i)
         {
-          $tab = explode ("\t",$contacts[$i]);
+          $tab = explode("\t",$contacts[$i]);
           
           if ($lang_dir === 'ltr') {
       ?>

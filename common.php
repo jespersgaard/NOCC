@@ -364,6 +364,6 @@ require_once ('./config/conf_charset.php');
 // allow PHP script to consume more memory than default setting for
 // big attachments
 if (isset($conf->memory_limit) && $conf->memory_limit != '') {
-    @ini_set ( "memory_limit", $conf->memory_limit);
+    @ini_set("memory_limit", $conf->memory_limit);
 }
 ?>

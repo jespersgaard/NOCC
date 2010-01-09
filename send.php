@@ -143,7 +143,7 @@ switch ($_REQUEST['sendaction']) {
             $wrap_msg = $user_prefs->wrap_msg;
         if ($mail_body != '') {
             if (isset ($wrap_msg) && $wrap_msg)
-                $mail->body = wrap_outgoing_msg ($mail_body, $wrap_msg, $mail->crlf);
+                $mail->body = wrap_outgoing_msg($mail_body, $wrap_msg, $mail->crlf);
             else
                 $mail->body = $mail_body;
         }
@@ -222,12 +222,12 @@ switch ($_REQUEST['sendaction']) {
 
         if (!isset ($_SESSION['last_send'])) {
             $ev = $mail->send($conf);
-            $_SESSION['last_send'] = time ();
-        } else if ($_SESSION['last_send'] + $conf->send_delay < time ()) {
+            $_SESSION['last_send'] = time();
+        } else if ($_SESSION['last_send'] + $conf->send_delay < time()) {
             $ev = $mail->send($conf);
-            $_SESSION['last_send'] = time ();
+            $_SESSION['last_send'] = time();
         } else {
-            $ev = new NoccException( i18n_message ( $lang_err_send_delay, $conf->send_delay ) );
+            $ev = new NoccException(i18n_message($lang_err_send_delay, $conf->send_delay));
         }
         header("Content-type: text/html; Charset=UTF-8");
         if (NoccException::isException($ev)) {

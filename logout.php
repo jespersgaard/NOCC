@@ -36,7 +36,7 @@ clear_attachments();
 session_name("NOCCSESSID");
 session_destroy();
 //destroy authentification cookie
-setcookie ("NoccIdent");
+setcookie("NoccIdent");
 require_once './utils/proxy.php';
 Header('Location: ' . $conf->base_url . 'index.php');
 ?>

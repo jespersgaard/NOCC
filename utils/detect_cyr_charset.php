@@ -203,7 +203,7 @@ function GetCodeScoreAll($Data,$beg_charset) {
         $Cur_mark_koi=0;
         $Cur_mark_win=0;
         for ($i=0; $i<$dlina; $i++ ) {
-            $pp=substr ($val3, $i, $PairSize);
+            $pp=substr($val3, $i, $PairSize);
             if (isset($cad_StatsTableKoi[$pp])) {
                     $Cur_mark_koi += $cad_StatsTableKoi[$pp];
             }

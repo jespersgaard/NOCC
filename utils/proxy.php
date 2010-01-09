@@ -23,6 +23,6 @@
  * @version    SVN: $Id$
  */
 
-header ("Pragma: no-cache");
-header ("Cache-control: no-cache");
+header("Pragma: no-cache");
+header("Cache-control: no-cache");
 ?>

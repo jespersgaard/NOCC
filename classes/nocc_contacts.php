@@ -33,10 +33,10 @@ class NOCC_Contacts {
 
        $contacts = array ();
 
-       while(!feof ($fp)) {
+       while(!feof($fp)) {
            $buffer = trim(fgets($fp, 4096));
            if ($buffer != '')
-               array_push ($contacts, $buffer);
+               array_push($contacts, $buffer);
        }
 
        fclose($fp);
@@ -65,9 +65,9 @@ class NOCC_Contacts {
         }
         $fp = fopen($path, 'w');
 
-        for ($i = 0; $i < count ($contacts); ++$i) {
+        for ($i = 0; $i < count($contacts); ++$i) {
             if (trim($contacts[$i]) != '')
-                fwrite ($fp, $contacts[$i] . "\n");
+                fwrite($fp, $contacts[$i] . "\n");
         }
 
         fclose($fp);

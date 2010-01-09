@@ -223,7 +223,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
           $body_charset = $_REQUEST['user_charset'];
         }
 
-        $body_converted = os_iconv( $body_charset, 'UTF-8', $body);
+        $body_converted = os_iconv($body_charset, 'UTF-8', $body);
         $body = ($body_converted===false) ? $body : $body_converted;
         $tmp['charset'] = ($body_converted===false) ? $body_charset : 'UTF-8';
     }
@@ -503,7 +503,7 @@ function format_date(&$date, &$lang) {
         return '';
 
     // if locale can't be set, use default for no locale
-    if (!setlocale (LC_TIME, $lang_locale))
+    if (!setlocale(LC_TIME, $lang_locale))
         $default_date_format = $no_locale_date_format;
 
     // format dates
@@ -528,7 +528,7 @@ function format_time(&$time, &$lang) {
         return '';
 
     // if locale can't be set, use default for no locale
-    setlocale (LC_TIME, $lang_locale);
+    setlocale(LC_TIME, $lang_locale);
 
     // format dates
     return strftime($default_time_format, $time); 
@@ -737,37 +737,37 @@ function mailquote(&$body, &$from, $html_wrote) {
     if ($wrap_msg) {
         $msg = '';
         //Break message in table with "\r\n" as separator
-        $tbl = explode ("\r\n", $body);
+        $tbl = explode("\r\n", $body);
         // For each line
-        for ($i = 0, $buffer = ''; $i < count ($tbl); ++$i) {
+        for ($i = 0, $buffer = ''; $i < count($tbl); ++$i) {
             unset($buffer);
             // Number of "> "
             $q = substr_count($tbl[$i], "> ");
 
-            $tbl[$i] = rtrim ($tbl[$i]);
+            $tbl[$i] = rtrim($tbl[$i]);
             // Erase the "> "
-            $tbl[$i] = str_replace ("> ", "", $tbl[$i]);
+            $tbl[$i] = str_replace("> ", "", $tbl[$i]);
             // Erase the break line
-            $tbl[$i] = str_replace ("\n", " ", $tbl[$i]);
+            $tbl[$i] = str_replace("\n", " ", $tbl[$i]);
             // length of "> > ...."
-            $length = ($q + 1) * strlen ("> ");
+            $length = ($q + 1) * strlen("> ");
             // Add the quote if ligne is not to long
-            if (strlen ($tbl[$i]) + $length <= $wrap_msg)
-                $msg .= str_pad($tbl[$i], strlen ($tbl[$i]) + $length, "> ", STR_PAD_LEFT) . $crlf;
+            if (strlen($tbl[$i]) + $length <= $wrap_msg)
+                $msg .= str_pad($tbl[$i], strlen($tbl[$i]) + $length, "> ", STR_PAD_LEFT) . $crlf;
             // If line is to long, create new line
             else {
-                $words = explode (" ", $tbl[$i]);
+                $words = explode(" ", $tbl[$i]);
                 $buffer = '';
-                for ($j = 0; $j < count ($words); ++$j) {
-                    if (strlen ($buffer) + strlen ($words[$j]) + $length <= $wrap_msg)
+                for ($j = 0; $j < count($words); ++$j) {
+                    if (strlen($buffer) + strlen($words[$j]) + $length <= $wrap_msg)
                         $buffer .= $words[$j] . " ";
                     else {
-                        $msg .=  str_pad(rtrim ($buffer), strlen (rtrim ($buffer)) + $length, "> ", STR_PAD_LEFT) . $crlf;
+                        $msg .=  str_pad(rtrim($buffer), strlen(rtrim($buffer)) + $length, "> ", STR_PAD_LEFT) . $crlf;
                         $buffer = $words[$j] . " ";
                     }
                 }
                 //if ($q != substr_count($tbl[$i + 1], "> "))
-                $msg .= str_pad(rtrim ($buffer), strlen (rtrim ($buffer)) + $length, "> ", STR_PAD_LEFT) . $crlf;
+                $msg .= str_pad(rtrim($buffer), strlen(rtrim($buffer)) + $length, "> ", STR_PAD_LEFT) . $crlf;
             }
         }
         $body = $msg;
@@ -803,24 +803,24 @@ function safestrip(&$string) {
 function wrap_outgoing_msg($txt, $length, $newline) {
     $msg = '';
     // cut message in segment
-    $tbl = explode ("\r\n", $txt);
+    $tbl = explode("\r\n", $txt);
     // Clean the end of the line
-    for ($i = 0, $buffer = ''; $i < count ($tbl); ++$i) {
-        $tbl[$i] = rtrim ($tbl[$i]);
-        if (strlen ($tbl[$i]) <= $length)
+    for ($i = 0, $buffer = ''; $i < count($tbl); ++$i) {
+        $tbl[$i] = rtrim($tbl[$i]);
+        if (strlen($tbl[$i]) <= $length)
             $msg .= $tbl[$i] . $newline;
         else {
-            unset( $buffer);
-            $words = explode (" ", $tbl[$i]);
-            for ($j = 0; $j < count ($words); ++$j) {
-                if ((strlen ($buffer) + strlen ($words[$j])) <= $length)
+            unset($buffer);
+            $words = explode(" ", $tbl[$i]);
+            for ($j = 0; $j < count($words); ++$j) {
+                if ((strlen($buffer) + strlen($words[$j])) <= $length)
                     $buffer .= $words[$j] . " ";
                 else {
-                    $msg .= rtrim ($buffer) . $newline;
+                    $msg .= rtrim($buffer) . $newline;
                     $buffer = $words[$j] . " ";
                 }
             }
-            $msg .= rtrim ($buffer) . $newline;
+            $msg .= rtrim($buffer) . $newline;
         }
     }
     return $msg;
@@ -837,10 +837,10 @@ function escape_dots($txt) {
     $msg = '';
 
     // cut message in segment
-    $tbl = explode ($crlf, $txt);
+    $tbl = explode($crlf, $txt);
 
     for ($i = 0; $i < count($tbl); ++$i) {
-        if(strlen($tbl[$i]) != 0 && $tbl[$i][0] == '.')
+        if (strlen($tbl[$i]) != 0 && $tbl[$i][0] == '.')
             $tbl[$i] = "." . $tbl[$i];
 
         $msg .= $tbl[$i] . $crlf;
@@ -890,9 +890,9 @@ function get_per_page() {
  * @return string
  */
 function unhtmlentities($string) {
-    $trans_tbl = get_html_translation_table (HTML_ENTITIES);
-    $trans_tbl = array_flip ($trans_tbl);
-    return strtr ($string, $trans_tbl);
+    $trans_tbl = get_html_translation_table(HTML_ENTITIES);
+    $trans_tbl = array_flip($trans_tbl);
+    return strtr($string, $trans_tbl);
 }
 
 /**
@@ -955,8 +955,8 @@ function saveSession(&$ev) {
             $ev = new NoccException($html_session_file_error);
             return false;
         }
-        fwrite ($file, $cookie_string . "\n");
-        fclose ($file);
+        fwrite($file, $cookie_string . "\n");
+        fclose($file);
         return true;
     }
     return false;

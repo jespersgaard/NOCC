@@ -19,7 +19,7 @@ require_once ('./common.php');
 require_once ('./classes/nocc_contacts.php');
 require_once ('./utils/proxy.php');
 
-header ("Content-type: text/html; Charset=UTF-8");
+header("Content-type: text/html; Charset=UTF-8");
 
 $pop = new nocc_imap($ev);
 if (NoccException::isException($ev)) {
@@ -83,7 +83,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
       case "add_prompt":
         if (isset($_GET['id']))
         {
-          $tab = array_pad(explode ("\t",$contacts[$_GET['id']]), -4, "");
+          $tab = array_pad(explode("\t",$contacts[$_GET['id']]), -4, "");
         }
   ?>
   <div class="contactAdd">
@@ -105,7 +105,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
             <?php echo ($_GET['modif']) ? $html_contact_mod : $html_contact_add ?>
           </td>
         </tr>
-        <?php if (count ($contacts) < $conf->contact_number_max || $_GET['modif']) { ?>
+        <?php if (count($contacts) < $conf->contact_number_max || $_GET['modif']) { ?>
         <tr>
           <td class="contactsAddLabel"><label for="first"><?php echo convertLang2Html($html_contact_first) ?>:</label></td>
           <td class="contactsAddData"><input class="button" name="first" type="text" id="first" value="<?php if (isset($tab[0])) { echo $tab[0]; } ?>"/></td>
@@ -139,7 +139,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
                 </tr>
                 <tr class="errorText">
                   <td>
-                    <p><?php echo i18n_message ( $html_contact_err1, $conf->contact_number_max ) ?></p>
+                    <p><?php echo i18n_message($html_contact_err1, $conf->contact_number_max) ?></p>
                     <p><?php echo convertLang2Html($html_contact_err2) ?>.</p>
                     <p><a href="<?php echo $_SERVER['PHP_SELF']; ?>"><?php echo $html_back; ?></a></p>
                   </td>
@@ -165,16 +165,16 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
           {
             //We should strip slashes here
             if( get_magic_quotes_gpc() )
-              $_POST[$contact_element] = stripslashes( $_POST[$contact_element] );
+              $_POST[$contact_element] = stripslashes($_POST[$contact_element]);
             // Strip tabs that COULD be inserted into fields(causing corrupted
             // DB)
-            $_POST[$contact_element] = str_replace( '\t','',$_POST[$contact_element] );
+            $_POST[$contact_element] = str_replace('\t','',$_POST[$contact_element]);
             //Maybe more sanity checking needs to be done???
           }
-          if (count ($contacts) < $conf->contact_number_max && empty ($_POST['modif']))
+          if (count($contacts) < $conf->contact_number_max && empty($_POST['modif']))
           {
             $line = $_POST['first'] . "\t" . $_POST['last'] . "\t" . $_POST['nick'] . "\t" . $_POST['email'];
-            array_push ($contacts, $line);
+            array_push($contacts, $line);
             NOCC_Contacts::saveList($path, $contacts, $conf, $ev);
             if (NoccException::isException($ev)) {
               require ('./html/error.php');
@@ -207,7 +207,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
 
       case "delete":
         $new_contacts = array ();
-        for ($i = 0; $i < count ($contacts); ++$i)
+        for ($i = 0; $i < count($contacts); ++$i)
           if ($_GET['id'] != $i)
             $new_contacts[] = $contacts[$i];
         NOCC_Contacts::saveList($path, $new_contacts, $conf, $ev);
@@ -232,9 +232,9 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
         <th colspan="2">&nbsp;</th>
       </tr>
       <?php
-        for ($i = 0; $i < count ($contacts); ++$i)
+        for ($i = 0; $i < count($contacts); ++$i)
         {
-          $tab = array_pad(explode ("\t",$contacts[$i]), -4, "");
+          $tab = array_pad(explode("\t",$contacts[$i]), -4, "");
       ?>
       <tr class="<?php echo ($i % 2) ? "contactsListEven" : "contactsListOdd" ?>">
         <td><?php echo ($tab[0]) ? $tab[0] : "&nbsp;"; ?></td>

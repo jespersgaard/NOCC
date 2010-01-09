@@ -7,7 +7,7 @@ if (file_exists('./utils/proxy.php'))
 else
     die('./utils/proxy.php is missing');
 
-header ("Content-type: text/html; Charset=UTF-8");
+header("Content-type: text/html; Charset=UTF-8");
 
 // Don't call getPref unless session has been initialised enough for
 // prefs.php to find it's prefs file.

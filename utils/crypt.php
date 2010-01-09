@@ -67,7 +67,7 @@ function genkey($keylength, $cookiename)
                   crypt(time())),
          0, $keylength);
 
-  setcookie ($cookiename, $rkey , time() + 3600);
+  setcookie($cookiename, $rkey , time() + 3600);
 
   return $rkey;
 }
@@ -105,7 +105,7 @@ function decpass($cipher, $rkey)
 function delkey($cookie)
 {
   // Deletes the cookie
-  setcookie ($cookie, "", time() - 3600);
+  setcookie($cookie, "", time() - 3600);
 }
 
 ?>
