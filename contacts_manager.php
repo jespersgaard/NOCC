@@ -83,7 +83,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
       case "add_prompt":
         if (isset($_GET['id']))
         {
-          $tab = array_pad(explode("\t",$contacts[$_GET['id']]), -4, "");
+          $tab = array_pad(explode("\t", $contacts[$_GET['id']]), -4, "");
         }
   ?>
   <div class="contactAdd">
@@ -168,7 +168,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
               $_POST[$contact_element] = stripslashes($_POST[$contact_element]);
             // Strip tabs that COULD be inserted into fields(causing corrupted
             // DB)
-            $_POST[$contact_element] = str_replace('\t','',$_POST[$contact_element]);
+            $_POST[$contact_element] = str_replace('\t', '', $_POST[$contact_element]);
             //Maybe more sanity checking needs to be done???
           }
           if (count($contacts) < $conf->contact_number_max && empty($_POST['modif']))
@@ -234,7 +234,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
       <?php
         for ($i = 0; $i < count($contacts); ++$i)
         {
-          $tab = array_pad(explode("\t",$contacts[$i]), -4, "");
+          $tab = array_pad(explode("\t", $contacts[$i]), -4, "");
       ?>
       <tr class="<?php echo ($i % 2) ? "contactsListEven" : "contactsListOdd" ?>">
         <td><?php echo ($tab[0]) ? $tab[0] : "&nbsp;"; ?></td>

@@ -55,7 +55,7 @@ require ('./html/header.php');
                         else if ( isset($conf->vhost_domain_login) && $conf->vhost_domain_login == true ) {
                           $i = 0;
                           while (!empty($conf->domains[$i]->in)) {
-                            if (strpos($_SERVER["HTTP_HOST"],$conf->domains[$i]->domain))
+                            if (strpos($_SERVER["HTTP_HOST"], $conf->domains[$i]->domain))
                               echo '<input type="hidden" name="domainnum" id="domainnum" value="' . $i . '" />'."\n";
                               $i++;
                           }

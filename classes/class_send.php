@@ -233,11 +233,11 @@ class mime_mail {
         }
 
         if (sizeof($this->parts) >= 1) {
-            $this->add_attachment($this->body,  '',  $mail_format, 'quoted-printable', $this->charset);
+            $this->add_attachment($this->body, '', $mail_format, 'quoted-printable', $this->charset);
             $mime .= 'MIME-Version: 1.0' . $this->crlf . $this->_buildMultipart();
         }
         else {
-            $this->add_attachment($this->body,  '',  $mail_format, '8bit', $this->charset);
+            $this->add_attachment($this->body, '', $mail_format, '8bit', $this->charset);
             $mime .= 'MIME-Version: 1.0' . $this->crlf . $this->_buildNoneMultipart();
         }
 

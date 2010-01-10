@@ -214,7 +214,7 @@ $_SESSION['nocc_loggedin'] = 1;
 
         for ($i = 0; $i < count($contacts); ++$i)
         {
-          $tab = explode("\t",$contacts[$i]);
+          $tab = explode("\t", $contacts[$i]);
           
           if ($lang_dir === 'ltr') {
       ?>

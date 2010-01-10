@@ -70,8 +70,8 @@
 
   $ts = time();
   $tz = date('O', $ts);
-  $tz = substr($tz,0,-2).':'.substr($tz,-2);
-  $ts = date('Y-m-d\\TH:i:s',$ts).$tz;
+  $tz = substr($tz, 0, -2) . ':' . substr($tz, -2);
+  $ts = date('Y-m-d\\TH:i:s', $ts) . $tz;
 
   header('Content-Type: application/rss+xml; charset=UTF-8');
   echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";

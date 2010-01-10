@@ -133,17 +133,17 @@ $cad_StatsTableWin = array(
 /* lxnt:  patched to return charset names that iconv() understands*/
 function detect_charset($Data,$dbg_fl = 0) {
     /* for many small pices of text -  list of sender/subject*/
-        $rc=preg_match("/(.*)([\x7F-\xFF]+)/xU",$Data,$tst_ar);
-    if($rc == 0) {
+        $rc = preg_match("/(.*)([\x7F-\xFF]+)/xU", $Data, $tst_ar);
+    if ($rc == 0) {
             return 'US-ASCII';
     } else {
-                $beg_charset=strpos($Data,$tst_ar[2]);
+                $beg_charset = strpos($Data, $tst_ar[2]);
     }
-    list($KoiMark,$WinMark) = GetCodeScoreAll($Data,$beg_charset);
+    list($KoiMark,$WinMark) = GetCodeScoreAll($Data, $beg_charset);
     $Ratio['koi8-r'] =  $KoiMark/($WinMark + 1);
     $Ratio['windows-1251'] =  $WinMark/($KoiMark + 1);
 
-        list($MaxRation,$MaxRatioKey)=max_from_ratio($Ratio);
+        list($MaxRation, $MaxRatioKey) = max_from_ratio($Ratio);
         return $MaxRatioKey;
 }
 
@@ -164,20 +164,20 @@ function GetCodeScoreAll($Data,$beg_charset) {
     global $cad_StatsTableWin, $cad_StatsTableKoi;
     $PairSize = 2;
 
-    $Data=substr($Data,$beg_charset,100);
-    $Data=preg_replace('/[\n\r]/','',$Data);
+    $Data = substr($Data, $beg_charset, 100);
+    $Data = preg_replace('/[\n\r]/', '', $Data);
     //$old_locale = function_exists('nl_langinfo') ? nl_langinfo(LC_CTYPE) : 'ru_RU.KOI8-R';
-    setlocale(LC_CTYPE,'ru_RU.KOI8-R');
+    setlocale(LC_CTYPE, 'ru_RU.KOI8-R');
 
     $Mark_koi=0;
     $Mark_win=0;
     $cnt=0;
     $max_detect_limit=10;
 
-    $sp=preg_split('/[\.\,\-\s\:\;\?\!\'\"\(\)\d<>]+/',$Data);
-    while ( list($key2,$val2) = each($sp) ) {
+    $sp = preg_split('/[\.\,\-\s\:\;\?\!\'\"\(\)\d<>]+/', $Data);
+    while ( list($key2, $val2) = each($sp) ) {
         /* for many small pices of text -  words in mesaage body */
-        $rc=preg_match("/(.*)([\x7F-\xFF]+)/x",$val2);
+        $rc = preg_match("/(.*)([\x7F-\xFF]+)/x", $val2);
         if($rc == 0) {
             continue;
         }
@@ -195,7 +195,7 @@ function GetCodeScoreAll($Data,$beg_charset) {
         } else {
             $scaleK=1;
         }
-        if(substr($val3,0,1).strtoupper(substr($val2,1,strlen($val2))) == $val2) {
+        if (substr($val3, 0, 1) . strtoupper(substr($val2, 1, strlen($val2))) == $val2) {
             $scaleW=2;
         } else {
             $scaleW=1;

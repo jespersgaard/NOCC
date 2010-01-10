@@ -213,9 +213,9 @@ switch ($_REQUEST['sendaction']) {
 
                 // Attach it
                 if (count($mail_list) == 1) {
-                    $mail->add_attachment($origmsg, 'orig_msg.eml',  'message/rfc822', '', '');
+                    $mail->add_attachment($origmsg, 'orig_msg.eml', 'message/rfc822', '', '');
                 } else {
-                    $mail->add_attachment($origmsg, 'orig_msg_'.$msg_num.'.eml',  'message/rfc822', '', '');
+                    $mail->add_attachment($origmsg, 'orig_msg_'.$msg_num.'.eml', 'message/rfc822', '', '');
                 }
             }
         }

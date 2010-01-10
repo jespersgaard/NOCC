@@ -221,7 +221,7 @@ class NOCCUserPrefs {
             return;
         }
 
-        if( isset($this->wrap_msg) && !preg_match("/^(0|72|80)$/",$this->wrap_msg) ) {
+        if( isset($this->wrap_msg) && !preg_match("/^(0|72|80)$/", $this->wrap_msg) ) {
             $ev = new NoccException($html_invalid_wrap_msg);
             return;
         }

@@ -126,7 +126,7 @@ class NOCC_Header {
      */
     function _parsePriority($sValue) {
         // don't use function call inside array_shift.
-        $aValue = preg_split('/\s/',trim($sValue));
+        $aValue = preg_split('/\s/', trim($sValue));
         $value = strtolower(array_shift($aValue));
 
         if ( is_numeric($value) ) {

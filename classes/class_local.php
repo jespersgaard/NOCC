@@ -236,11 +236,11 @@ class nocc_imap
     }
 
     function mail_mark_read(&$mail, &$ev) {
-        return imap_setflag_full($this->conn,  imap_uid($this->conn, $mail), "\\Seen", ST_UID);
+        return imap_setflag_full($this->conn, imap_uid($this->conn, $mail), "\\Seen", ST_UID);
     }
 
     function mail_mark_unread(&$mail, &$ev) {
-        return imap_clearflag_full($this->conn, imap_uid($this->conn, $mail), "\\Seen",ST_UID);
+        return imap_clearflag_full($this->conn, imap_uid($this->conn, $mail), "\\Seen", ST_UID);
     }
 
     function exists(&$mailbox, &$ev) {

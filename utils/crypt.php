@@ -67,7 +67,7 @@ function genkey($keylength, $cookiename)
                   crypt(time())),
          0, $keylength);
 
-  setcookie($cookiename, $rkey , time() + 3600);
+  setcookie($cookiename, $rkey, time() + 3600);
 
   return $rkey;
 }
@@ -77,7 +77,7 @@ function encpass($passwd, $rkey)
   // Encrypts $passwd with $key and returns encrypted password
 
   //$encpasswd = encr(base64_encode($passwd),$rkey);
-  $encpasswd = encr(bin2hex($passwd),$rkey);
+  $encpasswd = encr(bin2hex($passwd), $rkey);
   //$encpasswd = encr($passwd,$rkey);
   return $encpasswd;
 }
@@ -92,7 +92,7 @@ function decpass($cipher, $rkey)
   $decpasswd = '';
   
   for ($i=0; $i<strlen($dechexpasswd)/2; $i++) {
-    $decpasswd.=chr(base_convert(substr($dechexpasswd,$i*2,2),16,10));
+    $decpasswd .= chr(base_convert(substr($dechexpasswd, $i * 2, 2), 16, 10));
   }
   //$decpasswd = decr($cipher, $rkey);
   return $decpasswd;

@@ -60,7 +60,7 @@ class NOCC_Theme {
         
         $name = strip_tags($name);
         $name = str_replace('..', '', $name);
-        $name = str_replace('/','',$name);
+        $name = str_replace('/', '', $name);
         if (!empty($name)) { //if the name exists...
             $this->_name = $name;
             $path = 'themes/' . $name;

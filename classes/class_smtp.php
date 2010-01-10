@@ -209,7 +209,7 @@ class smtp
   
     function smtp_quit($smtp) 
     {
-        fputs($smtp,  "QUIT\r\n"); 
+        fputs($smtp, "QUIT\r\n");
         $this->sessionlog .= "Sent: QUIT";
         $line = fgets($smtp, 1024);
         $this->sessionlog .= "Rcvd: $line";

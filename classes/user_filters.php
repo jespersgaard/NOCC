@@ -109,7 +109,7 @@ class NOCCUserFilters {
                         return;
                 }
 
-                fwrite($file,"super happy filter file\n");
+                fwrite($file, "super happy filter file\n");
                 foreach($this->filterset as $name => $filter) {
                         foreach($filter as $type => $thing) {
                                 if ($type && $thing) {

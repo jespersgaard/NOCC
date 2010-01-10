@@ -67,11 +67,11 @@ switch($action) {
         $tmp_attach_tab = $attach_tab;
         $i = 0;
         while ($tmp = array_pop($tmp_attach_tab)) {
-            if ($conf->display_img_attach && (stripos($tmp['mime'],'image') && ($tmp['number'] != '')))
+            if ($conf->display_img_attach && (stripos($tmp['mime'], 'image') && ($tmp['number'] != '')))
             {
                 $exploded = explode('/', $tmp['mime']);
                 $img_type = array_pop($exploded);
-                if (preg_match('|JP[E]?G|i', $img_type) || stripos($img_typ,'GIF') || stripos($img_type,'PNG')) {
+                if (preg_match('|JP[E]?G|i', $img_type) || stripos($img_typ, 'GIF') || stripos($img_type, 'PNG')) {
                     $new_img_src = 'src="get_img.php?mail=' . $_REQUEST['mail'].'&amp;num='
                             . $tmp['number'] . '&amp;mime=' . $img_type . '&amp;transfer=' . $tmp['transfer'] . '"';
                     $img_id = str_replace('<', '', $tmp['id']);
@@ -98,18 +98,18 @@ switch($action) {
         while ($tmp = array_pop($attach_tab)) {
             // $attach_tab is the array of attachments
             // If it's a text/plain, display it
-            if ((!stripos($tmp['disposition'],'ATTACHMENT')) && $conf->display_text_attach && (stripos($tmp['mime'],'text/plain'))) {
+            if ((!stripos($tmp['disposition'], 'ATTACHMENT')) && $conf->display_text_attach && (stripos($tmp['mime'], 'text/plain'))) {
                 echo '<hr class="mailAttachSep" />';
                 echo '<div class="mailTextAttach">';
                 //TODO: Replace URLs and Smilies in text/plain attachment?
                 echo view_part($pop, $_REQUEST['mail'], $tmp['number'], $tmp['transfer'], $tmp['charset']);
                 echo '</div> <!-- .mailTextAttach -->';
             }
-            if ($conf->display_img_attach && (stripos($tmp['mime'],'image') && ($tmp['number'] != ''))) {
+            if ($conf->display_img_attach && (stripos($tmp['mime'], 'image') && ($tmp['number'] != ''))) {
                 // if it's an image, display it
                 $exploded = explode('/', $tmp['mime']);
                 $img_type = array_pop($exploded);
-                if (preg_match('|JP[E]?G|i', $img_type) || tripos($img_type,'JPG') || stripos($img_type,'GIF') || stripos($img_type,'PNG'))
+                if (preg_match('|JP[E]?G|i', $img_type) || tripos($img_type, 'JPG') || stripos($img_type, 'GIF') || stripos($img_type, 'PNG'))
                 {
                     echo '<hr class="mailAttachSep" />';
                     echo '<div class="mailImgAttach">';
@@ -490,7 +490,7 @@ switch($action) {
             }
         }
         $html_filter_select = $filterset->html_filter_select();
-        $filter_move_to = $pop->html_folder_select('filter_move_box','');
+        $filter_move_to = $pop->html_folder_select('filter_move_box', '');
 
         require ('./html/header.php');
         require ('./html/menu_prefs.php');
@@ -640,7 +640,7 @@ switch($action) {
                         }
                         if ($filters != null) {
                             foreach($filters->filterset as $name => $filter) {
-                                $filter_messages = $pop->search($small_search . $filter['SEARCH'],'',$ev);
+                                $filter_messages = $pop->search($small_search . $filter['SEARCH'], '', $ev);
                                 if (is_array($filter_messages)) {
                                     $filter_to_folder = array();
                                     foreach($filter_messages as $filt_msg_no) {
