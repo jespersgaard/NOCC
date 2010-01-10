@@ -147,8 +147,7 @@ class smtp
     function smtp_rcpt_to($smtp)
     {
         // Modified by nicocha to use to, cc and bcc field
-        while ($tmp = array_shift($this->to))
-        {
+        while ($tmp = array_shift($this->to)) {
             if($tmp == '' || $tmp == '<>')
                 continue;
             fputs($smtp, "RCPT TO:$tmp\r\n");
@@ -159,8 +158,7 @@ class smtp
             if (substr($line, 0, 1) <> '2')
                 return new NoccException($html_smtp_error_unexpected . ' : ' . $line);
         }
-        while ($tmp = array_shift($this->cc))
-        {
+        while ($tmp = array_shift($this->cc)) {
             if($tmp == '' || $tmp == '<>')
                 continue;
             fputs($smtp, "RCPT TO:$tmp\r\n");
@@ -172,8 +170,7 @@ class smtp
                 return new NoccException($html_smtp_error_unexpected . ' : ' . $line);
         }
 
-        while ($tmp = array_shift($this->bcc))
-        {
+        while ($tmp = array_shift($this->bcc)) {
             if($tmp == '' || $tmp == '<>')
                 continue;
             fputs($smtp, "RCPT TO:$tmp\r\n");

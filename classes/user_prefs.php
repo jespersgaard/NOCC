@@ -76,18 +76,17 @@ class NOCCUserPrefs {
             return $prefs;
         }
         $file = fopen($filename, 'r');
-        if(!$file) {
+        if (!$file) {
             $ev = new NoccException("Could not open $filename for reading user preferences");
             return;
         }
 
         /* Read in all the preferences */
         $highlight_num = 0;
-        while(!feof($file))
-        {
+        while (!feof($file)) {
             $line = trim(fgets($file, 1024));
             $equalsAt = strpos($line, '=');
-            if($equalsAt <= 0) continue;
+            if ($equalsAt <= 0) continue;
 
             $key = substr($line, 0, $equalsAt);
             $value = substr($line, $equalsAt + 1);
@@ -157,16 +156,16 @@ class NOCCUserPrefs {
 
         // Write prefs to file
         $filename = $conf->prefs_dir . '/' . $this->key . '.pref';
-        if(file_exists($filename) && !is_writable($filename)){
+        if (file_exists($filename) && !is_writable($filename)) {
             $ev = new NoccException($html_prefs_file_error);
             return; 
         }
-        if(!is_writable($conf->prefs_dir)) {
+        if (!is_writable($conf->prefs_dir)) {
             $ev = new NoccException($html_prefs_file_error);
             return;
         }
         $file = fopen($filename, 'w');
-        if(!$file){
+        if (!$file){
             $ev = new NoccException($html_prefs_file_error);
             return;
         }
@@ -206,8 +205,8 @@ class NOCCUserPrefs {
         global $html_invalid_msg_per_page;
         global $html_invalid_wrap_msg;
 
-        if($conf->allow_address_change) {
-            if(!NOCC_MailAddress::isValidAddress($this->email_address)) {
+        if ($conf->allow_address_change) {
+            if (!NOCC_MailAddress::isValidAddress($this->email_address)) {
                 $ev = new NoccException($html_invalid_email_address);
                 return;
             }
@@ -216,12 +215,12 @@ class NOCCUserPrefs {
             $this->email_address = '';
         }
 
-        if( isset($this->msg_per_page) && !is_numeric($this->msg_per_page) ) {
+        if (isset($this->msg_per_page) && !is_numeric($this->msg_per_page) ) {
             $ev = new NoccException($html_invalid_msg_per_page);
             return;
         }
 
-        if( isset($this->wrap_msg) && !preg_match("/^(0|72|80)$/", $this->wrap_msg) ) {
+        if (isset($this->wrap_msg) && !preg_match("/^(0|72|80)$/", $this->wrap_msg)) {
             $ev = new NoccException($html_invalid_wrap_msg);
             return;
         }
@@ -233,8 +232,7 @@ class NOCCUserPrefs {
     /*
      * Format Reply Leadin
      */
-    function parseLeadin ($string, $content)
-    {
+    function parseLeadin ($string, $content) {
         $string = str_replace('_DATE_', $content['date'], $string);
         $string = str_replace('_TIME_', $content['time'], $string);
         $string = str_replace('_FROM_', $content['from'], $string);

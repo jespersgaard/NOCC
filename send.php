@@ -128,7 +128,7 @@ switch ($_REQUEST['sendaction']) {
         $mail->to = cut_address(trim($mail_to), 'UTF-8');
         $mail->cc = cut_address(trim($mail_cc), 'UTF-8');
         $user_prefs = $_SESSION['nocc_user_prefs'];
-        if(isset($user_prefs->cc_self) && $user_prefs->cc_self) {
+        if (isset($user_prefs->cc_self) && $user_prefs->cc_self) {
             array_unshift($mail->cc, $mail->from);
         }
         $mail->bcc = cut_address(trim($mail_bcc), 'UTF-8');
@@ -178,7 +178,7 @@ switch ($_REQUEST['sendaction']) {
         }
 
         // Add original message as attachment?
-        if(isset($_REQUEST['forward_msgnum']) && $_REQUEST['forward_msgnum'] != "") {
+        if (isset($_REQUEST['forward_msgnum']) && $_REQUEST['forward_msgnum'] != "") {
             $mail_list = explode('$', $_REQUEST['forward_msgnum']);
             for ($msg_num = 0; $msg_num < count($mail_list); $msg_num++) {
                 $forward_msgnum = $mail_list[$msg_num];

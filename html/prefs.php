@@ -111,7 +111,7 @@ if (count($big_list) > 1) {
     <fieldset>
       <legend><?php echo convertLang2Html($html_reply); ?></legend>
       <table>
-         <?php if($conf->enable_reply_leadin) { ?>
+         <?php if ($conf->enable_reply_leadin) { ?>
          <tr>
            <td class="prefsLabel"><label for="reply_leadin"><?php echo convertLang2Html($html_reply_leadin_label) ?></label></td>
            <td class="prefsData">
@@ -186,7 +186,7 @@ if (count($big_list) > 1) {
          <?php } ?>
       </table>
     </fieldset>
-         <?php if($pop->is_imap()) { ?>
+         <?php if ($pop->is_imap()) { ?>
     <fieldset>
       <legend><?php echo convertLang2Html($html_folders); ?></legend>
       <table>
@@ -216,8 +216,7 @@ if (count($big_list) > 1) {
              <select class="button" name="lang" id="lang">
                <?php
                  for ($i = 0; $i < sizeof($lang_array); $i++)
-                 if (file_exists('lang/'.$lang_array[$i]->filename.'.php'))
-                 {
+                 if (file_exists('lang/'.$lang_array[$i]->filename.'.php')) {
                    echo '<option value="'.$lang_array[$i]->filename.'"';
                    if ($_SESSION['nocc_lang'] == $lang_array[$i]->filename)
                      echo ' selected="selected"';
@@ -234,10 +233,8 @@ if (count($big_list) > 1) {
              <select class="button" name="theme" id="theme">
              <?php
                $handle = opendir('./themes');
-               while (($file = readdir($handle)) != false)
-               {
-                 if (($file != '.') && ($file != '..') && ($file != '.svn'))
-                 {
+               while (($file = readdir($handle)) != false) {
+                 if (($file != '.') && ($file != '..') && ($file != '.svn')) {
                    echo '<option value="'.$file.'"';
                    if ($file == $_SESSION['nocc_theme'])
                      echo ' selected="selected"';
@@ -253,7 +250,7 @@ if (count($big_list) > 1) {
       </table>
     </fieldset>
            <?php
-             if(NoccException::isException($ev)) {
+             if (NoccException::isException($ev)) {
            ?>
              <div class="error">
                <table class="errorTable">
@@ -269,7 +266,7 @@ if (count($big_list) > 1) {
              </div>
            <?php
              } else {
-               if(isset($_REQUEST['submit_prefs']))
+               if (isset($_REQUEST['submit_prefs']))
                  echo '<p>' . convertLang2Html($html_prefs_updated) . '</p>';
              }
            ?>

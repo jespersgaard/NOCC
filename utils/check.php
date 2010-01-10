@@ -26,8 +26,7 @@ if (!function_exists('version_compare')) { //if PHP 4.1.0 or newer...
 }
 
 // Mandatory modules
-if (!extension_loaded('imap'))
-{
+if (!extension_loaded('imap')) {
   $ev = new NoccException("The IMAP module does not seem to be installed on this PHP setup, please see NOCC's documentation.");
 }
 
@@ -37,29 +36,24 @@ if (!extension_loaded('iconv'))
 }
 
 // PHP setup
-if (ini_get('register_globals') == true)
-{
+if (ini_get('register_globals') == true) {
   $ev = new NoccException("Please set \"register_globals\" to \"Off\" within your \"php.ini\" file in order for NOCC to run. If you don't have access to \"php.ini\", please consult the FAQ in order to fix this problem.");
 }
 
 // NOCC setup
-if (empty($conf->tmpdir))
-{
+if (empty($conf->tmpdir)) {
   $ev = new NoccException("\"\$conf->tmpdir\" is not set in \"config/conf.php\". NOCC cannot run.");
 }
 
-if (!empty($conf->prefs_dir) && !is_dir($conf->prefs_dir))
-{
+if (!empty($conf->prefs_dir) && !is_dir($conf->prefs_dir)) {
   $ev = new NoccException("\"\$conf->prefs_dir\" is set in \"config/conf.php\" but doesn't exists. You must create \"\$conf->prefs_dir\" ($conf->prefs_dir) in order for NOCC to run.");
 }
 
-if (!isset($conf->master_key) || $conf->master_key == '')
-{
+if (!isset($conf->master_key) || $conf->master_key == '') {
   $ev = new NoccException("\"\$conf->master_key\" must be set in \"config/conf.php\" in order for NOCC to run.");
 }
 
-if (!isset($conf->column_order) || $conf->column_order == '')
-{
+if (!isset($conf->column_order) || $conf->column_order == '') {
   $ev = new NoccException("\"\$conf->column_order\" must be set in \"config/conf.php\" in order for NOCC to run.");
 }
 

@@ -72,7 +72,7 @@ if (count($big_list) > 1) {
         </tr>
       </table>
           <?php
-            if(NoccException::isException($ev)) {
+            if (NoccException::isException($ev)) {
           ?>
             <div class="error">
               <table class="errorTable">

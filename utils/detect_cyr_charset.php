@@ -178,18 +178,20 @@ function GetCodeScoreAll($Data,$beg_charset) {
     while ( list($key2, $val2) = each($sp) ) {
         /* for many small pices of text -  words in mesaage body */
         $rc = preg_match("/(.*)([\x7F-\xFF]+)/x", $val2);
-        if($rc == 0) {
+        if ($rc == 0) {
             continue;
         }
 
-        if($cnt > $max_detect_limit) {
+        if ($cnt > $max_detect_limit) {
             break;
         } else {
             $cnt++;
         }
         $dlina=strlen($val2)-$PairSize;
-        if($dlina < 1) {$cnt--; continue;}
-         $val3=strtolower($val2);
+        if ($dlina < 1) {
+            $cnt--; continue;
+        }
+        $val3=strtolower($val2);
         if (ucfirst($val3) == $val2) {
             $scaleK=2;
         } else {

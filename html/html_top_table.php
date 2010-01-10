@@ -11,7 +11,7 @@ $pages = $pop->get_page_count($conf);
 
 $page_line = '';
 
-if($pages > 1) {
+if ($pages > 1) {
     $page_line = get_page_nav($pages, $skip);
 }
 
@@ -24,7 +24,7 @@ if ($pop->is_imap()) {
         $fldr_line .= "<input type=\"submit\" class=\"button\" name=\"submit\" value=\"$html_gotofolder\" />";
         $fldr_line .= "</div></form>";
     }
-    if($pop->folder == 'INBOX') {
+    if ($pop->folder == 'INBOX') {
         $reapply_filters = '<form method="post" action="'.$_SERVER['PHP_SELF'].'"><div>'.
             '<label for="reapply_filters"><input type="checkbox" name="reapply_filters" id="reapply_filters" value="1" /> '.
             $html_reapply_filters.'</label> <input class="button" type="submit" value="'.$html_submit.'" /></div></form>';

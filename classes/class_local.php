@@ -42,7 +42,7 @@ class nocc_imap
     {
         global $conf;
         global $lang_could_not_connect;
-        if(!isset($_SESSION['nocc_servr']) || !isset($_SESSION['nocc_folder']) || !isset($_SESSION['nocc_login']) || !isset($_SESSION['nocc_passwd'])) {
+        if (!isset($_SESSION['nocc_servr']) || !isset($_SESSION['nocc_folder']) || !isset($_SESSION['nocc_login']) || !isset($_SESSION['nocc_passwd'])) {
         $ev = new NoccException($lang_could_not_connect);
             return;
         }
@@ -56,7 +56,7 @@ class nocc_imap
 
         // $ev is set if there is a problem with the connection
         $conn = @imap_open('{'.$this->server.'}'.$this->folder, $this->login, $this->passwd, 0);
-        if(!$conn) {
+        if (!$conn) {
             $ev = new NoccException($lang_could_not_connect.": ".imap_last_error());
             return;
         }
@@ -68,7 +68,7 @@ class nocc_imap
     }
 
     function reopen($box, $flags = '', &$ev) {
-        if(!imap_reopen($this->conn, $box, $flags)) {
+        if (!imap_reopen($this->conn, $box, $flags)) {
             $ev = new NoccException(imap_last_error());
         }
     }
@@ -88,7 +88,7 @@ class nocc_imap
 
     function fetchstructure(&$msgnum, &$ev) {
         $structure = imap_fetchstructure($this->conn, $msgnum);
-        if(!is_object($structure)) {
+        if (!is_object($structure)) {
             $ev = new NoccException("imap_fetchstructure did not return an object: ".imap_last_error());
             return;
         }
@@ -132,8 +132,8 @@ class nocc_imap
 
     function headerinfo(&$msgnum, &$ev) {
         $headers = imap_headerinfo($this->conn, $msgnum, $ev);
-        if(NoccException::isException($ev)) return;
-        if(!is_object($headers)) {
+        if (NoccException::isException($ev)) return;
+        if (!is_object($headers)) {
             $ev = new NoccException("Could not get header info: ".imap_last_error());
             return;
         }
@@ -143,19 +143,19 @@ class nocc_imap
     // From what I can find, this will not work on Cyrus imap servers .
     // [I will test this, I use Cyrus IMAP - Ross]
     function deletemailbox(&$old_box, &$ev) {
-        if(!imap_deletemailbox($this->conn, '{'.$this->server.'}'.$old_box)) {
+        if (!imap_deletemailbox($this->conn, '{'.$this->server.'}'.$old_box)) {
             $ev = new NoccException(imap_last_error());
         }
     }
 
     function renamemailbox(&$old_box, &$new_box, &$ev) {
-        if(!imap_renamemailbox($this->conn, '{'.$this->server.'}'.$old_box, '{'.$this->server.'}'.$this->namespace.mb_convert_encoding($new_box, 'UTF7-IMAP', 'UTF-8'))) {
+        if (!imap_renamemailbox($this->conn, '{'.$this->server.'}'.$old_box, '{'.$this->server.'}'.$this->namespace.mb_convert_encoding($new_box, 'UTF7-IMAP', 'UTF-8'))) {
             $ev = new NoccException(imap_last_error());
         }
     }
 
     function createmailbox(&$new_box, &$ev) {
-        if(!imap_createmailbox($this->conn, '{'.$this->server.'}'.$this->namespace.mb_convert_encoding($new_box, 'UTF7-IMAP', 'UTF-8'))) {
+        if (!imap_createmailbox($this->conn, '{'.$this->server.'}'.$this->namespace.mb_convert_encoding($new_box, 'UTF7-IMAP', 'UTF-8'))) {
             $ev = new NoccException(imap_last_error());
         }
     }
@@ -211,7 +211,7 @@ class nocc_imap
 
     function getmailboxes(&$ev) {
         $mailboxes = imap_getmailboxes($this->conn, '{'.$this->server.'}', '*');
-        if(!is_array($mailboxes)) {
+        if (!is_array($mailboxes)) {
             $ev = new NoccException("imap_getmailboxes did not return an array: ".imap_last_error());
             return;
         } else {
@@ -222,7 +222,7 @@ class nocc_imap
 
     function getsubscribed(&$ev) {
         $subscribed = imap_getsubscribed($this->conn, '{'.$this->server.'}', '*');
-        if(is_array($subscribed)) {
+        if (is_array($subscribed)) {
             sort($subscribed);
             return $subscribed;
         }
@@ -246,7 +246,7 @@ class nocc_imap
     function exists(&$mailbox, &$ev) {
         $exists = false;
         $list = imap_list($this->conn, '{'.$this->server.'}', '*');
-        if(is_array($list)) {
+        if (is_array($list)) {
            reset($list);
            while (list($key, $val) = each($list)) {
                if (imap_utf7_decode($val) == $this->namespace.$mailbox) {
@@ -301,16 +301,16 @@ class nocc_imap
      */
     function html_folder_select($value, $selected = '') {
         $folders = $this->get_nice_subscribed($ev);
-        if(NoccException::isException($ev)) {
+        if (NoccException::isException($ev)) {
             return "<p class=\"error\">Error retrieving folder pulldown: ".$ev->getMessage()."</p>";
         }
-        if(!is_array($folders) || count($folders) < 1) {
+        if (!is_array($folders) || count($folders) < 1) {
             return "<p class=\"error\">Not currently subscribed to any mailboxes</p>";
         }
         reset($folders);
 
         $html_select = "<select class=\"button\" id=\"$value\" name=\"$value\">\n";
-        foreach($folders as $folder) {
+        foreach ($folders as $folder) {
             $html_select .= "\t<option ".($folder == $selected ? "selected=\"selected\"" : "")." value=\"$folder\">".mb_convert_encoding($folder, 'UTF-8', 'UTF7-IMAP')."</option>\n";
         }
         $html_select .= "</select>\n";
@@ -336,7 +336,7 @@ class nocc_imap
         if(NoccException::isException($ev)) return;
         reset($folders);
         $subscribed = array();
-        foreach($folders as $folder) {
+        foreach ($folders as $folder) {
             $folder_name = substr(strstr($folder->name, '}'), 1);
             if (!(in_array($folder_name, $subscribed))) {
                 array_push($subscribed, $folder_name);
@@ -358,7 +358,7 @@ class nocc_imap
      */
     function test() {
         imap_mailboxmsginfo($this->conn, $ev);
-        if(NoccException::isException($ev)) {
+        if (NoccException::isException($ev)) {
             print "<p class=\"error\">imap_mailboxmsginfo() failed: ".$ev->getMessage(). "</p>\n";
             return;
         }

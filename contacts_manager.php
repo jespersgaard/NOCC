@@ -81,8 +81,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
     $action = isset($_GET['action']) ? $_GET['action'] : '';
     switch($action){
       case "add_prompt":
-        if (isset($_GET['id']))
-        {
+        if (isset($_GET['id'])) {
           $tab = array_pad(explode("\t", $contacts[$_GET['id']]), -4, "");
         }
   ?>
@@ -96,8 +95,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
         </tr>
         <tr>
         <?php
-          if (!isset($_GET['modif']))
-          {
+          if (!isset($_GET['modif'])) {
             $_GET['modif'] = false;
           }
         ?>
@@ -157,22 +155,19 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
         break;
 
       case "add":
-        if (!empty($_POST['email']))
-        {
+        if (!empty($_POST['email'])) {
           // The following foreach block performs some sanity checking and
           // cleanup.
-          foreach( array('first','last','nick','email') as $contact_element )
-          {
+          foreach (array('first', 'last', 'nick', 'email') as $contact_element) {
             //We should strip slashes here
-            if( get_magic_quotes_gpc() )
+            if (get_magic_quotes_gpc())
               $_POST[$contact_element] = stripslashes($_POST[$contact_element]);
             // Strip tabs that COULD be inserted into fields(causing corrupted
             // DB)
             $_POST[$contact_element] = str_replace('\t', '', $_POST[$contact_element]);
             //Maybe more sanity checking needs to be done???
           }
-          if (count($contacts) < $conf->contact_number_max && empty($_POST['modif']))
-          {
+          if (count($contacts) < $conf->contact_number_max && empty($_POST['modif'])) {
             $line = $_POST['first'] . "\t" . $_POST['last'] . "\t" . $_POST['nick'] . "\t" . $_POST['email'];
             array_push($contacts, $line);
             NOCC_Contacts::saveList($path, $contacts, $conf, $ev);
@@ -182,8 +177,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
               break;
             }
           }
-          if (!empty ($_POST['modif']))
-          {
+          if (!empty ($_POST['modif'])) {
             $line = $_POST['first'] . "\t" . $_POST['last'] . "\t" . $_POST['nick'] . "\t" . $_POST['email'];
             $contacts[$_POST['id']] = $line;
             NOCC_Contacts::saveList($path, $contacts, $conf, $ev);
@@ -232,8 +226,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
         <th colspan="2">&nbsp;</th>
       </tr>
       <?php
-        for ($i = 0; $i < count($contacts); ++$i)
-        {
+        for ($i = 0; $i < count($contacts); ++$i) {
           $tab = array_pad(explode("\t", $contacts[$i]), -4, "");
       ?>
       <tr class="<?php echo ($i % 2) ? "contactsListEven" : "contactsListOdd" ?>">

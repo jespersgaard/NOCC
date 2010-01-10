@@ -73,8 +73,7 @@ function inbox(&$pop, $skip = 0, &$ev) {
             $header_msg = $mail_reader->getHeader();
             if(NoccException::isException($ev)) return;
             $header_lines = explode("\r\n", $header_msg);
-            while (list($k, $v) = each($header_lines))
-            {
+            while (list($k, $v) = each($header_lines)) {
                 list ($header_field, $header_value) = explode(':', $v);
                 if ($header_field == 'Status') 
                     if ($header_value == '')
@@ -149,8 +148,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     // Finding the next and previous message number
     $prev_msg = $next_msg = 0;
     for ($i = 0; $i < sizeof($sorted); $i++) {
-        if ($mail == $sorted[$i])
-        {
+        if ($mail == $sorted[$i]) {
             $prev_msg = ($i - 1 >= 0) ? $sorted[$i - 1] : 0;
             $next_msg = ($i + 1 < sizeof($sorted)) ? $sorted[$i + 1] : 0;
             $msg_found = 1;
@@ -158,7 +156,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
         }
     }
 
-    if(!$msg_found) {
+    if (!$msg_found) {
         $ev = new NoccException($lang_invalid_msg_num);
         return;
     }
@@ -318,7 +316,7 @@ function GetPart(&$attach_tab, $this_part, $part_no, $display_rfc822) {
             case 2:
                 $mime_type = 'message';
                 // well it's a message we have to parse it to find attachments or text message
-                if(isset($this_part->parts[0]->parts)) {
+                if (isset($this_part->parts[0]->parts)) {
                     $num_parts = count($this_part->parts[0]->parts);
                     for ($i = 0; $i < $num_parts; $i++)
                         GetPart($attach_tab, $this_part->parts[0]->parts[$i], $part_no . '.' . ($i + 1), $display_rfc822);
@@ -347,8 +345,7 @@ function GetPart(&$attach_tab, $this_part, $part_no, $display_rfc822) {
     else
         $mime_type = 'text';
     $full_mime_type = $mime_type . '/' . $this_part->subtype;
-    if (($full_mime_type == 'message/RFC822' && $display_rfc822 == true) || ($mime_type != 'multipart' && $full_mime_type != 'message/RFC822'))
-    {
+    if (($full_mime_type == 'message/RFC822' && $display_rfc822 == true) || ($mime_type != 'multipart' && $full_mime_type != 'message/RFC822')) {
         $tmp = Array(
             'number' => ($part_no != '' ? $part_no : 1),
             'id' => $this_part->ifid ? $this_part->id : 0,
@@ -577,15 +574,15 @@ function cut_address($addr, $charset) {
         $c = substr($addr, $i, 1);
 
         // Are we entering/leaving escaped mode
-        if($c == '"') {
+        if ($c == '"') {
             $quote_esc = !$quote_esc;
         }
 
         // Is this an address seperator (comma/semicolon)
-        if($c == ',' || $c == ';') {
-            if(!$quote_esc) {
+        if ($c == ',' || $c == ';') {
+            if (!$quote_esc) {
                 $token = trim($token);
-                if($token != '') {
+                if ($token != '') {
                     $addresses[] = $token;
                 }
                 $token = '';
@@ -595,9 +592,9 @@ function cut_address($addr, $charset) {
 
         $token .= $c;
     }
-    if(!$quote_esc) {
+    if (!$quote_esc) {
         $token = trim($token);
-        if($token != '') {
+        if ($token != '') {
             $addresses[] = $token;
         }
     }
@@ -629,11 +626,11 @@ function cut_address($addr, $charset) {
  * @return string
  */
 function view_part(&$pop, &$mail, $part_no, $transfer, $msg_charset) {
-    if(isset($ev) && NoccException::isException($ev)) {
+    if (isset($ev) && NoccException::isException($ev)) {
         return '<p class="error">' . $ev->getMessage . '</p>';
     }
     $text = $pop->fetchbody($mail, $part_no, $ev);
-    if(NoccException::isException($ev)) {
+    if (NoccException::isException($ev)) {
         return '<p class="error">' . $ev->getMessage . '</p>';
     }
     if ($transfer == 'BASE64')

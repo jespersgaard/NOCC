@@ -33,7 +33,7 @@ class NOCC_Contacts {
 
        $contacts = array ();
 
-       while(!feof($fp)) {
+       while (!feof($fp)) {
            $buffer = trim(fgets($fp, 4096));
            if ($buffer != '')
                array_push($contacts, $buffer);

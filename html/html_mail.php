@@ -38,7 +38,7 @@ if ($content['subject'] == '')
     $content['subject'] = $html_nosubject;
   echo '<tr><th class="mailHeaderLabel">'.$html_subject_label.'</th><td class="mailHeaderData">'.htmlspecialchars($content['subject']).'</td></tr>';
   echo '<tr><th class="mailHeaderLabel">'.$html_date_label.'</th><td class="mailHeaderData">'.$content['complete_date'].'</td></tr>';
-  if($content['att'] != '') {
+  if ($content['att'] != '') {
     echo $content['att'];
   }
   //TODO: Get "priority text" from MailReader class?
@@ -70,7 +70,7 @@ if ($content['subject'] == '')
   echo '</td></tr>';
 }
 else { //If displaying "verbose" header...
-  if($content['att'] != '') {
+  if ($content['att'] != '') {
     echo $content['att'];
   }
 }

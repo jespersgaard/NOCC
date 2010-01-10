@@ -106,7 +106,7 @@ if ($html_filter_select) {
 </tr>
 </table>
     <?php
-      if(NoccException::isException($ev)) {
+      if (NoccException::isException($ev)) {
     ?>
       <div class="error">
     <table class="errorTable">

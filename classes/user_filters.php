@@ -56,15 +56,14 @@ class NOCCUserFilters {
                                 return;
                 }
                 $file = fopen($filename, 'r');
-                if(!$file) {
+                if (!$file) {
                         $ev = new NoccException("Could not open $filename for reading user preferences");
                         return;
                 }
 
                 /* Read in all the preferences */
                 $highlight_num = 0;
-                while(!feof($file))
-                {
+                while (!feof($file)) {
                         $line = trim(fgets($file, 1024));
                         $pipeAt = strpos($line, '|');
                         if($pipeAt <= 0) continue;
@@ -73,7 +72,7 @@ class NOCCUserFilters {
                         $type = substr($line, $pipeAt + 1, 6);
                         $value = substr($line, $pipeAt + 8);
 
-                        if(strlen($name) > 0) {
+                        if (strlen($name) > 0) {
                                 $filters->filterset[$name][$type] = $value;
                         }
                 }
@@ -95,23 +94,23 @@ class NOCCUserFilters {
 
                 // Write prefs to file
                 $filename = $conf->prefs_dir . '/' . $this->key . '.filter';
-                if(file_exists($filename) && !is_writable($filename)) {
+                if (file_exists($filename) && !is_writable($filename)) {
                         $ev = new NoccException($html_prefs_file_error);
                         return;
                 }
-                if(!is_writeable($conf->prefs_dir)) {
+                if (!is_writeable($conf->prefs_dir)) {
                     $ev = new NoccException($html_prefs_file_error);
                     return;
                 }
                 $file = fopen($filename, 'w');
-                if(!$file) {
+                if (!$file) {
                         $ev = new NoccException($html_prefs_file_error);
                         return;
                 }
 
                 fwrite($file, "super happy filter file\n");
-                foreach($this->filterset as $name => $filter) {
-                        foreach($filter as $type => $thing) {
+                foreach ($this->filterset as $name => $filter) {
+                        foreach ($filter as $type => $thing) {
                                 if ($type && $thing) {
                                         fwrite($file, $name.'|'.$type.'='.$thing."\n");
                                 }
@@ -132,7 +131,7 @@ class NOCCUserFilters {
                 $pre = '<select class="button" name="filter" size="5">'."\n";
                 $post = '</select>'."\n";
         
-                foreach($this->filterset as $name => $filter) {
+                foreach ($this->filterset as $name => $filter) {
                         $search = $filter['SEARCH'];
                         $action = $filter['ACTION'];
                         $output .= "\t<option value=\"$name\">$name : &lt;$search -> $action&gt; </option>\n";

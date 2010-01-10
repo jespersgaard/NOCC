@@ -7,7 +7,7 @@ if (!isset($theme)) //if the $theme variable NOT set...
     $theme = new NOCC_Theme($_SESSION['nocc_theme']);
 
 $custom_footer = $theme->getCustomFooter();
-if(file_exists($custom_footer)) {
+if (file_exists($custom_footer)) {
     include($custom_footer);
 }
 else {

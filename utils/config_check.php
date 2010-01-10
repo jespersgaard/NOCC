@@ -32,10 +32,8 @@ function get_default_from_address() {
 }
 
 // Dynamically load imap module is needed
-if (!extension_loaded('imap'))
-{
-    if (!dl('imap.so'))
-    {
+if (!extension_loaded('imap')) {
+    if (!dl('imap.so')) {
         print('error loading imap library');
         exit;
     }

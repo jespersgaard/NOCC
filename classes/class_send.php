@@ -253,7 +253,7 @@ class mime_mail {
             $ev = @mail($rcpt_to, $this->subject, '', $mime, '-f' . $this->strip_comment($this->from));
                 
             $user_prefs = $_SESSION['nocc_user_prefs'];
-            if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder && isset($user_prefs->sent_folder_name) && $user_prefs->sent_folder_name !=null && $user_prefs->sent_folder_name != ""){
+            if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder && isset($user_prefs->sent_folder_name) && $user_prefs->sent_folder_name !=null && $user_prefs->sent_folder_name != "") {
                 // Copy email to Sent folder
                 $pop = new nocc_imap($ev);
                 if (NoccException::isException($ev)) {
@@ -287,7 +287,7 @@ class mime_mail {
                 }
                 $copy_return = 1;
                 $user_prefs = $_SESSION['nocc_user_prefs'];
-                if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder && isset($user_prefs->sent_folder_name) && $user_prefs->sent_folder_name !=null && $user_prefs->sent_folder_name != ""){
+                if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder && isset($user_prefs->sent_folder_name) && $user_prefs->sent_folder_name !=null && $user_prefs->sent_folder_name != "") {
                     // Copy email to Sent folder
                     $pop = new nocc_imap($ev);
                     if (NoccException::isException($ev)) {
@@ -316,7 +316,7 @@ class mime_mail {
      * @todo Rename!
      */
     function strip_comment_array($array) {
-        for($i = 0; $i < count($array); $i++) {
+        for ($i = 0; $i < count($array); $i++) {
             $array[$i] = $this->strip_comment($array[$i]);
         }
         return $array;

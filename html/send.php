@@ -11,8 +11,8 @@
 <form id="sendform" enctype="<?php echo (ini_get("file_uploads")) ? "multipart/form-data" : "normal" ?>" method="post" onsubmit="return(validate(this));" action="send.php">
 
 <?php 
-    if(isset($broken_forwarding) && !($broken_forwarding)) {
-        if(isset($forward_msgnum)) { 
+    if (isset($broken_forwarding) && !($broken_forwarding)) {
+        if (isset($forward_msgnum)) {
 ?>
 <div><input type="hidden" name="forward_msgnum" value="<?php echo $forward_msgnum ?>" /></div>
 <?php 
@@ -35,7 +35,7 @@
       <tr>
         <td class="sendLabel"><label for="mail_from"><?php echo $html_from_label ?></label></td>
         <td class="sendData">
-          <?php if( isset($conf->allow_address_change) && $conf->allow_address_change ) { ?>
+          <?php if (isset($conf->allow_address_change) && $conf->allow_address_change ) { ?>
           <input class="button" type="text" name="mail_from" id="mail_from" size="60" value="<?php echo htmlspecialchars($mail_from) ?>" />
          <?php } else { echo htmlspecialchars($mail_from); }?>
        </td>
@@ -74,7 +74,7 @@
        </td>
      </tr>
      <!-- If 'file_uploads=Off', we mustn't present the ability to do attachments -->
-     <?php if(ini_get("file_uploads")) { ?>
+     <?php if (ini_get("file_uploads")) { ?>
      <tr>
        <td class="sendLabel"><label for="mail_att"><?php echo $html_att_label ?></label></td>
        <td class="sendData">
@@ -210,7 +210,7 @@ function checkSendDelay() {
     var thisdate = new Date();
     var send_delay = <?php echo($conf->send_delay) ?>;
     <?php
-        if (isset ($_SESSION['last_send'])){
+        if (isset ($_SESSION['last_send'])) {
     ?>
         var last_send = <?php echo($_SESSION['last_send']) ?>;
     <?php

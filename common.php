@@ -59,7 +59,7 @@ if ($from_rss == false) {
 }
 
 // Initialise session array
-if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'cookie'){
+if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'cookie') {
     $session = loadSession($ev, $_COOKIE['NoccIdent']);
     if (NoccException::isException($ev)) {
         require ('./html/header.php');
@@ -187,10 +187,10 @@ if (isset($_SESSION['nocc_login']) && $_SESSION['nocc_login'] != ''
 }
 
 // Were we provided with a fillindomain to use?
-if ( isset($_REQUEST['fillindomain']) && isset( $conf->typed_domain_login ) ) {
-    for($count=0; $count < count($conf->domains); $count++) {
-        if($_REQUEST['fillindomain'] == $conf->domains[$count]->domain)
-            $_REQUEST['domainnum']=$count;
+if (isset($_REQUEST['fillindomain']) && isset( $conf->typed_domain_login )) {
+    for ($count=0; $count < count($conf->domains); $count++) {
+        if ($_REQUEST['fillindomain'] == $conf->domains[$count]->domain)
+            $_REQUEST['domainnum'] = $count;
     }
 }
 
@@ -239,8 +239,8 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
     }
 
     //Do we have login aliases?
-    if(isset($conf->domains[$domainnum]->login_aliases)
-            && !empty($conf->domains[$domainnum]->login_aliases)){
+    if (isset($conf->domains[$domainnum]->login_aliases)
+            && !empty($conf->domains[$domainnum]->login_aliases)) {
         if (is_array($conf->domains[$domainnum]->login_aliases)) {
             $_SESSION['nocc_login'] = str_replace(
                     array_keys($conf->domains[$domainnum]->login_aliases),
@@ -259,7 +259,7 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
 
     // Do we provide the domain with the login?
     if (isset($conf->domains[$domainnum]->login_with_domain)
-            && ($conf->domains[$domainnum]->login_with_domain == 1)){
+            && ($conf->domains[$domainnum]->login_with_domain == 1)) {
         if (isset($conf->domains[$domainnum]->login_with_domain_character)
                 && $conf->domains[$domainnum]->login_with_domain_character != '') {
             $_SESSION['nocc_login'] .= $conf->domains[$domainnum]->login_with_domain_character . $_SESSION['nocc_domain'];
@@ -297,7 +297,7 @@ if (isset($_REQUEST['server'])) {
 }
 
 // Cache the user's preferences/filters
-if(isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
+if (isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
     $ev = null;
     $user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
 
@@ -347,9 +347,9 @@ if(isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
 
     // Filters
     if (!empty($conf->prefs)) {
-        if(!isset($_SESSION['nocc_user_filters'])) {
+        if (!isset($_SESSION['nocc_user_filters'])) {
             $_SESSION['nocc_user_filters'] = NOCCUserFilters::read($user_key, $ev);
-            if(NoccException::isException($ev)) {
+            if (NoccException::isException($ev)) {
                 echo "<p>User filters error ($user_key): ".$ev->getMessage()."</p>";
                 exit(1);
             }

@@ -16,28 +16,22 @@
  * @version    SVN: $Id$
  */
 
-function encr($string, $key)
-{
-  for($i=0; $i<strlen($string); $i++)
-    {
-      for($j=0; $j<strlen($key); $j++)
-    {
-      $string[$i] = $string[$i]^$key[$j];
+function encr($string, $key) {
+    for ($i=0; $i<strlen($string); $i++) {
+        for ($j=0; $j<strlen($key); $j++) {
+            $string[$i] = $string[$i]^$key[$j];
+        }
     }
-    }
-  return $string;
+    return $string;
 }
 
 function decr($string, $key) {
-
-  for($i=0; $i<strlen($string); $i++)
-    {
-      for($j=0; $j<strlen($key); $j++)
-    {
-      $string[$i] = $key[$j]^$string[$i];
+    for ($i=0; $i<strlen($string); $i++) {
+        for ($j=0; $j<strlen($key); $j++) {
+            $string[$i] = $key[$j]^$string[$i];
+        }
     }
-    }
-  return $string;
+    return $string;
 }
 
 /*
@@ -50,8 +44,7 @@ function decr($string, $key) {
  do any encryption.
  I think genkey must be run before any other HTML or headers. This seems to be a requirement for the cookie to be sent properly.
 */
-function genkey($keylength, $cookiename)
-{
+function genkey($keylength, $cookiename) {
 // Generates a random key of a specified length, and sends
 //it as a cookie.
 // Returns the key, though I don't see a need in doing that.
@@ -72,8 +65,7 @@ function genkey($keylength, $cookiename)
   return $rkey;
 }
 
-function encpass($passwd, $rkey)
-{
+function encpass($passwd, $rkey) {
   // Encrypts $passwd with $key and returns encrypted password
 
   //$encpasswd = encr(base64_encode($passwd),$rkey);
@@ -82,9 +74,7 @@ function encpass($passwd, $rkey)
   return $encpasswd;
 }
 
-
-function decpass($cipher, $rkey)
-{
+function decpass($cipher, $rkey) {
   // Decrypts $cipher returns decrypted password.
 
   //$decpasswd = base64_decode(decr($cipher, $rkey));
@@ -102,8 +92,7 @@ function decpass($cipher, $rkey)
 // I think also delkey must be run before any other HTML or
 //headers.
 
-function delkey($cookie)
-{
+function delkey($cookie) {
   // Deletes the cookie
   setcookie($cookie, "", time() - 3600);
 }

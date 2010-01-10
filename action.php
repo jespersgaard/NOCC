@@ -67,8 +67,7 @@ switch($action) {
         $tmp_attach_tab = $attach_tab;
         $i = 0;
         while ($tmp = array_pop($tmp_attach_tab)) {
-            if ($conf->display_img_attach && (stripos($tmp['mime'], 'image') && ($tmp['number'] != '')))
-            {
+            if ($conf->display_img_attach && (stripos($tmp['mime'], 'image') && ($tmp['number'] != ''))) {
                 $exploded = explode('/', $tmp['mime']);
                 $img_type = array_pop($exploded);
                 if (preg_match('|JP[E]?G|i', $img_type) || stripos($img_typ, 'GIF') || stripos($img_type, 'PNG')) {
@@ -109,8 +108,7 @@ switch($action) {
                 // if it's an image, display it
                 $exploded = explode('/', $tmp['mime']);
                 $img_type = array_pop($exploded);
-                if (preg_match('|JP[E]?G|i', $img_type) || tripos($img_type, 'JPG') || stripos($img_type, 'GIF') || stripos($img_type, 'PNG'))
-                {
+                if (preg_match('|JP[E]?G|i', $img_type) || tripos($img_type, 'JPG') || stripos($img_type, 'GIF') || stripos($img_type, 'PNG')) {
                     echo '<hr class="mailAttachSep" />';
                     echo '<div class="mailImgAttach">';
                     echo '<img src="get_img.php?mail=' . $_REQUEST['mail'].'&amp;num=' . $tmp['number'] . '&amp;mime='
@@ -200,8 +198,7 @@ switch($action) {
                 $parsed_leadin = NOCCUserPrefs::parseLeadin($user_prefs->reply_leadin, $content);
                 $mail_body = mailquote(enh_html_entity_decode(strip_tags($content['body'], '')), $parsed_leadin, '');
             }
-            else
-            {
+            else {
                 $stripped_content = enh_html_entity_decode(strip_tags($content['body'], ''));
                 $mail_body = mailquote($stripped_content, $content['from'], $html_wrote);
             }
@@ -262,8 +259,7 @@ switch($action) {
                 $parsed_leadin = NOCCUserPrefs::parseLeadin($user_prefs->reply_leadin, $content);
                 $mail_body = mailquote(enh_html_entity_decode(strip_tags($content['body'], '')), $parsed_leadin, '');
             }
-            else
-            {
+            else {
                 $stripped_content = enh_html_entity_decode(strip_tags($content['body'], ''));
                 $mail_body = mailquote($stripped_content, $content['from'], $html_wrote);
             }
@@ -513,7 +509,7 @@ switch($action) {
             break;
         }
 
-        if(isset($_REQUEST['submit_prefs'])) {
+        if (isset($_REQUEST['submit_prefs'])) {
             if (isset($_REQUEST['full_name']))
                 $user_prefs->full_name = safestrip($_REQUEST['full_name']);
             if (isset($_REQUEST['msg_per_page']))
@@ -604,7 +600,7 @@ switch($action) {
         }
         if ($action == 'login') {
             // Subscribe to INBOX, usefull if it's not already done.
-            if($pop->is_imap()) {
+            if ($pop->is_imap()) {
                 $pop->subscribe($pop->folder, $ev, false);
             }
             // If needed, store a cookie with all needed parameters
@@ -628,7 +624,7 @@ switch($action) {
                     $user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
                     if (!empty($conf->prefs_dir)) {
                         $filters = NOCCUserFilters::read($user_key, $ev);
-                        if(NoccException::isException($ev)) {
+                        if (NoccException::isException($ev)) {
                             error_log("Error reading filters for user '$user_key': ".$ev->getMessage());
                             $filters = null;
                             $ev = null;
@@ -639,11 +635,11 @@ switch($action) {
                             $small_search = '';
                         }
                         if ($filters != null) {
-                            foreach($filters->filterset as $name => $filter) {
+                            foreach ($filters->filterset as $name => $filter) {
                                 $filter_messages = $pop->search($small_search . $filter['SEARCH'], '', $ev);
                                 if (is_array($filter_messages)) {
                                     $filter_to_folder = array();
-                                    foreach($filter_messages as $filt_msg_no) {
+                                    foreach ($filter_messages as $filt_msg_no) {
                                         if ($filter['ACTION'] == 'DELETE') {
                                             $pop->delete($filt_msg_no, $ev);
                                         } elseif (preg_match("/^MOVE:(.+)$/", $filter['ACTION'], $filter_to_folder)) {
@@ -655,7 +651,7 @@ switch($action) {
                         }
                     }
                     $pop->expunge($ev);
-                    if(NoccException::isException($ev)) {
+                    if (NoccException::isException($ev)) {
                         error_log("Error expunging mail for user '$user_key': ".$ev->getMessage());
                         $ev = null;
                     }
@@ -686,7 +682,7 @@ switch($action) {
         require ('./html/header.php');
         require ('./html/menu_inbox.php');
         require ('./html/html_top_table.php');
-        if(count($tab_mail) < 1) {
+        if (count($tab_mail) < 1) {
             // the mailbox is empty
             include ('./html/no_mail.php');
         } else {
@@ -717,7 +713,7 @@ switch($action) {
                 }
             }
 
-            foreach($subscribed as $folder) {
+            foreach ($subscribed as $folder) {
                 if (isset($_REQUEST['sort'])) {
                     $list_of_folders =  $_SESSION['list_of_folders'];
                 } else {
@@ -752,10 +748,9 @@ switch($action) {
 
 function add_signature(&$body) {
     $user_prefs = $_SESSION['nocc_user_prefs'];
-    if(isset($user_prefs->signature))
-    {
+    if (isset($user_prefs->signature)) {
         // Add signature with separation if needed
-        if(isset($user_prefs->sig_sep) && $user_prefs->sig_sep)
+        if (isset($user_prefs->sig_sep) && $user_prefs->sig_sep)
             $body .= "\r\n\r\n"."-- \r\n".$user_prefs->signature;
         else
             $body .= "\r\n\r\n".$user_prefs->signature;

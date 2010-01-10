@@ -34,7 +34,7 @@ else {
   // if message is opened in another window, we reload the opener window
   // (message list), in order to refresh the mail list after a successful 
   // deletion. It does not works with Safari
-  if(isset($_SESSION['message_deleted']) && $_SESSION['message_deleted'] == "true"){
+  if (isset($_SESSION['message_deleted']) && $_SESSION['message_deleted'] == "true") {
     echo ("        <script type=\"text/javascript\">\n");
     echo ("          if (window.opener != null)\n");
     echo ("            window.opener.location.href = window.opener.location;\n");
