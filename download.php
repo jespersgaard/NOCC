@@ -23,9 +23,9 @@ require_once './classes/class_local.php';
 $ev = "";
 $pop = new nocc_imap($ev);
 if (NoccException::isException($ev)) {
-    require ('./html/header.php');
-    require ('./html/error.php');
-    require ('./html/footer.php');
+    require './html/header.php';
+    require './html/error.php';
+    require './html/footer.php';
     return;
 }
 
@@ -72,9 +72,9 @@ if ($isIE && !$isIE6) {
 
 $file = $pop->fetchbody($mail, $part, $ev);
 if (NoccException::isException($ev)) {
-    require ('./html/header.php');
-    require ('./html/error.php');
-    require ('./html/footer.php');
+    require './html/header.php';
+    require './html/error.php';
+    require './html/footer.php';
     return;
 }
 

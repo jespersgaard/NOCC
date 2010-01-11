@@ -17,7 +17,7 @@ $theme = new NOCC_Theme($_SESSION['nocc_theme']);
 
 $custom_header = $theme->getCustomHeader();
 if(file_exists($custom_header)) {
-    include($custom_header);
+    include $custom_header;
 }
 else {
 ?>

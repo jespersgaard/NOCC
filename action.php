@@ -32,9 +32,9 @@ if (!isset($_REQUEST['sort'])) {
     if (NOCC_Session::getQuotaEnable() == true) {
         $pop = new nocc_imap($ev);
         if (NoccException::isException($ev)) {
-            require ('./html/header.php');
-            require ('./html/error.php');
-            require ('./html/footer.php');
+            require './html/header.php';
+            require './html/error.php';
+            require './html/footer.php';
             exit;
         }
         $quota = $pop->get_quota_usage($_SESSION['nocc_folder']);
@@ -51,9 +51,9 @@ switch($action) {
     case 'aff_mail':
         $pop = new nocc_imap($ev);
         if (NoccException::isException($ev)) {
-            require ('./html/header.php');
-            require ('./html/error.php');
-            require ('./html/footer.php');
+            require './html/header.php';
+            require './html/error.php';
+            require './html/footer.php';
             break;
         }
 
@@ -81,17 +81,17 @@ switch($action) {
             }
         }
         if (NoccException::isException($ev)) {
-            require ('./html/header.php');
-            require ('./html/error.php');
-            require ('./html/footer.php');
+            require './html/header.php';
+            require './html/error.php';
+            require './html/footer.php';
             break;
         }
 
         // Here we display the message
-        require ('./html/header.php');
-        require ('./html/menu_mail.php');
-        require ('./html/submenu_mail.php');
-        require ('./html/html_mail.php');
+        require './html/header.php';
+        require './html/menu_mail.php';
+        require './html/submenu_mail.php';
+        require './html/html_mail.php';
         //TODO: Use "mailData" DIV from file "html/html_mail.php"!
         echo '<div class="mailData">';
         while ($tmp = array_pop($attach_tab)) {
@@ -118,9 +118,9 @@ switch($action) {
             }
         }
         echo '</div> <!-- .mailData -->';
-        require ('./html/submenu_mail.php');
-        require ('./html/menu_mail.php');
-        require ('./html/footer.php');
+        require './html/submenu_mail.php';
+        require './html/menu_mail.php';
+        require './html/footer.php';
 
         $pop->close();
         break;
@@ -138,20 +138,20 @@ switch($action) {
         }
         $pop = new nocc_imap($ev);
         if (NoccException::isException($ev)) {
-            require ('./html/header.php');
-            require ('./html/error.php');
-            require ('./html/footer.php');
+            require './html/header.php';
+            require './html/error.php';
+            require './html/footer.php';
             exit;
         }
         $pop->close();
         // Add signature
         add_signature($mail_body);
 
-        require ('./html/header.php');
-        require ('./html/menu_inbox.php');
-        require ('./html/send.php');
-        require ('./html/menu_inbox.php');
-        require ('./html/footer.php');
+        require './html/header.php';
+        require './html/menu_inbox.php';
+        require './html/send.php';
+        require './html/menu_inbox.php';
+        require './html/footer.php';
         break;
 
     case 'reply':
@@ -161,17 +161,17 @@ switch($action) {
 
         $pop = new nocc_imap($ev);
         if (NoccException::isException($ev)) {
-            require ('./html/header.php');
-            require ('./html/error.php');
-            require ('./html/footer.php');
+            require './html/header.php';
+            require './html/error.php';
+            require './html/footer.php';
             break;
         }
 
         $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
         if (NoccException::isException($ev)) {
-            require ('./html/header.php');
-            require ('./html/error.php');
-            require ('./html/footer.php');
+            require './html/header.php';
+            require './html/error.php';
+            require './html/footer.php';
             break;
         }
 
@@ -208,11 +208,11 @@ switch($action) {
         add_signature($mail_body);
 
         // We add the attachments of the original message
-        require ('./html/header.php');
-        require ('./html/menu_inbox.php');
-        require ('./html/send.php');
-        require ('./html/menu_inbox.php');
-        require ('./html/footer.php');
+        require './html/header.php';
+        require './html/menu_inbox.php';
+        require './html/send.php';
+        require './html/menu_inbox.php';
+        require './html/footer.php';
 
         $pop->close();
         break;
@@ -224,17 +224,17 @@ switch($action) {
 
         $pop = new nocc_imap($ev);
         if (NoccException::isException($ev)) {
-            require ('./html/header.php');
-            require ('./html/error.php');
-            require ('./html/footer.php');
+            require './html/header.php';
+            require './html/error.php';
+            require './html/footer.php';
             break;
         }
 
         $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
         if (NoccException::isException($ev)) {
-            require ('./html/header.php');
-            require ('./html/error.php');
-            require ('./html/footer.php');
+            require './html/header.php';
+            require './html/error.php';
+            require './html/footer.php';
             break;
         }
         
@@ -269,11 +269,11 @@ switch($action) {
         add_signature($mail_body);
 
         // We add the attachments of the original message
-        require ('./html/header.php');
-        require ('./html/menu_inbox.php');
-        require ('./html/send.php');
-        require ('./html/menu_inbox.php');
-        require ('./html/footer.php');
+        require './html/header.php';
+        require './html/menu_inbox.php';
+        require './html/send.php';
+        require './html/menu_inbox.php';
+        require './html/footer.php';
 
         $pop->close();
         break;
@@ -284,9 +284,9 @@ switch($action) {
             $_REQUEST['verbose'] = 0;
         $pop = new nocc_imap($ev);
         if (NoccException::isException($ev)) {
-            require ('./html/header.php');
-            require ('./html/error.php');
-            require ('./html/footer.php');
+            require './html/header.php';
+            require './html/error.php';
+            require './html/footer.php';
             break;
         }
 
@@ -295,9 +295,9 @@ switch($action) {
         for ($mail_num = 0; $mail_num < count($mail_list); $mail_num++) {
             $content = aff_mail($pop, $attach_tab, $mail_list[$mail_num], $_REQUEST['verbose'], $ev);
             if (NoccException::isException($ev)) {
-                require ('./html/header.php');
-                require ('./html/error.php');
-                require ('./html/footer.php');
+                require './html/header.php';
+                require './html/error.php';
+                require './html/footer.php';
                 break;
             }
 
@@ -329,11 +329,11 @@ switch($action) {
         // Add signature
         add_signature($mail_body);
 
-        require ('./html/header.php');
-        require ('./html/menu_inbox.php');
-        require ('./html/send.php');
-        require ('./html/menu_inbox.php');
-        require ('./html/footer.php');
+        require './html/header.php';
+        require './html/menu_inbox.php';
+        require './html/send.php';
+        require './html/menu_inbox.php';
+        require './html/footer.php';
 
         $pop->close();
         break;
@@ -341,9 +341,9 @@ switch($action) {
     case 'managefolders':
         $pop = new nocc_imap($ev);
         if (NoccException::isException($ev)) {
-            require ('./html/header.php');
-            require ('./html/error.php');
-            require ('./html/footer.php');
+            require './html/header.php';
+            require './html/error.php';
+            require './html/footer.php';
             break;
         }
 
@@ -399,12 +399,12 @@ switch($action) {
 
         }
 
-        require ('./html/header.php');
-        require ('./html/menu_inbox.php');
+        require './html/header.php';
+        require './html/menu_inbox.php';
         if ($pop->is_imap())
-            require ('./html/folders.php');
-        require ('./html/menu_inbox.php');
-        require ('./html/footer.php');
+            require './html/folders.php';
+        require './html/menu_inbox.php';
+        require './html/footer.php';
 
         $pop->close();
 
@@ -413,18 +413,18 @@ switch($action) {
     case 'managefilters':
         $pop = new nocc_imap($ev);
         if (NoccException::isException($ev)) {
-            require ('./html/header.php');
-            require ('./html/error.php');
-            require ('./html/footer.php');
+            require './html/header.php';
+            require './html/error.php';
+            require './html/footer.php';
             exit;
         }
         $user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
         $filterset = NOCCUserFilters::read($user_key, $ev);
 
         if (NoccException::isException($ev)) {
-            require ('./html/header.php');
-            require ('./html/error.php');
-            require ('./html/footer.php');
+            require './html/header.php';
+            require './html/error.php';
+            require './html/footer.php';
             break;
         }
 
@@ -436,9 +436,9 @@ switch($action) {
                         $filterset->dirty_flag = 1;
                         $filterset->commit($ev);
                         if (NoccException::isException($ev)) {
-                            require ('./html/header.php');
-                            require ('./html/error.php');
-                            require ('./html/footer.php');
+                            require './html/header.php';
+                            require './html/error.php';
+                            require './html/footer.php';
                             break;
                         }
                     }
@@ -477,9 +477,9 @@ switch($action) {
                     $filterset->dirty_flag = 1;
                     $filterset->commit($ev);
                     if (NoccException::isException($ev)) {
-                        require ('./html/header.php');
-                        require ('./html/error.php');
-                        require ('./html/footer.php');
+                        require './html/header.php';
+                        require './html/error.php';
+                        require './html/footer.php';
                         break;
                     }
                     break;
@@ -488,13 +488,13 @@ switch($action) {
         $html_filter_select = $filterset->html_filter_select();
         $filter_move_to = $pop->html_folder_select('filter_move_box', '');
 
-        require ('./html/header.php');
-        require ('./html/menu_prefs.php');
-        require ('./html/submenu_prefs.php');
-        require ('./html/filter_prefs.php');
-        require ('./html/submenu_prefs.php');
-        require ('./html/menu_prefs.php');
-        require ('./html/footer.php');
+        require './html/header.php';
+        require './html/menu_prefs.php';
+        require './html/submenu_prefs.php';
+        require './html/filter_prefs.php';
+        require './html/submenu_prefs.php';
+        require './html/menu_prefs.php';
+        require './html/footer.php';
 
         $pop->close();
 
@@ -503,9 +503,9 @@ switch($action) {
     case 'setprefs':
         $pop = new nocc_imap($ev);
         if (NoccException::isException($ev)) {
-            require ('./html/header.php');
-            require ('./html/error.php');
-            require ('./html/footer.php');
+            require './html/header.php';
+            require './html/error.php)';
+            require './html/footer.php';
             break;
         }
 
@@ -561,22 +561,22 @@ switch($action) {
                 $user_prefs->validate($ev);
             }
             if (NoccException::isException($ev)) {
-                require ('./html/header.php'); 
-                require ('./html/error.php');
-                require ('./html/footer.php');
+                require './html/header.php'; 
+                require './html/error.php';
+                require './html/footer.php';
                 break;
             }
 
             $_SESSION['nocc_user_prefs'] = $user_prefs;
         }
 
-        require ('./html/header.php');
-        require ('./html/menu_prefs.php');
-        require ('./html/submenu_prefs.php');
-        require ('./html/prefs.php');
-        require ('./html/submenu_prefs.php');
-        require ('./html/menu_prefs.php');
-        require ('./html/footer.php');
+        require './html/header.php';
+        require './html/menu_prefs.php';
+        require './html/submenu_prefs.php';
+        require './html/prefs.php';
+        require './html/submenu_prefs.php';
+        require './html/menu_prefs.php';
+        require './html/footer.php';
 
         $pop->close();
 
@@ -593,9 +593,9 @@ switch($action) {
                 session_destroy();
                 setcookie("NoccIdent");
             }
-            require ('./html/header.php');
-            require ('./html/error.php');
-            require ('./html/footer.php');
+            require './html/header.php';
+            require './html/error.php';
+            require './html/footer.php';
             break;
         }
         if ($action == 'login') {
@@ -607,9 +607,9 @@ switch($action) {
             if ($remember == "true") {
                 saveSession($ev);
                 if (NoccException::isException($ev)) {
-                    require ('./html/header.php');
-                    require ('./html/error.php');
-                    require ('./html/footer.php');
+                    require './html/header.php';
+                    require './html/error.php';
+                    require './html/footer.php';
                     break;
                 }
                 //store cookie for thirty days
@@ -673,22 +673,22 @@ switch($action) {
             $tab_mail = inbox($pop, $skip, $ev);
 
         if (NoccException::isException($ev)) {
-            require ('./html/header.php');
-            require ('./html/error.php');
-            require ('./html/footer.php');
+            require './html/header.php';
+            require './html/error.php';
+            require './html/footer.php';
             break;
         }
 
-        require ('./html/header.php');
-        require ('./html/menu_inbox.php');
-        require ('./html/html_top_table.php');
+        require './html/header.php';
+        require './html/menu_inbox.php';
+        require './html/html_top_table.php';
         if (count($tab_mail) < 1) {
             // the mailbox is empty
-            include ('./html/no_mail.php');
+            include './html/no_mail.php';
         } else {
             // there are messages, we display
             while ($tmp = array_shift($tab_mail)) {
-                require ('./html/html_inbox.php');
+                require './html/html_inbox.php';
             }
         }
 
@@ -704,9 +704,9 @@ switch($action) {
                 // gather list of folders for menu_inbox_status
                 $subscribed = $pop->getsubscribed($ev);
                 if (NoccException::isException($ev)) {
-                    require ('./html/header.php');
-                    require ('./html/error.php');
-                    require ('./html/footer.php');
+                    require './html/header.php';
+                    require './html/error.php';
+                    require './html/footer.php';
                     break;
                 } else {
                     $_SESSION['subscribed'] = $subscribed;
@@ -737,9 +737,9 @@ switch($action) {
             }
         }
 
-        require ('./html/html_bottom_table.php');
-        require ('./html/menu_inbox.php');
-        require ('./html/footer.php');
+        require './html/html_bottom_table.php';
+        require './html/menu_inbox.php';
+        require './html/footer.php';
 
         $pop->close();
 

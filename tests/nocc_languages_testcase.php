@@ -14,9 +14,9 @@
  * @version    SVN: $Id$
  */
 
-require_once('simpletest/unit_tester.php');
-require_once('simpletest/reporter.php');
-require_once('../classes/nocc_languages.php');
+require_once 'simpletest/unit_tester.php';
+require_once 'simpletest/reporter.php';
+require_once '../classes/nocc_languages.php';
 
 class NOCC_Languages_TestCase extends UnitTestCase {
 

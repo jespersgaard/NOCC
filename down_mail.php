@@ -25,9 +25,9 @@ $mail = $_REQUEST['mail'];
 $ev = '';
 $pop = new nocc_imap($ev);
 if (NoccException::isException($ev)) {
-    require ('./html/header.php');
-    require ('./html/error.php');
-    require ('./html/footer.php');
+    require './html/header.php';
+    require './html/error.php';
+    require './html/footer.php';
     return;
 }
 
@@ -75,9 +75,9 @@ if ($isIE && !$isIE6) {
 }
 
 if (NoccException::isException($ev)) {
-    require ('./html/header.php');
-    require ('./html/error.php');
-    require ('./html/footer.php');
+    require './html/header.php';
+    require './html/error.php';
+    require './html/footer.php';
     return;
 }
 

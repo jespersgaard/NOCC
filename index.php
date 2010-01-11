@@ -23,7 +23,7 @@ if (isset($_COOKIE['NoccIdent']) && $_COOKIE['NoccIdent'] != '' && $_COOKIE['Noc
   exit();
 }
 require_once './utils/check.php';
-require ('./html/header.php');
+require './html/header.php';
 ?>
             <form action="action.php" method="post" id="nocc_webmail_login">
             <div id="loginBox">
@@ -171,7 +171,7 @@ require ('./html/header.php');
             // -->
             </script>
 <?php
-require ('./html/footer.php');
+require './html/footer.php';
 session_name("NOCCSESSID");
 session_unset();
 session_destroy();

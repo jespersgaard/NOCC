@@ -19,9 +19,9 @@ require_once './common.php';
 $ev = "";
 $pop = new nocc_imap($ev);
 if (NoccException::isException($ev)) {
-    require ('./html/header.php');
-    require ('./html/error.php');
-    require ('./html/footer.php');
+    require './html/header.php';
+    require './html/error.php';
+    require './html/footer.php';
     return;
 }
 
@@ -32,9 +32,9 @@ $mime = $_REQUEST['mime'];
 
 $img = $pop->fetchbody($mail, $num, $ev);
 if (NoccException::isException($ev)) {
-    require ('./html/header.php');
-    require ('./html/error.php');
-    require ('./html/footer.php');
+    require './html/header.php';
+    require './html/error.php';
+    require './html/footer.php';
     return;
 }
 

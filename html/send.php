@@ -150,7 +150,7 @@
          <textarea name="mail_body" cols="82" rows="20"><?php echo (isset($mail_body) ? htmlspecialchars($mail_body) : '') ?></textarea>
          <?php
            } else {
-                include('fckeditor/fckeditor.php');
+                include 'fckeditor/fckeditor.php';
                 $oFCKeditor = new FCKeditor('mail_body') ;
                 $oFCKeditor->ToolbarSet = 'NOCC';
                 $oFCKeditor->BasePath = 'fckeditor/';

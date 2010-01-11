@@ -15,17 +15,17 @@
  * @version    SVN: $Id$
  */
 
-require_once ('./common.php');
-require_once ('./classes/nocc_contacts.php');
-require_once ('./utils/proxy.php');
+require_once './common.php';
+require_once './classes/nocc_contacts.php';
+require_once './utils/proxy.php';
 
 header("Content-type: text/html; Charset=UTF-8");
 
 $pop = new nocc_imap($ev);
 if (NoccException::isException($ev)) {
-  require ('./html/header.php'); 
-  require ('./html/error.php');
-  require ('./html/footer.php');
+  require './html/header.php'; 
+  require './html/error.php';
+  require './html/footer.php';
   exit;
 }   
 $pop->close();

@@ -19,9 +19,9 @@ unset ($ev);
 // PHP version
 if (!function_exists('version_compare')) { //if PHP 4.1.0 or newer...
   $ev = new NoccException("You don't seem to be running PHP 4.1, you need at least PHP 4.1.0 to run NOCC.");
-  require ('./html/header.php');
-  require ('./html/error.php');
-  require ('./html/footer.php');
+  require './html/header.php';
+  require './html/error.php';
+  require './html/footer.php';
   exit;
 }
 
@@ -72,9 +72,9 @@ if (isset($conf->contact_ldap)) {
 
 // Display error message
 if (isset($ev) && NoccException::isException($ev)) {
-  require ('./html/header.php');
-  require ('./html/error.php');
-  require ('./html/footer.php');
+  require './html/header.php';
+  require './html/error.php';
+  require './html/footer.php';
   exit;
 }
 ?>

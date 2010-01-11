@@ -54,7 +54,7 @@ class NOCC_Contacts {
      * @todo Rewrite!
      */
     function saveList($path, $contacts, $conf, &$ev) {
-        include ('lang/' . $_SESSION['nocc_lang'] . '.php');
+        include 'lang/' . $_SESSION['nocc_lang'] . '.php';
         if (file_exists($path) && !is_writable($path)) {
             $ev = new NoccException($html_err_file_contacts);
             return false;

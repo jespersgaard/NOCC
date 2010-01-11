@@ -22,7 +22,7 @@ if (file_exists('./config/conf.php')) {
     
     // code extraction from conf.php, legacy code support
     if ((file_exists('./utils/config_check.php')) && (!function_exists('get_default_from_address'))) {
-    require_once('./utils/config_check.php');
+        require_once './utils/config_check.php';
     }
 }
 else {

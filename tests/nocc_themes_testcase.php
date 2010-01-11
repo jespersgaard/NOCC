@@ -14,9 +14,9 @@
  * @version    SVN: $Id$
  */
 
-require_once('simpletest/unit_tester.php');
-require_once('simpletest/reporter.php');
-require_once('../classes/nocc_themes.php');
+require_once 'simpletest/unit_tester.php';
+require_once 'simpletest/reporter.php';
+require_once '../classes/nocc_themes.php';
 
 class NOCC_Themes_TestCase extends UnitTestCase {
 

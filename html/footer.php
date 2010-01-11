@@ -8,7 +8,7 @@ if (!isset($theme)) //if the $theme variable NOT set...
 
 $custom_footer = $theme->getCustomFooter();
 if (file_exists($custom_footer)) {
-    include($custom_footer);
+    include $custom_footer;
 }
 else {
 ?>

@@ -31,7 +31,7 @@ if (!isset($_SESSION['nocc_loggedin'])) {
 
 // DEPRECATED: Not required PHP >= 4.1
 if (!function_exists('is_uploaded_file'))
-    include_once ('./utils/is_uploaded_file.php');
+    include_once './utils/is_uploaded_file.php';
 
 if ($_SERVER['REQUEST_METHOD'] != 'POST') {
     clear_attachments();
@@ -90,9 +90,9 @@ switch ($_REQUEST['sendaction']) {
         }
         else {
             $ev = new NoccException($html_file_upload_attack);
-            require ('./html/header.php');
-            require ('./html/error.php');
-            require ('./html/footer.php');
+            require './html/header.php';
+            require './html/error.php';
+            require './html/footer.php';
             break;
         }
 
@@ -101,11 +101,11 @@ switch ($_REQUEST['sendaction']) {
 
         // Displaying the sending form with the new attachments array
         //header("Content-type: text/html; Charset=UTF-8");
-        require ('./html/header.php');
-        require ('./html/menu_inbox.php');
-        require ('./html/send.php');
-        require ('./html/menu_inbox.php');
-        require ('./html/footer.php');
+        require './html/header.php';
+        require './html/menu_inbox.php';
+        require './html/send.php';
+        require './html/menu_inbox.php';
+        require './html/footer.php';
         break;
 
     case unhtmlentities($html_send):
@@ -185,9 +185,9 @@ switch ($_REQUEST['sendaction']) {
                 $ev = "";
                 $pop = new nocc_imap($ev);
                 if (NoccException::isException($ev)) {
-                    require ('./html/header.php');
-                    require ('./html/error.php');
-                    require ('./html/footer.php');
+                    require './html/header.php';
+                    require './html/error.php';
+                    require './html/footer.php';
                     break;
                 }
 
@@ -195,16 +195,16 @@ switch ($_REQUEST['sendaction']) {
                 $origmsg = "";
                 $headers = $pop->fetchheader($forward_msgnum, $ev);
                 if (NoccException::isException($ev)) {
-                    require ('./html/header.php');
-                    require ('./html/error.php');
-                    require ('./html/footer.php');
+                    require './html/header.php';
+                    require './html/error.php';
+                    require './html/footer.php';
                     break;
                 }
                 $body = $pop->body($forward_msgnum, $ev);
                 if (NoccException::isException($ev)) {
-                    require ('./html/header.php');
-                    require ('./html/error.php');
-                    require ('./html/footer.php');
+                    require './html/header.php';
+                    require './html/error.php';
+                    require './html/footer.php';
                     break;
                 }
                 $origmsg .= $headers;
@@ -232,11 +232,11 @@ switch ($_REQUEST['sendaction']) {
         header("Content-type: text/html; Charset=UTF-8");
         if (NoccException::isException($ev)) {
             // Error while sending the message, display an error message
-            require ('./html/header.php');
-            require ('./html/menu_inbox.php');
-            require ('./html/send_error.php');
-            require ('./html/menu_inbox.php');
-            require ('./html/footer.php');
+            require './html/header.php';
+            require './html/menu_inbox.php';
+            require './html/send_error.php';
+            require './html/menu_inbox.php';
+            require './html/footer.php';
         } else {
             // Redirect user to inbox
             require_once './utils/proxy.php';
@@ -265,22 +265,22 @@ switch ($_REQUEST['sendaction']) {
 
         // Displaying the sending form with the new attachment array 
         header("Content-type: text/html; Charset=UTF-8");
-        require ('./html/header.php');
-        require ('./html/menu_inbox.php');
-        require ('./html/send.php');
-        require ('./html/menu_inbox.php');
-        require ('./html/footer.php');
+        require './html/header.php';
+        require './html/menu_inbox.php';
+        require './html/send.php';
+        require './html/menu_inbox.php';
+        require './html/footer.php';
         break;
 
     default:
         // Nothing was set in the sendaction (e.g. no javascript enabled)
         header("Content-type: text/html; Charset=UTF-8");
-        $ev = new NoccException("$html_no_sendaction");
-        require ('./html/header.php');
-        require ('./html/menu_inbox.php');
-        require ('./html/send_error.php');
-        require ('./html/menu_inbox.php');
-        require ('./html/footer.php');
+        $ev = new NoccException($html_no_sendaction);
+        require './html/header.php';
+        require './html/menu_inbox.php';
+        require './html/send_error.php';
+        require './html/menu_inbox.php';
+        require './html/footer.php';
         break;
 }
 ?>

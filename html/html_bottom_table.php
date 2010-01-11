@@ -4,8 +4,8 @@
     die('Hacking attempt');
 ?>
                       </table>
-                    <?php include('menu_inbox_status.php'); ?>
-                    <?php include('menu_inbox_bottom_opts.php'); ?>
+                    <?php include 'menu_inbox_status.php'; ?>
+                    <?php include 'menu_inbox_bottom_opts.php'; ?>
                   <!-- end of Message list bloc -->
                 </div>
                 <?php if ($pages > 1) { ?>

@@ -15,15 +15,15 @@
  * @version    SVN: $Id$
  */
 
-require_once('./common.php');
-require_once('./classes/class_local.php');
+require_once './common.php';
+require_once './classes/class_local.php';
 
 $ev = "";
 $pop = new nocc_imap($ev);
 if (NoccException::isException($ev)) {
-    require ('./html/header.php');
-    require ('./html/error.php');
-    require ('./html/footer.php');
+    require './html/header.php';
+    require './html/error.php';
+    require './html/footer.php';
     return;
 }
 
@@ -135,15 +135,15 @@ if (isset($_REQUEST['only_one'])) {
 $pop->close();
 
 if (NoccException::isException($ev)) {
-    require ('./html/header.php');
-    require ('./html/error.php');
-    require ('./html/footer.php');
+    require './html/header.php';
+    require './html/error.php';
+    require './html/footer.php';
     return;
 }
 
 // Redirect user to index
 // TODO: redirect user to next message
-require_once('./utils/proxy.php');
+require_once './utils/proxy.php';
 //header('Location: ' . $conf->base_url . "action.php");
 header('Location: ' . $conf->base_url . $url);
 

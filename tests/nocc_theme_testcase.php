@@ -1,7 +1,7 @@
 <?php
-    require_once('simpletest/unit_tester.php');
-    require_once('simpletest/reporter.php');
-    require_once('../classes/nocc_theme.php');
+    require_once 'simpletest/unit_tester.php';
+    require_once 'simpletest/reporter.php';
+    require_once '../classes/nocc_theme.php';
 
     class NOCC_Theme_TestCase extends UnitTestCase {
 

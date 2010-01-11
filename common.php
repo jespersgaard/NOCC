@@ -21,7 +21,7 @@ if (file_exists('./config/conf.php')) {
     
     // code extraction from conf.php, legacy code support
     if ((file_exists('./utils/config_check.php')) && (!function_exists('get_default_from_address'))) {
-    require_once('./utils/config_check.php');
+    require_once './utils/config_check.php';
     }
 }
 else {
@@ -34,11 +34,11 @@ require_once './classes/nocc_security.php';
 require_once './classes/nocc_languages.php';
 require_once './classes/nocc_themes.php';
 require_once './classes/user_prefs.php';
-require_once('./classes/user_filters.php');
+require_once './classes/user_filters.php';
 require_once './utils/functions.php';
-require_once('./utils/html_entity_decode.php');
-require_once('./utils/crypt.php');
-require_once('./utils/translation.php');
+require_once './utils/html_entity_decode.php';
+require_once './utils/crypt.php';
+require_once './utils/translation.php';
 
 $conf->nocc_name = 'NOCC';
 $conf->nocc_version = '1.9-dev';
@@ -62,9 +62,9 @@ if ($from_rss == false) {
 if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'cookie') {
     $session = loadSession($ev, $_COOKIE['NoccIdent']);
     if (NoccException::isException($ev)) {
-        require ('./html/header.php');
-        require ('./html/error.php');
-        require ('./html/footer.php');
+        require './html/header.php';
+        require './html/error.php';
+        require './html/footer.php';
         break;
     }
     list($_SESSION['nocc_user'], $_SESSION['nocc_passwd'],
@@ -180,9 +180,9 @@ if (isset($_SESSION['nocc_login']) && $_SESSION['nocc_login'] != ''
         && isset($conf->allowed_char) && $conf->allowed_char != ''
         && !preg_match("|".$conf->allowed_char."|", $_SESSION['nocc_login'])) {
     $ev = new NoccException($html_wrong);
-    require ('./html/header.php');
-    require ('./html/error.php');
-    require ('./html/footer.php');
+    require './html/header.php';
+    require './html/error.php';
+    require './html/footer.php';
     exit;
 }
 
@@ -199,9 +199,9 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
     $domainnum = $_REQUEST['domainnum'];
     if (!isset($conf->domains[$domainnum])) {
         $ev = new NoccException($lang_could_not_connect);
-        require ('./html/header.php');
-        require ('./html/error.php');
-        require ('./html/footer.php');
+        require './html/header.php';
+        require './html/error.php';
+        require './html/footer.php';
         exit;
     }
     $_SESSION['nocc_domain'] = $conf->domains[$domainnum]->domain;
@@ -219,9 +219,9 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
         if (is_array($conf->domains[$domainnum]->login_allowed)) {
             if (!array_key_exists($_SESSION['nocc_login'], $conf->domains[$domainnum]->login_allowed)) {
                 $ev = new NoccException($html_login_not_allowed);
-                require ('./html/header.php');
-                require ('./html/error.php');
-                require ('./html/footer.php');
+                require './html/header.php';
+                require './html/error.php';
+                require './html/footer.php';
                 exit;
             }
         } else {
@@ -229,9 +229,9 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
                 include substr($conf->domains[$domainnum]->login_allowed, 1);
                 if (!array_key_exists($_SESSION['nocc_login'], $login_allowed)) {
                     $ev = new NoccException($html_login_not_allowed);
-                    require ('./html/header.php');
-                    require ('./html/error.php');
-                    require ('./html/footer.php');
+                    require './html/header.php';
+                    require './html/error.php';
+                    require './html/footer.php';
                     exit;
                 }
             }
@@ -358,8 +358,8 @@ if (isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
     }
 }
 
-require_once ('./config/conf_lang.php');
-require_once ('./config/conf_charset.php');
+require_once './config/conf_lang.php';
+require_once './config/conf_charset.php';
 
 // allow PHP script to consume more memory than default setting for
 // big attachments

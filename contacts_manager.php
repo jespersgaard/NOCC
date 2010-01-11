@@ -15,17 +15,17 @@
  * @version    SVN: $Id$
  */
 
-require_once ('./common.php');
-require_once ('./classes/nocc_contacts.php');
-require_once ('./utils/proxy.php');
+require_once './common.php';
+require_once './classes/nocc_contacts.php';
+require_once './utils/proxy.php';
 
 header("Content-type: text/html; Charset=UTF-8");
 
 $pop = new nocc_imap($ev);
 if (NoccException::isException($ev)) {
-  require ('./html/header.php');         
-  require ('./html/error.php');
-  require ('./html/footer.php');
+  require './html/header.php';         
+  require './html/error.php';
+  require './html/footer.php';
   exit;
 }               
 $pop->close();
@@ -172,8 +172,8 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
             array_push($contacts, $line);
             NOCC_Contacts::saveList($path, $contacts, $conf, $ev);
             if (NoccException::isException($ev)) {
-              require ('./html/error.php');
-              require ('./html/footer.php');
+              require './html/error.php';
+              require './html/footer.php';
               break;
             }
           }
@@ -182,8 +182,8 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
             $contacts[$_POST['id']] = $line;
             NOCC_Contacts::saveList($path, $contacts, $conf, $ev);
             if (NoccException::isException($ev)) {
-              require ('./html/error.php');
-              require ('./html/footer.php');
+              require './html/error.php';
+              require './html/footer.php';
               break;
             }
           }
@@ -206,8 +206,8 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
             $new_contacts[] = $contacts[$i];
         NOCC_Contacts::saveList($path, $new_contacts, $conf, $ev);
         if (NoccException::isException($ev)) {
-          require ('./html/error.php');
-          require ('./html/footer.php');
+          require './html/error.php';
+          require './html/footer.php';
           break;
         }
         $contacts = NOCC_Contacts::loadList($path);

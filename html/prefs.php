@@ -164,7 +164,7 @@ if (count($big_list) > 1) {
            <td class="prefsLabel"><label for="signature"><?php echo convertLang2Html($html_signature_label) ?></label></td>
            <td class="prefsData">
              <?php if (isset($user_prefs->html_mail_send) && $user_prefs->html_mail_send && file_exists('fckeditor/fckeditor.php')) { 
-               include('fckeditor/fckeditor.php');
+               include 'fckeditor/fckeditor.php';
                $oFCKeditor = new FCKeditor('signature');
                $oFCKeditor->ToolbarSet = 'NOCC';
                $oFCKeditor->BasePath = 'fckeditor/';

@@ -15,8 +15,8 @@
  * @version    SVN: $Id$
  */
 
-  require_once('./utils/crypt.php');
-  require_once('./classes/user_prefs.php');
+  require_once './utils/crypt.php';
+  require_once './classes/user_prefs.php';
 
   session_name("NOCCSESSID");
   session_start();
@@ -53,7 +53,7 @@
   
   $pop = new nocc_imap($ev);
   if (NoccException::isException($ev)) {
-    require ('./html/error.php');
+    require './html/error.php';
     exit;
   }
 
@@ -64,7 +64,7 @@
   $tab_mail_bak = $tab_mail;
 
   if (NoccException::isException($ev)) {
-    require ('./html/error.php');
+    require './html/error.php';
     exit;
   }
 
@@ -134,7 +134,7 @@ while ($tmp = array_shift($tab_mail)) {
       <![CDATA[
         <?php
           if (NoccException::isException($ev)) {
-            require ('./html/error.php');
+            require './html/error.php';
             exit;
           }
           echo $mail_summery;
@@ -146,7 +146,7 @@ while ($tmp = array_shift($tab_mail)) {
       <![CDATA[
         <?php
           if (NoccException::isException($ev)) {
-            require ('./html/error.php');
+            require './html/error.php';
             exit;
           }
           echo $mail_summery;
