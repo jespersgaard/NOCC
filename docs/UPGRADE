@@ -1,10 +1,11 @@
+==================
 NOCC Upgrade guide
-------------------
+==================
 
 Copyright 2007 Arnaud Boudou <skuld @ goddess-gate.com>
 
 Before upgrade
-**************
+==============
 
   Before upgrading your NOCC installation, you should backup the following files
     </path/to/nocc/>config/conf.php
@@ -13,7 +14,7 @@ Before upgrade
     </path/to/nocc/prefs/>*.* (if used, "$conf->prefs_dir" config setting)
 
 Upgrade steps
-*************
+=============
 
   1) Remove your nocc installation (you may leave your nocc prefs folder
      untouched).

@@ -1,5 +1,6 @@
+=======================
 NOCC Installation guide
------------------------
+=======================
 
 Copyright 2003 Nicolas Chalanset <nicocha at free.fr>
 Copyright 2003 Olivier Cahagne <wolruf at free.fr>
@@ -8,10 +9,10 @@ The full documentation can be found in README, this is meant to be a quick
 installation guide for people who don't want to bother the whole documentation.
 
 Requirements
-************
+============
 
-  Mandatory Items
-  ---------------
+Mandatory Items
+---------------
 
    * PHP 4.1.0 or later with IMAP (--with-imap) and iconv (--with-iconv) 
      support. -- SEE NEXT SECTION 
@@ -20,14 +21,14 @@ Requirements
   
    * An IMAP or POP3 server to connect to.
 
-  Optional Items
-  --------------
+Optional Items
+--------------
 
    * An SSL Web server to allow encrypted connections.
      (Apache+mod_ssl+OpenSSL is popular)
 
-  Notes on PHP
-  ------------
+Notes on PHP
+------------
 
    * PHP needs to be compiled with IMAP and iconv support (--with-imap and 
      --with-iconv) at the configure stage).
@@ -36,12 +37,12 @@ Requirements
      'http://www.php.net/manual/ref.imap.php'.
 
 Installing NOCC
-***************
+===============
 
-  If you upgrade from a previous installation, you should read UPGRADE file.
+If you upgrade from a previous installation, you should read UPGRADE file.
 
-  Installation of NOCC
-  --------------------
+Installation of NOCC
+--------------------
        
        1) Download nocc-x.y.tar.gz (where x and y are version numbers)
           (or nocc-x.y.zip for Windows' users).
