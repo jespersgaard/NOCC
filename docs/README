@@ -1,12 +1,13 @@
+==================
 NOCC Documentation
-------------------
+==================
 
 Nicolas Chalanset <nicocha at free.fr>
 Olivier Cahagne <wolruf at free.fr>
 Arnaud Boudou <skuld at goddess-gate.com>
 
 Summary
-*******
+=======
 
 This file contains the following sections:
     * Overview of Nocc
@@ -18,65 +19,65 @@ This file contains the following sections:
       - History
 
 Overview of Nocc
-****************
+================
 
-   Nocc is a Web-based e-mail reader. It uses PHP and a Web server to access
+Nocc is a Web-based e-mail reader. It uses PHP and a Web server to access
 a mail server (POP3, IMAP) and send e-mail (SMTP or plain sendmail). Nocc
 support ESMTP AUTH via LOGIN and PLAIN methods.
 
-   Nocc can be used as an e-mail reader and allows you to view, send messages,
+Nocc can be used as an e-mail reader and allows you to view, send messages,
 manage your mail account. It can view and send MIME attachments (files, HTML,
 etc.).
 
-   Nocc has low requirements on browser, it uses JavaScript as less as
+Nocc has low requirements on browser, it uses JavaScript as less as
 possible, nearly no frames and even works with Lynx; low requirements on Web
 server servers too: you don't need any superuser privileges to install Nocc
 and it can work with suEXEC (see Apache documentation) for increased security.
 
-   Nocc was earlier known as Epimail, written in Perl, but was rewritten with
+Nocc was earlier known as Epimail, written in Perl, but was rewritten with
 PHP, hence the new name. See later for a bit of history.
 
-   Anybody is encouraged to contribute.
+Anybody is encouraged to contribute.
 
-  License
-  -------
+License
+-------
 
-   The full application (source code, icons) is distributed under the terms of
+The full application (source code, icons) is distributed under the terms of
 the GNU General Public License. See the file COPYING for details.
 
-   Some files are distributed under the terms of the PHP License. See the file
+Some files are distributed under the terms of the PHP License. See the file
 PHP_LICENSE for details.
 
-   Some files are distributed under the terms of the GNU Lesser General Public
+Some files are distributed under the terms of the GNU Lesser General Public
 License. See the the LGPL for details.
 
-  Getting Nocc
-  ------------
+Getting Nocc
+------------
 
-   Nocc development is powered by the free services offered by SourceForge to
+Nocc development is powered by the free services offered by SourceForge to
 the Open Source community. The Web page of Nocc is http://nocc.sourceforge.net/
 
-   The latest release can always be found on SourceForge and is available from
+The latest release can always be found on SourceForge and is available from
 'http://sf.net/projects/nocc/'. Announces are sent to the
 'nocc-announce' mailing lists: http://sf.net/mail/?group_id=12177
 
-   A public SVN server is also accessible:
+A public SVN server is also accessible:
 http://sf.net/scm/?type=svn&group_id=12177
 
-  Reporting bugs, sending suggestions or contributions
-  ----------------------------------------------------
+Reporting bugs, sending suggestions or contributions
+----------------------------------------------------
 
-   We welcome bug reports or suggestions for Nocc (both program or
+We welcome bug reports or suggestions for Nocc (both program or
 documentation). Please email them to <nocc-discuss at lists.sourceforge.net>.
 
-   You can also use the Web-based bug tracker from SourceForge available at
+You can also use the Web-based bug tracker from SourceForge available at
 'http://sf.net/bugs/?group_id=12177'.
 
 Requirements
-************
+============
 
-  Mandatory Items
-  ---------------
+Mandatory Items
+---------------
 
    * PHP 4.1.0 or later with IMAP (--with-imap) and iconv (--with-iconv)
      support. -- SEE NEXT SECTION
@@ -86,13 +87,13 @@ Requirements
   
    * An IMAP or POP3 server to connect to.
 
-  Optional Items
-  --------------
+Optional Items
+--------------
 
    * SSL Web server to allow encrypted connections.
 
-  Notes on PHP
-  ------------
+Notes on PHP
+------------
 
    * PHP needs to be compiled with IMAP and iconv support (--with-imap and
      --with-iconv) at the configure stage).
@@ -100,12 +101,12 @@ Requirements
      'http://www.php.net/manual/ref.imap.php'.
 
 Installing NOCC
-***************
+===============
 
   If you upgrade from a previous installation, you should read UPGRADE file.
 
-  Installation of NOCC
-  --------------------
+Installation of NOCC
+--------------------
        
        1) Download nocc-x.y.tar.gz (where x and y are version numbers)
           (or nocc-x.y.zip for Windows' users).
@@ -134,7 +135,7 @@ Installing NOCC
           servers with default configuration.
 
 Theme tips
-**********
+----------
 
 You can customize the look and feel of NOCC very easily, using a combination of
 conf.php options, and themes. There are a few default themes you can choose
@@ -145,43 +146,43 @@ You can customize the leading and trailing HTML generated by NOCC by altering
 the header.php and footer.php files in the themes' directory.
 
 Security
-********
+--------
 
- - NOCC was initially coded with security in mind as it had to run via suEXEC.
-Therefore, there were security holes discovered by white-hat hackers which
-are now fixed by 0.9.5.
+NOCC was initially coded with security in mind as it had to run via suEXEC.
+    Therefore, there were security holes discovered by white-hat hackers which
+    are now fixed by 0.9.5.
 
- - How to setup proper Profile directory for Preferences ?
-Either create it outside of the Web tree or, if you only have choice to
-create it within the Web tree, setup a .htaccess to restrict access to
-the files created.
+How to setup proper Profile directory for Preferences?
+    Either create it outside of the Web tree or, if you only have choice to
+    create it within the Web tree, setup a .htaccess to restrict access to
+    the files created.
 
- .htaccess would contain:
+    .htaccess would contain:
 
- Order Deny,Allow
- Deny from all
+    Order Deny,Allow
+    Deny from all
 
-It won't be a security hole but anyone knowing Nocc could download users's
-signature files (useful ? privacy issue ?) and perhaps use them for spam...
-Note: due to this fact and that it might not be easy/possible for everyone,
-depending on provider, Web server, etc., this is disabled by default.
+    It won't be a security hole but anyone knowing Nocc could download users's
+    signature files (useful ? privacy issue ?) and perhaps use them for spam...
+    Note: due to this fact and that it might not be easy/possible for everyone,
+    depending on provider, Web server, etc., this is disabled by default.
 
- - How to use Nocc with PHP safe mode ?
-In order to add attachments to mails you send, you'll have to create a tmp
-directory ($conf->tmpdir in configuration file), belonging to Nocc's php 
-scripts files, and with a 777 access mode.
-In order to use preferences, IMAP filters and contacts manager, you'll have
-to create a preference directory ($conf->prefs_dir in configuration file),
-belonging to Nocc's php scripts. You can let the standard access mode (i.e. 
-755).
+How to use Nocc with PHP safe mode?
+    In order to add attachments to mails you send, you'll have to create a tmp
+    directory ($conf->tmpdir in configuration file), belonging to Nocc's php 
+    scripts files, and with a 777 access mode.
+    In order to use preferences, IMAP filters and contacts manager, you'll have
+    to create a preference directory ($conf->prefs_dir in configuration file),
+    belonging to Nocc's php scripts. You can let the standard access mode (i.e. 
+    755).
 
 Additional notes
-****************
+================
 
-  Known working setups
-  --------------------
+Known working setups
+--------------------
 
-   NOCC has been tested with (unfortunately, we don't have enough manpower
+NOCC has been tested with (unfortunately, we don't have enough manpower
 to test every setup at each release, we have just sometimes tested this with
 some version of NOCC and it worked, we'd like to have a matrix of what works
 for every release and be able to update it with users' setups):
@@ -208,53 +209,54 @@ for every release and be able to update it with users' setups):
       and work)
       - Postfix.
 
-   NOCC has been used for many months at:
+NOCC has been used for many months at:
 
     * a company with approx. 150 unique users/day,
     * a school with also 150 unique users/day,
     * several others, see http://nocc.sourceforge.net/ .
 
-  Tips
-  ----
+Tips
+----
 
-   Enhance randomization with PHP by uncommenting the entropy lines if your OS
+Enhance randomization with PHP by uncommenting the entropy lines if your OS
 has this feature (known to work with NetBSD and Linux for e.g.).
-   See PHP manual, this is used for session numbers, creating temporary files,
+See PHP manual, this is used for session numbers, creating temporary files,
 etc.
 
-  Brief history
-  -------------
+Brief history
+-------------
 
-   NOCC started as Epimail, a Webmail for our school as a free project.
-   The first version was written in Perl because it was powerful, has
+NOCC started as Epimail, a Webmail for our school as a free project.
+The first version was written in Perl because it was powerful, has
 object-oriented features, adapted to the Web and available in our school. It
 also didn't require any superuser privileges.
 
-   Webmail clients we found either required database support, superuser
+Webmail clients we found either required database support, superuser
 privileges or an IMAP server. We had neither of these and we wanted to have
 something quite simple to access a POP server and an SMTP server.
 
-   The Perl version was nice and is now released for your pleasure in GPL (some
+The Perl version was nice and is now released for your pleasure in GPL (some
 people actually already committed patches) but it won't work out-of-the-box, we
 don't have time to write documentation neither maintain it anymore).
 
-   We started working on Epimail in May 1999 and had it working in July 1999,
+We started working on Epimail in May 1999 and had it working in July 1999,
 it's been working for more than 1 year with approx. 150 unique users per day.
 The projects has also been used by two companies through some friends who came
 to know it.
 
-   The problem was that it was our first big software written in Perl, and we
+The problem was that it was our first big software written in Perl, and we
 didn't write it very well, mixing code and HTML, so it was hardly maintainable.
 Meanwhile, I discovered PHP and started rewritting it with PHP but lacked SMTP
 support so sendmail was required. Then submitted my work to Nicolas Chalanset
 who made a working version by adding proper session feature, etc. and actually
 used it for a company.
 
-   We decided to make a maintainable and public version under GPL so that it
+We decided to make a maintainable and public version under GPL so that it
 can be simple to setup, have POP and SMTP features, MIME decoding features.
 
+Thanks
+------
 
-----------------------------------------------------------------------
 We hope you find NOCC useful and easy to use.  We thank you for taking
 the time to try it and if you ever have any questions, just drop a note on
 <nocc-discuss at lists.sourceforge.net>
@@ -262,4 +264,3 @@ the time to try it and if you ever have any questions, just drop a note on
 Enjoy,
 
 The NOCC team
-----------------------------------------------------------------------
