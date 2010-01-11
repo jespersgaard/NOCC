@@ -10,31 +10,31 @@ Summary
 =======
 
 This file contains the following sections:
-    * Overview of Nocc
+    * Overview of NOCC
       - License
-      - Getting Nocc
+      - Getting NOCC
     * Requirements for NOCC
     * Installing NOCC
     * Additional notes for NOCC
       - History
 
-Overview of Nocc
+Overview of NOCC
 ================
 
-Nocc is a Web-based e-mail reader. It uses PHP and a Web server to access
-a mail server (POP3, IMAP) and send e-mail (SMTP or plain sendmail). Nocc
+NOCC is a Web-based e-mail reader. It uses PHP and a Web server to access
+a mail server (POP3, IMAP) and send e-mail (SMTP or plain sendmail). NOCC
 support ESMTP AUTH via LOGIN and PLAIN methods.
 
-Nocc can be used as an e-mail reader and allows you to view, send messages,
+NOCC can be used as an e-mail reader and allows you to view, send messages,
 manage your mail account. It can view and send MIME attachments (files, HTML,
 etc.).
 
-Nocc has low requirements on browser, it uses JavaScript as less as
+NOCC has low requirements on browser, it uses JavaScript as less as
 possible, nearly no frames and even works with Lynx; low requirements on Web
-server servers too: you don't need any superuser privileges to install Nocc
+server servers too: you don't need any superuser privileges to install NOCC
 and it can work with suEXEC (see Apache documentation) for increased security.
 
-Nocc was earlier known as Epimail, written in Perl, but was rewritten with
+NOCC was earlier known as Epimail, written in Perl, but was rewritten with
 PHP, hence the new name. See later for a bit of history.
 
 Anybody is encouraged to contribute.
@@ -51,11 +51,11 @@ PHP_LICENSE for details.
 Some files are distributed under the terms of the GNU Lesser General Public
 License. See the the LGPL for details.
 
-Getting Nocc
+Getting NOCC
 ------------
 
-Nocc development is powered by the free services offered by SourceForge to
-the Open Source community. The Web page of Nocc is http://nocc.sourceforge.net/
+NOCC development is powered by the free services offered by SourceForge to
+the Open Source community. The Web page of NOCC is http://nocc.sourceforge.net/
 
 The latest release can always be found on SourceForge and is available from
 'http://sf.net/projects/nocc/'. Announces are sent to the
@@ -67,7 +67,7 @@ http://sf.net/scm/?type=svn&group_id=12177
 Reporting bugs, sending suggestions or contributions
 ----------------------------------------------------
 
-We welcome bug reports or suggestions for Nocc (both program or
+We welcome bug reports or suggestions for NOCC (both program or
 documentation). Please email them to <nocc-discuss at lists.sourceforge.net>.
 
 You can also use the Web-based bug tracker from SourceForge available at
@@ -162,18 +162,18 @@ How to setup proper Profile directory for Preferences?
     Order Deny,Allow
     Deny from all
 
-    It won't be a security hole but anyone knowing Nocc could download users's
+    It won't be a security hole but anyone knowing NOCC could download users's
     signature files (useful ? privacy issue ?) and perhaps use them for spam...
     Note: due to this fact and that it might not be easy/possible for everyone,
     depending on provider, Web server, etc., this is disabled by default.
 
-How to use Nocc with PHP safe mode?
+How to use NOCC with PHP safe mode?
     In order to add attachments to mails you send, you'll have to create a tmp
-    directory ($conf->tmpdir in configuration file), belonging to Nocc's php 
+    directory ($conf->tmpdir in configuration file), belonging to NOCC's php 
     scripts files, and with a 777 access mode.
     In order to use preferences, IMAP filters and contacts manager, you'll have
     to create a preference directory ($conf->prefs_dir in configuration file),
-    belonging to Nocc's php scripts. You can let the standard access mode (i.e. 
+    belonging to NOCC's php scripts. You can let the standard access mode (i.e. 
     755).
 
 Additional notes
@@ -187,25 +187,25 @@ to test every setup at each release, we have just sometimes tested this with
 some version of NOCC and it worked, we'd like to have a matrix of what works
 for every release and be able to update it with users' setups):
 
-    * servers: (Nocc should work with any server, however, these have been
+    * servers: (NOCC should work with any server, however, these have been
       specifically tested and are known to work)
       - Apache.
       - PHP 5.2.3.
       - FreeBSD.
       - MacOS X.
 
-    * browsers: (Nocc should work with any browser which support CSS and XHTML,
+    * browsers: (NOCC should work with any browser which support CSS and XHTML,
       however, these have been tested and work)     
       - Internet Explorer.
       - Safari.
       - Firefox.
       - cookies needed as of 0.9.5.
 
-    * mail servers: (Nocc should work with any IMAP/POP3 server, however,
+    * mail servers: (NOCC should work with any IMAP/POP3 server, however,
       these have been tested and work)
       - Courier-IMAP.
 
-    * MTA: (Nocc should work with any MTA, however, these have been tested
+    * MTA: (NOCC should work with any MTA, however, these have been tested
       and work)
       - Postfix.
 
