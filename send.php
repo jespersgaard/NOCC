@@ -29,10 +29,6 @@ if (!isset($_SESSION['nocc_loggedin'])) {
     return;
 }
 
-// DEPRECATED: Not required PHP >= 4.1
-if (!function_exists('is_uploaded_file'))
-    include_once './utils/is_uploaded_file.php';
-
 if ($_SERVER['REQUEST_METHOD'] != 'POST') {
     clear_attachments();
     require_once './utils/proxy.php';
