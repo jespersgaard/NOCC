@@ -27,6 +27,7 @@
  * @author MuRe
  * @author Solde
  * @author Ssola
+ * @author Toniher
  */
 
 $lang_locale = 'ca_ES.UTF-8';
@@ -49,9 +50,12 @@ $title_next_msg = 'Missatge següent';
 $title_prev_msg = 'Missatge anterior';
 $html_theme_label = 'Assumpte:';
 $html_welcome = 'Benvingut a %1$s';
-$html_login = 'Usuari';
+$html_login = 'Inicia una sessió';
+$html_user_label = 'Usuari:';
+$html_passwd_label = 'Contrasenya:';
 $html_submit = 'Enviar';
 $html_help = 'Ajuda';
+$html_server_label = 'Servidor:';
 $html_wrong = 'L\'usuari o la contrasenya són incorrectes';
 $html_retry = 'Reintentar';
 $html_remember = 'Recordar valors';
@@ -170,9 +174,11 @@ $html_low = 'Baixa';
 $html_normal = 'Normal';
 $html_high = 'Alta';
 $html_highest = 'Alta';
+$html_flagged = 'Senyalat';
 $html_receipt = 'Sol·licitar justificant de recepció';
 $html_select = 'Seleccionar';
 $html_select_all = 'Invertir selecció';
+$html_select_contacts = 'Selecciona els contactes';
 $html_loading_image = 'S\'està carregant la imatge';
 $html_send_confirmed = 'El vostre correu s\'ha acceptat per entregar-lo';
 $html_no_sendaction = 'No s\'ha especificat cap acció. Proveu d\'activar el Javascript.';

@@ -25,6 +25,7 @@
  *
  * @author Crazymadlover
  * @author Gustavo Muslera <gmuslera@internet.com.uy>
+ * @author Translationista
  */
 
 $lang_locale = 'es_ES.UTF-8';
@@ -171,6 +172,7 @@ $html_low = 'Baja';
 $html_normal = 'Normal';
 $html_high = 'Alta';
 $html_highest = 'El más alto';
+$html_flagged = 'Marcado';
 $html_receipt = 'Solicitar una confirmación de entrega';
 $html_select = 'Seleccionar';
 $html_select_all = 'Invertir selección';

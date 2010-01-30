@@ -26,6 +26,7 @@
  * @author Octahedron80
  * @author Passawuth
  * @author Robert Niska <r.niska@redbox.d2g.nu>
+ * @author Woraponboonkerd
  */
 
 $lang_locale = 'th_TH.UTF-8';
@@ -48,9 +49,12 @@ $title_next_msg = 'จดหมายถัดไป';
 $title_prev_msg = 'จดหมายก่อนหน้า';
 $html_theme_label = 'รูปแบบ:';
 $html_welcome = 'ยินดีต้อนรับสู่ %1$s';
-$html_login = 'ชื่อผู้ใช้';
+$html_login = 'ลงชื่อเข้าใช้';
+$html_user_label = 'ชื่อผู้ใช้:';
+$html_passwd_label = 'รหัสผ่าน:';
 $html_submit = 'ส่งข้อมูล';
 $html_help = 'ช่วยเหลือ';
+$html_server_label = 'เซิร์ฟเวอร์';
 $html_wrong = 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง';
 $html_retry = 'ลองใหม่';
 $html_remember = 'จดจำการตั้งค่า';
@@ -122,6 +126,7 @@ $html_delete = 'ลบ';
 $html_new = 'ใหม่';
 $html_mark = 'ลบ';
 $html_att_label = 'ไฟล์แนบ:';
+$html_atts_label_label = 'ไฟล์แนบ:';
 $html_unknown = '[ไม่รู้จัก]';
 $html_attach = 'แนบ';
 $html_attach_forget = 'คุณต้องแนบไฟล์ก่อนที่จะส่งจดหมาย !';
@@ -157,6 +162,7 @@ $html_logout = 'ล็อกเอาต์';
 $html_msg = 'ข้อความ';
 $html_msgs = 'หลายข้อความ';
 $html_configuration = 'เซิรฟเวอร์นี้ยังตั้งค่าไม่สมบูรณ์ !';
+$html_priority = 'ความสำคัญ:';
 $html_priority_label = 'ความสำคัญ:';
 $html_lowest = 'ต่ำสุด';
 $html_low = 'ต่ำ';
@@ -165,6 +171,7 @@ $html_high = 'สูง';
 $html_highest = 'สูงสุด';
 $html_select = 'เลือก';
 $html_select_all = 'กลับการเลือก';
+$html_select_contacts = 'เลือกรายชื่อผู้ติดต่อ';
 $html_loading_image = 'กำลังโหลดภาพ';
 $html_send_confirmed = 'จดหมายท่านได้ถูกส่งไปแล้ว';
 $html_no_sendaction = 'ไม่มีการกระทำใดๆ ให้ลองเปิดการใช้ JavaScript';
@@ -202,8 +209,10 @@ $html_images_display = 'แสดงรูปภาพ';
 $html_smtp_error_no_conn = 'ไม่สามารถติดต่อได้';
 $html_smtp_error_unexpected = 'ไม่มีการตอบสนอง:';
 $lang_could_not_connect = 'ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์';
+$html_file_upload_attack = 'การโจมตีการอัปโหลดไฟล์ที่อาจเกิดขึ้น';
 $html_invalid_email_address = 'ที่อยู่อีเมลไม่ถูกต้อง';
 $html_invalid_msg_per_page = 'จำนวนข้อความต่อหนึ่งหน้าไม่ถูกต้อง';
 $html_seperate_msg_win = 'จดหมายในหน้าต่างแยก';
+$html_login_not_allowed = 'ชื่อเข้าใช้นี้ไม่ได้รับอนุญาตให้เชื่อมต่อได้';
 $lang_err_send_delay = 'คุณต้องรอสักครู่หลังจากส่งอีเมลก่อนหน้า (%1$d วินาที)';
 $html_search = 'สืบค้น';
