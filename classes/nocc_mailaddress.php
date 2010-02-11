@@ -90,7 +90,10 @@ class NOCC_MailAddress {
     function isValidAddress($address) {
         //TODO: Check better!
         $regexp = "|^[A-Za-z0-9\._\-\+]+@([A-Za-z0-9][A-Za-z0-9\-]{1,62})(\.[A-Za-z0-9][A-Za-z0-9\-]{1,62})+$|";  // added + as valid in name part of emailaddress
-        return preg_match($regexp, $address);
+        if (preg_match($regexp, $address)) { //if valid mail address...
+            return true;
+        }
+        return false;
     }
 }
 ?>
