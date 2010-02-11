@@ -41,7 +41,7 @@ class NOCC_Security {
      * @static
      */
     function hasDisabledHtmlImages($body) {
-        return stripos($body, 'src="none"') || stripos($body, 'background="none"') || stripos($body, 'url\(none\)');
+        return stripos($body, 'src="none"') || stripos($body, 'background="none"') || stripos($body, 'url(none)');
     }
 }
 ?>
