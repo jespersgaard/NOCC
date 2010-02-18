@@ -370,6 +370,12 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'ta';
 $lang_array[$i]->label = '‪தமிழ்';
 
+// Georgian
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'ka';
+$lang_array[$i]->label = 'ქართული';
+
 /* Message documentation (translatewiki.net specific)
 $i++;
 $lang_array[$i] = new lang();

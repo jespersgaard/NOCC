@@ -29,6 +29,7 @@
  * @author Sergey Frolovithev <serg@spylog.ru>
  * @author Sk
  * @author Александр Сигачёв
+ * @author გიორგიმელა
  */
 
 $lang_locale = 'ru_RU.UTF-8';
@@ -127,7 +128,7 @@ $html_reply_short = 'Кому';
 $html_reply_all = 'Ответить всем';
 $html_forward = 'Переслать';
 $html_forward_short = 'Отец';
-$html_forward_info = 'Отправленное сообщение будет присоединено в попку';
+$html_forward_info = 'Направлено сообщение будет направлено в качестве приложения к этому.';
 $html_delete = 'Удалить';
 $html_new = 'Новое';
 $html_mark = 'Удалить';

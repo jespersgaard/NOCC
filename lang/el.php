@@ -28,6 +28,7 @@
  * @author Dead3y3
  * @author Omnipaedista
  * @author Spyros Ioakim <sioakim@ace-hellas.gr>
+ * @author Περίεργος
  */
 
 $lang_locale = 'el_GR.UTF-8';
@@ -51,8 +52,11 @@ $title_prev_msg = 'Προηγούμενο μήνυμα';
 $html_theme_label = 'Θέμα:';
 $html_welcome = 'Καλώς ήρθατε στο %1$s';
 $html_login = 'Σύνδεση';
+$html_user_label = 'Χρήστης:';
+$html_passwd_label = 'Κωδικός:';
 $html_submit = 'Υποβολή';
 $html_help = 'Βοήθεια';
+$html_server_label = 'Διακομιστής';
 $html_wrong = 'Το όνομα λογαριασμού ή ο κωδικός είναι λάθος';
 $html_retry = 'Επανάληψη';
 $html_remember = 'Απομνημόνευση ρυθμίσεων';
@@ -171,9 +175,11 @@ $html_low = 'Χαμηλή';
 $html_normal = 'Κανονική';
 $html_high = 'Υψηλή';
 $html_highest = 'Υψηλότατη';
+$html_flagged = 'Σημασμένο';
 $html_receipt = 'Αίτηση για απόδειξη επιστροφής';
 $html_select = 'Διαλέξτε';
 $html_select_all = 'Αντιστροφή Επιλογής';
+$html_select_contacts = 'Επιλογή επαφών';
 $html_loading_image = 'Φορτώνω την εικόνα';
 $html_send_confirmed = 'Το μήνυμα σας θα αποσταλεί.';
 $html_no_sendaction = 'Δεν επιλέχθηκε εντολή. Δοκιμάστε να ενεργοποιήσετε τηνJavaScript.';

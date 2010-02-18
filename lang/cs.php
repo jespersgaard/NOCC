@@ -26,6 +26,7 @@
  * @author Kuvaly
  * @author Lukas Mizoch <ragimiri@gmail.com>
  * @author Ragimiri
+ * @author Tchoř
  * @author Vaclav Habr <habr@fonet.cz>
  */
 
@@ -173,6 +174,7 @@ $html_low = 'Malá';
 $html_normal = 'Střední';
 $html_high = 'Vysoká';
 $html_highest = 'Nejvyšší';
+$html_flagged = 'Označený';
 $html_receipt = 'Potvrdit čtení';
 $html_select = 'Vybrat';
 $html_select_all = 'Invertovat výběr';
