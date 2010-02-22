@@ -41,7 +41,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $lang ?>" lang="<?php echo $lang ?>">
 <head>
-  <title>NOCC - Webmail - <?php echo $html_contact_list . " " . $_SESSION["nocc_user"]; ?></title>
+  <title>NOCC - Webmail - <?php echo i18n_message($html_contact_list, $_SESSION['nocc_user']); ?></title>
   <link href="<?php echo $theme->getStylesheet(); ?>" rel="stylesheet" type="text/css" />
   <link href="<?php echo $theme->getFavicon(); ?>" rel="shortcut icon" type="image/x-icon" />
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
@@ -90,7 +90,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
       <table>
         <tr>
           <td colspan="2" class="contactsTitle">
-            <?php echo convertLang2Html($html_contact_list . " " . $_SESSION["nocc_user"]); ?>
+            <?php echo i18n_message($html_contact_list, $_SESSION['nocc_user']); ?>
           </td>
         </tr>
         <tr>
