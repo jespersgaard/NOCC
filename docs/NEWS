@@ -1,6 +1,8 @@
 NOCC 1.8.3  ???? ??, ????
 
   Bugs
+    * Bug #2952899 : dropdown list with themes is not filled on login page
+     (openfan).
     * Bug #2952928 : Title contact list window incorrect: Contact list of %1$
      (openfan).
     * Bug #2946163 : Unable to copy or move the message... (Evgeny Secret).
