@@ -50,7 +50,8 @@
 
   require_once './common.php';
   require_once './classes/class_local.php';
-  
+  require_once './classes/nocc_rssfeed.php';
+
   $pop = new nocc_imap($ev);
   if (NoccException::isException($ev)) {
     require './html/error.php';
@@ -67,96 +68,32 @@
     require './html/error.php';
     exit;
   }
+  
+  $rssfeed = new NOCC_RssFeed();
+  $rssfeed->setTitle('NOCC Webmail - ' . $_SESSION['nocc_folder']);
+  $rssfeed->setDescription('Your mailbox');
+  $rssfeed->setLink($conf->base_url);
+  while ($tmp = array_shift($tab_mail)) { //for all mails...
+    $attach_tab = array();
+    $content = @aff_mail($pop, $attach_tab, $tmp['number'], 0, $ev);
 
-  $ts = time();
-  $tz = date('O', $ts);
-  $tz = substr($tz, 0, -2) . ':' . substr($tz, -2);
-  $ts = date('Y-m-d\\TH:i:s', $ts) . $tz;
+    $mail_summery = '';
+    if ($tmp['attach'] == true) { //if has attachments...
+      $mail_summery .= '<img src="' . $conf->base_url . 'themes/' . $_SESSION['nocc_theme'] . '/img/attach.png" alt="" />';
+    }
+    $mail_summery .= $html_size . ': ' . $tmp['size'] . ' ' . $html_kb . '<br /><br />';
 
-  header('Content-Type: application/rss+xml; charset=UTF-8');
-  echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
-?>
-  <rdf:RDF
-    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:dc="http://purl.org/dc/elements/1.1/"
-    xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
-    xmlns:admin="http://webns.net/mvcb/"
-    xmlns:content="http://purl.org/rss/1.0/modules/content/"
-    xmlns="http://purl.org/rss/1.0/">
+    $rssDescription = $mail_summery . substr(strip_tags($content['body'], '<br />'), 0, 200) . '&hellip;';
 
-  <channel rdf:about="<?php echo $conf->base_url ?>">
-    <title>NOCC Webmail - <?php echo $_SESSION['nocc_folder'] ?></title>
-    <description>Your mailbox</description>
-    <link><?php echo $conf->base_url ?></link>
-    <dc:language><?php echo $_SESSION['nocc_lang'] ?></dc:language>
-    <dc:creator></dc:creator>
-    <dc:rights></dc:rights>
-    <dc:date><?php echo $ts ?></dc:date>
-    <admin:generatorAgent rdf:resource="http://nocc.sourceforge.net/" />
+    $rssContent = $mail_summery . $content['body'];
 
-    <sy:updatePeriod>hourly</sy:updatePeriod>
-    <sy:updateFrequency>1</sy:updateFrequency>
-    <sy:updateBase><?php echo $ts ?></sy:updateBase>
-
-    <items>
-      <rdf:Seq>
-<?php
-while ($tmp = array_shift($tab_mail)) {
-?>
-        <rdf:li rdf:resource="<?php echo $conf->base_url . 'action.php?action=aff_mail&amp;mail='.$tmp['number'].'&amp;verbose=0&amp;rss=true' ?>" />
-<?php
-}
-$tab_mail = $tab_mail_bak;
-?>
-      </rdf:Seq>
-    </items>
-  </channel>
-
-<?php
-while ($tmp = array_shift($tab_mail)) {
-  $mail_summery = '';
-  if ($tmp['attach'] == true) { //if has attachments...
-    $mail_summery .= '<img src="' . $conf->base_url . 'themes/' . $_SESSION['nocc_theme'] . '/img/attach.png" alt="" />';
+    $rssfeeditem = new NOCC_RssFeed_Item();
+    $rssfeeditem->setTitle(htmlspecialchars($tmp['subject']));
+    $rssfeeditem->setDescription($rssDescription);
+    $rssfeeditem->setContent($rssContent);
+    $rssfeeditem->setLink($conf->base_url . 'action.php?action=aff_mail&amp;mail=' . $tmp['number'] . '&amp;verbose=0&amp;rss=true');
+    $rssfeeditem->setCreator(htmlspecialchars($tmp['from']));
+    $rssfeed->addItem($rssfeeditem);
   }
-  $mail_summery .= $html_size . ': ' . $tmp['size'] . ' ' . $html_kb . '<br /><br />';
-
-  $attach_tab = array();
-  $content = @aff_mail($pop, $attach_tab, $tmp['number'], 0, $ev);
+  $rssfeed->sendToBrowser();
 ?>
-  <item rdf:about="<?php echo $conf->base_url . 'action.php?action=aff_mail&amp;mail='.$tmp['number'].'&amp;verbose=0&amp;rss=true&amp;nocc_folder='.$_SESSION['nocc_folder'] ?>">
-    <title><?php echo htmlspecialchars($tmp['subject']) ?></title>
-    <link><?php echo $conf->base_url . 'action.php?action=aff_mail&amp;mail=' . $tmp['number'] . '&amp;verbose=0&amp;rss=true' ?></link>
-    <!--dc:date></dc:date-->
-    <dc:language><?php echo $_SESSION['nocc_lang'] ?></dc:language>
-    <dc:creator><?php echo htmlspecialchars($tmp['from']) ?></dc:creator>
-    <dc:subject>Email</dc:subject>
-    <description>
-      <![CDATA[
-        <?php
-          if (NoccException::isException($ev)) {
-            require './html/error.php';
-            exit;
-          }
-          echo $mail_summery;
-          echo substr(strip_tags($content['body'], '<br />'), 0, 200) . '&hellip;';
-        ?>
-      ]]>
-    </description>
-    <content:encoded>
-      <![CDATA[
-        <?php
-          if (NoccException::isException($ev)) {
-            require './html/error.php';
-            exit;
-          }
-          echo $mail_summery;
-          echo $content['body'];
-        ?>
-      ]]>
-    </content:encoded>
-  </item>
-<?php
-  }
-?>
-
-</rdf:RDF>
