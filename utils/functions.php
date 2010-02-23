@@ -259,6 +259,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
         'cc' => $cc,
         'reply_to' => $mail_reader->getReplyToAddress(),
         'subject' => $mail_reader->getSubject(),
+        'timestamp' => $timestamp,
         'date' => $date,
         'time' => $time,
         'complete_date' => $date . ' ' . $time,

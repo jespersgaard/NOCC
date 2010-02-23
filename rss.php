@@ -90,6 +90,7 @@
     $rssfeeditem = new NOCC_RssFeed_Item();
     $rssfeeditem->setTitle(htmlspecialchars($tmp['subject']));
     $rssfeeditem->setDescription($rssDescription);
+    $rssfeeditem->setTimestamp($content['timestamp']);
     $rssfeeditem->setContent($rssContent);
     $rssfeeditem->setLink($conf->base_url . 'action.php?action=aff_mail&amp;mail=' . $tmp['number'] . '&amp;verbose=0&amp;rss=true');
     $rssfeeditem->setCreator(htmlspecialchars($tmp['from']));

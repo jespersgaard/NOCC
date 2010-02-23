@@ -7,6 +7,9 @@ NOCC 1.8.3  ???? ??, ????
      (openfan).
     * Bug #2946163 : Unable to copy or move the message... (Evgeny Secret).
 
+  Misc
+    * Add date to RSS feed items (Tim Gerundt).
+
 NOCC 1.8.2  January 30, 2010
 
   Bugs

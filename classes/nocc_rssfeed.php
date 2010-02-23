@@ -151,7 +151,8 @@ class NOCC_RssFeed {
             echo "  <item rdf:about=\"" . $item->getLink() . "\">\n";
             echo "    <title>" . $item->getTitle() . "</title>\n";
             echo "    <link>" . $item->getLink() . "</link>\n";
-            echo "    <!--dc:date></dc:date-->\n";
+            $date = $this->getIso8601Date($item->getTimestamp());
+            echo "    <dc:date>" . $date . "</dc:date>\n";
             echo "    <!--<dc:language></dc:language>-->\n";
             echo "    <dc:creator>" . $item->getCreator() . "</dc:creator>\n";
             echo "    <dc:subject>Email</dc:subject>\n";
@@ -212,6 +213,13 @@ class NOCC_RssFeed_Item {
     var $_description;
 
     /**
+     * Timestamp
+     * @var integer
+     * @access private
+     */
+    var $_timestamp;
+
+    /**
      * Content
      * @var string
      * @access private
@@ -238,6 +246,7 @@ class NOCC_RssFeed_Item {
     function NOCC_RssFeed_Item() {
         $this->_title = '';
         $this->_description = '';
+        $this->_timestamp = 0;
         $this->_content = '';
         $this->_link = '';
         $this->_creator = '';
@@ -273,6 +282,22 @@ class NOCC_RssFeed_Item {
      */
     function setDescription($description) {
         $this->_description = $description;
+    }
+
+    /**
+     * ...
+     * @return integer Timestamp
+     */
+    function getTimestamp() {
+        return $this->_timestamp;
+    }
+
+    /**
+     * ...
+     * @param integer $timestamp Timestamp
+     */
+    function setTimestamp($timestamp) {
+        $this->_timestamp = $timestamp;
     }
 
     /**
