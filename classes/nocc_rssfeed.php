@@ -117,6 +117,7 @@ class NOCC_RssFeed {
      * ...
      */
     function sendToBrowser() {
+        $date = $this->getIso8601Date();
         header('Content-Type: application/rss+xml; charset=UTF-8');
         echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
         echo "<rdf:RDF\n";
@@ -130,14 +131,14 @@ class NOCC_RssFeed {
         echo "    <title>" . $this->_title . "</title>\n";
         echo "    <description>" . $this->_description . "</description>\n";
         echo "    <link>" . $this->_link . "</link>\n";
-        echo "    <dc:language>TODO</dc:language>\n";
+        echo "    <!--<dc:language></dc:language>-->\n";
         echo "    <dc:creator></dc:creator>\n";
         echo "    <dc:rights></dc:rights>\n";
-        echo "    <dc:date>TODO</dc:date>\n";
+        echo "    <dc:date>" . $date . "</dc:date>\n";
         echo "    <admin:generatorAgent rdf:resource=\"http://nocc.sourceforge.net/\" />\n";
         echo "    <sy:updatePeriod>hourly</sy:updatePeriod>\n";
         echo "    <sy:updateFrequency>1</sy:updateFrequency>\n";
-        echo "    <sy:updateBase>TODO</sy:updateBase>\n";
+        echo "    <sy:updateBase>" . $date . "</sy:updateBase>\n";
         echo "    <items>\n";
         echo "      <rdf:Seq>\n";
         foreach ($this->_items as $item) { //for all items...
@@ -151,7 +152,7 @@ class NOCC_RssFeed {
             echo "    <title>" . $item->getTitle() . "</title>\n";
             echo "    <link>" . $item->getLink() . "</link>\n";
             echo "    <!--dc:date></dc:date-->\n";
-            echo "    <dc:language>TODO</dc:language>\n";
+            echo "    <!--<dc:language></dc:language>-->\n";
             echo "    <dc:creator>" . $item->getCreator() . "</dc:creator>\n";
             echo "    <dc:subject>Email</dc:subject>\n";
             echo "    <description>\n";
