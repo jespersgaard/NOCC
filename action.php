@@ -517,7 +517,7 @@ switch($action) {
             if (isset($_REQUEST['email_address']))
                 $user_prefs->email_address = safestrip($_REQUEST['email_address']);
             $user_prefs->cc_self = isset($_REQUEST['cc_self']);
-            $user_prefs->hide_addresses = isset($_REQUEST['hide_addresses']);
+            $user_prefs->setHideAddresses(isset($_REQUEST['hide_addresses']));
             $user_prefs->outlook_quoting = isset($_REQUEST['outlook_quoting']);
             $user_prefs->colored_quotes = isset($_REQUEST['colored_quotes']);
             $user_prefs->display_struct = isset($_REQUEST['display_struct']);

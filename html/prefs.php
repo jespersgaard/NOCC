@@ -80,7 +80,7 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="hide_addresses" id="hide_addresses" value="on" <?php if(isset($user_prefs->hide_addresses) && $user_prefs->hide_addresses) echo 'checked="checked"'; ?> /><label for="hide_addresses"><?php echo convertLang2Html($html_hide_addresses) ?></label>
+             <input type="checkbox" name="hide_addresses" id="hide_addresses" value="on" <?php if ($user_prefs->getHideAddresses()) echo 'checked="checked"'; ?> /><label for="hide_addresses"><?php echo convertLang2Html($html_hide_addresses) ?></label>
            </td>
          </tr>
       </table>

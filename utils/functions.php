@@ -687,14 +687,11 @@ function display_address(&$address) {
         return $html_unknown;
 
     // Get preference
-    $user_prefs = $_SESSION['nocc_user_prefs'];
+    $user_prefs = NOCC_Session::getUserPrefs();
 
     // If not set, return full address.
-    if(!isset($user_prefs->hide_addresses))
+    if (!$user_prefs->getHideAddresses())
         return $address;
-
-    if($user_prefs->hide_addresses!=1 && $user_prefs->hide_addresses!="on")
-         return $address; 
 
     // If no '<', return full address.
     $bracketpos = strpos($address, "<");

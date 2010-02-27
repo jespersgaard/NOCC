@@ -63,6 +63,8 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertFalse($userPrefs->getHideAddresses(), 'off');
         $userPrefs->setHideAddresses('<invalid>');
         $this->assertFalse($userPrefs->getHideAddresses(), '<invalid>');
+        $userPrefs->setHideAddresses(null);
+        $this->assertFalse($userPrefs->getHideAddresses(), 'NULL');
     }
 
     /**
