@@ -45,14 +45,14 @@ $_SESSION['nocc_loggedin'] = 1;
   <!--
     function toggleemail (bt, email)
     {
-      var field = window.opener.document.getElementById("sendform").<?php echo $_GET["field"]; ?>.value;
+      var field = window.opener.document.getElementById("sendform").<?php echo $_GET['field']; ?>.value;
 
       if (bt.value == '<?php echo unhtmlentities($html_add) ?>')
       {
         if (field == '')
-          window.opener.document.getElementById("sendform").<?php echo $_GET["field"]; ?>.value = email;
+          window.opener.document.getElementById("sendform").<?php echo $_GET['field']; ?>.value = email;
         else
-          window.opener.document.getElementById("sendform").<?php echo $_GET["field"]; ?>.value = field + "," + email;
+          window.opener.document.getElementById("sendform").<?php echo $_GET['field']; ?>.value = field + "," + email;
       }
       else
       {
@@ -65,7 +65,7 @@ $_SESSION['nocc_loggedin'] = 1;
           if (tbl[i] != email)
             f += tbl[i];
         }
-        window.opener.document.getElementById("sendform").<?php echo $_GET["field"]; ?>.value = f;
+        window.opener.document.getElementById("sendform").<?php echo $_GET['field']; ?>.value = f;
       }
     }
 

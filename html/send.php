@@ -131,7 +131,7 @@
                 echo '</table>';
             } else {
                 if (isset($broken_forwarding) && !($broken_forwarding)) {
-                    if (isset($_GET["action"]) && $_GET["action"] == 'forward') {
+                    if (isset($_GET['action']) && $_GET['action'] == 'forward') {
                         echo '<span class="inbox">' . $html_forward_info . '</span>';
                     } else {
                         echo '&nbsp;';
