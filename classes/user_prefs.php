@@ -61,6 +61,34 @@ class NOCCUserPrefs {
     }
 
     /**
+     * Get address hiding from user preferences
+     * 
+     * @return boolean Hide addresses?
+     */
+    function getHideAddresses() {
+        if (isset($this->hide_addresses)) {
+            if ($this->hide_addresses === true || $this->hide_addresses === 1 || $this->hide_addresses === 'on') {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Set address hiding from user preferences
+     *
+     * @param mixed $value Hide addresses?
+     */
+    function setHideAddresses($value) {
+        if ($value === true || $value === 1 || $value === 'on') {
+            $this->hide_addresses = true;
+        }
+        else {
+            $this->hide_addresses = false;
+        }
+    }
+
+    /**
      * Return the current preferences for the given key. Key is
      * 'login@domain'. If it cannot be found for any reason, it
      * returns a default profile. If it can be found, but not
@@ -173,6 +201,7 @@ class NOCCUserPrefs {
         if(!$this->dirty_flag) return;
 
         // Write prefs to file
+        //TODO: Check key value! Not empty?
         $filename = $conf->prefs_dir . '/' . $this->key . '.pref';
         if (file_exists($filename) && !is_writable($filename)) {
             $ev = new NoccException($html_prefs_file_error);
