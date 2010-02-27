@@ -45,7 +45,7 @@ $conf->nocc_version = '1.8.3-dev';
 $conf->nocc_url = 'http://nocc.sourceforge.net/';
 
 $pwd_to_encrypt = false;
-if (isset ($_REQUEST["action"]) && $_REQUEST["action"] == 'login') {
+if (isset ($_REQUEST['action']) && $_REQUEST['action'] == 'login') {
     session_name("NOCCSESSID");
     session_start();
     session_unset();
