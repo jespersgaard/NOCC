@@ -89,5 +89,29 @@ class NOCC_Session {
     function setQuotaType($value) {
         $_SESSION['quota_type'] = $value;
     }
+
+    /**
+     * Get user preferences from the session
+     * 
+     * @return NOCCUserPrefs User preferences
+     * @static
+     */
+    function getUserPrefs() {
+        if (isset($_SESSION['nocc_user_prefs'])) {
+            return $_SESSION['nocc_user_prefs'];
+        }
+        return new NOCCUserPrefs('');
+    }
+
+    /**
+     * Set user preferences from the session
+     *
+     * @param NOCCUserPrefs $value User preferences
+     * @static
+     * @todo Check for NOCCUserPrefs?
+     */
+    function setUserPrefs($value) {
+        $_SESSION['nocc_user_prefs'] = $value;
+    }
 }
 ?>
