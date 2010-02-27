@@ -17,6 +17,12 @@
 require_once 'exception.php';
 require_once 'nocc_mailaddress.php';
 
+/**
+ * Handling user preferences
+ *
+ * @package    NOCC
+ * @todo Rename to NOCC_UserPrefs!
+ */
 class NOCCUserPrefs {
     var $key;
     var $full_name;
@@ -44,19 +50,27 @@ class NOCCUserPrefs {
     // Set when preferences have not been commit
     var $dirty_flag;
 
-    /*
-     * Default user profile
+    /**
+     * Initialize the default user profile
+     *
+     * @param string $key Key
      */
     function NOCCUserPrefs($key) {
         $this->key = $key;
         $this->dirty_flag = 1;
     }
 
-    /*
+    /**
      * Return the current preferences for the given key. Key is
      * 'login@domain'. If it cannot be found for any reason, it
      * returns a default profile. If it can be found, but not
      * read, it returns an exception.
+     *
+     * @global object $conf
+     * @param string $key Key
+     * @param object $ev Exception
+     * @return NOCCUserPrefs User profile
+     * @static
      */
     function read($key, &$ev) {
         global $conf;
@@ -140,8 +154,12 @@ class NOCCUserPrefs {
         return $prefs;
     }
 
-    /*
+    /**
      * If need be, write settings to file.
+     *
+     * @global object $conf
+     * @global string $html_prefs_file_error
+     * @param object $ev Exception
      */
     function commit(&$ev) {
         global $conf;
@@ -196,8 +214,14 @@ class NOCCUserPrefs {
         $this->dirty_flag = 0;
     }
 
-    /*
-     * Validate preferences.
+    /**
+     * Validate preferences
+     *
+     * @global object $conf
+     * @global string $html_invalid_email_address
+     * @global string $html_invalid_msg_per_page
+     * @global string $html_invalid_wrap_msg
+     * @param object $ev Exception
      */
     function validate(&$ev) {
         global $conf;
@@ -229,10 +253,15 @@ class NOCCUserPrefs {
         $this->dirty_flag = 1;
     }
 
-    /*
+    /**
      * Format Reply Leadin
+     *
+     * @param string $string Reply Leadin
+     * @param string $content Content
+     * @return string Parsed Reply Leadin
+     * @static
      */
-    function parseLeadin ($string, $content) {
+    function parseLeadin($string, $content) {
         $string = str_replace('_DATE_', $content['date'], $string);
         $string = str_replace('_TIME_', $content['time'], $string);
         $string = str_replace('_FROM_', $content['from'], $string);
@@ -241,5 +270,4 @@ class NOCCUserPrefs {
         return ($string."\n");
     }
 }
-
 ?>
