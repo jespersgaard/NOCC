@@ -588,8 +588,8 @@ switch($action) {
         if (NoccException::isException($ev)) {
             if ($action == 'login' || $action == 'cookie') {
                 session_name("NOCCSESSID");
-                $_SESSION["nocc_login"] = "";
-                $_SESSION["nocc_user_prefs"] = "";
+                $_SESSION['nocc_login'] = '';
+                $_SESSION['nocc_user_prefs'] = '';
                 session_destroy();
                 setcookie("NoccIdent");
             }

@@ -114,7 +114,7 @@ $_SESSION['nocc_loggedin'] = 1;
         <ul>
             <li>
                 <?php
-                    $tab_title_personal = i18n_message($html_contact_list, $_SESSION["nocc_user"]);
+                    $tab_title_personal = i18n_message($html_contact_list, $_SESSION['nocc_user']);
                     
                     // toggle activated tab
                     if ($contacts_ldap === true) {
@@ -188,7 +188,7 @@ $_SESSION['nocc_loggedin'] = 1;
   ?>
   <div class="contactsList">
     <p class="contactsTitle">
-      <?php echo i18n_message($html_contact_list, $_SESSION["nocc_user"]); ?>
+      <?php echo i18n_message($html_contact_list, $_SESSION['nocc_user']); ?>
     </p>
 
     <table>
