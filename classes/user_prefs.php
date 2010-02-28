@@ -114,6 +114,21 @@ class NOCCUserPrefs {
 
         /* Open the preferences file */
         $filename = $conf->prefs_dir . '/' . $key . '.pref';
+
+        return NOCCUserPrefs::readFromFile($prefs, $filename, $ev);
+    }
+
+    /**
+     * Helper function for NOCCUserPrefs::read()
+     *
+     * @param NOCCUserPrefs $prefs Default user preferences
+     * @param string $filename File path
+     * @param object $ev Exception
+     * @return NOCCUserPrefs User profile
+     * @static
+     */
+    function readFromFile($prefs, $filename, $ev) {
+        /* Open the preferences file */
         if (!file_exists($filename)) {
             error_log("$filename does not exist");
             return $prefs;
