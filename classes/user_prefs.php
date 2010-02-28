@@ -29,7 +29,12 @@ class NOCCUserPrefs {
     var $email_address;
     var $msg_per_page;
     var $cc_self;
-    var $hide_addresses;
+    /**
+     * Hide addresses?
+     * @var boolean
+     * @access private
+     */
+    var $_hideAddresses;
     var $outlook_quoting;
     var $colored_quotes;
     var $display_struct;
@@ -57,6 +62,7 @@ class NOCCUserPrefs {
      */
     function NOCCUserPrefs($key) {
         $this->key = $key;
+        $this->_hideAddresses = false;
         $this->dirty_flag = 1;
     }
 
@@ -66,12 +72,7 @@ class NOCCUserPrefs {
      * @return boolean Hide addresses?
      */
     function getHideAddresses() {
-        if (isset($this->hide_addresses)) {
-            if ($this->hide_addresses === true || $this->hide_addresses === 1 || $this->hide_addresses === 'on') {
-                return true;
-            }
-        }
-        return false;
+        return $this->_hideAddresses;
     }
 
     /**
@@ -80,11 +81,11 @@ class NOCCUserPrefs {
      * @param mixed $value Hide addresses?
      */
     function setHideAddresses($value) {
-        if ($value === true || $value === 1 || $value === 'on') {
-            $this->hide_addresses = true;
+        if ($value === true || $value === 1 || $value === '1' || $value === 'on') {
+            $this->_hideAddresses = true;
         }
         else {
-            $this->hide_addresses = false;
+            $this->_hideAddresses = false;
         }
     }
 
@@ -142,7 +143,7 @@ class NOCCUserPrefs {
             if($key == 'cc_self')
                 $prefs->cc_self = ($value == 1 || $value == 'on');
             if($key == 'hide_addresses')
-                $prefs->hide_addresses = ($value == 1 || $value == 'on');
+                $prefs->setHideAddresses($value);
             if($key == 'outlook_quoting')
                 $prefs->outlook_quoting = ($value == 1 || $value == 'on');
             if($key == 'colored_quotes')
@@ -221,7 +222,7 @@ class NOCCUserPrefs {
         fwrite($file, "email_address=".$this->email_address."\n");
         fwrite($file, "msg_per_page=".$this->msg_per_page."\n");
         fwrite($file, "cc_self=".$this->cc_self."\n");
-        fwrite($file, "hide_addresses=".$this->hide_addresses."\n");
+        fwrite($file, "hide_addresses=".$this->_hideAddresses."\n");
         fwrite($file, "outlook_quoting=".$this->outlook_quoting."\n");
         fwrite($file, "colored_quotes=".$this->colored_quotes."\n");
         fwrite($file, "display_struct=".$this->display_struct."\n");
