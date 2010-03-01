@@ -1,6 +1,8 @@
 NOCC 1.8.3  ???? ??, ????
 
   Bugs
+    * Bug #2960858 : Exception incorrectly handled: break instead of exit?
+     (openfan).
     * Bug #2952899 : dropdown list with themes is not filled on login page
      (openfan).
     * Bug #2952928 : Title contact list window incorrect: Contact list of %1$

@@ -65,7 +65,7 @@ if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'cookie') {
         require './html/header.php';
         require './html/error.php';
         require './html/footer.php';
-        break;
+        exit;
     }
     list($_SESSION['nocc_user'], $_SESSION['nocc_passwd'],
              $_SESSION['nocc_login'], $_SESSION['nocc_lang'],
@@ -309,7 +309,7 @@ if (isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
             exit(1);
         }
     }
-    $user_prefs = $_SESSION['nocc_user_prefs'];
+    $user_prefs = NOCC_Session::getUserPrefs();
 
     //--------------------------------------------------------------------------------
     // Set and load the user prefs language...
