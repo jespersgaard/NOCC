@@ -22,6 +22,8 @@ require_once 'nocc_mailaddress.php';
  *
  * @package    NOCC
  * @todo Rename to NOCC_UserPrefs!
+ * @todo Hide all preferenes behind getter/setter!
+ * @todo Rewrite to avoid global variables!
  */
 class NOCCUserPrefs {
     var $key;
@@ -35,6 +37,10 @@ class NOCCUserPrefs {
      * @access private
      */
     var $_hideAddresses;
+    /**
+     * Outlook quoting?
+     * @var boolean
+     */
     var $outlook_quoting;
     var $colored_quotes;
     var $display_struct;
@@ -63,6 +69,7 @@ class NOCCUserPrefs {
     function NOCCUserPrefs($key) {
         $this->key = $key;
         $this->_hideAddresses = false;
+        $this->outlook_quoting = false;
         $this->dirty_flag = 1;
     }
 
@@ -86,6 +93,29 @@ class NOCCUserPrefs {
         }
         else {
             $this->_hideAddresses = false;
+        }
+    }
+
+    /**
+     * Get outlook quoting from user preferences
+     *
+     * @return boolean Outlook quoting?
+     */
+    function getOutlookQuoting() {
+        return $this->outlook_quoting;
+    }
+
+    /**
+     * Set outlook quoting from user preferences
+     *
+     * @param mixed $value Outlook quoting?
+     */
+    function setOutlookQuoting($value) {
+        if ($value === true || $value === 1 || $value === '1' || $value === 'on') {
+            $this->outlook_quoting = true;
+        }
+        else {
+            $this->outlook_quoting = false;
         }
     }
 
@@ -160,7 +190,7 @@ class NOCCUserPrefs {
             if($key == 'hide_addresses')
                 $prefs->setHideAddresses($value);
             if($key == 'outlook_quoting')
-                $prefs->outlook_quoting = ($value == 1 || $value == 'on');
+                $prefs->setOutlookQuoting($value);
             if($key == 'colored_quotes')
                 $prefs->colored_quotes = ($value == 1 || $value == 'on');
             if($key == 'display_struct')

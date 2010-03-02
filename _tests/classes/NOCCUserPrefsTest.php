@@ -72,6 +72,42 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * Test case for getOutlookQuoting().
+     */
+    public function testGetOutlookQuoting() {
+        $this->assertFalse($this->userPrefs1->getOutlookQuoting());
+    }
+
+    /**
+     * Test case for setOutlookQuoting().
+     */
+    public function testSetOutlookQuoting() {
+        $userPrefs = new NOCCUserPrefs('');
+
+        $this->assertFalse($userPrefs->getOutlookQuoting(), 'default');
+        $userPrefs->setOutlookQuoting(true);
+        $this->assertTrue($userPrefs->getOutlookQuoting(), 'true');
+        $userPrefs->setOutlookQuoting(false);
+        $this->assertFalse($userPrefs->getOutlookQuoting(), 'false');
+        $userPrefs->setOutlookQuoting(1);
+        $this->assertTrue($userPrefs->getOutlookQuoting(), '1');
+        $userPrefs->setOutlookQuoting(0);
+        $this->assertFalse($userPrefs->getOutlookQuoting(), '0');
+        $userPrefs->setOutlookQuoting('on');
+        $this->assertTrue($userPrefs->getOutlookQuoting(), 'on');
+        $userPrefs->setOutlookQuoting('off');
+        $this->assertFalse($userPrefs->getOutlookQuoting(), 'off');
+        $userPrefs->setOutlookQuoting('1');
+        $this->assertTrue($userPrefs->getOutlookQuoting(), '"1"');
+        $userPrefs->setOutlookQuoting('0');
+        $this->assertFalse($userPrefs->getOutlookQuoting(), '"0"');
+        $userPrefs->setOutlookQuoting('<invalid>');
+        $this->assertFalse($userPrefs->getOutlookQuoting(), '<invalid>');
+        $userPrefs->setOutlookQuoting(null);
+        $this->assertFalse($userPrefs->getOutlookQuoting(), 'NULL');
+    }
+
+    /**
      * @todo Implement testRead().
      */
     public function testRead() {
