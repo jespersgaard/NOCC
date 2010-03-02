@@ -108,6 +108,42 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * Test case for getColoredQuotes().
+     */
+    public function testGetColoredQuotes() {
+        $this->assertFalse($this->userPrefs1->getColoredQuotes());
+    }
+
+    /**
+     * Test case for setColoredQuotes().
+     */
+    public function testSetColoredQuotes() {
+        $userPrefs = new NOCCUserPrefs('');
+
+        $this->assertFalse($userPrefs->getColoredQuotes(), 'default');
+        $userPrefs->setColoredQuotes(true);
+        $this->assertTrue($userPrefs->getColoredQuotes(), 'true');
+        $userPrefs->setColoredQuotes(false);
+        $this->assertFalse($userPrefs->getColoredQuotes(), 'false');
+        $userPrefs->setColoredQuotes(1);
+        $this->assertTrue($userPrefs->getColoredQuotes(), '1');
+        $userPrefs->setColoredQuotes(0);
+        $this->assertFalse($userPrefs->getColoredQuotes(), '0');
+        $userPrefs->setColoredQuotes('on');
+        $this->assertTrue($userPrefs->getColoredQuotes(), 'on');
+        $userPrefs->setColoredQuotes('off');
+        $this->assertFalse($userPrefs->getColoredQuotes(), 'off');
+        $userPrefs->setColoredQuotes('1');
+        $this->assertTrue($userPrefs->getColoredQuotes(), '"1"');
+        $userPrefs->setColoredQuotes('0');
+        $this->assertFalse($userPrefs->getColoredQuotes(), '"0"');
+        $userPrefs->setColoredQuotes('<invalid>');
+        $this->assertFalse($userPrefs->getColoredQuotes(), '<invalid>');
+        $userPrefs->setColoredQuotes(null);
+        $this->assertFalse($userPrefs->getColoredQuotes(), 'NULL');
+    }
+
+    /**
      * @todo Implement testRead().
      */
     public function testRead() {

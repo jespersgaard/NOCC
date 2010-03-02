@@ -42,6 +42,10 @@ class NOCCUserPrefs {
      * @var boolean
      */
     var $outlook_quoting;
+    /**
+     * Colored quotes?
+     * @var boolean
+     */
     var $colored_quotes;
     var $display_struct;
     var $seperate_msg_win;
@@ -70,6 +74,7 @@ class NOCCUserPrefs {
         $this->key = $key;
         $this->_hideAddresses = false;
         $this->outlook_quoting = false;
+        $this->colored_quotes = false;
         $this->dirty_flag = 1;
     }
 
@@ -116,6 +121,29 @@ class NOCCUserPrefs {
         }
         else {
             $this->outlook_quoting = false;
+        }
+    }
+
+    /**
+     * Get colored quotes from user preferences
+     *
+     * @return boolean Colored quotes?
+     */
+    function getColoredQuotes() {
+        return $this->colored_quotes;
+    }
+
+    /**
+     * Set colored quotes from user preferences
+     *
+     * @param mixed $value Colored quotes?
+     */
+    function setColoredQuotes($value) {
+        if ($value === true || $value === 1 || $value === '1' || $value === 'on') {
+            $this->colored_quotes = true;
+        }
+        else {
+            $this->colored_quotes = false;
         }
     }
 
@@ -192,7 +220,7 @@ class NOCCUserPrefs {
             if($key == 'outlook_quoting')
                 $prefs->setOutlookQuoting($value);
             if($key == 'colored_quotes')
-                $prefs->colored_quotes = ($value == 1 || $value == 'on');
+                $prefs->setColoredQuotes($value);
             if($key == 'display_struct')
                 $prefs->display_struct = ($value == 1 || $value == 'on');
             if($key == 'seperate_msg_win')
