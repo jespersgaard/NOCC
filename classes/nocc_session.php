@@ -91,6 +91,16 @@ class NOCC_Session {
     }
 
     /**
+     * Exists user preferences in the session?
+     *
+     * @return boolean Exists user preferences?
+     * @static
+     */
+    function existsUserPrefs() {
+        return isset($_SESSION['nocc_user_prefs']);
+    }
+
+    /**
      * Get user preferences from the session
      * 
      * @return NOCCUserPrefs User preferences

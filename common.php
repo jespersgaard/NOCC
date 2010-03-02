@@ -302,7 +302,7 @@ if (isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
     $user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
 
     // Preferences
-    if (!isset($_SESSION['nocc_user_prefs'])) {
+    if (!NOCC_Session::existsUserPrefs()) {
         $_SESSION['nocc_user_prefs'] = NOCCUserPrefs::read($user_key, $ev);
         if(NoccException::isException($ev)) {
             echo "<p>User prefs error ($user_key): ".$ev->getMessage()."</p>";
