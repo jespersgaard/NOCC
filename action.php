@@ -185,24 +185,8 @@ switch($action) {
         else
             $mail_subject = $html_reply_short.' '.$content['subject'];
 
-        // Set body
-        if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
-            $mail_body = $original_msg . "\n" . $html_from_label . ' ' . $content['from'] . "\n" . $html_to_label . ' '
-                    . $content['to'] . "\n" . $html_sent_label.' ' . $content['complete_date'] . "\n" . $html_subject_label
-                    . ' '. $content['subject'] . "\n\n" . enh_html_entity_decode(strip_tags($content['body'], ''));
-        else {
-            if (isset($conf->enable_reply_leadin) 
-                    && $conf->enable_reply_leadin == true 
-                    && isset($user_prefs->reply_leadin) 
-                    && ($user_prefs->reply_leadin != '')) {
-                $parsed_leadin = NOCCUserPrefs::parseLeadin($user_prefs->reply_leadin, $content);
-                $mail_body = mailquote(enh_html_entity_decode(strip_tags($content['body'], '')), $parsed_leadin, '');
-            }
-            else {
-                $stripped_content = enh_html_entity_decode(strip_tags($content['body'], ''));
-                $mail_body = mailquote($stripped_content, $content['from'], $html_wrote);
-            }
-        }
+        // Add quoting
+        add_quoting($mail_body, $content);
 
         // Add signature
         add_signature($mail_body);
@@ -246,24 +230,8 @@ switch($action) {
         else
             $mail_subject = $html_reply_short.' '.$content['subject'];
 
-        // Set body
-        if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
-            $mail_body = $original_msg . "\n" . $html_from_label . ' ' . $content['from'] . "\n" . $html_to_label . ' '
-                    . $content['to'] . "\n" . $html_sent_label.' ' . $content['complete_date'] . "\n" . $html_subject_label
-                    . ' '. $content['subject'] . "\n\n" . enh_html_entity_decode(strip_tags($content['body'], ''));
-        else {
-            if (isset($conf->enable_reply_leadin) 
-                    && $conf->enable_reply_leadin == true 
-                    && isset($user_prefs->reply_leadin) 
-                    && ($user_prefs->reply_leadin != '')) {
-                $parsed_leadin = NOCCUserPrefs::parseLeadin($user_prefs->reply_leadin, $content);
-                $mail_body = mailquote(enh_html_entity_decode(strip_tags($content['body'], '')), $parsed_leadin, '');
-            }
-            else {
-                $stripped_content = enh_html_entity_decode(strip_tags($content['body'], ''));
-                $mail_body = mailquote($stripped_content, $content['from'], $html_wrote);
-            }
-        }
+        // Add quoting
+        add_quoting($mail_body, $content);
 
         // Add signature
         add_signature($mail_body);
@@ -309,6 +277,7 @@ switch($action) {
 
             if (isset($conf->broken_forwarding) && $conf->broken_forwarding) {
                 // Set body
+                //TODO: Put to own function and merge with code from add_quoting()!
                 if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
                     $mail_body .= $original_msg . $conf->crlf . $html_from_label . ' ' . $content['from'] . $conf->crlf
                             . $html_to_label . ' ' . $content['to'] . $conf->crlf . $html_sent_label.' ' . $content['complete_date']
@@ -754,6 +723,30 @@ function add_signature(&$body) {
             $body .= "\r\n\r\n"."-- \r\n".$user_prefs->signature;
         else
             $body .= "\r\n\r\n".$user_prefs->signature;
+    }
+}
+
+function add_quoting(&$mail_body, $content) {
+    global $user_prefs, $conf;
+    global $original_msg, $html_from_label, $html_to_label, $html_sent_label, $html_subject_label;
+    global $html_wrote;
+
+    if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
+        $mail_body = $original_msg . "\n" . $html_from_label . ' ' . $content['from'] . "\n" . $html_to_label . ' '
+                . $content['to'] . "\n" . $html_sent_label.' ' . $content['complete_date'] . "\n" . $html_subject_label
+                . ' '. $content['subject'] . "\n\n" . enh_html_entity_decode(strip_tags($content['body'], ''));
+    else {
+        if (isset($conf->enable_reply_leadin)
+                && $conf->enable_reply_leadin == true
+                && isset($user_prefs->reply_leadin)
+                && ($user_prefs->reply_leadin != '')) {
+            $parsed_leadin = NOCCUserPrefs::parseLeadin($user_prefs->reply_leadin, $content);
+            $mail_body = mailquote(enh_html_entity_decode(strip_tags($content['body'], '')), $parsed_leadin, '');
+        }
+        else {
+            $stripped_content = enh_html_entity_decode(strip_tags($content['body'], ''));
+            $mail_body = mailquote($stripped_content, $content['from'], $html_wrote);
+        }
     }
 }
 
