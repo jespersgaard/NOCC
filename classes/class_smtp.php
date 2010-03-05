@@ -59,8 +59,8 @@ class smtp
     function smtp_helo($smtp) 
     {
         /* 'localhost' not always works [Unk] */ 
-        fputs($smtp, "helo " . $_SERVER["SERVER_NAME"] . "\r\n"); 
-        $this->sessionlog .= "Sent: helo " . $_SERVER["SERVER_NAME"];
+        fputs($smtp, "helo " . $_SERVER['SERVER_NAME'] . "\r\n"); 
+        $this->sessionlog .= "Sent: helo " . $_SERVER['SERVER_NAME'];
         $line = fgets($smtp, 1024); 
         $this->sessionlog .= "Rcvd: $line";
 
@@ -76,8 +76,8 @@ class smtp
           A working EHLO command. Still, any received information is simply
           ignored.
         */ 
-        fputs($smtp, "ehlo " . $_SERVER["SERVER_NAME"] . "\r\n"); 
-        $this->sessionlog .= "Sent: ehlo " . $_SERVER["SERVER_NAME"];
+        fputs($smtp, "ehlo " . $_SERVER['SERVER_NAME'] . "\r\n"); 
+        $this->sessionlog .= "Sent: ehlo " . $_SERVER['SERVER_NAME'];
         while (empty($line) || substr($line, 3, 1) == '-') {
             $line = fgets($smtp, 1024);
             $this->sessionlog .= "Rcvd: $line";
