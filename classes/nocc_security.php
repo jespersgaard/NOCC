@@ -39,9 +39,26 @@ class NOCC_Security {
      * @param string $body HTML body
      * @return bool Has disabled HTML images?
      * @static
+     * TODO: stripos() is PHP5 only!
      */
     function hasDisabledHtmlImages($body) {
         return stripos($body, 'src="none"') || stripos($body, 'background="none"') || stripos($body, 'url(none)');
+    }
+
+    /**
+     * Get the image type from a internet media type (MIME type)
+     * 
+     * @param string $internetMediaType Internet media type (MIME type)
+     * @return string Image subtype
+     * TODO: Better name?
+     * TODO: Move to other place?
+     */
+    function getImageType($internetMediaType) {
+        $types = explode('/', $internetMediaType);
+        if (strtolower($types[0]) == 'image') { //if image MIME type...
+            return $types[1];
+        }
+        return '';
     }
 }
 ?>

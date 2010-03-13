@@ -67,12 +67,13 @@ switch($action) {
         $tmp_attach_tab = $attach_tab;
         $i = 0;
         while ($tmp = array_pop($tmp_attach_tab)) {
-            if ($conf->display_img_attach && (stripos($tmp['mime'], 'image') && ($tmp['number'] != ''))) {
-                $exploded = explode('/', $tmp['mime']);
-                $img_type = array_pop($exploded);
-                if (preg_match('|JP[E]?G|i', $img_type) || stripos($img_typ, 'GIF') || stripos($img_type, 'PNG')) {
+            //TODO: Rewrite!
+            $imageType = NOCC_Security::getImageType($tmp['mime']);
+            if ($conf->display_img_attach && !empty($imageType) && ($tmp['number'] != '')) {
+                //TODO: stripos() is PHP5 only!
+                if (preg_match('|JP[E]?G|i', $imageType) || stripos($imageType, 'GIF') || stripos($imageType, 'PNG')) {
                     $new_img_src = 'src="get_img.php?mail=' . $_REQUEST['mail'].'&amp;num='
-                            . $tmp['number'] . '&amp;mime=' . $img_type . '&amp;transfer=' . $tmp['transfer'] . '"';
+                            . $tmp['number'] . '&amp;mime=' . $imageType . '&amp;transfer=' . $tmp['transfer'] . '"';
                     $img_id = str_replace('<', '', $tmp['id']);
                     $img_id = str_replace('>', '', $img_id);
                     $content['body'] = str_replace('src="cid:'.$img_id.'"', $new_img_src, $content['body']);
@@ -97,6 +98,7 @@ switch($action) {
         while ($tmp = array_pop($attach_tab)) {
             // $attach_tab is the array of attachments
             // If it's a text/plain, display it
+            //TODO: stripos() is PHP5 only!
             if ((!stripos($tmp['disposition'], 'ATTACHMENT')) && $conf->display_text_attach && (stripos($tmp['mime'], 'text/plain'))) {
                 echo '<hr class="mailAttachSep" />';
                 echo '<div class="mailTextAttach">';
@@ -104,15 +106,16 @@ switch($action) {
                 echo view_part($pop, $_REQUEST['mail'], $tmp['number'], $tmp['transfer'], $tmp['charset']);
                 echo '</div> <!-- .mailTextAttach -->';
             }
-            if ($conf->display_img_attach && (stripos($tmp['mime'], 'image') && ($tmp['number'] != ''))) {
-                // if it's an image, display it
-                $exploded = explode('/', $tmp['mime']);
-                $img_type = array_pop($exploded);
-                if (preg_match('|JP[E]?G|i', $img_type) || stripos($img_type, 'GIF') || stripos($img_type, 'PNG')) {
+            //TODO: Rewrite!
+            $imageType = NOCC_Security::getImageType($tmp['mime']);
+            if ($conf->display_img_attach && !empty($imageType) && ($tmp['number'] != '')) {
+                // if it's an image, display it#
+                //TODO: stripos() is PHP5 only!
+                if (preg_match('|JP[E]?G|i', $imageType) || stripos($imageType, 'GIF') || stripos($imageType, 'PNG')) {
                     echo '<hr class="mailAttachSep" />';
                     echo '<div class="mailImgAttach">';
                     echo '<img src="get_img.php?mail=' . $_REQUEST['mail'].'&amp;num=' . $tmp['number'] . '&amp;mime='
-                            . $img_type . '&amp;transfer=' . $tmp['transfer'] . '" alt="" title="' . $tmp['name'] . '" />';
+                            . $imageType . '&amp;transfer=' . $tmp['transfer'] . '" alt="" title="' . $tmp['name'] . '" />';
                     echo '</div> <!-- .mailImgAttach -->';
                 }
             }

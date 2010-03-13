@@ -124,5 +124,19 @@ class NOCC_SecurityTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue(NOCC_Security::hasDisabledHtmlImages('<p style="background:url(none)">...</p>'), 'background:url(none)');
         $this->assertTrue(NOCC_Security::hasDisabledHtmlImages('<p style="background : url(none)">...</p>'), 'background : url(none)');
     }
+
+    /**
+     * Test case for getImageType().
+     */
+    public function testGetImageType() {
+        $this->assertEquals('', NOCC_Security::getImageType(null), 'NULL');
+        $this->assertEquals('', NOCC_Security::getImageType('image'), 'image');
+        $this->assertEquals('', NOCC_Security::getImageType('image\bug'), 'image\bug');
+        $this->assertEquals('', NOCC_Security::getImageType('text/plain'), 'text/plain');
+        $this->assertEquals('jpeg', NOCC_Security::getImageType('image/jpeg'), 'image/jpeg');
+        $this->assertEquals('PJPEG', NOCC_Security::getImageType('image/PJPEG'), 'image/PJPEG');
+        $this->assertEquals('gif', NOCC_Security::getImageType('IMAGE/gif'), 'IMAGE/gif');
+        $this->assertEquals('PNG', NOCC_Security::getImageType('IMAGE/PNG'), 'IMAGE/PNG');
+    }
 }
 ?>
