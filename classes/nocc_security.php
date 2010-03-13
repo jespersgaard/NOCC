@@ -60,5 +60,20 @@ class NOCC_Security {
         }
         return '';
     }
+
+    /**
+     * Is supported image type?
+     *
+     * @param string $imageType Image type
+     * @return bool Supported image type?
+     * TODO: Better name?
+     * TODO: Move to other place?
+     */
+    function isSupportedImageType($imageType) {
+        if (preg_match('/^PJPE?G$|^JPE?G$|^GIF$|^PNG$/i', $imageType)) { //if PJP(E)G, JP(E)G, GIF, PNG...
+            return true;
+        }
+        return false;
+    }
 }
 ?>

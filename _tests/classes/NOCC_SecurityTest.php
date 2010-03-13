@@ -138,5 +138,20 @@ class NOCC_SecurityTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('gif', NOCC_Security::getImageType('IMAGE/gif'), 'IMAGE/gif');
         $this->assertEquals('PNG', NOCC_Security::getImageType('IMAGE/PNG'), 'IMAGE/PNG');
     }
+
+    /**
+     * Test case for isSupportedImageType().
+     */
+    public function testIsSupportedImageType() {
+        $this->assertFalse(NOCC_Security::isSupportedImageType(null), 'NULL');
+        $this->assertFalse(NOCC_Security::isSupportedImageType('exe'), 'exe');
+        $this->assertFalse(NOCC_Security::isSupportedImageType('tiff'), 'tiff');
+        $this->assertFalse(NOCC_Security::isSupportedImageType('Gift'), 'Gift');
+
+        $this->assertTrue(NOCC_Security::isSupportedImageType('jpeg'), 'jpeg');
+        $this->assertTrue(NOCC_Security::isSupportedImageType('PJPEG'), 'PJPEG');
+        $this->assertTrue(NOCC_Security::isSupportedImageType('Gif'), 'Gif');
+        $this->assertTrue(NOCC_Security::isSupportedImageType('pnG'), 'pnG');
+    }
 }
 ?>

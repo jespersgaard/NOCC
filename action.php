@@ -70,8 +70,7 @@ switch($action) {
             //TODO: Rewrite!
             $imageType = NOCC_Security::getImageType($tmp['mime']);
             if ($conf->display_img_attach && !empty($imageType) && ($tmp['number'] != '')) {
-                //TODO: stripos() is PHP5 only!
-                if (preg_match('|JP[E]?G|i', $imageType) || stripos($imageType, 'GIF') || stripos($imageType, 'PNG')) {
+                if (NOCC_Security::isSupportedImageType($imageType)) {
                     $new_img_src = 'src="get_img.php?mail=' . $_REQUEST['mail'].'&amp;num='
                             . $tmp['number'] . '&amp;mime=' . $imageType . '&amp;transfer=' . $tmp['transfer'] . '"';
                     $img_id = str_replace('<', '', $tmp['id']);
@@ -110,8 +109,7 @@ switch($action) {
             $imageType = NOCC_Security::getImageType($tmp['mime']);
             if ($conf->display_img_attach && !empty($imageType) && ($tmp['number'] != '')) {
                 // if it's an image, display it#
-                //TODO: stripos() is PHP5 only!
-                if (preg_match('|JP[E]?G|i', $imageType) || stripos($imageType, 'GIF') || stripos($imageType, 'PNG')) {
+                if (NOCC_Security::isSupportedImageType($imageType)) {
                     echo '<hr class="mailAttachSep" />';
                     echo '<div class="mailImgAttach">';
                     echo '<img src="get_img.php?mail=' . $_REQUEST['mail'].'&amp;num=' . $tmp['number'] . '&amp;mime='
