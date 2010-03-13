@@ -360,7 +360,7 @@ class NOCCUserPrefs {
      * Format Reply Leadin
      *
      * @param string $string Reply Leadin
-     * @param string $content Content
+     * @param array $content Content
      * @return string Parsed Reply Leadin
      * @static
      */
