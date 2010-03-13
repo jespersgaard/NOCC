@@ -1,6 +1,7 @@
 NOCC 1.8.3  ???? ??, ????
 
   Bugs
+    * Bug #2963603 : Function name tripos instead of stripos, typo? (openfan).
     * Bug #2960858 : Exception incorrectly handled: break instead of exit?
      (openfan).
     * Bug #2952899 : dropdown list with themes is not filled on login page

@@ -108,7 +108,7 @@ switch($action) {
                 // if it's an image, display it
                 $exploded = explode('/', $tmp['mime']);
                 $img_type = array_pop($exploded);
-                if (preg_match('|JP[E]?G|i', $img_type) || tripos($img_type, 'JPG') || stripos($img_type, 'GIF') || stripos($img_type, 'PNG')) {
+                if (preg_match('|JP[E]?G|i', $img_type) || stripos($img_type, 'GIF') || stripos($img_type, 'PNG')) {
                     echo '<hr class="mailAttachSep" />';
                     echo '<div class="mailImgAttach">';
                     echo '<img src="get_img.php?mail=' . $_REQUEST['mail'].'&amp;num=' . $tmp['number'] . '&amp;mime='
