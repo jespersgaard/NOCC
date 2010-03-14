@@ -292,7 +292,95 @@ class NOCC_MailStructure {
     function getInternetMediaType() {
         return $this->getTypeText() . '/' . $this->getSubtype();
     }
-    
+
+    /**
+     * Is text?
+     * @return bool Is text?
+     */
+    function isText() {
+        if ($this->getType() == 0) { //if text...
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Is multipart?
+     * @return bool Is multipart?
+     */
+    function isMultipart() {
+        if ($this->getType() == 1) { //if multipart...
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Is message?
+     * @return bool Is message?
+     */
+    function isMessage() {
+        if ($this->getType() == 2) { //if message...
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Is application?
+     * @return bool Is application?
+     */
+    function isApplication() {
+        if ($this->getType() == 3) { //if application...
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Is audio?
+     * @return bool Is audio?
+     */
+    function isAudio() {
+        if ($this->getType() == 4) { //if audio...
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Is image?
+     * @return bool Is image?
+     */
+    function isImage() {
+        if ($this->getType() == 5) { //if image...
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Is video?
+     * @return bool Is video?
+     */
+    function isVideo() {
+        if ($this->getType() == 6) { //if video...
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Is other?
+     * @return bool Is other?
+     */
+    function isOther() {
+        if ($this->getType() == 7) { //if other...
+            return true;
+        }
+        return false;
+    }
+
     /**
      * Convert the primary body type to text
      *
