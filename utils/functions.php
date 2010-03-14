@@ -349,7 +349,7 @@ function GetPart(&$attach_tab, $this_part, $part_no, $display_rfc822) {
     if (($full_mime_type == 'message/RFC822' && $display_rfc822 == true) || ($mime_type != 'multipart' && $full_mime_type != 'message/RFC822')) {
         $tmp = Array(
             'number' => ($part_no != '' ? $part_no : 1),
-            'id' => $this_part->ifid ? $this_part->id : 0,
+            'id' => $mailstructure->getId(),
             'name' => $mailstructure->getName($html_unknown),
             'mime' => $full_mime_type,
             'transfer' => $mailstructure->getEncodingText(),
