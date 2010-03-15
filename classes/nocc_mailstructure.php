@@ -382,6 +382,28 @@ class NOCC_MailStructure {
     }
 
     /**
+     * Is attachment?
+     * @return bool Is attachment?
+     */
+    function isAttachment() {
+        if (strtolower($this->getDisposition()) == 'attachment') { //if attachment...
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Is inline?
+     * @return bool Is inline?
+     */
+    function isInline() {
+        if (strtolower($this->getDisposition()) == 'inline') { //if inline...
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Convert the primary body type to text
      *
      * @param integer $type Primary body type
