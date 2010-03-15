@@ -97,8 +97,7 @@ switch($action) {
         while ($tmp = array_pop($attach_tab)) {
             // $attach_tab is the array of attachments
             // If it's a text/plain, display it
-            //TODO: stripos() is PHP5 only!
-            if ((!stripos($tmp['disposition'], 'ATTACHMENT')) && $conf->display_text_attach && (stripos($tmp['mime'], 'text/plain'))) {
+            if ((!preg_match('|ATTACHMENT|i', $tmp['disposition'])) && $conf->display_text_attach && (preg_match('|text/plain|i', $tmp['mime']))) {
                 echo '<hr class="mailAttachSep" />';
                 echo '<div class="mailTextAttach">';
                 //TODO: Replace URLs and Smilies in text/plain attachment?
