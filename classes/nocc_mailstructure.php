@@ -327,6 +327,19 @@ class NOCC_MailStructure {
     }
 
     /**
+     * Is RFC822 message?
+     * @return bool Is RFC822 message?
+     */
+    function isRfc822Message() {
+        if ($this->isMessage()) { //if message...
+            if (strtoupper($this->getSubtype()) == 'RFC822') { //if RFC822 message...
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Is application?
      * @return bool Is application?
      */
