@@ -293,65 +293,35 @@ function GetPart(&$attach_tab, $this_part, $part_no, $display_rfc822) {
 
     $mailstructure = new NOCC_MailStructure($this_part);
 
-    if (isset($this_part->type)) {
-        switch ($this_part->type) {
-            case 0:
-                $mime_type = 'text';
-                break;
-            case 1:
-                $mime_type = 'multipart';
-                for ($i = 0; $i < count($this_part->parts); $i++) {
-                    if ($part_no != '') {
-                        if (substr($part_no, -1) != '.')
-                            $part_no = $part_no . '.';
-                    }
-                    //TODO: Gibt Probleme bei der "RE: Re[2]: Tuer zu Ihrem Wunsch"
-                    //TODO: Überprüfen, ob es den ALTERNATIVE Part überhaupt gibt!
-                    // if it's an alternative, we skip the text part to only keep the HTML part
-                    if ($this_part->subtype == 'ALTERNATIVE')// && $read == true)
-                        GetPart($attach_tab, $this_part->parts[++$i], $part_no . ($i + 1), $display_rfc822);
-                    else 
-                        GetPart($attach_tab, $this_part->parts[$i], $part_no . ($i + 1), $display_rfc822);
-                }
-                break;
-            case 2:
-                $mime_type = 'message';
-                // well it's a message we have to parse it to find attachments or text message
-                if (isset($this_part->parts[0]->parts)) {
-                    $num_parts = count($this_part->parts[0]->parts);
-                    for ($i = 0; $i < $num_parts; $i++)
-                        GetPart($attach_tab, $this_part->parts[0]->parts[$i], $part_no . '.' . ($i + 1), $display_rfc822);
-                }
-                break;
-            // Maybe we can do something with the mime types later ??
-            case 3:
-                $mime_type = 'application';
-                break;
-            case 4:
-                $mime_type = 'audio';
-                break;
-            case 5:
-                $mime_type = 'image';
-                break;
-            case 6:
-                $mime_type = 'video';
-                break;
-            case 7:
-                $mime_type = 'other';
-                break;
-            default:
-                $mime_type = 'unknown';
+    if ($mailstructure->isMultipart()) { //if multipart...
+        for ($i = 0; $i < count($this_part->parts); $i++) {
+            if ($part_no != '') {
+                if (substr($part_no, -1) != '.')
+                    $part_no = $part_no . '.';
+            }
+            //TODO: Gibt Probleme bei der "RE: Re[2]: Tuer zu Ihrem Wunsch"
+            //TODO: Überprüfen, ob es den ALTERNATIVE Part überhaupt gibt!
+            // if it's an alternative, we skip the text part to only keep the HTML part
+            if ($this_part->subtype == 'ALTERNATIVE')// && $read == true)
+                GetPart($attach_tab, $this_part->parts[++$i], $part_no . ($i + 1), $display_rfc822);
+            else
+                GetPart($attach_tab, $this_part->parts[$i], $part_no . ($i + 1), $display_rfc822);
         }
     }
-    else
-        $mime_type = 'text';
-    $full_mime_type = $mime_type . '/' . $this_part->subtype;
-    if (($full_mime_type == 'message/RFC822' && $display_rfc822 == true) || ($mime_type != 'multipart' && $full_mime_type != 'message/RFC822')) {
+    else if($mailstructure->isMessage()) { //if message...
+        if (isset($this_part->parts[0]->parts)) {
+            $num_parts = count($this_part->parts[0]->parts);
+            for ($i = 0; $i < $num_parts; $i++)
+                GetPart($attach_tab, $this_part->parts[0]->parts[$i], $part_no . '.' . ($i + 1), $display_rfc822);
+        }
+    }
+
+    if (($mailstructure->isRfc822Message() && $display_rfc822 == true) || (!$mailstructure->isMultipart() && !$mailstructure->isRfc822Message())) {
         $tmp = Array(
             'number' => ($part_no != '' ? $part_no : 1),
             'id' => $mailstructure->getId(),
             'name' => $mailstructure->getName($html_unknown),
-            'mime' => $full_mime_type,
+            'mime' => $mailstructure->getInternetMediaType(),
             'transfer' => $mailstructure->getEncodingText(),
             'disposition' => $mailstructure->getDisposition(),
             'charset' => $mailstructure->getCharset(),
