@@ -2,7 +2,7 @@
 /**
  * Class for wrapping a imap_fetchheader() string
  *
- * Copyright 2009 Tim Gerundt <tim@gerundt.de>
+ * Copyright 2009-2010 Tim Gerundt <tim@gerundt.de>
  *
  * This file is part of NOCC. NOCC is free software under the terms of the
  * GNU General Public License. You should have received a copy of the license
@@ -37,6 +37,12 @@ class NOCC_Header {
      * @access private
      */
     var $_contenttype;
+    /**
+     * SPAM
+     * @var bool
+     * @access private
+     */
+    var $_spam;
 
     /**
      * Initialize the wrapper
@@ -47,6 +53,7 @@ class NOCC_Header {
         $this->_header = $header;
         $this->_priority = 3;
         $this->_contenttype = '';
+        $this->_spam = false;
 
         $header_lines = explode("\r\n", $header);
         foreach ($header_lines as $header_line) { //for all header lines...
@@ -60,6 +67,10 @@ class NOCC_Header {
                 case 'content-type':
                     $content_type = explode(';', $header_field[1]);
                     $this->_contenttype = trim($content_type[0]);
+                    break;
+                case 'x-spam-flag': //SpamAssassin (default)
+                case 'x-kasspamfilter': //all-inkl.com
+                    $this->_spam = true;
                     break;
             }
         }
@@ -108,6 +119,15 @@ class NOCC_Header {
      */
     function getContentType() {
         return $this->_contenttype;
+    }
+
+    /**
+     * Is SPAM mail?
+     *
+     * @return bool Is SPAM mail?
+     */
+    function isSpam() {
+        return $this->_spam;
     }
 
     /**
