@@ -38,11 +38,11 @@ class NOCC_Header {
      */
     var $_contenttype;
     /**
-     * SPAM
+     * SPAM flag
      * @var bool
      * @access private
      */
-    var $_spam;
+    var $_spamflag;
 
     /**
      * Initialize the wrapper
@@ -53,7 +53,7 @@ class NOCC_Header {
         $this->_header = $header;
         $this->_priority = 3;
         $this->_contenttype = '';
-        $this->_spam = false;
+        $this->_spamflag = false;
 
         $header_lines = explode("\r\n", $header);
         foreach ($header_lines as $header_line) { //for all header lines...
@@ -70,7 +70,7 @@ class NOCC_Header {
                     break;
                 case 'x-spam-flag': //SpamAssassin (default)
                 case 'x-kasspamfilter': //all-inkl.com
-                    $this->_spam = true;
+                    $this->_spamflag = true;
                     break;
             }
         }
@@ -122,12 +122,12 @@ class NOCC_Header {
     }
 
     /**
-     * Is SPAM mail?
+     * Has SPAM flag?
      *
-     * @return bool Is SPAM mail?
+     * @return bool Has SPAM flag?
      */
-    function isSpam() {
-        return $this->_spam;
+    function hasSpamFlag() {
+        return $this->_spamflag;
     }
 
     /**
