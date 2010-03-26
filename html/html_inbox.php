@@ -12,12 +12,17 @@
     }
   }
   
+  $spam_class = '';
+  if ($tmp['spam'] == true) { //if SPAM...
+      $spam_class = ' spam' . ucfirst($even_odd_class); //spamOdd or spamEven
+  }
+
   $target_blank = '';
   if (isset($user_prefs->seperate_msg_win) && $user_prefs->seperate_msg_win) {
     $target_blank = ' target="_blank"';
   }
   
-  echo '<tr class="'.$even_odd_class.$new_class.'">';
+  echo '<tr class="'.$even_odd_class.$new_class.$spam_class.'">';
   echo '<td class="column0">';
   echo '  <input type="checkbox" name="msg-'.$tmp['number'].'" value="Y" />';
   echo '</td>';

@@ -101,6 +101,7 @@ function inbox(&$pop, $skip = 0, &$ev) {
                 'priority' => $mail_reader->getPriority(),
                 'priority_text' => $mail_reader->getPriorityText(),
                 'flagged' => $mail_reader->isFlagged(),
+                'spam' => $mail_reader->isSpam(),
                 'sort' => $sort,
                 'sortdir' => $sortdir);
     }
