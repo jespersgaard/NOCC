@@ -425,5 +425,14 @@ class NOCC_MailReader {
     function isHtmlMail() {
         return preg_match('|text/html|i', $this->_header->getHeader());
     }
+    
+    /**
+     * Is the mail a SPAM mail?
+     *
+     * @return bool Is SPAM mail?
+     */
+    function isSpam() {
+        return $this->_header->hasSpamFlag();
+    }
 }
 ?>
