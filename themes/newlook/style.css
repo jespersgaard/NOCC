@@ -424,6 +424,16 @@ img.sort {
   background-color: #EBEBEB;
 }
 
+#inboxTable .spamOdd {
+  font-style: italic;
+  background-color: #FFCCCC;
+}
+
+#inboxTable .spamEven {
+  font-style: italic;
+  background-color: #FFAAAA;
+}
+
 #inboxTable th.sorted {
   background-color: #FEEC85;
 }

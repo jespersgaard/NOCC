@@ -435,6 +435,16 @@ img.sort {
   background-color: #FFFFAA;
 }
 
+#inboxTable .spamOdd {
+  font-style: italic;
+  background-color: #FFCCCC;
+}
+
+#inboxTable .spamEven {
+  font-style: italic;
+  background-color: #FFAAAA;
+}
+
 #inboxTable .sorted {
   padding-left: 3px;
   padding-right: 3px;
