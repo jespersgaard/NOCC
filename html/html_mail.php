@@ -74,22 +74,18 @@ else { //If displaying "verbose" header...
     echo $content['att'];
   }
 }
-
+?>
+   </table>
+</div>
+<?php
 if ($has_images && $display_images != 1) {
-  echo('<tr>');
-  echo('<td colspan="2">');
+  //TODO: USe better CSS class name as "nopic"!
   echo('<div class="nopic">');
   echo($html_images_warning);
   echo('<br/>');
   echo('<a href="'.$_SERVER['PHP_SELF'].'?action=aff_mail&mail='.$content['msgnum'].'&verbose='.$verbose.'&display_images=1">'.$html_images_display.'</a>');
   echo('</div>');
-  echo('</td>');
-  echo('</tr>');
 }
-?>
-   </table>
-</div>
-<?php
 if ($content['spam']) {
   echo('<div class="spamWarning">' . $html_spam_warning . '</div>');
 }

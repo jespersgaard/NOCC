@@ -715,10 +715,10 @@ hr.mailAttachSep {
 }
 
 .nopic {
-  border: #FF5500 1px solid;
-  background-color: #FFFF80;
   text-align: center;
   color: #000000;
+  background-color: #FFFF99;
+  border: 1px solid #FFFF00;
 }
 
 .spamWarning {
