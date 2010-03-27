@@ -729,6 +729,14 @@ hr.mailAttachSep {
   color: #000000;
 }
 
+.spamWarning {
+  text-align: center;
+  font-weight: bold;
+  color: #000000;
+  background-color: #FFCCCC;
+  border: 1px solid #FFAAAA;
+}
+
 /* colored quotes */
 .quoteLevel1 {
   color: navy;

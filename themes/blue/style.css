@@ -439,12 +439,12 @@ img.sort {
 
 #inboxTable .spamOdd {
   font-style: italic;
-  background-color: #cc0000;
+  background-color: #CC0000;
 }
 
 #inboxTable .spamEven {
   font-style: italic;
-  background-color: #aa0000;
+  background-color: #AA0000;
 }
 
 #inboxTable .column0 {
@@ -719,6 +719,14 @@ hr.mailAttachSep {
   background-color: #FFFF80;
   text-align: center;
   color: #000000;
+}
+
+.spamWarning {
+  text-align: center;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: #AA0000;
+  border: 1px solid #CC0000;
 }
 
 /* colored quotes */

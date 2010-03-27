@@ -201,6 +201,7 @@ $html_high = 'High';
 $html_highest = 'Highest';
 $html_flagged = 'Flagged';
 $html_spam = 'Spam';
+$html_spam_warning = 'This message has been classified as spam.';
 $html_receipt = 'Request a return receipt';
 $html_select = 'Select';
 $html_select_all = 'Invert Selection';

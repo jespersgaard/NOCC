@@ -266,6 +266,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
         'complete_date' => $date . ' ' . $time,
         'priority' => $mail_reader->getPriority(),
         'priority_text' => $mail_reader->getPriorityText(),
+        'spam' => $mail_reader->isSpam(),
         'att' => $link_att,
         'body' => $pop->graphicalsmilies($body),
         'body_mime' => convertLang2Html($tmp['mime']),

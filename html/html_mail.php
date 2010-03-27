@@ -89,6 +89,11 @@ if ($has_images && $display_images != 1) {
 ?>
    </table>
 </div>
+<?php
+if ($content['spam']) {
+  echo('<div class="spamWarning">' . $html_spam_warning . '</div>');
+}
+?>
 <div class="mailData">
 <?php
 if (!($conf->use_verbose && $verbose == '0')) { //If displaying "verbose" header...
