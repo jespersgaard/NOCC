@@ -71,6 +71,11 @@
           echo '<span title="' . $html_flagged . '">*</span>';
         }
         break;
+      case '11': //SPAM...
+        if ($tmp['spam']) {
+          echo $html_spam;
+        }
+        break;
     }
     echo '</td>';
   }

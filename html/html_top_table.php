@@ -97,10 +97,11 @@ if ($pop->is_imap()) {
                                     case '5': $column_title = $html_size; break;
                                     case '6': $column_title = ''; break;
                                     case '7': $column_title = ''; break;
-                                    //TODO: Make "Priority" and "Flagged" columns sortable!
+                                    //TODO: Make "Priority", "Flagged" and "SPAM" columns sortable!
                                     case '8': $column_title = ''; break;
                                     case '9': $column_title = ''; break;
                                     case '10': $column_title = ''; break;
+                                    case '11': $column_title = ''; break;
                                 }
                                 echo '<th class="column'.$column; if ($_SESSION['nocc_sort'] == $column) echo ' sorted'; echo '">';
                                 if ($column_title != '') { //If we have a column title...
@@ -121,6 +122,9 @@ if ($pop->is_imap()) {
                                     }
                                     elseif ($column == '10') { //If "Flagged" column...
                                         echo '<span title="' . $html_flagged . '">*</span>';
+                                    }
+                                    elseif ($column == '11') { //If "SPAM" column...
+                                        echo $html_spam;
                                     }
                                 }
                                 echo '</th>';

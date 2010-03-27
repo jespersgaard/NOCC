@@ -187,6 +187,7 @@ $conf->domains[$i]->quota_type = 'STORAGE';
 //  8 = Priority Text
 //  9 = Priority Number
 // 10 = Flagged
+// 11 = SPAM
 $conf->column_order = array('6', '1', '7', '2', '3', '4', '5');
 
 // Master key for session password encryption. Longer is better.
