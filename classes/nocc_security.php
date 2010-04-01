@@ -39,10 +39,12 @@ class NOCC_Security {
      * @param string $body HTML body
      * @return bool Has disabled HTML images?
      * @static
-     * TODO: stripos() is PHP5 only!
      */
     function hasDisabledHtmlImages($body) {
-        return stripos($body, 'src="none"') || stripos($body, 'background="none"') || stripos($body, 'url(none)');
+        if (preg_match('/src="none"|background="none"|url\(none\)/i', $body)) { //if src="none", background="none", url(none)...
+            return true;
+        }
+        return false;
     }
 
     /**
