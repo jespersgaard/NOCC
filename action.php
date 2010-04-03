@@ -48,6 +48,9 @@ if(isset($_REQUEST['action']))
     $action = safestrip($_REQUEST['action']);
 
 switch($action) {
+    //--------------------------------------------------------------------------------
+    // Display a mail...
+    //--------------------------------------------------------------------------------
     case 'aff_mail':
         $pop = new nocc_imap($ev);
         if (NoccException::isException($ev)) {
@@ -125,11 +128,17 @@ switch($action) {
         $pop->close();
         break;
 
+    //--------------------------------------------------------------------------------
+    // Logout...
+    //--------------------------------------------------------------------------------
     case 'logout':
         require_once './utils/proxy.php';
         header("Location: ".$conf->base_url."logout.php");
         break;
 
+    //--------------------------------------------------------------------------------
+    // Write a mail...
+    //--------------------------------------------------------------------------------
     case 'write':
         $_SESSION['html_mail_send'] = $user_prefs->html_mail_send;
 
@@ -154,6 +163,9 @@ switch($action) {
         require './html/footer.php';
         break;
 
+    //--------------------------------------------------------------------------------
+    // Reply on a mail...
+    //--------------------------------------------------------------------------------
     case 'reply':
         $attach_tab = array();
         if(!isset($_REQUEST['verbose']))
@@ -201,6 +213,9 @@ switch($action) {
         $pop->close();
         break;
 
+    //--------------------------------------------------------------------------------
+    // Reply all on a mail...
+    //--------------------------------------------------------------------------------
     case 'reply_all':
         $attach_tab = array();
         if(!isset($_REQUEST['verbose']))
@@ -246,6 +261,9 @@ switch($action) {
         $pop->close();
         break;
 
+    //--------------------------------------------------------------------------------
+    // Forward a mail...
+    //--------------------------------------------------------------------------------
     case 'forward':
         $attach_tab = array();
         if(!isset($_REQUEST['verbose']))
@@ -307,6 +325,9 @@ switch($action) {
         $pop->close();
         break;
 
+    //--------------------------------------------------------------------------------
+    // Manage folders...
+    //--------------------------------------------------------------------------------
     case 'managefolders':
         $pop = new nocc_imap($ev);
         if (NoccException::isException($ev)) {
@@ -379,6 +400,9 @@ switch($action) {
 
         break;
 
+    //--------------------------------------------------------------------------------
+    // Manage filters...
+    //--------------------------------------------------------------------------------
     case 'managefilters':
         $pop = new nocc_imap($ev);
         if (NoccException::isException($ev)) {
@@ -469,6 +493,9 @@ switch($action) {
 
         break;
 
+    //--------------------------------------------------------------------------------
+    // Set preferences...
+    //--------------------------------------------------------------------------------
     case 'setprefs':
         $pop = new nocc_imap($ev);
         if (NoccException::isException($ev)) {
@@ -551,6 +578,9 @@ switch($action) {
 
         break;
 
+    //--------------------------------------------------------------------------------
+    // Login...
+    //--------------------------------------------------------------------------------
     default:
         $pop = new nocc_imap($ev);
 
@@ -627,7 +657,6 @@ switch($action) {
                 }
             }
         }
-
 
         // If we get this far, consider ourselves logged in
         $_SESSION['nocc_loggedin'] = 1;
