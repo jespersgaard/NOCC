@@ -25,6 +25,7 @@
  *
  * @author EugeneZelenko
  * @author Jim-by
+ * @author Wizardist
  */
 
 $lang_locale = 'be-tarask_BY.UTF-8';
@@ -172,6 +173,8 @@ $html_normal = 'Звычайны';
 $html_high = 'Высокі';
 $html_highest = 'Самы высокі';
 $html_flagged = 'Пазначаныя';
+$html_spam = 'Спам';
+$html_spam_warning = 'Гэтае паведамленьне было пазначанае як спам.';
 $html_receipt = 'Запытаць пацьверджаньне атрыманьня паведамленьня';
 $html_select = 'Выбраць';
 $html_select_all = 'Інвэртаваць выбар';

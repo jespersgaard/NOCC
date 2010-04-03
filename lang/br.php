@@ -25,6 +25,7 @@
  *
  * @author Fohanno
  * @author Fulup
+ * @author Y-M D
  */
 
 $default_date_format = '%d-%m-%Y';
@@ -171,6 +172,8 @@ $html_normal = 'Ordinal';
 $html_high = 'Uhel';
 $html_highest = 'Uhelañ';
 $html_flagged = 'Merket';
+$html_spam = 'Strob';
+$html_spam_warning = 'Merket eo bet ar gemmadenn-mañ evel ur strob.';
 $html_receipt = 'Goulenn un testeni resev';
 $html_select = 'Diuzañ';
 $html_select_all = 'Eilpennañ an diuzadenn';

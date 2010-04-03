@@ -25,6 +25,8 @@
  *
  * @author Crazymadlover
  * @author Gustavo Muslera <gmuslera@internet.com.uy>
+ * @author Locos epraix
+ * @author Peter17
  * @author Translationista
  */
 
@@ -89,9 +91,9 @@ $html_folder_subscribe = 'Suscribir a';
 $html_folder_rename = 'Renombrar';
 $html_folder_create = 'Crear nueva carpeta llamada';
 $html_folder_remove = 'De-suscribir de';
-$html_folder_delete = 'Eliminar';
+$html_folder_delete = 'Borrar';
 $html_folder_to = 'a';
-$html_filter_remove = 'Eliminar';
+$html_filter_remove = 'Borrar';
 $html_filter_body = 'Cuerpo del mensaje';
 $html_filter_subject = 'Asunto del mensaje';
 $html_filter_to = 'Campo Para';
@@ -125,7 +127,7 @@ $html_reply_all = 'Responder a todos';
 $html_forward = 'Reenviar';
 $html_forward_short = 'Fwd:';
 $html_forward_info = 'Los mensajes reenviados se enviarán como archivos adjuntos al nuevo mensaje.';
-$html_delete = 'Eliminar';
+$html_delete = 'Borrar';
 $html_new = 'Nuevo';
 $html_mark = 'Borrar';
 $html_att_label = 'Archivo adjunto:';
@@ -173,6 +175,8 @@ $html_normal = 'Normal';
 $html_high = 'Alta';
 $html_highest = 'El más alto';
 $html_flagged = 'Marcado';
+$html_spam = 'Spam';
+$html_spam_warning = 'Este mensaje ha sido clasificado como spam.';
 $html_receipt = 'Solicitar una confirmación de entrega';
 $html_select = 'Seleccionar';
 $html_select_all = 'Invertir selección';

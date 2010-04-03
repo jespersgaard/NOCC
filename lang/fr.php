@@ -24,6 +24,7 @@
  * @file
  *
  * @author IAlex
+ * @author Peter17
  */
 
 $lang_locale = 'fr_FR.UTF-8';
@@ -171,6 +172,8 @@ $html_normal = 'Normale';
 $html_high = 'Haute';
 $html_highest = 'Maximale';
 $html_flagged = 'Marqué';
+$html_spam = 'Spam';
+$html_spam_warning = 'Ce message a été classé comme spam.';
 $html_receipt = 'Accusé de réception';
 $html_select = 'Sélectionner';
 $html_select_all = 'Inverser la sélection';
