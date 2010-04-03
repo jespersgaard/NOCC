@@ -119,7 +119,7 @@ function inbox(&$pop, $skip = 0, &$ev) {
  * @param object $pop
  * @param array $attach_tab
  * @param int $mail
- * @param int $verbose
+ * @param bool $verbose
  * @param object $ev
  * @return array
  * @todo Rename!
@@ -180,8 +180,8 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     }
 
     // If we are showing all headers, gather them into a header array
-    $header = "";
-    if (($verbose == 1) && ($conf->use_verbose == true)) {
+    $header = '';
+    if (($verbose == true) && ($conf->use_verbose == true)) {
         $header = $mail_reader->getHeader();
     }
 
@@ -337,7 +337,7 @@ function GetPart(&$attach_tab, $this_part, $part_no, $display_rfc822) {
 /**
  * ...
  * @param array $attach_tab
- * @param object $mailreader
+ * @param NOCC_MailReader $mailreader
  * @todo Returns text/plain when Content-Type: application/x-zip (e.g.)
  */
 function GetSinglePart(&$attach_tab, $mailreader) {

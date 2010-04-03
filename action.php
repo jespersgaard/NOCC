@@ -61,9 +61,9 @@ switch($action) {
         }
 
         $attach_tab = array();
-        $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
+        $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], NOCC_Request::getBoolValue('verbose'), $ev);
         // Display or hide distant HTML images
-        if (!isset($_REQUEST['display_images']) || $_REQUEST['display_images'] != 1) {
+        if (!NOCC_Request::getBoolValue('display_images')) {
             $content['body'] = NOCC_Security::disableHtmlImages($content['body']);
         }
         // Display embedded HTML images
@@ -168,8 +168,6 @@ switch($action) {
     //--------------------------------------------------------------------------------
     case 'reply':
         $attach_tab = array();
-        if(!isset($_REQUEST['verbose']))
-            $_REQUEST['verbose'] = 0;
 
         $pop = new nocc_imap($ev);
         if (NoccException::isException($ev)) {
@@ -179,7 +177,7 @@ switch($action) {
             break;
         }
 
-        $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
+        $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], NOCC_Request::getBoolValue('verbose'), $ev);
         if (NoccException::isException($ev)) {
             require './html/header.php';
             require './html/error.php';
@@ -218,8 +216,6 @@ switch($action) {
     //--------------------------------------------------------------------------------
     case 'reply_all':
         $attach_tab = array();
-        if(!isset($_REQUEST['verbose']))
-            $_REQUEST['verbose'] = 0;
 
         $pop = new nocc_imap($ev);
         if (NoccException::isException($ev)) {
@@ -229,7 +225,7 @@ switch($action) {
             break;
         }
 
-        $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], $_REQUEST['verbose'], $ev);
+        $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], NOCC_Request::getBoolValue('verbose'), $ev);
         if (NoccException::isException($ev)) {
             require './html/header.php';
             require './html/error.php';
@@ -266,8 +262,7 @@ switch($action) {
     //--------------------------------------------------------------------------------
     case 'forward':
         $attach_tab = array();
-        if(!isset($_REQUEST['verbose']))
-            $_REQUEST['verbose'] = 0;
+
         $pop = new nocc_imap($ev);
         if (NoccException::isException($ev)) {
             require './html/header.php';
@@ -279,7 +274,7 @@ switch($action) {
         $mail_list = explode('$', $_REQUEST['mail']);
         $mail_body = '';
         for ($mail_num = 0; $mail_num < count($mail_list); $mail_num++) {
-            $content = aff_mail($pop, $attach_tab, $mail_list[$mail_num], $_REQUEST['verbose'], $ev);
+            $content = aff_mail($pop, $attach_tab, $mail_list[$mail_num], NOCC_Request::getBoolValue('verbose'), $ev);
             if (NoccException::isException($ev)) {
                 require './html/header.php';
                 require './html/error.php';
