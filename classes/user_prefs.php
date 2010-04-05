@@ -93,12 +93,7 @@ class NOCCUserPrefs {
      * @param mixed $value Hide addresses?
      */
     function setHideAddresses($value) {
-        if ($value === true || $value === 1 || $value === '1' || $value === 'on') {
-            $this->_hideAddresses = true;
-        }
-        else {
-            $this->_hideAddresses = false;
-        }
+        $this->_hideAddresses = $this->_convertToBool($value);
     }
 
     /**
@@ -116,12 +111,7 @@ class NOCCUserPrefs {
      * @param mixed $value Outlook quoting?
      */
     function setOutlookQuoting($value) {
-        if ($value === true || $value === 1 || $value === '1' || $value === 'on') {
-            $this->outlook_quoting = true;
-        }
-        else {
-            $this->outlook_quoting = false;
-        }
+        $this->outlook_quoting = $this->_convertToBool($value);
     }
 
     /**
@@ -139,12 +129,7 @@ class NOCCUserPrefs {
      * @param mixed $value Colored quotes?
      */
     function setColoredQuotes($value) {
-        if ($value === true || $value === 1 || $value === '1' || $value === 'on') {
-            $this->colored_quotes = true;
-        }
-        else {
-            $this->colored_quotes = false;
-        }
+        $this->colored_quotes = $this->_convertToBool($value);
     }
 
     /**
@@ -356,6 +341,19 @@ class NOCCUserPrefs {
         $this->dirty_flag = 1;
     }
 
+    /**
+     * Convert value to bool
+     * @param mixed $value Value
+     * @return bool Bool value
+     * @access private
+     */
+    function _convertToBool($value) {
+        if ($value === true || $value === 1 || $value === '1' || $value === 'on') {
+            return true;
+        }
+        return false;
+    }
+    
     /**
      * Format Reply Leadin
      *
