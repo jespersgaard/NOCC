@@ -51,7 +51,6 @@ class NOCC_Request {
      * Convert value to bool
      * @param mixed $value Value
      * @return bool Bool value
-     * @access private
      * @static
      */
     function convertToBool($value) {
