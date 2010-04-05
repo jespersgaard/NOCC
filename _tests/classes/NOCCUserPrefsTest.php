@@ -166,7 +166,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(30, $userPrefs1->msg_per_page, 'msg_per_page');
         $this->assertTrue($userPrefs1->cc_self, 'cc_self');
         $this->assertTrue($userPrefs1->getHideAddresses(), 'getHideAddresses()');
-        $this->assertTrue($userPrefs1->outlook_quoting, 'outlook_quoting');
+        $this->assertTrue($userPrefs1->getOutlookQuoting(), 'getOutlookQuoting()');
         $this->assertTrue($userPrefs1->colored_quotes, 'colored_quotes');
         $this->assertTrue($userPrefs1->display_struct, 'display_struct');
         $this->assertTrue($userPrefs1->seperate_msg_win, 'seperate_msg_win');
@@ -190,7 +190,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(15, $userPrefs2->msg_per_page, 'msg_per_page');
         $this->assertFalse($userPrefs2->cc_self, 'cc_self');
         $this->assertFalse($userPrefs2->getHideAddresses(), 'getHideAddresses()');
-        $this->assertFalse($userPrefs2->outlook_quoting, 'outlook_quoting');
+        $this->assertFalse($userPrefs2->getOutlookQuoting(), 'getOutlookQuoting()');
         $this->assertFalse($userPrefs2->colored_quotes, 'colored_quotes');
         $this->assertFalse($userPrefs2->display_struct, 'display_struct');
         $this->assertFalse($userPrefs2->seperate_msg_win, 'seperate_msg_win');

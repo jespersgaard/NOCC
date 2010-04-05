@@ -40,8 +40,9 @@ class NOCCUserPrefs {
     /**
      * Outlook quoting?
      * @var boolean
+     * @access private
      */
-    var $outlook_quoting;
+    var $_OutlookQuoting;
     /**
      * Colored quotes?
      * @var boolean
@@ -73,7 +74,7 @@ class NOCCUserPrefs {
     function NOCCUserPrefs($key) {
         $this->key = $key;
         $this->_hideAddresses = false;
-        $this->outlook_quoting = false;
+        $this->_OutlookQuoting = false;
         $this->colored_quotes = false;
         $this->dirty_flag = 1;
     }
@@ -102,7 +103,7 @@ class NOCCUserPrefs {
      * @return boolean Outlook quoting?
      */
     function getOutlookQuoting() {
-        return $this->outlook_quoting;
+        return $this->_OutlookQuoting;
     }
 
     /**
@@ -111,7 +112,7 @@ class NOCCUserPrefs {
      * @param mixed $value Outlook quoting?
      */
     function setOutlookQuoting($value) {
-        $this->outlook_quoting = $this->_convertToBool($value);
+        $this->_OutlookQuoting = $this->_convertToBool($value);
     }
 
     /**
@@ -281,7 +282,7 @@ class NOCCUserPrefs {
         fwrite($file, "msg_per_page=".$this->msg_per_page."\n");
         fwrite($file, "cc_self=".$this->cc_self."\n");
         fwrite($file, "hide_addresses=".$this->_hideAddresses."\n");
-        fwrite($file, "outlook_quoting=".$this->outlook_quoting."\n");
+        fwrite($file, "outlook_quoting=".$this->_OutlookQuoting."\n");
         fwrite($file, "colored_quotes=".$this->colored_quotes."\n");
         fwrite($file, "display_struct=".$this->display_struct."\n");
         fwrite($file, "seperate_msg_win=".$this->seperate_msg_win."\n");

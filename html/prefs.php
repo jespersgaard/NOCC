@@ -97,7 +97,7 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="colored_quotes" id="colored_quotes" value="on" <?php if(!isset($user_prefs->colored_quotes) || (isset($user_prefs->colored_quotes) && $user_prefs->colored_quotes)) echo 'checked="checked"'; ?> /><label for="colored_quotes"><?php echo convertLang2Html($html_colored_quotes) ?></label>
+             <input type="checkbox" name="colored_quotes" id="colored_quotes" value="on" <?php if($user_prefs->getColoredQuotes()) echo 'checked="checked"'; ?> /><label for="colored_quotes"><?php echo convertLang2Html($html_colored_quotes) ?></label>
            </td>
          </tr>
          <tr>
@@ -122,7 +122,7 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="outlook_quoting" id="outlook_quoting" value="on" <?php if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting) echo 'checked="checked"'; ?> /><label for="outlook_quoting"><?php echo convertLang2Html($html_outlook_quoting) ?></label>
+             <input type="checkbox" name="outlook_quoting" id="outlook_quoting" value="on" <?php if($user_prefs->getOutlookQuoting()) echo 'checked="checked"'; ?> /><label for="outlook_quoting"><?php echo convertLang2Html($html_outlook_quoting) ?></label>
            </td>
          </tr>
       </table>

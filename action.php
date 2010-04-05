@@ -291,7 +291,7 @@ switch($action) {
             if (isset($conf->broken_forwarding) && $conf->broken_forwarding) {
                 // Set body
                 //TODO: Put to own function and merge with code from add_quoting()!
-                if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
+                if ($user_pref->getOutlookQuoting())
                     $mail_body .= $original_msg . $conf->crlf . $html_from_label . ' ' . $content['from'] . $conf->crlf
                             . $html_to_label . ' ' . $content['to'] . $conf->crlf . $html_sent_label.' ' . $content['complete_date']
                             . $conf->crlf . $html_subject_label . ' '. $content['subject'] . $conf->crlf . $conf->crlf
@@ -509,7 +509,7 @@ switch($action) {
                 $user_prefs->email_address = safestrip($_REQUEST['email_address']);
             $user_prefs->cc_self = isset($_REQUEST['cc_self']);
             $user_prefs->setHideAddresses(isset($_REQUEST['hide_addresses']));
-            $user_prefs->outlook_quoting = isset($_REQUEST['outlook_quoting']);
+            $user_prefs->setOutlookQuoting(isset($_REQUEST['outlook_quoting']));
             $user_prefs->colored_quotes = isset($_REQUEST['colored_quotes']);
             $user_prefs->display_struct = isset($_REQUEST['display_struct']);
             $user_prefs->seperate_msg_win = isset($_REQUEST['seperate_msg_win']);
@@ -625,7 +625,7 @@ switch($action) {
                         }
 
                         $small_search = 'unseen ';
-                        if (isset($_REQUEST['reapply_filters']) && $_REQUEST['reapply_filters'] == 1) {
+                        if (NOCC_Request::getBoolValue('reapply_filters')) {
                             $small_search = '';
                         }
                         if ($filters != null) {
@@ -755,10 +755,11 @@ function add_quoting(&$mail_body, $content) {
     global $original_msg, $html_from_label, $html_to_label, $html_sent_label, $html_subject_label;
     global $html_wrote;
 
-    if(isset($user_prefs->outlook_quoting) && $user_prefs->outlook_quoting)
+    if ($user_prefs->getOutlookQuoting()) {
         $mail_body = $original_msg . "\n" . $html_from_label . ' ' . $content['from'] . "\n" . $html_to_label . ' '
                 . $content['to'] . "\n" . $html_sent_label.' ' . $content['complete_date'] . "\n" . $html_subject_label
                 . ' '. $content['subject'] . "\n\n" . enh_html_entity_decode(strip_tags($content['body'], ''));
+    }
     else {
         if (isset($conf->enable_reply_leadin)
                 && $conf->enable_reply_leadin == true
