@@ -510,7 +510,7 @@ switch($action) {
             $user_prefs->cc_self = isset($_REQUEST['cc_self']);
             $user_prefs->setHideAddresses(isset($_REQUEST['hide_addresses']));
             $user_prefs->setOutlookQuoting(isset($_REQUEST['outlook_quoting']));
-            $user_prefs->colored_quotes = isset($_REQUEST['colored_quotes']);
+            $user_prefs->setColoredQuotes(isset($_REQUEST['colored_quotes']));
             $user_prefs->display_struct = isset($_REQUEST['display_struct']);
             $user_prefs->seperate_msg_win = isset($_REQUEST['seperate_msg_win']);
             if (isset($_REQUEST['reply_leadin']))

@@ -111,7 +111,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
      * Test case for getColoredQuotes().
      */
     public function testGetColoredQuotes() {
-        $this->assertFalse($this->userPrefs1->getColoredQuotes());
+        $this->assertTrue($this->userPrefs1->getColoredQuotes());
     }
 
     /**
@@ -120,27 +120,27 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
     public function testSetColoredQuotes() {
         $userPrefs = new NOCCUserPrefs('');
 
-        $this->assertFalse($userPrefs->getColoredQuotes(), 'default');
-        $userPrefs->setColoredQuotes(true);
-        $this->assertTrue($userPrefs->getColoredQuotes(), 'true');
+        $this->assertTrue($userPrefs->getColoredQuotes(), 'default');
         $userPrefs->setColoredQuotes(false);
         $this->assertFalse($userPrefs->getColoredQuotes(), 'false');
-        $userPrefs->setColoredQuotes(1);
-        $this->assertTrue($userPrefs->getColoredQuotes(), '1');
+        $userPrefs->setColoredQuotes(true);
+        $this->assertTrue($userPrefs->getColoredQuotes(), 'true');
         $userPrefs->setColoredQuotes(0);
         $this->assertFalse($userPrefs->getColoredQuotes(), '0');
-        $userPrefs->setColoredQuotes('on');
-        $this->assertTrue($userPrefs->getColoredQuotes(), 'on');
+        $userPrefs->setColoredQuotes(1);
+        $this->assertTrue($userPrefs->getColoredQuotes(), '1');
         $userPrefs->setColoredQuotes('off');
         $this->assertFalse($userPrefs->getColoredQuotes(), 'off');
-        $userPrefs->setColoredQuotes('1');
-        $this->assertTrue($userPrefs->getColoredQuotes(), '"1"');
+        $userPrefs->setColoredQuotes('on');
+        $this->assertTrue($userPrefs->getColoredQuotes(), 'on');
         $userPrefs->setColoredQuotes('0');
         $this->assertFalse($userPrefs->getColoredQuotes(), '"0"');
+        $userPrefs->setColoredQuotes('1');
+        $this->assertTrue($userPrefs->getColoredQuotes(), '"1"');
         $userPrefs->setColoredQuotes('<invalid>');
-        $this->assertFalse($userPrefs->getColoredQuotes(), '<invalid>');
+        $this->assertTrue($userPrefs->getColoredQuotes(), '<invalid>');
         $userPrefs->setColoredQuotes(null);
-        $this->assertFalse($userPrefs->getColoredQuotes(), 'NULL');
+        $this->assertTrue($userPrefs->getColoredQuotes(), 'NULL');
     }
 
     /**
@@ -167,7 +167,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue($userPrefs1->cc_self, 'cc_self');
         $this->assertTrue($userPrefs1->getHideAddresses(), 'getHideAddresses()');
         $this->assertTrue($userPrefs1->getOutlookQuoting(), 'getOutlookQuoting()');
-        $this->assertTrue($userPrefs1->colored_quotes, 'colored_quotes');
+        $this->assertTrue($userPrefs1->getColoredQuotes(), 'getColoredQuotes()');
         $this->assertTrue($userPrefs1->display_struct, 'display_struct');
         $this->assertTrue($userPrefs1->seperate_msg_win, 'seperate_msg_win');
         $this->assertEquals('', $userPrefs1->reply_leadin, 'reply_leadin');
@@ -191,7 +191,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertFalse($userPrefs2->cc_self, 'cc_self');
         $this->assertFalse($userPrefs2->getHideAddresses(), 'getHideAddresses()');
         $this->assertFalse($userPrefs2->getOutlookQuoting(), 'getOutlookQuoting()');
-        $this->assertFalse($userPrefs2->colored_quotes, 'colored_quotes');
+        $this->assertFalse($userPrefs2->getColoredQuotes(), 'getColoredQuotes()');
         $this->assertFalse($userPrefs2->display_struct, 'display_struct');
         $this->assertFalse($userPrefs2->seperate_msg_win, 'seperate_msg_win');
         $this->assertEquals('', $userPrefs2->reply_leadin, 'reply_leadin');

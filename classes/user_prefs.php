@@ -42,12 +42,13 @@ class NOCCUserPrefs {
      * @var boolean
      * @access private
      */
-    var $_OutlookQuoting;
+    var $_outlookQuoting;
     /**
      * Colored quotes?
      * @var boolean
+     * @access private
      */
-    var $colored_quotes;
+    var $_coloredQuotes;
     var $display_struct;
     var $seperate_msg_win;
     var $reply_leadin;
@@ -74,8 +75,8 @@ class NOCCUserPrefs {
     function NOCCUserPrefs($key) {
         $this->key = $key;
         $this->_hideAddresses = false;
-        $this->_OutlookQuoting = false;
-        $this->colored_quotes = false;
+        $this->_outlookQuoting = false;
+        $this->_coloredQuotes = true;
         $this->dirty_flag = 1;
     }
 
@@ -94,7 +95,7 @@ class NOCCUserPrefs {
      * @param mixed $value Hide addresses?
      */
     function setHideAddresses($value) {
-        $this->_hideAddresses = $this->_convertToBool($value);
+        $this->_hideAddresses = $this->_convertToFalse($value);
     }
 
     /**
@@ -103,7 +104,7 @@ class NOCCUserPrefs {
      * @return boolean Outlook quoting?
      */
     function getOutlookQuoting() {
-        return $this->_OutlookQuoting;
+        return $this->_outlookQuoting;
     }
 
     /**
@@ -112,7 +113,7 @@ class NOCCUserPrefs {
      * @param mixed $value Outlook quoting?
      */
     function setOutlookQuoting($value) {
-        $this->_OutlookQuoting = $this->_convertToBool($value);
+        $this->_outlookQuoting = $this->_convertToFalse($value);
     }
 
     /**
@@ -121,7 +122,7 @@ class NOCCUserPrefs {
      * @return boolean Colored quotes?
      */
     function getColoredQuotes() {
-        return $this->colored_quotes;
+        return $this->_coloredQuotes;
     }
 
     /**
@@ -130,7 +131,7 @@ class NOCCUserPrefs {
      * @param mixed $value Colored quotes?
      */
     function setColoredQuotes($value) {
-        $this->colored_quotes = $this->_convertToBool($value);
+        $this->_coloredQuotes = $this->_convertToTrue($value);
     }
 
     /**
@@ -282,8 +283,8 @@ class NOCCUserPrefs {
         fwrite($file, "msg_per_page=".$this->msg_per_page."\n");
         fwrite($file, "cc_self=".$this->cc_self."\n");
         fwrite($file, "hide_addresses=".$this->_hideAddresses."\n");
-        fwrite($file, "outlook_quoting=".$this->_OutlookQuoting."\n");
-        fwrite($file, "colored_quotes=".$this->colored_quotes."\n");
+        fwrite($file, "outlook_quoting=".$this->_outlookQuoting."\n");
+        fwrite($file, "colored_quotes=".$this->_coloredQuotes."\n");
         fwrite($file, "display_struct=".$this->display_struct."\n");
         fwrite($file, "seperate_msg_win=".$this->seperate_msg_win."\n");
         fwrite($file, "reply_leadin=".base64_encode($this->reply_leadin)."\n");
@@ -343,18 +344,31 @@ class NOCCUserPrefs {
     }
 
     /**
-     * Convert value to bool
+     * Convert value to bool (False by default)
      * @param mixed $value Value
      * @return bool Bool value
      * @access private
      */
-    function _convertToBool($value) {
+    function _convertToFalse($value) {
         if ($value === true || $value === 1 || $value === '1' || $value === 'on') {
             return true;
         }
         return false;
     }
-    
+
+    /**
+     * Convert value to bool (True by default)
+     * @param mixed $value Value
+     * @return bool Bool value
+     * @access private
+     */
+    function _convertToTrue($value) {
+        if ($value === false || $value === 0 || $value === '0' || $value === 'off') {
+            return false;
+        }
+        return true;
+    }
+
     /**
      * Format Reply Leadin
      *
