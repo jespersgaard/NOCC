@@ -25,10 +25,12 @@ if (file_exists('./config/conf.php')) {
     }
 }
 else {
+    //TODO: Make error msg translateble and show nicer error...
     print("The main configuration file (./config/conf.php) couldn't be found! <p />Please rename the file './config/conf.php.dist' to './config/conf.php'. ");
     die();
 }
 
+require_once './classes/nocc_request.php';
 require_once './classes/nocc_session.php';
 require_once './classes/nocc_security.php';
 require_once './classes/nocc_languages.php';

@@ -87,7 +87,6 @@ class NOCC_RequestTest extends PHPUnit_Framework_TestCase {
         $this->assertFalse(NOCC_Request::convertToBool('bug'), 'bug');
         $this->assertFalse(NOCC_Request::convertToBool('99'), '99');
 
-        //if ($value === true || $value === 1 || strtolower($value) === 'true' || $value === '1') {
         $this->assertTrue(NOCC_Request::convertToBool(true), 'true');
         $this->assertTrue(NOCC_Request::convertToBool(1), '1');
         $this->assertTrue(NOCC_Request::convertToBool('true'), '"true"');
