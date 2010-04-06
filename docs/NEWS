@@ -15,6 +15,7 @@ NOCC 1.8.3  ???? ??, ????
 
   Misc
     * Add date to RSS feed items (Tim Gerundt).
+    * Fix problem with "Sent:" label (Tim Gerundt).
 
 NOCC 1.8.2  January 30, 2010
 
