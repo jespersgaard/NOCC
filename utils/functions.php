@@ -229,7 +229,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     else
         array_push($attach_tab, $tmp);
     $link_att = '';
-    if ($struct_msg->subtype != 'ALTERNATIVE' && $struct_msg->subtype != 'RELATED') {
+    if ($mail_reader->hasAttachments()) {
         switch (sizeof($attach_tab)) {
             case 0:
                 break;
