@@ -304,7 +304,7 @@ function GetPart(&$attach_tab, $this_part, $part_no, $display_rfc822) {
             //TODO: Gibt Probleme bei der "RE: Re[2]: Tuer zu Ihrem Wunsch"
             //TODO: Überprüfen, ob es den ALTERNATIVE Part überhaupt gibt!
             // if it's an alternative, we skip the text part to only keep the HTML part
-            if ($this_part->subtype == 'ALTERNATIVE')// && $read == true)
+            if ($mailstructure->isAlternativeMultipart())// && $read == true)
                 GetPart($attach_tab, $this_part->parts[++$i], $part_no . ($i + 1), $display_rfc822);
             else
                 GetPart($attach_tab, $this_part->parts[$i], $part_no . ($i + 1), $display_rfc822);

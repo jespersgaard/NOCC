@@ -316,6 +316,32 @@ class NOCC_MailStructure {
     }
 
     /**
+     * Is alternative multipart?
+     * @return bool Is alternative multipart?
+     */
+    function isAlternativeMultipart() {
+        if ($this->isMultipart()) { //if multipart...
+            if (strtoupper($this->getSubtype()) == 'ALTERNATIVE') { //if alternative multipart...
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Is related multipart?
+     * @return bool Is related multipart?
+     */
+    function isRelatedMultipart() {
+        if ($this->isMultipart()) { //if multipart...
+            if (strtoupper($this->getSubtype()) == 'RELATED') { //if related multipart...
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Is message?
      * @return bool Is message?
      */
