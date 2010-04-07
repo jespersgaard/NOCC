@@ -36,6 +36,42 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * Test case for getCcSelf().
+     */
+    public function testGetCcSelf() {
+        $this->assertFalse($this->userPrefs1->getCcSelf());
+    }
+
+    /**
+     * Test case for setCcSelf().
+     */
+    public function testSetCcSelf() {
+        $userPrefs = new NOCCUserPrefs('');
+
+        $this->assertFalse($userPrefs->getCcSelf(), 'default');
+        $userPrefs->setCcSelf(true);
+        $this->assertTrue($userPrefs->getCcSelf(), 'true');
+        $userPrefs->setCcSelf(false);
+        $this->assertFalse($userPrefs->getCcSelf(), 'false');
+        $userPrefs->setCcSelf(1);
+        $this->assertTrue($userPrefs->getCcSelf(), '1');
+        $userPrefs->setCcSelf(0);
+        $this->assertFalse($userPrefs->getCcSelf(), '0');
+        $userPrefs->setCcSelf('on');
+        $this->assertTrue($userPrefs->getCcSelf(), 'on');
+        $userPrefs->setCcSelf('off');
+        $this->assertFalse($userPrefs->getCcSelf(), 'off');
+        $userPrefs->setCcSelf('1');
+        $this->assertTrue($userPrefs->getCcSelf(), '"1"');
+        $userPrefs->setCcSelf('0');
+        $this->assertFalse($userPrefs->getCcSelf(), '"0"');
+        $userPrefs->setCcSelf('<invalid>');
+        $this->assertFalse($userPrefs->getCcSelf(), '<invalid>');
+        $userPrefs->setCcSelf(null);
+        $this->assertFalse($userPrefs->getCcSelf(), 'NULL');
+    }
+
+    /**
      * Test case for getHideAddresses().
      */
     public function testGetHideAddresses() {
@@ -200,7 +236,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('Full Name', $userPrefs1->full_name, 'full_name');
         $this->assertEquals('foo@bar.org', $userPrefs1->email_address, 'email_address');
         $this->assertEquals(30, $userPrefs1->msg_per_page, 'msg_per_page');
-        $this->assertTrue($userPrefs1->cc_self, 'cc_self');
+        $this->assertTrue($userPrefs1->getCcSelf(), 'getCcSelf()');
         $this->assertTrue($userPrefs1->getHideAddresses(), 'getHideAddresses()');
         $this->assertTrue($userPrefs1->getOutlookQuoting(), 'getOutlookQuoting()');
         $this->assertTrue($userPrefs1->getColoredQuotes(), 'getColoredQuotes()');
@@ -224,7 +260,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('Name Full', $userPrefs2->full_name, 'full_name');
         $this->assertEquals('bar@foo.org', $userPrefs2->email_address, 'email_address');
         $this->assertEquals(15, $userPrefs2->msg_per_page, 'msg_per_page');
-        $this->assertFalse($userPrefs2->cc_self, 'cc_self');
+        $this->assertFalse($userPrefs2->getCcSelf(), 'getCcSelf()');
         $this->assertFalse($userPrefs2->getHideAddresses(), 'getHideAddresses()');
         $this->assertFalse($userPrefs2->getOutlookQuoting(), 'getOutlookQuoting()');
         $this->assertFalse($userPrefs2->getColoredQuotes(), 'getColoredQuotes()');

@@ -30,7 +30,12 @@ class NOCCUserPrefs {
     var $full_name;
     var $email_address;
     var $msg_per_page;
-    var $cc_self;
+    /**
+     * Cc self?
+     * @var boolean
+     * @access private
+     */
+    var $_ccSelf;
     /**
      * Hide addresses?
      * @var boolean
@@ -50,7 +55,7 @@ class NOCCUserPrefs {
      */
     var $_coloredQuotes;
     /**
-     * Display structured text
+     * Display structured text?
      * @var boolean
      * @access private
      */
@@ -79,11 +84,30 @@ class NOCCUserPrefs {
      */
     function NOCCUserPrefs($key) {
         $this->key = $key;
+        $this->_ccSelf = false;
         $this->_hideAddresses = false;
         $this->_outlookQuoting = false;
         $this->_coloredQuotes = true;
         $this->_displayStructuredText = false;
         $this->dirty_flag = 1;
+    }
+
+    /**
+     * Get Cc self sending from user preferences
+     *
+     * @return boolean Cc self?
+     */
+    function getCcSelf() {
+        return $this->_ccSelf;
+    }
+
+    /**
+     * Set Cc self sending from user preferences
+     *
+     * @param mixed $value Cc self?
+     */
+    function setCcSelf($value) {
+        $this->_ccSelf = $this->_convertToFalse($value);
     }
 
     /**
@@ -229,7 +253,7 @@ class NOCCUserPrefs {
                     $prefs->msg_per_page = $value * 1;
                     break;
                 case 'cc_self':
-                    $prefs->cc_self = ($value == 1 || $value == 'on');
+                    $prefs->setCcSelf($value);
                     break;
                 case 'hide_addresses':
                     $prefs->setHideAddresses($value);
@@ -328,7 +352,7 @@ class NOCCUserPrefs {
         fwrite($file, "full_name=".$this->full_name."\n");
         fwrite($file, "email_address=".$this->email_address."\n");
         fwrite($file, "msg_per_page=".$this->msg_per_page."\n");
-        fwrite($file, "cc_self=".$this->cc_self."\n");
+        fwrite($file, "cc_self=".$this->_ccSelf."\n");
         fwrite($file, "hide_addresses=".$this->_hideAddresses."\n");
         fwrite($file, "outlook_quoting=".$this->_outlookQuoting."\n");
         fwrite($file, "colored_quotes=".$this->_coloredQuotes."\n");

@@ -124,7 +124,7 @@ switch ($_REQUEST['sendaction']) {
         $mail->to = cut_address(trim($mail_to), 'UTF-8');
         $mail->cc = cut_address(trim($mail_cc), 'UTF-8');
         $user_prefs = $_SESSION['nocc_user_prefs'];
-        if (isset($user_prefs->cc_self) && $user_prefs->cc_self) {
+        if ($user_prefs->getCcSelf()) {
             array_unshift($mail->cc, $mail->from);
         }
         $mail->bcc = cut_address(trim($mail_bcc), 'UTF-8');
