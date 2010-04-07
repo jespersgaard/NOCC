@@ -218,48 +218,71 @@ class NOCCUserPrefs {
             $key = substr($line, 0, $equalsAt);
             $value = substr($line, $equalsAt + 1);
 
-            if($key == 'full_name')
-                $prefs->full_name = $value;
-            if($key == 'email_address')
-                $prefs->email_address = $value;
-            if($key == 'msg_per_page')
-                $prefs->msg_per_page = $value * 1;
-            if($key == 'cc_self')
-                $prefs->cc_self = ($value == 1 || $value == 'on');
-            if($key == 'hide_addresses')
-                $prefs->setHideAddresses($value);
-            if($key == 'outlook_quoting')
-                $prefs->setOutlookQuoting($value);
-            if($key == 'colored_quotes')
-                $prefs->setColoredQuotes($value);
-            if($key == 'display_struct')
-                $prefs->setDisplayStructuredText($value);
-            if($key == 'seperate_msg_win')
-                $prefs->seperate_msg_win = ($value == 1 || $value == 'on');
-            if($key == 'signature')
-                $prefs->signature = base64_decode($value);
-            if($key == 'reply_leadin')
-                $prefs->reply_leadin = base64_decode($value);
-            if($key == 'wrap_msg')
-                $prefs->wrap_msg = $value;
-            if($key == 'sig_sep')
-                $prefs->sig_sep = ($value == 1 || $value == 'on');
-            if($key == 'html_mail_send')
-                $prefs->html_mail_send = ($value == 1 || $value == 'on');
-            if($key == 'graphical_smilies')
-                $prefs->graphical_smilies = ($value == 1 || $value == 'on');
-            if($key == 'sent_folder')
-                $prefs->sent_folder = ($value == 1 || $value == 'on');
-            if($key == 'sent_folder_name')
-                $prefs->sent_folder_name = $value;
-            if($key == 'trash_folder')
-                $prefs->trash_folder = ($value == 1 || $value == 'on');
-            if($key == 'trash_folder_name')
-                $prefs->trash_folder_name = $value;
-            if($key == 'lang')
-                $prefs->lang = $value;
-            if($key == 'theme')
-                $prefs->theme = $value;
+            switch ($key) {
+                case 'full_name':
+                    $prefs->full_name = $value;
+                    break;
+                case 'email_address':
+                    $prefs->email_address = $value;
+                    break;
+                case 'msg_per_page':
+                    $prefs->msg_per_page = $value * 1;
+                    break;
+                case 'cc_self':
+                    $prefs->cc_self = ($value == 1 || $value == 'on');
+                    break;
+                case 'hide_addresses':
+                    $prefs->setHideAddresses($value);
+                    break;
+                case 'outlook_quoting':
+                    $prefs->setOutlookQuoting($value);
+                    break;
+                case 'colored_quotes':
+                    $prefs->setColoredQuotes($value);
+                    break;
+                case 'display_struct':
+                    $prefs->setDisplayStructuredText($value);
+                    break;
+                case 'seperate_msg_win':
+                    $prefs->seperate_msg_win = ($value == 1 || $value == 'on');
+                    break;
+                case 'signature':
+                    $prefs->signature = base64_decode($value);
+                    break;
+                case 'reply_leadin':
+                    $prefs->reply_leadin = base64_decode($value);
+                    break;
+                case 'wrap_msg':
+                    $prefs->wrap_msg = $value;
+                    break;
+                case 'sig_sep':
+                    $prefs->sig_sep = ($value == 1 || $value == 'on');
+                    break;
+                case 'html_mail_send':
+                    $prefs->html_mail_send = ($value == 1 || $value == 'on');
+                    break;
+                case 'graphical_smilies':
+                    $prefs->graphical_smilies = ($value == 1 || $value == 'on');
+                    break;
+                case 'sent_folder':
+                    $prefs->sent_folder = ($value == 1 || $value == 'on');
+                    break;
+                case 'sent_folder_name':
+                    $prefs->sent_folder_name = $value;
+                    break;
+                case 'trash_folder':
+                    $prefs->trash_folder = ($value == 1 || $value == 'on');
+                    break;
+                case 'trash_folder_name':
+                    $prefs->trash_folder_name = $value;
+                    break;
+                case 'lang':
+                    $prefs->lang = $value;
+                    break;
+                case 'theme':
+                    $prefs->theme = $value;
+                    break;
+            }
         }
         fclose($file);
 
