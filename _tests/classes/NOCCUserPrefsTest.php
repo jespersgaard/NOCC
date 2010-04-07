@@ -144,6 +144,42 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * Test case for getDisplayStructuredText().
+     */
+    public function testGetDisplayStructuredText() {
+        $this->assertFalse($this->userPrefs1->getDisplayStructuredText());
+    }
+
+    /**
+     * Test case for setDisplayStructuredText().
+     */
+    public function testSetDisplayStructuredText() {
+        $userPrefs = new NOCCUserPrefs('');
+
+        $this->assertFalse($userPrefs->getDisplayStructuredText(), 'default');
+        $userPrefs->setDisplayStructuredText(true);
+        $this->assertTrue($userPrefs->getDisplayStructuredText(), 'true');
+        $userPrefs->setDisplayStructuredText(false);
+        $this->assertFalse($userPrefs->getDisplayStructuredText(), 'false');
+        $userPrefs->setDisplayStructuredText(1);
+        $this->assertTrue($userPrefs->getDisplayStructuredText(), '1');
+        $userPrefs->setDisplayStructuredText(0);
+        $this->assertFalse($userPrefs->getDisplayStructuredText(), '0');
+        $userPrefs->setDisplayStructuredText('on');
+        $this->assertTrue($userPrefs->getDisplayStructuredText(), 'on');
+        $userPrefs->setDisplayStructuredText('off');
+        $this->assertFalse($userPrefs->getDisplayStructuredText(), 'off');
+        $userPrefs->setDisplayStructuredText('1');
+        $this->assertTrue($userPrefs->getDisplayStructuredText(), '"1"');
+        $userPrefs->setDisplayStructuredText('0');
+        $this->assertFalse($userPrefs->getDisplayStructuredText(), '"0"');
+        $userPrefs->setDisplayStructuredText('<invalid>');
+        $this->assertFalse($userPrefs->getDisplayStructuredText(), '<invalid>');
+        $userPrefs->setDisplayStructuredText(null);
+        $this->assertFalse($userPrefs->getDisplayStructuredText(), 'NULL');
+    }
+
+    /**
      * @todo Implement testRead().
      */
     public function testRead() {
@@ -168,7 +204,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue($userPrefs1->getHideAddresses(), 'getHideAddresses()');
         $this->assertTrue($userPrefs1->getOutlookQuoting(), 'getOutlookQuoting()');
         $this->assertTrue($userPrefs1->getColoredQuotes(), 'getColoredQuotes()');
-        $this->assertTrue($userPrefs1->display_struct, 'display_struct');
+        $this->assertTrue($userPrefs1->getDisplayStructuredText(), 'getDisplayStructuredText()');
         $this->assertTrue($userPrefs1->seperate_msg_win, 'seperate_msg_win');
         $this->assertEquals('', $userPrefs1->reply_leadin, 'reply_leadin');
         $this->assertEquals('This is a signature...', $userPrefs1->signature, 'signature');
@@ -192,7 +228,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertFalse($userPrefs2->getHideAddresses(), 'getHideAddresses()');
         $this->assertFalse($userPrefs2->getOutlookQuoting(), 'getOutlookQuoting()');
         $this->assertFalse($userPrefs2->getColoredQuotes(), 'getColoredQuotes()');
-        $this->assertFalse($userPrefs2->display_struct, 'display_struct');
+        $this->assertFalse($userPrefs2->getDisplayStructuredText(), 'getDisplayStructuredText()');
         $this->assertFalse($userPrefs2->seperate_msg_win, 'seperate_msg_win');
         $this->assertEquals('', $userPrefs2->reply_leadin, 'reply_leadin');
         $this->assertEquals('', $userPrefs2->signature, 'signature');

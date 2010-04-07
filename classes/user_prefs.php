@@ -49,7 +49,12 @@ class NOCCUserPrefs {
      * @access private
      */
     var $_coloredQuotes;
-    var $display_struct;
+    /**
+     * Display structured text
+     * @var boolean
+     * @access private
+     */
+    var $_displayStructuredText;
     var $seperate_msg_win;
     var $reply_leadin;
     var $signature;
@@ -77,6 +82,7 @@ class NOCCUserPrefs {
         $this->_hideAddresses = false;
         $this->_outlookQuoting = false;
         $this->_coloredQuotes = true;
+        $this->_displayStructuredText = false;
         $this->dirty_flag = 1;
     }
 
@@ -132,6 +138,24 @@ class NOCCUserPrefs {
      */
     function setColoredQuotes($value) {
         $this->_coloredQuotes = $this->_convertToTrue($value);
+    }
+
+    /**
+     * Get structured text displaying from user preferences
+     *
+     * @return boolean Display structured text?
+     */
+    function getDisplayStructuredText() {
+        return $this->_displayStructuredText;
+    }
+
+    /**
+     * Set structured text displaying from user preferences
+     *
+     * @param mixed $value Display structured text?
+     */
+    function setDisplayStructuredText($value) {
+        $this->_displayStructuredText = $this->_convertToFalse($value);
     }
 
     /**
@@ -209,7 +233,7 @@ class NOCCUserPrefs {
             if($key == 'colored_quotes')
                 $prefs->setColoredQuotes($value);
             if($key == 'display_struct')
-                $prefs->display_struct = ($value == 1 || $value == 'on');
+                $prefs->setDisplayStructuredText($value);
             if($key == 'seperate_msg_win')
                 $prefs->seperate_msg_win = ($value == 1 || $value == 'on');
             if($key == 'signature')
@@ -285,7 +309,7 @@ class NOCCUserPrefs {
         fwrite($file, "hide_addresses=".$this->_hideAddresses."\n");
         fwrite($file, "outlook_quoting=".$this->_outlookQuoting."\n");
         fwrite($file, "colored_quotes=".$this->_coloredQuotes."\n");
-        fwrite($file, "display_struct=".$this->display_struct."\n");
+        fwrite($file, "display_struct=".$this->_displayStructuredText."\n");
         fwrite($file, "seperate_msg_win=".$this->seperate_msg_win."\n");
         fwrite($file, "reply_leadin=".base64_encode($this->reply_leadin)."\n");
         fwrite($file, "signature=".base64_encode($this->signature)."\n");

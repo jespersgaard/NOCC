@@ -409,7 +409,7 @@ function remove_stuff(&$body, &$mime) {
             $body = preg_replace('/^(&gt; *&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel2">\\1\\2</span>\\3', $body);
             $body = preg_replace('/^(&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel1">\\1\\2</span>\\3', $body);
         }
-        if (isset($user_prefs->display_struct) && $user_prefs->display_struct) {
+        if ($user_prefs->getDisplayStructuredText()) {
             $body = preg_replace('/(\s)\+\/-/', '\\1&plusmn;', $body); // +/-
             $body = preg_replace('/(\w|\))\^([0-9]+)/', '\\1<sup>\\2</sup>', $body); // 10^6, a^2, (a+b)^2
             $body = preg_replace('/(\s)(\*)([^\s\*]+[^\*\r\n]+)(\*)/', '\\1<strong>\\2\\3\\4</strong>', $body); // *strong*

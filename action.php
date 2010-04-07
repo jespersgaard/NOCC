@@ -511,7 +511,7 @@ switch($action) {
             $user_prefs->setHideAddresses(isset($_REQUEST['hide_addresses']));
             $user_prefs->setOutlookQuoting(isset($_REQUEST['outlook_quoting']));
             $user_prefs->setColoredQuotes(isset($_REQUEST['colored_quotes']));
-            $user_prefs->display_struct = isset($_REQUEST['display_struct']);
+            $user_prefs->setDisplayStructuredText(isset($_REQUEST['display_struct']));
             $user_prefs->seperate_msg_win = isset($_REQUEST['seperate_msg_win']);
             if (isset($_REQUEST['reply_leadin']))
                 $user_prefs->reply_leadin = safestrip($_REQUEST['reply_leadin']);
@@ -757,7 +757,7 @@ function add_quoting(&$mail_body, $content) {
 
     if ($user_prefs->getOutlookQuoting()) {
         $mail_body = $original_msg . "\n" . $html_from_label . ' ' . $content['from'] . "\n" . $html_to_label . ' '
-                . $content['to'] . "\n" . $html_sent_label.' ' . $content['complete_date'] . "\n" . $html_subject_label
+                . $content['to'] . "\n" . $html_sent_label .' ' . $content['complete_date'] . "\n" . $html_subject_label
                 . ' '. $content['subject'] . "\n\n" . enh_html_entity_decode(strip_tags($content['body'], ''));
     }
     else {

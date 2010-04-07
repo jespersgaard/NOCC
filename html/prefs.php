@@ -103,7 +103,7 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="display_struct" id="display_struct" value="on" <?php if(isset($user_prefs->display_struct) && (isset($user_prefs->display_struct) && $user_prefs->display_struct)) echo 'checked="checked"'; ?> /><label for="display_struct"><?php echo convertLang2Html($html_display_struct) ?></label>
+             <input type="checkbox" name="display_struct" id="display_struct" value="on" <?php if($user_prefs->getDisplayStructuredText()) echo 'checked="checked"'; ?> /><label for="display_struct"><?php echo convertLang2Html($html_display_struct) ?></label>
            </td>
          </tr>
       </table>
