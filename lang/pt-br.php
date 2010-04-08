@@ -29,6 +29,7 @@
  * @author Giovani Zamboni <zambaxtz@terra.com.br>
  * @author Luckas Blade
  * @author Renato Frederick <frederick@dahype.org>
+ * @author Rodrigo Avila
  */
 
 $lang_locale = 'pt_BR.UTF-8';
@@ -56,6 +57,7 @@ $html_user_label = 'Usuário:';
 $html_passwd_label = 'Senha:';
 $html_submit = 'Enviar';
 $html_help = 'Ajuda';
+$html_server_label = 'Servidor:';
 $html_wrong = 'O usuário ou a senha estão incorretos';
 $html_retry = 'Repetir';
 $html_remember = 'Lembrar Configurações';
@@ -76,8 +78,8 @@ $html_prefs_updated = 'Preferências Atualizada';
 $html_manage_folders_link = 'Gerenciar Pastas IMAP';
 $html_manage_filters_link = 'Gerenciar Filtros de Email';
 $html_use_graphical_smilies = 'Usar Smiles';
-$html_sent_folder_label = 'Copiar emails enviados para';
-$html_trash_folder_label = 'Move e-mails deletados para uma pasta específica';
+$html_sent_folder_label = 'Copiar emails enviados para a pasta específica:';
+$html_trash_folder_label = 'Move e-mails deletados para uma pasta específica:';
 $html_colored_quotes = 'Quotas Coloridas';
 $html_display_struct = 'Mostrar texto estruturado';
 $html_send_html_mail = 'Enviar email em formato HTML';
@@ -131,6 +133,7 @@ $html_delete = 'Excluir';
 $html_new = 'Novo';
 $html_mark = 'Excluir';
 $html_att_label = 'Anexo:';
+$html_atts_label_label = 'Anexos:';
 $html_unknown = '[Desconhecido]';
 $html_attach = 'Anexar arquivo';
 $html_attach_forget = 'Você precisa anexar seus arquivos antes de enviar esta mensagem !';
@@ -156,6 +159,7 @@ $html_filename = 'Nome do Arquivo';
 $html_to = 'Para';
 $html_to_label = 'Para:';
 $html_cc = 'Cc';
+$html_cc_label = 'Cc:';
 $html_bcc_label = 'Cco:';
 $html_nosubject = 'Sem assunto';
 $html_send = 'Enviar';
@@ -172,16 +176,20 @@ $html_low = 'Baixa';
 $html_normal = 'Normal';
 $html_high = 'Alta';
 $html_highest = 'Mais Alto';
+$html_flagged = 'Marcado';
+$html_spam = 'Spam';
+$html_spam_warning = 'Esta mensagem foi classificada como spam.';
 $html_receipt = 'Pedir confirmação de Leitura';
 $html_select = 'Selecionar';
 $html_select_all = 'Inverter Seleção';
+$html_select_contacts = 'Selecionar contatos';
 $html_loading_image = 'Carregando imagem';
 $html_send_confirmed = 'Sua mensagem foi aceita para entrega';
 $html_no_sendaction = 'Sem ação especificada. Tente habilitar JavaScript.';
 $html_error_occurred = 'Ocorreu um erro';
 $html_prefs_file_error = 'Impossível abrir arquivo de preferências para gravação.';
-$html_wrap = 'Quebrar mensagens de saída em :';
-$html_wrap_none = 'Nenhuma';
+$html_wrap = 'Número de caracteres para quebra de linha em mensagens de saída:';
+$html_wrap_none = 'Sem quebra de linha';
 $html_usenet_separator = 'Separador Usenet ("-- \n") Antes da assinatura';
 $html_mark_as = 'Marcar como';
 $html_read = 'lido';

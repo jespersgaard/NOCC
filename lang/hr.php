@@ -23,7 +23,7 @@
  * @ingroup Language
  * @file
  *
- * @author Suradnik13
+ * @author Ex13
  * @author Vid Strpic <strpic@bofhlet.net>
  */
 
@@ -44,7 +44,6 @@ $title_prev_msg = 'Prethodna poruka';
 $html_theme_label = 'Tema';
 $html_welcome = 'Dobrodošli %1$s';
 $html_login = 'Korisničko ime';
-$html_passwd = 'Šifra';
 $html_submit = 'Prijava';
 $html_help = 'Pomoć';
 $html_wrong = 'Korisničko ime ili šifra su neispravni';
