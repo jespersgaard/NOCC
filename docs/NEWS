@@ -11,6 +11,7 @@ NOCC 1.8.3  ???? ??, ????
     * Bug #2946163 : Unable to copy or move the message... (Evgeny Secret).
 
   Feature Requests
+    * RFE #2985090 : Simplify character encoding list items (Tim Gerundt).
     * RFE #2976406 : Check for SPAM header flags (Tim Gerundt).
 
   Misc
