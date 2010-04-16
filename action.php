@@ -188,12 +188,8 @@ switch($action) {
         $mail_messageid = urlencode($content['message_id']);
 
         $mail_to = !empty($content['reply_to']) ? $content['reply_to'] : $content['from'];
-        // Test for Re: in subject, should not be added twice !
-        // (this will fail for most languages but English, the they may not use "Re:")
-        if (!strcasecmp(substr($content['subject'], 0, 2), $html_reply_short))
-            $mail_subject = $content['subject'];
-        else
-            $mail_subject = $html_reply_short.' '.$content['subject'];
+
+        $mail_subject = add_reply_to_subject($content['subject']);
 
         // Add quoting
         add_quoting($mail_body, $content);
@@ -236,10 +232,8 @@ switch($action) {
         $mail_messageid = urlencode($content['message_id']);
         
         $mail_to = get_reply_all($content['from'], $content['to'], $content['cc']);
-        if (!strcasecmp(substr($content['subject'], 0, 2), $html_reply_short))
-            $mail_subject = $content['subject'];
-        else
-            $mail_subject = $html_reply_short.' '.$content['subject'];
+
+        $mail_subject = add_reply_to_subject($content['subject']);
 
         // Add quoting
         add_quoting($mail_body, $content);
@@ -775,4 +769,13 @@ function add_quoting(&$mail_body, $content) {
     }
 }
 
+function add_reply_to_subject($subject) {
+    global $html_reply_short;
+
+    $subjectStart = substr($subject, 0, strlen($html_reply_short));
+    if (strcasecmp($subjectStart, $html_reply_short) != 0) { //if NOT start with localized "Re:" ...
+        return $html_reply_short . ' ' . $subject;
+    }
+    return $subject;
+}
 ?>
