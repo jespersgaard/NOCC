@@ -12,7 +12,7 @@ function get_default_from_address() {
     if(!empty($user_prefs->email_address))
         $from_address = $user_prefs->email_address;
     else {
-        if (isset($_SESSION['nocc_login_with_domain']) and $_SESSION['nocc_login_with_domain'] == 1) {
+        if (isset($_SESSION['nocc_login_with_domain']) && $_SESSION['nocc_login_with_domain'] == 1) {
             $from_address = $_SESSION['nocc_login'];
         } else if (preg_match("|([A-Za-z0-9]+)@([A-Za-z0-9]+)|", $_SESSION['nocc_login'], $regs)) {
             $from_address = $_SESSION['nocc_login'];
@@ -26,7 +26,7 @@ function get_default_from_address() {
     
     // Append name if known
     if(!empty($user_prefs->full_name))
-        $from_address = $user_prefs->full_name . ' <' . $from_address . '>';
+        $from_address = '"' . $user_prefs->full_name . '" <' . $from_address . '>';
 
     return $from_address;
 }
