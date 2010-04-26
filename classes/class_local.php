@@ -206,7 +206,33 @@ class nocc_imap
     }
 
     function utf8($mime_encoded_text) {
-        return imap_utf8($mime_encoded_text);
+        //Since PHP 5.2.5 returns imap_utf8() only capital letters!
+        //See bug #44098 for details: http://bugs.php.net/44098
+        if (version_compare(PHP_VERSION, '5.2.5') === 1) { //if PHP 5.2.5 or newer...
+            return nocc_imap::decode_mime_string($mime_encoded_text);
+        }
+        else { //if PHP 5.2.4 or older...
+            return imap_utf8($mime_encoded_text);
+        }
+    }
+
+    /**
+     * Decode MIME string
+     * @param string $string MIME encoded string
+     * @param string $charset Charset
+     * @return string Decoded string
+     * @static
+     */
+    function decode_mime_string($string, $charset = 'UTF-8') {
+        $decodedString = '';
+        $elements = imap_mime_header_decode($string);
+        foreach ($elements as $element) { //for all elements...
+            if ($element->charset == 'default') { //if 'default' charset...
+                $element->charset = 'iso-8859-1';
+            }
+            $decodedString .= iconv($element->charset, $charset, $element->text);
+        }
+        return $decodedString;
     }
 
     function getmailboxes(&$ev) {
