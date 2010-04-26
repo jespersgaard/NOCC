@@ -448,6 +448,9 @@ function link_att(&$mail, $attach_tab, &$display_part_no) {
             $att_name = nocc_imap::utf8($tmp['name']);
             $att_name_dl = $att_name;
             $att_name = htmlentities($att_name, ENT_COMPAT, 'UTF-8');
+            if (empty($att_name)) { //if we got a problem with the $att_name encoding...
+                $att_name = htmlentities($att_name_dl, ENT_COMPAT);
+            }
             $link .= '<a href="download.php?mail=' . $mail . '&amp;part=' . $tmp['number'] . '&amp;transfer=' . $tmp['transfer'] . '&amp;filename=' . base64_encode($att_name_dl) . '&amp;mime=' . $mime . '">' . $att_name . '</a>&nbsp;&nbsp;' . $tmp['mime'] . '&nbsp;&nbsp;' . $tmp['size'] . ' ' . $html_kb . '<br/>';
         }
     }

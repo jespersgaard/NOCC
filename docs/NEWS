@@ -17,6 +17,7 @@ NOCC 1.8.3  ???? ??, ????
     * RFE #2976406 : Check for SPAM header flags (Tim Gerundt).
 
   Misc
+    * Fix empty attachment names in some cases (Tim Gerundt).
     * Add date to RSS feed items (Tim Gerundt).
     * Fix problem with "Sent:" label (Tim Gerundt).
 
