@@ -20,6 +20,7 @@ require_once './classes/class_local.php';
 require_once './classes/nocc_mailreader.php';
 require_once './classes/nocc_theme.php';
 require_once './classes/nocc_quotausage.php';
+require_once './classes/nocc_mailaddress.php';
 
 /**
  * ...
@@ -533,6 +534,7 @@ function get_reply_all(&$from, &$to, &$cc) {
  * @param string $addr
  * @param string $charset
  * @return array
+ * TODO: Move to NOCC_MailAddress as static function and rename?
  */
 function cut_address($addr, $charset) {
     // Strip slashes from input
@@ -651,11 +653,13 @@ function clear_attachments() {
  * @global object $html_unknown
  * @param string $address
  * @return string
+ * TODO: Move to NOCC_MailAddress as static function and rename?
  */
 function display_address(&$address) {
     global $html_unknown;
+
     // Check for null
-    if($address == '')
+    if ($address == '')
         return $html_unknown;
 
     // Get preference
@@ -665,21 +669,7 @@ function display_address(&$address) {
     if (!$user_prefs->getHideAddresses())
         return $address;
 
-    // If no '<', return full address.
-    $bracketpos = strpos($address, "<");
-    if($bracketpos === false)
-        return $address;
-
-    // Return up to the first '<', or end of string if not found
-    //return substr($address, 0, $bracketpos - 1);
-    $formatted_address = '';
-    while (!($bracketpos === false)) {
-        $formatted_address = substr($address, 0, $bracketpos - 1);
-        $formatted_address .= substr($address, strpos($address, ">")+1);
-        $address = $formatted_address;
-        $bracketpos = strpos($address, "<");
-    }
-    return $address;
+    return NOCC_MailAddress::chopAddress($address);
 }
 
 /**
