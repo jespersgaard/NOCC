@@ -307,6 +307,25 @@ class nocc_imap
         return imap_qprint($file);
     }
 
+    /**
+     * Decode  BASE64 or QUOTED-PRINTABLE data
+     * @param string $data Encoded data
+     * @param string $transfer BASE64 or QUOTED-PRINTABLE?
+     * @return string Decoded data
+     * TODO: Better name?
+     */
+    function decode($data, $transfer) {
+        if ($transfer == 'BASE64') { //if BASE64...
+            return nocc_imap::base64($data);
+        }
+        elseif ($transfer == 'QUOTED-PRINTABLE') { //if QUOTED-PRINTABLE...
+            return nocc_imap::qprint($data);
+        }
+        else { //if NOT BASE64/QUOTED-PRINTABLE...
+            return $data;
+        }
+    }
+
     function mime_header_decode($header) {
         $source = imap_mime_header_decode($header);
         $result[] = new result;

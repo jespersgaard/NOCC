@@ -198,11 +198,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
 
     $body_charset = '';
     if (preg_match('{text/(html|plain)}i', $tmp['mime'])) {
-        //TODO: Move to own function!
-        if ($tmp['transfer'] == 'QUOTED-PRINTABLE')
-            $body = nocc_imap::qprint($body);
-        if ($tmp['transfer'] == 'BASE64')
-            $body = base64_decode($body);
+        $body = nocc_imap::decode($body, $tmp['transfer']);
         $body = remove_stuff($body, $tmp['mime']);
         $body_charset =  ($tmp['charset'] == "default") ? detect_charset($body) : $tmp['charset'];
         // Convert US-ASCII to ISO-8859-1 for systems which have difficulties with.
@@ -614,16 +610,7 @@ function view_part(&$pop, &$mail, $part_no, $transfer, $msg_charset) {
     if (NoccException::isException($ev)) {
         return '<p class="error">' . $ev->getMessage . '</p>';
     }
-    //TODO: Move to own function!
-    if ($transfer == 'BASE64')
-        return nl2br(htmlspecialchars(nocc_imap::base64($text)));
-    elseif($transfer == 'QUOTED-PRINTABLE')
-        return nl2br(htmlspecialchars(nocc_imap::qprint($text)));
-    else
-        return nl2br(htmlspecialchars($text));
-    //if (eregi('koi', $transfer) || eregi('windows-1251', $transfer))
-    //    $str = @convert_cyr_string($str, $msg_charset, 'UTF-8');
-    return '';
+    return nl2br(htmlspecialchars(nocc_imap::decode($text, $transfer)));
 }
 
 /**

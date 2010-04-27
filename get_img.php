@@ -38,10 +38,7 @@ if (NoccException::isException($ev)) {
     return;
 }
 
-if ($transfer == 'BASE64')
-    $img = nocc_imap::base64($img);
-elseif ($transfer == 'QUOTED-PRINTABLE')
-    $img = nocc_imap::qprint($img);
+$img = nocc_imap::decode($img, $transfer);
 $pop->close();
 
 header('Content-type: image/'.$mime);

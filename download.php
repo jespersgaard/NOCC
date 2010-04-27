@@ -78,10 +78,7 @@ if (NoccException::isException($ev)) {
     return;
 }
 
-if ($transfer == 'BASE64')
-    $file = nocc_imap::base64($file);
-elseif($transfer == 'QUOTED-PRINTABLE')
-    $file = nocc_imap::qprint($file);
+$file = nocc_imap::decode($file, $transfer);
 
 $pop->close();
 
