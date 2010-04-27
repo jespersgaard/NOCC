@@ -19,6 +19,7 @@ NOCC 1.8.3  ???? ??, ????
     * RFE #2976406 : Check for SPAM header flags (Tim Gerundt).
 
   Misc
+    * Simplify attachments list (Tim Gerundt).
     * Fix problem with "Attachments:" label (Tim Gerundt).
     * Drop $conf->display_part_no (Tim Gerundt).
     * Fix empty attachment names in some cases (Tim Gerundt).

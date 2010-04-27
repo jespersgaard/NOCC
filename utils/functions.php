@@ -435,10 +435,10 @@ function remove_stuff(&$body, &$mime) {
  * @param array $attach_tab
  * @return string
  */
-function link_att(&$mail, $attach_tab) {
+function link_att($mail, $attach_tab) {
     global $html_kb;
     sort($attach_tab);
-    $link = '';
+    $html = '<ul class="attachments">';
     while ($tmp = array_shift($attach_tab)) {
         if (!empty($tmp['name'])) {
             $mime = str_replace('/', '-', $tmp['mime']);
@@ -448,10 +448,11 @@ function link_att(&$mail, $attach_tab) {
             if (empty($att_name)) { //if we got a problem with the $att_name encoding...
                 $att_name = htmlentities($att_name_dl, ENT_COMPAT);
             }
-            $link .= '<a href="download.php?mail=' . $mail . '&amp;part=' . $tmp['number'] . '&amp;transfer=' . $tmp['transfer'] . '&amp;filename=' . base64_encode($att_name_dl) . '&amp;mime=' . $mime . '">' . $att_name . '</a>&nbsp;&nbsp;' . $tmp['mime'] . '&nbsp;&nbsp;' . $tmp['size'] . ' ' . $html_kb . '<br/>';
+            $html .= '<li><a href="download.php?mail=' . $mail . '&amp;part=' . $tmp['number'] . '&amp;transfer=' . $tmp['transfer'] . '&amp;filename=' . base64_encode($att_name_dl) . '&amp;mime=' . $mime . '">' . $att_name . '</a> <em>' . $tmp['size'] . ' ' . $html_kb . '</em></li>';
         }
     }
-    return ($link);
+    $html .= '</ul>';
+    return ($html);
 }
 
 /**

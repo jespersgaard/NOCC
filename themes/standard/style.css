@@ -613,6 +613,17 @@ hr.mailAttachSep {
   text-align: left;
 }
 
+.attachments {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.attachments em {
+  font-weight: normal;
+  font-size: smaller;
+}
+
 .contactAdd table {
   width: 100%;
   text-align: center;
