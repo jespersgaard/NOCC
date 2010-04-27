@@ -235,10 +235,10 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
             case 0:
                 break;
             case 1:
-                $link_att = '<tr><th class="mailHeaderLabel right">' . $html_att_label . '</th><td class="mailHeaderData">' . link_att($mail, $attach_tab, $conf->display_part_no) . '</td></tr>';
+                $link_att = '<tr><th class="mailHeaderLabel right">' . $html_att_label . '</th><td class="mailHeaderData">' . link_att($mail, $attach_tab) . '</td></tr>';
                 break;
             default:
-                $link_att = '<tr><th class="mailHeaderLabel right">' . $html_atts_label . '</th><td class="mailHeaderData">' . link_att($mail, $attach_tab, $conf->display_part_no) . '</td></tr>';
+                $link_att = '<tr><th class="mailHeaderLabel right">' . $html_atts_label . '</th><td class="mailHeaderData">' . link_att($mail, $attach_tab) . '</td></tr>';
                 break;
         }
     }
@@ -433,18 +433,15 @@ function remove_stuff(&$body, &$mime) {
  * @global string $html_kb
  * @param int $mail
  * @param array $attach_tab
- * @param bool $display_part_no
  * @return string
  */
-function link_att(&$mail, $attach_tab, &$display_part_no) {
+function link_att(&$mail, $attach_tab) {
     global $html_kb;
     sort($attach_tab);
     $link = '';
     while ($tmp = array_shift($attach_tab)) {
         if (!empty($tmp['name'])) {
             $mime = str_replace('/', '-', $tmp['mime']);
-            if ($display_part_no == true)
-                $link .= $tmp['number'] . '&nbsp;&nbsp;';
             $att_name = nocc_imap::utf8($tmp['name']);
             $att_name_dl = $att_name;
             $att_name = htmlentities($att_name, ENT_COMPAT, 'UTF-8');

@@ -320,9 +320,6 @@ $conf->default_theme = 'standard';
 // set it to 'false'
 $conf->display_img_attach = true;
 
-// Whether or not to display attachment part number
-$conf->display_part_no = true;
-
 // If you don't want to display text/plain attachments set it to 'false'
 $conf->display_text_attach = true;
 
