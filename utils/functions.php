@@ -198,6 +198,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
 
     $body_charset = '';
     if (preg_match('{text/(html|plain)}i', $tmp['mime'])) {
+        //TODO: Move to own function!
         if ($tmp['transfer'] == 'QUOTED-PRINTABLE')
             $body = nocc_imap::qprint($body);
         if ($tmp['transfer'] == 'BASE64')
@@ -372,11 +373,13 @@ function remove_stuff(&$body, &$mime) {
     $lang = $_SESSION['nocc_lang'];
 
     if (preg_match('|html|i', $mime)) {
+        //TODO: Move to own function!
         $to_removed_array = array (
             "'<html>'si",
             "'</html>'si",
             "'<body[^>]*>'si",
             "'</body>'si",
+            //TODO: Make problems with <head\n>!
             "'<head[^>]*>.*?</head>'si",
             "'<style[^>]*>.*?</style>'si",
             "'<script[^>]*>.*?</script>'si",
@@ -404,6 +407,7 @@ function remove_stuff(&$body, &$mime) {
         // $body = eregi_replace("([#a-zA-Z0-9+-._]*)@([#a-zA-Z0-9+-_.]*)\.([a-zA-Z]+)","<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1@\\2.\\3\">\\1@\\2.\\3</a>", $body);
         $body = preg_replace("/([0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,})/", "<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1\">\\1</a>", $body); 
         if ($user_prefs->getColoredQuotes()) {
+            //TODO: Move to own function!
             $body = preg_replace('/^(&gt; *&gt; *&gt; *&gt; *&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel5">\\1\\2</span>\\3', $body);
             $body = preg_replace('/^(&gt; *&gt; *&gt; *&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel4">\\1\\2</span>\\3', $body);
             $body = preg_replace('/^(&gt; *&gt; *&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel3">\\1\\2</span>\\3', $body);
@@ -411,6 +415,7 @@ function remove_stuff(&$body, &$mime) {
             $body = preg_replace('/^(&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel1">\\1\\2</span>\\3', $body);
         }
         if ($user_prefs->getDisplayStructuredText()) {
+            //TODO: Move to own function!
             $body = preg_replace('/(\s)\+\/-/', '\\1&plusmn;', $body); // +/-
             $body = preg_replace('/(\w|\))\^([0-9]+)/', '\\1<sup>\\2</sup>', $body); // 10^6, a^2, (a+b)^2
             $body = preg_replace('/(\s)(\*)([^\s\*]+[^\*\r\n]+)(\*)/', '\\1<strong>\\2\\3\\4</strong>', $body); // *strong*
@@ -609,10 +614,11 @@ function view_part(&$pop, &$mail, $part_no, $transfer, $msg_charset) {
     if (NoccException::isException($ev)) {
         return '<p class="error">' . $ev->getMessage . '</p>';
     }
+    //TODO: Move to own function!
     if ($transfer == 'BASE64')
         return nl2br(htmlspecialchars(nocc_imap::base64($text)));
     elseif($transfer == 'QUOTED-PRINTABLE')
-        return nl2br(htmlspecialchars(quoted_printable_decode($text)));
+        return nl2br(htmlspecialchars(nocc_imap::qprint($text)));
     else
         return nl2br(htmlspecialchars($text));
     //if (eregi('koi', $transfer) || eregi('windows-1251', $transfer))
