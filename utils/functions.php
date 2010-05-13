@@ -369,23 +369,7 @@ function remove_stuff(&$body, &$mime) {
     $lang = $_SESSION['nocc_lang'];
 
     if (preg_match('|html|i', $mime)) {
-        //TODO: Move to own function!
-        $to_removed_array = array (
-            "'<html>'si",
-            "'</html>'si",
-            "'<body[^>]*>'si",
-            "'</body>'si",
-            //TODO: Make problems with <head\n>!
-            "'<head[^>]*>.*?</head>'si",
-            "'<style[^>]*>.*?</style>'si",
-            "'<script[^>]*>.*?</script>'si",
-            "'<object[^>]*>.*?</object>'si",
-            "'<embed[^>]*>.*?</embed>'si",
-            "'<applet[^>]*>.*?</applet>'si",
-            "'<mocha[^>]*>.*?</mocha>'si",
-            "'<meta[^>]*>'si"
-        );
-        $body = preg_replace($to_removed_array, '', $body);
+        $body = NOCC_Security::cleanHtmlBody($body);
         $body = preg_replace("|href=\"(.*)script:|i", 'href="nocc_removed_script:', $body);
         $body = preg_replace("|<([^>]*)java|i", '<nocc_removed_java_tag', $body);
         $body = preg_replace("|<([^>]*)&{.*}([^>]*)>|i", "<&{;}\\3>", $body);

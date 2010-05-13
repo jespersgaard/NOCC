@@ -48,6 +48,32 @@ class NOCC_Security {
     }
 
     /**
+     * Clean HTML body (strip <HTML>, <HEAD> and other tags)
+     * @param string $body HTML body
+     * @return string Cleaned HTML body
+     * @static
+     */
+    function cleanHtmlBody($body) {
+        $dirtyTags = array (
+            "'<html[^>]*>'si",
+            "'</html>'si",
+            "'<body[^>]*>'si",
+            "'</body>'si",
+            //TODO: Make problems with <head\n>!?
+            "'<head[^>]*>.*?</head>'si",
+            "'<style[^>]*>.*?</style>'si",
+            "'<script[^>]*>.*?</script>'si",
+            "'<object[^>]*>.*?</object>'si",
+            "'<embed[^>]*>.*?</embed>'si",
+            "'<applet[^>]*>.*?</applet>'si",
+            "'<mocha[^>]*>.*?</mocha>'si",
+            "'<meta[^>]*>'si"
+        );
+        $cleanBody = preg_replace($dirtyTags, '', $body);
+        return trim($cleanBody);
+    }
+
+    /**
      * Get the image type from a internet media type (MIME type)
      * 
      * @param string $internetMediaType Internet media type (MIME type)

@@ -126,6 +126,63 @@ class NOCC_SecurityTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * Test case for cleanHtmlBody().
+     */
+    public function testCleanHtmlBody() {
+        $html1 =
+'<html>
+  <head>
+    <title>Test</TITLE>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="Just a test!" />
+    <link href="stylesheet.css" rel="stylesheet" type="text/css" />
+    <LINK href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <script src="javascript.js" type="text/javascript"></script>
+    <style><!-- Test -->
+      h1 {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 10pt;
+      }
+    </style>
+  </HEAD>
+<BODY>
+<h1>Test</h1>
+<p>This is just a test!</p>
+</body>
+</HTML>';
+
+        $html2 =
+'<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+    <title>Test</TITLE
+    >
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content="Just a test!" /
+>
+    <link href="stylesheet.css" rel="stylesheet" type="text/css" />
+    <LINK href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <script src="javascript.js" type="text/javascript"></script>
+  <style><!-- Test -->
+    h1 {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 10pt;
+    }
+  </style>
+  </HEAD>
+<BODY dir="ltr">
+<h1>Test</h1>
+<p>This is just a test!</p>
+</body>
+</HTML>';
+
+        $expected =
+'<h1>Test</h1>
+<p>This is just a test!</p>';
+
+        $this->assertEquals($expected, NOCC_Security::cleanHtmlBody($html1));
+        $this->assertEquals($expected, NOCC_Security::cleanHtmlBody($html2));
+    }
+
+    /**
      * Test case for getImageType().
      */
     public function testGetImageType() {
