@@ -25,6 +25,7 @@
  *
  * @author Consta
  * @author Crazymadlover
+ * @author Dada
  * @author Dead3y3
  * @author Omnipaedista
  * @author Spyros Ioakim <sioakim@ace-hellas.gr>
@@ -176,6 +177,8 @@ $html_normal = 'Κανονική';
 $html_high = 'Υψηλή';
 $html_highest = 'Υψηλότατη';
 $html_flagged = 'Σημασμένο';
+$html_spam = 'Spam';
+$html_spam_warning = 'Αυτό το μήνυμα έχει καταχωρηθεί ως spam.';
 $html_receipt = 'Αίτηση για απόδειξη επιστροφής';
 $html_select = 'Διαλέξτε';
 $html_select_all = 'Αντιστροφή Επιλογής';
