@@ -33,6 +33,7 @@ else {
 require_once './classes/nocc_request.php';
 require_once './classes/nocc_session.php';
 require_once './classes/nocc_security.php';
+require_once './classes/nocc_body.php';
 require_once './classes/nocc_languages.php';
 require_once './classes/nocc_themes.php';
 require_once './classes/user_prefs.php';

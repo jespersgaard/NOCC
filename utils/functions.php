@@ -373,6 +373,7 @@ function remove_stuff(&$body, &$mime) {
         $body = preg_replace("|href=\"(.*)script:|i", 'href="nocc_removed_script:', $body);
         $body = preg_replace("|<([^>]*)java|i", '<nocc_removed_java_tag', $body);
         $body = preg_replace("|<([^>]*)&{.*}([^>]*)>|i", "<&{;}\\3>", $body);
+        //TODO: Move to own function!
         $body = preg_replace("|href=\"mailto:([a-zA-Z0-9\+\-=%&:_.~\?@]+[#a-zA-Z0-9\+]*)\"|i", "HREF=\"$PHP_SELF?action=write&amp;mail_to=$1\"", $body);
         $body = preg_replace("|href=mailto:([a-zA-Z0-9\+\-=%&:_.~\?@]+[#a-zA-Z0-9\+]*)|i", "HREF=\"$PHP_SELF?action=write&amp;mail_to=$1\"", $body);
         $body = preg_replace("|href=\"([a-zA-Z0-9\+\/\;\-=%&:_.~\?]+[#a-zA-Z0-9\+]*)\"|i", "href=\"$1\" target=\"_blank\"", $body);
@@ -381,27 +382,17 @@ function remove_stuff(&$body, &$mime) {
     elseif (preg_match('|plain|i', $mime)) {
         $user_prefs = $_SESSION['nocc_user_prefs'];
         $body = htmlspecialchars($body);
+        //TODO: Move to own function!
         $body = preg_replace("{(http|https|ftp)://([a-zA-Z0-9\+\/\;\-=%&:_.~\?]+[#a-zA-Z0-9\+]*)}i", "<a href=\"$1://$2\" target=\"_blank\">$1://$2</a>", $body);
         // Bug #511302: Comment out following line if you have the 'Invalid Range End' problem
         // New rewritten preg_replace should fix the problem, bug #522389
         // $body = eregi_replace("([#a-zA-Z0-9+-._]*)@([#a-zA-Z0-9+-_.]*)\.([a-zA-Z]+)","<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1@\\2.\\3\">\\1@\\2.\\3</a>", $body);
         $body = preg_replace("/([0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,})/", "<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1\">\\1</a>", $body); 
         if ($user_prefs->getColoredQuotes()) {
-            //TODO: Move to own function!
-            $body = preg_replace('/^(&gt; *&gt; *&gt; *&gt; *&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel5">\\1\\2</span>\\3', $body);
-            $body = preg_replace('/^(&gt; *&gt; *&gt; *&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel4">\\1\\2</span>\\3', $body);
-            $body = preg_replace('/^(&gt; *&gt; *&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel3">\\1\\2</span>\\3', $body);
-            $body = preg_replace('/^(&gt; *&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel2">\\1\\2</span>\\3', $body);
-            $body = preg_replace('/^(&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel1">\\1\\2</span>\\3', $body);
+            $body = NOCC_Body::addColoredQuotes($body);
         }
         if ($user_prefs->getDisplayStructuredText()) {
-            //TODO: Move to own function!
-            $body = preg_replace('/(\s)\+\/-/', '\\1&plusmn;', $body); // +/-
-            $body = preg_replace('/(\w|\))\^([0-9]+)/', '\\1<sup>\\2</sup>', $body); // 10^6, a^2, (a+b)^2
-            $body = preg_replace('/(\s)(\*)([^\s\*]+[^\*\r\n]+)(\*)/', '\\1<strong>\\2\\3\\4</strong>', $body); // *strong*
-            $body = preg_replace('/(\s)(\/)([^\s\/]+[^\/\r\n<>]+)(\/)/', '\\1<em>\\2\\3\\4</em>', $body); // /emphasis/
-            $body = preg_replace('/(\s)(_)([^\s_]+[^_\r\n]+)(_)/', '\\1<span style="text-decoration:underline">\\2\\3\\4</span>', $body); // _underline_
-            $body = preg_replace('/(\s)(\|)([^\s\|]+[^\|\r\n]+)(\|)/', '\\1<code>\\2\\3\\4</code>', $body); // |code|
+            $body = NOCC_Body::addStructuredText($body);
         }
 
         // Disable incoming message wordwrapping. Plain text message formatting should be done by the writter.
