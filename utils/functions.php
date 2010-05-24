@@ -373,21 +373,12 @@ function remove_stuff(&$body, &$mime) {
         $body = preg_replace("|href=\"(.*)script:|i", 'href="nocc_removed_script:', $body);
         $body = preg_replace("|<([^>]*)java|i", '<nocc_removed_java_tag', $body);
         $body = preg_replace("|<([^>]*)&{.*}([^>]*)>|i", "<&{;}\\3>", $body);
-        //TODO: Move to own function!
-        $body = preg_replace("|href=\"mailto:([a-zA-Z0-9\+\-=%&:_.~\?@]+[#a-zA-Z0-9\+]*)\"|i", "HREF=\"$PHP_SELF?action=write&amp;mail_to=$1\"", $body);
-        $body = preg_replace("|href=mailto:([a-zA-Z0-9\+\-=%&:_.~\?@]+[#a-zA-Z0-9\+]*)|i", "HREF=\"$PHP_SELF?action=write&amp;mail_to=$1\"", $body);
-        $body = preg_replace("|href=\"([a-zA-Z0-9\+\/\;\-=%&:_.~\?]+[#a-zA-Z0-9\+]*)\"|i", "href=\"$1\" target=\"_blank\"", $body);
-        $body = preg_replace("|href=([a-zA-Z0-9\+\/\;\-=%&:_.~\?]+[#a-zA-Z0-9\+]*)|i", "href=\"$1\" target=\"_blank\"", $body);
+        $body = NOCC_Body::prepareHtmlLinks($body, $PHP_SELF);
     }
     elseif (preg_match('|plain|i', $mime)) {
         $user_prefs = $_SESSION['nocc_user_prefs'];
         $body = htmlspecialchars($body);
-        //TODO: Move to own function!
-        $body = preg_replace("{(http|https|ftp)://([a-zA-Z0-9\+\/\;\-=%&:_.~\?]+[#a-zA-Z0-9\+]*)}i", "<a href=\"$1://$2\" target=\"_blank\">$1://$2</a>", $body);
-        // Bug #511302: Comment out following line if you have the 'Invalid Range End' problem
-        // New rewritten preg_replace should fix the problem, bug #522389
-        // $body = eregi_replace("([#a-zA-Z0-9+-._]*)@([#a-zA-Z0-9+-_.]*)\.([a-zA-Z]+)","<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1@\\2.\\3\">\\1@\\2.\\3</a>", $body);
-        $body = preg_replace("/([0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,})/", "<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1\">\\1</a>", $body); 
+        $body = NOCC_Body::prepareTextLinks($body, $PHP_SELF);
         if ($user_prefs->getColoredQuotes()) {
             $body = NOCC_Body::addColoredQuotes($body);
         }
