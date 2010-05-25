@@ -47,7 +47,6 @@ class NOCC_BodyTest extends PHPUnit_Framework_TestCase {
 
     /**
      * Test case for prepareTextLinks().
-     * @TODO ...
      */
     public function testPrepareTextLinks() {
         $actual =
@@ -55,6 +54,9 @@ class NOCC_BodyTest extends PHPUnit_Framework_TestCase {
 * http://nocc.sf.net/
 * http://nocc.sf.net/?lang=de
 * http://nocc.sourceforge.net/docs/changelog.php
+* http://localhost/test1.php#anchor
+* http://localhost/test2.php?para1=abc&para2=def
+* http://localhost/trac/ticket/123#comment:4
 * &lt;http://nocc.sf.net/&gt;
 * [http://nocc.sf.net/]
 * nocc-discuss@lists.sourceforge.net
@@ -65,6 +67,9 @@ class NOCC_BodyTest extends PHPUnit_Framework_TestCase {
 * <a href="http://nocc.sf.net/" target="_blank">http://nocc.sf.net/</a>
 * <a href="http://nocc.sf.net/?lang=de" target="_blank">http://nocc.sf.net/?lang=de</a>
 * <a href="http://nocc.sourceforge.net/docs/changelog.php" target="_blank">http://nocc.sourceforge.net/docs/changelog.php</a>
+* <a href="http://localhost/test1.php#anchor" target="_blank">http://localhost/test1.php#anchor</a>
+* <a href="http://localhost/test2.php?para1=abc&para2=def" target="_blank">http://localhost/test2.php?para1=abc&para2=def</a>
+* <a href="http://localhost/trac/ticket/123#comment:4" target="_blank">http://localhost/trac/ticket/123#comment:4</a>
 * &lt;<a href="http://nocc.sf.net/" target="_blank">http://nocc.sf.net/</a>&gt;
 * [<a href="http://nocc.sf.net/" target="_blank">http://nocc.sf.net/</a>]
 * <a href="http://localhost/nocc/?action=write&amp;mail_to=nocc-discuss@lists.sourceforge.net">nocc-discuss@lists.sourceforge.net</a>
