@@ -44,11 +44,13 @@ class NOCC_Body {
      * @static
      */
     function prepareTextLinks($body, $baseUrl) {
-        $body = preg_replace("{(http|https|ftp)://([a-zA-Z0-9\+\/\;\-=%&:_.~\?]+[#a-zA-Z0-9\+]*)}i", "<a href=\"$1://$2\" target=\"_blank\">$1://$2</a>", $body);
-        // Bug #511302: Comment out following line if you have the 'Invalid Range End' problem
-        // New rewritten preg_replace should fix the problem, bug #522389
-        // $body = eregi_replace("([#a-zA-Z0-9+-._]*)@([#a-zA-Z0-9+-_.]*)\.([a-zA-Z]+)","<a href=\"$PHP_SELF?action=write&amp;mail_to=\\1@\\2.\\3\">\\1@\\2.\\3</a>", $body);
+        $htmlEntities = array('&quot;', '&lt;', '&gt;');
+        $noccEntities = array('«quot»', '«lt»', '«gt»');
+
+        $body = str_replace($htmlEntities, $noccEntities, $body);
+        $body = preg_replace("{(http|https|ftp)://([a-zA-Z0-9\+\/\;\-=%&:_.~\?]+[#a-zA-Z0-9\+:]*)}i", "<a href=\"$1://$2\" target=\"_blank\">$1://$2</a>", $body);
         $body = preg_replace("/([0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,})/", "<a href=\"$baseUrl?action=write&amp;mail_to=\\1\">\\1</a>", $body);
+        $body = str_replace($noccEntities, $htmlEntities, $body);
         return $body;
     }
 

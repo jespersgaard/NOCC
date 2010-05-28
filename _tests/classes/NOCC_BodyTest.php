@@ -57,7 +57,9 @@ class NOCC_BodyTest extends PHPUnit_Framework_TestCase {
 * http://localhost/test1.php#anchor
 * http://localhost/test2.php?para1=abc&para2=def
 * http://localhost/trac/ticket/123#comment:4
+* &quot;http://nocc.sf.net/&quot;
 * &lt;http://nocc.sf.net/&gt;
+* &lt;&lt;http://nocc.sf.net/&gt;&gt;
 * [http://nocc.sf.net/]
 * nocc-discuss@lists.sourceforge.net
 * &lt;nocc-discuss@lists.sourceforge.net&gt;';
@@ -70,7 +72,9 @@ class NOCC_BodyTest extends PHPUnit_Framework_TestCase {
 * <a href="http://localhost/test1.php#anchor" target="_blank">http://localhost/test1.php#anchor</a>
 * <a href="http://localhost/test2.php?para1=abc&para2=def" target="_blank">http://localhost/test2.php?para1=abc&para2=def</a>
 * <a href="http://localhost/trac/ticket/123#comment:4" target="_blank">http://localhost/trac/ticket/123#comment:4</a>
+* &quot;<a href="http://nocc.sf.net/" target="_blank">http://nocc.sf.net/</a>&quot;
 * &lt;<a href="http://nocc.sf.net/" target="_blank">http://nocc.sf.net/</a>&gt;
+* &lt;&lt;<a href="http://nocc.sf.net/" target="_blank">http://nocc.sf.net/</a>&gt;&gt;
 * [<a href="http://nocc.sf.net/" target="_blank">http://nocc.sf.net/</a>]
 * <a href="http://localhost/nocc/?action=write&amp;mail_to=nocc-discuss@lists.sourceforge.net">nocc-discuss@lists.sourceforge.net</a>
 * &lt;<a href="http://localhost/nocc/?action=write&amp;mail_to=nocc-discuss@lists.sourceforge.net">nocc-discuss@lists.sourceforge.net</a>&gt;';
