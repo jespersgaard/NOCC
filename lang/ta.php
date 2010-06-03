@@ -26,6 +26,7 @@
  * @author Naveen
  */
 
+$lang_locale = 'en_US.UTF-8';
 $default_date_format = '%Y-%m-%d';
 $no_locale_date_format = '%Y-%m-%d';
 $default_time_format = '%I:%M %p';

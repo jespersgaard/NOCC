@@ -26,6 +26,7 @@
  * @author Purodha
  */
 
+$lang_locale = 'en_US.UTF-8';
 $default_date_format = '%d.%m.%Y';
 $no_locale_date_format = '%d.%m.%Y';
 $default_time_format = '%H:%M';

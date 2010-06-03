@@ -23,6 +23,7 @@
  * @ingroup Language
  * @file
  *
+ * @author Huji
  */
 
 $lang_locale = 'fa.UTF-8';
@@ -43,7 +44,7 @@ $title_prev_page = 'پيغام قبلى';
 $html_welcome = 'خوش آمديد به %1$s';
 $html_login = 'شناسه کاربر';
 $html_submit = 'ورود';
-$html_help = 'کمک';
+$html_help = 'راهنما';
 $html_wrong = 'شناسه کاربر يا رمز اشتباه است';
 $html_retry = 'سعى دوباره';
 $html_msgperpage_label = 'تعداد پيغامها در صفحه';
@@ -101,7 +102,7 @@ $html_cc = 'کپى';
 $html_bcc_label = 'کپى محرمانه';
 $html_nosubject = 'بدون عنوان';
 $html_send = 'بفرست';
-$html_cancel = 'کنسل';
+$html_cancel = 'لغو';
 $html_no_mail = 'پيغامى وجود ندارد';
 $html_logout = 'خروج';
 $html_msg = 'پيغام';

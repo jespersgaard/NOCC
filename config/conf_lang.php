@@ -36,6 +36,12 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'af';
 $lang_array[$i]->label = 'Afrikaans';
 
+// Aragonese
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'an';
+$lang_array[$i]->label = 'Aragonés';
+
 // Arabic
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'ar';
@@ -309,6 +315,12 @@ $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'sr';
 $lang_array[$i]->label = 'Srpski';
+
+// Serbian Cyrillic ekavian
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'sr-ec';
+$lang_array[$i]->label = 'Српски (ћирилица)';
 
 // Finnish
 $i++;
