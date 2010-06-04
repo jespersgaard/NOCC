@@ -1,4 +1,4 @@
-NOCC 1.8.3  ???? ??, ????
+NOCC 1.8.3  June 04, 2010
 
   Bugs
     * Bug #2836784 : imap_utf8() returns only capital letters since PHP 5.2.5
