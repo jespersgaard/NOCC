@@ -161,9 +161,6 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
         return;
     }
 
-    // Get number of messages (why?)
-    $num_messages = $pop->num_msg();
-
     $mail_reader = new NOCC_MailReader($mail, $pop, $ev);
     if(NoccException::isException($ev)) return;
 
@@ -198,20 +195,8 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     if (preg_match('{text/(html|plain)}i', $tmp['mime'])) {
         $body = nocc_imap::decode($body, $tmp['transfer']);
         $body = remove_stuff($body, $tmp['mime']);
-        $body_charset =  ($tmp['charset'] == "default") ? detect_charset($body) : $tmp['charset'];
-        // Convert US-ASCII to ISO-8859-1 for systems which have difficulties with.
-        if (strtolower($body_charset) == "us-ascii") {
-           $body_charset = "ISO-8859-1";
-        }
-        // Use default charset if no charset is provided by the displayed mail.
-        // If no default charset is defined, use ISO-8859-1.
-        if ($body_charset == "" || $body_charset == null) {
-          if (isset($conf->default_charset) && $conf->default_charset != "") {
-            $body_charset = $conf->default_charset;
-          } else {
-            $body_charset = "ISO-8859-1";
-          }
-        }
+
+        $body_charset = detect_body_charset($body, $tmp['charset']);
 
         // If user has selected another charset, we'll use it
         if (isset($_REQUEST['user_charset']) && $_REQUEST['user_charset'] != '') {
@@ -275,6 +260,34 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
         'charset' => $body_charset
     );
     return ($content);
+}
+
+/**
+ * Detect the charset from the body
+ * @global object $conf
+ * @param string $body Body
+ * @param string $suspectedCharset Suspected charset
+ * @return string Detected charset
+ */
+function detect_body_charset($body, $suspectedCharset) {
+    global $conf;
+
+    $body_charset = ($suspectedCharset == 'default') ? detect_charset($body) : $suspectedCharset;
+    // Convert US-ASCII to ISO-8859-1 for systems which have difficulties with.
+    if (strtolower($body_charset) == 'us-ascii') {
+        $body_charset = 'ISO-8859-1';
+    }
+    // Use default charset if no charset is provided by the displayed mail.
+    // If no default charset is defined, use ISO-8859-1.
+    if ($body_charset == '' || $body_charset == null) {
+        if (isset($conf->default_charset) && $conf->default_charset != '') {
+            $body_charset = $conf->default_charset;
+        }
+        else {
+            $body_charset = 'ISO-8859-1';
+        }
+    }
+    return $body_charset;
 }
 
 /**
@@ -793,7 +806,7 @@ function get_per_page() {
     if (isset($user_prefs->msg_per_page))
         $msg_per_page = $user_prefs->msg_per_page;
     // Failsafe
-    if($msg_per_page < 1)
+    if ($msg_per_page < 1)
         $msg_per_page = 25;
 
     return $msg_per_page;
