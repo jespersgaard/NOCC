@@ -31,8 +31,6 @@ require_once './classes/nocc_mailaddress.php';
  * @todo Rename!
  */
 function inbox(&$pop, $skip = 0, &$ev) {
-    $user_prefs = $_SESSION['nocc_user_prefs'];
-
     $msg_list = array();
 
     $lang = $_SESSION['nocc_lang'];
@@ -366,10 +364,9 @@ function GetSinglePart(&$attach_tab, $mailreader) {
 function remove_stuff(&$body, &$mime) {
     $PHP_SELF = $_SERVER['PHP_SELF'];
 
-    $lang = $_SESSION['nocc_lang'];
-
     if (preg_match('|html|i', $mime)) {
         $body = NOCC_Security::cleanHtmlBody($body);
+        //TODO: Move to NOCC_Security::cleanHtmlBody() too?
         $body = preg_replace("|href=\"(.*)script:|i", 'href="nocc_removed_script:', $body);
         $body = preg_replace("|<([^>]*)java|i", '<nocc_removed_java_tag', $body);
         $body = preg_replace("|<([^>]*)&{.*}([^>]*)>|i", "<&{;}\\3>", $body);
@@ -567,6 +564,7 @@ function cut_address($addr, $charset) {
  * @param string $transfer
  * @param string $msg_charset
  * @return string
+ * @todo Why is $msg_charset not used?
  */
 function view_part(&$pop, &$mail, $part_no, $transfer, $msg_charset) {
     if (isset($ev) && NoccException::isException($ev)) {
