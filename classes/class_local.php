@@ -366,10 +366,12 @@ class nocc_imap
         return count($this->getsubscribed($ev));
     }
 
-    function get_page_count(&$conf) {
-        if (($num_messages = $this->num_msg()) == 0) {
+    function get_page_count() {
+        $num_messages = $this->num_msg();
+        if ($num_messages == 0) {
             return 0;
-        } else {
+        }
+        else {
             $per_page = get_per_page();
             $pages = ceil($num_messages / $per_page);
             return $pages;

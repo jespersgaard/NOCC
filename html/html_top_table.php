@@ -7,7 +7,7 @@ $arrow = ($_SESSION['nocc_sortdir'] == 0) ? 'up' : 'down';
 $new_sortdir = ($_SESSION['nocc_sortdir'] == 0) ? 1 : 0;
 $skip = (isset($_REQUEST['skip'])) ? $_REQUEST['skip'] : '0';
 
-$pages = $pop->get_page_count($conf);
+$pages = $pop->get_page_count();
 
 $page_line = '';
 
