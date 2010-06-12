@@ -300,7 +300,7 @@ class NOCC_MailReader {
      * @return boolean Has attachments?
      */
     function hasAttachments() {
-        if ( $this->_type == 1 || $this->_type == 3) { //if "multipart" or "application" message...
+        if ($this->_type == 1 || $this->_type == 3) { //if "multipart" or "application" message...
             if ($this->_subtype != 'ALTERNATIVE' && $this->_subtype != 'RELATED') {
                 return true;
             }
@@ -314,7 +314,7 @@ class NOCC_MailReader {
      * @return string Message id
      */
     function getMessageId() {
-        return ($this->_messageid);
+        return $this->_messageid;
     }
     
     /**
@@ -323,7 +323,7 @@ class NOCC_MailReader {
      * @return string Subject
      */
     function getSubject() {
-        return ($this->_subject);
+        return $this->_subject;
     }
     
     /**
@@ -332,7 +332,7 @@ class NOCC_MailReader {
      * @return string "From" address
      */
     function getFromAddress() {
-        return ($this->_fromaddress);
+        return $this->_fromaddress;
     }
     
     /**
@@ -341,7 +341,7 @@ class NOCC_MailReader {
      * @return string "To" address
      */
     function getToAddress() {
-        return ($this->_toaddress);
+        return $this->_toaddress;
     }
     
     /**
@@ -350,7 +350,7 @@ class NOCC_MailReader {
      * @return string "Cc" address
      */
     function getCcAddress() {
-        return ($this->_ccaddress);
+        return $this->_ccaddress;
     }
     
     /**
@@ -359,7 +359,7 @@ class NOCC_MailReader {
      * @return string "Reply-To" address
      */
     function getReplyToAddress() {
-        return ($this->_replytoaddress);
+        return $this->_replytoaddress;
     }
     
     /**
@@ -368,7 +368,7 @@ class NOCC_MailReader {
      * @return integer Date in Unix time
      */
     function getTimestamp() {
-        return ($this->_timestamp);
+        return $this->_timestamp;
     }
     
     /**
@@ -377,7 +377,7 @@ class NOCC_MailReader {
      * @return boolean Is unread?
      */
     function isUnread() {
-        return ($this->_isunread);
+        return $this->_isunread;
     }
     
     /**
@@ -401,7 +401,7 @@ class NOCC_MailReader {
      * @return boolean Is flagged?
      */
     function isFlagged() {
-        return ($this->_isflagged);
+        return $this->_isflagged;
     }
     
     /**
