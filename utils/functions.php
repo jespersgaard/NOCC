@@ -63,23 +63,10 @@ function inbox(&$pop, $skip = 0, &$ev) {
         $to = str_replace(',', ', ', $to);
 
         $newmail = $mail_reader->isUnread();
-        // Check Status Line with UCB POP Server to
-        // see if this is a new message. This is a
-        // non-RFC standard line header.
-        // Set this in conf.php
+        // Check "Status" line with UCB POP Server to see if this is a new message.
+        // This is a non-RFC standard line header. Set this in conf.php
         if ($_SESSION['ucb_pop_server']) {
-            //TODO: Get UCB Status from NOCC_Header?
-            $header_msg = $mail_reader->getHeader();
-            if(NoccException::isException($ev)) return;
-            $header_lines = explode("\r\n", $header_msg);
-            while (list($k, $v) = each($header_lines)) {
-                list ($header_field, $header_value) = explode(':', $v);
-                if ($header_field == 'Status') 
-                    if ($header_value == '')
-                        $newmail = true;
-                    else
-                        $newmail = false;
-            }
+            $newmail = $mail_reader->isUnreadUcb();
         }
         
         $timestamp = $mail_reader->getTimestamp();

@@ -381,6 +381,21 @@ class NOCC_MailReader {
     }
     
     /**
+     * Is the mail unread on a UCB POP Server?
+     * 
+     * Check "Status" line with UCB POP Server to see if this is a new message.
+     * This is a non-RFC standard line header.
+     *
+     * @return boolean Is unread on a UCB POP Server?
+     */
+    function isUnreadUcb() {
+        if ($this->_header->getStatus() == '') {
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Is the mail flagged?
      *
      * @return boolean Is flagged?
