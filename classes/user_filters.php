@@ -47,7 +47,7 @@ class NOCCUserFilters {
         function read($key, &$ev) {
                 global $conf;
 
-                $filters = new NOCCUserFilters($key);
+                $filters = new NOCCUserFilters($key, $ev);
 
                 /* Open the preferences file */
                 $filename = $conf->prefs_dir . '/' . $key . '.filter';
