@@ -24,11 +24,11 @@ require_once 'nocc_header.php';
  */
 class NOCC_MailReader {
     /**
-     * Structure
-     * @var array
+     * Mail structure
+     * @var NOCC_MailStructure
      * @access private
      */
-    var $_structure;
+    var $_mailstructure;
     /**
      * Type
      * @var integer
@@ -147,9 +147,11 @@ class NOCC_MailReader {
         //--------------------------------------------------------------------------------
         // Get values from structure...
         //--------------------------------------------------------------------------------
+        //TODO: Don't use $structure variable!
         $structure = $pop->fetchstructure($msgno, $ev);
+        //TODO: Don't use local $mailstructure variable!?
         $mailstructure = new NOCC_MailStructure($structure);
-        $this->_structure = $structure;
+        $this->_mailstructure = $mailstructure;
         
         $this->_type = $mailstructure->getType();
         $this->_encoding = $mailstructure->getEncoding();
@@ -195,10 +197,10 @@ class NOCC_MailReader {
      * Get the structure from the mail
      * @todo Drop property, if we included the functions GetPart() and GetSinglePart() to this class
      *
-     * @return array Structure array
+     * @return NOCC_MailStructure Mail structure
      */
-    function getStructure() {
-        return $this->_structure;
+    function getMailStructure() {
+        return $this->_mailstructure;
     }
     
     /**

@@ -148,7 +148,8 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     if(NoccException::isException($ev)) return;
 
     // Get the MIME message structure
-    $struct_msg = $mail_reader->getStructure();
+    $mailstructure = $mail_reader->getMailStructure();
+    $struct_msg = $mailstructure->getStructure();
 
     // If there are attachments, populate the attachment array, otherwise
     // just get the main body as a single-element array
