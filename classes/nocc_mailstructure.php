@@ -243,12 +243,26 @@ class NOCC_MailStructure {
     }
 
     /**
+     * Has the structure parts?
+     *
+     * @return bool Has parts?
+     */
+    function hasParts() {
+        if (isset($this->_structure->parts)) {
+            if (count($this->_structure->parts) > 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Get the parts from the structure
      *
      * @return array Parts
      */
     function getParts() {
-        if (isset($this->_structure->parts)) {
+        if ($this->hasParts()) {
           return $this->_structure->parts;
         }
         return array();
