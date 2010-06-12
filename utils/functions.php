@@ -110,8 +110,6 @@ function inbox(&$pop, $skip = 0, &$ev) {
 /**
  * ...
  * @global object $conf
- * @global string $lang_locale
- * @global string $no_locale_date_format
  * @global string $html_att_label
  * @global string $html_atts_label
  * @global string $lang_invalid_msg_num
@@ -125,8 +123,6 @@ function inbox(&$pop, $skip = 0, &$ev) {
  */
 function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     global $conf;
-    global $lang_locale;
-    global $no_locale_date_format;
     global $html_att_label, $html_atts_label;
     global $lang_invalid_msg_num;
 
@@ -203,6 +199,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
           $body_charset = $_REQUEST['user_charset'];
         }
 
+        //TODO: Move to a own function!?
         $body_converted = os_iconv($body_charset, 'UTF-8', $body);
         $body = ($body_converted===false) ? $body : $body_converted;
         $tmp['charset'] = ($body_converted===false) ? $body_charset : 'UTF-8';

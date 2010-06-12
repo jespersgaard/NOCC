@@ -14,7 +14,7 @@ function get_default_from_address() {
     else {
         if (isset($_SESSION['nocc_login_with_domain']) && $_SESSION['nocc_login_with_domain'] == 1) {
             $from_address = $_SESSION['nocc_login'];
-        } else if (preg_match("|([A-Za-z0-9]+)@([A-Za-z0-9]+)|", $_SESSION['nocc_login'], $regs)) {
+        } else if (preg_match("|([A-Za-z0-9]+)@([A-Za-z0-9]+)|", $_SESSION['nocc_login'])) {
             $from_address = $_SESSION['nocc_login'];
         } else {
             $from_address = $_SESSION['nocc_user'] . '@' . $_SESSION['nocc_domain'];

@@ -25,7 +25,9 @@ class NOCCUserFilters {
         /*
          * Default user profile
          */
-        function NOCCUserFilters($key) {
+        function NOCCUserFilters($key, &$ev) {
+                global $conf;
+
                 $this->key = $key;
                 $this->filterset = array();
                 $this->dirty_flag = 1;
@@ -62,7 +64,6 @@ class NOCCUserFilters {
                 }
 
                 /* Read in all the preferences */
-                $highlight_num = 0;
                 while (!feof($file)) {
                         $line = trim(fgets($file, 1024));
                         $pipeAt = strpos($line, '|');
