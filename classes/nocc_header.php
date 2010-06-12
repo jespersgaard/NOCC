@@ -43,6 +43,12 @@ class NOCC_Header {
      * @access private
      */
     var $_spamflag;
+    /**
+     * Status (UCB POP Server)
+     * @var string
+     * @access private
+     */
+    var $_status;
 
     /**
      * Initialize the wrapper
@@ -54,6 +60,7 @@ class NOCC_Header {
         $this->_priority = 3;
         $this->_contenttype = '';
         $this->_spamflag = false;
+        $this->_status = '';
 
         $header_lines = explode("\r\n", $header);
         foreach ($header_lines as $header_line) { //for all header lines...
@@ -71,6 +78,9 @@ class NOCC_Header {
                 case 'x-spam-flag': //SpamAssassin (default)
                 case 'x-kasspamfilter': //all-inkl.com
                     $this->_spamflag = true;
+                    break;
+                case 'status':
+                    $this->_status = trim($header_field[1]);
                     break;
             }
         }
@@ -128,6 +138,15 @@ class NOCC_Header {
      */
     function hasSpamFlag() {
         return $this->_spamflag;
+    }
+
+    /**
+     * Get the status (UCB POP Server) from the mail
+     *
+     * @return string Status (UCB POP Server)
+     */
+    function getStatus() {
+        return $this->_status;
     }
 
     /**
