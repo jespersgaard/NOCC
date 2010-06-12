@@ -149,12 +149,11 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
 
     // Get the MIME message structure
     $mailstructure = $mail_reader->getMailStructure();
-    $struct_msg = $mailstructure->getStructure();
 
     // If there are attachments, populate the attachment array, otherwise
     // just get the main body as a single-element array
-    if ($struct_msg->type == 3 || (isset($struct_msg->parts) && (sizeof($struct_msg->parts) > 0)))
-        GetPart($attach_tab, $struct_msg, null, $conf->display_rfc822);
+    if ($mailstructure->isApplication() || $mailstructure->hasParts())
+        GetPart($attach_tab, $mailstructure->getStructure(), null, $conf->display_rfc822);
     else {
         GetSinglePart($attach_tab, $mail_reader);
     }
@@ -167,7 +166,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
 
     // Get the first part
     $tmp = array_pop($attach_tab);
-    if ($struct_msg->type == 3) {
+    if ($mailstructure->isApplication()) {
         $body = '';
     }
     else {
