@@ -35,31 +35,31 @@ class NOCCUserPrefs {
      * @var boolean
      * @access private
      */
-    var $_ccSelf;
+    private $_ccSelf;
     /**
      * Hide addresses?
      * @var boolean
      * @access private
      */
-    var $_hideAddresses;
+    private $_hideAddresses;
     /**
      * Outlook quoting?
      * @var boolean
      * @access private
      */
-    var $_outlookQuoting;
+    private $_outlookQuoting;
     /**
      * Colored quotes?
      * @var boolean
      * @access private
      */
-    var $_coloredQuotes;
+    private $_coloredQuotes;
     /**
      * Display structured text?
      * @var boolean
      * @access private
      */
-    var $_displayStructuredText;
+    private $_displayStructuredText;
     var $seperate_msg_win;
     var $reply_leadin;
     var $signature;
@@ -79,10 +79,9 @@ class NOCCUserPrefs {
 
     /**
      * Initialize the default user profile
-     *
      * @param string $key Key
      */
-    function NOCCUserPrefs($key) {
+    function __construct($key) {
         $this->key = $key;
         $this->_ccSelf = false;
         $this->_hideAddresses = false;
@@ -94,91 +93,81 @@ class NOCCUserPrefs {
 
     /**
      * Get Cc self sending from user preferences
-     *
      * @return boolean Cc self?
      */
-    function getCcSelf() {
+    public function getCcSelf() {
         return $this->_ccSelf;
     }
 
     /**
      * Set Cc self sending from user preferences
-     *
      * @param mixed $value Cc self?
      */
-    function setCcSelf($value) {
+    public function setCcSelf($value) {
         $this->_ccSelf = $this->_convertToFalse($value);
     }
 
     /**
      * Get address hiding from user preferences
-     * 
      * @return boolean Hide addresses?
      */
-    function getHideAddresses() {
+    public function getHideAddresses() {
         return $this->_hideAddresses;
     }
 
     /**
      * Set address hiding from user preferences
-     *
      * @param mixed $value Hide addresses?
      */
-    function setHideAddresses($value) {
+    public function setHideAddresses($value) {
         $this->_hideAddresses = $this->_convertToFalse($value);
     }
 
     /**
      * Get outlook quoting from user preferences
-     *
      * @return boolean Outlook quoting?
      */
-    function getOutlookQuoting() {
+    public function getOutlookQuoting() {
         return $this->_outlookQuoting;
     }
 
     /**
      * Set outlook quoting from user preferences
-     *
      * @param mixed $value Outlook quoting?
      */
-    function setOutlookQuoting($value) {
+    public function setOutlookQuoting($value) {
         $this->_outlookQuoting = $this->_convertToFalse($value);
     }
 
     /**
      * Get colored quotes from user preferences
-     *
      * @return boolean Colored quotes?
      */
-    function getColoredQuotes() {
+    public function getColoredQuotes() {
         return $this->_coloredQuotes;
     }
 
     /**
      * Set colored quotes from user preferences
-     *
      * @param mixed $value Colored quotes?
      */
-    function setColoredQuotes($value) {
+    public function setColoredQuotes($value) {
         $this->_coloredQuotes = $this->_convertToTrue($value);
     }
 
     /**
      * Get structured text displaying from user preferences
-     *
      * @return boolean Display structured text?
      */
-    function getDisplayStructuredText() {
+    public function getDisplayStructuredText() {
         return $this->_displayStructuredText;
     }
 
     /**
      * Set structured text displaying from user preferences
-     *
      * @param mixed $value Display structured text?
      */
-    function setDisplayStructuredText($value) {
+    public function setDisplayStructuredText($value) {
         $this->_displayStructuredText = $this->_convertToFalse($value);
     }
 
@@ -194,7 +183,7 @@ class NOCCUserPrefs {
      * @return NOCCUserPrefs User profile
      * @static
      */
-    function read($key, &$ev) {
+    public static function read($key, &$ev) {
         global $conf;
 
         $prefs = new NOCCUserPrefs($key);
@@ -213,14 +202,13 @@ class NOCCUserPrefs {
 
     /**
      * Helper function for NOCCUserPrefs::read()
-     *
      * @param NOCCUserPrefs $prefs Default user preferences
      * @param string $filename File path
      * @param object $ev Exception
      * @return NOCCUserPrefs User profile
      * @static
      */
-    function readFromFile($prefs, $filename, $ev) {
+    public static function readFromFile($prefs, $filename, $ev) {
         /* Open the preferences file */
         if (!file_exists($filename)) {
             error_log("$filename does not exist");
@@ -315,12 +303,11 @@ class NOCCUserPrefs {
 
     /**
      * If need be, write settings to file.
-     *
      * @global object $conf
      * @global string $html_prefs_file_error
      * @param object $ev Exception
      */
-    function commit(&$ev) {
+    public function commit(&$ev) {
         global $conf;
         global $html_prefs_file_error;
 
@@ -376,14 +363,13 @@ class NOCCUserPrefs {
 
     /**
      * Validate preferences
-     *
      * @global object $conf
      * @global string $html_invalid_email_address
      * @global string $html_invalid_msg_per_page
      * @global string $html_invalid_wrap_msg
      * @param object $ev Exception
      */
-    function validate(&$ev) {
+    public function validate(&$ev) {
         global $conf;
         global $html_invalid_email_address;
         global $html_invalid_msg_per_page;
@@ -419,7 +405,7 @@ class NOCCUserPrefs {
      * @return bool Bool value
      * @access private
      */
-    function _convertToFalse($value) {
+    private function _convertToFalse($value) {
         if ($value === true || $value === 1 || $value === '1' || $value === 'on') {
             return true;
         }
@@ -432,7 +418,7 @@ class NOCCUserPrefs {
      * @return bool Bool value
      * @access private
      */
-    function _convertToTrue($value) {
+    private function _convertToTrue($value) {
         if ($value === false || $value === 0 || $value === '0' || $value === 'off') {
             return false;
         }
@@ -447,7 +433,7 @@ class NOCCUserPrefs {
      * @return string Parsed Reply Leadin
      * @static
      */
-    function parseLeadin($string, $content) {
+    public static function parseLeadin($string, $content) {
         $string = str_replace('_DATE_', $content['date'], $string);
         $string = str_replace('_TIME_', $content['time'], $string);
         $string = str_replace('_FROM_', $content['from'], $string);
