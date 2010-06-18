@@ -15,6 +15,7 @@
 
 /**
  * Wrapping a imap_fetchheader() string
+ *
  * @package    NOCC
  */
 class NOCC_Header {
