@@ -2,7 +2,7 @@
 /**
  * Class for wrapping the languages
  *
- * Copyright 2009 Tim Gerundt <tim@gerundt.de>
+ * Copyright 2009-2010 Tim Gerundt <tim@gerundt.de>
  *
  * This file is part of NOCC. NOCC is free software under the terms of the
  * GNU General Public License. You should have received a copy of the license
@@ -24,29 +24,28 @@ class NOCC_Languages {
      * @var array
      * @access private
      */
-    var $_languages;
+    private $_languages;
     
     /**
      * Default language ID
      * @var string
      * @access private
      */
-    var $_defaultLangId;
+    private $_defaultLangId;
     
     /**
      * Selected language ID
      * @var string
      * @access private
      */
-    var $_selectedLangId;
+    private $_selectedLangId;
     
     /**
      * Initialize the languages wrapper
-     *
      * @param string $path Languages path (relative)
      * @param string $defaultLangId Default language ID
      */
-    function NOCC_Languages($path, $defaultLangId = '') {
+    public function __construct($path, $defaultLangId = '') {
         $this->_languages = array();
         $this->_defaultLangId = 'en';
         $this->_selectedLangId = '';
@@ -91,20 +90,18 @@ class NOCC_Languages {
     
     /**
      * Get the count from the languages
-     *
      * @return int Count
      */
-    function count() {
+    public function count() {
         return count($this->_languages);
     }
     
     /**
      * Exists the language?
-     *
      * @param string $langId Language ID
      * @return bool Exists?
      */
-    function exists($langId) {
+    public function exists($langId) {
         if (isset($langId) && is_string($langId) && !empty($langId)) { //if language ID is set...
             $langId = strtolower($langId);
             
@@ -115,10 +112,9 @@ class NOCC_Languages {
     
     /**
      * Detect the language from the browser...
-     *
      * @return string Language ID
      */
-    function detectFromBrowser() {
+    public function detectFromBrowser() {
         if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) { //if the "Accept-Language" header is set...
             $acceptedLanguages = $this->parseAcceptLanguageHeader($_SERVER['HTTP_ACCEPT_LANGUAGE']);
             foreach ($acceptedLanguages as $fullLangId => $langQuality) { //for all accepted languages...
@@ -134,20 +130,18 @@ class NOCC_Languages {
     
     /**
      * Get the default language ID
-     *
      * @return string Default language ID
      */
-    function getDefaultLangId() {
+    public function getDefaultLangId() {
         return $this->_defaultLangId;
     }
     
     /**
      * Set the default language ID
-     *
      * @param string $langId Default language ID
      * @return bool Successful?
      */
-    function setDefaultLangId($langId) {
+    public function setDefaultLangId($langId) {
         if ($this->exists($langId)) { //if the language exists...
             $this->_defaultLangId = strtolower($langId);
             return true;
@@ -157,10 +151,9 @@ class NOCC_Languages {
     
     /**
      * Get the selected language ID
-     *
      * @return string Selected language ID
      */
-    function getSelectedLangId() {
+    public function getSelectedLangId() {
         if (!empty($this->_selectedLangId)) { //if a language is selected...
             return $this->_selectedLangId;
         }
@@ -169,11 +162,10 @@ class NOCC_Languages {
     
     /**
      * Set the selected language ID
-     *
      * @param string $langId Selected language ID
      * @return bool Successful?
      */
-    function setSelectedLangId($langId) {
+    public function setSelectedLangId($langId) {
         if ($this->exists($langId)) { //if the language exists...
             $this->_selectedLangId = strtolower($langId);
             return true;
@@ -183,12 +175,11 @@ class NOCC_Languages {
     
     /**
      * Parce the "Accept-Language" header...
-     *
      * @param string $acceptLanguageHeader "Accept-Language" header
      * @return array Accepted languages
      * @static
      */
-    function parseAcceptLanguageHeader($acceptLanguageHeader) {
+    public static function parseAcceptLanguageHeader($acceptLanguageHeader) {
         $languages = array();
         if (isset($acceptLanguageHeader) && is_string($acceptLanguageHeader) && !empty($acceptLanguageHeader)) { //if the "Accept-Language" header is set...
             $acceptLanguageHeader = strtolower($acceptLanguageHeader);

@@ -26,7 +26,7 @@ class NOCC_Request {
      * @return string Value
      * @static
      */
-    function getStringValue($key, $defaultValue = '') {
+    public static function getStringValue($key, $defaultValue = '') {
         if (isset($_REQUEST[$key])) {
             return $_REQUEST[$key];
         }
@@ -40,7 +40,7 @@ class NOCC_Request {
      * @return bool Value
      * @static
      */
-    function getBoolValue($key, $defaultValue = false) {
+    public static function getBoolValue($key, $defaultValue = false) {
         if (isset($_REQUEST[$key])) {
             return NOCC_Request::convertToBool($_REQUEST[$key]);
         }
@@ -53,7 +53,7 @@ class NOCC_Request {
      * @return bool Bool value
      * @static
      */
-    function convertToBool($value) {
+    public static function convertToBool($value) {
         if ($value === true || $value === 1 || strtolower($value) === 'true' || $value === '1') {
             return true;
         }

@@ -21,13 +21,12 @@
 class NOCC_Body {
     /**
      * Prepare HTML links
-     *
      * @param string $body Mail body
      * @param string $baseUrl Base URL from NOCC
      * @return string Mail body with prepared HMTL links
      * @static
      */
-    function prepareHtmlLinks($body, $baseUrl) {
+    public static function prepareHtmlLinks($body, $baseUrl) {
         $body = preg_replace("|href=\"mailto:([a-zA-Z0-9\+\-=%&:_.~\?@]+[#a-zA-Z0-9\+]*)\"|i", "href=\"$baseUrl?action=write&amp;mail_to=$1\"", $body);
         $body = preg_replace("|href=mailto:([a-zA-Z0-9\+\-=%&:_.~\?@]+[#a-zA-Z0-9\+]*)|i", "href=\"$baseUrl?action=write&amp;mail_to=$1\"", $body);
         $body = preg_replace("|href=\"([a-zA-Z0-9\+\/\;\-=%&:_.~\?]+[#a-zA-Z0-9\+]*)\"|i", "href=\"$1\" target=\"_blank\"", $body);
@@ -37,13 +36,12 @@ class NOCC_Body {
 
     /**
      * Prepare text links
-     *
      * @param string $body Mail body (prepared with htmlspecialchars())
      * @param string $baseUrl Base URL from NOCC
      * @return string Mail body with prepared text links
      * @static
      */
-    function prepareTextLinks($body, $baseUrl) {
+    public static function prepareTextLinks($body, $baseUrl) {
         $htmlEntities = array('&quot;', '&lt;', '&gt;');
         $noccEntities = array('«quot»', '«lt»', '«gt»');
 
@@ -56,12 +54,11 @@ class NOCC_Body {
 
     /**
      * Add colored quotes
-     *
      * @param string $body Mail body (prepared with htmlspecialchars())
      * @return string Mail body with colored quotes
      * @static
      */
-    function addColoredQuotes($body) {
+    public static function addColoredQuotes($body) {
         $body = preg_replace('/^(&gt; *&gt; *&gt; *&gt; *&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel5">\\1\\2</span>\\3', $body);
         $body = preg_replace('/^(&gt; *&gt; *&gt; *&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel4">\\1\\2</span>\\3', $body);
         $body = preg_replace('/^(&gt; *&gt; *&gt;)(.*?)(\r?\n)/m', '<span class="quoteLevel3">\\1\\2</span>\\3', $body);
@@ -72,12 +69,11 @@ class NOCC_Body {
 
     /**
      * Add structured text
-     *
      * @param string $body Mail body
      * @return string Mail body with structured text
      * @static
      */
-    function addStructuredText($body) {
+    public static function addStructuredText($body) {
         $body = preg_replace('/(\s)\+\/-/', '\\1&plusmn;', $body); // +/-
         $body = preg_replace('/(\w|\))\^([0-9]+)/', '\\1<sup>\\2</sup>', $body); // 10^6, a^2, (a+b)^2
         $body = preg_replace('/(\s)(\*)([^\s\*]+[^\*\r\n]+)(\*)/', '\\1<strong>\\2\\3\\4</strong>', $body); // *strong*

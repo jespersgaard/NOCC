@@ -2,7 +2,7 @@
 /**
  * Class for wrapping a theme
  *
- * Copyright 2009 Tim Gerundt <tim@gerundt.de>
+ * Copyright 2009-2010 Tim Gerundt <tim@gerundt.de>
  *
  * This file is part of NOCC. NOCC is free software under the terms of the
  * GNU General Public License. You should have received a copy of the license
@@ -24,35 +24,34 @@ class NOCC_Theme {
      * @var string
      * @access private
      */
-    var $_name;
+    private $_name;
     
     /**
      * Path
      * @var string
      * @access private
      */
-    var $_path;
+    private $_path;
     
     /**
      * Real path
      * @var string
      * @access private
      */
-    var $_realpath;
+    private $_realpath;
     
     /**
      * Exists?
      * @var bool
      * @access private
      */
-    var $_exists;
+    private $_exists;
     
     /**
      * Initialize the theme wrapper
-     *
      * @param string $name Theme name
      */
-    function NOCC_Theme($name) {
+    public function __construct($name) {
         $this->_name = '';
         $this->_path = '';
         $this->_realpath = '';
@@ -75,46 +74,41 @@ class NOCC_Theme {
     
     /**
      * Get the name from the theme
-     *
      * @return string Name
      */
-    function getName() {
+    public function getName() {
         return $this->_name;
     }
     
     /**
      * Get the path from the theme
-     *
      * @return string Path
      */
-    function getPath() {
+    public function getPath() {
         return $this->_path;
     }
     
     /**
      * Get the real path from the theme
-     *
      * @return string Real path
      */
-    function getRealPath() {
+    public function getRealPath() {
         return $this->_realpath;
     }
     
     /**
      * Exists the theme?
-     *
      * @return bool Exists?
      */
-    function exists() {
+    public function exists() {
         return $this->_exists;
     }
     
     /**
      * Get the stylesheet from the theme
-     *
      * @return string Stylesheet
      */
-    function getStylesheet() {
+    public function getStylesheet() {
         if ($this->_exists) { //if exists...
             return $this->_path . '/style.css';
         }
@@ -123,10 +117,9 @@ class NOCC_Theme {
     
     /**
      * Get the print stylesheet from the theme
-     *
      * @return string Print stylesheet
      */
-    function getPrintStylesheet() {
+    public function getPrintStylesheet() {
         if ($this->_exists) { //if exists...
             return $this->_path . '/print.css';
         }
@@ -135,10 +128,9 @@ class NOCC_Theme {
     
     /**
      * Get the favicon from the theme
-     *
      * @return string Favicon
      */
-    function getFavicon() {
+    public function getFavicon() {
         if (file_exists($this->_realpath . '/favicon.ico')) //if theme favicon exists...
             return $this->_path . '/favicon.ico';
         else //if NO theme favicon exists...
@@ -147,10 +139,9 @@ class NOCC_Theme {
     
     /**
      * Get the custom header from the theme
-     *
      * @return string Custom header
      */
-    function getCustomHeader() {
+    public function getCustomHeader() {
         if ($this->_exists) { //if exists...
             return $this->_realpath . '/header.php';
         }
@@ -158,10 +149,9 @@ class NOCC_Theme {
     
     /**
      * Get the custom footer from the theme
-     *
      * @return string Custom footer
      */
-    function getCustomFooter() {
+    public function getCustomFooter() {
         if ($this->_exists) { //if exists...
             return $this->_realpath . '/footer.php';
         }
@@ -169,11 +159,10 @@ class NOCC_Theme {
     
     /**
      * Replace text smilies with graphical smilies
-     *
      * @param string $body String with text smilies
      * @return string String with graphical smilies (HTML)
      */
-    function replaceTextSmilies($body) {
+    public function replaceTextSmilies($body) {
         $smiliespath = $this->_path . '/img/smilies';
         
         $body = preg_replace('|\;\-?\)|', '<img src="' . $smiliespath . '/wink.png" alt="wink"/>', $body); // ;-) ;)

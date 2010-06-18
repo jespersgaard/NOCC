@@ -24,29 +24,28 @@ class NOCC_Themes {
      * @var array
      * @access private
      */
-    var $_themes;
+    private $_themes;
 
     /**
      * Default theme name
      * @var string
      * @access private
      */
-    var $_defaultThemeName;
+    private $_defaultThemeName;
 
     /**
      * Selected theme name
      * @var string
      * @access private
      */
-    var $_selectedThemeName;
+    private $_selectedThemeName;
 
     /**
      * Initialize the themes wrapper
-     *
      * @param string $path Themes path (relative)
      * @param string $defaultThemeName Default theme name
      */
-    function NOCC_Themes($path, $defaultThemeName = '') {
+    public function __construct($path, $defaultThemeName = '') {
         $this->_themes = array();
         $this->_defaultThemeName = 'standard';
         $this->_selectedThemeName = '';
@@ -78,20 +77,18 @@ class NOCC_Themes {
 
     /**
      * Get the count from the themes
-     *
      * @return int Count
      */
-    function count() {
+    public function count() {
         return count($this->_themes);
     }
     
     /**
      * Exists the theme?
-     *
      * @param string $themeName Theme name
      * @return bool Exists?
      */
-    function exists($themeName) {
+    public function exists($themeName) {
         if (isset($themeName) && is_string($themeName) && !empty($themeName)) { //if theme name is set...
             $themeName = strtolower($themeName);
             
@@ -102,29 +99,26 @@ class NOCC_Themes {
 
     /**
      * Get the theme names
-     *
      * @return array Theme names
      */
-    function getThemeNames() {
+    public function getThemeNames() {
         return array_keys($this->_themes);
     }
 
     /**
      * Get the default theme name
-     *
      * @return string Default theme name
      */
-    function getDefaultThemeName() {
+    public function getDefaultThemeName() {
         return $this->_defaultThemeName;
     }
 
     /**
      * Set the default theme name
-     *
      * @param string $themeName Default theme name
      * @return bool Successful?
      */
-    function setDefaultThemeName($themeName) {
+    public function setDefaultThemeName($themeName) {
         if ($this->exists($themeName)) { //if the theme exists...
             $this->_defaultThemeName = strtolower($themeName);
             return true;
@@ -134,10 +128,9 @@ class NOCC_Themes {
 
     /**
      * Get the selected theme name
-     *
      * @return string Selected theme name
      */
-    function getSelectedThemeName() {
+    public function getSelectedThemeName() {
         if (!empty($this->_selectedThemeName)) { //if a theme is selected...
             return $this->_selectedThemeName;
         }
@@ -146,11 +139,10 @@ class NOCC_Themes {
 
     /**
      * Set the selected theme name
-     *
      * @param string $themeName Selected theme name
      * @return bool Successful?
      */
-    function setSelectedThemeName($themeName) {
+    public function setSelectedThemeName($themeName) {
         if ($this->exists($themeName)) { //if the theme exists...
             $this->_selectedThemeName = strtolower($themeName);
             return true;

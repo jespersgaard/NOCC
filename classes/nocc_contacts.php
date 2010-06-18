@@ -2,7 +2,7 @@
 /**
  * Class for wrapping the contacts
  *
- * Copyright 2009 Tim Gerundt <tim@gerundt.de>
+ * Copyright 2009-2010 Tim Gerundt <tim@gerundt.de>
  *
  * This file is part of NOCC. NOCC is free software under the terms of the
  * GNU General Public License. You should have received a copy of the license
@@ -26,7 +26,7 @@ class NOCC_Contacts {
      * @static
      * @todo Rewrite!
      */
-    function loadList($path) {
+    public static function loadList($path) {
        $fp = @fopen($path, 'r');
        if (!$fp)
            return array();
@@ -53,7 +53,7 @@ class NOCC_Contacts {
      * @static
      * @todo Rewrite!
      */
-    function saveList($path, $contacts, $conf, &$ev) {
+    public static function saveList($path, $contacts, $conf, &$ev) {
         include 'lang/' . $_SESSION['nocc_lang'] . '.php';
         if (file_exists($path) && !is_writable($path)) {
             $ev = new NoccException($html_err_file_contacts);

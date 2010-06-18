@@ -24,21 +24,20 @@ class NOCC_MailAddress {
      * @var string
      * @access private
      */
-    var $_name;
+    private $_name;
 
     /**
      * Address
      * @var string
      * @access private
      */
-    var $_address;
+    private $_address;
 
     /**
      * Initialize the mail address wrapper
-     *
      * @param string $mailAddress Mail address
      */
-    function NOCC_MailAddress($mailAddress) {
+    function __construct($mailAddress) {
         $this->_name = '';
         $this->_address = '';
 
@@ -64,30 +63,27 @@ class NOCC_MailAddress {
 
     /**
      * Get the name
-     *
      * @return array Name
      */
-    function getName() {
+    public function getName() {
         return $this->_name;
     }
 
     /**
      * Get the address
-     *
      * @return string Address
      */
-    function getAddress() {
+    public function getAddress() {
         return $this->_address;
     }
 
     /**
      * Is valid mail address?
-     *
      * @param string $address Mail address
      * @return bool Valid?
      * @static
      */
-    function isValidAddress($address) {
+    public static function isValidAddress($address) {
         //TODO: Check better!
         $regexp = "|^[A-Za-z0-9\._\-\+]+@([A-Za-z0-9][A-Za-z0-9\-]{1,62})(\.[A-Za-z0-9][A-Za-z0-9\-]{1,62})+$|";  // added + as valid in name part of emailaddress
         if (preg_match($regexp, $address)) { //if valid mail address...
@@ -98,12 +94,11 @@ class NOCC_MailAddress {
 
     /**
      * Chops the address part "<foo@bar.org>" from a full mail address "Foo Bar <foo@bar.org>"
-     *
      * @param string $mailAddress Mail address
      * @return string Name (or address)
      * @static
      */
-    function chopAddress($mailAddress) {
+    public static function chopAddress($mailAddress) {
         // If no '<', return full address.
         $bracketpos = strpos($mailAddress, '<');
         if ($bracketpos === false)
