@@ -15,7 +15,6 @@
 
 /**
  * Wrapping a imap_fetchstructure() object
- *
  * @package    NOCC
  */
 class NOCC_MailStructure {
@@ -24,33 +23,30 @@ class NOCC_MailStructure {
      * @var object
      * @access private
      */
-    var $_structure;
+    private $_structure;
     
     /**
      * Initialize the wrapper
-     *
      * @param object $structure imap_fetchstructure() object
      * @todo Throw exception, if no vaild structure? 
      */
-    function NOCC_MailStructure($structure) {
+    public function __construct($structure) {
         $this->_structure = $structure;
     }
     
     /**
      * Get the complete imap_fetchstructure() object
-     *
      * @return object
      */
-    function getStructure() {
+    public function getStructure() {
         return $this->_structure;
     }
     
     /**
      * Get the primary body type from the structure
-     *
      * @return integer Primary body type
      */
-    function getType() {
+    public function getType() {
         if (isset($this->_structure->type)) {
             return $this->_structure->type;
         }
@@ -59,19 +55,17 @@ class NOCC_MailStructure {
     
     /**
      * Get the primary body type text from the structure
-     *
      * @return string Primary body type text
      */
-    function getTypeText() {
+    public function getTypeText() {
         return $this->convertTypeToText($this->getType());
     }
     
     /**
      * Get the body transfer encoding from the structure
-     *
      * @return integer Body transfer encoding
      */
-    function getEncoding() {
+    public function getEncoding() {
         if (isset($this->_structure->encoding)) {
             return $this->_structure->encoding;
         }
@@ -80,20 +74,18 @@ class NOCC_MailStructure {
     
     /**
      * Get the body transfer encoding text from the structure
-     *
      * @return string Body transfer encoding text
      */
-    function getEncodingText() {
+    public function getEncodingText() {
         return $this->convertEncodingToText($this->getEncoding());
     }
     
     /**
      * Get the MIME subtype from the structure
-     *
      * @param string $defaultsubtype Default MIME subtype
      * @return string MIME subtype
      */
-    function getSubtype($defaultsubtype = '') {
+    public function getSubtype($defaultsubtype = '') {
         if ($this->_structure->ifsubtype) {
           return $this->_structure->subtype;
         }
@@ -102,10 +94,9 @@ class NOCC_MailStructure {
     
     /**
      * Get the content description from the structure
-     *
      * @return string Content description
      */
-    function getDescription() {
+    public function getDescription() {
         if ($this->_structure->ifdescription) {
           return $this->_structure->description;
         }
@@ -114,11 +105,10 @@ class NOCC_MailStructure {
     
     /**
      * Get the identification from the structure
-     *
      * @todo Return really a integer value?
      * @return integer Identification
      */
-    function getId() {
+    public function getId() {
         if ($this->_structure->ifid) {
           return $this->_structure->id;
         }
@@ -127,10 +117,9 @@ class NOCC_MailStructure {
     
     /**
      * Get the number of lines from the structure
-     *
      * @return integer Number of lines
      */
-    function getLines() {
+    public function getLines() {
         if (isset($this->_structure->lines)) {
             return $this->_structure->lines;
         }
@@ -139,10 +128,9 @@ class NOCC_MailStructure {
     
     /**
      * Get the number of bytes from the structure
-     *
      * @return integer Number of bytes
      */
-    function getBytes() {
+    public function getBytes() {
         if (isset($this->_structure->bytes)) {
             return $this->_structure->bytes;
         }
@@ -151,10 +139,9 @@ class NOCC_MailStructure {
     
     /**
      * Get the total number of bytes from the structure
-     *
      * @return integer Total number of bytes
      */
-    function getTotalBytes() {
+    public function getTotalBytes() {
         $totalbytes = $this->getBytes();
         if ($totalbytes == 0) { //if a mail has ANY attachements, $structure->bytes is ALWAYS empty...
             if (isset($this->_structure->parts)) {
@@ -170,10 +157,9 @@ class NOCC_MailStructure {
     
     /**
      * Get the disposition from the structure
-     *
      * @return string Disposition
      */
-    function getDisposition() {
+    public function getDisposition() {
         if ($this->_structure->ifdisposition) {
           return $this->_structure->disposition;
         }
@@ -182,10 +168,9 @@ class NOCC_MailStructure {
     
     /**
      * Get the Content-disposition MIME header parameters from the structure
-     *
      * @return array Content-disposition MIME header parameters
      */
-    function getDparameters() {
+    public function getDparameters() {
         if ($this->_structure->ifdparameters) {
           return $this->_structure->dparameters;
         }
@@ -194,12 +179,11 @@ class NOCC_MailStructure {
     
     /**
      * Get a value from the Content-disposition MIME header parameters
-     *
      * @param string $attribute Attribute
      * @param string $defaultvalue Default value
      * @return string Value
      */
-    function getValueFromDparameters($attribute, $defaultvalue = '') {
+    public function getValueFromDparameters($attribute, $defaultvalue = '') {
         $attribute = strtolower($attribute);
         if ($this->_structure->ifdparameters) {
             foreach ($this->_structure->dparameters as $parameter) { //for all parameters...
@@ -213,10 +197,9 @@ class NOCC_MailStructure {
     
     /**
      * Get the parameters from the structure
-     *
      * @return array Parameters
      */
-    function getParameters() {
+    public function getParameters() {
         if ($this->_structure->ifparameters) {
           return $this->_structure->parameters;
         }
@@ -225,12 +208,11 @@ class NOCC_MailStructure {
     
     /**
      * Get a value from the parameters
-     *
      * @param string $attribute Attribute
      * @param string $defaultvalue Default value
      * @return string Value
      */
-    function getValueFromParameters($attribute, $defaultvalue = '') {
+    public function getValueFromParameters($attribute, $defaultvalue = '') {
         $attribute = strtolower($attribute);
         if ($this->_structure->ifparameters) {
             foreach ($this->_structure->parameters as $parameter) { //for all parameters...
@@ -244,10 +226,9 @@ class NOCC_MailStructure {
 
     /**
      * Has the structure parts?
-     *
      * @return bool Has parts?
      */
-    function hasParts() {
+    public function hasParts() {
         if (isset($this->_structure->parts)) {
             if (count($this->_structure->parts) > 0) {
                 return true;
@@ -258,10 +239,9 @@ class NOCC_MailStructure {
 
     /**
      * Get the parts from the structure
-     *
      * @return array Parts
      */
-    function getParts() {
+    public function getParts() {
         if ($this->hasParts()) {
           return $this->_structure->parts;
         }
@@ -270,11 +250,10 @@ class NOCC_MailStructure {
 
     /**
      * Get the (file) name from the structure
-     *
      * @param string $defaultname Default (file) name
      * @return string (File) name
      */
-    function getName($defaultname = '') {
+    public function getName($defaultname = '') {
         $name = $this->getValueFromParameters('name');
         if (!empty($name)) { //if "name" parameter exists...
             return $name;
@@ -290,20 +269,18 @@ class NOCC_MailStructure {
 
     /**
      * Get the charset from the structure
-     *
      * @param string $defaultcharset Default charset
      * @return string Charset
      */
-    function getCharset($defaultcharset = '') {
+    public function getCharset($defaultcharset = '') {
         return $this->getValueFromParameters('Charset', $defaultcharset);
     }
     
     /**
      * Get the internet media type (MIME type) from the structure
-     *
      * @return string Internet media type
      */
-    function getInternetMediaType() {
+    public function getInternetMediaType() {
         return $this->getTypeText() . '/' . $this->getSubtype();
     }
 
@@ -311,7 +288,7 @@ class NOCC_MailStructure {
      * Is text?
      * @return bool Is text?
      */
-    function isText() {
+    public function isText() {
         if ($this->getType() == 0) { //if text...
             return true;
         }
@@ -322,7 +299,7 @@ class NOCC_MailStructure {
      * Is multipart?
      * @return bool Is multipart?
      */
-    function isMultipart() {
+    public function isMultipart() {
         if ($this->getType() == 1) { //if multipart...
             return true;
         }
@@ -333,7 +310,7 @@ class NOCC_MailStructure {
      * Is alternative multipart?
      * @return bool Is alternative multipart?
      */
-    function isAlternativeMultipart() {
+    public function isAlternativeMultipart() {
         if ($this->isMultipart()) { //if multipart...
             if (strtoupper($this->getSubtype()) == 'ALTERNATIVE') { //if alternative multipart...
                 return true;
@@ -346,7 +323,7 @@ class NOCC_MailStructure {
      * Is related multipart?
      * @return bool Is related multipart?
      */
-    function isRelatedMultipart() {
+    public function isRelatedMultipart() {
         if ($this->isMultipart()) { //if multipart...
             if (strtoupper($this->getSubtype()) == 'RELATED') { //if related multipart...
                 return true;
@@ -359,7 +336,7 @@ class NOCC_MailStructure {
      * Is message?
      * @return bool Is message?
      */
-    function isMessage() {
+    public function isMessage() {
         if ($this->getType() == 2) { //if message...
             return true;
         }
@@ -370,7 +347,7 @@ class NOCC_MailStructure {
      * Is RFC822 message?
      * @return bool Is RFC822 message?
      */
-    function isRfc822Message() {
+    public function isRfc822Message() {
         if ($this->isMessage()) { //if message...
             if (strtoupper($this->getSubtype()) == 'RFC822') { //if RFC822 message...
                 return true;
@@ -383,7 +360,7 @@ class NOCC_MailStructure {
      * Is application?
      * @return bool Is application?
      */
-    function isApplication() {
+    public function isApplication() {
         if ($this->getType() == 3) { //if application...
             return true;
         }
@@ -394,7 +371,7 @@ class NOCC_MailStructure {
      * Is audio?
      * @return bool Is audio?
      */
-    function isAudio() {
+    public function isAudio() {
         if ($this->getType() == 4) { //if audio...
             return true;
         }
@@ -405,7 +382,7 @@ class NOCC_MailStructure {
      * Is image?
      * @return bool Is image?
      */
-    function isImage() {
+    public function isImage() {
         if ($this->getType() == 5) { //if image...
             return true;
         }
@@ -416,7 +393,7 @@ class NOCC_MailStructure {
      * Is video?
      * @return bool Is video?
      */
-    function isVideo() {
+    public function isVideo() {
         if ($this->getType() == 6) { //if video...
             return true;
         }
@@ -427,7 +404,7 @@ class NOCC_MailStructure {
      * Is other?
      * @return bool Is other?
      */
-    function isOther() {
+    public function isOther() {
         if ($this->getType() == 7) { //if other...
             return true;
         }
@@ -438,7 +415,7 @@ class NOCC_MailStructure {
      * Is attachment?
      * @return bool Is attachment?
      */
-    function isAttachment() {
+    public function isAttachment() {
         if (strtolower($this->getDisposition()) == 'attachment') { //if attachment...
             return true;
         }
@@ -449,7 +426,7 @@ class NOCC_MailStructure {
      * Is inline?
      * @return bool Is inline?
      */
-    function isInline() {
+    public function isInline() {
         if (strtolower($this->getDisposition()) == 'inline') { //if inline...
             return true;
         }
@@ -458,13 +435,12 @@ class NOCC_MailStructure {
 
     /**
      * Convert the primary body type to text
-     *
      * @param integer $type Primary body type
      * @param string $defaulttypetext Default primary body type text
      * @return string Primary body type text
      * @static
      */
-    function convertTypeToText($type, $defaulttypetext = 'unknown') {
+    public function convertTypeToText($type, $defaulttypetext = 'unknown') {
         switch($type) {
             case 0: return 'text'; break;
             case 1: return 'multipart'; break;
@@ -480,13 +456,12 @@ class NOCC_MailStructure {
     
     /**
      * Convert the body transfer encoding to text
-     *
      * @param integer $encoding Body transfer encoding
      * @param string $defaultencodingtext Default encoding text
      * @return string Body transfer encoding text
      * @static
      */
-    function convertEncodingToText($encoding, $defaultencodingtext = '') {
+    public function convertEncodingToText($encoding, $defaultencodingtext = '') {
         switch($encoding) {
             case 0: return '7BIT'; break;
             case 1: return '8BIT'; break;
