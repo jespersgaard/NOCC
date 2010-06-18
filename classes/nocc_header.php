@@ -15,7 +15,6 @@
 
 /**
  * Wrapping a imap_fetchheader() string
- *
  * @package    NOCC
  */
 class NOCC_Header {
@@ -24,38 +23,37 @@ class NOCC_Header {
      * @var string
      * @access private
      */
-    var $_header;
+    private $_header;
     /**
      * Priority
      * @var integer
      * @access private
      */
-    var $_priority;
+    private $_priority;
     /**
      * Content-Type
      * @var string
      * @access private
      */
-    var $_contenttype;
+    private $_contenttype;
     /**
      * SPAM flag
      * @var bool
      * @access private
      */
-    var $_spamflag;
+    private $_spamflag;
     /**
      * Status (UCB POP Server)
      * @var string
      * @access private
      */
-    var $_status;
+    private $_status;
 
     /**
      * Initialize the wrapper
-     *
      * @param string $header imap_fetchheader() string
      */
-    function NOCC_Header($header) {
+    public function __construct($header) {
         $this->_header = $header;
         $this->_priority = 3;
         $this->_contenttype = '';
@@ -88,28 +86,25 @@ class NOCC_Header {
 
     /**
      * Get the RFC2822 format header from the mail
-     *
      * @return string RFC2822 format header
      */
-    function getHeader() {
+    public function getHeader() {
         return $this->_header;
     }
 
     /**
      * Get the priority from the mail
-     *
      * @return integer Priority
      */
-    function getPriority() {
+    public function getPriority() {
         return $this->_priority;
     }
 
     /**
      * Get the (translated) priority text from the mail
-     *
      * @return string Priority text
      */
-    function getPriorityText() {
+    public function getPriorityText() {
         global $html_highest, $html_high, $html_normal, $html_low, $html_lowest;
 
         switch ($this->_priority) {
@@ -124,28 +119,25 @@ class NOCC_Header {
 
     /**
      * Get the Content-Type from the mail
-     *
      * @return string Content-Type
      */
-    function getContentType() {
+    public function getContentType() {
         return $this->_contenttype;
     }
 
     /**
      * Has SPAM flag?
-     *
      * @return bool Has SPAM flag?
      */
-    function hasSpamFlag() {
+    public function hasSpamFlag() {
         return $this->_spamflag;
     }
 
     /**
      * Get the status (UCB POP Server) from the mail
-     *
      * @return string Status (UCB POP Server)
      */
-    function getStatus() {
+    public function getStatus() {
         return $this->_status;
     }
 
@@ -163,7 +155,7 @@ class NOCC_Header {
      * @copyright &copy; 2003-2007 The SquirrelMail Project Team
      * @license http://opensource.org/licenses/gpl-license.php GNU Public License
      */
-    function _parsePriority($sValue) {
+    private function _parsePriority($sValue) {
         // don't use function call inside array_shift.
         $aValue = preg_split('/\s/', trim($sValue));
         $value = strtolower(array_shift($aValue));
