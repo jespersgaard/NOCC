@@ -181,14 +181,7 @@ class NOCC_RssFeed {
         if (!isset($timestamp)) { //if timestamp exists...
             $timestamp = time();
         }
-        if (version_compare(PHP_VERSION, '5.0.0') === 1) { //if PHP 5 or newer...
-            return date('c', $timestamp);
-        }
-        else { //if PHP 4 or older...
-            $timezone = date('O', $timestamp);
-            $timezone = substr($timezone, 0, -2) . ':' . substr($timezone, -2);
-            return date('Y-m-d\\TH:i:s', $timestamp) . $timezone;
-        }
+        return date('c', $timestamp);
     }
 }
 

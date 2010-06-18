@@ -14,7 +14,7 @@ Requirements
 Mandatory Items
 ---------------
 
-   * PHP 4.1.0 or later with IMAP (--with-imap) and iconv (--with-iconv) 
+   * PHP 5.0.0 or later with IMAP (--with-imap) and iconv (--with-iconv) 
      support. -- SEE NEXT SECTION 
   
    * A Web server supported by PHP (i.e. Apache for most people)

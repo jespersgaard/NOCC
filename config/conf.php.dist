@@ -231,10 +231,10 @@ $conf->debug_level = E_ALL & ~E_NOTICE;
 // PHP error reporting for this application
 error_reporting($conf->debug_level);
 
-if (version_compare(phpversion(),'5.3.0','<')) {
+if (version_compare(PHP_VERSION, '5.3.0', '<')) { //if older as PHP 5.3.0...
   // Prevent mangling of uploaded attachments
   set_magic_quotes_runtime(0);
- }
+}
 
 // Allow more memory than default setting in order to handle correctly
 // large mails attachments. Try to find correct setting (about 2.5x total

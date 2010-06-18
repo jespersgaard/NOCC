@@ -17,8 +17,8 @@
 
 unset ($ev);
 // PHP version
-if (!function_exists('version_compare')) { //if PHP 4.1.0 or newer...
-  $ev = new NoccException("You don't seem to be running PHP 4.1, you need at least PHP 4.1.0 to run NOCC.");
+if (!function_exists('version_compare') || version_compare(PHP_VERSION, '5.0.0', '<')) { //if older as PHP 5.0.0...
+  $ev = new NoccException("You don't seem to be running PHP 5, you need at least PHP 5.0 to run NOCC.");
   require './html/header.php';
   require './html/error.php';
   require './html/footer.php';
