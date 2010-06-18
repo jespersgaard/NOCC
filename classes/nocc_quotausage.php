@@ -2,7 +2,7 @@
 /**
  * Class for wrapping a imap_get_quotaroot() array
  *
- * Copyright 2009 Tim Gerundt <tim@gerundt.de>
+ * Copyright 2009-2010 Tim Gerundt <tim@gerundt.de>
  *
  * This file is part of NOCC. NOCC is free software under the terms of the
  * GNU General Public License. You should have received a copy of the license
@@ -24,23 +24,21 @@ class NOCC_QuotaUsage {
      * @var array
      * @access private
      */
-    var $_quotausage;
+    private $_quotausage;
     
     /**
      * Initialize the wrapper
-     *
      * @param array $quotausage imap_get_quotaroot() array
      */
-    function NOCC_QuotaUsage($quotausage) {
+    public function __construct($quotausage) {
         $this->_quotausage = $quotausage;
     }
     
     /**
      * Get the current size of the mailbox in KB
-     *
      * @return int Current mailbox size in KB
      */
-    function getStorageUsage() {
+    public function getStorageUsage() {
         if (isset($this->_quotausage['STORAGE']['usage'])) {
             return $this->_quotausage['STORAGE']['usage'];
         }
@@ -49,19 +47,17 @@ class NOCC_QuotaUsage {
     
     /**
      * Get the current formatted size of the mailbox in KB/MB/GB
-     *
      * @return int Current formatted mailbox size in KB/MB/GB
      */
-    function getFormattedStorageUsage() {
+    public function getFormattedStorageUsage() {
         return $this->getFormattedSize($this->getStorageUsage());
     }
     
     /**
      * Get the maximum size of the mailbox in KB
-     *
      * @return int Maximum mailbox size in KB
      */
-    function getStorageLimit() {
+    public function getStorageLimit() {
         if (isset($this->_quotausage['STORAGE']['limit'])) {
             return $this->_quotausage['STORAGE']['limit'];
         }
@@ -70,19 +66,17 @@ class NOCC_QuotaUsage {
     
     /**
      * Get the maximum formatted size of the mailbox in KB/MB/GB
-     *
      * @return int Maximum formatted mailbox size in KB/MB/GB
      */
-    function getFormattedStorageLimit() {
+    public function getFormattedStorageLimit() {
         return $this->getFormattedSize($this->getStorageLimit());
     }
     
     /**
      * Get the current number of messages in the mailbox
-     *
      * @return int Current number of mailbox messages
      */
-    function getMessageUsage() {
+    public function getMessageUsage() {
         if (isset($this->_quotausage['MESSAGE']['usage'])) {
             return $this->_quotausage['MESSAGE']['usage'];
         }
@@ -91,10 +85,9 @@ class NOCC_QuotaUsage {
     
     /**
      * Get the maximum number of messages in the mailbox
-     *
      * @return int Maximum number of mailbox messages
      */
-    function getMessageLimit() {
+    public function getMessageLimit() {
         if (isset($this->_quotausage['MESSAGE']['limit'])) {
             return $this->_quotausage['MESSAGE']['limit'];
         }
@@ -103,19 +96,18 @@ class NOCC_QuotaUsage {
     
     /**
      * Is the quota usage supported?
-     *
      * @return bool Is supported?
      */
-    function isSupported() {
+    public function isSupported() {
         return is_array($this->_quotausage);
     }
     
     /**
      * Get a formatted size from a kilobyte number in KB/MB/GB
-     *
+     * @param int $kilobytes Kilobyte number
      * @return string Formatted size in KB/MB/GB
      */
-    function getFormattedSize($kilobytes) {
+    public function getFormattedSize($kilobytes) {
         // load translated abbreviations
         global $html_kb, $html_mb, $html_gb;
 
