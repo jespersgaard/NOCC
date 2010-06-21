@@ -27,77 +27,77 @@ class mime_mail {
      * Parts
      * @var array
      */
-    var $parts;
+    public $parts;
     /**
      * To addresses
      * @var array
      */
-    var $to;
+    public $to;
     /**
      * CC addresses
      * @var array
      */
-    var $cc;
+    public $cc;
     /**
      * BCC addresses
      * @var array
      */
-    var $bcc;
+    public $bcc;
     /**
      * From address
      * @var string
      */
-    var $from;
+    public $from;
     /**
      * Headers
      * @var string
      */
-    var $headers;
+    public $headers;
     /**
      * Subject
      * @var string
      */
-    var $subject;
+    public $subject;
     /**
      * Body
      * @var string
      */
-    var $body;
+    public $body;
     /**
      * SMTP Server
      * @var string
      */
-    var $smtp_server;
+    public $smtp_server;
     /**
      * SMTP Port
      * @var int
      */
-    var $smtp_port;
+    public $smtp_port;
     /**
      * Charset
      * @var string
      */
-    var $charset;
+    public $charset;
     /**
      * Linefeed
      * @var string
      */
-    var $crlf;
+    public $crlf;
     /**
      * Priority
      * @var string
      */
-    var $priority;
+    public $priority;
     /**
      * Receipt
      * @var bool
      */
-    var $receipt;
+    public $receipt;
 
     /**
      * Initialize the mail object
      */
-    function mime_mail() {
+    public function __construct() {
         $this->parts = Array();
         $this->to =  Array();
         $this->cc = Array();
@@ -124,7 +124,7 @@ class mime_mail {
      * @param string $charset 
      * @todo Rename to addAttachment()?
      */
-    function add_attachment($message, $name, $ctype, $encoding, $charset) {
+    public function add_attachment($message, $name, $ctype, $encoding, $charset) {
         $this->parts[] = array (
             'ctype' => $ctype,
             'message' => $message,
@@ -141,7 +141,7 @@ class mime_mail {
      * @return string
      * @access private
      */ 
-    function _buildMessage($part) {
+    private function _buildMessage($part) {
         $message = $part['message'];
         $encoding = $part['encoding'];
         $charset = $part['charset'];
@@ -168,7 +168,7 @@ class mime_mail {
      * @return string
      * @access private
      */ 
-    function _buildMultipart() {
+    private function _buildMultipart() {
         $boundary = 'NextPart'.md5(uniqid(time()));
         $multipart = 'Content-Type: multipart/mixed;' . $this->crlf . "\tboundary=\"$boundary\"" . $this->crlf . $this->crlf . 'This is a MIME encoded message.' . $this->crlf . $this->crlf . '--' . $boundary;
         
@@ -183,7 +183,7 @@ class mime_mail {
      * @return string
      * @access private
      */
-    function _buildNoneMultipart() {
+    private function _buildNoneMultipart() {
         if (sizeof($this->parts) == 1)
             $part = $this->_buildMessage($this->parts[0]);
         else
@@ -197,7 +197,7 @@ class mime_mail {
      * @param $conf
      * @return mixed
      */ 
-    function send(&$conf) {
+    public function send(&$conf) {
         $mime = '';
         if (($this->smtp_server != '' && $this->smtp_port != '')) {
             if ($this->to[0] != '')
@@ -315,7 +315,7 @@ class mime_mail {
      * @access private
      * @todo Rename!
      */
-    function strip_comment_array($array) {
+    private function strip_comment_array($array) {
         for ($i = 0; $i < count($array); $i++) {
             $array[$i] = $this->strip_comment($array[$i]);
         }
@@ -330,7 +330,7 @@ class mime_mail {
      * @access private
      * @todo Rename!
      */
-    function strip_comment($address) {
+    private function strip_comment($address) {
         $pos = strrpos($address, '<');
         if ($pos === false) {
             return '<'.$address.'>';
