@@ -297,6 +297,32 @@ class NOCC_MailStructure {
     }
 
     /**
+     * Is plain text?
+     * @return bool Is plain text?
+     */
+    public function isPlainText() {
+        if ($this->isText()) { //if text...
+            if (strtoupper($this->getSubtype()) == 'PLAIN') { //if plain text...
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Is HTML text?
+     * @return bool Is HTML text?
+     */
+    public function isHtmlText() {
+        if ($this->isText()) { //if text...
+            if (strtoupper($this->getSubtype()) == 'HTML') { //if HTML text...
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Is multipart?
      * @return bool Is multipart?
      */
