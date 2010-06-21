@@ -1,14 +1,15 @@
 NOCC 1.9.0  ???? ??, ????
 
   Misc
-    * If hide addresses in inbox, hide double quotes too. (Tim Gerundt).
+    * If hide addresses in inbox, hide double quotes too (Tim Gerundt).
+    * Fix a problem with invalid multipart mails (Tim Gerundt).
     * Switch to PHP 5 (Tim Gerundt).
 
 NOCC 1.8.3  June 04, 2010
 
   Bugs
     * Bug #2836784 : imap_utf8() returns only capital letters since PHP 5.2.5
-      (Tim Gerundt)
+      (Tim Gerundt).
     * Bug #2962990 : full_name preference not quoted in email send (Sean Skogen).
     * Bug #2987135 : Add second "Re:" by reply (Tim Gerundt).
     * Bug #2963603 : Function name tripos instead of stripos, typo? (openfan).
