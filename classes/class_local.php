@@ -24,21 +24,23 @@ require_once './utils/crypt.php';
 
 class result
 {
-  var $text = '';
-  var $charset = '';
+  public $text = '';
+  public $charset = '';
 }
 
 class nocc_imap
 {
-    var $server;
-    var $login;
-    var $passwd;
-    var $conn;
-    var $folder;
-    var $namespace;
+    //TODO: Rewrite to private!
+    public $server;
+    private $login;
+    private $passwd;
+    private $conn;
+    //TODO: Rewrite to private!
+    public $folder;
+    private $namespace;
 
     // constructor        
-    function nocc_imap(&$ev)
+    public function __construct(&$ev)
     {
         global $conf;
         global $lang_could_not_connect;
@@ -67,13 +69,13 @@ class nocc_imap
         return $this;
     }
 
-    function reopen($box, $flags = '', &$ev) {
+    public function reopen($box, $flags = '', &$ev) {
         if (!imap_reopen($this->conn, $box, $flags)) {
             $ev = new NoccException(imap_last_error());
         }
     }
 
-    function search($crit, $flags = '', &$ev) {
+    public function search($crit, $flags = '', &$ev) {
         $messages = imap_search($this->conn, $crit, $flags);
         if(is_array($messages))
             return $messages;
@@ -86,7 +88,7 @@ class nocc_imap
         return;
     }
 
-    function fetchstructure($msgnum, &$ev) {
+    public function fetchstructure($msgnum, &$ev) {
         $structure = imap_fetchstructure($this->conn, $msgnum);
         if (!is_object($structure)) {
             $ev = new NoccException("imap_fetchstructure did not return an object: ".imap_last_error());
@@ -95,27 +97,27 @@ class nocc_imap
         return $structure;
     }
 
-    function fetchheader($msgnum, &$ev) {
+    public function fetchheader($msgnum, &$ev) {
         return imap_fetchheader($this->conn, $msgnum);
     }
 
-    function fetchbody($msgnum, $partnum, &$ev) {
+    public function fetchbody($msgnum, $partnum, &$ev) {
         return imap_fetchbody($this->conn, $msgnum, $partnum);
     }
 
-    function body($msgnum, &$ev) {
+    public function body($msgnum, &$ev) {
         return imap_body($this->conn, $msgnum);
     }
 
-    function num_msg() {
+    public function num_msg() {
         return imap_num_msg($this->conn);
     }
 
-    function msgno($msgnum) {
+    public function msgno($msgnum) {
         return imap_msgno($this->conn, $msgnum);
     }
 
-    function sort($sort, $sortdir, &$ev, $useuid) {
+    public function sort($sort, $sortdir, &$ev, $useuid) {
         switch($sort) {
             case '1': $imapsort = SORTFROM; break;
             case '2': $imapsort = SORTTO; break;
@@ -130,7 +132,7 @@ class nocc_imap
         }
     }
 
-    function headerinfo($msgnum, &$ev) {
+    public function headerinfo($msgnum, &$ev) {
         $headers = imap_headerinfo($this->conn, $msgnum, $ev);
         if (NoccException::isException($ev)) return;
         if (!is_object($headers)) {
@@ -142,29 +144,29 @@ class nocc_imap
 
     // From what I can find, this will not work on Cyrus imap servers .
     // [I will test this, I use Cyrus IMAP - Ross]
-    function deletemailbox($old_box, &$ev) {
+    public function deletemailbox($old_box, &$ev) {
         if (!imap_deletemailbox($this->conn, '{'.$this->server.'}'.$old_box)) {
             $ev = new NoccException(imap_last_error());
         }
     }
 
-    function renamemailbox($old_box, $new_box, &$ev) {
+    public function renamemailbox($old_box, $new_box, &$ev) {
         if (!imap_renamemailbox($this->conn, '{'.$this->server.'}'.$old_box, '{'.$this->server.'}'.$this->namespace.mb_convert_encoding($new_box, 'UTF7-IMAP', 'UTF-8'))) {
             $ev = new NoccException(imap_last_error());
         }
     }
 
-    function createmailbox($new_box, &$ev) {
+    public function createmailbox($new_box, &$ev) {
         if (!imap_createmailbox($this->conn, '{'.$this->server.'}'.$this->namespace.mb_convert_encoding($new_box, 'UTF7-IMAP', 'UTF-8'))) {
             $ev = new NoccException(imap_last_error());
         }
     }
 
-    function mail_copy($mail, $new_box, &$ev) {
+    public function mail_copy($mail, $new_box, &$ev) {
         return imap_mail_copy($this->conn, $mail, $new_box, 0);
     }
 
-    function subscribe($new_box, &$ev, $isnewbox) {
+    public function subscribe($new_box, &$ev, $isnewbox) {
         if ($isnewbox) {
             return imap_subscribe($this->conn, '{'.$this->server.'}'.$this->namespace.$new_box);
         } else {
@@ -172,47 +174,47 @@ class nocc_imap
         }
     }
 
-    function unsubscribe($old_box, &$ev) {
+    public function unsubscribe($old_box, &$ev) {
         return imap_unsubscribe($this->conn, '{'.$this->server.'}'.$old_box);
     }
 
-    function mail_move($mail, $new_box, &$ev) {
+    public function mail_move($mail, $new_box, &$ev) {
         return imap_mail_move($this->conn, $mail, $new_box, 0);
     }
 
-    function expunge(&$ev) {
+    public function expunge(&$ev) {
         return imap_expunge($this->conn);
     }
 
-    function delete($mail, &$ev) {
+    public function delete($mail, &$ev) {
         return imap_delete($this->conn, $mail, 0);
     }
 
-    function close() {
+    public function close() {
         return imap_close($this->conn, CL_EXPUNGE);
     }
 
-    function is_imap() {
+    public function is_imap() {
         $check = imap_mailboxmsginfo($this->conn);
         return ($check->{'Driver'} == 'imap');
     }
 
-    function utf7_decode($text) {
+    public static function utf7_decode($text) {
         return imap_utf7_decode($text);
     }
 
-    function utf7_encode($data) {
+    public static function utf7_encode($data) {
         return imap_utf7_encode($data);
     }
 
-    function utf8($mime_encoded_text) {
+    public static function utf8($mime_encoded_text) {
         //Since PHP 5.2.5 returns imap_utf8() only capital letters!
         //See bug #44098 for details: http://bugs.php.net/44098
         if (version_compare(PHP_VERSION, '5.2.5', '>=')) { //if PHP 5.2.5 or newer...
             return nocc_imap::decode_mime_string($mime_encoded_text);
         }
         else { //if PHP 5.2.4 or older...
-            return imap_utf8($mime_encoded_text);
+            return nocc_imap::imap_utf8($mime_encoded_text);
         }
     }
 
@@ -223,7 +225,7 @@ class nocc_imap
      * @return string Decoded string
      * @static
      */
-    function decode_mime_string($string, $charset = 'UTF-8') {
+    public static function decode_mime_string($string, $charset = 'UTF-8') {
         $decodedString = '';
         $elements = imap_mime_header_decode($string);
         foreach ($elements as $element) { //for all elements...
@@ -235,7 +237,7 @@ class nocc_imap
         return $decodedString;
     }
 
-    function getmailboxes(&$ev) {
+    public function getmailboxes(&$ev) {
         $mailboxes = imap_getmailboxes($this->conn, '{'.$this->server.'}', '*');
         if (!is_array($mailboxes)) {
             $ev = new NoccException("imap_getmailboxes did not return an array: ".imap_last_error());
@@ -246,7 +248,7 @@ class nocc_imap
         return $mailboxes;
     }
 
-    function getsubscribed(&$ev) {
+    public function getsubscribed(&$ev) {
         $subscribed = imap_getsubscribed($this->conn, '{'.$this->server.'}', '*');
         if (is_array($subscribed)) {
             sort($subscribed);
@@ -261,15 +263,15 @@ class nocc_imap
         return;
     }
 
-    function mail_mark_read($mail, &$ev) {
+    public function mail_mark_read($mail, &$ev) {
         return imap_setflag_full($this->conn, imap_uid($this->conn, $mail), "\\Seen", ST_UID);
     }
 
-    function mail_mark_unread($mail, &$ev) {
+    public function mail_mark_unread($mail, &$ev) {
         return imap_clearflag_full($this->conn, imap_uid($this->conn, $mail), "\\Seen", ST_UID);
     }
 
-    function exists($mailbox, &$ev) {
+    public function exists($mailbox, &$ev) {
         $exists = false;
         $list = imap_list($this->conn, '{'.$this->server.'}', '*');
         if (is_array($list)) {
@@ -283,7 +285,7 @@ class nocc_imap
         return $exists;
     }
 
-    function copytosentfolder($maildata, &$ev, $sent_folder_name) {
+    public function copytosentfolder($maildata, &$ev, $sent_folder_name) {
         if (!(imap_append($this->conn, '{'.$this->server.'}'.$this->namespace.$sent_folder_name, $maildata, "\\Seen"))) {
             $ev = new NoccException("could not copy mail into $sent_folder_name folder: ".imap_last_error());
             return false;
@@ -295,15 +297,15 @@ class nocc_imap
      * These functions are static, but if we could re-implement them without
      * requiring PHP IMAP support, more people can use NOCC.
      */
-    function base64($file) {
+    public static function base64($file) {
         return imap_base64($file);
     }
 
-    function i8bit($file) {
+    public static function i8bit($file) {
         return imap_8bit($file);
     }
 
-    function qprint($file) {
+    public static function qprint($file) {
         return imap_qprint($file);
     }
 
@@ -314,7 +316,7 @@ class nocc_imap
      * @return string Decoded data
      * TODO: Better name?
      */
-    function decode($data, $transfer) {
+    public static function decode($data, $transfer) {
         if ($transfer == 'BASE64') { //if BASE64...
             return nocc_imap::base64($data);
         }
@@ -326,7 +328,7 @@ class nocc_imap
         }
     }
 
-    function mime_header_decode($header) {
+    public static function mime_header_decode($header) {
         $source = imap_mime_header_decode($header);
         $result[] = new result;
         $result[0]->text='';
@@ -344,7 +346,7 @@ class nocc_imap
     /*
      * These are general utility functions that extend the imap interface.
      */
-    function html_folder_select($value, $selected = '') {
+    public function html_folder_select($value, $selected = '') {
         $folders = $this->get_nice_subscribed($ev);
         if (NoccException::isException($ev)) {
             return "<p class=\"error\">Error retrieving folder pulldown: ".$ev->getMessage()."</p>";
@@ -362,11 +364,11 @@ class nocc_imap
         return $html_select;
     }
 
-    function get_folder_count() {
+    public function get_folder_count() {
         return count($this->getsubscribed($ev));
     }
 
-    function get_page_count() {
+    public function get_page_count() {
         $num_messages = $this->num_msg();
         if ($num_messages == 0) {
             return 0;
@@ -378,7 +380,7 @@ class nocc_imap
         }
     }
 
-    function get_nice_subscribed(&$ev) {
+    public function get_nice_subscribed(&$ev) {
         $folders = $this->getsubscribed($ev);
         if(NoccException::isException($ev)) return;
         reset($folders);
@@ -392,18 +394,18 @@ class nocc_imap
         return $subscribed;
     }
 
-    function get_quota_usage($mailbox) {
+    public function get_quota_usage($mailbox) {
         return @imap_get_quotaroot($this->conn, $mailbox);
     }
       
-    function status($foldername) {
+    public function status($foldername) {
         return imap_status($this->conn, $foldername, SA_ALL);
     }
 
     /**
      * Test function
      */
-    function test() {
+    public function test() {
         imap_mailboxmsginfo($this->conn, $ev);
         if (NoccException::isException($ev)) {
             print "<p class=\"error\">imap_mailboxmsginfo() failed: ".$ev->getMessage(). "</p>\n";
@@ -421,8 +423,9 @@ class nocc_imap
 
     /**
      * Convert text smilies to graphical smilies
+     * TODO: Static?
      */
-    function graphicalsmilies($body) {
+    public function graphicalsmilies($body) {
         $user_prefs = $_SESSION['nocc_user_prefs'];
         if (isset($user_prefs->graphical_smilies) && $user_prefs->graphical_smilies) {
             $theme = new NOCC_Theme($_SESSION['nocc_theme']);
