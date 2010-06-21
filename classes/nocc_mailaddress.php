@@ -99,6 +99,8 @@ class NOCC_MailAddress {
      * @static
      */
     public static function chopAddress($mailAddress) {
+        $mailAddress = str_replace('"', '', $mailAddress);
+
         // If no '<', return full address.
         $bracketpos = strpos($mailAddress, '<');
         if ($bracketpos === false)

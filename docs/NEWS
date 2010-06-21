@@ -1,6 +1,7 @@
 NOCC 1.9.0  ???? ??, ????
 
   Misc
+    * If hide addresses in inbox, hide double quotes too. (Tim Gerundt).
     * Switch to PHP 5 (Tim Gerundt).
 
 NOCC 1.8.3  June 04, 2010
