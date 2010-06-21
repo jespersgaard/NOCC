@@ -289,21 +289,20 @@ function GetPart(&$attach_tab, $this_part, $part_no, $display_rfc822) {
     $mailstructure = new NOCC_MailStructure($this_part);
 
     if ($mailstructure->isMultipart()) { //if multipart...
-        for ($i = 0; $i < count($this_part->parts); $i++) {
+        $num_parts = count($this_part->parts);
+        for ($i = 0; $i < $num_parts; $i++) {
             if ($part_no != '') {
                 if (substr($part_no, -1) != '.')
                     $part_no = $part_no . '.';
             }
-            //TODO: Gibt Probleme bei der "RE: Re[2]: Tuer zu Ihrem Wunsch"
-            //TODO: Überprüfen, ob es den ALTERNATIVE Part überhaupt gibt!
             // if it's an alternative, we skip the text part to only keep the HTML part
-            if ($mailstructure->isAlternativeMultipart())// && $read == true)
+            if (($mailstructure->isAlternativeMultipart()) && (($i + 1) < $num_parts))
                 GetPart($attach_tab, $this_part->parts[++$i], $part_no . ($i + 1), $display_rfc822);
             else
                 GetPart($attach_tab, $this_part->parts[$i], $part_no . ($i + 1), $display_rfc822);
         }
     }
-    else if($mailstructure->isMessage()) { //if message...
+    else if ($mailstructure->isMessage()) { //if message...
         if (isset($this_part->parts[0]->parts)) {
             $num_parts = count($this_part->parts[0]->parts);
             for ($i = 0; $i < $num_parts; $i++)
