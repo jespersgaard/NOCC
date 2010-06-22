@@ -24,6 +24,7 @@
  * @file
  *
  * @author Bennylin
+ * @author Dadanhrn
  * @author Farras
  * @author Irwangatot
  */
@@ -172,6 +173,8 @@ $html_normal = 'Normal';
 $html_high = 'Tinggi';
 $html_highest = 'Tertinggi';
 $html_flagged = 'Ditandai';
+$html_spam = 'Spam';
+$html_spam_warning = 'Pesan ini telah dikelompokkan sabagai spam.';
 $html_receipt = 'Minta tanda kembalian';
 $html_select = 'Pilih';
 $html_select_all = 'Kembalikan Pilihan';
