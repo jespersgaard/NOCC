@@ -191,8 +191,11 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
         $body = ($body_converted===false) ? $body : $body_converted;
         $tmp['charset'] = ($body_converted===false) ? $body_charset : 'UTF-8';
     }
-    else
+    else {
         array_push($attach_tab, $tmp);
+        $body = '';
+    }
+
     $link_att = '';
     if ($mail_reader->hasAttachments()) {
         switch (sizeof($attach_tab)) {
