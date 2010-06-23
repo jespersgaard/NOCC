@@ -323,6 +323,20 @@ class NOCC_MailStructure {
     }
 
     /**
+     * Is plain or HTML text?
+     * @return bool Is plain or HTML text?
+     */
+    public function isPlainOrHtmlText() {
+        if ($this->isText()) { //if text...
+            $subtype = strtoupper($this->getSubtype());
+            if (($subtype == 'PLAIN') || ($subtype == 'HTML')) { //if plain or HTML text...
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Is multipart?
      * @return bool Is multipart?
      */
