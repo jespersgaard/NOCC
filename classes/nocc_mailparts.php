@@ -82,6 +82,7 @@ class NOCC_MailParts {
      * @param NOCC_MailStructure $mailstructure Mail structure
      * @param string $partNumber Part number
      * @access private
+     * @todo Rewrite!
      */
     private function _fillArrayWithParts(&$parts, $mailstructure, $partNumber = '') {
         $this_part = $mailstructure->getStructure();
@@ -104,6 +105,13 @@ class NOCC_MailParts {
                 $num_parts = count($this_part->parts[0]->parts);
                 for ($i = 0; $i < $num_parts; $i++)
                     $this->_fillArrayWithParts($parts, new NOCC_MailStructure($this_part->parts[0]->parts[$i]), $partNumber . '.' . ($i + 1));
+            }
+            if ($mailstructure->isRfc822Message()) { //if RFC822 message...
+                if (empty($partNumber)) {
+                    $partNumber = '1';
+                }
+                $part = new NOCC_MailPart($mailstructure, $partNumber);
+                array_unshift($parts, $part);
             }
         }
         else {
