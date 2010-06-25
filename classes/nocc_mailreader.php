@@ -149,10 +149,8 @@ class NOCC_MailReader {
         //--------------------------------------------------------------------------------
         // Get values from structure...
         //--------------------------------------------------------------------------------
-        //TODO: Don't use $structure variable!
-        $structure = $pop->fetchstructure($msgno);
         //TODO: Don't use local $mailstructure variable!?
-        $mailstructure = new NOCC_MailStructure($structure);
+        $mailstructure = $pop->fetchstructure($msgno);
         $this->_mailstructure = $mailstructure;
         
         $this->_type = $mailstructure->getType();

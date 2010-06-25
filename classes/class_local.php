@@ -91,15 +91,14 @@ class nocc_imap
     /**
      * Fetch mail structure
      * @param integer $msgnum Message number
-     * @return object Mail structure
-     * @todo Return direct NOCC_MailStructure?
+     * @return NOCC_MailStructure Mail structure
      */
     public function fetchstructure($msgnum) {
         $structure = @imap_fetchstructure($this->conn, $msgnum);
         if (!is_object($structure)) {
             throw new Exception('imap_fetchstructure() did not return an object.');
         }
-        return $structure;
+        return new NOCC_MailStructure($structure);
     }
 
     public function fetchheader($msgnum, &$ev) {
