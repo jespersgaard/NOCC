@@ -56,7 +56,7 @@ function inbox(&$pop, $skip = 0) {
         $to = '';
         $msgnum = $sorted[$i];
         $pop_msgno_msgnum = $pop->msgno($msgnum);
-        $mail_reader = new NOCC_MailReader($pop_msgno_msgnum, $pop);
+        $mail_reader = new NOCC_MailReader($pop_msgno_msgnum, $pop, false);
 
         // Get to
         $to = $mail_reader->getToAddress();
@@ -146,7 +146,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
 
     //TODO: Remove later try/catch block!
     try {
-        $mail_reader = new NOCC_MailReader($mail, $pop);
+        $mail_reader = new NOCC_MailReader($mail, $pop, false);
     }
     catch (Exception $ex) {
         $ev = new NoccException($ex->getMessage());

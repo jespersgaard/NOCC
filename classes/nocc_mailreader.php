@@ -14,6 +14,8 @@
  */
 
 require_once 'nocc_mailstructure.php';
+require_once 'nocc_mailpart.php';
+require_once 'nocc_mailparts.php';
 require_once 'nocc_headerinfo.php';
 require_once 'nocc_header.php';
 
@@ -29,6 +31,14 @@ class NOCC_MailReader {
      * @access private
      */
     private $_mailstructure;
+
+    /**
+     * Mail parts
+     * @var NOCC_MailParts
+     * @access private
+     */
+    private $_mailparts;
+
     /**
      * Type
      * @var integer
@@ -144,14 +154,20 @@ class NOCC_MailReader {
      * Initialize the mail reader
      * @param integer $msgno Message number
      * @param nocc_imap $pop IMAP/POP3 class
+     * @param bool $fullDetails Read full details?
      */
-    public function __construct($msgno, &$pop) {
+    public function __construct($msgno, &$pop, $fullDetails = true) {
         //--------------------------------------------------------------------------------
         // Get values from structure...
         //--------------------------------------------------------------------------------
         //TODO: Don't use local $mailstructure variable!?
         $mailstructure = $pop->fetchstructure($msgno);
         $this->_mailstructure = $mailstructure;
+        
+        $this->_mailparts = null;
+        if ($fullDetails == true) { //if read full details...
+            $this->_mailparts = new NOCC_MailParts($mailstructure);
+        }
         
         $this->_type = $mailstructure->getType();
         $this->_encoding = $mailstructure->getEncoding();
@@ -192,7 +208,29 @@ class NOCC_MailReader {
         $this->_header = new NOCC_Header($header);
         //--------------------------------------------------------------------------------
     }
-    
+
+    /**
+     * Get the body part
+     * @return NOCC_MailPart Body part
+     */
+    public function getBodyPart() {
+        if (!empty($this->_mailparts)) { //if mail parts exists...
+            return $this->_mailparts->getBodyPart();
+        }
+        return null;
+    }
+
+    /**
+     * Get the attachment parts
+     * @return array Attachment parts
+     */
+    public function getAttachmentParts() {
+        if (!empty($this->_mailparts)) { //if mail parts exists...
+            return $this->_mailparts->getAttachmentParts();
+        }
+        return array();
+    }
+
     /**
      * Get the structure from the mail
      * @todo Drop property, if we included the functions GetPart() and GetSinglePart() to this class
