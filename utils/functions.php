@@ -159,7 +159,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     // If there are attachments, populate the attachment array, otherwise
     // just get the main body as a single-element array
     if ($mailstructure->isApplication() || $mailstructure->hasParts())
-        GetPart($attach_tab, $mailstructure->getStructure(), null, $conf->display_rfc822);
+        GetPart($attach_tab, $mailstructure->getStructure(), null);
     else {
         GetSinglePart($attach_tab, $mail_reader);
     }
@@ -290,9 +290,8 @@ function detect_body_charset($body, $suspectedCharset) {
  * @param array $attach_tab
  * @param object $this_part
  * @param string $part_no
- * @param bool $display_rfc822
  */
-function GetPart(&$attach_tab, $this_part, $part_no, $display_rfc822) {
+function GetPart(&$attach_tab, $this_part, $part_no) {
     global $html_unknown;
 
     $mailstructure = new NOCC_MailStructure($this_part);
@@ -306,20 +305,20 @@ function GetPart(&$attach_tab, $this_part, $part_no, $display_rfc822) {
             }
             // if it's an alternative, we skip the text part to only keep the HTML part
             if (($mailstructure->isAlternativeMultipart()) && (($i + 1) < $num_parts))
-                GetPart($attach_tab, $this_part->parts[++$i], $part_no . ($i + 1), $display_rfc822);
+                GetPart($attach_tab, $this_part->parts[++$i], $part_no . ($i + 1));
             else
-                GetPart($attach_tab, $this_part->parts[$i], $part_no . ($i + 1), $display_rfc822);
+                GetPart($attach_tab, $this_part->parts[$i], $part_no . ($i + 1));
         }
     }
     else if ($mailstructure->isMessage()) { //if message...
         if (isset($this_part->parts[0]->parts)) {
             $num_parts = count($this_part->parts[0]->parts);
             for ($i = 0; $i < $num_parts; $i++)
-                GetPart($attach_tab, $this_part->parts[0]->parts[$i], $part_no . '.' . ($i + 1), $display_rfc822);
+                GetPart($attach_tab, $this_part->parts[0]->parts[$i], $part_no . '.' . ($i + 1));
         }
     }
 
-    if (($mailstructure->isRfc822Message() && $display_rfc822 == true) || (!$mailstructure->isMultipart() && !$mailstructure->isRfc822Message())) {
+    if ($mailstructure->isRfc822Message() || (!$mailstructure->isMultipart() && !$mailstructure->isRfc822Message())) {
         $tmp = Array(
             'number' => ($part_no != '' ? $part_no : 1),
             'id' => $mailstructure->getId(),

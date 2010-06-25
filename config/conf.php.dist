@@ -263,10 +263,6 @@ $conf->crlf = "\r\n";
 $conf->default_smtp_server = '';
 $conf->default_smtp_port = 25;
 
-// Whether or not to display the Message/RFC822 into the attachments
-// (the attachments of that part are still available even if false is set
-$conf->display_rfc822 = true;
-
 //Uncomment this to allow secure typed domain logins
 //$conf->typed_domain_login = '1';
 
