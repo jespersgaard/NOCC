@@ -165,7 +165,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     }
 
     // Get the first part
-    $tmp = array_pop($attach_tab);
+    $tmp = convertBodyPartToAttachTab($mail_reader->getBodyPart());
     if ($mailstructure->isApplication()) {
         $body = '';
     }
@@ -192,7 +192,6 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
         $tmp['charset'] = ($body_converted===false) ? $body_charset : 'UTF-8';
     }
     else {
-        array_push($attach_tab, $tmp);
         $body = '';
     }
 
@@ -279,6 +278,43 @@ function detect_body_charset($body, $suspectedCharset) {
 
 /**
  * ...
+ * @param NOCC_MailPart $bodyPart ...
+ * @return array ...
+ * @todo Only temporary needed!
+ */
+function convertBodyPartToAttachTab($bodyPart) {
+    global $html_unknown;
+
+    if (!empty($bodyPart)) {
+        $partstructure = $bodyPart->getPartStructure();
+        $tmp = Array(
+            'number' => $bodyPart->getPartNumber(),
+            'id' => $partstructure->getId(),
+            'name' => $partstructure->getName($html_unknown),
+            'mime' => $partstructure->getInternetMediaType(),
+            'transfer' => $partstructure->getEncodingText(),
+            'disposition' => $partstructure->getDisposition(),
+            'charset' => $partstructure->getCharset(),
+            'size' => $bodyPart->getSize()
+        );
+    }
+    else {
+        $tmp = Array(
+            'number' => '1',
+            'id' => '',
+            'name' => '',
+            'mime' => '',
+            'transfer' => '',
+            'disposition' => '',
+            'charset' => '',
+            'size' => 1
+        );        
+    }
+    return $tmp;
+}
+
+/**
+ * ...
  * @param NOCC_MailReader $mail_reader Mail reader
  * @param array $attach_tab Attachments
  * @todo Only temporary needed!
@@ -286,10 +322,7 @@ function detect_body_charset($body, $suspectedCharset) {
 function fillAttachTabFromMailReader($mail_reader, &$attach_tab) {
     global $html_unknown;
     
-    $parts = array();
-    array_unshift($parts, $mail_reader->getBodyPart());
-    $parts = array_merge($parts,$mail_reader->getAttachmentParts());
-    
+    $parts = $mail_reader->getAttachmentParts();
     foreach ($parts as $part) { // for all parts...
         $partstructure = $part->getPartStructure();
         $tmp = Array(
