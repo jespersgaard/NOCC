@@ -656,8 +656,15 @@ switch($action) {
         $num_msg = $pop->num_msg();
         if (isset($_REQUEST['skip']))
             $skip = $_REQUEST['skip'];
-        if ($num_msg > 0)
-            $tab_mail = inbox($pop, $skip, $ev);
+        if ($num_msg > 0) {
+            //TODO: Remove later try/catch block!
+            try {
+                $tab_mail = inbox($pop, $skip);
+            }
+            catch (Exception $ex) {
+                $ev = new NoccException($ex->getMessage());
+            }
+        }
 
         if (NoccException::isException($ev)) {
             require './html/header.php';

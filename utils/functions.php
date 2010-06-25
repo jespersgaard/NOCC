@@ -26,11 +26,10 @@ require_once './classes/nocc_mailaddress.php';
  * ...
  * @param object $pop
  * @param int $skip
- * @param object $ev
  * @return array
  * @todo Rename!
  */
-function inbox(&$pop, $skip = 0, &$ev) {
+function inbox(&$pop, $skip = 0) {
     $msg_list = array();
 
     $lang = $_SESSION['nocc_lang'];
@@ -44,7 +43,9 @@ function inbox(&$pop, $skip = 0, &$ev) {
     $end_msg = $start_msg + $per_page;
 
     $sorted = $pop->sort($sort, $sortdir, $ev, true);
-    if(NoccException::isException($ev)) return;
+    if (NoccException::isException($ev)) {
+        throw new Exception($ev->getMessage());
+    }
 
     $end_msg = ($num_msg > $end_msg) ? $end_msg : $num_msg;
     if ($start_msg > $num_msg) {
@@ -55,13 +56,7 @@ function inbox(&$pop, $skip = 0, &$ev) {
         $to = '';
         $msgnum = $sorted[$i];
         $pop_msgno_msgnum = $pop->msgno($msgnum);
-        try {
-            $mail_reader = new NOCC_MailReader($pop_msgno_msgnum, $pop);
-        }
-        catch (Exception $ex) {
-            $ev = new NoccException($ex->getMessage());
-            return;
-        }
+        $mail_reader = new NOCC_MailReader($pop_msgno_msgnum, $pop);
 
         // Get to
         $to = $mail_reader->getToAddress();
@@ -149,6 +144,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
         return;
     }
 
+    //TODO: Remove later try/catch block!
     try {
         $mail_reader = new NOCC_MailReader($mail, $pop);
     }

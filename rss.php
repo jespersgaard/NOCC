@@ -60,7 +60,13 @@
 
   $tab_mail = array();
   if ($pop->num_msg() > 0) {
-    $tab_mail = inbox($pop, 0, $ev);
+    //TODO: Remove later try/catch block!
+    try {
+      $tab_mail = inbox($pop, 0);
+    }
+    catch (Exception $ex) {
+      $ev = new NoccException($ex->getMessage());
+    }
   }
   $tab_mail_bak = $tab_mail;
 
