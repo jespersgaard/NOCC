@@ -88,11 +88,16 @@ class nocc_imap
         return;
     }
 
-    public function fetchstructure($msgnum, &$ev) {
-        $structure = imap_fetchstructure($this->conn, $msgnum);
+    /**
+     * Fetch mail structure
+     * @param integer $msgnum Message number
+     * @return object Mail structure
+     * @todo Return direct NOCC_MailStructure?
+     */
+    public function fetchstructure($msgnum) {
+        $structure = @imap_fetchstructure($this->conn, $msgnum);
         if (!is_object($structure)) {
-            $ev = new NoccException("imap_fetchstructure did not return an object: ".imap_last_error());
-            return;
+            throw new Exception('imap_fetchstructure() did not return an object.');
         }
         return $structure;
     }

@@ -139,16 +139,18 @@ class NOCC_MailReader {
      * @access private
      */
     private $_header;
-    
+
     /**
      * Initialize the mail reader
+     * @param integer $msgno Message number
+     * @param nocc_imap $pop IMAP/POP3 class
      */
-    public function __construct($msgno, &$pop, &$ev) {
+    public function __construct($msgno, &$pop) {
         //--------------------------------------------------------------------------------
         // Get values from structure...
         //--------------------------------------------------------------------------------
         //TODO: Don't use $structure variable!
-        $structure = $pop->fetchstructure($msgno, $ev);
+        $structure = $pop->fetchstructure($msgno);
         //TODO: Don't use local $mailstructure variable!?
         $mailstructure = new NOCC_MailStructure($structure);
         $this->_mailstructure = $mailstructure;

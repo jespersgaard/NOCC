@@ -55,8 +55,13 @@ function inbox(&$pop, $skip = 0, &$ev) {
         $to = '';
         $msgnum = $sorted[$i];
         $pop_msgno_msgnum = $pop->msgno($msgnum);
-        $mail_reader = new NOCC_MailReader($pop_msgno_msgnum, $pop, $ev);
-        if(NoccException::isException($ev)) return;
+        try {
+            $mail_reader = new NOCC_MailReader($pop_msgno_msgnum, $pop);
+        }
+        catch (Exception $ex) {
+            $ev = new NoccException($ex->getMessage());
+            return;
+        }
 
         // Get to
         $to = $mail_reader->getToAddress();
@@ -144,8 +149,13 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
         return;
     }
 
-    $mail_reader = new NOCC_MailReader($mail, $pop, $ev);
-    if(NoccException::isException($ev)) return;
+    try {
+        $mail_reader = new NOCC_MailReader($mail, $pop);
+    }
+    catch (Exception $ex) {
+        $ev = new NoccException($ex->getMessage());
+        return;
+    }
 
     // Get the MIME message structure
     $mailstructure = $mail_reader->getMailStructure();
