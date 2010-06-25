@@ -146,23 +146,17 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
 
     //TODO: Remove later try/catch block!
     try {
-        $mail_reader = new NOCC_MailReader($mail, $pop, false);
+        $mail_reader = new NOCC_MailReader($mail, $pop, true);
     }
     catch (Exception $ex) {
         $ev = new NoccException($ex->getMessage());
         return;
     }
 
+    fillAttachTabFromMailReader($mail_reader, $attach_tab);
+
     // Get the MIME message structure
     $mailstructure = $mail_reader->getMailStructure();
-
-    // If there are attachments, populate the attachment array, otherwise
-    // just get the main body as a single-element array
-    if ($mailstructure->isApplication() || $mailstructure->hasParts())
-        GetPart($attach_tab, $mailstructure->getStructure(), null);
-    else {
-        GetSinglePart($attach_tab, $mail_reader);
-    }
 
     // If we are showing all headers, gather them into a header array
     $header = '';
@@ -285,78 +279,32 @@ function detect_body_charset($body, $suspectedCharset) {
 
 /**
  * ...
- * Based on a function from matt@bonneau.net
- * @global string $html_unknown
- * @param array $attach_tab
- * @param object $this_part
- * @param string $part_no
+ * @param NOCC_MailReader $mail_reader Mail reader
+ * @param array $attach_tab Attachments
+ * @todo Only temporary needed!
  */
-function GetPart(&$attach_tab, $this_part, $part_no) {
+function fillAttachTabFromMailReader($mail_reader, &$attach_tab) {
     global $html_unknown;
-
-    $mailstructure = new NOCC_MailStructure($this_part);
-
-    if ($mailstructure->isMultipart()) { //if multipart...
-        $num_parts = count($this_part->parts);
-        for ($i = 0; $i < $num_parts; $i++) {
-            if ($part_no != '') {
-                if (substr($part_no, -1) != '.')
-                    $part_no = $part_no . '.';
-            }
-            // if it's an alternative, we skip the text part to only keep the HTML part
-            if (($mailstructure->isAlternativeMultipart()) && (($i + 1) < $num_parts))
-                GetPart($attach_tab, $this_part->parts[++$i], $part_no . ($i + 1));
-            else
-                GetPart($attach_tab, $this_part->parts[$i], $part_no . ($i + 1));
-        }
-    }
-    else if ($mailstructure->isMessage()) { //if message...
-        if (isset($this_part->parts[0]->parts)) {
-            $num_parts = count($this_part->parts[0]->parts);
-            for ($i = 0; $i < $num_parts; $i++)
-                GetPart($attach_tab, $this_part->parts[0]->parts[$i], $part_no . '.' . ($i + 1));
-        }
-    }
-
-    if ($mailstructure->isRfc822Message() || (!$mailstructure->isMultipart() && !$mailstructure->isRfc822Message())) {
+    
+    $parts = array();
+    array_unshift($parts, $mail_reader->getBodyPart());
+    $parts = array_merge($parts,$mail_reader->getAttachmentParts());
+    
+    foreach ($parts as $part) { // for all parts...
+        $partstructure = $part->getPartStructure();
         $tmp = Array(
-            'number' => ($part_no != '' ? $part_no : 1),
-            'id' => $mailstructure->getId(),
-            'name' => $mailstructure->getName($html_unknown),
-            'mime' => $mailstructure->getInternetMediaType(),
-            'transfer' => $mailstructure->getEncodingText(),
-            'disposition' => $mailstructure->getDisposition(),
-            'charset' => $mailstructure->getCharset(),
-            'size' => ($this_part->bytes > 1000) ? ceil($this_part->bytes / 1000) : 1
+            'number' => $part->getPartNumber(),
+            'id' => $partstructure->getId(),
+            'name' => $partstructure->getName($html_unknown),
+            'mime' => $partstructure->getInternetMediaType(),
+            'transfer' => $partstructure->getEncodingText(),
+            'disposition' => $partstructure->getDisposition(),
+            'charset' => $partstructure->getCharset(),
+            'size' => ($partstructure->getTotalBytes() > 1000) ? ceil($partstructure->getTotalBytes() / 1000) : 1
         );
 
         array_unshift($attach_tab, $tmp);
     }
-}
-
-/**
- * ...
- * @param array $attach_tab
- * @param NOCC_MailReader $mailreader
- * @todo Returns text/plain when Content-Type: application/x-zip (e.g.)
- */
-function GetSinglePart(&$attach_tab, $mailreader) {
-    if ($mailreader->isHtmlMail())
-        $full_mime_type = 'text/html';
-    else
-        $full_mime_type = 'text/plain';
-    $tmp = Array(
-        'number' => 1,
-        'id' => $mailreader->getId(),
-        'name' => '',
-        'mime' => $full_mime_type,
-        'transfer' => $mailreader->getEncodingText(),
-        'disposition' => $mailreader->getDisposition(),
-        'charset' => $mailreader->getCharset(),
-        'size' => $mailreader->getSize()
-    );
-
-    array_unshift($attach_tab, $tmp);
 }
 
 /**
