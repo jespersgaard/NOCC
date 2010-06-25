@@ -300,7 +300,7 @@ function fillAttachTabFromMailReader($mail_reader, &$attach_tab) {
             'transfer' => $partstructure->getEncodingText(),
             'disposition' => $partstructure->getDisposition(),
             'charset' => $partstructure->getCharset(),
-            'size' => ($partstructure->getTotalBytes() > 1000) ? ceil($partstructure->getTotalBytes() / 1000) : 1
+            'size' => $part->getSize()
         );
 
         array_unshift($attach_tab, $tmp);
