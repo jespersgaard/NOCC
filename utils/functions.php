@@ -118,7 +118,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     $lang = $_SESSION['nocc_lang'];
 
     // Clear variables
-    $body = $to = $cc = '';
+    $body = $body_charset = $to = $cc = '';
 
     // Message Found boolean
     $msg_found = 0;
@@ -166,16 +166,10 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
 
     // Get the first part
     $tmp = convertBodyPartToAttachTab($mail_reader->getBodyPart());
-    if ($mailstructure->isApplication()) {
-        $body = '';
-    }
-    else {
+    if (!empty($tmp)) { //if has body...
         $body = $pop->fetchbody($mail, $tmp['number'], $ev);
-    }
-    if(NoccException::isException($ev)) return;
+        if(NoccException::isException($ev)) return;
 
-    $body_charset = '';
-    if (preg_match('{text/(html|plain)}i', $tmp['mime'])) {
         $body = nocc_imap::decode($body, $tmp['transfer']);
         $body = remove_stuff($body, $tmp['mime']);
 
@@ -191,8 +185,11 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
         $body = ($body_converted===false) ? $body : $body_converted;
         $tmp['charset'] = ($body_converted===false) ? $body_charset : 'UTF-8';
     }
-    else {
-        $body = '';
+    else { //if has NO body...
+        $tmp = Array(
+            'mime' => '',
+            'transfer' => '',
+        );
     }
 
     $link_att = '';
@@ -297,20 +294,12 @@ function convertBodyPartToAttachTab($bodyPart) {
             'charset' => $partstructure->getCharset(),
             'size' => $bodyPart->getSize()
         );
+        return $tmp;
     }
     else {
-        $tmp = Array(
-            'number' => '1',
-            'id' => '',
-            'name' => '',
-            'mime' => '',
-            'transfer' => '',
-            'disposition' => '',
-            'charset' => '',
-            'size' => 1
-        );        
+        return array();
     }
-    return $tmp;
+    
 }
 
 /**
