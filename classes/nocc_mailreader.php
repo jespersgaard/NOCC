@@ -39,12 +39,6 @@ class NOCC_MailReader {
      */
     private $_type;
     /**
-     * Encoding
-     * @var integer
-     * @access private
-     */
-    private $_encoding;
-    /**
      * Subtype
      * @var string
      * @access private
@@ -144,7 +138,6 @@ class NOCC_MailReader {
         }
         
         $this->_type = $mailstructure->getType();
-        $this->_encoding = $mailstructure->getEncoding();
         $this->_subtype = $mailstructure->getSubtype();
         $this->_charset = $mailstructure->getCharset('ISO-8859-1');
         $this->_totalbytes = $mailstructure->getTotalBytes();
@@ -219,23 +212,7 @@ class NOCC_MailReader {
     public function getTypeText() {
         return NOCC_MailStructure::convertTypeToText($this->_type, 'text');
     }
-    
-    /**
-     * Get the body transfer encoding from the mail
-     * @return integer Body transfer encoding
-     */
-    public function getEncoding() {
-        return $this->_encoding;
-    }
-    
-    /**
-     * Get the body transfer encoding text from the mail
-     * @return string Body transfer encoding text
-     */
-    public function getEncodingText() {
-        return NOCC_MailStructure::convertEncodingToText($this->_encoding, 'none');
-    }
-    
+
     /**
      * Get the MIME subtype from the mail
      * @todo Really needed outside?
