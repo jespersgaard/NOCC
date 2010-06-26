@@ -51,23 +51,11 @@ class NOCC_MailReader {
      */
     private $_subtype;
     /**
-     * Description
-     * @var string
-     * @access private
-     */
-    private $_description;
-    /**
      * ID
      * @var integer
      * @access private
      */
     private $_id;
-    /**
-     * Disposition
-     * @var string
-     * @access private
-     */
-    private $_disposition;
     /**
      * Charset
      * @var string
@@ -163,9 +151,7 @@ class NOCC_MailReader {
         $this->_type = $mailstructure->getType();
         $this->_encoding = $mailstructure->getEncoding();
         $this->_subtype = $mailstructure->getSubtype();
-        $this->_description = $mailstructure->getDescription();
         $this->_id = $mailstructure->getId();
-        $this->_disposition = $mailstructure->getDisposition();
         $this->_charset = $mailstructure->getCharset('ISO-8859-1');
         $this->_totalbytes = $mailstructure->getTotalBytes();
         //--------------------------------------------------------------------------------
@@ -264,15 +250,7 @@ class NOCC_MailReader {
     public function getSubtype() {
         return $this->_subtype;
     }
-    
-    /**
-     * Get the content description from the mail
-     * @return string Content description
-     */
-    public function getDescription() {
-        return $this->_description;
-    }
-    
+
     /**
      * Get the identification from the mail
      * @return integer Identification
@@ -280,15 +258,7 @@ class NOCC_MailReader {
     public function getId() {
         return $this->_id;
     }
-    
-    /**
-     * Get the disposition from the mail
-     * @return string Disposition
-     */
-    public function getDisposition() {
-        return $this->_disposition;
-    }
-    
+
     /**
      * Get the charset from the mail
      * @return string Charset
