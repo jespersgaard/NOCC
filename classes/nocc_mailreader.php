@@ -26,13 +26,6 @@ require_once 'nocc_header.php';
  */
 class NOCC_MailReader {
     /**
-     * Mail structure
-     * @var NOCC_MailStructure
-     * @access private
-     */
-    private $_mailstructure;
-
-    /**
      * Mail parts
      * @var NOCC_MailParts
      * @access private
@@ -160,9 +153,7 @@ class NOCC_MailReader {
         //--------------------------------------------------------------------------------
         // Get values from structure...
         //--------------------------------------------------------------------------------
-        //TODO: Don't use local $mailstructure variable!?
         $mailstructure = $pop->fetchstructure($msgno);
-        $this->_mailstructure = $mailstructure;
         
         $this->_mailparts = null;
         if ($fullDetails == true) { //if read full details...
@@ -231,15 +222,6 @@ class NOCC_MailReader {
         return array();
     }
 
-    /**
-     * Get the structure from the mail
-     * @todo Drop property, if we included the functions GetPart() and GetSinglePart() to this class
-     * @return NOCC_MailStructure Mail structure
-     */
-    public function getMailStructure() {
-        return $this->_mailstructure;
-    }
-    
     /**
      * Get the primary body type from the mail
      * @todo Really needed outside?

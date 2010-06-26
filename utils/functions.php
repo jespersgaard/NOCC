@@ -155,9 +155,6 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
 
     fillAttachTabFromMailReader($mail_reader, $attach_tab);
 
-    // Get the MIME message structure
-    $mailstructure = $mail_reader->getMailStructure();
-
     // If we are showing all headers, gather them into a header array
     $header = '';
     if (($verbose == true) && ($conf->use_verbose == true)) {
