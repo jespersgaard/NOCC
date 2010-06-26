@@ -51,12 +51,6 @@ class NOCC_MailReader {
      */
     private $_subtype;
     /**
-     * ID
-     * @var integer
-     * @access private
-     */
-    private $_id;
-    /**
      * Charset
      * @var string
      * @access private
@@ -66,6 +60,7 @@ class NOCC_MailReader {
      * Total bytes
      * @var integer
      * @access private
+     * @todo Save direct the size value!
      */
     private $_totalbytes;
 
@@ -151,7 +146,6 @@ class NOCC_MailReader {
         $this->_type = $mailstructure->getType();
         $this->_encoding = $mailstructure->getEncoding();
         $this->_subtype = $mailstructure->getSubtype();
-        $this->_id = $mailstructure->getId();
         $this->_charset = $mailstructure->getCharset('ISO-8859-1');
         $this->_totalbytes = $mailstructure->getTotalBytes();
         //--------------------------------------------------------------------------------
@@ -249,14 +243,6 @@ class NOCC_MailReader {
      */
     public function getSubtype() {
         return $this->_subtype;
-    }
-
-    /**
-     * Get the identification from the mail
-     * @return integer Identification
-     */
-    public function getId() {
-        return $this->_id;
     }
 
     /**
