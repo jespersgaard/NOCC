@@ -157,6 +157,19 @@ class NOCC_MailStructure {
     }
     
     /**
+     * Get the size from the structure in kilobyte
+     * @return integer Size in kilobyte
+     */
+    public function getSize() {
+        $totalBytes = $this->getTotalBytes();
+
+        if ($totalBytes > 1024) { //if more then 1024 bytes...
+            return ceil($totalBytes / 1024);
+        }
+        return 1;
+    }
+    
+    /**
      * Get the disposition from the structure
      * @return string Disposition
      */

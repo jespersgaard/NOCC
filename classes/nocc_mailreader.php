@@ -141,7 +141,7 @@ class NOCC_MailReader {
         $this->_type = $mailstructure->getType();
         $this->_subtype = $mailstructure->getSubtype();
         $this->_charset = $mailstructure->getCharset('ISO-8859-1');
-        $this->_size = ($mailstructure->getTotalBytes() > 1024) ? ceil($mailstructure->getTotalBytes() / 1024) : 1;
+        $this->_size = $mailstructure->getSize();
         //--------------------------------------------------------------------------------
         
         //--------------------------------------------------------------------------------

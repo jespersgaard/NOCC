@@ -67,12 +67,7 @@ class NOCC_MailPart {
      * @return integer Size in kilobyte
      */
     public function getSize() {
-        $totalBytes = $this->partStructure->getTotalBytes();
-
-        if ($totalBytes > 1024) { //if more then 1024 bytes...
-            return ceil($totalBytes / 1024);
-        }
-        return 1;
+        return $this->partStructure->getSize();
     }
 }
 ?>
