@@ -36,12 +36,14 @@ class NOCC_MailReader {
      * Type
      * @var integer
      * @access private
+     * @todo Drop and save hasAttachment direct!
      */
     private $_type;
     /**
      * Subtype
      * @var string
      * @access private
+     * @todo Drop and save hasAttachment direct!
      */
     private $_subtype;
     /**
@@ -51,12 +53,11 @@ class NOCC_MailReader {
      */
     private $_charset;
     /**
-     * Total bytes
+     * Size in kilobyte
      * @var integer
      * @access private
-     * @todo Save direct the size value!
      */
-    private $_totalbytes;
+    private $_size;
 
     /**
      * Message ID
@@ -140,7 +141,7 @@ class NOCC_MailReader {
         $this->_type = $mailstructure->getType();
         $this->_subtype = $mailstructure->getSubtype();
         $this->_charset = $mailstructure->getCharset('ISO-8859-1');
-        $this->_totalbytes = $mailstructure->getTotalBytes();
+        $this->_size = ($mailstructure->getTotalBytes() > 1024) ? ceil($mailstructure->getTotalBytes() / 1024) : 1;
         //--------------------------------------------------------------------------------
         
         //--------------------------------------------------------------------------------
@@ -235,7 +236,7 @@ class NOCC_MailReader {
      * @return integer Size in kilobyte
      */
     public function getSize() {
-        return ($this->_totalbytes > 1024) ? ceil($this->_totalbytes / 1024) : 1;
+        return $this->_size;
     }
     
     /**
