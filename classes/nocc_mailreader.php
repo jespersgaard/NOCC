@@ -33,20 +33,6 @@ class NOCC_MailReader {
     private $_mailparts;
 
     /**
-     * Type
-     * @var integer
-     * @access private
-     * @todo Drop and save hasAttachment direct!
-     */
-    private $_type;
-    /**
-     * Subtype
-     * @var string
-     * @access private
-     * @todo Drop and save hasAttachment direct!
-     */
-    private $_subtype;
-    /**
      * Charset
      * @var string
      * @access private
@@ -143,9 +129,7 @@ class NOCC_MailReader {
         if ($fullDetails == true) { //if read full details...
             $this->_mailparts = new NOCC_MailParts($mailstructure);
         }
-        
-        $this->_type = $mailstructure->getType();
-        $this->_subtype = $mailstructure->getSubtype();
+
         $this->_charset = $mailstructure->getCharset('ISO-8859-1');
         $this->_size = $mailstructure->getSize();
 
@@ -207,33 +191,6 @@ class NOCC_MailReader {
             return $this->_mailparts->getAttachmentParts();
         }
         return array();
-    }
-
-    /**
-     * Get the primary body type from the mail
-     * @todo Really needed outside?
-     * @return integer Primary body type
-     */
-    public function getType() {
-        return $this->_type;
-    }
-    
-    /**
-     * Get the primary body type text from the mail
-     * @todo Really needed outside?
-     * @return string Primary body type text
-     */
-    public function getTypeText() {
-        return NOCC_MailStructure::convertTypeToText($this->_type, 'text');
-    }
-
-    /**
-     * Get the MIME subtype from the mail
-     * @todo Really needed outside?
-     * @return string MIME subtype
-     */
-    public function getSubtype() {
-        return $this->_subtype;
     }
 
     /**
