@@ -58,6 +58,12 @@ class NOCC_MailReader {
      * @access private
      */
     private $_size;
+    /**
+     * Has attachments?
+     * @var boolean
+     * @access private
+     */
+    private $_hasAttachments;
 
     /**
      * Message ID
@@ -142,6 +148,13 @@ class NOCC_MailReader {
         $this->_subtype = $mailstructure->getSubtype();
         $this->_charset = $mailstructure->getCharset('ISO-8859-1');
         $this->_size = $mailstructure->getSize();
+
+        $this->_hasAttachments = false;
+        if ($mailstructure->isMultipart() || $mailstructure->isApplication()) { //if "multipart" or "application" message...
+            if ($mailstructure->getSubtype() != 'ALTERNATIVE' && $mailstructure->getSubtype() != 'RELATED') {
+                $this->_hasAttachments = true;
+            }
+        }
         //--------------------------------------------------------------------------------
         
         //--------------------------------------------------------------------------------
@@ -244,12 +257,7 @@ class NOCC_MailReader {
      * @return boolean Has attachments?
      */
     public function hasAttachments() {
-        if ($this->_type == 1 || $this->_type == 3) { //if "multipart" or "application" message...
-            if ($this->_subtype != 'ALTERNATIVE' && $this->_subtype != 'RELATED') {
-                return true;
-            }
-        }
-        return false;
+        return $this->_hasAttachments;
     }
     
     /**
