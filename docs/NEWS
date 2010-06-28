@@ -1,6 +1,7 @@
 NOCC 1.9.0  ???? ??, ????
 
   Misc
+    * Add debug level for developers (Tim Gerundt).
     * Drop $conf->display_rfc822 (Tim Gerundt).
     * Fix a problem with mails that has no text but attachments (Tim Gerundt).
     * If hide addresses in inbox, hide double quotes too (Tim Gerundt).

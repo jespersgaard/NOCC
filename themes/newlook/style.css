@@ -737,3 +737,7 @@ hr.mailAttachSep {
   color: teal;
 }
 
+.debug {
+    font-family: monospace;
+    font-size: smaller;
+}

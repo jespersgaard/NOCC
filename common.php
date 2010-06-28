@@ -13,6 +13,11 @@
  * @version    SVN: $Id$
  */
 
+define('NOCC_DEBUG_LEVEL', 0);
+if (NOCC_DEBUG_LEVEL > 0) {
+    define('NOCC_START_TIME', microtime(true));
+}
+
 // Define variables
 if (!isset($from_rss)) { $from_rss=false; }
 
