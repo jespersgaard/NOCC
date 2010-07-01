@@ -352,6 +352,12 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'tr';
 $lang_array[$i]->label = 'Türkçe';
 
+// Ukrainian
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'uk';
+$lang_array[$i]->label = 'Українська';
+
 // Japanese
 $i++;
 $lang_array[$i] = new lang();
