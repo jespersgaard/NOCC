@@ -136,14 +136,18 @@ class nocc_imap
         }
     }
 
-    public function headerinfo($msgnum, &$ev) {
-        $headers = imap_headerinfo($this->conn, $msgnum, $ev);
-        if (NoccException::isException($ev)) return;
-        if (!is_object($headers)) {
-            $ev = new NoccException("Could not get header info: ".imap_last_error());
-            return;
+    /**
+     * Get header info
+     * @param integer $msgnum Message number
+     * @param string $defaultcharset Default charset
+     * @return NOCC_HeaderInfo Header info
+     */
+    public function headerinfo($msgnum, $defaultcharset = 'ISO-8859-1') {
+        $headerinfo = @imap_headerinfo($this->conn, $msgnum);
+        if (!is_object($headerinfo)) {
+            throw new Exception('imap_headerinfo() did not return an object.');
         }
-        return $headers;
+        return new NOCC_HeaderInfo($headerinfo, $defaultcharset);
     }
 
     // From what I can find, this will not work on Cyrus imap servers .

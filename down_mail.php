@@ -31,9 +31,15 @@ if (NoccException::isException($ev)) {
     return;
 }
 
-$headerinfo = $pop->headerinfo($mail, $ev);
-$mailheaderinfo = new NOCC_HeaderInfo($headerinfo);
-$subject = $mailheaderinfo->getSubject();
+$subject = '';
+//TODO: Remove later try/catch block!
+try {
+    $mailheaderinfo = $pop->headerinfo($mail, $ev);
+    $subject = $mailheaderinfo->getSubject();
+}
+catch (Exception $ex) {
+    $ev = new NoccException($ex->getMessage());
+}
 
 $part = '';
 $file = $pop->fetchbody($mail, $part, $ev);

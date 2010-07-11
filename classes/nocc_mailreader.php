@@ -144,8 +144,7 @@ class NOCC_MailReader {
         //--------------------------------------------------------------------------------
         // Get values from header info...
         //--------------------------------------------------------------------------------
-        $headerinfo = $pop->headerinfo($msgno, $ev);
-        $mailheaderinfo = new NOCC_HeaderInfo($headerinfo, $this->_charset);
+        $mailheaderinfo = $pop->headerinfo($msgno, $this->_charset);
         
         $this->_messageid = $mailheaderinfo->getMessageId();
         $this->_subject = $mailheaderinfo->getSubject();
@@ -166,6 +165,7 @@ class NOCC_MailReader {
         //--------------------------------------------------------------------------------
         // Get header...
         //--------------------------------------------------------------------------------
+        //TODO: Drop $ev!
         $header = $pop->fetchheader($msgno, $ev);
         $this->_header = new NOCC_Header($header);
         //--------------------------------------------------------------------------------
