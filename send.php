@@ -187,25 +187,13 @@ switch ($_REQUEST['sendaction']) {
                     break;
                 }
 
-                // Rebuild original message from headers and body
-                $origmsg = "";
-                $headers = $pop->fetchheader($forward_msgnum, $ev);
+                $origmsg = $pop->fetchbody($forward_msgnum, '', $ev);
                 if (NoccException::isException($ev)) {
                     require './html/header.php';
                     require './html/error.php';
                     require './html/footer.php';
                     break;
                 }
-                $body = $pop->body($forward_msgnum, $ev);
-                if (NoccException::isException($ev)) {
-                    require './html/header.php';
-                    require './html/error.php';
-                    require './html/footer.php';
-                    break;
-                }
-                $origmsg .= $headers;
-                $origmsg .= $conf->crlf;
-                $origmsg .= $body;
 
                 // Attach it
                 if (count($mail_list) == 1) {

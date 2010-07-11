@@ -105,12 +105,15 @@ class nocc_imap
         return imap_fetchheader($this->conn, $msgnum);
     }
 
+    /**
+     * Fetch body
+     * @param integer $msgnum Message number
+     * @param string $partnum Part number
+     * @param object $ev Execption
+     * @return string Body
+     */
     public function fetchbody($msgnum, $partnum, &$ev) {
         return imap_fetchbody($this->conn, $msgnum, $partnum);
-    }
-
-    public function body($msgnum, &$ev) {
-        return imap_body($this->conn, $msgnum);
     }
 
     public function num_msg() {
