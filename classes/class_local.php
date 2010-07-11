@@ -18,6 +18,9 @@
  * @version    SVN: $Id$
  */
 
+require_once 'nocc_mailstructure.php';
+require_once 'nocc_headerinfo.php';
+require_once 'nocc_header.php';
 require_once 'exception.php';
 require_once './utils/detect_cyr_charset.php';
 require_once './utils/crypt.php';
@@ -101,8 +104,15 @@ class nocc_imap
         return new NOCC_MailStructure($structure);
     }
 
-    public function fetchheader($msgnum, &$ev) {
-        return imap_fetchheader($this->conn, $msgnum);
+    /**
+     * Fetch header
+     * @param integer $msgnum Message number
+     * @return NOCC_Header Header
+     * @todo Throw exceptions?
+     */
+    public function fetchheader($msgnum) {
+        $header = imap_fetchheader($this->conn, $msgnum);
+        return new NOCC_Header($header);
     }
 
     /**
@@ -110,6 +120,7 @@ class nocc_imap
      * @param integer $msgnum Message number
      * @param string $partnum Part number
      * @return string Body
+     * @todo Throw exceptions?
      */
     public function fetchbody($msgnum, $partnum) {
         return @imap_fetchbody($this->conn, $msgnum, $partnum);
@@ -119,6 +130,7 @@ class nocc_imap
      * Fetch the entire message
      * @param integer $msgnum Message number
      * @return string Message
+     * @todo Throw exceptions?
      */
     public function fetchmessage($msgnum) {
         return @imap_fetchbody($this->conn, $msgnum, '');
