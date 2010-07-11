@@ -115,6 +115,15 @@ class nocc_imap
         return @imap_fetchbody($this->conn, $msgnum, $partnum);
     }
 
+    /**
+     * Fetch the entire message
+     * @param integer $msgnum Message number
+     * @return string Message
+     */
+    public function fetchmessage($msgnum) {
+        return @imap_fetchbody($this->conn, $msgnum, '');
+    }
+
     public function num_msg() {
         return imap_num_msg($this->conn);
     }

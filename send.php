@@ -187,7 +187,7 @@ switch ($_REQUEST['sendaction']) {
                     break;
                 }
 
-                $origmsg = $pop->fetchbody($forward_msgnum, '');
+                $origmsg = $pop->fetchmessage($forward_msgnum);
 
                 // Attach it
                 if (count($mail_list) == 1) {
