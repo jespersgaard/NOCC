@@ -187,13 +187,7 @@ switch ($_REQUEST['sendaction']) {
                     break;
                 }
 
-                $origmsg = $pop->fetchbody($forward_msgnum, '', $ev);
-                if (NoccException::isException($ev)) {
-                    require './html/header.php';
-                    require './html/error.php';
-                    require './html/footer.php';
-                    break;
-                }
+                $origmsg = $pop->fetchbody($forward_msgnum, '');
 
                 // Attach it
                 if (count($mail_list) == 1) {

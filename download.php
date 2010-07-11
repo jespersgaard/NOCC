@@ -70,13 +70,7 @@ if ($isIE && !$isIE6) {
     header("Content-Type: application/octet-stream; name=\"$filename\"");
 }
 
-$file = $pop->fetchbody($mail, $part, $ev);
-if (NoccException::isException($ev)) {
-    require './html/header.php';
-    require './html/error.php';
-    require './html/footer.php';
-    return;
-}
+$file = $pop->fetchbody($mail, $part);
 
 $file = nocc_imap::decode($file, $transfer);
 

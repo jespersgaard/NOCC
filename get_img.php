@@ -30,13 +30,7 @@ $num = $_REQUEST['num'];
 $transfer = $_REQUEST['transfer'];
 $mime = $_REQUEST['mime'];
 
-$img = $pop->fetchbody($mail, $num, $ev);
-if (NoccException::isException($ev)) {
-    require './html/header.php';
-    require './html/error.php';
-    require './html/footer.php';
-    return;
-}
+$img = $pop->fetchbody($mail, $num);
 
 $img = nocc_imap::decode($img, $transfer);
 $pop->close();

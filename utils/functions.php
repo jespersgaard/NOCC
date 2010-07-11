@@ -164,8 +164,7 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     // Get the first part
     $tmp = convertBodyPartToAttachTab($mail_reader->getBodyPart());
     if (!empty($tmp)) { //if has body...
-        $body = $pop->fetchbody($mail, $tmp['number'], $ev);
-        if(NoccException::isException($ev)) return;
+        $body = $pop->fetchbody($mail, $tmp['number']);
 
         $body = nocc_imap::decode($body, $tmp['transfer']);
         $body = remove_stuff($body, $tmp['mime']);
@@ -541,10 +540,7 @@ function view_part(&$pop, &$mail, $part_no, $transfer, $msg_charset) {
     if (isset($ev) && NoccException::isException($ev)) {
         return '<p class="error">' . $ev->getMessage . '</p>';
     }
-    $text = $pop->fetchbody($mail, $part_no, $ev);
-    if (NoccException::isException($ev)) {
-        return '<p class="error">' . $ev->getMessage . '</p>';
-    }
+    $text = $pop->fetchbody($mail, $part_no);
     return nl2br(htmlspecialchars(nocc_imap::decode($text, $transfer)));
 }
 

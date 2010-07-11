@@ -109,11 +109,10 @@ class nocc_imap
      * Fetch body
      * @param integer $msgnum Message number
      * @param string $partnum Part number
-     * @param object $ev Execption
      * @return string Body
      */
-    public function fetchbody($msgnum, $partnum, &$ev) {
-        return imap_fetchbody($this->conn, $msgnum, $partnum);
+    public function fetchbody($msgnum, $partnum) {
+        return @imap_fetchbody($this->conn, $msgnum, $partnum);
     }
 
     public function num_msg() {

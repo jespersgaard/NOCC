@@ -41,8 +41,7 @@ catch (Exception $ex) {
     $ev = new NoccException($ex->getMessage());
 }
 
-$part = '';
-$file = $pop->fetchbody($mail, $part, $ev);
+$file = $pop->fetchbody($mail, '');
 $pop->close();
 
 $filename = ($subject) ? preg_replace('{[\[\]\\/:\*\?"<>\|;]}', '_', str_replace('&nbsp;', ' ', $subject)) . ".eml" : "no_subject.eml";
