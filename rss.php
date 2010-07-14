@@ -53,7 +53,7 @@
   require_once './classes/nocc_rssfeed.php';
 
 try {
-    $pop = new nocc_imap(null, true);
+    $pop = new nocc_imap();
 }
 catch (Exception $ex) {
     //TODO: Show error without NoccException!

@@ -257,7 +257,7 @@ class mime_mail {
                 // Copy email to Sent folder
                 //TODO: Optimize try block!
                 try {
-                    $pop = new nocc_imap(null, true);
+                    $pop = new nocc_imap();
                 }
                 catch (Exception $ex) {
                     $ev = new NoccException($ex->getMessage());
@@ -295,7 +295,7 @@ class mime_mail {
                     // Copy email to Sent folder
                     //TODO: Optimize try block!
                     try {
-                        $pop = new nocc_imap(null, true);
+                        $pop = new nocc_imap();
                     }
                     catch (Exception $ex) {
                         $ev = new NoccException($ex->getMessage());

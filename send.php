@@ -180,7 +180,7 @@ switch ($_REQUEST['sendaction']) {
                 $forward_msgnum = $mail_list[$msg_num];
                 $ev = "";
                 try {
-                    $pop = new nocc_imap(null, true);
+                    $pop = new nocc_imap();
                 }
                 catch (Exception $ex) {
                     //TODO: Show error without NoccException!

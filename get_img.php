@@ -17,7 +17,7 @@
 require_once './common.php';
 
 try {
-    $pop = new nocc_imap(null, true);
+    $pop = new nocc_imap();
 
     $mail = $_REQUEST['mail'];
     $num = $_REQUEST['num'];

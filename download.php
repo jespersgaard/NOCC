@@ -21,7 +21,7 @@ require_once './common.php';
 require_once './classes/class_local.php';
 
 try {
-    $pop = new nocc_imap(null, true);
+    $pop = new nocc_imap();
 
     $mime = $_REQUEST['mime'];
     $filename = $_REQUEST['filename'];

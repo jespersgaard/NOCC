@@ -20,7 +20,7 @@ require_once './classes/class_local.php';
 
 $ev = "";
 try {
-    $pop = new nocc_imap(null, true);
+    $pop = new nocc_imap();
 }
 catch (Exception $ex) {
     //TODO: Show error without NoccException!

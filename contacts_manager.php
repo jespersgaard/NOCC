@@ -22,7 +22,7 @@ require_once './utils/proxy.php';
 header("Content-type: text/html; Charset=UTF-8");
 
 try {
-  $pop = new nocc_imap(null, true);
+  $pop = new nocc_imap();
 }
 catch (Exception $ex) {
   //TODO: Show error without NoccException!

@@ -31,7 +31,7 @@ if(isset($_REQUEST['remember']))
 if (!isset($_REQUEST['sort'])) {
     if (NOCC_Session::getQuotaEnable() == true) {
         try {
-            $pop = new nocc_imap(null, true);
+            $pop = new nocc_imap();
         }
         catch (Exception $ex) {
             //TODO: Show error without NoccException!
@@ -57,7 +57,7 @@ switch($action) {
     //--------------------------------------------------------------------------------
     case 'aff_mail':
         try {
-            $pop = new nocc_imap(null, true);
+            $pop = new nocc_imap();
         }
         catch (Exception $ex) {
             //TODO: Show error without NoccException!
@@ -154,7 +154,7 @@ switch($action) {
             $mail_to = $_REQUEST['mail_to'];
         }
         try {
-            $pop = new nocc_imap(null, true);
+            $pop = new nocc_imap();
         }
         catch (Exception $ex) {
             //TODO: Show error without NoccException!
@@ -182,7 +182,7 @@ switch($action) {
         $attach_tab = array();
 
         try {
-            $pop = new nocc_imap(null, true);
+            $pop = new nocc_imap();
         }
         catch (Exception $ex) {
             //TODO: Show error without NoccException!
@@ -230,7 +230,7 @@ switch($action) {
         $attach_tab = array();
 
         try {
-            $pop = new nocc_imap(null, true);
+            $pop = new nocc_imap();
         }
         catch (Exception $ex) {
             //TODO: Show error without NoccException!
@@ -278,7 +278,7 @@ switch($action) {
         $attach_tab = array();
 
         try {
-            $pop = new nocc_imap(null, true);
+            $pop = new nocc_imap();
         }
         catch (Exception $ex) {
             //TODO: Show error without NoccException!
@@ -343,7 +343,7 @@ switch($action) {
     //--------------------------------------------------------------------------------
     case 'managefolders':
         try {
-            $pop = new nocc_imap(null, true);
+            $pop = new nocc_imap();
         }
         catch (Exception $ex) {
             //TODO: Show error without NoccException!
@@ -422,7 +422,7 @@ switch($action) {
     //--------------------------------------------------------------------------------
     case 'managefilters':
         try {
-            $pop = new nocc_imap(null, true);
+            $pop = new nocc_imap();
         }
         catch (Exception $ex) {
             //TODO: Show error without NoccException!
@@ -519,7 +519,7 @@ switch($action) {
     //--------------------------------------------------------------------------------
     case 'setprefs':
         try {
-            $pop = new nocc_imap(null, true);
+            $pop = new nocc_imap();
         }
         catch (Exception $ex) {
             //TODO: Show error without NoccException!
@@ -609,7 +609,7 @@ switch($action) {
     default:
         //TODO: Optimize try block!
         try {
-            $pop = new nocc_imap(null, true);
+            $pop = new nocc_imap();
         }
         catch (Exception $ex) {
             $ev = new NoccException($ex->getMessage());

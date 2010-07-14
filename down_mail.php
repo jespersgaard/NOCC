@@ -23,7 +23,7 @@ require_once './classes/class_local.php';
 $mail = $_REQUEST['mail'];
 
 try {
-    $pop = new nocc_imap(null, true);
+    $pop = new nocc_imap();
 
     $mailheaderinfo = $pop->headerinfo($mail, $ev);
     $subject = $mailheaderinfo->getSubject();
