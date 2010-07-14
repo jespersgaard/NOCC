@@ -30,8 +30,12 @@ if(isset($_REQUEST['remember']))
 // Refresh quota usage
 if (!isset($_REQUEST['sort'])) {
     if (NOCC_Session::getQuotaEnable() == true) {
-        $pop = new nocc_imap($ev);
-        if (NoccException::isException($ev)) {
+        try {
+            $pop = new nocc_imap(null, true);
+        }
+        catch (Exception $ex) {
+            //TODO: Show error without NoccException!
+            $ev = new NoccException($ex->getMessage());
             require './html/header.php';
             require './html/error.php';
             require './html/footer.php';
@@ -52,8 +56,12 @@ switch($action) {
     // Display a mail...
     //--------------------------------------------------------------------------------
     case 'aff_mail':
-        $pop = new nocc_imap($ev);
-        if (NoccException::isException($ev)) {
+        try {
+            $pop = new nocc_imap(null, true);
+        }
+        catch (Exception $ex) {
+            //TODO: Show error without NoccException!
+            $ev = new NoccException($ex->getMessage());
             require './html/header.php';
             require './html/error.php';
             require './html/footer.php';
@@ -145,8 +153,12 @@ switch($action) {
         if (isset($_REQUEST['mail_to']) && $_REQUEST['mail_to'] != "") {
             $mail_to = $_REQUEST['mail_to'];
         }
-        $pop = new nocc_imap($ev);
-        if (NoccException::isException($ev)) {
+        try {
+            $pop = new nocc_imap(null, true);
+        }
+        catch (Exception $ex) {
+            //TODO: Show error without NoccException!
+            $ev = new NoccException($ex->getMessage());
             require './html/header.php';
             require './html/error.php';
             require './html/footer.php';
@@ -169,8 +181,12 @@ switch($action) {
     case 'reply':
         $attach_tab = array();
 
-        $pop = new nocc_imap($ev);
-        if (NoccException::isException($ev)) {
+        try {
+            $pop = new nocc_imap(null, true);
+        }
+        catch (Exception $ex) {
+            //TODO: Show error without NoccException!
+            $ev = new NoccException($ex->getMessage());
             require './html/header.php';
             require './html/error.php';
             require './html/footer.php';
@@ -213,8 +229,12 @@ switch($action) {
     case 'reply_all':
         $attach_tab = array();
 
-        $pop = new nocc_imap($ev);
-        if (NoccException::isException($ev)) {
+        try {
+            $pop = new nocc_imap(null, true);
+        }
+        catch (Exception $ex) {
+            //TODO: Show error without NoccException!
+            $ev = new NoccException($ex->getMessage());
             require './html/header.php';
             require './html/error.php';
             require './html/footer.php';
@@ -257,8 +277,12 @@ switch($action) {
     case 'forward':
         $attach_tab = array();
 
-        $pop = new nocc_imap($ev);
-        if (NoccException::isException($ev)) {
+        try {
+            $pop = new nocc_imap(null, true);
+        }
+        catch (Exception $ex) {
+            //TODO: Show error without NoccException!
+            $ev = new NoccException($ex->getMessage());
             require './html/header.php';
             require './html/error.php';
             require './html/footer.php';
@@ -318,8 +342,12 @@ switch($action) {
     // Manage folders...
     //--------------------------------------------------------------------------------
     case 'managefolders':
-        $pop = new nocc_imap($ev);
-        if (NoccException::isException($ev)) {
+        try {
+            $pop = new nocc_imap(null, true);
+        }
+        catch (Exception $ex) {
+            //TODO: Show error without NoccException!
+            $ev = new NoccException($ex->getMessage());
             require './html/header.php';
             require './html/error.php';
             require './html/footer.php';
@@ -393,8 +421,12 @@ switch($action) {
     // Manage filters...
     //--------------------------------------------------------------------------------
     case 'managefilters':
-        $pop = new nocc_imap($ev);
-        if (NoccException::isException($ev)) {
+        try {
+            $pop = new nocc_imap(null, true);
+        }
+        catch (Exception $ex) {
+            //TODO: Show error without NoccException!
+            $ev = new NoccException($ex->getMessage());
             require './html/header.php';
             require './html/error.php';
             require './html/footer.php';
@@ -486,8 +518,12 @@ switch($action) {
     // Set preferences...
     //--------------------------------------------------------------------------------
     case 'setprefs':
-        $pop = new nocc_imap($ev);
-        if (NoccException::isException($ev)) {
+        try {
+            $pop = new nocc_imap(null, true);
+        }
+        catch (Exception $ex) {
+            //TODO: Show error without NoccException!
+            $ev = new NoccException($ex->getMessage());
             require './html/header.php';
             require './html/error.php)';
             require './html/footer.php';
