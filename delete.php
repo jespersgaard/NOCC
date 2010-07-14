@@ -19,8 +19,12 @@ require_once './common.php';
 require_once './classes/class_local.php';
 
 $ev = "";
-$pop = new nocc_imap($ev);
-if (NoccException::isException($ev)) {
+try {
+    $pop = new nocc_imap(null, true);
+}
+catch (Exception $ex) {
+    //TODO: Show error without NoccException!
+    $ev = new NoccException($ex->getMessage());
     require './html/header.php';
     require './html/error.php';
     require './html/footer.php';

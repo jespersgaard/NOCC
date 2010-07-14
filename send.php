@@ -179,8 +179,12 @@ switch ($_REQUEST['sendaction']) {
             for ($msg_num = 0; $msg_num < count($mail_list); $msg_num++) {
                 $forward_msgnum = $mail_list[$msg_num];
                 $ev = "";
-                $pop = new nocc_imap($ev);
-                if (NoccException::isException($ev)) {
+                try {
+                    $pop = new nocc_imap(null, true);
+                }
+                catch (Exception $ex) {
+                    //TODO: Show error without NoccException!
+                    $ev = new NoccException($ex->getMessage());
                     require './html/header.php';
                     require './html/error.php';
                     require './html/footer.php';

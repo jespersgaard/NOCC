@@ -52,8 +52,12 @@
   require_once './classes/class_local.php';
   require_once './classes/nocc_rssfeed.php';
 
-  $pop = new nocc_imap($ev);
-  if (NoccException::isException($ev)) {
+try {
+    $pop = new nocc_imap(null, true);
+}
+catch (Exception $ex) {
+    //TODO: Show error without NoccException!
+    $ev = new NoccException($ex->getMessage());
     require './html/error.php';
     exit;
   }
