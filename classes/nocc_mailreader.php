@@ -13,6 +13,7 @@
  * @version    SVN: $Id$
  */
 
+require_once 'class_local.php';
 require_once 'nocc_mailstructure.php';
 require_once 'nocc_mailpart.php';
 require_once 'nocc_mailparts.php';

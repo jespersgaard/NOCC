@@ -16,25 +16,28 @@
 
 require_once './common.php';
 
-$ev = "";
-$pop = new nocc_imap($ev);
-if (NoccException::isException($ev)) {
+try {
+    $pop = new nocc_imap(null, true);
+
+    $mail = $_REQUEST['mail'];
+    $num = $_REQUEST['num'];
+    $transfer = $_REQUEST['transfer'];
+    $mime = $_REQUEST['mime'];
+
+    $img = $pop->fetchbody($mail, $num);
+
+    $img = nocc_imap::decode($img, $transfer);
+    $pop->close();
+
+    header('Content-type: image/'.$mime);
+    echo $img;
+}
+catch (Exception $ex) {
+    //TODO: Show error without NoccException!
+    $ev = new NoccException($ex->getMessage());
     require './html/header.php';
     require './html/error.php';
     require './html/footer.php';
     return;
 }
-
-$mail = $_REQUEST['mail'];
-$num = $_REQUEST['num'];
-$transfer = $_REQUEST['transfer'];
-$mime = $_REQUEST['mime'];
-
-$img = $pop->fetchbody($mail, $num);
-
-$img = nocc_imap::decode($img, $transfer);
-$pop->close();
-
-header('Content-type: image/'.$mime);
-echo $img;
 ?>

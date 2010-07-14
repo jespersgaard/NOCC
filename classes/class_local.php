@@ -42,14 +42,27 @@ class nocc_imap
     public $folder;
     private $namespace;
 
-    // constructor        
-    public function __construct(&$ev)
-    {
+    /**
+     * ...
+     * @global object $conf
+     * @global string $lang_could_not_connect
+     * @param NoccException $ev Exception
+     * @param bool $throwEx Throw exception?
+     * @return nocc_imap Me!
+     * @todo Drop $ev!
+     */
+    public function __construct(&$ev, $throwEx = false) {
         global $conf;
         global $lang_could_not_connect;
+
         if (!isset($_SESSION['nocc_servr']) || !isset($_SESSION['nocc_folder']) || !isset($_SESSION['nocc_login']) || !isset($_SESSION['nocc_passwd'])) {
-        $ev = new NoccException($lang_could_not_connect);
-            return;
+            if ($throwEx) { //if throw exception...
+                throw new Exception($lang_could_not_connect);
+            }
+            else  { //if NOT throw exception...
+                $ev = new NoccException($lang_could_not_connect);
+                return;
+            }
         }
 
         $this->server = $_SESSION['nocc_servr'];
@@ -62,8 +75,13 @@ class nocc_imap
         // $ev is set if there is a problem with the connection
         $conn = @imap_open('{'.$this->server.'}'.$this->folder, $this->login, $this->passwd, 0);
         if (!$conn) {
-            $ev = new NoccException($lang_could_not_connect.": ".imap_last_error());
-            return;
+            if ($throwEx) { //if throw exception...
+                throw new Exception($lang_could_not_connect.": ".imap_last_error());
+            }
+            else { //if NOT throw exception...
+                $ev = new NoccException($lang_could_not_connect.": ".imap_last_error());
+                return;
+            }
         }
         $this->conn = $conn;
 
