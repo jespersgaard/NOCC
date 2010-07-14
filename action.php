@@ -607,7 +607,13 @@ switch($action) {
     // Login...
     //--------------------------------------------------------------------------------
     default:
-        $pop = new nocc_imap($ev);
+        //TODO: Optimize try block!
+        try {
+            $pop = new nocc_imap(null, true);
+        }
+        catch (Exception $ex) {
+            $ev = new NoccException($ex->getMessage());
+        }
 
         if (NoccException::isException($ev)) {
             if ($action == 'login' || $action == 'cookie') {

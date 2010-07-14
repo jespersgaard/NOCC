@@ -255,8 +255,12 @@ class mime_mail {
             $user_prefs = $_SESSION['nocc_user_prefs'];
             if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder && isset($user_prefs->sent_folder_name) && $user_prefs->sent_folder_name !=null && $user_prefs->sent_folder_name != "") {
                 // Copy email to Sent folder
-                $pop = new nocc_imap($ev);
-                if (NoccException::isException($ev)) {
+                //TODO: Optimize try block!
+                try {
+                    $pop = new nocc_imap(null, true);
+                }
+                catch (Exception $ex) {
+                    $ev = new NoccException($ex->getMessage());
                     return($ev);
                 }
                 if ($pop->is_imap()) {
@@ -289,8 +293,12 @@ class mime_mail {
                 $user_prefs = $_SESSION['nocc_user_prefs'];
                 if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder && isset($user_prefs->sent_folder_name) && $user_prefs->sent_folder_name !=null && $user_prefs->sent_folder_name != "") {
                     // Copy email to Sent folder
-                    $pop = new nocc_imap($ev);
-                    if (NoccException::isException($ev)) {
+                    //TODO: Optimize try block!
+                    try {
+                        $pop = new nocc_imap(null, true);
+                    }
+                    catch (Exception $ex) {
+                        $ev = new NoccException($ex->getMessage());
                         return($ev);
                     }
                     if ($pop->is_imap()) {
