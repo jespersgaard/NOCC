@@ -148,7 +148,14 @@ class nocc_imap
         return imap_msgno($this->conn, $msgnum);
     }
 
-    public function sort($sort, $sortdir, &$ev, $useuid) {
+    /**
+     * ...
+     * @param string $sort Sort criteria
+     * @param integer $sortdir Sort direction
+     * @param boolean $useuid Use ID?
+     * @return array Sorted message list
+     */
+    public function sort($sort, $sortdir, $useuid) {
         switch($sort) {
             case '1': $imapsort = SORTFROM; break;
             case '2': $imapsort = SORTTO; break;
@@ -157,10 +164,14 @@ class nocc_imap
             case '5': $imapsort = SORTSIZE; break;
         }
         if ($useuid) {
-            return imap_sort($this->conn, $imapsort, $sortdir, SE_UID|SE_NOPREFETCH);
+            $sorted = imap_sort($this->conn, $imapsort, $sortdir, SE_UID|SE_NOPREFETCH);
         } else {
-            return imap_sort($this->conn, $imapsort, $sortdir, SE_NOPREFETCH);
+            $sorted = imap_sort($this->conn, $imapsort, $sortdir, SE_NOPREFETCH);
         }
+        if (!is_array($sorted)) {
+            throw new Exception('imap_sort() did not return an array.');
+        }
+        return $sorted;
     }
 
     /**

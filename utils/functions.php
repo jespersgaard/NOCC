@@ -42,10 +42,7 @@ function inbox(&$pop, $skip = 0) {
     $start_msg = $skip * $per_page;
     $end_msg = $start_msg + $per_page;
 
-    $sorted = $pop->sort($sort, $sortdir, $ev, true);
-    if (NoccException::isException($ev)) {
-        throw new Exception($ev->getMessage());
-    }
+    $sorted = $pop->sort($sort, $sortdir, true);
 
     $end_msg = ($num_msg > $end_msg) ? $end_msg : $num_msg;
     if ($start_msg > $num_msg) {
@@ -124,12 +121,7 @@ function aff_mail(&$pop, &$attach_tab, $mail, $verbose) {
 
     // Get message numbers in sorted order
     // Do not use message UID, in order to get correct messages number with IMAP connexion
-    //TODO: Drop $ev!
-    $ev = '';
-    $sorted = $pop->sort($sort, $sortdir, $ev, false);
-    if(NoccException::isException($ev)) {
-        throw new NoccException($ex->getMessage());
-    }
+    $sorted = $pop->sort($sort, $sortdir, false);
 
     // Finding the next and previous message number
     $prev_msg = $next_msg = 0;
