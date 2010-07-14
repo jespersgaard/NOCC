@@ -85,26 +85,31 @@ catch (Exception $ex) {
   $rssfeed->setLink($conf->base_url);
   while ($tmp = array_shift($tab_mail)) { //for all mails...
     $attach_tab = array();
-    $content = @aff_mail($pop, $attach_tab, $tmp['number'], 0, $ev);
+    try {
+        $content = aff_mail($pop, $attach_tab, $tmp['number'], false);
 
-    $mail_summery = '';
-    if ($tmp['attach'] == true) { //if has attachments...
-      $mail_summery .= '<img src="' . $conf->base_url . 'themes/' . $_SESSION['nocc_theme'] . '/img/attach.png" alt="" />';
+        $mail_summery = '';
+        if ($tmp['attach'] == true) { //if has attachments...
+          $mail_summery .= '<img src="' . $conf->base_url . 'themes/' . $_SESSION['nocc_theme'] . '/img/attach.png" alt="" />';
+        }
+        $mail_summery .= $html_size . ': ' . $tmp['size'] . ' ' . $html_kb . '<br /><br />';
+
+        $rssDescription = $mail_summery . substr(strip_tags($content['body'], '<br />'), 0, 200) . '&hellip;';
+
+        $rssContent = $mail_summery . $content['body'];
+
+        $rssfeeditem = new NOCC_RssFeed_Item();
+        $rssfeeditem->setTitle(htmlspecialchars($tmp['subject']));
+        $rssfeeditem->setDescription($rssDescription);
+        $rssfeeditem->setTimestamp($content['timestamp']);
+        $rssfeeditem->setContent($rssContent);
+        $rssfeeditem->setLink($conf->base_url . 'action.php?action=aff_mail&amp;mail=' . $tmp['number'] . '&amp;verbose=0&amp;rss=true');
+        $rssfeeditem->setCreator(htmlspecialchars($tmp['from']));
+        $rssfeed->addItem($rssfeeditem);
     }
-    $mail_summery .= $html_size . ': ' . $tmp['size'] . ' ' . $html_kb . '<br /><br />';
-
-    $rssDescription = $mail_summery . substr(strip_tags($content['body'], '<br />'), 0, 200) . '&hellip;';
-
-    $rssContent = $mail_summery . $content['body'];
-
-    $rssfeeditem = new NOCC_RssFeed_Item();
-    $rssfeeditem->setTitle(htmlspecialchars($tmp['subject']));
-    $rssfeeditem->setDescription($rssDescription);
-    $rssfeeditem->setTimestamp($content['timestamp']);
-    $rssfeeditem->setContent($rssContent);
-    $rssfeeditem->setLink($conf->base_url . 'action.php?action=aff_mail&amp;mail=' . $tmp['number'] . '&amp;verbose=0&amp;rss=true');
-    $rssfeeditem->setCreator(htmlspecialchars($tmp['from']));
-    $rssfeed->addItem($rssfeeditem);
+    catch (Exception $ex) {
+        //Do nothing!
+    }
   }
   $rssfeed->sendToBrowser();
 ?>

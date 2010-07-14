@@ -104,11 +104,10 @@ function inbox(&$pop, $skip = 0) {
  * @param array $attach_tab
  * @param int $mail
  * @param bool $verbose
- * @param object $ev
  * @return array
  * @todo Rename!
  */
-function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
+function aff_mail(&$pop, &$attach_tab, $mail, $verbose) {
     global $conf;
     global $html_att_label, $html_atts_label;
     global $lang_invalid_msg_num;
@@ -125,8 +124,12 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
 
     // Get message numbers in sorted order
     // Do not use message UID, in order to get correct messages number with IMAP connexion
+    //TODO: Drop $ev!
+    $ev = '';
     $sorted = $pop->sort($sort, $sortdir, $ev, false);
-    if(NoccException::isException($ev)) return;
+    if(NoccException::isException($ev)) {
+        throw new NoccException($ex->getMessage());
+    }
 
     // Finding the next and previous message number
     $prev_msg = $next_msg = 0;
@@ -140,18 +143,10 @@ function aff_mail(&$pop, &$attach_tab, &$mail, $verbose, &$ev) {
     }
 
     if (!$msg_found) {
-        $ev = new NoccException($lang_invalid_msg_num);
-        return;
+        throw new Exception($lang_invalid_msg_num);
     }
 
-    //TODO: Remove later try/catch block!
-    try {
-        $mail_reader = new NOCC_MailReader($mail, $pop, true);
-    }
-    catch (Exception $ex) {
-        $ev = new NoccException($ex->getMessage());
-        return;
-    }
+    $mail_reader = new NOCC_MailReader($mail, $pop, true);
 
     fillAttachTabFromMailReader($mail_reader, $attach_tab);
 

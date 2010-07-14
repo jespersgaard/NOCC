@@ -58,6 +58,9 @@ switch($action) {
     case 'aff_mail':
         try {
             $pop = new nocc_imap();
+
+            $attach_tab = array();
+            $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], NOCC_Request::getBoolValue('verbose'));
         }
         catch (Exception $ex) {
             //TODO: Show error without NoccException!
@@ -68,8 +71,6 @@ switch($action) {
             break;
         }
 
-        $attach_tab = array();
-        $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], NOCC_Request::getBoolValue('verbose'), $ev);
         // Display or hide distant HTML images
         if (!NOCC_Request::getBoolValue('display_images')) {
             $content['body'] = NOCC_Security::disableHtmlImages($content['body']);
@@ -183,18 +184,12 @@ switch($action) {
 
         try {
             $pop = new nocc_imap();
+
+            $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], NOCC_Request::getBoolValue('verbose'));
         }
         catch (Exception $ex) {
             //TODO: Show error without NoccException!
             $ev = new NoccException($ex->getMessage());
-            require './html/header.php';
-            require './html/error.php';
-            require './html/footer.php';
-            break;
-        }
-
-        $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], NOCC_Request::getBoolValue('verbose'), $ev);
-        if (NoccException::isException($ev)) {
             require './html/header.php';
             require './html/error.php';
             require './html/footer.php';
@@ -231,6 +226,8 @@ switch($action) {
 
         try {
             $pop = new nocc_imap();
+
+            $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], NOCC_Request::getBoolValue('verbose'));
         }
         catch (Exception $ex) {
             //TODO: Show error without NoccException!
@@ -241,14 +238,6 @@ switch($action) {
             break;
         }
 
-        $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], NOCC_Request::getBoolValue('verbose'), $ev);
-        if (NoccException::isException($ev)) {
-            require './html/header.php';
-            require './html/error.php';
-            require './html/footer.php';
-            break;
-        }
-        
         $mail_messageid = urlencode($content['message_id']);
         
         $mail_to = get_reply_all($content['from'], $content['to'], $content['cc']);
@@ -292,8 +281,12 @@ switch($action) {
         $mail_list = explode('$', $_REQUEST['mail']);
         $mail_body = '';
         for ($mail_num = 0; $mail_num < count($mail_list); $mail_num++) {
-            $content = aff_mail($pop, $attach_tab, $mail_list[$mail_num], NOCC_Request::getBoolValue('verbose'), $ev);
-            if (NoccException::isException($ev)) {
+            try {
+                $content = aff_mail($pop, $attach_tab, $mail_list[$mail_num], NOCC_Request::getBoolValue('verbose'));
+            }
+            catch (Exception $ex) {
+                //TODO: Show error without NoccException!
+                $ev = new NoccException($ex->getMessage());
                 require './html/header.php';
                 require './html/error.php';
                 require './html/footer.php';
