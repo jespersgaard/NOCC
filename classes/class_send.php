@@ -199,7 +199,7 @@ class mime_mail {
      */ 
     public function send(&$conf) {
         $mime = '';
-        if (($this->smtp_server != '' && $this->smtp_port != '')) {
+        if ($this->useSmtpServer()) { //if use SMTP server...
             if ($this->to[0] != '')
                 $mime .= 'To: ' . join(', ', $this->to) . $this->crlf;
             if (!empty($this->subject)) {
@@ -248,7 +248,7 @@ class mime_mail {
 
         // Whether or not to use SMTP or sendmail
         // depends on the config file (conf.php)
-        if ($this->smtp_server == '' || $this->smtp_port == '') {
+        if (!$this->useSmtpServer()) { //if use sendmail...
             $rcpt_to = join(', ', $this->to);
             $ev = @mail($rcpt_to, $this->subject, '', $mime, '-f' . $this->strip_comment($this->from));
                 
@@ -274,7 +274,7 @@ class mime_mail {
             if ($ev != true)
                 return (new NoccException('unable to send message, SMTP server unreachable'));
         }
-        else {
+        else { //if use SMTP server...
             $smtp = new smtp();
             if (!empty($smtp)) {
                 $smtp->smtp_server = $this->smtp_server;
@@ -313,6 +313,17 @@ class mime_mail {
             else
                 return (0);
         }
+    }
+
+    /**
+     * Use SMTP server to send the mail?
+     * @return boolean Use SMTP server?
+     */
+    public function useSmtpServer() {
+        if (($this->smtp_server != '' && $this->smtp_port != '')) {
+            return true;
+        }
+        return false;
     }
 
     /**
