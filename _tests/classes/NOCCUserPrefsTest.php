@@ -252,6 +252,42 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * Test case for getUseTrashFolder().
+     */
+    public function testGetUseTrashFolder() {
+        $this->assertFalse($this->userPrefs1->getUseTrashFolder());
+    }
+
+    /**
+     * Test case for setUseTrashFolder().
+     */
+    public function testSetUseTrashFolder() {
+        $userPrefs = new NOCCUserPrefs('');
+
+        $this->assertFalse($userPrefs->getUseTrashFolder(), 'default');
+        $userPrefs->setUseTrashFolder(true);
+        $this->assertTrue($userPrefs->getUseTrashFolder(), 'true');
+        $userPrefs->setUseTrashFolder(false);
+        $this->assertFalse($userPrefs->getUseTrashFolder(), 'false');
+        $userPrefs->setUseTrashFolder(1);
+        $this->assertTrue($userPrefs->getUseTrashFolder(), '1');
+        $userPrefs->setUseTrashFolder(0);
+        $this->assertFalse($userPrefs->getUseTrashFolder(), '0');
+        $userPrefs->setUseTrashFolder('on');
+        $this->assertTrue($userPrefs->getUseTrashFolder(), 'on');
+        $userPrefs->setUseTrashFolder('off');
+        $this->assertFalse($userPrefs->getUseTrashFolder(), 'off');
+        $userPrefs->setUseTrashFolder('1');
+        $this->assertTrue($userPrefs->getUseTrashFolder(), '"1"');
+        $userPrefs->setUseTrashFolder('0');
+        $this->assertFalse($userPrefs->getUseTrashFolder(), '"0"');
+        $userPrefs->setUseTrashFolder('<invalid>');
+        $this->assertFalse($userPrefs->getUseTrashFolder(), '<invalid>');
+        $userPrefs->setUseTrashFolder(null);
+        $this->assertFalse($userPrefs->getUseTrashFolder(), 'NULL');
+    }
+
+    /**
      * @todo Implement testRead().
      */
     public function testRead() {
@@ -285,7 +321,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue($userPrefs1->graphical_smilies, 'graphical_smilies');
         $this->assertTrue($userPrefs1->getUseSentFolder(), 'getUseSentFolder()');
         $this->assertEquals('Sent', $userPrefs1->sent_folder_name, 'sent_folder_name');
-        $this->assertTrue($userPrefs1->trash_folder, 'trash_folder');
+        $this->assertTrue($userPrefs1->getUseTrashFolder(), 'getUseTrashFolder()');
         $this->assertEquals('Trash', $userPrefs1->trash_folder_name, 'trash_folder_name');
         $this->assertEquals('de', $userPrefs1->lang, 'lang');
         $this->assertEquals('newlook', $userPrefs1->theme, 'theme');
@@ -309,7 +345,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertFalse($userPrefs2->graphical_smilies, 'graphical_smilies');
         $this->assertFalse($userPrefs2->getUseSentFolder(), 'getUseSentFolder()');
         $this->assertEquals('', $userPrefs2->sent_folder_name, 'sent_folder_name');
-        $this->assertFalse($userPrefs2->trash_folder, 'trash_folder');
+        $this->assertFalse($userPrefs2->getUseTrashFolder(), 'getUseTrashFolder()');
         $this->assertEquals('', $userPrefs2->trash_folder_name, 'trash_folder_name');
         $this->assertEquals('en', $userPrefs2->lang, 'lang');
         $this->assertEquals('standard', $userPrefs2->theme, 'theme');

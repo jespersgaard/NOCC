@@ -200,7 +200,7 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="trash_folder" id="trash_folder" value="on" <?php if (isset($user_prefs->trash_folder) && $user_prefs->trash_folder) echo 'checked="checked"'; ?> /><label for="trash_folder"><?php echo convertLang2Html($html_trash_folder_label) ?></label>
+             <input type="checkbox" name="trash_folder" id="trash_folder" value="on" <?php if ($user_prefs->getUseTrashFolder()) echo 'checked="checked"'; ?> /><label for="trash_folder"><?php echo convertLang2Html($html_trash_folder_label) ?></label>
              <select class="button" name="trash_folder_name"><?php echo join('', $trash_folders_list) ?></select>
            </td>
          </tr>

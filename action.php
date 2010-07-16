@@ -554,7 +554,7 @@ switch($action) {
                 $replace = str_replace($_SESSION['imap_namespace'], "", $_REQUEST['sent_folder_name']);
                 $user_prefs->sent_folder_name = safestrip($replace);
             }
-            $user_prefs->trash_folder = isset($_REQUEST['trash_folder']);
+            $user_prefs->setUseTrashFolder(isset($_REQUEST['trash_folder']));
             if (isset($_REQUEST['trash_folder_name'])) {
                 $replace = str_replace($_SESSION['imap_namespace'], "", $_REQUEST['trash_folder_name']);
                 $user_prefs->trash_folder_name = safestrip($replace);

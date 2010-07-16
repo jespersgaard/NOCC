@@ -74,8 +74,12 @@ class NOCCUserPrefs {
      */
     private $_useSentFolder;
     var $sent_folder_name;
-    //TODO: Rename to useTrashFolder?
-    var $trash_folder;
+    /**
+     * Use trash folder?
+     * @var boolean
+     * @access private
+     */
+    var $_useTrashFolder;
     var $trash_folder_name;
     var $lang;
     var $theme;
@@ -95,6 +99,7 @@ class NOCCUserPrefs {
         $this->_coloredQuotes = true;
         $this->_displayStructuredText = false;
         $this->_useSentFolder = false;
+        $this->_useTrashFolder = false;
         $this->dirty_flag = 1;
     }
 
@@ -192,6 +197,22 @@ class NOCCUserPrefs {
      */
     public function setUseSentFolder($value) {
         $this->_useSentFolder = $this->_convertToFalse($value);
+    }
+
+    /**
+     * Get trash folder using from user preferences
+     * @return boolean Use trash folder?
+     */
+    public function getUseTrashFolder() {
+        return $this->_useTrashFolder;
+    }
+
+    /**
+     * Set trash folder using from user preferences
+     * @param mixed $value Use trash folder?
+     */
+    public function setUseTrashFolder($value) {
+        $this->_useTrashFolder = $this->_convertToFalse($value);
     }
 
     /**
@@ -305,7 +326,7 @@ class NOCCUserPrefs {
                     $prefs->sent_folder_name = $value;
                     break;
                 case 'trash_folder':
-                    $prefs->trash_folder = ($value == 1 || $value == 'on');
+                    $prefs->setUseTrashFolder($value);
                     break;
                 case 'trash_folder_name':
                     $prefs->trash_folder_name = $value;
@@ -375,7 +396,7 @@ class NOCCUserPrefs {
         fwrite($file, "graphical_smilies=".$this->graphical_smilies."\n");
         fwrite($file, "sent_folder=".$this->_useSentFolder."\n");
         fwrite($file, "sent_folder_name=".str_replace($_SESSION['imap_namespace'], "", $this->sent_folder_name)."\n");
-        fwrite($file, "trash_folder=".$this->trash_folder."\n");
+        fwrite($file, "trash_folder=".$this->_useTrashFolder."\n");
         fwrite($file, "trash_folder_name=".str_replace($_SESSION['imap_namespace'], "", $this->trash_folder_name)."\n");
         fwrite($file, "lang=".$this->lang."\n");
         fwrite($file, "theme=".$this->theme."\n");

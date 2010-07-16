@@ -62,7 +62,7 @@ if (isset($_REQUEST['only_one'])) {
         $_SESSION['message_deleted'] = "true";
         $target_folder = $_SESSION['imap_namespace'].$user_prefs->trash_folder_name;
         if ($pop->is_imap()
-                && $user_prefs->trash_folder
+                && $user_prefs->getUseTrashFolder()
                 && $_SESSION['nocc_folder'] != $target_folder ) {
             $pop->mail_move($mail, $target_folder, $ev);
         } else {
@@ -109,7 +109,7 @@ if (isset($_REQUEST['only_one'])) {
                 $_SESSION['message_deleted'] = "true";
                 $target_folder = $_SESSION['imap_namespace'].$user_prefs->trash_folder_name;
                 if ($pop->is_imap()
-                        && $user_prefs->trash_folder
+                        && $user_prefs->getUseTrashFolder()
                         && $_SESSION['nocc_folder'] != $target_folder ) {
                     $pop->mail_move($i, $target_folder, $ev);
                 } else {
