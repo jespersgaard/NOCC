@@ -810,7 +810,7 @@ function saveSession(&$ev) {
         $cookie_string = base64_encode($cookie_string);
 
         // save string to file
-        $filename = $conf->prefs_dir . '/' . $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'] . '.session';
+        $filename = $conf->prefs_dir . '/' . NOCC_Session::getUserKey() . '.session';
         if (file_exists($filename) && !is_writable($filename)) {
             $ev = new NoccException($html_session_file_error);
             return false;

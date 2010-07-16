@@ -307,7 +307,7 @@ if (isset($_REQUEST['server'])) {
 // Cache the user's preferences/filters
 if (isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
     $ev = null;
-    $user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
+    $user_key = NOCC_Session::getUserKey();
 
     // Preferences
     if (!NOCC_Session::existsUserPrefs()) {

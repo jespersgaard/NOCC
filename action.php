@@ -425,7 +425,7 @@ switch($action) {
             require './html/footer.php';
             exit;
         }
-        $user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
+        $user_key = NOCC_Session::getUserKey();
         $filterset = NOCCUserFilters::read($user_key, $ev);
 
         if (NoccException::isException($ev)) {
@@ -636,7 +636,7 @@ switch($action) {
                     break;
                 }
                 //store cookie for thirty days
-                setcookie('NoccIdent', $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'], time()+60*60*24*30);
+                setcookie('NoccIdent', NOCC_Session::getUserKey(), time()+60*60*24*30);
             }
         }
 
@@ -644,7 +644,7 @@ switch($action) {
         if (!isset($_REQUEST['sort'])) {
             if ($pop->is_imap()) {
                 if ($pop->folder == 'INBOX') {
-                    $user_key = $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'];
+                    $user_key = NOCC_Session::getUserKey();
                     if (!empty($conf->prefs_dir)) {
                         $filters = NOCCUserFilters::read($user_key, $ev);
                         if (NoccException::isException($ev)) {
@@ -820,4 +820,5 @@ function add_reply_to_subject($subject) {
     }
     return $subject;
 }
+
 ?>

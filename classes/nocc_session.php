@@ -20,6 +20,15 @@
  */
 class NOCC_Session {
     /**
+     * Get the user key from the session
+     * @return string User key
+     * @static
+     */
+    public static function getUserKey() {
+        return $_SESSION['nocc_user'] . '@' . $_SESSION['nocc_domain'];
+    }
+    
+    /**
      * Get the SMTP server from the session
      * @return string SMTP server
      * @static

@@ -213,7 +213,7 @@ $_SESSION['nocc_loggedin'] = 1;
 
       <?php
       if (empty($_REQUEST['is_ldap'])) {
-        $path = $conf->prefs_dir . "/" .$_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'].".contacts";
+        $path = $conf->prefs_dir . '/' . NOCC_Session::getUserKey() . '.contacts';
         $contacts = NOCC_Contacts::loadList($path);
 
         for ($i = 0; $i < count($contacts); ++$i) {

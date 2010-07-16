@@ -37,7 +37,7 @@ $pop->close();
 $theme = new NOCC_Theme($_SESSION['nocc_theme']);
 
 // Load the contact list
-$path = $conf->prefs_dir . "/" . $_SESSION['nocc_user'].'@'.$_SESSION['nocc_domain'].".contacts";
+$path = $conf->prefs_dir . '/' . NOCC_Session::getUserKey() . '.contacts';
 $contacts = NOCC_Contacts::loadList($path);
 
 $query_str = session_name("NOCCSESSID") . "=" . session_id();
