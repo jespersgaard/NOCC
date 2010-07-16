@@ -216,6 +216,42 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * Test case for getUseSentFolder().
+     */
+    public function testGetUseSentFolder() {
+        $this->assertFalse($this->userPrefs1->getUseSentFolder());
+    }
+
+    /**
+     * Test case for setUseSentFolder().
+     */
+    public function testSetUseSentFolder() {
+        $userPrefs = new NOCCUserPrefs('');
+
+        $this->assertFalse($userPrefs->getUseSentFolder(), 'default');
+        $userPrefs->setUseSentFolder(true);
+        $this->assertTrue($userPrefs->getUseSentFolder(), 'true');
+        $userPrefs->setUseSentFolder(false);
+        $this->assertFalse($userPrefs->getUseSentFolder(), 'false');
+        $userPrefs->setUseSentFolder(1);
+        $this->assertTrue($userPrefs->getUseSentFolder(), '1');
+        $userPrefs->setUseSentFolder(0);
+        $this->assertFalse($userPrefs->getUseSentFolder(), '0');
+        $userPrefs->setUseSentFolder('on');
+        $this->assertTrue($userPrefs->getUseSentFolder(), 'on');
+        $userPrefs->setUseSentFolder('off');
+        $this->assertFalse($userPrefs->getUseSentFolder(), 'off');
+        $userPrefs->setUseSentFolder('1');
+        $this->assertTrue($userPrefs->getUseSentFolder(), '"1"');
+        $userPrefs->setUseSentFolder('0');
+        $this->assertFalse($userPrefs->getUseSentFolder(), '"0"');
+        $userPrefs->setUseSentFolder('<invalid>');
+        $this->assertFalse($userPrefs->getUseSentFolder(), '<invalid>');
+        $userPrefs->setUseSentFolder(null);
+        $this->assertFalse($userPrefs->getUseSentFolder(), 'NULL');
+    }
+
+    /**
      * @todo Implement testRead().
      */
     public function testRead() {
@@ -247,7 +283,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue($userPrefs1->sig_sep, 'sig_sep');
         $this->assertTrue($userPrefs1->html_mail_send, 'html_mail_send');
         $this->assertTrue($userPrefs1->graphical_smilies, 'graphical_smilies');
-        $this->assertTrue($userPrefs1->sent_folder, 'sent_folder');
+        $this->assertTrue($userPrefs1->getUseSentFolder(), 'getUseSentFolder()');
         $this->assertEquals('Sent', $userPrefs1->sent_folder_name, 'sent_folder_name');
         $this->assertTrue($userPrefs1->trash_folder, 'trash_folder');
         $this->assertEquals('Trash', $userPrefs1->trash_folder_name, 'trash_folder_name');
@@ -271,7 +307,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertFalse($userPrefs2->sig_sep, 'sig_sep');
         $this->assertFalse($userPrefs2->html_mail_send, 'html_mail_send');
         $this->assertFalse($userPrefs2->graphical_smilies, 'graphical_smilies');
-        $this->assertFalse($userPrefs2->sent_folder, 'sent_folder');
+        $this->assertFalse($userPrefs2->getUseSentFolder(), 'getUseSentFolder()');
         $this->assertEquals('', $userPrefs2->sent_folder_name, 'sent_folder_name');
         $this->assertFalse($userPrefs2->trash_folder, 'trash_folder');
         $this->assertEquals('', $userPrefs2->trash_folder_name, 'trash_folder_name');

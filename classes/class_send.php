@@ -253,7 +253,7 @@ class mime_mail {
             $ev = @mail($rcpt_to, $this->subject, '', $mime, '-f' . $this->strip_comment($this->from));
                 
             $user_prefs = $_SESSION['nocc_user_prefs'];
-            if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder && isset($user_prefs->sent_folder_name) && $user_prefs->sent_folder_name !=null && $user_prefs->sent_folder_name != "") {
+            if ($user_prefs->getUseSentFolder() && isset($user_prefs->sent_folder_name) && $user_prefs->sent_folder_name !=null && $user_prefs->sent_folder_name != "") {
                 // Copy email to Sent folder
                 //TODO: Optimize try block!
                 try {
@@ -291,7 +291,7 @@ class mime_mail {
                 }
                 $copy_return = 1;
                 $user_prefs = $_SESSION['nocc_user_prefs'];
-                if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder && isset($user_prefs->sent_folder_name) && $user_prefs->sent_folder_name !=null && $user_prefs->sent_folder_name != "") {
+                if ($user_prefs->getUseSentFolder() && isset($user_prefs->sent_folder_name) && $user_prefs->sent_folder_name !=null && $user_prefs->sent_folder_name != "") {
                     // Copy email to Sent folder
                     //TODO: Optimize try block!
                     try {

@@ -193,7 +193,7 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="sent_folder" id="sent_folder" value="on" <?php if (isset($user_prefs->sent_folder) && $user_prefs->sent_folder) echo 'checked="checked"'; ?> /><label for="sent_folder"><?php echo convertLang2Html($html_sent_folder_label) ?></label>
+             <input type="checkbox" name="sent_folder" id="sent_folder" value="on" <?php if ($user_prefs->getUseSentFolder()) echo 'checked="checked"'; ?> /><label for="sent_folder"><?php echo convertLang2Html($html_sent_folder_label) ?></label>
              <select class="button" name="sent_folder_name"><?php echo join('', $sent_folders_list) ?></select>
            </td>
          </tr>

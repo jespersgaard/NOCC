@@ -67,8 +67,14 @@ class NOCCUserPrefs {
     var $sig_sep;
     var $html_mail_send;
     var $graphical_smilies;
-    var $sent_folder;
+    /**
+     * Use sent folder?
+     * @var boolean
+     * @access private
+     */
+    private $_useSentFolder;
     var $sent_folder_name;
+    //TODO: Rename to useTrashFolder?
     var $trash_folder;
     var $trash_folder_name;
     var $lang;
@@ -88,6 +94,7 @@ class NOCCUserPrefs {
         $this->_outlookQuoting = false;
         $this->_coloredQuotes = true;
         $this->_displayStructuredText = false;
+        $this->_useSentFolder = false;
         $this->dirty_flag = 1;
     }
 
@@ -169,6 +176,22 @@ class NOCCUserPrefs {
      */
     public function setDisplayStructuredText($value) {
         $this->_displayStructuredText = $this->_convertToFalse($value);
+    }
+
+    /**
+     * Get sent folder using from user preferences
+     * @return boolean Use sent folder?
+     */
+    public function getUseSentFolder() {
+        return $this->_useSentFolder;
+    }
+
+    /**
+     * Set sent folder using from user preferences
+     * @param mixed $value Use sent folder?
+     */
+    public function setUseSentFolder($value) {
+        $this->_useSentFolder = $this->_convertToFalse($value);
     }
 
     /**
@@ -276,7 +299,7 @@ class NOCCUserPrefs {
                     $prefs->graphical_smilies = ($value == 1 || $value == 'on');
                     break;
                 case 'sent_folder':
-                    $prefs->sent_folder = ($value == 1 || $value == 'on');
+                    $prefs->setUseSentFolder($value);
                     break;
                 case 'sent_folder_name':
                     $prefs->sent_folder_name = $value;
@@ -350,7 +373,7 @@ class NOCCUserPrefs {
         fwrite($file, "sig_sep=".$this->sig_sep."\n");
         fwrite($file, "html_mail_send=".$this->html_mail_send."\n");
         fwrite($file, "graphical_smilies=".$this->graphical_smilies."\n");
-        fwrite($file, "sent_folder=".$this->sent_folder."\n");
+        fwrite($file, "sent_folder=".$this->_useSentFolder."\n");
         fwrite($file, "sent_folder_name=".str_replace($_SESSION['imap_namespace'], "", $this->sent_folder_name)."\n");
         fwrite($file, "trash_folder=".$this->trash_folder."\n");
         fwrite($file, "trash_folder_name=".str_replace($_SESSION['imap_namespace'], "", $this->trash_folder_name)."\n");

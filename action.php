@@ -549,7 +549,7 @@ switch($action) {
             $user_prefs->sig_sep = isset($_REQUEST['sig_sep']);
             $user_prefs->html_mail_send = isset($_REQUEST['html_mail_send']);
             $user_prefs->graphical_smilies = isset($_REQUEST['graphical_smilies']);
-            $user_prefs->sent_folder = isset($_REQUEST['sent_folder']);
+            $user_prefs->setUseSentFolder(isset($_REQUEST['sent_folder']));
             if (isset($_REQUEST['sent_folder_name'])) {
                 $replace = str_replace($_SESSION['imap_namespace'], "", $_REQUEST['sent_folder_name']);
                 $user_prefs->sent_folder_name = safestrip($replace);

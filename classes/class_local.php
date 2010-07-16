@@ -47,7 +47,6 @@ class nocc_imap
      * @global object $conf
      * @global string $lang_could_not_connect
      * @return nocc_imap Me!
-     * @todo Drop $ev!
      */
     public function __construct() {
         global $conf;
