@@ -320,19 +320,18 @@ class nocc_imap
         }
     }
 
-    public function getsubscribed(&$ev) {
-        $subscribed = imap_getsubscribed($this->conn, '{'.$this->server.'}', '*');
-        if (is_array($subscribed)) {
+    /**
+     * ...
+     * @return array Subscribed mailboxes
+     */
+    public function getsubscribed() {
+        $subscribed = @imap_getsubscribed($this->conn, '{' . $this->server . '}', '*');
+        if (!is_array($subscribed)) {
+            throw new Exception('imap_getsubscribed() did not return an array.');
+        } else {
             sort($subscribed);
-            return $subscribed;
         }
-        
-        $error = imap_last_error();
-        if(empty($error))
-            return array();
-        
-        $ev = new NoccException("imap_getsubscribed: ".imap_last_error());
-        return;
+        return $subscribed;
     }
 
     public function mail_mark_read($mail, &$ev) {
@@ -437,7 +436,12 @@ class nocc_imap
     }
 
     public function get_folder_count() {
-        return count($this->getsubscribed($ev));
+        try {
+            return count($this->getsubscribed());
+        }
+        catch (Exception $ex) {
+            return 0;
+        }
     }
 
     public function get_page_count() {
@@ -453,17 +457,23 @@ class nocc_imap
     }
 
     public function get_nice_subscribed(&$ev) {
-        $folders = $this->getsubscribed($ev);
-        if(NoccException::isException($ev)) return;
-        reset($folders);
-        $subscribed = array();
-        foreach ($folders as $folder) {
-            $folder_name = substr(strstr($folder->name, '}'), 1);
-            if (!(in_array($folder_name, $subscribed))) {
-                array_push($subscribed, $folder_name);
+        try {
+            $folders = $this->getsubscribed();
+
+            reset($folders);
+            $subscribed = array();
+            foreach ($folders as $folder) {
+                $folder_name = substr(strstr($folder->name, '}'), 1);
+                if (!(in_array($folder_name, $subscribed))) {
+                    array_push($subscribed, $folder_name);
+                }
             }
+            return $subscribed;
         }
-        return $subscribed;
+        catch (Exception $ex) {
+            $ev = new NoccException($ex->getMessage());
+            return;
+        }
     }
 
     public function get_quota_usage($mailbox) {

@@ -729,16 +729,21 @@ switch($action) {
         if ($pop->is_imap()) {
             if (isset($_REQUEST['sort'])) {
                 $subscribed = $_SESSION['subscribed'];
-            } else {
-                // gather list of folders for menu_inbox_status
-                $subscribed = $pop->getsubscribed($ev);
-                if (NoccException::isException($ev)) {
+            }
+            else {
+                try {
+                    // gather list of folders for menu_inbox_status
+                    $subscribed = $pop->getsubscribed($ev);
+
+                    $_SESSION['subscribed'] = $subscribed;
+                }
+                catch (Exception $ex) {
+                    //TODO: Show error without NoccException!
+                    $ev = new NoccException($ex->getMessage());
                     require './html/header.php';
                     require './html/error.php';
                     require './html/footer.php';
                     break;
-                } else {
-                    $_SESSION['subscribed'] = $subscribed;
                 }
             }
 
