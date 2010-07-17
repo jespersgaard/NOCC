@@ -3,8 +3,15 @@
   if (!isset($conf->loaded))
     die('Hacking attempt');
 
-$all_mailboxes = $pop->getmailboxes($ev);
+try {
+  $all_mailboxes = $pop->getmailboxes();
+}
+catch (Exception $ex) {
+  //TODO: Show error without NoccException!
+  $ev = new NoccException($ex->getMessage());
+}
 
+//TODO: Move to own function and merge with folders.php!
 $big_list = array();
 if (is_array($all_mailboxes)) {
   reset($all_mailboxes);

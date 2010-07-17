@@ -282,11 +282,14 @@ class nocc_imap
         return $decodedString;
     }
 
-    public function getmailboxes(&$ev) {
-        $mailboxes = imap_getmailboxes($this->conn, '{'.$this->server.'}', '*');
+    /**
+     * ...
+     * @return array Mailboxes
+     */
+    public function getmailboxes() {
+        $mailboxes = @imap_getmailboxes($this->conn, '{' . $this->server . '}', '*');
         if (!is_array($mailboxes)) {
-            $ev = new NoccException("imap_getmailboxes did not return an array: ".imap_last_error());
-            return;
+            throw new Exception('imap_getmailboxes() did not return an array.');
         } else {
             sort($mailboxes);
         }
