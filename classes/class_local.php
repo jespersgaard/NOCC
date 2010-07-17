@@ -334,6 +334,29 @@ class nocc_imap
         return $subscribed;
     }
 
+    /**
+     * ...
+     * @return array Subscribed mailboxes names
+     * @todo Return UTF-8 names?
+     */
+    public function getsubscribednames() {
+        try {
+            $subscribed = $this->getsubscribed();
+
+            $names = array();
+            foreach ($subscribed as $mailbox) { //for all mailboxes...
+                $name = str_replace('{' . $this->server . '}', '', $mailbox->name);
+                if (!in_array($name, $names)) {
+                    array_push($names, $name);
+                }
+            }
+            return $names;
+        }
+        catch (Exception $ex) {
+            return array();
+        }
+    }
+
     public function mail_mark_read($mail, &$ev) {
         return imap_setflag_full($this->conn, imap_uid($this->conn, $mail), "\\Seen", ST_UID);
     }
@@ -418,10 +441,7 @@ class nocc_imap
      * These are general utility functions that extend the imap interface.
      */
     public function html_folder_select($value, $selected = '') {
-        $folders = $this->get_nice_subscribed($ev);
-        if (NoccException::isException($ev)) {
-            return "<p class=\"error\">Error retrieving folder pulldown: ".$ev->getMessage()."</p>";
-        }
+        $folders = $this->getsubscribednames();
         if (!is_array($folders) || count($folders) < 1) {
             return "<p class=\"error\">Not currently subscribed to any mailboxes</p>";
         }
@@ -453,26 +473,6 @@ class nocc_imap
             $per_page = get_per_page();
             $pages = ceil($num_messages / $per_page);
             return $pages;
-        }
-    }
-
-    public function get_nice_subscribed(&$ev) {
-        try {
-            $folders = $this->getsubscribed();
-
-            reset($folders);
-            $subscribed = array();
-            foreach ($folders as $folder) {
-                $folder_name = substr(strstr($folder->name, '}'), 1);
-                if (!(in_array($folder_name, $subscribed))) {
-                    array_push($subscribed, $folder_name);
-                }
-            }
-            return $subscribed;
-        }
-        catch (Exception $ex) {
-            $ev = new NoccException($ex->getMessage());
-            return;
         }
     }
 
