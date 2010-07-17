@@ -3,25 +3,7 @@
   if (!isset($conf->loaded))
     die('Hacking attempt');
 
-try {
-  $all_mailboxes = $pop->getmailboxes();
-}
-catch (Exception $ex) {
-  //TODO: Show error without NoccException!
-  $ev = new NoccException($ex->getMessage());
-}
-
-//TODO: Move to own function and merge with folders.php!
-$big_list = array();
-if (is_array($all_mailboxes)) {
-  reset($all_mailboxes);
-  while (list($junk, $val) = each($all_mailboxes)) {
-    list($junk,$name) = preg_split("|".$pop->server .'}|', $val->name);
-    if (strlen($name) <= 32) {
-      array_push($big_list, $name);
-    }
-  }
-}
+$big_list = $pop->getmailboxesnames();
 
 // Build list for sent mails folder selection
 $sent_folders_list = array();

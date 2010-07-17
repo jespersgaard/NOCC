@@ -6,25 +6,7 @@
 $renameoldbox = $pop->html_folder_select('renameoldbox', '');
 $removeoldbox = $pop->html_folder_select('removeoldbox', '');
 
-try {
-  $all_mailboxes = $pop->getmailboxes($ev);
-}
-catch (Exception $ex) {
-  //TODO: Show error without NoccException!
-  $ev = new NoccException($ex->getMessage());
-}
-
-//TODO: Move to own function and merge with prefs.php!
-$big_list = array();
-if (is_array($all_mailboxes)) {
-  reset($all_mailboxes);
-  while (list($junk, $val) = each($all_mailboxes)) {
-    list($junk,$name) = preg_split("|".$pop->server .'}|', $val->name);
-    if (strlen($name) <= 32) {
-      array_push($big_list, $name);
-    }
-  }
-}
+$big_list = $pop->getmailboxesnames();
 
 $select_list = array();
 if (count($big_list) > 1) {

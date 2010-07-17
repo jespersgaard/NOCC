@@ -296,6 +296,30 @@ class nocc_imap
         return $mailboxes;
     }
 
+    /**
+     * ...
+     * @return array Mailboxes names
+     * @todo Return UTF-8 names?
+     */
+    public function getmailboxesnames() {
+        try {
+            $mailboxes = $this->getmailboxes();
+
+            $names = array();
+            foreach ($mailboxes as $mailbox) { //for all mailboxes...
+                $name = str_replace('{' . $this->server . '}', '', $mailbox->name);
+                //TODO: Why not add names with more the 32 chars?
+                if (strlen($name) <= 32) {
+                    array_push($names, $name);
+                }
+            }
+            return $names;
+        }
+        catch (Exception $ex) {
+            return array();
+        }
+    }
+
     public function getsubscribed(&$ev) {
         $subscribed = imap_getsubscribed($this->conn, '{'.$this->server.'}', '*');
         if (is_array($subscribed)) {
