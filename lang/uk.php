@@ -25,6 +25,7 @@
  *
  * @author KEL
  * @author Prima klasy4na
+ * @author Тест
  */
 
 $lang_locale = 'uk_UA.UTF-8';
@@ -112,7 +113,7 @@ $html_sort_by = 'Сортувати за';
 $html_sort = 'Сортувати';
 $html_from = 'Від';
 $html_from_label = 'Від:';
-$html_date = 'Час';
+$html_date = 'Дата';
 $html_date_label = 'Дата:';
 $html_sent_label = 'Надіслані :';
 $html_wrote = 'Написав(ла)';
@@ -122,7 +123,7 @@ $html_kb = 'КБ';
 $html_mb = 'МБ';
 $html_gb = 'ГБ';
 $html_bytes = 'байт';
-$html_filename = 'Ім\'я файлу';
+$html_filename = 'Назва файлу';
 $html_nosubject = 'Немає теми';
 $html_send = 'Надіслати';
 $html_cancel = 'Скасувати';
@@ -152,7 +153,7 @@ $html_read = 'прочитане';
 $html_unread = 'непрочитане';
 $html_encoding_label = 'Кодування (символів):';
 $html_add = 'Додати';
-$html_contacts = 'Контактів = %1$s';
+$html_contacts = 'Контакти %1$s';
 $html_modify = 'Змінити';
 $html_back = 'Назад';
 $html_contact_add = 'Додати контакт';
@@ -161,7 +162,7 @@ $html_contact_first = 'Ім\'я';
 $html_contact_last = 'Фамілія';
 $html_contact_nick = 'Псевдонім';
 $html_contact_mail = 'Електронна пошта';
-$html_contact_list = 'Список контактів = %1$s';
+$html_contact_list = 'Список контактів %1$s';
 $html_contact_count = '%1$d контактів';
 $html_contact_err1 = 'Максимальна кількість контактів - "% 1 $ D"';
 $html_contact_none = 'Жодних контактів не знайдено.';
