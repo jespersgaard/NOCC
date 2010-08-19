@@ -268,6 +268,11 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'pl';
 $lang_array[$i]->label = 'Polski';
 
+// Pashto
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'ps';
+$lang_array[$i]->label = 'پښتو';
+
 // Portuguese
 $i++;
 $lang_array[$i] = new lang();

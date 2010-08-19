@@ -14,9 +14,8 @@
  * @license    http://www.gnu.org/licenses/ GNU General Public License
  * @version    SVN: $Id$
  */
-
 /** Romanian (Română)
- *
+ * 
  * See the qqq 'language' for message documentation incl. usage of parameters
  * To improve a translation please visit http://translatewiki.net
  *

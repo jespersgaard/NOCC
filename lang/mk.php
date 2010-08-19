@@ -14,9 +14,8 @@
  * @license    http://www.gnu.org/licenses/ GNU General Public License
  * @version    SVN: $Id$
  */
-
 /** Macedonian (Македонски)
- *
+ * 
  * See the qqq 'language' for message documentation incl. usage of parameters
  * To improve a translation please visit http://translatewiki.net
  *
@@ -133,7 +132,7 @@ $html_attach = 'Приложи';
 $html_attach_forget = 'Приложите ја податотеката пред да го испратите писмото!';
 $html_attach_delete = 'Отстрани го одбраното';
 $html_attach_none = 'Мора да одберете податотека за приложување!';
-$html_sort_by = 'Сортирај по';
+$html_sort_by = 'Подреди по';
 $html_sort = 'Подреди';
 $html_from = 'Од';
 $html_from_label = 'Од:';

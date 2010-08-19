@@ -14,9 +14,8 @@
  * @license    http://www.gnu.org/licenses/ GNU General Public License
  * @version    SVN: $Id$
  */
-
 /** Czech (Česky)
- *
+ * 
  * See the qqq 'language' for message documentation incl. usage of parameters
  * To improve a translation please visit http://translatewiki.net
  *
@@ -25,12 +24,14 @@
  *
  * @author Kuvaly
  * @author Lukas Mizoch <ragimiri@gmail.com>
+ * @author Mormegil
  * @author Ragimiri
  * @author Tchoř
  * @author Vaclav Habr <habr@fonet.cz>
  */
 
 $lang_locale = 'cs_CZ.UTF-8';
+$lang_dir = 'ltr';
 $default_date_format = '%d.%m.%Y';
 $no_locale_date_format = '%d.%m.%Y';
 $default_time_format = '%H:%M:%S';

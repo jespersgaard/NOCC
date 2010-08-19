@@ -14,7 +14,6 @@
  * @license    http://www.gnu.org/licenses/ GNU General Public License
  * @version    SVN: $Id$
  */
-
 /** Breton (Brezhoneg)
  *
  * See the qqq 'language' for message documentation incl. usage of parameters

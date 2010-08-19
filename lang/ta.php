@@ -14,9 +14,8 @@
  * @license    http://www.gnu.org/licenses/ GNU General Public License
  * @version    SVN: $Id$
  */
-
 /** Tamil (தமிழ்)
- *
+ * 
  * See the qqq 'language' for message documentation incl. usage of parameters
  * To improve a translation please visit http://translatewiki.net
  *
@@ -24,6 +23,7 @@
  * @file
  *
  * @author Naveen
+ * @author TRYPPN
  */
 
 $lang_locale = 'en_US.UTF-8';
@@ -46,9 +46,12 @@ $title_next_msg = 'அடுத்த தகவல்';
 $title_prev_msg = 'முந்தைய தகவல்';
 $html_theme_label = 'கருப்பொருள்';
 $html_welcome = '%1$s வரவேற்கிறோம்';
-$html_login = 'நுழை';
+$html_login = 'புகுபதிகை';
+$html_user_label = 'பயனர்:';
+$html_passwd_label = 'கடவுச்சொல்:';
 $html_submit = 'சமர்ப்பி';
 $html_help = 'உதவி';
+$html_server_label = 'வழங்கன்:';
 $html_wrong = 'உங்கள் நுழைவு பெயர் அல்லது உங்கள் ரகசிய சொல் தவறாக உள்ளது';
 $html_retry = 'முயற்சி செய்';
 $html_remember = 'அமைப்பை நியாபகம்  வைத்துக்கொள்';
@@ -167,9 +170,13 @@ $html_low = 'குறைவான';
 $html_normal = 'வழக்கமான';
 $html_high = 'அதிகமாக';
 $html_highest = 'மிக அதிகமாக';
+$html_flagged = 'குறித்துக்கொள்ளப்பட்டது';
+$html_spam = 'வீண்செய்தி';
+$html_spam_warning = 'இந்தச் செய்தியானது வீண்செய்தி என்று வகை படுத்தப்பட்டுள்ளது.';
 $html_receipt = 'பற்றுசீட்டு வழங்க வேண்டு';
 $html_select = 'தேர்வு செய்';
 $html_select_all = 'தேர்வு செய்ததை ரத்து  செய்';
+$html_select_contacts = 'தொடர்புகளைத் தேர்ந்தெடுக்கவும்';
 $html_loading_image = 'படம் ஏற்றப்படுகின்றது';
 $html_send_confirmed = 'உங்கள் மின் அஞ்சல் விநியோகத்துக்காக ஏற்றுக்கொள்ளப்பட்டது';
 $html_no_sendaction = 'ஒரு நடவடிக்கையும் குறிப்பிடப்படவில்லை . ஜாவா ஸ்கிரிப்ட் செயல் பட செய்';

@@ -14,9 +14,8 @@
  * @license    http://www.gnu.org/licenses/ GNU General Public License
  * @version    SVN: $Id$
  */
-
 /** Colognian (Ripoarisch)
- *
+ * 
  * See the qqq 'language' for message documentation incl. usage of parameters
  * To improve a translation please visit http://translatewiki.net
  *
@@ -51,7 +50,7 @@ $html_user_label = 'Metmaacher:';
 $html_passwd_label = 'Paßwoot:';
 $html_submit = 'Lohß Jonn!';
 $html_help = 'Hülp';
-$html_server_label = 'ßööver:';
+$html_server_label = 'ẞööver:';
 $html_wrong = 'Dä Name udder dat Paßwoot sin verkeeht';
 $html_retry = 'Norrens!';
 $html_remember = 'Aanjabe faßhallde';
@@ -162,7 +161,7 @@ $html_no_mail = 'Nix Neues es aanjekumme.';
 $html_logout = 'Ußlogge';
 $html_msg = 'Nohreesch';
 $html_msgs = 'Nohreeschte';
-$html_configuration = 'Hee dä ßööver es nit joot opjesaz woode!';
+$html_configuration = 'Hee dä ẞööver es nit joot opjesaz woode!';
 $html_priority = 'Weeschteschkeit';
 $html_priority_label = 'Weschteschkeit:';
 $html_lowest = 'Janz winnisch';
@@ -211,8 +210,8 @@ $to_empty = 'Wä di <i lang="en">e-mail</i> krijje sull, moß aanjejovve sin!';
 $html_images_warning = 'Om Desch un Dinge Kompjutor nit en Jevaare ze bränge, dom_mer de Belder vun ußerhallef nit aanzeije.';
 $html_images_display = 'Bellder zeije';
 $html_smtp_error_no_conn = 'Kann kein Verbendung övver <code lang="en">smtp</code> krijje';
-$html_smtp_error_unexpected = 'Dat es en Antwoot vum <code lang="en">smtp</code> ßööver, woh met nit drop jevaß wohre:';
-$lang_could_not_connect = 'Kunnt kein Verbendung met däm ßööver opnämme';
+$html_smtp_error_unexpected = 'Dat es en Antwoot vum <code lang="en">smtp</code>-ẞööver, woh met nit drop jevaß wohre:';
+$lang_could_not_connect = 'Kunnt kein Verbendung met däm ẞööver opnämme';
 $lang_invalid_msg_num = 'Dat es en kappodde Nummer för en Nohreesch';
 $html_file_upload_attack = 'Mer kunnte de huhjelaade Datei nit fenge — müjjelesch, dat he Eine versooht hät jeet ze kräcke, udder söns ene Dreß jeloufe es';
 $html_invalid_email_address = 'Dat es en onjöltijje Addräß fö de <i lang="en">e-mail</i>';

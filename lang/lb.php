@@ -14,9 +14,8 @@
  * @license    http://www.gnu.org/licenses/ GNU General Public License
  * @version    SVN: $Id$
  */
-
 /** Luxembourgish (Lëtzebuergesch)
- *
+ * 
  * See the qqq 'language' for message documentation incl. usage of parameters
  * To improve a translation please visit http://translatewiki.net
  *
@@ -46,6 +45,8 @@ $title_prev_msg = 'Virege Message';
 $html_theme_label = 'Thema:';
 $html_welcome = 'Wëllkomm op %1$s';
 $html_login = 'Aloggen';
+$html_user_label = 'Benotzer:';
+$html_passwd_label = 'Passwuert:';
 $html_help = 'Hëllef';
 $html_wrong = 'De Benotzernumm oder d\'Passwuert sinn net richteg';
 $html_retry = 'Nach eng Kéier probéieren';
