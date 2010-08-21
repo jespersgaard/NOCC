@@ -106,7 +106,6 @@ function inbox(&$pop, $skip = 0) {
  */
 function aff_mail(&$pop, &$attach_tab, $mail, $verbose) {
     global $conf;
-    global $html_att_label, $html_atts_label;
     global $lang_invalid_msg_num;
 
     $sort = $_SESSION['nocc_sort'];
@@ -175,19 +174,7 @@ function aff_mail(&$pop, &$attach_tab, $mail, $verbose) {
         );
     }
 
-    $link_att = '';
-    if ($mail_reader->hasAttachments()) {
-        switch (sizeof($attach_tab)) {
-            case 0:
-                break;
-            case 1:
-                $link_att = '<tr><th class="mailHeaderLabel right">' . $html_att_label . '</th><td class="mailHeaderData">' . link_att($mail, $attach_tab) . '</td></tr>';
-                break;
-            default:
-                $link_att = '<tr><th class="mailHeaderLabel right">' . $html_atts_label . '</th><td class="mailHeaderData">' . link_att($mail, $attach_tab) . '</td></tr>';
-                break;
-        }
-    }
+    $link_att = GetAttachmentsTableRow($mail_reader, $attach_tab);
 
     // Get to
     $to = $mail_reader->getToAddress();
@@ -310,6 +297,31 @@ function fillAttachTabFromMailReader($mail_reader, &$attach_tab) {
 
         array_unshift($attach_tab, $tmp);
     }
+}
+
+/**
+ * ...
+ * @param NOCC_MailReader $mail_reader Mail reader
+ * @param array $attach_tab Attachments
+ * @todo Only temporary needed!
+ */
+function GetAttachmentsTableRow($mail_reader, &$attach_tab) {
+    global $html_att_label, $html_atts_label;
+
+    $link_att = '';
+    if ($mail_reader->hasAttachments()) {
+        switch (sizeof($attach_tab)) {
+            case 0:
+                break;
+            case 1:
+                $link_att = '<tr><th class="mailHeaderLabel right">' . $html_att_label . '</th><td class="mailHeaderData">' . link_att($mail_reader->getMessageNumber(), $attach_tab) . '</td></tr>';
+                break;
+            default:
+                $link_att = '<tr><th class="mailHeaderLabel right">' . $html_atts_label . '</th><td class="mailHeaderData">' . link_att($mail_reader->getMessageNumber(), $attach_tab) . '</td></tr>';
+                break;
+        }
+    }
+    return $link_att;
 }
 
 /**
