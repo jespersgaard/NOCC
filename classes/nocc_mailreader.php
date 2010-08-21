@@ -27,6 +27,13 @@ require_once 'nocc_header.php';
  */
 class NOCC_MailReader {
     /**
+     * Message Number
+     * @var integer
+     * @access private
+     */
+    private $_messageNumber;
+
+    /**
      * Mail parts
      * @var NOCC_MailParts
      * @access private
@@ -121,6 +128,8 @@ class NOCC_MailReader {
      * @param bool $fullDetails Read full details?
      */
     public function __construct($msgno, &$pop, $fullDetails = true) {
+        $this->_messageNumber = $msgno;
+
         //--------------------------------------------------------------------------------
         // Get values from structure...
         //--------------------------------------------------------------------------------
@@ -168,6 +177,14 @@ class NOCC_MailReader {
         //--------------------------------------------------------------------------------
         $this->_header = $pop->fetchheader($msgno);
         //--------------------------------------------------------------------------------
+    }
+
+    /**
+     * Get the message number
+     * @return integer Message number
+     */
+    public function getMessageNumber() {
+        return $this->_messageNumber;
     }
 
     /**
