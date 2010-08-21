@@ -539,7 +539,7 @@ switch($action) {
             if (isset($_REQUEST['reply_leadin']))
                 $user_prefs->reply_leadin = safestrip($_REQUEST['reply_leadin']);
             if (isset($_REQUEST['signature']))
-                if (isset($_REQUEST['html_mail_send']) && $_REQUEST['html_mail_send']) {
+                if (NOCC_Request::getBoolValue('html_mail_send')) {
                     $user_prefs->signature = $_REQUEST['signature'];
                 } else {
                     $user_prefs->signature = safestrip($_REQUEST['signature']);
