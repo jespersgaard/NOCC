@@ -65,7 +65,12 @@ class NOCCUserPrefs {
     var $signature;
     var $wrap_msg;
     var $sig_sep;
-    var $html_mail_send;
+    /**
+     * Send HTML mail?
+     * @var boolean
+     * @access private
+     */
+    private $_sendHtmlMail;
     var $graphical_smilies;
     /**
      * Use sent folder?
@@ -98,6 +103,7 @@ class NOCCUserPrefs {
         $this->_outlookQuoting = false;
         $this->_coloredQuotes = true;
         $this->_displayStructuredText = false;
+        $this->_sendHtmlMail = false;
         $this->_useSentFolder = false;
         $this->_useTrashFolder = false;
         $this->dirty_flag = 1;
@@ -181,6 +187,22 @@ class NOCCUserPrefs {
      */
     public function setDisplayStructuredText($value) {
         $this->_displayStructuredText = $this->_convertToFalse($value);
+    }
+
+    /**
+     * Get HTML mail sending from user preferences
+     * @return boolean Display structured text?
+     */
+    public function getSendHtmlMail() {
+        return $this->_sendHtmlMail;
+    }
+
+    /**
+     * Set HTML mail sending from user preferences
+     * @param mixed $value Display structured text?
+     */
+    public function setSendHtmlMail($value) {
+        $this->_sendHtmlMail = $this->_convertToFalse($value);
     }
 
     /**
@@ -314,7 +336,7 @@ class NOCCUserPrefs {
                     $prefs->sig_sep = ($value == 1 || $value == 'on');
                     break;
                 case 'html_mail_send':
-                    $prefs->html_mail_send = ($value == 1 || $value == 'on');
+                    $prefs->setSendHtmlMail($value);
                     break;
                 case 'graphical_smilies':
                     $prefs->graphical_smilies = ($value == 1 || $value == 'on');
@@ -392,7 +414,7 @@ class NOCCUserPrefs {
         fwrite($file, "signature=".base64_encode($this->signature)."\n");
         fwrite($file, "wrap_msg=".$this->wrap_msg."\n");
         fwrite($file, "sig_sep=".$this->sig_sep."\n");
-        fwrite($file, "html_mail_send=".$this->html_mail_send."\n");
+        fwrite($file, "html_mail_send=".$this->_sendHtmlMail."\n");
         fwrite($file, "graphical_smilies=".$this->graphical_smilies."\n");
         fwrite($file, "sent_folder=".$this->_useSentFolder."\n");
         fwrite($file, "sent_folder_name=".str_replace($_SESSION['imap_namespace'], "", $this->sent_folder_name)."\n");

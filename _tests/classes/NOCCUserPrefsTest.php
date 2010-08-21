@@ -216,6 +216,42 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * Test case for getSendHtmlMail().
+     */
+    public function testGetSendHtmlMail() {
+        $this->assertFalse($this->userPrefs1->getSendHtmlMail());
+    }
+
+    /**
+     * Test case for setSendHtmlMail().
+     */
+    public function testSetSendHtmlMail() {
+        $userPrefs = new NOCCUserPrefs('');
+
+        $this->assertFalse($userPrefs->getSendHtmlMail(), 'default');
+        $userPrefs->setSendHtmlMail(true);
+        $this->assertTrue($userPrefs->getSendHtmlMail(), 'true');
+        $userPrefs->setSendHtmlMail(false);
+        $this->assertFalse($userPrefs->getSendHtmlMail(), 'false');
+        $userPrefs->setSendHtmlMail(1);
+        $this->assertTrue($userPrefs->getSendHtmlMail(), '1');
+        $userPrefs->setSendHtmlMail(0);
+        $this->assertFalse($userPrefs->getSendHtmlMail(), '0');
+        $userPrefs->setSendHtmlMail('on');
+        $this->assertTrue($userPrefs->getSendHtmlMail(), 'on');
+        $userPrefs->setSendHtmlMail('off');
+        $this->assertFalse($userPrefs->getSendHtmlMail(), 'off');
+        $userPrefs->setSendHtmlMail('1');
+        $this->assertTrue($userPrefs->getSendHtmlMail(), '"1"');
+        $userPrefs->setSendHtmlMail('0');
+        $this->assertFalse($userPrefs->getSendHtmlMail(), '"0"');
+        $userPrefs->setSendHtmlMail('<invalid>');
+        $this->assertFalse($userPrefs->getSendHtmlMail(), '<invalid>');
+        $userPrefs->setSendHtmlMail(null);
+        $this->assertFalse($userPrefs->getSendHtmlMail(), 'NULL');
+    }
+
+    /**
      * Test case for getUseSentFolder().
      */
     public function testGetUseSentFolder() {
@@ -317,7 +353,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('', $userPrefs1->reply_leadin, 'reply_leadin');
         $this->assertEquals('This is a signature...', $userPrefs1->signature, 'signature');
         $this->assertTrue($userPrefs1->sig_sep, 'sig_sep');
-        $this->assertTrue($userPrefs1->html_mail_send, 'html_mail_send');
+        $this->assertTrue($userPrefs1->getSendHtmlMail(), 'getSendHtmlMail()');
         $this->assertTrue($userPrefs1->graphical_smilies, 'graphical_smilies');
         $this->assertTrue($userPrefs1->getUseSentFolder(), 'getUseSentFolder()');
         $this->assertEquals('Sent', $userPrefs1->sent_folder_name, 'sent_folder_name');
@@ -341,7 +377,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('', $userPrefs2->reply_leadin, 'reply_leadin');
         $this->assertEquals('', $userPrefs2->signature, 'signature');
         $this->assertFalse($userPrefs2->sig_sep, 'sig_sep');
-        $this->assertFalse($userPrefs2->html_mail_send, 'html_mail_send');
+        $this->assertFalse($userPrefs2->getSendHtmlMail(), 'getSendHtmlMail()');
         $this->assertFalse($userPrefs2->graphical_smilies, 'graphical_smilies');
         $this->assertFalse($userPrefs2->getUseSentFolder(), 'getUseSentFolder()');
         $this->assertEquals('', $userPrefs2->sent_folder_name, 'sent_folder_name');

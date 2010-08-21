@@ -149,7 +149,7 @@ switch($action) {
     // Write a mail...
     //--------------------------------------------------------------------------------
     case 'write':
-        $_SESSION['html_mail_send'] = $user_prefs->html_mail_send;
+        $_SESSION['html_mail_send'] = $user_prefs->getSendHtmlMail();
 
         if (isset($_REQUEST['mail_to']) && $_REQUEST['mail_to'] != "") {
             $mail_to = $_REQUEST['mail_to'];
@@ -547,7 +547,7 @@ switch($action) {
             if (isset($_REQUEST['wrap_msg']))
                 $user_prefs->wrap_msg = $_REQUEST['wrap_msg'];
             $user_prefs->sig_sep = isset($_REQUEST['sig_sep']);
-            $user_prefs->html_mail_send = isset($_REQUEST['html_mail_send']);
+            $user_prefs->setSendHtmlMail(isset($_REQUEST['html_mail_send']));
             $user_prefs->graphical_smilies = isset($_REQUEST['graphical_smilies']);
             $user_prefs->setUseSentFolder(isset($_REQUEST['sent_folder']));
             if (isset($_REQUEST['sent_folder_name'])) {
