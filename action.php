@@ -149,7 +149,7 @@ switch($action) {
     // Write a mail...
     //--------------------------------------------------------------------------------
     case 'write':
-        $_SESSION['html_mail_send'] = $user_prefs->getSendHtmlMail();
+        NOCC_Session::setSendHtmlMail($user_prefs->getSendHtmlMail());
 
         if (isset($_REQUEST['mail_to']) && $_REQUEST['mail_to'] != "") {
             $mail_to = $_REQUEST['mail_to'];

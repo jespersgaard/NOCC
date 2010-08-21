@@ -225,8 +225,7 @@ class mime_mail {
         $mime = str_replace("\r\n.\r\n", "\r\n..\r\n", $mime);
 
         $mail_format = '';
-        //TODO: $_SESSION['html_mail_send'] nach NOCC_Session auslagern!
-        if (isset($_SESSION['html_mail_send']) && $_SESSION['html_mail_send']) {
+        if (NOCC_Session::getSendHtmlMail()) {
             $mail_format = 'text/html';
         }
         else {

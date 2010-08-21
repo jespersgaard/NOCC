@@ -49,8 +49,7 @@ $mail_bcc = safestrip($_REQUEST['mail_bcc']);
 $mail_subject = safestrip($_REQUEST['mail_subject']);
 $mail_body = safestrip($_REQUEST['mail_body']);
 
-//TODO: $_SESSION['html_mail_send'] nach NOCC_Session auslagern!
-if (isset($_SESSION['html_mail_send']) && $_SESSION['html_mail_send']) {
+if (NOCC_Session::getSendHtmlMail()) {
     $mail_body = '<html><head></head><body>'.$mail_body.'</body></html>';
 }
 

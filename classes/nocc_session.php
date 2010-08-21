@@ -123,5 +123,26 @@ class NOCC_Session {
     public static function setUserPrefs($value) {
         $_SESSION['nocc_user_prefs'] = $value;
     }
+
+    /**
+     * Get HTML mail sending from the session
+     * @return bool User preferences
+     * @static
+     */
+    public static function getSendHtmlMail() {
+        if (isset($_SESSION['html_mail_send']) && $_SESSION['html_mail_send']) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Set HTML mail sending from the session
+     * @param bool $value User preferences
+     * @static
+     */
+    public static function setSendHtmlMail($value) {
+        $_SESSION['html_mail_send'] = $value;
+    }
 }
 ?>
