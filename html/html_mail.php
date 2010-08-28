@@ -58,12 +58,27 @@ if ($content['subject'] == '')
   echo '<input type="hidden" name="mail" value="' . $_REQUEST['mail'] . '"/>';
   echo '<input type="hidden" name="verbose" value="' . $_REQUEST['verbose'] . '"/>';
   echo '<select class="button" name="user_charset">';
-  for ($i = 0; $i < sizeof($charset_array); $i++) {
+  $group = ''; $optgroupOpen = false;
+  for ($i = 0; $i < sizeof($charset_array); $i++) { //for each charset...
+    if ($charset_array[$i]->group != $group) { //if group changed...
+      $group = $charset_array[$i]->group;
+      if ($optgroupOpen) { //if <optgroup> open...
+        echo '</optgroup>';
+        $optgroupOpen = false;
+      }
+      if ($group != '') { //if group exists...
+        echo '<optgroup label="' . $group . '">';
+        $optgroupOpen = true;
+      }
+    }
     echo '<option value="'.$charset_array[$i]->charset.'"';
     if (isset($_REQUEST['user_charset']) && $_REQUEST['user_charset'] == $charset_array[$i]->charset
         || ((!isset($_REQUEST['user_charset']) || $_REQUEST['user_charset'] == '') && strtolower($content['charset']) == strtolower($charset_array[$i]->charset)))
       echo ' selected="selected"';
     echo '>'.$charset_array[$i]->label.'</option>';
+  }
+  if ($optgroupOpen) { //if <optgroup> open...
+    echo '</optgroup>';
   }
   echo '</select>&nbsp;&nbsp;<input name="submit" class="button" type="submit" value="' . $html_submit . '" />';
   echo '</div></form>';

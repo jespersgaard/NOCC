@@ -1,5 +1,8 @@
 NOCC 1.9.0  ???? ??, ????
 
+  Feature Requests
+    * RFE #2985080 : Group items in character encoding list (Tim Gerundt).
+ 
   Misc
     * Add debug level for developers (Tim Gerundt).
     * Drop $conf->display_rfc822 (Tim Gerundt).
