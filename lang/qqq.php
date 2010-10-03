@@ -14,9 +14,8 @@
  * @license    http://www.gnu.org/licenses/ GNU General Public License
  * @version    SVN: $Id$
  */
-
 /** Message documentation (Message documentation)
- *
+ * 
  * See the qqq 'language' for message documentation incl. usage of parameters
  * To improve a translation please visit http://translatewiki.net
  *
@@ -38,8 +37,15 @@ $no_locale_date_format = 'If the locale is not implemented on the host, how we d
 $default_time_format = 'What format string should be passed to strftime() for messages sent today? %-signs, and the letters following them, indicate parts of a time. So do not translate them, but adjust the entire pattern to the format used in your languages environment.';
 $alt_new_msg = '{{Identical|New messages}}';
 $alt_forward = '{{Identical|Forward}}';
-$alt_next = '{{Identical|Next}}';
-$alt_prev = '{{Identical|Previous}}';
+$alt_next = '{{Identical|Next}}
+
+[[File:Nocc_paging.jpg‎|thumb|250px|right]]
+Navigation link at top of page. See screenshot.';
+$alt_prev = 'Navigation link at top of page. See [[Translating talk:NOCC#NOCC_screenshots|screenshot]].
+
+
+
+{{Identical|Previous}}';
 $title_next_page = '{{Identical|Next page}}';
 $title_prev_page = '{{Identical|Previous page}}';
 $html_login = 'Verb.{{Identical|Login}}';
@@ -59,6 +65,7 @@ $html_display_struct = 'This is a prompt of a yes/no switch. If set to true (yes
 <span style="white-space:nowrap">"<code>/emphasised/</code>" → "<em>emphasised</em>"</span>, and
 <span style="white-space:nowrap">"<code>_underlined_</code>" → "<u>underlined</u>"</span>, and
 <span style="white-space:nowrap">"<code>|code|</code>" → "<code>code</code>"</span>.';
+$html_folders = 'Title of screen and tab. See [[Translating talk:NOCC#NOCC_screenshots|screenshot]].';
 $html_folder_subscribe = 'Part of the interface for managing folders, see the [[Translating talk:NOCC#NOCC_screenshots|screenshot]].';
 $html_folder_rename = 'Part of the interface for managing folders, see the [[Translating talk:NOCC#NOCC_screenshots|screenshot]]. It appears in the option to rename a folder: \'Rename [input box to select folder to be renamed] to [input box to write new name]\'.
 
@@ -69,8 +76,31 @@ $html_folder_delete = 'Part of the interface for managing folders, see the [[Tra
 
 {{Identical|Delete}}';
 $html_folder_to = 'Part of the interface for managing folders, see the [[Translating talk:NOCC#NOCC_screenshots|screenshot]]. It appears in the option to rename a folder: \'Rename [input box to select folder to be renamed] to [input box to write new name]\'.';
-$html_filter_remove = '{{Identical|Delete}}';
+$html_filter_remove = '[[File:Nocc_filter.png|150px|right]]
+Text of radio button. See screenshot.
+
+
+
+{{Identical|Delete}}';
+$html_filter_body = '[[File:Nocc_filter.png|150px|right]]
+Option in "Select one" drop-down box. See screenshot.';
+$html_filter_subject = '[[File:Nocc_filter.png|150px|right]]
+Option in "Select one" drop-down box. See screenshot.';
+$html_filter_to = '[[File:Nocc_filter.png|150px|right]]
+Option in "Select one" drop-down box. See screenshot.';
+$html_filter_cc = '[[File:Nocc_filter.png|150px|right]]
+Option in "Select one" drop-down box. See screenshot.';
+$html_filter_from = '[[File:Nocc_filter.png|150px|right]]
+Option in "Select one" drop-down box. See screenshot.';
 $html_filter_contains = 'Used in the e-mail filter settings form. See [[:File:Nocc filter.png|screenshot]] for usage.';
+$html_filter_name = '[[File:Nocc_filter.png|150px|right]]
+Field label. See screenshot.';
+$html_filter_action = '[[File:Nocc_filter.png|150px|right]]
+Label in front of radio buttons. See screenshot.';
+$html_filter_moveto = '[[File:Nocc_filter.png|150px|right]]
+Text of radio button - before drop-down list. See screenshot.';
+$html_select_one = '[[File:Nocc_filter.png|150px|right]]
+In drop-down box. See screenshot.';
 $html_and = '{{Identical|And}}
 
 The word is used as \'And\' for three filter fields, each on a row of its own. See [[:File:Nocc filter.png|screenshot of the NOCC Filter preferences]].';
@@ -109,6 +139,7 @@ $html_flagged = '"Flagged" in this context means that the e-mail has been marked
 $html_select = '{{Identical|Select}}';
 $html_add = '{{Identical|Add}}';
 $html_contacts = '"%1$s" is replaced by a config string. "NOCC" is the default value.';
+$html_modify = '{{Identical|Modify}}';
 $html_back = '{{Identical|Back}}';
 $html_contact_mod = 'This means the same as \'amend the details of a contact\'.';
 $html_contact_list = '%1$s is the username';

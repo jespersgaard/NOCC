@@ -14,9 +14,8 @@
  * @license    http://www.gnu.org/licenses/ GNU General Public License
  * @version    SVN: $Id$
  */
-
 /** Croatian (Hrvatski)
- *
+ * 
  * See the qqq 'language' for message documentation incl. usage of parameters
  * To improve a translation please visit http://translatewiki.net
  *
@@ -24,6 +23,7 @@
  * @file
  *
  * @author Ex13
+ * @author Herr Mlinka
  * @author Vid Strpic <strpic@bofhlet.net>
  */
 
@@ -41,22 +41,23 @@ $alt_reply_all = 'Odgovori svima';
 $alt_forward = 'Proslijedi';
 $title_next_msg = 'Sledeca poruka';
 $title_prev_msg = 'Prethodna poruka';
-$html_theme_label = 'Tema';
-$html_welcome = 'Dobrodošli %1$s';
+$html_theme_label = 'Tema:';
+$html_welcome = 'Dobrodošli na %1$s';
 $html_login = 'Korisničko ime';
 $html_submit = 'Prijava';
 $html_help = 'Pomoć';
 $html_wrong = 'Korisničko ime ili šifra su neispravni';
 $html_retry = 'Pokušaj ponovo';
-$html_msgperpage_label = 'Messages per page';
+$html_msgperpage_label = 'Broj poruka po stranici:';
 $html_preferences = 'Postavke';
-$html_full_name_label = 'Puno ime';
-$html_email_address_label = 'E-mail adresa';
+$html_full_name_label = 'Puni naziv:';
+$html_email_address_label = 'E-mail adresa:';
 $html_ccself = 'Cc sebi';
 $html_hide_addresses = 'Sakrij adrese';
 $html_outlook_quoting = 'Navodi u stilu Outlooka';
 $html_use_signature = 'Koristi potpis';
 $html_signature = 'Potpis';
+$html_signature_label = 'Potpis:';
 $html_prefs_updated = 'Postavke obnovljene';
 $html_view_header = 'Vidi zaglavlje';
 $html_remove_header = 'Sakrij zaglavlje';
@@ -68,7 +69,7 @@ $html_forward = 'Proslijedi';
 $html_delete = 'Obriši';
 $html_new = 'Nova';
 $html_mark = 'Obriši';
-$html_att_label = 'Priložena datoteka';
+$html_att_label = 'Priložena datoteka:';
 $html_unknown = '[nepoznat]';
 $html_attach = 'Priloži';
 $html_attach_forget = 'Morate priložiti datoteku prije slanja poruke !';
@@ -82,7 +83,7 @@ $html_totalsize = 'Ukupna veličina';
 $html_filename = 'Ime datoteke';
 $html_to = 'Za';
 $html_cc = 'Kopija';
-$html_bcc_label = 'Nevidljiva kopija';
+$html_bcc_label = 'Nevidljiva kopija:';
 $html_nosubject = 'Bez naslova';
 $html_send = 'Pošalji';
 $html_cancel = 'Odustani';
@@ -91,7 +92,7 @@ $html_logout = 'Izlaz';
 $html_msg = 'poruka';
 $html_msgs = 'poruka';
 $html_configuration = 'Ovaj server nije dobro podesen !';
-$html_priority_label = 'Prioritet';
+$html_priority_label = 'Prioritet:';
 $html_low = 'Nizak';
 $html_normal = 'Normalan';
 $html_high = 'Visok';
@@ -103,7 +104,7 @@ $html_no_sendaction = 'Nista nije specificirano - ukljucite JavaScript.';
 $html_error_occurred = 'Dogodila se greska';
 $html_prefs_file_error = 'Ne mogu zapisati postavke.';
 $html_add = 'Add';
-$html_contact_err1 = 'Maximal number of contact is';
+$html_contact_err1 = 'Maksimalan broj kontakata je "%1$d"';
 $html_contact_err2 = 'You can\'t add a new contact';
 $original_msg = '-- Originalna poruka --';
 $to_empty = 'Polje \'Za\' ne moze biti prazno!';
