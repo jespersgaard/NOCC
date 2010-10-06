@@ -94,7 +94,7 @@ class NOCC_Security {
      * TODO: Move to other place?
      */
     public static function isSupportedImageType($imageType) {
-        if (preg_match('/^PJPE?G$|^JPE?G$|^GIF$|^PNG$/i', $imageType)) { //if PJP(E)G, JP(E)G, GIF, PNG...
+        if (preg_match('/^PJPE?G$|^JPE?G$|^GIF$|^PNG|^BMP$/i', $imageType)) { //if PJP(E)G, JP(E)G, GIF, PNG, BMP...
             return true;
         }
         return false;
