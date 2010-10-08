@@ -158,6 +158,7 @@ $html_mark = 'Delete';
 $html_att_label = 'Attachment:';
 $html_atts_label = 'Attachments:';
 $html_unknown = '[unknown]';
+$html_part_x = 'Part %s';
 $html_attach = 'Attach';
 $html_attach_forget = 'You must attach your file before sending your message!';
 $html_attach_delete = 'Remove Selected';

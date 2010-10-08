@@ -279,15 +279,16 @@ function convertBodyPartToAttachTab($bodyPart) {
  * @todo Only temporary needed!
  */
 function fillAttachTabFromMailReader($mail_reader, &$attach_tab) {
-    global $html_unknown;
+    global $html_part_x;
     
     $parts = $mail_reader->getAttachmentParts();
-    foreach ($parts as $part) { // for all parts...
+    foreach ($parts as $part) { //for all parts...
+        $defaultname = sprintf($html_part_x, $part->getPartNumber());
         $partstructure = $part->getPartStructure();
         $tmp = Array(
             'number' => $part->getPartNumber(),
             'id' => $partstructure->getId(),
-            'name' => $partstructure->getName($html_unknown),
+            'name' => $partstructure->getName($defaultname),
             'mime' => $partstructure->getInternetMediaType(),
             'transfer' => $partstructure->getEncodingText(),
             'disposition' => $partstructure->getDisposition(),

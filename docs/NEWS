@@ -2,8 +2,9 @@ NOCC 1.9.0  ???? ??, ????
 
   Feature Requests
     * RFE #2985080 : Group items in character encoding list (Tim Gerundt).
- 
+
   Misc
+    * Use "Part X" as filename for attachments without name (Tim Gerundt).
     * Add BMP to the supported image formats (Tim Gerundt).
     * Add debug level for developers (Tim Gerundt).
     * Drop $conf->display_rfc822 (Tim Gerundt).

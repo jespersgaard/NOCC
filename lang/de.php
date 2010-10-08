@@ -136,6 +136,7 @@ $html_mark = 'Löschen';
 $html_att_label = 'Anhang:';
 $html_atts_label = 'Anhänge:';
 $html_unknown = '[unbekannt]';
+$html_part_x = 'Teil %s';
 $html_attach = 'Anhängen';
 $html_attach_forget = 'Sie müssen die Datei vor dem Senden der Nachricht anhängen!';
 $html_attach_delete = 'Ausgewählte entfernen';
