@@ -1021,4 +1021,18 @@ function get_page_nav($pages, $skip) {
   }
   return $html;
 }
+
+/**
+ * Remove Unicode "byte order mark" (BOM)...
+ * @param string $data
+ * @return string
+ */
+function removeUnicodeBOM($data) {
+    $data = str_replace("\xef\xbb\xbf", '', $data); //UTF-8
+    $data = str_replace("\xfe\xff", '', $data); //UTF-16 (BE)
+    $data = str_replace("\xff\xfe", '', $data); //UTF-16 (LE)
+    $data = str_replace("\0\0\xfe\xff", '', $data); //UTF-32 (BE)
+    $data = str_replace("\xff\xfe\0\0", '', $data); //UTF-32 (LE)
+    return $data;
+}
 ?>

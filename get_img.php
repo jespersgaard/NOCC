@@ -25,8 +25,8 @@ try {
     $mime = $_REQUEST['mime'];
 
     $img = $pop->fetchbody($mail, $num);
+    $img = nocc_imap::decode(removeUnicodeBOM($img), $transfer);
 
-    $img = nocc_imap::decode($img, $transfer);
     $pop->close();
 
     header('Content-type: image/'.$mime);
