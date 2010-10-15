@@ -118,7 +118,7 @@ switch($action) {
             }
             //TODO: Rewrite!
             $imageType = NOCC_Security::getImageType($tmp['mime']);
-            if ($conf->display_img_attach && !empty($imageType) && ($tmp['number'] != '')) {
+            if ((preg_match('|ATTACHMENT|i', $tmp['disposition'])) && $conf->display_img_attach && !empty($imageType) && ($tmp['number'] != '')) {
                 // if it's an image, display it#
                 if (NOCC_Security::isSupportedImageType($imageType)) {
                     echo '<hr class="mailAttachSep" />';

@@ -4,6 +4,7 @@ NOCC 1.9.0  ???? ??, ????
     * RFE #2985080 : Group items in character encoding list (Tim Gerundt).
 
   Misc
+    * Don't show none attachment images (Tim Gerundt).
     * Remove Unicode "byte order mark" (BOM) from images (Tim Gerundt).
     * Use "Part X" as filename for attachments without name (Tim Gerundt).
     * Add BMP to the supported image formats (Tim Gerundt).
