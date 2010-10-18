@@ -26,6 +26,7 @@
  * @author Eduardo.mps
  * @author GKnedo
  * @author Giovani Zamboni <zambaxtz@terra.com.br>
+ * @author Giro720
  * @author Luckas Blade
  * @author Renato Frederick <frederick@dahype.org>
  * @author Rodrigo Avila
@@ -134,6 +135,7 @@ $html_mark = 'Excluir';
 $html_att_label = 'Anexo:';
 $html_atts_label = 'Anexos:';
 $html_unknown = '[Desconhecido]';
+$html_part_x = 'Parte %s';
 $html_attach = 'Anexar arquivo';
 $html_attach_forget = 'Você precisa anexar seus arquivos antes de enviar esta mensagem !';
 $html_attach_delete = 'Remover anexos selecionados';

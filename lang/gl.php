@@ -128,6 +128,7 @@ $html_mark = 'Borrar';
 $html_att_label = 'Dato adxunto:';
 $html_atts_label = 'Datos adxuntos:';
 $html_unknown = '[descoñecido]';
+$html_part_x = 'Parte %s';
 $html_attach = 'Adxuntar';
 $html_attach_forget = 'Debe adxuntar o seu ficheiro antes de enviar a súa mensaxe!';
 $html_attach_delete = 'Eliminar a selección';

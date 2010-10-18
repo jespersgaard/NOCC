@@ -130,6 +130,7 @@ $html_mark = 'Slett';
 $html_att_label = 'Vedlegg:';
 $html_atts_label = 'Vedlegg:';
 $html_unknown = '[ukjent]';
+$html_part_x = 'Del %s';
 $html_attach = 'Legg til';
 $html_attach_forget = 'Du må legge til filen før du kan sende meldingen !';
 $html_attach_delete = 'Fjern markerte vedlegg';

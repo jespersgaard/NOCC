@@ -134,6 +134,7 @@ $html_mark = 'Удалить';
 $html_att_label = 'Прикрепленный файл:';
 $html_atts_label = 'Прикрепленные файлы:';
 $html_unknown = '[неизвестно]';
+$html_part_x = 'Часть %s';
 $html_attach = 'Прикрепить файл';
 $html_attach_forget = 'Вы должны прикрепить файл до отправки сообщения!';
 $html_attach_delete = 'Удалить выбранные';

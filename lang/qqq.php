@@ -136,6 +136,7 @@ $html_normal = 'Option in the drop-down box for selecting the priority for taggi
 $html_high = 'Option in the drop-down box for selecting the priority for tagging an e-mail before sending it. The five options are lowest, low, normal, high and highest.';
 $html_highest = 'Option in the drop-down box for selecting the priority for tagging an e-mail before sending it. The five options are lowest, low, normal, high and highest.';
 $html_flagged = '"Flagged" in this context means that the e-mail has been marked (possibly for follow-up or something else)';
+$html_spam = '{{Identical|Spam}}';
 $html_select = '{{Identical|Select}}';
 $html_add = '{{Identical|Add}}';
 $html_contacts = '"%1$s" is replaced by a config string. "NOCC" is the default value.';

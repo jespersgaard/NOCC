@@ -128,6 +128,7 @@ $html_mark = 'Obriši';
 $html_att_label = 'Prilog:';
 $html_atts_label = 'Prilozi:';
 $html_unknown = '[nepoznato]';
+$html_part_x = 'Dio %s';
 $html_attach = 'Dodaj';
 $html_attach_forget = 'Morate dodati Vašu datoteku prije slanja poruke!';
 $html_attach_delete = 'Ukloni odabrano';

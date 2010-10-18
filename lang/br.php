@@ -129,6 +129,7 @@ $html_mark = 'Diverkañ';
 $html_att_label = 'Pezh stag :';
 $html_atts_label = 'Pezhioù stag :';
 $html_unknown = '[dianav]';
+$html_part_x = 'Lodenn %s';
 $html_attach = 'Stagañ';
 $html_attach_forget = 'Ret eo deoc\'h stagañ ho restr a-raok kas ar gemennadenn !';
 $html_attach_delete = 'Lemel ar restroù diuzet';

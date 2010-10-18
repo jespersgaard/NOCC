@@ -128,6 +128,7 @@ $html_mark = 'Избриши';
 $html_att_label = 'Податотека во прилог:';
 $html_atts_label = 'Податитеки во прилог:';
 $html_unknown = '[непознато]';
+$html_part_x = 'Дел %s';
 $html_attach = 'Приложи';
 $html_attach_forget = 'Приложите ја податотеката пред да го испратите писмото!';
 $html_attach_delete = 'Отстрани го одбраното';

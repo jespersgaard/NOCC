@@ -128,6 +128,7 @@ $html_mark = 'Deler';
 $html_att_label = 'Annexo:';
 $html_atts_label = 'Annexos:';
 $html_unknown = '[incognite]';
+$html_part_x = 'Parte %s';
 $html_attach = 'Annexar';
 $html_attach_forget = 'Es necessari annexar le file ante de inviar le message!';
 $html_attach_delete = 'Remover le files seligite';

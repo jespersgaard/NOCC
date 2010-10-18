@@ -24,6 +24,7 @@
  *
  * @author IAlex
  * @author Peter17
+ * @author Sherbrooke
  */
 
 $lang_locale = 'fr_FR.UTF-8';
@@ -129,6 +130,7 @@ $html_mark = 'Effacer';
 $html_att_label = 'Pièce jointe :';
 $html_atts_label = 'Pièces jointes :';
 $html_unknown = '[inconnu]';
+$html_part_x = 'Partie %s';
 $html_attach = 'Attacher';
 $html_attach_forget = 'Vous devez attacher votre fichier avant d\'envoyer votre message !';
 $html_attach_delete = 'Supprimer les fichiers sélectionnés';

@@ -22,6 +22,7 @@
  * @ingroup Language
  * @file
  *
+ * @author Beta16
  * @author Darth Kule
  * @author Francesco Andreozzi <ozzo@lauratiamo.it>
  * @author Gianfranco
@@ -54,7 +55,7 @@ $html_retry = 'Riprova';
 $html_remember = 'Ricorda Impostazioni';
 $html_msgperpage_label = 'Messaggi per pagina';
 $html_preferences = 'Preferenze';
-$html_full_name_label = 'Nome';
+$html_full_name_label = 'Nome completo:';
 $html_email_address_label = 'Indirizzo E-mail';
 $html_ccself = 'auto Cc proprio indizzo';
 $html_hide_addresses = 'Nascondi indirizzo';

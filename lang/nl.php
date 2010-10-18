@@ -135,6 +135,7 @@ $html_mark = 'Verwijderen';
 $html_att_label = 'Bijlage:';
 $html_atts_label = 'Bijlagen:';
 $html_unknown = '[onbekend]';
+$html_part_x = 'Deel %s';
 $html_attach = 'Toevoegen';
 $html_attach_forget = 'De bijlage moet nog toegevoegd worden voor verzending!';
 $html_attach_delete = 'Selectie verwijderen';

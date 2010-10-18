@@ -135,6 +135,7 @@ $html_mark = 'Apagar';
 $html_att_label = 'Anexo:';
 $html_atts_label = 'Anexos:';
 $html_unknown = '[desconhecido]';
+$html_part_x = 'Parte %s';
 $html_attach = 'Anexar';
 $html_attach_forget = 'Tem de premir \`Anexar\` antes de enviar a mensagem!';
 $html_attach_delete = 'Retirar Ficheiros Seleccionados';
