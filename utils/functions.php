@@ -23,6 +23,26 @@ require_once './classes/nocc_quotausage.php';
 require_once './classes/nocc_mailaddress.php';
 
 /**
+ * Get UTF-8 string length
+ * @param string $string UTF-8 string
+ * @return int UTF-8 string length
+ */
+function utf8_strlen($string) {
+    return mb_strlen($string, 'UTF-8');
+}
+
+/**
+ * Get UTF-8 string part
+ * @param string $string UTF-8 string
+ * @param int $start Start
+ * @param int $length Length
+ * @return string UTF-8 string part
+ */
+function utf8_substr($string, $start, $length = 0) {
+    return mb_substr($string, $start, $length, 'UTF-8');
+}
+
+/**
  * ...
  * @param object $pop
  * @param int $skip
@@ -784,8 +804,8 @@ function unhtmlentities($string) {
  * @return string
  */
 function convertMailData2Html($maildata, $cutafter = 0) {
-    if (($cutafter > 0) && (strlen($maildata) > $cutafter)) {
-        return htmlspecialchars(substr($maildata, 0, $cutafter)) . '&hellip;';
+    if (($cutafter > 0) && (utf8_strlen($maildata) > $cutafter)) {
+        return htmlspecialchars(utf8_substr($maildata, 0, $cutafter)) . '&hellip;';
     } else {
         return htmlspecialchars($maildata);
     }
