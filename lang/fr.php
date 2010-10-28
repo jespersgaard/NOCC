@@ -25,6 +25,7 @@
  * @author IAlex
  * @author Peter17
  * @author Sherbrooke
+ * @author Verdy p
  */
 
 $lang_locale = 'fr_FR.UTF-8';
@@ -50,7 +51,7 @@ $html_welcome = 'Bienvenue à %1$s';
 $html_login = 'Se connecter';
 $html_user_label = 'Utilisateur :';
 $html_passwd_label = 'Mot de passe :';
-$html_submit = 'Valider';
+$html_submit = 'Soumettre';
 $html_help = 'Aide';
 $html_server_label = 'Serveur :';
 $html_wrong = 'L\'identifiant ou le mot de passe ne sont pas valides';
@@ -133,7 +134,7 @@ $html_unknown = '[inconnu]';
 $html_part_x = 'Partie %s';
 $html_attach = 'Attacher';
 $html_attach_forget = 'Vous devez attacher votre fichier avant d\'envoyer votre message !';
-$html_attach_delete = 'Supprimer les fichiers sélectionnés';
+$html_attach_delete = 'Enlever les fichiers sélectionnés';
 $html_attach_none = 'Vous devez sélectionner un fichier à attacher !';
 $html_sort_by = 'Trier par';
 $html_sort = 'Trier';
@@ -198,9 +199,9 @@ $html_back = 'Retour';
 $html_contact_add = 'Ajouter un nouveau contact';
 $html_contact_mod = 'Modifier un contact';
 $html_contact_first = 'Prénom';
-$html_contact_last = 'Nom';
+$html_contact_last = 'Nom de famille';
 $html_contact_nick = 'Pseudo';
-$html_contact_mail = 'E-mail';
+$html_contact_mail = 'Courriel';
 $html_contact_list = 'Liste de contacts de %1$s';
 $html_contact_del = 'de la liste de contacts';
 $html_contact_count = '%1$d contacts';
@@ -219,7 +220,7 @@ $html_smtp_error_unexpected = 'Réponse inattendue :';
 $lang_could_not_connect = 'Impossible de se connecter au serveur';
 $lang_invalid_msg_num = 'Mauvais numéro de message';
 $html_file_upload_attack = 'Possibilité d\'attaque depuis le fichier uploadé';
-$html_invalid_email_address = 'Adresse e-mail invalide';
+$html_invalid_email_address = 'Adresse courriel invalide';
 $html_invalid_msg_per_page = 'Nombre de messages par page invalide';
 $html_invalid_wrap_msg = 'Valeur de tronquature invalide';
 $html_seperate_msg_win = 'Messages dans des fenêtres séparées';

@@ -128,6 +128,7 @@ $html_mark = 'Lesche';
 $html_att_label = 'Aahang:';
 $html_atts_label = 'Aahäng:';
 $html_unknown = '[nit bekannt]';
+$html_part_x = 'Teil %s';
 $html_attach = 'Aahänke';
 $html_attach_forget = 'Du muesch d Datei vo em Verschicke vu dr Nochicht aahänke !';
 $html_attach_delete = 'Uusgwehlti uuseneh';

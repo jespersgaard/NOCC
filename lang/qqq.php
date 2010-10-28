@@ -26,6 +26,7 @@
  * @author Fryed-peach
  * @author Lloffiwr
  * @author McDutchie
+ * @author Naudefj
  * @author Purodha
  * @author Siebrand
  */
@@ -110,7 +111,8 @@ $html_copy = '{{Identical|Copy}}';
 $html_page = '{{Identical|Page}}';
 $html_of = 'Appears at the top of a mailbox, to navigate between the pages of a mailbox. \'of\' is part of \'Page x of y\', where n is a page number in an input box and y is the total number of pages in the mailbox. See the [[Translating_talk:NOCC#NOCC_screenshots|screenshot]].';
 $html_reply = '{{Identical|Reply}}';
-$html_reply_short = 'Appears at the beginning of the subject box when replying to a message. It is short for reply. See the [[Translating_talk:NOCC#NOCC_screenshots|screenshot]].';
+$html_reply_short = 'Appears at the beginning of the subject box when replying to a message. It is short for reply. See the [[Translating_talk:NOCC#NOCC_screenshots|screenshot]].
+{{Identical|Re}}';
 $html_forward = '{{Identical|Forward}}';
 $html_delete = '{{Identical|Delete}}';
 $html_new = '{{Identical|New}}';

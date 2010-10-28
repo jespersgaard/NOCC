@@ -27,6 +27,7 @@
  * @author Benjamin Bräuer <ben1 AT gmx DOT de>
  * @author David Ferch <dferch AT tk-online DOT net>
  * @author Purodha
+ * @author The Evil IP address
  * @author Tim Gerundt <tim AT gerundt DOT de>
  * @author Twobee
  * @author Umherirrender
@@ -65,7 +66,7 @@ $html_remember = 'Einstellungen speichern';
 $html_lang_label = 'Sprache:';
 $html_msgperpage_label = 'Nachrichten pro Seite:';
 $html_preferences = 'Einstellungen';
-$html_full_name_label = 'Vollständiger Name:';
+$html_full_name_label = 'Bürgerlicher Name:';
 $html_email_address_label = 'E-Mail-Adresse:';
 $html_ccself = 'Kopie der gesendeten Nachrichten an die eigene Adresse schicken';
 $html_hide_addresses = 'Adressen verstecken';
