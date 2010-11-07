@@ -127,6 +127,7 @@ $html_mark = 'Zničić';
 $html_att_label = 'Přiwěšk:';
 $html_atts_label = 'Přiwěški:';
 $html_unknown = '[njeznaty]';
+$html_part_x = 'Dźěl %s';
 $html_attach = 'Připowěsnyć';
 $html_attach_forget = 'Dyrbiš swoju dataju do słanja swojeje powěsće připowěsnyć!';
 $html_attach_delete = 'Wubrane wotstronić';

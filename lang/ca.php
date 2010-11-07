@@ -23,6 +23,7 @@
  * @file
  *
  * @author David Gimeno i Ayuso <info@sima-pc.com>
+ * @author Martorell
  * @author MuRe
  * @author Solde
  * @author Ssola
@@ -132,6 +133,7 @@ $html_mark = 'Elimina';
 $html_att_label = 'Adjunt:';
 $html_atts_label = 'Fitxers adjunts:';
 $html_unknown = '[desconegut]';
+$html_part_x = 'Part %s';
 $html_attach = 'Adjuntar';
 $html_attach_forget = 'Heu d\'adjuntar el fitxer abans d\'enviar el vostre missatge!';
 $html_attach_delete = 'Suprimir els seleccionats';
