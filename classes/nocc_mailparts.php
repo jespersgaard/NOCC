@@ -34,7 +34,7 @@ class NOCC_MailParts {
      * @var array
      * @access private
      */
-    private $_attachmetParts;
+    private $_attachmentParts;
     
     /**
      * Initialize the wrapper
@@ -43,7 +43,7 @@ class NOCC_MailParts {
      */
     public function __construct($mailstructure) {
         $this->_bodyPart = null;
-        $this->_attachmetParts = array();
+        $this->_attachmentParts = array();
         
         $parts = array();
         $this->_fillArrayWithParts($parts, $mailstructure);
@@ -55,7 +55,7 @@ class NOCC_MailParts {
             else { //if NO plain/HTML text part...
                 array_push($parts, $bodyPart);
             }
-            $this->_attachmetParts = $parts;
+            $this->_attachmentParts = $parts;
         }
     }
 
@@ -72,7 +72,7 @@ class NOCC_MailParts {
      * @return array Attachment parts
      */
     public function getAttachmentParts() {
-        return $this->_attachmetParts;
+        return $this->_attachmentParts;
     }
 
     /**

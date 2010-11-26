@@ -121,11 +121,11 @@ function inbox(&$pop, $skip = 0) {
  * @param array $attach_tab
  * @param int $mail
  * @param bool $verbose
- * @param array $attachmetParts
+ * @param array $attachmentParts
  * @return array
  * @todo Rename!
  */
-function aff_mail(&$pop, &$attach_tab, $mail, $verbose, &$attachmetParts = null) {
+function aff_mail(&$pop, &$attach_tab, $mail, $verbose, &$attachmentParts = null) {
     global $conf;
     global $lang_invalid_msg_num;
 
@@ -205,7 +205,7 @@ function aff_mail(&$pop, &$attach_tab, $mail, $verbose, &$attachmetParts = null)
     $cc = $mail_reader->getCcAddress();
     $cc = str_replace(',', ', ', $cc);
 
-    $attachmetParts  = $mail_reader->getAttachmentParts();
+    $attachmentParts  = $mail_reader->getAttachmentParts();
 
     $timestamp = $mail_reader->getTimestamp();
     $date = format_date($timestamp, $lang);

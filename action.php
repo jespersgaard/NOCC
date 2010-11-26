@@ -60,8 +60,8 @@ switch($action) {
             $pop = new nocc_imap();
 
             $attach_tab = array();
-            $attachmetParts = array();
-            $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], NOCC_Request::getBoolValue('verbose'), $attachmetParts);
+            $attachmentParts = array();
+            $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], NOCC_Request::getBoolValue('verbose'), $attachmentParts);
         }
         catch (Exception $ex) {
             //TODO: Show error without NoccException!
@@ -77,14 +77,14 @@ switch($action) {
             $content['body'] = NOCC_Security::disableHtmlImages($content['body']);
         }
         // Display embedded HTML images
-        foreach ($attachmetParts as $attachmetPart) { //for all attachmet parts...
-            $partStructure = $attachmetPart->getPartStructure();
+        foreach ($attachmentParts as $attachmentPart) { //for all attachment parts...
+            $partStructure = $attachmentPart->getPartStructure();
 
             if ($partStructure->isImage() && $partStructure->hasId() && $conf->display_img_attach) { //if embedded image...
                 $imageType = NOCC_Security::getImageType($partStructure->getInternetMediaType());
                 if (NOCC_Security::isSupportedImageType($imageType)) {
                     $new_img_src = 'src="get_img.php?mail=' . $_REQUEST['mail'] . '&amp;num='
-                            . $attachmetPart->getPartNumber() . '&amp;mime=' . $imageType . '&amp;transfer=' . $partStructure->getEncodingText() . '"';
+                            . $attachmentPart->getPartNumber() . '&amp;mime=' . $imageType . '&amp;transfer=' . $partStructure->getEncodingText() . '"';
                     $img_id = str_replace('<', '', $partStructure->getId());
                     $img_id = str_replace('>', '', $img_id);
                     $content['body'] = str_replace('src="cid:'.$img_id.'"', $new_img_src, $content['body']);
@@ -106,14 +106,14 @@ switch($action) {
         require './html/html_mail.php';
         //TODO: Use "mailData" DIV from file "html/html_mail.php"!
         echo '<div class="mailData">';
-        foreach ($attachmetParts as $attachmetPart) { //for all attachmet parts...
-            $partStructure = $attachmetPart->getPartStructure();
+        foreach ($attachmentParts as $attachmentPart) { //for all attachment parts...
+            $partStructure = $attachmentPart->getPartStructure();
 
             if ($partStructure->isPlainText() && $conf->display_text_attach) { //if plain text...
                 echo '<hr class="mailAttachSep" />';
                 echo '<div class="mailTextAttach">';
                 //TODO: Replace URLs and Smilies in text/plain attachment?
-                echo view_part($pop, $_REQUEST['mail'], $attachmetPart->getPartNumber(), $partStructure->getEncodingText(), $partStructure->getCharset());
+                echo view_part($pop, $_REQUEST['mail'], $attachmentPart->getPartNumber(), $partStructure->getEncodingText(), $partStructure->getCharset());
                 echo '</div> <!-- .mailTextAttach -->';
             }
             else if ($partStructure->isImage() && !$partStructure->hasId() && $conf->display_img_attach) { //if attached image...
@@ -121,7 +121,7 @@ switch($action) {
                 if (NOCC_Security::isSupportedImageType($imageType)) {
                     echo '<hr class="mailAttachSep" />';
                     echo '<div class="mailImgAttach">';
-                    echo '<img src="get_img.php?mail=' . $_REQUEST['mail'] . '&amp;num=' . $attachmetPart->getPartNumber() . '&amp;mime='
+                    echo '<img src="get_img.php?mail=' . $_REQUEST['mail'] . '&amp;num=' . $attachmentPart->getPartNumber() . '&amp;mime='
                             . $imageType . '&amp;transfer=' . $partStructure->getEncodingText() . '" alt="" title="' . $partStructure->getName() . '" />';
                     echo '</div> <!-- .mailImgAttach -->';
                 }
