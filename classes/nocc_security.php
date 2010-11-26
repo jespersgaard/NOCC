@@ -72,30 +72,18 @@ class NOCC_Security {
     }
 
     /**
-     * Get the image type from a internet media type (MIME type)
-     * @param string $internetMediaType Internet media type (MIME type)
-     * @return string Image subtype
-     * TODO: Better name?
-     * TODO: Move to other place?
-     */
-    public static function getImageType($internetMediaType) {
-        $types = explode('/', $internetMediaType);
-        if (strtolower($types[0]) == 'image') { //if image MIME type...
-            return $types[1];
-        }
-        return '';
-    }
-
-    /**
      * Is supported image type?
-     * @param string $imageType Image type
+     * @param string $internetMediaType Internet media type (MIME type)
      * @return bool Supported image type?
      * TODO: Better name?
      * TODO: Move to other place?
      */
-    public static function isSupportedImageType($imageType) {
-        if (preg_match('/^PJPE?G$|^JPE?G$|^GIF$|^PNG|^BMP$/i', $imageType)) { //if PJP(E)G, JP(E)G, GIF, PNG, BMP...
-            return true;
+    public static function isSupportedImageType($internetMediaType) {
+        $types = explode('/', $internetMediaType);
+        if (strtolower($types[0]) == 'image') { //if image MIME type...
+            if (preg_match('/^PJPE?G$|^JPE?G$|^GIF$|^PNG|^BMP$/i', $types[1])) { //if PJP(E)G, JP(E)G, GIF, PNG, BMP...
+                return true;
+            }
         }
         return false;
     }

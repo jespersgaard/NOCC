@@ -183,32 +183,22 @@ class NOCC_SecurityTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
-     * Test case for getImageType().
-     */
-    public function testGetImageType() {
-        $this->assertEquals('', NOCC_Security::getImageType(null), 'NULL');
-        $this->assertEquals('', NOCC_Security::getImageType('image'), 'image');
-        $this->assertEquals('', NOCC_Security::getImageType('image\bug'), 'image\bug');
-        $this->assertEquals('', NOCC_Security::getImageType('text/plain'), 'text/plain');
-        $this->assertEquals('jpeg', NOCC_Security::getImageType('image/jpeg'), 'image/jpeg');
-        $this->assertEquals('PJPEG', NOCC_Security::getImageType('image/PJPEG'), 'image/PJPEG');
-        $this->assertEquals('gif', NOCC_Security::getImageType('IMAGE/gif'), 'IMAGE/gif');
-        $this->assertEquals('PNG', NOCC_Security::getImageType('IMAGE/PNG'), 'IMAGE/PNG');
-    }
-
-    /**
      * Test case for isSupportedImageType().
      */
     public function testIsSupportedImageType() {
         $this->assertFalse(NOCC_Security::isSupportedImageType(null), 'NULL');
-        $this->assertFalse(NOCC_Security::isSupportedImageType('exe'), 'exe');
-        $this->assertFalse(NOCC_Security::isSupportedImageType('tiff'), 'tiff');
-        $this->assertFalse(NOCC_Security::isSupportedImageType('Gift'), 'Gift');
+        $this->assertFalse(NOCC_Security::isSupportedImageType('image'), 'image');
+        $this->assertFalse(NOCC_Security::isSupportedImageType('image\bug'), 'image\bug');
+        $this->assertFalse(NOCC_Security::isSupportedImageType('text/plain'), 'text/plain');
 
-        $this->assertTrue(NOCC_Security::isSupportedImageType('jpeg'), 'jpeg');
-        $this->assertTrue(NOCC_Security::isSupportedImageType('PJPEG'), 'PJPEG');
-        $this->assertTrue(NOCC_Security::isSupportedImageType('Gif'), 'Gif');
-        $this->assertTrue(NOCC_Security::isSupportedImageType('pnG'), 'pnG');
+        $this->assertFalse(NOCC_Security::isSupportedImageType('image/exe'), 'image/exe');
+        $this->assertFalse(NOCC_Security::isSupportedImageType('image/tiff'), 'image/tiff');
+        $this->assertFalse(NOCC_Security::isSupportedImageType('image/Gift'), 'image/Gift');
+
+        $this->assertTrue(NOCC_Security::isSupportedImageType('image/jpeg'), 'image/jpeg');
+        $this->assertTrue(NOCC_Security::isSupportedImageType('image/PJPEG'), 'image/PJPEG');
+        $this->assertTrue(NOCC_Security::isSupportedImageType('IMAGE/Gif'), 'IMAGE/Gif');
+        $this->assertTrue(NOCC_Security::isSupportedImageType('Image/pnG'), 'Image/pnG');
     }
 }
 ?>
