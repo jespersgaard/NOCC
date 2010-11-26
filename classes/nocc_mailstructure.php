@@ -106,14 +106,13 @@ class NOCC_MailStructure {
     
     /**
      * Get the identification from the structure
-     * @todo Return really a integer value?
-     * @return integer Identification
+     * @return string Identification
      */
     public function getId() {
         if ($this->_structure->ifid) {
           return $this->_structure->id;
         }
-        return 0;
+        return '';
     }
     
     /**
