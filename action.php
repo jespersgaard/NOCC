@@ -615,7 +615,7 @@ switch($action) {
         if ($action == 'login') {
             // Subscribe to INBOX, usefull if it's not already done.
             if ($pop->is_imap()) {
-                $pop->subscribe($pop->folder, $ev, false);
+                $pop->subscribe($_SESSION['nocc_folder'], $ev, false);
             }
             // If needed, store a cookie with all needed parameters
             if ($remember == "true") {
@@ -634,7 +634,7 @@ switch($action) {
         // We may need to apply some filters to the INBOX...  this is still a work in progress.
         if (!isset($_REQUEST['sort'])) {
             if ($pop->is_imap()) {
-                if ($pop->folder == 'INBOX') {
+                if ($_SESSION['nocc_folder'] == 'INBOX') {
                     $user_key = NOCC_Session::getUserKey();
                     if (!empty($conf->prefs_dir)) {
                         $filters = NOCCUserFilters::read($user_key, $ev);

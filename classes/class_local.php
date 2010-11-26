@@ -33,13 +33,11 @@ class result
 
 class nocc_imap
 {
-    //TODO: Rewrite to private!
-    public $server;
+    private $server;
     private $login;
     private $passwd;
     private $conn;
-    //TODO: Rewrite to private!
-    public $folder;
+    private $folder;
     private $namespace;
 
     /**
