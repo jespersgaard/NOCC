@@ -60,7 +60,8 @@ switch($action) {
             $pop = new nocc_imap();
 
             $attach_tab = array();
-            $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], NOCC_Request::getBoolValue('verbose'));
+            $attachmetParts = array();
+            $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], NOCC_Request::getBoolValue('verbose'), $attachmetParts);
         }
         catch (Exception $ex) {
             //TODO: Show error without NoccException!
@@ -106,25 +107,24 @@ switch($action) {
         require './html/html_mail.php';
         //TODO: Use "mailData" DIV from file "html/html_mail.php"!
         echo '<div class="mailData">';
-        while ($tmp = array_pop($attach_tab)) {
-            // $attach_tab is the array of attachments
-            // If it's a text/plain, display it
-            if ((!preg_match('|ATTACHMENT|i', $tmp['disposition'])) && $conf->display_text_attach && (preg_match('|text/plain|i', $tmp['mime']))) {
+        foreach ($attachmetParts as $attachmetPart) { //for all attachmet parts...
+            $partStructure = $attachmetPart->getPartStructure();
+
+            if ($partStructure->isPlainText() && $conf->display_text_attach) { //if plain text...
                 echo '<hr class="mailAttachSep" />';
                 echo '<div class="mailTextAttach">';
                 //TODO: Replace URLs and Smilies in text/plain attachment?
-                echo view_part($pop, $_REQUEST['mail'], $tmp['number'], $tmp['transfer'], $tmp['charset']);
+                echo view_part($pop, $_REQUEST['mail'], $attachmetPart->getPartNumber(), $partStructure->getEncodingText(), $partStructure->getCharset());
                 echo '</div> <!-- .mailTextAttach -->';
             }
-            //TODO: Rewrite!
-            $imageType = NOCC_Security::getImageType($tmp['mime']);
-            if ((preg_match('|ATTACHMENT|i', $tmp['disposition'])) && $conf->display_img_attach && !empty($imageType) && ($tmp['number'] != '')) {
-                // if it's an image, display it#
+            else if ($partStructure->isImage() && !$partStructure->hasId() && $conf->display_img_attach) { //if image...
+                //TODO: NOCC_Security::getImageType necessary?
+                $imageType = NOCC_Security::getImageType($partStructure->getInternetMediaType());
                 if (NOCC_Security::isSupportedImageType($imageType)) {
                     echo '<hr class="mailAttachSep" />';
                     echo '<div class="mailImgAttach">';
-                    echo '<img src="get_img.php?mail=' . $_REQUEST['mail'].'&amp;num=' . $tmp['number'] . '&amp;mime='
-                            . $imageType . '&amp;transfer=' . $tmp['transfer'] . '" alt="" title="' . $tmp['name'] . '" />';
+                    echo '<img src="get_img.php?mail=' . $_REQUEST['mail'].'&amp;num=' .$attachmetPart->getPartNumber() . '&amp;mime='
+                            . $imageType . '&amp;transfer=' . $partStructure->getEncodingText() . '" alt="" title="' . $partStructure->getName() . '" />';
                     echo '</div> <!-- .mailImgAttach -->';
                 }
             }
