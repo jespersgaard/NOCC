@@ -116,6 +116,15 @@ class NOCC_MailStructure {
     }
     
     /**
+     * Has the structure a identification?
+     * @return bool Has identification?
+     */
+    public function hasId() {
+        $id = $this->getId();
+        return !empty($id);
+    }
+    
+    /**
      * Get the number of lines from the structure
      * @return integer Number of lines
      */
