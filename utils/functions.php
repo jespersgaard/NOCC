@@ -159,9 +159,6 @@ function aff_mail(&$pop, $mail, $verbose, &$attachmentParts = null) {
 
     $mail_reader = new NOCC_MailReader($mail, $pop, true);
 
-    $attach_tab = array();
-    fillAttachTabFromMailReader($mail_reader, $attach_tab);
-
     // If we are showing all headers, gather them into a header array
     $header = '';
     if (($verbose == true) && ($conf->use_verbose == true)) {
@@ -195,7 +192,7 @@ function aff_mail(&$pop, $mail, $verbose, &$attachmentParts = null) {
         );
     }
 
-    $link_att = GetAttachmentsTableRow($mail_reader, $attach_tab);
+    $link_att = GetAttachmentsTableRow($mail_reader);
 
     // Get to
     $to = $mail_reader->getToAddress();
@@ -326,11 +323,13 @@ function fillAttachTabFromMailReader($mail_reader, &$attach_tab) {
 /**
  * ...
  * @param NOCC_MailReader $mail_reader Mail reader
- * @param array $attach_tab Attachments
  * @todo Only temporary needed!
  */
-function GetAttachmentsTableRow($mail_reader, &$attach_tab) {
+function GetAttachmentsTableRow($mail_reader) {
     global $html_att_label, $html_atts_label;
+
+    $attach_tab = array();
+    fillAttachTabFromMailReader($mail_reader, $attach_tab);
 
     $link_att = '';
     if ($mail_reader->hasAttachments()) {
