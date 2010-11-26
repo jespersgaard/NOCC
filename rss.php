@@ -84,9 +84,8 @@ catch (Exception $ex) {
   $rssfeed->setDescription('Your mailbox');
   $rssfeed->setLink($conf->base_url);
   while ($tmp = array_shift($tab_mail)) { //for all mails...
-    $attach_tab = array();
     try {
-        $content = aff_mail($pop, $attach_tab, $tmp['number'], false);
+        $content = aff_mail($pop, $tmp['number'], false);
 
         $mail_summery = '';
         if ($tmp['attach'] == true) { //if has attachments...

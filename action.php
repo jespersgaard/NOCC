@@ -59,9 +59,8 @@ switch($action) {
         try {
             $pop = new nocc_imap();
 
-            $attach_tab = array();
             $attachmentParts = array();
-            $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], NOCC_Request::getBoolValue('verbose'), $attachmentParts);
+            $content = aff_mail($pop, $_REQUEST['mail'], NOCC_Request::getBoolValue('verbose'), $attachmentParts);
         }
         catch (Exception $ex) {
             //TODO: Show error without NoccException!
@@ -178,12 +177,10 @@ switch($action) {
     // Reply on a mail...
     //--------------------------------------------------------------------------------
     case 'reply':
-        $attach_tab = array();
-
         try {
             $pop = new nocc_imap();
 
-            $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], NOCC_Request::getBoolValue('verbose'));
+            $content = aff_mail($pop, $_REQUEST['mail'], NOCC_Request::getBoolValue('verbose'));
         }
         catch (Exception $ex) {
             //TODO: Show error without NoccException!
@@ -220,12 +217,10 @@ switch($action) {
     // Reply all on a mail...
     //--------------------------------------------------------------------------------
     case 'reply_all':
-        $attach_tab = array();
-
         try {
             $pop = new nocc_imap();
 
-            $content = aff_mail($pop, $attach_tab, $_REQUEST['mail'], NOCC_Request::getBoolValue('verbose'));
+            $content = aff_mail($pop, $_REQUEST['mail'], NOCC_Request::getBoolValue('verbose'));
         }
         catch (Exception $ex) {
             //TODO: Show error without NoccException!
@@ -262,8 +257,6 @@ switch($action) {
     // Forward a mail...
     //--------------------------------------------------------------------------------
     case 'forward':
-        $attach_tab = array();
-
         try {
             $pop = new nocc_imap();
         }
@@ -280,7 +273,7 @@ switch($action) {
         $mail_body = '';
         for ($mail_num = 0; $mail_num < count($mail_list); $mail_num++) {
             try {
-                $content = aff_mail($pop, $attach_tab, $mail_list[$mail_num], NOCC_Request::getBoolValue('verbose'));
+                $content = aff_mail($pop, $mail_list[$mail_num], NOCC_Request::getBoolValue('verbose'));
             }
             catch (Exception $ex) {
                 //TODO: Show error without NoccException!

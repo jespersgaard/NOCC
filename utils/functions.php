@@ -118,14 +118,13 @@ function inbox(&$pop, $skip = 0) {
  * @global string $html_atts_label
  * @global string $lang_invalid_msg_num
  * @param object $pop
- * @param array $attach_tab
  * @param int $mail
  * @param bool $verbose
  * @param array $attachmentParts
  * @return array
  * @todo Rename!
  */
-function aff_mail(&$pop, &$attach_tab, $mail, $verbose, &$attachmentParts = null) {
+function aff_mail(&$pop, $mail, $verbose, &$attachmentParts = null) {
     global $conf;
     global $lang_invalid_msg_num;
 
@@ -160,6 +159,7 @@ function aff_mail(&$pop, &$attach_tab, $mail, $verbose, &$attachmentParts = null
 
     $mail_reader = new NOCC_MailReader($mail, $pop, true);
 
+    $attach_tab = array();
     fillAttachTabFromMailReader($mail_reader, $attach_tab);
 
     // If we are showing all headers, gather them into a header array
