@@ -567,20 +567,6 @@ function view_part(&$pop, &$mail, $part_no, $transfer, $msg_charset) {
 }
 
 /**
- * ...
- * @param string $string
- * @param string $charset
- * @return string
- * @todo Unused?
- */
-function encode_mime(&$string, &$charset) { 
-    $string = rawurlencode($string);
-    $string = str_replace('%', '=', $string);
-    $string = '=?' . $charset . '?Q?' . $string . '?=';
-    return ($string);
-} 
-
-/**
  * This function removes temporary attachment files and
  * removes any attachment information from the session
  * @global object $conf
