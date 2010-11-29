@@ -26,6 +26,7 @@
  * @author Dadanhrn
  * @author Farras
  * @author Irwangatot
+ * @author IvanLanin
  */
 
 $default_date_format = '%d-%m-%Y';
@@ -65,7 +66,7 @@ $html_ccself = 'Tembusan sendiri';
 $html_hide_addresses = 'Sembunyikan alamat';
 $html_outlook_quoting = 'Gaya kutipan-Qutlook';
 $html_reply_to = 'Balas ke';
-$html_use_signature = 'Gunakan tandatangan';
+$html_use_signature = 'Gunakan tanda tangan';
 $html_signature = 'Tanda tangan';
 $html_signature_label = 'Tanda tangan:';
 $html_reply_leadin_label = 'Balasan diawali:';
@@ -130,6 +131,7 @@ $html_mark = 'Hapus';
 $html_att_label = 'Lampiran:';
 $html_atts_label = 'Lampiran:';
 $html_unknown = '[tidak diketahui]';
+$html_part_x = 'Bagian %s';
 $html_attach = 'Terlampir';
 $html_attach_forget = 'Anda harus melampirkan berkas sebelum mengirim pesan!';
 $html_attach_delete = 'Buang Pilihan';

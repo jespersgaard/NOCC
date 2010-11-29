@@ -22,6 +22,7 @@
  * @ingroup Language
  * @file
  *
+ * @author Horus
  * @author Octahedron80
  * @author Passawuth
  * @author Robert Niska <r.niska@redbox.d2g.nu>
@@ -52,7 +53,7 @@ $html_login = 'ลงชื่อเข้าใช้';
 $html_user_label = 'ชื่อผู้ใช้:';
 $html_passwd_label = 'รหัสผ่าน:';
 $html_submit = 'ส่งข้อมูล';
-$html_help = 'ช่วยเหลือ';
+$html_help = 'วิธีใช้';
 $html_server_label = 'เซิร์ฟเวอร์';
 $html_wrong = 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง';
 $html_retry = 'ลองใหม่';

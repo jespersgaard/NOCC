@@ -25,6 +25,7 @@
  * @author Kwj2772
  * @author Mhha
  * @author Roh,Kyoung-Min <rohbin@dreamwiz.com>
+ * @author Wtspout
  * @author Yknok29
  */
 
@@ -54,6 +55,7 @@ $html_help = '도움말';
 $html_wrong = '아이디가 없거나 비밀번호가 일치하지 않습니다';
 $html_retry = '다시입력';
 $html_remember = '설정내용 기억하기';
+$html_lang_label = '언어:';
 $html_msgperpage_label = '페이지당 메세지의 숫자';
 $html_preferences = '선택사항';
 $html_full_name_label = '성명';
@@ -64,6 +66,7 @@ $html_outlook_quoting = '아웃룩 형식 인용';
 $html_reply_to = '답장 대상';
 $html_use_signature = '서명 사용하기';
 $html_signature = '서명';
+$html_signature_label = '서명:';
 $html_reply_leadin_label = '답장 확인';
 $html_prefs_updated = '선택사항이 저장되었습니다.';
 $html_manage_folders_link = 'IMAP 폴더 관리';
@@ -124,6 +127,7 @@ $html_delete = '삭제';
 $html_new = '새로온 편지';
 $html_mark = '삭제';
 $html_att_label = '첨부';
+$html_atts_label = '첨부 파일 :';
 $html_unknown = '[모름]';
 $html_attach = '첨부하기';
 $html_attach_forget = '파일을 첨부하셔야 편지를 보낼수 있습니다.';
@@ -160,9 +164,12 @@ $html_low = '낮은';
 $html_normal = '일반적인';
 $html_high = '고급의';
 $html_highest = '최상급의';
+$html_spam = '스팸 메일';
+$html_spam_warning = '이 메시지는 스팸 메일로 분류되었습니다.';
 $html_receipt = '답신요청하기';
 $html_select = '선택하기';
 $html_select_all = '선택취소';
+$html_select_contacts = '연락처 선택';
 $html_loading_image = '사진 받는 중';
 $html_send_confirmed = '편지 배달이 승인되었습니다.';
 $html_no_sendaction = '정상적인 동작을 위해서 자바스크립트가 실행가능하도록 웹브라우저 설정을 변경하시기 바랍니다.';
@@ -189,3 +196,16 @@ $html_contact_err1 = '한번에 보내실 수 있는 최대 수신자';
 $original_msg = '-- 원본 내용 --';
 $to_empty = '이메일(email) 주소를 입력하셔야 합니다.';
 $html_images_warning = '귀하의 컴퓨터보안을 위해 외부의 사진파일을 보여주지 않았습니다.';
+$html_images_display = '사진 표시';
+$html_smtp_error_no_conn = 'SMTP 연결을 열 수 없습니다.';
+$html_smtp_error_unexpected = '예상치 못한 SMTP 응답 :';
+$lang_could_not_connect = '서버에 연결할 수 없습니다';
+$lang_invalid_msg_num = '잘못된 메시지 번호';
+$html_invalid_email_address = '잘못된 전자 메일 주소';
+$html_invalid_msg_per_page = '페이지 당 메시지 수가 올바르지 않습니다';
+$html_seperate_msg_win = '개별 창으로 메세지 보기';
+$html_err_file_contacts = '쓰기위한 연락처 파일을 열 수 없습니다.';
+$html_session_file_error = '쓰기위한 세션 파일을 열 수 없습니다.';
+$html_login_not_allowed = '이 로그인에 대한 연결이 허용되지 않습니다.';
+$lang_err_send_delay = '당신은 두 이메일 사이를 기다려야합니다 (%1$d 초)';
+$html_search = '검색';

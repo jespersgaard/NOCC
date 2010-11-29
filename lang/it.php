@@ -129,6 +129,7 @@ $html_sort = 'Ordina';
 $html_from = 'da';
 $html_subject = 'Oggetto';
 $html_date = 'Data';
+$html_date_label = 'Data:';
 $html_sent_label = 'Invia';
 $html_wrote = 'scritto';
 $html_size = 'Dimensione';

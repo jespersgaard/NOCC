@@ -127,6 +127,7 @@ $html_mark = 'Wulašowaś';
 $html_att_label = 'Dodank:';
 $html_atts_label = 'Dodanki:';
 $html_unknown = '[njeznaty]';
+$html_part_x = 'Źěl %s';
 $html_attach = 'Dodaś';
 $html_attach_forget = 'Musyš swóju dataju do wótpósćelanja swójeje powěsći dodaś!';
 $html_attach_delete = 'Wubrane wótpóraś';
