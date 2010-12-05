@@ -166,14 +166,20 @@ function aff_mail(&$pop, $mail, $verbose, &$attachmentParts = null) {
     }
 
     // Get the first part
-    $tmp = convertBodyPartToAttachTab($mail_reader->getBodyPart());
-    if (!empty($tmp)) { //if has body...
-        $body = $pop->fetchbody($mail, $tmp['number']);
+    $body_mime = '';
+    $body_transfer = '';
+    $bodyPart = $mail_reader->getBodyPart();
+    if (!empty($bodyPart)) { //if has body...
+        $bodyPartStructure = $bodyPart->getPartStructure();
 
-        $body = nocc_imap::decode($body, $tmp['transfer']);
-        $body = remove_stuff($body, $tmp['mime']);
+        $body_mime = $bodyPartStructure->getInternetMediaType();
+        $body_transfer = $bodyPartStructure->getEncodingText();
+        $body = $pop->fetchbody($mail, $bodyPart->getPartNumber());
 
-        $body_charset = detect_body_charset($body, $tmp['charset']);
+        $body = nocc_imap::decode($body, $bodyPartStructure->getEncodingText());
+        $body = remove_stuff($body, $body_mime);
+
+        $body_charset = detect_body_charset($body, $bodyPartStructure->getCharset());
 
         // If user has selected another charset, we'll use it
         if (isset($_REQUEST['user_charset']) && $_REQUEST['user_charset'] != '') {
@@ -183,13 +189,7 @@ function aff_mail(&$pop, $mail, $verbose, &$attachmentParts = null) {
         //TODO: Move to a own function!?
         $body_converted = os_iconv($body_charset, 'UTF-8', $body);
         $body = ($body_converted===false) ? $body : $body_converted;
-        $tmp['charset'] = ($body_converted===false) ? $body_charset : 'UTF-8';
-    }
-    else { //if has NO body...
-        $tmp = Array(
-            'mime' => '',
-            'transfer' => '',
-        );
+        //tmp['charset'] = ($body_converted===false) ? $body_charset : 'UTF-8';
     }
 
     $link_att = GetAttachmentsTableRow($mail_reader);
@@ -223,8 +223,8 @@ function aff_mail(&$pop, $mail, $verbose, &$attachmentParts = null) {
         'spam' => $mail_reader->isSpam(),
         'att' => $link_att,
         'body' => $pop->graphicalsmilies($body),
-        'body_mime' => convertLang2Html($tmp['mime']),
-        'body_transfer' => convertLang2Html($tmp['transfer']),
+        'body_mime' => convertLang2Html($body_mime),
+        'body_transfer' => convertLang2Html($body_transfer),
         'header' => $header,
         'verbose' => $verbose,
         'prev' => $prev_msg,
@@ -261,35 +261,6 @@ function detect_body_charset($body, $suspectedCharset) {
         }
     }
     return $body_charset;
-}
-
-/**
- * ...
- * @param NOCC_MailPart $bodyPart ...
- * @return array ...
- * @todo Only temporary needed!
- */
-function convertBodyPartToAttachTab($bodyPart) {
-    global $html_unknown;
-
-    if (!empty($bodyPart)) {
-        $partstructure = $bodyPart->getPartStructure();
-        $tmp = Array(
-            'number' => $bodyPart->getPartNumber(),
-            'id' => $partstructure->getId(),
-            'name' => $partstructure->getName($html_unknown),
-            'mime' => $partstructure->getInternetMediaType(),
-            'transfer' => $partstructure->getEncodingText(),
-            'disposition' => $partstructure->getDisposition(),
-            'charset' => $partstructure->getCharset(),
-            'size' => $bodyPart->getSize()
-        );
-        return $tmp;
-    }
-    else {
-        return array();
-    }
-    
 }
 
 /**
@@ -353,7 +324,7 @@ function GetAttachmentsTableRow($mail_reader) {
  * @param string $mime
  * @return string
  */
-function remove_stuff(&$body, &$mime) {
+function remove_stuff($body, $mime) {
     $PHP_SELF = $_SERVER['PHP_SELF'];
 
     if (preg_match('|html|i', $mime)) {
@@ -390,6 +361,7 @@ function remove_stuff(&$body, &$mime) {
  * @param int $mail
  * @param array $attach_tab
  * @return string
+ * @todo Rewrite to use direct a NOCC_MailReader object!
  */
 function link_att($mail, $attach_tab) {
     global $html_kb;
