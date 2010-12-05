@@ -17,6 +17,8 @@
  * Wrapping a imap_fetchstructure() object
  *
  * @package    NOCC
+ * @todo Move InternetMediaType to own class?
+ * @todo Move Encoding to own class?
  */
 class NOCC_MailStructure {
     /**
@@ -502,7 +504,7 @@ class NOCC_MailStructure {
      * @return string Primary body type text
      * @static
      */
-    public function convertTypeToText($type, $defaulttypetext = 'unknown') {
+    public static function convertTypeToText($type, $defaulttypetext = 'unknown') {
         switch($type) {
             case 0: return 'text'; break;
             case 1: return 'multipart'; break;
@@ -523,7 +525,7 @@ class NOCC_MailStructure {
      * @return string Body transfer encoding text
      * @static
      */
-    public function convertEncodingToText($encoding, $defaultencodingtext = '') {
+    public static function convertEncodingToText($encoding, $defaultencodingtext = '') {
         switch($encoding) {
             case 0: return '7BIT'; break;
             case 1: return '8BIT'; break;
