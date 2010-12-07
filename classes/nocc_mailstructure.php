@@ -48,9 +48,9 @@ class NOCC_MailStructure {
     /**
      * Get the primary body type from the structure
      * @return integer Primary body type
-     * @todo Unused external!
+     * @access private
      */
-    public function getType() {
+    private function getType() {
         if (isset($this->_structure->type)) {
             return $this->_structure->type;
         }
@@ -60,18 +60,18 @@ class NOCC_MailStructure {
     /**
      * Get the primary body type text from the structure
      * @return string Primary body type text
-     * @todo Unused external!
+     * @access private
      */
-    public function getTypeText() {
+    private function getTypeText() {
         return $this->convertTypeToText($this->getType());
     }
     
     /**
      * Get the body transfer encoding from the structure
      * @return integer Body transfer encoding
-     * @todo Unused external!
+     * @access private
      */
-    public function getEncoding() {
+    private function getEncoding() {
         if (isset($this->_structure->encoding)) {
             return $this->_structure->encoding;
         }
@@ -90,9 +90,9 @@ class NOCC_MailStructure {
      * Get the MIME subtype from the structure
      * @param string $defaultsubtype Default MIME subtype
      * @return string MIME subtype
-     * @todo Unused external!
+     * @access private
      */
-    public function getSubtype($defaultsubtype = '') {
+    private function getSubtype($defaultsubtype = '') {
         if ($this->_structure->ifsubtype) {
           return $this->_structure->subtype;
         }
