@@ -38,7 +38,7 @@ class NOCC_InternetMediaType {
      * @param integer $type Type
      * @param string $subtype Subtype
      */
-    public function __construct($type, $subtype) {
+    public function __construct($type = null, $subtype = null) {
         $this->_type = -1;
         $this->_subtype = '';
         if (is_int($type) && is_string($subtype)) { //if valid types...

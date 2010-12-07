@@ -78,7 +78,7 @@ class NOCC_EncodingTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
-     * Test case for toString().
+     * Test case for __toString().
      */
     public function test__toString() {
         $this->assertEquals('', $this->encodingNull->__toString(), 'null');

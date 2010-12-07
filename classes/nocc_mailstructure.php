@@ -13,6 +13,9 @@
  * @version    SVN: $Id$
  */
 
+require_once 'nocc_internetmediatype.php';
+require_once 'nocc_encoding.php';
+
 /**
  * Wrapping a imap_fetchstructure() object
  *
@@ -27,6 +30,20 @@ class NOCC_MailStructure {
      * @access private
      */
     private $_structure;
+
+    /**
+     * Internet media type
+     * @var NOCC_InternetMediaType
+     * @access private
+     */
+    private $_internetMediaType;
+
+    /**
+     * Encoding
+     * @var NOCC_Encoding
+     * @access private
+     */
+    private $_encoding;
     
     /**
      * Initialize the wrapper
@@ -35,6 +52,22 @@ class NOCC_MailStructure {
      */
     public function __construct($structure) {
         $this->_structure = $structure;
+
+        //TODO: Move to own function!
+        if (isset($structure->type) && isset($structure->subtype)) {
+            $this->_internetMediaType = new NOCC_InternetMediaType($structure->type, $structure->subtype);
+        }
+        else {
+            $this->_internetMediaType = new NOCC_InternetMediaType();
+        }
+
+        //TODO: Move to own function!
+        if (isset($structure->encoding)) {
+            $this->_encoding = new NOCC_Encoding($structure->encoding);
+        }
+        else {
+            $this->_encoding = new NOCC_Encoding();
+        }
     }
     
     /**
@@ -58,15 +91,6 @@ class NOCC_MailStructure {
     }
     
     /**
-     * Get the primary body type text from the structure
-     * @return string Primary body type text
-     * @access private
-     */
-    private function getTypeText() {
-        return $this->convertTypeToText($this->getType());
-    }
-    
-    /**
      * Get the body transfer encoding from the structure
      * @return integer Body transfer encoding
      * @access private
@@ -83,7 +107,7 @@ class NOCC_MailStructure {
      * @return string Body transfer encoding text
      */
     public function getEncodingText() {
-        return $this->convertEncodingToText($this->getEncoding());
+        return $this->_encoding->__toString();
     }
     
     /**
@@ -309,7 +333,7 @@ class NOCC_MailStructure {
      * @return string Internet media type
      */
     public function getInternetMediaTypeText() {
-        return $this->getTypeText() . '/' . $this->getSubtype();
+        return $this->_internetMediaType->__toString();
     }
 
     /**
@@ -317,10 +341,7 @@ class NOCC_MailStructure {
      * @return bool Is text?
      */
     public function isText() {
-        if ($this->getType() == 0) { //if text...
-            return true;
-        }
-        return false;
+        return $this->_internetMediaType->isText();
     }
 
     /**
@@ -368,10 +389,7 @@ class NOCC_MailStructure {
      * @return bool Is multipart?
      */
     public function isMultipart() {
-        if ($this->getType() == 1) { //if multipart...
-            return true;
-        }
-        return false;
+        return $this->_internetMediaType->isMultipart();
     }
 
     /**
@@ -405,10 +423,7 @@ class NOCC_MailStructure {
      * @return bool Is message?
      */
     public function isMessage() {
-        if ($this->getType() == 2) { //if message...
-            return true;
-        }
-        return false;
+        return $this->_internetMediaType->isMessage();
     }
 
     /**
@@ -429,10 +444,7 @@ class NOCC_MailStructure {
      * @return bool Is application?
      */
     public function isApplication() {
-        if ($this->getType() == 3) { //if application...
-            return true;
-        }
-        return false;
+        return $this->_internetMediaType->isApplication();
     }
 
     /**
@@ -440,10 +452,7 @@ class NOCC_MailStructure {
      * @return bool Is audio?
      */
     public function isAudio() {
-        if ($this->getType() == 4) { //if audio...
-            return true;
-        }
-        return false;
+        return $this->_internetMediaType->isAudio();
     }
 
     /**
@@ -451,10 +460,7 @@ class NOCC_MailStructure {
      * @return bool Is image?
      */
     public function isImage() {
-        if ($this->getType() == 5) { //if image...
-            return true;
-        }
-        return false;
+        return $this->_internetMediaType->isImage();
     }
 
     /**
@@ -462,10 +468,7 @@ class NOCC_MailStructure {
      * @return bool Is video?
      */
     public function isVideo() {
-        if ($this->getType() == 6) { //if video...
-            return true;
-        }
-        return false;
+        return $this->_internetMediaType->isVideo();
     }
 
     /**
@@ -473,10 +476,7 @@ class NOCC_MailStructure {
      * @return bool Is other?
      */
     public function isOther() {
-        if ($this->getType() == 7) { //if other...
-            return true;
-        }
-        return false;
+        return $this->_internetMediaType->isOther();
     }
 
     /**
@@ -521,46 +521,6 @@ class NOCC_MailStructure {
             return true;
         }
         return false;
-    }
-
-    /**
-     * Convert the primary body type to text
-     * @param integer $type Primary body type
-     * @param string $defaulttypetext Default primary body type text
-     * @return string Primary body type text
-     * @static
-     */
-    public static function convertTypeToText($type, $defaulttypetext = 'unknown') {
-        switch($type) {
-            case 0: return 'text'; break;
-            case 1: return 'multipart'; break;
-            case 2: return 'message'; break;
-            case 3: return 'application'; break;
-            case 4: return 'audio'; break;
-            case 5: return 'image'; break;
-            case 6: return 'video'; break;
-            case 7: return 'other'; break;
-            default: return $defaulttypetext;
-        }
-    }
-    
-    /**
-     * Convert the body transfer encoding to text
-     * @param integer $encoding Body transfer encoding
-     * @param string $defaultencodingtext Default encoding text
-     * @return string Body transfer encoding text
-     * @static
-     */
-    public static function convertEncodingToText($encoding, $defaultencodingtext = '') {
-        switch($encoding) {
-            case 0: return '7BIT'; break;
-            case 1: return '8BIT'; break;
-            case 2: return 'BINARY'; break;
-            case 3: return 'BASE64'; break;
-            case 4: return 'QUOTED-PRINTABLE'; break;
-            case 5: return 'OTHER'; break;
-            default: return $defaultencodingtext;
-        }
     }
 }
 ?>
