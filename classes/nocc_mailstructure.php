@@ -308,7 +308,7 @@ class NOCC_MailStructure {
      * Get the internet media type (MIME type) from the structure
      * @return string Internet media type
      */
-    public function getInternetMediaType() {
+    public function getInternetMediaTypeText() {
         return $this->getTypeText() . '/' . $this->getSubtype();
     }
 

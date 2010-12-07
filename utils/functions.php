@@ -172,7 +172,7 @@ function aff_mail(&$pop, $mail, $verbose, &$attachmentParts = null) {
     if (!empty($bodyPart)) { //if has body...
         $bodyPartStructure = $bodyPart->getPartStructure();
 
-        $body_mime = $bodyPartStructure->getInternetMediaType();
+        $body_mime = $bodyPartStructure->getInternetMediaTypeText();
         $body_transfer = $bodyPartStructure->getEncodingText();
         $body = $pop->fetchbody($mail, $bodyPart->getPartNumber());
 
@@ -280,7 +280,7 @@ function fillAttachTabFromMailReader($mail_reader, &$attach_tab) {
             'number' => $part->getPartNumber(),
             'id' => $partstructure->getId(),
             'name' => $partstructure->getName($defaultname),
-            'mime' => $partstructure->getInternetMediaType(),
+            'mime' => $partstructure->getInternetMediaTypeText(),
             'transfer' => $partstructure->getEncodingText(),
             'disposition' => $partstructure->getDisposition(),
             'charset' => $partstructure->getCharset(),
