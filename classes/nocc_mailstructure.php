@@ -20,8 +20,6 @@ require_once 'nocc_encoding.php';
  * Wrapping a imap_fetchstructure() object
  *
  * @package    NOCC
- * @todo Move InternetMediaType to own class?
- * @todo Move Encoding to own class?
  */
 class NOCC_MailStructure {
     /**
@@ -91,20 +89,17 @@ class NOCC_MailStructure {
     }
     
     /**
-     * Get the body transfer encoding from the structure
-     * @return integer Body transfer encoding
-     * @access private
+     * Get the transfer encoding from the structure
+     * @return NOCC_Encoding Transfer encoding
      */
-    private function getEncoding() {
-        if (isset($this->_structure->encoding)) {
-            return $this->_structure->encoding;
-        }
-        return 0;
+    public function getEncoding() {
+        return $this->_encoding;
     }
     
     /**
-     * Get the body transfer encoding text from the structure
-     * @return string Body transfer encoding text
+     * Get the transfer encoding text from the structure
+     * @return string Transfer encoding text
+     * @todo Drop!
      */
     public function getEncodingText() {
         return $this->_encoding->__toString();
@@ -327,10 +322,19 @@ class NOCC_MailStructure {
     public function getCharset($defaultcharset = '') {
         return $this->getValueFromParameters('Charset', $defaultcharset);
     }
-    
+
     /**
      * Get the internet media type (MIME type) from the structure
-     * @return string Internet media type
+     * @return NOCC_InternetMediaType Internet media type
+     */
+    public function getInternetMediaType() {
+        return $this->_internetMediaType;
+    }
+
+    /**
+     * Get the internet media type text (MIME type) from the structure
+     * @return string Internet media type text
+     * @todo Drop!
      */
     public function getInternetMediaTypeText() {
         return $this->_internetMediaType->__toString();
@@ -339,6 +343,7 @@ class NOCC_MailStructure {
     /**
      * Is text?
      * @return bool Is text?
+     * @todo Drop!
      */
     public function isText() {
         return $this->_internetMediaType->isText();
@@ -347,6 +352,7 @@ class NOCC_MailStructure {
     /**
      * Is plain text?
      * @return bool Is plain text?
+     * @todo Move to NOCC_InternetMediaType?
      */
     public function isPlainText() {
         if ($this->isText()) { //if text...
@@ -360,6 +366,7 @@ class NOCC_MailStructure {
     /**
      * Is HTML text?
      * @return bool Is HTML text?
+     * @todo Move to NOCC_InternetMediaType?
      */
     public function isHtmlText() {
         if ($this->isText()) { //if text...
@@ -373,6 +380,7 @@ class NOCC_MailStructure {
     /**
      * Is plain or HTML text?
      * @return bool Is plain or HTML text?
+     * @todo Move to NOCC_InternetMediaType?
      */
     public function isPlainOrHtmlText() {
         if ($this->isText()) { //if text...
@@ -387,6 +395,7 @@ class NOCC_MailStructure {
     /**
      * Is multipart?
      * @return bool Is multipart?
+     * @todo Drop!
      */
     public function isMultipart() {
         return $this->_internetMediaType->isMultipart();
@@ -395,6 +404,7 @@ class NOCC_MailStructure {
     /**
      * Is alternative multipart?
      * @return bool Is alternative multipart?
+     * @todo Move to NOCC_InternetMediaType?
      */
     public function isAlternativeMultipart() {
         if ($this->isMultipart()) { //if multipart...
@@ -408,6 +418,7 @@ class NOCC_MailStructure {
     /**
      * Is related multipart?
      * @return bool Is related multipart?
+     * @todo Move to NOCC_InternetMediaType?
      */
     public function isRelatedMultipart() {
         if ($this->isMultipart()) { //if multipart...
@@ -421,6 +432,7 @@ class NOCC_MailStructure {
     /**
      * Is message?
      * @return bool Is message?
+     * @todo Drop!
      */
     public function isMessage() {
         return $this->_internetMediaType->isMessage();
@@ -429,6 +441,7 @@ class NOCC_MailStructure {
     /**
      * Is RFC822 message?
      * @return bool Is RFC822 message?
+     * @todo Move to NOCC_InternetMediaType?
      */
     public function isRfc822Message() {
         if ($this->isMessage()) { //if message...
@@ -442,6 +455,7 @@ class NOCC_MailStructure {
     /**
      * Is application?
      * @return bool Is application?
+     * @todo Drop!
      */
     public function isApplication() {
         return $this->_internetMediaType->isApplication();
@@ -450,6 +464,7 @@ class NOCC_MailStructure {
     /**
      * Is audio?
      * @return bool Is audio?
+     * @todo Drop!
      */
     public function isAudio() {
         return $this->_internetMediaType->isAudio();
@@ -458,6 +473,7 @@ class NOCC_MailStructure {
     /**
      * Is image?
      * @return bool Is image?
+     * @todo Drop!
      */
     public function isImage() {
         return $this->_internetMediaType->isImage();
@@ -466,6 +482,7 @@ class NOCC_MailStructure {
     /**
      * Is video?
      * @return bool Is video?
+     * @todo Drop!
      */
     public function isVideo() {
         return $this->_internetMediaType->isVideo();
@@ -474,6 +491,7 @@ class NOCC_MailStructure {
     /**
      * Is other?
      * @return bool Is other?
+     * @todo Drop!
      */
     public function isOther() {
         return $this->_internetMediaType->isOther();
@@ -482,6 +500,7 @@ class NOCC_MailStructure {
     /**
      * Is alternative?
      * @return bool Is alternative?
+     * @todo Move to NOCC_InternetMediaType?
      */
     public function isAlternative() {
         if (strtoupper($this->getSubtype()) == 'ALTERNATIVE') { //if alternative...
@@ -493,6 +512,7 @@ class NOCC_MailStructure {
     /**
      * Is related?
      * @return bool Is related?
+     * @todo Move to NOCC_InternetMediaType?
      */
     public function isRelated() {
         if (strtoupper($this->getSubtype()) == 'RELATED') { //if related...
