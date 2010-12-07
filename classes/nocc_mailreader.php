@@ -145,7 +145,7 @@ class NOCC_MailReader {
 
         $this->_hasAttachments = false;
         if ($mailstructure->isMultipart() || $mailstructure->isApplication()) { //if "multipart" or "application" message...
-            if ($mailstructure->getSubtype() != 'ALTERNATIVE' && $mailstructure->getSubtype() != 'RELATED') {
+            if (!$mailstructure->isAlternative() && !$mailstructure->isRelated()) {
                 $this->_hasAttachments = true;
             }
         }

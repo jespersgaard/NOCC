@@ -48,6 +48,7 @@ class NOCC_MailStructure {
     /**
      * Get the primary body type from the structure
      * @return integer Primary body type
+     * @todo Unused external!
      */
     public function getType() {
         if (isset($this->_structure->type)) {
@@ -59,6 +60,7 @@ class NOCC_MailStructure {
     /**
      * Get the primary body type text from the structure
      * @return string Primary body type text
+     * @todo Unused external!
      */
     public function getTypeText() {
         return $this->convertTypeToText($this->getType());
@@ -67,6 +69,7 @@ class NOCC_MailStructure {
     /**
      * Get the body transfer encoding from the structure
      * @return integer Body transfer encoding
+     * @todo Unused external!
      */
     public function getEncoding() {
         if (isset($this->_structure->encoding)) {
@@ -87,6 +90,7 @@ class NOCC_MailStructure {
      * Get the MIME subtype from the structure
      * @param string $defaultsubtype Default MIME subtype
      * @return string MIME subtype
+     * @todo Unused external!
      */
     public function getSubtype($defaultsubtype = '') {
         if ($this->_structure->ifsubtype) {
@@ -376,7 +380,7 @@ class NOCC_MailStructure {
      */
     public function isAlternativeMultipart() {
         if ($this->isMultipart()) { //if multipart...
-            if (strtoupper($this->getSubtype()) == 'ALTERNATIVE') { //if alternative multipart...
+            if ($this->isAlternative()) { //if alternative multipart...
                 return true;
             }
         }
@@ -389,7 +393,7 @@ class NOCC_MailStructure {
      */
     public function isRelatedMultipart() {
         if ($this->isMultipart()) { //if multipart...
-            if (strtoupper($this->getSubtype()) == 'RELATED') { //if related multipart...
+            if ($this->isRelated()) { //if related multipart...
                 return true;
             }
         }
@@ -470,6 +474,28 @@ class NOCC_MailStructure {
      */
     public function isOther() {
         if ($this->getType() == 7) { //if other...
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Is alternative?
+     * @return bool Is alternative?
+     */
+    public function isAlternative() {
+        if (strtoupper($this->getSubtype()) == 'ALTERNATIVE') { //if alternative...
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Is related?
+     * @return bool Is related?
+     */
+    public function isRelated() {
+        if (strtoupper($this->getSubtype()) == 'RELATED') { //if related...
             return true;
         }
         return false;
