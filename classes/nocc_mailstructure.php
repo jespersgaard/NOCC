@@ -75,19 +75,7 @@ class NOCC_MailStructure {
     public function getStructure() {
         return $this->_structure;
     }
-    
-    /**
-     * Get the primary body type from the structure
-     * @return integer Primary body type
-     * @access private
-     */
-    private function getType() {
-        if (isset($this->_structure->type)) {
-            return $this->_structure->type;
-        }
-        return 0;
-    }
-    
+
     /**
      * Get the transfer encoding from the structure
      * @return NOCC_Encoding Transfer encoding
