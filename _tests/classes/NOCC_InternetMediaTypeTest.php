@@ -90,6 +90,22 @@ class NOCC_InternetMediaTypeTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * Test case for getSubtype().
+     */
+    public function test__GetSubtype() {
+        $this->assertEquals('', $this->internetMediaTypeNull->getSubtype(), 'null, null');
+        $this->assertEquals('', $this->internetMediaTypeBug->getSubtype(), 'bug, bug');
+        $this->assertEquals('plain', $this->internetMediaType0->getSubtype(), '0, plain');
+        $this->assertEquals('alternative', $this->internetMediaType1->getSubtype(), '1, ALTERNATIVE');
+        $this->assertEquals('rfc822', $this->internetMediaType2->getSubtype(), '2, RFC822');
+        $this->assertEquals('pdf', $this->internetMediaType3->getSubtype(), '3, Pdf');
+        $this->assertEquals('mpeg', $this->internetMediaType4->getSubtype(), '4, mpeg');
+        $this->assertEquals('png', $this->internetMediaType5->getSubtype(), '5, PNG');
+        $this->assertEquals('quicktime', $this->internetMediaType6->getSubtype(), '6, quicktime');
+        $this->assertEquals('test', $this->internetMediaType7->getSubtype(), '7, Test');
+    }
+
+    /**
      * Test case for isText().
      */
     public function testIsText() {
