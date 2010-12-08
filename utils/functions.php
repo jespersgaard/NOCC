@@ -173,10 +173,10 @@ function aff_mail(&$pop, $mail, $verbose, &$attachmentParts = null) {
         $bodyPartStructure = $bodyPart->getPartStructure();
 
         $body_mime = $bodyPartStructure->getInternetMediaTypeText();
-        $body_transfer = $bodyPartStructure->getEncodingText();
+        $body_transfer = (string)$bodyPart->getEncoding();
         $body = $pop->fetchbody($mail, $bodyPart->getPartNumber());
 
-        $body = nocc_imap::decode($body, $bodyPartStructure->getEncodingText());
+        $body = nocc_imap::decode($body, (string)$bodyPart->getEncoding());
         $body = remove_stuff($body, $body_mime);
 
         $body_charset = detect_body_charset($body, $bodyPartStructure->getCharset());
@@ -202,7 +202,7 @@ function aff_mail(&$pop, $mail, $verbose, &$attachmentParts = null) {
     $cc = $mail_reader->getCcAddress();
     $cc = str_replace(',', ', ', $cc);
 
-    $attachmentParts  = $mail_reader->getAttachmentParts();
+    $attachmentParts = $mail_reader->getAttachmentParts();
 
     $timestamp = $mail_reader->getTimestamp();
     $date = format_date($timestamp, $lang);
@@ -280,8 +280,8 @@ function fillAttachTabFromMailReader($mail_reader, &$attach_tab) {
             'number' => $part->getPartNumber(),
             'id' => $partstructure->getId(),
             'name' => $partstructure->getName($defaultname),
-            'mime' => $partstructure->getInternetMediaTypeText(),
-            'transfer' => $partstructure->getEncodingText(),
+            'mime' => (string)$part->getInternetMediaType(),
+            'transfer' => (string)$part->getEncoding(),
             'disposition' => $partstructure->getDisposition(),
             'charset' => $partstructure->getCharset(),
             'size' => $part->getSize()

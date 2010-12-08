@@ -83,15 +83,6 @@ class NOCC_MailStructure {
     public function getEncoding() {
         return $this->_encoding;
     }
-    
-    /**
-     * Get the transfer encoding text from the structure
-     * @return string Transfer encoding text
-     * @todo Drop!
-     */
-    public function getEncodingText() {
-        return $this->_encoding->__toString();
-    }
 
     /**
      * Get the content description from the structure
@@ -312,7 +303,7 @@ class NOCC_MailStructure {
      * @todo Drop!
      */
     public function getInternetMediaTypeText() {
-        return $this->_internetMediaType->__toString();
+        return (string)$this->_internetMediaType;
     }
 
     /**

@@ -83,7 +83,7 @@ switch($action) {
                 $imageType = $partStructure->getInternetMediaTypeText();
                 if (NOCC_Security::isSupportedImageType($imageType)) {
                     $new_img_src = 'src="get_img.php?mail=' . $_REQUEST['mail'] . '&amp;num='
-                            . $attachmentPart->getPartNumber() . '&amp;mime=' . $imageType . '&amp;transfer=' . $partStructure->getEncodingText() . '"';
+                            . $attachmentPart->getPartNumber() . '&amp;mime=' . $imageType . '&amp;transfer=' . (string)$attachmentPart->getEncoding() . '"';
                     $img_id = str_replace('<', '', $partStructure->getId());
                     $img_id = str_replace('>', '', $img_id);
                     $content['body'] = str_replace('src="cid:'.$img_id.'"', $new_img_src, $content['body']);
@@ -112,7 +112,7 @@ switch($action) {
                 echo '<hr class="mailAttachSep" />';
                 echo '<div class="mailTextAttach">';
                 //TODO: Replace URLs and Smilies in text/plain attachment?
-                echo view_part($pop, $_REQUEST['mail'], $attachmentPart->getPartNumber(), $partStructure->getEncodingText(), $partStructure->getCharset());
+                echo view_part($pop, $_REQUEST['mail'], $attachmentPart->getPartNumber(), (string)$attachmentPart->getEncoding(), $partStructure->getCharset());
                 echo '</div> <!-- .mailTextAttach -->';
             }
             else if ($partStructure->isImage() && !$partStructure->hasId() && $conf->display_img_attach) { //if attached image...
@@ -121,7 +121,7 @@ switch($action) {
                     echo '<hr class="mailAttachSep" />';
                     echo '<div class="mailImgAttach">';
                     echo '<img src="get_img.php?mail=' . $_REQUEST['mail'] . '&amp;num=' . $attachmentPart->getPartNumber() . '&amp;mime='
-                            . $imageType . '&amp;transfer=' . $partStructure->getEncodingText() . '" alt="" title="' . $partStructure->getName() . '" />';
+                            . $imageType . '&amp;transfer=' . (string)$attachmentPart->getEncoding() . '" alt="" title="' . $partStructure->getName() . '" />';
                     echo '</div> <!-- .mailImgAttach -->';
                 }
             }

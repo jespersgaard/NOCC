@@ -63,6 +63,22 @@ class NOCC_MailPart {
     }
 
     /**
+     * Get the internet media type (MIME type)
+     * @return NOCC_InternetMediaType Internet media type
+     */
+    public function getInternetMediaType() {
+        return $this->partStructure->getInternetMediaType();
+    }
+
+    /**
+     * Get the transfer encoding
+     * @return NOCC_Encoding Transfer encoding
+     */
+    public function getEncoding() {
+        return $this->partStructure->getEncoding();
+    }
+
+    /**
      * Get the size from the part in kilobyte
      * @return integer Size in kilobyte
      */
