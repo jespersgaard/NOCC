@@ -172,7 +172,7 @@ function aff_mail(&$pop, $mail, $verbose, &$attachmentParts = null) {
     if (!empty($bodyPart)) { //if has body...
         $bodyPartStructure = $bodyPart->getPartStructure();
 
-        $body_mime = $bodyPartStructure->getInternetMediaTypeText();
+        $body_mime = (string)$bodyPart->getInternetMediaType();
         $body_transfer = (string)$bodyPart->getEncoding();
         $body = $pop->fetchbody($mail, $bodyPart->getPartNumber());
 

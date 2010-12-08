@@ -298,15 +298,6 @@ class NOCC_MailStructure {
     }
 
     /**
-     * Get the internet media type text (MIME type) from the structure
-     * @return string Internet media type text
-     * @todo Drop!
-     */
-    public function getInternetMediaTypeText() {
-        return (string)$this->_internetMediaType;
-    }
-
-    /**
      * Is text?
      * @return bool Is text?
      * @todo Drop!
