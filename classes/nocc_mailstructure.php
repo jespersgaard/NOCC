@@ -104,20 +104,7 @@ class NOCC_MailStructure {
     public function getEncodingText() {
         return $this->_encoding->__toString();
     }
-    
-    /**
-     * Get the MIME subtype from the structure
-     * @param string $defaultsubtype Default MIME subtype
-     * @return string MIME subtype
-     * @access private
-     */
-    private function getSubtype($defaultsubtype = '') {
-        if ($this->_structure->ifsubtype) {
-          return $this->_structure->subtype;
-        }
-        return $defaultsubtype;
-    }
-    
+
     /**
      * Get the content description from the structure
      * @return string Content description
@@ -356,7 +343,7 @@ class NOCC_MailStructure {
      */
     public function isPlainText() {
         if ($this->isText()) { //if text...
-            if (strtoupper($this->getSubtype()) == 'PLAIN') { //if plain text...
+            if (strtoupper($this->_internetMediaType->getSubtype()) == 'PLAIN') { //if plain text...
                 return true;
             }
         }
@@ -370,7 +357,7 @@ class NOCC_MailStructure {
      */
     public function isHtmlText() {
         if ($this->isText()) { //if text...
-            if (strtoupper($this->getSubtype()) == 'HTML') { //if HTML text...
+            if (strtoupper($this->_internetMediaType->getSubtype()) == 'HTML') { //if HTML text...
                 return true;
             }
         }
@@ -384,7 +371,7 @@ class NOCC_MailStructure {
      */
     public function isPlainOrHtmlText() {
         if ($this->isText()) { //if text...
-            $subtype = strtoupper($this->getSubtype());
+            $subtype = strtoupper($this->_internetMediaType->getSubtype());
             if (($subtype == 'PLAIN') || ($subtype == 'HTML')) { //if plain or HTML text...
                 return true;
             }
@@ -445,7 +432,7 @@ class NOCC_MailStructure {
      */
     public function isRfc822Message() {
         if ($this->isMessage()) { //if message...
-            if (strtoupper($this->getSubtype()) == 'RFC822') { //if RFC822 message...
+            if (strtoupper($this->_internetMediaType->getSubtype()) == 'RFC822') { //if RFC822 message...
                 return true;
             }
         }
@@ -503,7 +490,7 @@ class NOCC_MailStructure {
      * @todo Move to NOCC_InternetMediaType?
      */
     public function isAlternative() {
-        if (strtoupper($this->getSubtype()) == 'ALTERNATIVE') { //if alternative...
+        if (strtoupper($this->_internetMediaType->getSubtype()) == 'ALTERNATIVE') { //if alternative...
             return true;
         }
         return false;
@@ -515,7 +502,7 @@ class NOCC_MailStructure {
      * @todo Move to NOCC_InternetMediaType?
      */
     public function isRelated() {
-        if (strtoupper($this->getSubtype()) == 'RELATED') { //if related...
+        if (strtoupper($this->_internetMediaType->getSubtype()) == 'RELATED') { //if related...
             return true;
         }
         return false;

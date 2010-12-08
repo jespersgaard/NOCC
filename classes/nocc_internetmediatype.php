@@ -48,6 +48,14 @@ class NOCC_InternetMediaType {
     }
 
     /**
+     * Get the internet media subtype
+     * @return string Internet media subtype
+     */
+    public function getSubtype() {
+        return $this->_subtype;
+    }
+
+    /**
      * Is text?
      * @return bool Is text?
      */
