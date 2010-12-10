@@ -251,6 +251,7 @@ class nocc_imap
     }
 
     public static function utf8($mime_encoded_text) {
+        //TODO: Fixed in PHP 5.3.2!
         //Since PHP 5.2.5 returns imap_utf8() only capital letters!
         //See bug #44098 for details: http://bugs.php.net/44098
         if (version_compare(PHP_VERSION, '5.2.5', '>=')) { //if PHP 5.2.5 or newer...
@@ -273,9 +274,9 @@ class nocc_imap
         $elements = imap_mime_header_decode($string);
         foreach ($elements as $element) { //for all elements...
             if ($element->charset == 'default') { //if 'default' charset...
-                $element->charset = 'iso-8859-1';
+                $element->charset = mb_detect_encoding($element->text);
             }
-            $decodedString .= iconv($element->charset, $charset, $element->text);
+            $decodedString .= mb_convert_encoding($element->text, $charset, $element->charset);
         }
         return $decodedString;
     }
