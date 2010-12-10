@@ -174,48 +174,9 @@ switch($action) {
         break;
 
     //--------------------------------------------------------------------------------
-    // Reply on a mail...
+    // Reply (all) on a mail...
     //--------------------------------------------------------------------------------
     case 'reply':
-        try {
-            $pop = new nocc_imap();
-
-            $content = aff_mail($pop, $_REQUEST['mail'], NOCC_Request::getBoolValue('verbose'));
-        }
-        catch (Exception $ex) {
-            //TODO: Show error without NoccException!
-            $ev = new NoccException($ex->getMessage());
-            require './html/header.php';
-            require './html/error.php';
-            require './html/footer.php';
-            break;
-        }
-
-        $mail_messageid = urlencode($content['message_id']);
-
-        $mail_to = !empty($content['reply_to']) ? $content['reply_to'] : $content['from'];
-
-        $mail_subject = add_reply_to_subject($content['subject']);
-
-        // Add quoting
-        add_quoting($mail_body, $content);
-
-        // Add signature
-        add_signature($mail_body);
-
-        // We add the attachments of the original message
-        require './html/header.php';
-        require './html/menu_inbox.php';
-        require './html/send.php';
-        require './html/menu_inbox.php';
-        require './html/footer.php';
-
-        $pop->close();
-        break;
-
-    //--------------------------------------------------------------------------------
-    // Reply all on a mail...
-    //--------------------------------------------------------------------------------
     case 'reply_all':
         try {
             $pop = new nocc_imap();
@@ -232,8 +193,13 @@ switch($action) {
         }
 
         $mail_messageid = urlencode($content['message_id']);
-        
-        $mail_to = get_reply_all($content['from'], $content['to'], $content['cc']);
+
+        if ($action == 'reply') { // if reply...
+            $mail_to = !empty($content['reply_to']) ? $content['reply_to'] : $content['from'];
+        }
+        else { //if reply all...
+            $mail_to = get_reply_all($content['from'], $content['to'], $content['cc']);
+        }
 
         $mail_subject = add_reply_to_subject($content['subject']);
 
