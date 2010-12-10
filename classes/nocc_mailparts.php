@@ -49,7 +49,7 @@ class NOCC_MailParts {
         $this->_fillArrayWithParts($parts, $mailstructure);
         if (!empty($parts)) { //if has parts...
             $bodyPart = array_pop($parts);
-            if ($bodyPart->getPartStructure()->getInternetMediaType()->isPlainOrHtmlText()) { //if plain/HTML text part...
+            if ($bodyPart->getInternetMediaType()->isPlainOrHtmlText()) { //if plain/HTML text part...
                 $this->_bodyPart = $bodyPart;
             }
             else { //if NO plain/HTML text part...
@@ -86,7 +86,8 @@ class NOCC_MailParts {
      */
     private function _fillArrayWithParts(&$parts, $mailstructure, $partNumber = '') {
         $this_part = $mailstructure->getStructure();
-        if ($mailstructure->getInternetMediaType()->isMultipart()) { //if multipart...
+        $internetMediaType = $mailstructure->getInternetMediaType();
+        if ($internetMediaType->isMultipart()) { //if multipart...
             $num_parts = count($this_part->parts);
             for ($i = 0; $i < $num_parts; $i++) {
                 if ($partNumber != '') {
@@ -94,19 +95,19 @@ class NOCC_MailParts {
                         $partNumber = $partNumber . '.';
                 }
                 // if it's an alternative, we skip the text part to only keep the HTML part
-                if (($mailstructure->getInternetMediaType()->isAlternativeMultipart()) && (($i + 1) < $num_parts))
+                if (($internetMediaType->isAlternativeMultipart()) && (($i + 1) < $num_parts))
                     $this->_fillArrayWithParts($parts, new NOCC_MailStructure($this_part->parts[++$i]), $partNumber . ($i + 1));
                 else
                     $this->_fillArrayWithParts($parts, new NOCC_MailStructure($this_part->parts[$i]), $partNumber . ($i + 1));
             }
         }
-        else if ($mailstructure->getInternetMediaType()->isMessage()) { //if message...
+        else if ($internetMediaType->isMessage()) { //if message...
             if (isset($this_part->parts[0]->parts)) {
                 $num_parts = count($this_part->parts[0]->parts);
                 for ($i = 0; $i < $num_parts; $i++)
                     $this->_fillArrayWithParts($parts, new NOCC_MailStructure($this_part->parts[0]->parts[$i]), $partNumber . '.' . ($i + 1));
             }
-            if ($mailstructure->getInternetMediaType()->isRfc822Message()) { //if RFC822 message...
+            if ($internetMediaType->isRfc822Message()) { //if RFC822 message...
                 if (empty($partNumber)) {
                     $partNumber = '1';
                 }
