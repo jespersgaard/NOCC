@@ -106,7 +106,7 @@ class NOCC_MailParts {
                 for ($i = 0; $i < $num_parts; $i++)
                     $this->_fillArrayWithParts($parts, new NOCC_MailStructure($this_part->parts[0]->parts[$i]), $partNumber . '.' . ($i + 1));
             }
-            if ($mailstructure->isRfc822Message()) { //if RFC822 message...
+            if ($mailstructure->getInternetMediaType()->isRfc822Message()) { //if RFC822 message...
                 if (empty($partNumber)) {
                     $partNumber = '1';
                 }

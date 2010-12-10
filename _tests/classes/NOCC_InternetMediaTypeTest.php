@@ -194,6 +194,26 @@ class NOCC_InternetMediaTypeTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * Test case for isRfc822Message().
+     */
+    public function testIsRfc822Message() {
+        $testMessage = new NOCC_InternetMediaType(2, 'test');
+
+        $this->assertFalse($this->internetMediaTypeNull->isRfc822Message(), 'null, null');
+        $this->assertFalse($this->internetMediaTypeBug->isRfc822Message(), 'bug, bug');
+        $this->assertFalse($this->internetMediaType0->isRfc822Message(), '0, plain');
+        $this->assertFalse($this->internetMediaType1->isRfc822Message(), '1, ALTERNATIVE');
+        $this->assertTrue($this->internetMediaType2->isRfc822Message(), '2, RFC822');
+        $this->assertFalse($this->internetMediaType3->isRfc822Message(), '3, Pdf');
+        $this->assertFalse($this->internetMediaType4->isRfc822Message(), '4, mpeg');
+        $this->assertFalse($this->internetMediaType5->isRfc822Message(), '5, PNG');
+        $this->assertFalse($this->internetMediaType6->isRfc822Message(), '6, quicktime');
+        $this->assertFalse($this->internetMediaType7->isRfc822Message(), '7, Test');
+
+        $this->assertFalse($testMessage->isRfc822Message(), '2, test');
+    }
+
+    /**
      * Test case for isApplication().
      */
     public function testIsApplication() {

@@ -17,6 +17,7 @@
  * Wrapping the internet media type (MIME type) from a imap_fetchstructure() object
  * 
  * @package    NOCC
+ * @todo Don't use strtoupper() in is*() functions!
  */
 class NOCC_InternetMediaType {
     /**
@@ -115,6 +116,19 @@ class NOCC_InternetMediaType {
     }
 
     /**
+     * Is RFC822 message?
+     * @return bool Is RFC822 message?
+     */
+    public function isRfc822Message() {
+        if ($this->isMessage()) { //if message...
+            if (strtoupper($this->_subtype) == 'RFC822') { //if RFC822 message...
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Is application?
      * @return bool Is application?
      */
@@ -172,7 +186,6 @@ class NOCC_InternetMediaType {
     /**
      * Is alternative?
      * @return bool Is alternative?
-     * @todo Move to NOCC_InternetMediaType?
      */
     public function isAlternative() {
         if (strtoupper($this->_subtype) == 'ALTERNATIVE') { //if alternative...
@@ -184,7 +197,6 @@ class NOCC_InternetMediaType {
     /**
      * Is related?
      * @return bool Is related?
-     * @todo Move to NOCC_InternetMediaType?
      */
     public function isRelated() {
         if (strtoupper($this->_subtype) == 'RELATED') { //if related...

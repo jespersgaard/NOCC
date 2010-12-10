@@ -345,20 +345,6 @@ class NOCC_MailStructure {
     }
 
     /**
-     * Is RFC822 message?
-     * @return bool Is RFC822 message?
-     * @todo Move to NOCC_InternetMediaType?
-     */
-    public function isRfc822Message() {
-        if ($this->isMessage()) { //if message...
-            if (strtoupper($this->_internetMediaType->getSubtype()) == 'RFC822') { //if RFC822 message...
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
      * Is attachment?
      * @return bool Is attachment?
      */
