@@ -50,22 +50,8 @@ class NOCC_MailStructure {
      */
     public function __construct($structure) {
         $this->_structure = $structure;
-
-        //TODO: Move to own function!
-        if (isset($structure->type) && isset($structure->subtype)) {
-            $this->_internetMediaType = new NOCC_InternetMediaType($structure->type, $structure->subtype);
-        }
-        else {
-            $this->_internetMediaType = new NOCC_InternetMediaType();
-        }
-
-        //TODO: Move to own function!
-        if (isset($structure->encoding)) {
-            $this->_encoding = new NOCC_Encoding($structure->encoding);
-        }
-        else {
-            $this->_encoding = new NOCC_Encoding();
-        }
+        $this->_internetMediaType = NOCC_MailStructure::getInternetMediaTypeFromStructure($structure);
+        $this->_encoding = NOCC_MailStructure::getEncodingFromStructure($structure);
     }
     
     /**
@@ -498,6 +484,30 @@ class NOCC_MailStructure {
             return true;
         }
         return false;
+    }
+
+    /**
+     * ...
+     * @param object $structure imap_fetchstructure() object
+     * @return NOCC_InternetMediaType ...
+     */
+    public static function getInternetMediaTypeFromStructure($structure) {
+        if (isset($structure->type) && isset($structure->subtype)) {
+            return new NOCC_InternetMediaType($structure->type, $structure->subtype);
+        }
+        return new NOCC_InternetMediaType();
+    }
+
+    /**
+     * ...
+     * @param object $structure imap_fetchstructure() object
+     * @return NOCC_Encoding ...
+     */
+    public static function getEncodingFromStructure($structure) {
+        if (isset($structure->encoding)) {
+            return new NOCC_Encoding($structure->encoding);
+        }
+        return new NOCC_Encoding();
     }
 }
 ?>
