@@ -75,22 +75,7 @@ switch($action) {
         if (!NOCC_Request::getBoolValue('display_images')) {
             $content['body'] = NOCC_Security::disableHtmlImages($content['body']);
         }
-        // Display embedded HTML images
-        foreach ($attachmentParts as $attachmentPart) { //for all attachment parts...
-            $partStructure = $attachmentPart->getPartStructure();
-
-            if ($partStructure->getInternetMediaType()->isImage() && $partStructure->hasId() && $conf->display_img_attach) { //if embedded image...
-                $imageType = (string)$attachmentPart->getInternetMediaType();
-                if (NOCC_Security::isSupportedImageType($imageType)) {
-                    $new_img_src = 'src="get_img.php?mail=' . $_REQUEST['mail'] . '&amp;num='
-                            . $attachmentPart->getPartNumber() . '&amp;mime=' . $imageType . '&amp;transfer=' . (string)$attachmentPart->getEncoding() . '"';
-                    $img_id = str_replace('<', '', $partStructure->getId());
-                    $img_id = str_replace('>', '', $img_id);
-                    $content['body'] = str_replace('src="cid:'.$img_id.'"', $new_img_src, $content['body']);
-                    $content['body'] = str_replace('src=cid:'.$img_id, $new_img_src, $content['body']);
-                }
-            }
-        }
+        display_embedded_html_images($content, $attachmentParts);
         if (NoccException::isException($ev)) {
             require './html/header.php';
             require './html/error.php';
@@ -163,6 +148,7 @@ switch($action) {
             exit;
         }
         $pop->close();
+
         // Add signature
         add_signature($mail_body);
 
@@ -735,6 +721,31 @@ switch($action) {
         $pop->close();
 
         break;
+}
+
+/**
+ * Display embedded HTML images
+ * @param array $content ...
+ * @param array $attachmentParts ...
+ */
+function display_embedded_html_images(&$content, $attachmentParts) {
+    global $conf;
+
+    foreach ($attachmentParts as $attachmentPart) { //for all attachment parts...
+        $partStructure = $attachmentPart->getPartStructure();
+
+        if ($partStructure->getInternetMediaType()->isImage() && $partStructure->hasId() && $conf->display_img_attach) { //if embedded image...
+            $imageType = (string)$attachmentPart->getInternetMediaType();
+            if (NOCC_Security::isSupportedImageType($imageType)) {
+                $new_img_src = 'src="get_img.php?mail=' . $_REQUEST['mail'] . '&amp;num='
+                        . $attachmentPart->getPartNumber() . '&amp;mime=' . $imageType . '&amp;transfer=' . (string)$attachmentPart->getEncoding() . '"';
+                $img_id = str_replace('<', '', $partStructure->getId());
+                $img_id = str_replace('>', '', $img_id);
+                $content['body'] = str_replace('src="cid:'.$img_id.'"', $new_img_src, $content['body']);
+                $content['body'] = str_replace('src=cid:'.$img_id, $new_img_src, $content['body']);
+            }
+        }
+    }
 }
 
 function add_signature(&$body) {
