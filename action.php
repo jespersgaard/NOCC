@@ -664,8 +664,7 @@ switch($action) {
             }
         }
 
-        $new_folders = array();
-        $list_of_folders = "";
+        $list_of_folders = '';
 
         // If we show it twice, the bottom folder select is sent, and might be
         // wrong.
@@ -690,28 +689,7 @@ switch($action) {
                 }
             }
 
-            foreach ($subscribed as $folder) {
-                if (isset($_REQUEST['sort'])) {
-                    $list_of_folders =  $_SESSION['list_of_folders'];
-                } else {
-                    $folder_name = substr(strstr($folder->name, '}'), 1);
-
-                    $status = $pop->status($folder->name);
-                    if (!($status == false) && ($status->unseen > 0)) {
-                        if (!in_array($folder_name, $new_folders)) {
-                            if (isset($unseen_messages)) {
-                                $unseen_count = count($unseen_messages);
-                            } else {
-                                $unseen_count = 0;
-                            }
-                            $list_of_folders .= ' <a href="' . $_SERVER['PHP_SELF'] . '?folder=' . $folder_name
-                            . '">' . $folder_name . " ($status->unseen)" . '</a>';
-                            $_SESSION['list_of_folders'] = $list_of_folders;
-                            array_push($new_folders, $folder_name);
-                        }
-                    }
-                }
-            }
+            $list_of_folders = set_list_of_folders($pop, $subscribed);
         }
 
         require './html/html_bottom_table.php';
@@ -725,8 +703,8 @@ switch($action) {
 
 /**
  * Display embedded HTML images
- * @param array $content ...
- * @param array $attachmentParts ...
+ * @param array $content Content
+ * @param array $attachmentParts Attachment parts
  */
 function display_embedded_html_images(&$content, $attachmentParts) {
     global $conf;
@@ -792,6 +770,42 @@ function add_reply_to_subject($subject) {
         return $html_reply_short . ' ' . $subject;
     }
     return $subject;
+}
+
+/**
+ * ...
+ * @param array $pop
+ * @param array $subscribed
+ * @return string
+ */
+function set_list_of_folders($pop, $subscribed) {
+    $new_folders = array();
+    $list_of_folders = '';
+    foreach ($subscribed as $folder) {
+        if (isset($_REQUEST['sort'])) {
+            $list_of_folders =  $_SESSION['list_of_folders'];
+        }
+        else {
+            $folder_name = substr(strstr($folder->name, '}'), 1);
+
+            $status = $pop->status($folder->name);
+            if (!($status == false) && ($status->unseen > 0)) {
+                if (!in_array($folder_name, $new_folders)) {
+                    if (isset($unseen_messages)) {
+                        $unseen_count = count($unseen_messages);
+                    }
+                    else {
+                        $unseen_count = 0;
+                    }
+                    $list_of_folders .= ' <a href="' . $_SERVER['PHP_SELF'] . '?folder=' . $folder_name
+                    . '">' . $folder_name . " ($status->unseen)" . '</a>';
+                    $_SESSION['list_of_folders'] = $list_of_folders;
+                    array_push($new_folders, $folder_name);
+                }
+            }
+        }
+    }
+    return $list_of_folders;
 }
 
 ?>
