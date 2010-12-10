@@ -336,15 +336,6 @@ class NOCC_MailStructure {
     }
 
     /**
-     * Is message?
-     * @return bool Is message?
-     * @todo Drop!
-     */
-    public function isMessage() {
-        return $this->_internetMediaType->isMessage();
-    }
-
-    /**
      * Is attachment?
      * @return bool Is attachment?
      */

@@ -100,7 +100,7 @@ class NOCC_MailParts {
                     $this->_fillArrayWithParts($parts, new NOCC_MailStructure($this_part->parts[$i]), $partNumber . ($i + 1));
             }
         }
-        else if ($mailstructure->isMessage()) { //if message...
+        else if ($mailstructure->getInternetMediaType()->isMessage()) { //if message...
             if (isset($this_part->parts[0]->parts)) {
                 $num_parts = count($this_part->parts[0]->parts);
                 for ($i = 0; $i < $num_parts; $i++)
