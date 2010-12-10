@@ -293,49 +293,6 @@ class NOCC_MailStructure {
     }
 
     /**
-     * Is plain text?
-     * @return bool Is plain text?
-     * @todo Move to NOCC_InternetMediaType?
-     */
-    public function isPlainText() {
-        if ($this->isText()) { //if text...
-            if (strtoupper($this->_internetMediaType->getSubtype()) == 'PLAIN') { //if plain text...
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Is HTML text?
-     * @return bool Is HTML text?
-     * @todo Move to NOCC_InternetMediaType?
-     */
-    public function isHtmlText() {
-        if ($this->isText()) { //if text...
-            if (strtoupper($this->_internetMediaType->getSubtype()) == 'HTML') { //if HTML text...
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Is plain or HTML text?
-     * @return bool Is plain or HTML text?
-     * @todo Move to NOCC_InternetMediaType?
-     */
-    public function isPlainOrHtmlText() {
-        if ($this->isText()) { //if text...
-            $subtype = strtoupper($this->_internetMediaType->getSubtype());
-            if (($subtype == 'PLAIN') || ($subtype == 'HTML')) { //if plain or HTML text...
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
      * Is attachment?
      * @return bool Is attachment?
      */

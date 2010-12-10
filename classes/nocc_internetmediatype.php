@@ -68,6 +68,46 @@ class NOCC_InternetMediaType {
     }
 
     /**
+     * Is plain text?
+     * @return bool Is plain text?
+     */
+    public function isPlainText() {
+        if ($this->isText()) { //if text...
+            if (strtoupper($this->_subtype) == 'PLAIN') { //if plain text...
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Is HTML text?
+     * @return bool Is HTML text?
+     */
+    public function isHtmlText() {
+        if ($this->isText()) { //if text...
+            if (strtoupper($this->_subtype) == 'HTML') { //if HTML text...
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Is plain or HTML text?
+     * @return bool Is plain or HTML text?
+     */
+    public function isPlainOrHtmlText() {
+        if ($this->isText()) { //if text...
+            $subtype = strtoupper($this->_subtype);
+            if (($subtype == 'PLAIN') || ($subtype == 'HTML')) { //if plain or HTML text...
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Is multipart?
      * @return bool Is multipart?
      */

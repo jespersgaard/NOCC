@@ -109,6 +109,8 @@ class NOCC_InternetMediaTypeTest extends PHPUnit_Framework_TestCase {
      * Test case for isText().
      */
     public function testIsText() {
+        $htmlText = new NOCC_InternetMediaType(0, 'HTML');
+
         $this->assertFalse($this->internetMediaTypeNull->isText(), 'null, null');
         $this->assertFalse($this->internetMediaTypeBug->isText(), 'bug, bug');
         $this->assertTrue($this->internetMediaType0->isText(), '0, plain');
@@ -119,6 +121,68 @@ class NOCC_InternetMediaTypeTest extends PHPUnit_Framework_TestCase {
         $this->assertFalse($this->internetMediaType5->isText(), '5, PNG');
         $this->assertFalse($this->internetMediaType6->isText(), '6, quicktime');
         $this->assertFalse($this->internetMediaType7->isText(), '7, Test');
+
+        $this->assertTrue($htmlText->isText(), '0, HTML');
+    }
+
+    /**
+     * Test case for isPlainText().
+     */
+    public function testIsPlainText() {
+        $htmlText = new NOCC_InternetMediaType(0, 'HTML');
+
+        $this->assertFalse($this->internetMediaTypeNull->isPlainText(), 'null, null');
+        $this->assertFalse($this->internetMediaTypeBug->isPlainText(), 'bug, bug');
+        $this->assertTrue($this->internetMediaType0->isPlainText(), '0, plain');
+        $this->assertFalse($this->internetMediaType1->isPlainText(), '1, ALTERNATIVE');
+        $this->assertFalse($this->internetMediaType2->isPlainText(), '2, RFC822');
+        $this->assertFalse($this->internetMediaType3->isPlainText(), '3, Pdf');
+        $this->assertFalse($this->internetMediaType4->isPlainText(), '4, mpeg');
+        $this->assertFalse($this->internetMediaType5->isPlainText(), '5, PNG');
+        $this->assertFalse($this->internetMediaType6->isPlainText(), '6, quicktime');
+        $this->assertFalse($this->internetMediaType7->isPlainText(), '7, Test');
+
+        $this->assertFalse($htmlText->isPlainText(), '0, HTML');
+    }
+
+    /**
+     * Test case for isHtmlText().
+     */
+    public function testIsHtmlText() {
+        $htmlText = new NOCC_InternetMediaType(0, 'HTML');
+
+        $this->assertFalse($this->internetMediaTypeNull->isHtmlText(), 'null, null');
+        $this->assertFalse($this->internetMediaTypeBug->isHtmlText(), 'bug, bug');
+        $this->assertFalse($this->internetMediaType0->isHtmlText(), '0, plain');
+        $this->assertFalse($this->internetMediaType1->isHtmlText(), '1, ALTERNATIVE');
+        $this->assertFalse($this->internetMediaType2->isHtmlText(), '2, RFC822');
+        $this->assertFalse($this->internetMediaType3->isHtmlText(), '3, Pdf');
+        $this->assertFalse($this->internetMediaType4->isHtmlText(), '4, mpeg');
+        $this->assertFalse($this->internetMediaType5->isHtmlText(), '5, PNG');
+        $this->assertFalse($this->internetMediaType6->isHtmlText(), '6, quicktime');
+        $this->assertFalse($this->internetMediaType7->isHtmlText(), '7, Test');
+
+        $this->assertTrue($htmlText->isHtmlText(), '0, HTML');
+    }
+
+    /**
+     * Test case for isPlainOrHtmlText().
+     */
+    public function testIsPlainOrHtmlText() {
+        $htmlText = new NOCC_InternetMediaType(0, 'HTML');
+
+        $this->assertFalse($this->internetMediaTypeNull->isPlainOrHtmlText(), 'null, null');
+        $this->assertFalse($this->internetMediaTypeBug->isPlainOrHtmlText(), 'bug, bug');
+        $this->assertTrue($this->internetMediaType0->isPlainOrHtmlText(), '0, plain');
+        $this->assertFalse($this->internetMediaType1->isPlainOrHtmlText(), '1, ALTERNATIVE');
+        $this->assertFalse($this->internetMediaType2->isPlainOrHtmlText(), '2, RFC822');
+        $this->assertFalse($this->internetMediaType3->isPlainOrHtmlText(), '3, Pdf');
+        $this->assertFalse($this->internetMediaType4->isPlainOrHtmlText(), '4, mpeg');
+        $this->assertFalse($this->internetMediaType5->isPlainOrHtmlText(), '5, PNG');
+        $this->assertFalse($this->internetMediaType6->isPlainOrHtmlText(), '6, quicktime');
+        $this->assertFalse($this->internetMediaType7->isPlainOrHtmlText(), '7, Test');
+
+        $this->assertTrue($htmlText->isPlainOrHtmlText(), '0, HTML');
     }
 
     /**
