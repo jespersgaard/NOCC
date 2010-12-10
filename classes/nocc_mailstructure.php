@@ -405,39 +405,12 @@ class NOCC_MailStructure {
     }
 
     /**
-     * Is audio?
-     * @return bool Is audio?
-     * @todo Drop!
-     */
-    public function isAudio() {
-        return $this->_internetMediaType->isAudio();
-    }
-
-    /**
      * Is image?
      * @return bool Is image?
      * @todo Drop!
      */
     public function isImage() {
         return $this->_internetMediaType->isImage();
-    }
-
-    /**
-     * Is video?
-     * @return bool Is video?
-     * @todo Drop!
-     */
-    public function isVideo() {
-        return $this->_internetMediaType->isVideo();
-    }
-
-    /**
-     * Is other?
-     * @return bool Is other?
-     * @todo Drop!
-     */
-    public function isOther() {
-        return $this->_internetMediaType->isOther();
     }
 
     /**
