@@ -396,15 +396,6 @@ class NOCC_MailStructure {
     }
 
     /**
-     * Is application?
-     * @return bool Is application?
-     * @todo Drop!
-     */
-    public function isApplication() {
-        return $this->_internetMediaType->isApplication();
-    }
-
-    /**
      * Is image?
      * @return bool Is image?
      * @todo Drop!
