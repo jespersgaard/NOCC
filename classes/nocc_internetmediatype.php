@@ -17,7 +17,6 @@
  * Wrapping the internet media type (MIME type) from a imap_fetchstructure() object
  * 
  * @package    NOCC
- * @todo Don't use strtoupper() in is*() functions!
  */
 class NOCC_InternetMediaType {
     /**
@@ -73,7 +72,7 @@ class NOCC_InternetMediaType {
      */
     public function isPlainText() {
         if ($this->isText()) { //if text...
-            if (strtoupper($this->_subtype) == 'PLAIN') { //if plain text...
+            if ($this->_subtype == 'plain') { //if plain text...
                 return true;
             }
         }
@@ -86,7 +85,7 @@ class NOCC_InternetMediaType {
      */
     public function isHtmlText() {
         if ($this->isText()) { //if text...
-            if (strtoupper($this->_subtype) == 'HTML') { //if HTML text...
+            if ($this->_subtype == 'html') { //if HTML text...
                 return true;
             }
         }
@@ -99,8 +98,7 @@ class NOCC_InternetMediaType {
      */
     public function isPlainOrHtmlText() {
         if ($this->isText()) { //if text...
-            $subtype = strtoupper($this->_subtype);
-            if (($subtype == 'PLAIN') || ($subtype == 'HTML')) { //if plain or HTML text...
+            if ($this->_subtype == 'plain' || $this->_subtype == 'html') { //if plain or HTML text...
                 return true;
             }
         }
@@ -161,7 +159,7 @@ class NOCC_InternetMediaType {
      */
     public function isRfc822Message() {
         if ($this->isMessage()) { //if message...
-            if (strtoupper($this->_subtype) == 'RFC822') { //if RFC822 message...
+            if ($this->_subtype == 'rfc822') { //if RFC822 message...
                 return true;
             }
         }
@@ -228,7 +226,7 @@ class NOCC_InternetMediaType {
      * @return bool Is alternative?
      */
     public function isAlternative() {
-        if (strtoupper($this->_subtype) == 'ALTERNATIVE') { //if alternative...
+        if ($this->_subtype == 'alternative') { //if alternative...
             return true;
         }
         return false;
@@ -239,7 +237,7 @@ class NOCC_InternetMediaType {
      * @return bool Is related?
      */
     public function isRelated() {
-        if (strtoupper($this->_subtype) == 'RELATED') { //if related...
+        if ($this->_subtype == 'related') { //if related...
             return true;
         }
         return false;
