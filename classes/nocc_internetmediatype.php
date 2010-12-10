@@ -78,6 +78,32 @@ class NOCC_InternetMediaType {
     }
 
     /**
+     * Is alternative multipart?
+     * @return bool Is alternative multipart?
+     */
+    public function isAlternativeMultipart() {
+        if ($this->isMultipart()) { //if multipart...
+            if ($this->isAlternative()) { //if alternative multipart...
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Is related multipart?
+     * @return bool Is related multipart?
+     */
+    public function isRelatedMultipart() {
+        if ($this->isMultipart()) { //if multipart...
+            if ($this->isRelated()) { //if related multipart...
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Is message?
      * @return bool Is message?
      */
@@ -138,6 +164,30 @@ class NOCC_InternetMediaType {
      */
     public function isOther() {
         if ($this->_type == 7) { //if other...
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Is alternative?
+     * @return bool Is alternative?
+     * @todo Move to NOCC_InternetMediaType?
+     */
+    public function isAlternative() {
+        if (strtoupper($this->_subtype) == 'ALTERNATIVE') { //if alternative...
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Is related?
+     * @return bool Is related?
+     * @todo Move to NOCC_InternetMediaType?
+     */
+    public function isRelated() {
+        if (strtoupper($this->_subtype) == 'RELATED') { //if related...
             return true;
         }
         return false;

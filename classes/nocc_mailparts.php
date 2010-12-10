@@ -94,7 +94,7 @@ class NOCC_MailParts {
                         $partNumber = $partNumber . '.';
                 }
                 // if it's an alternative, we skip the text part to only keep the HTML part
-                if (($mailstructure->isAlternativeMultipart()) && (($i + 1) < $num_parts))
+                if (($mailstructure->getInternetMediaType()->isAlternativeMultipart()) && (($i + 1) < $num_parts))
                     $this->_fillArrayWithParts($parts, new NOCC_MailStructure($this_part->parts[++$i]), $partNumber . ($i + 1));
                 else
                     $this->_fillArrayWithParts($parts, new NOCC_MailStructure($this_part->parts[$i]), $partNumber . ($i + 1));

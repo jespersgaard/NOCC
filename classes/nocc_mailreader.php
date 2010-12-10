@@ -144,8 +144,8 @@ class NOCC_MailReader {
         $this->_size = $mailstructure->getSize();
 
         $this->_hasAttachments = false;
-        if ($mailstructure->isMultipart() || $mailstructure->getInternetMediaType()->isApplication()) { //if "multipart" or "application" message...
-            if (!$mailstructure->isAlternative() && !$mailstructure->isRelated()) {
+        if ($mailstructure->getInternetMediaType()->isMultipart() || $mailstructure->getInternetMediaType()->isApplication()) { //if "multipart" or "application" message...
+            if (!$mailstructure->getInternetMediaType()->isAlternative() && !$mailstructure->getInternetMediaType()->isRelated()) {
                 $this->_hasAttachments = true;
             }
         }

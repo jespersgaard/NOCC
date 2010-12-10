@@ -138,6 +138,46 @@ class NOCC_InternetMediaTypeTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * Test case for isAlternativeMultipart().
+     */
+    public function testIsAlternativeMultipart() {
+        $relatedMultipart = new NOCC_InternetMediaType(1, 'related');
+
+        $this->assertFalse($this->internetMediaTypeNull->isAlternativeMultipart(), 'null, null');
+        $this->assertFalse($this->internetMediaTypeBug->isAlternativeMultipart(), 'bug, bug');
+        $this->assertFalse($this->internetMediaType0->isAlternativeMultipart(), '0, plain');
+        $this->assertTrue($this->internetMediaType1->isAlternativeMultipart(), '1, ALTERNATIVE');
+        $this->assertFalse($this->internetMediaType2->isAlternativeMultipart(), '2, RFC822');
+        $this->assertFalse($this->internetMediaType3->isAlternativeMultipart(), '3, Pdf');
+        $this->assertFalse($this->internetMediaType4->isAlternativeMultipart(), '4, mpeg');
+        $this->assertFalse($this->internetMediaType5->isAlternativeMultipart(), '5, PNG');
+        $this->assertFalse($this->internetMediaType6->isAlternativeMultipart(), '6, quicktime');
+        $this->assertFalse($this->internetMediaType7->isAlternativeMultipart(), '7, Test');
+
+        $this->assertFalse($relatedMultipart->isAlternativeMultipart(), '1, related');
+    }
+
+    /**
+     * Test case for isRelatedMultipart().
+     */
+    public function testIsRelatedMultipart() {
+        $relatedMultipart = new NOCC_InternetMediaType(1, 'related');
+
+        $this->assertFalse($this->internetMediaTypeNull->isRelatedMultipart(), 'null, null');
+        $this->assertFalse($this->internetMediaTypeBug->isRelatedMultipart(), 'bug, bug');
+        $this->assertFalse($this->internetMediaType0->isRelatedMultipart(), '0, plain');
+        $this->assertfalse($this->internetMediaType1->isRelatedMultipart(), '1, ALTERNATIVE');
+        $this->assertFalse($this->internetMediaType2->isRelatedMultipart(), '2, RFC822');
+        $this->assertFalse($this->internetMediaType3->isRelatedMultipart(), '3, Pdf');
+        $this->assertFalse($this->internetMediaType4->isRelatedMultipart(), '4, mpeg');
+        $this->assertFalse($this->internetMediaType5->isRelatedMultipart(), '5, PNG');
+        $this->assertFalse($this->internetMediaType6->isRelatedMultipart(), '6, quicktime');
+        $this->assertFalse($this->internetMediaType7->isRelatedMultipart(), '7, Test');
+
+        $this->assertTrue($relatedMultipart->isRelatedMultipart(), '1, related');
+    }
+
+    /**
      * Test case for isMessage().
      */
     public function testIsMessage() {
@@ -231,6 +271,54 @@ class NOCC_InternetMediaTypeTest extends PHPUnit_Framework_TestCase {
         $this->assertFalse($this->internetMediaType5->isOther(), '5, PNG');
         $this->assertFalse($this->internetMediaType6->isOther(), '6, quicktime');
         $this->assertTrue($this->internetMediaType7->isOther(), '7, Test');
+    }
+
+    /**
+     * Test case for isAlternative().
+     */
+    public function testIsAlternative() {
+        $relatedMultipart = new NOCC_InternetMediaType(1, 'related');
+        $alternativeOther = new NOCC_InternetMediaType(7, 'alternative');
+        $relatedOther = new NOCC_InternetMediaType(7, 'RELATED');
+
+        $this->assertFalse($this->internetMediaTypeNull->isAlternative(), 'null, null');
+        $this->assertFalse($this->internetMediaTypeBug->isAlternative(), 'bug, bug');
+        $this->assertFalse($this->internetMediaType0->isAlternative(), '0, plain');
+        $this->assertTrue($this->internetMediaType1->isAlternative(), '1, ALTERNATIVE');
+        $this->assertFalse($this->internetMediaType2->isAlternative(), '2, RFC822');
+        $this->assertFalse($this->internetMediaType3->isAlternative(), '3, Pdf');
+        $this->assertFalse($this->internetMediaType4->isAlternative(), '4, mpeg');
+        $this->assertFalse($this->internetMediaType5->isAlternative(), '5, PNG');
+        $this->assertFalse($this->internetMediaType6->isAlternative(), '6, quicktime');
+        $this->assertFalse($this->internetMediaType7->isAlternative(), '7, Test');
+
+        $this->assertFalse($relatedMultipart->isAlternative(), '1, related');
+        $this->assertTrue($alternativeOther->isAlternative(), '7, alternative');
+        $this->assertFalse($relatedOther->isAlternative(), '7, RELATED');
+    }
+
+    /**
+     * Test case for isRelated().
+     */
+    public function testIsRelated() {
+        $relatedMultipart = new NOCC_InternetMediaType(1, 'related');
+        $alternativeOther = new NOCC_InternetMediaType(7, 'alternatvie');
+        $relatedOther = new NOCC_InternetMediaType(7, 'RELATED');
+
+        $this->assertFalse($this->internetMediaTypeNull->isRelated(), 'null, null');
+        $this->assertFalse($this->internetMediaTypeBug->isRelated(), 'bug, bug');
+        $this->assertFalse($this->internetMediaType0->isRelated(), '0, plain');
+        $this->assertFalse($this->internetMediaType1->isRelated(), '1, ALTERNATIVE');
+        $this->assertFalse($this->internetMediaType2->isRelated(), '2, RFC822');
+        $this->assertFalse($this->internetMediaType3->isRelated(), '3, Pdf');
+        $this->assertFalse($this->internetMediaType4->isRelated(), '4, mpeg');
+        $this->assertFalse($this->internetMediaType5->isRelated(), '5, PNG');
+        $this->assertFalse($this->internetMediaType6->isRelated(), '6, quicktime');
+        $this->assertFalse($this->internetMediaType7->isRelated(), '7, Test');
+
+        $this->assertTrue($relatedMultipart->isRelated(), '1, related');
+        $this->assertFalse($alternativeOther->isRelated(), '7, alternative');
+        $this->assertTrue($relatedOther->isRelated(), '7, RELATED');
     }
 
     /**

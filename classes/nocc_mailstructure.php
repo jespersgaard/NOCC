@@ -345,34 +345,6 @@ class NOCC_MailStructure {
     }
 
     /**
-     * Is alternative multipart?
-     * @return bool Is alternative multipart?
-     * @todo Move to NOCC_InternetMediaType?
-     */
-    public function isAlternativeMultipart() {
-        if ($this->isMultipart()) { //if multipart...
-            if ($this->isAlternative()) { //if alternative multipart...
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Is related multipart?
-     * @return bool Is related multipart?
-     * @todo Move to NOCC_InternetMediaType?
-     */
-    public function isRelatedMultipart() {
-        if ($this->isMultipart()) { //if multipart...
-            if ($this->isRelated()) { //if related multipart...
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
      * Is message?
      * @return bool Is message?
      * @todo Drop!
@@ -402,30 +374,6 @@ class NOCC_MailStructure {
      */
     public function isImage() {
         return $this->_internetMediaType->isImage();
-    }
-
-    /**
-     * Is alternative?
-     * @return bool Is alternative?
-     * @todo Move to NOCC_InternetMediaType?
-     */
-    public function isAlternative() {
-        if (strtoupper($this->_internetMediaType->getSubtype()) == 'ALTERNATIVE') { //if alternative...
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * Is related?
-     * @return bool Is related?
-     * @todo Move to NOCC_InternetMediaType?
-     */
-    public function isRelated() {
-        if (strtoupper($this->_internetMediaType->getSubtype()) == 'RELATED') { //if related...
-            return true;
-        }
-        return false;
     }
 
     /**
