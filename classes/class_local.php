@@ -257,7 +257,7 @@ class nocc_imap
             return nocc_imap::decode_mime_string($mime_encoded_text);
         }
         else { //if PHP 5.2.4 or older...
-            return nocc_imap::imap_utf8($mime_encoded_text);
+            return imap_utf8($mime_encoded_text);
         }
     }
 
