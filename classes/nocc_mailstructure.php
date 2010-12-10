@@ -336,15 +336,6 @@ class NOCC_MailStructure {
     }
 
     /**
-     * Is multipart?
-     * @return bool Is multipart?
-     * @todo Drop!
-     */
-    public function isMultipart() {
-        return $this->_internetMediaType->isMultipart();
-    }
-
-    /**
      * Is message?
      * @return bool Is message?
      * @todo Drop!

@@ -86,7 +86,7 @@ class NOCC_MailParts {
      */
     private function _fillArrayWithParts(&$parts, $mailstructure, $partNumber = '') {
         $this_part = $mailstructure->getStructure();
-        if ($mailstructure->isMultipart()) { //if multipart...
+        if ($mailstructure->getInternetMediaType()->isMultipart()) { //if multipart...
             $num_parts = count($this_part->parts);
             for ($i = 0; $i < $num_parts; $i++) {
                 if ($partNumber != '') {
