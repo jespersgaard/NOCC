@@ -79,7 +79,7 @@ switch($action) {
         foreach ($attachmentParts as $attachmentPart) { //for all attachment parts...
             $partStructure = $attachmentPart->getPartStructure();
 
-            if ($partStructure->isImage() && $partStructure->hasId() && $conf->display_img_attach) { //if embedded image...
+            if ($partStructure->getInternetMediaType()->isImage() && $partStructure->hasId() && $conf->display_img_attach) { //if embedded image...
                 $imageType = (string)$attachmentPart->getInternetMediaType();
                 if (NOCC_Security::isSupportedImageType($imageType)) {
                     $new_img_src = 'src="get_img.php?mail=' . $_REQUEST['mail'] . '&amp;num='
@@ -115,7 +115,7 @@ switch($action) {
                 echo view_part($pop, $_REQUEST['mail'], $attachmentPart->getPartNumber(), (string)$attachmentPart->getEncoding(), $partStructure->getCharset());
                 echo '</div> <!-- .mailTextAttach -->';
             }
-            else if ($partStructure->isImage() && !$partStructure->hasId() && $conf->display_img_attach) { //if attached image...
+            else if ($partStructure->getInternetMediaType()->isImage() && !$partStructure->hasId() && $conf->display_img_attach) { //if attached image...
                 $imageType = (string)$attachmentPart->getInternetMediaType();
                 if (NOCC_Security::isSupportedImageType($imageType)) {
                     echo '<hr class="mailAttachSep" />';
