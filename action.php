@@ -528,6 +528,7 @@ switch($action) {
                 session_destroy();
                 setcookie("NoccIdent");
             }
+
             require './html/header.php';
             require './html/error.php';
             require './html/footer.php';
@@ -611,14 +612,11 @@ switch($action) {
             }
             catch (Exception $ex) {
                 $ev = new NoccException($ex->getMessage());
+                require './html/header.php';
+                require './html/error.php';
+                require './html/footer.php';
+                break;
             }
-        }
-
-        if (NoccException::isException($ev)) {
-            require './html/header.php';
-            require './html/error.php';
-            require './html/footer.php';
-            break;
         }
 
         require './html/header.php';
