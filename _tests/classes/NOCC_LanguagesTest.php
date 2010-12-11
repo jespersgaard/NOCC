@@ -23,6 +23,11 @@ require_once dirname(__FILE__).'/../../classes/nocc_languages.php';
  */
 class NOCC_LanguagesTest extends PHPUnit_Framework_TestCase {
     /**
+     * @var string
+     */
+    protected $rootPath;
+
+    /**
      * @var NOCC_Languages
      */
     protected $languages1;
@@ -52,11 +57,13 @@ class NOCC_LanguagesTest extends PHPUnit_Framework_TestCase {
      * This method is called before a test is executed.
      */
     protected function setUp() {
+        $this->rootPath = dirname(__FILE__) . '/../';
+
         $this->languages1 = new NOCC_Languages('');
-        $this->languages2 = new NOCC_Languages('./lang', 'de');
-        $this->languages3 = new NOCC_Languages('./lang/', 'DE');
+        $this->languages2 = new NOCC_Languages($this->rootPath . './lang', 'de');
+        $this->languages3 = new NOCC_Languages($this->rootPath . './lang/', 'DE');
         $this->languages4 = new NOCC_Languages(array('bug'));
-        $this->languages5 = new NOCC_Languages('./lang/', array('bug'));
+        $this->languages5 = new NOCC_Languages($this->rootPath . './lang/', array('bug'));
     }
 
     /**
@@ -74,7 +81,7 @@ class NOCC_LanguagesTest extends PHPUnit_Framework_TestCase {
      * Test case for exists().
      */
     public function testExists() {
-        $languages = new NOCC_Languages('./lang');
+        $languages = new NOCC_Languages($this->rootPath . './lang');
 
         $this->assertFalse(@$languages->exists(), 'exists()');
         $this->assertFalse($languages->exists(array('bug')), 'exists(array("bug"))');
@@ -109,7 +116,7 @@ class NOCC_LanguagesTest extends PHPUnit_Framework_TestCase {
      * Test case for setDefaultLangId().
      */
     public function testSetDefaultLangId() {
-        $languages = new NOCC_Languages('./lang');
+        $languages = new NOCC_Languages($this->rootPath . './lang');
 
         $this->assertFalse(@$languages->setDefaultLangId(), 'setDefaultLangId()');
         $this->assertEquals('en', $languages->getDefaultLangId(), 'getDefaultLangId()');
@@ -144,7 +151,7 @@ class NOCC_LanguagesTest extends PHPUnit_Framework_TestCase {
      * Test case for setSelectedLangId().
      */
     public function testSetSelectedLangId() {
-        $languages = new NOCC_Languages('./lang');
+        $languages = new NOCC_Languages($this->rootPath . './lang');
 
         $this->assertFalse(@$languages->setSelectedLangId(), 'setSelectedLangId()');
         $this->assertEquals('en', $languages->getSelectedLangId(), 'getSelectedLangId()');

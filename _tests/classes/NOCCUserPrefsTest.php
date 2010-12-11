@@ -23,6 +23,11 @@ require_once dirname(__FILE__).'/../../classes/user_prefs.php';
  */
 class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
     /**
+     * @var string
+     */
+    protected $rootPath;
+
+    /**
      * @var NOCCUserPrefs
      */
     protected $userPrefs1;
@@ -32,6 +37,8 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
      * This method is called before a test is executed.
      */
     protected function setUp() {
+        $this->rootPath = dirname(__FILE__) . '/../';
+
         $this->userPrefs1 = new NOCCUserPrefs('');
     }
 
@@ -339,7 +346,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
     public function testReadFromFile() {
         $defaultUserPrefs = new NOCCUserPrefs('');
 
-        $userPrefs1 = NOCCUserPrefs::readFromFile($defaultUserPrefs, './prefs/test1.pref', $ev);
+        $userPrefs1 = NOCCUserPrefs::readFromFile($defaultUserPrefs, $this->rootPath . './prefs/test1.pref', $ev);
         
         $this->assertEquals('Full Name', $userPrefs1->full_name, 'full_name');
         $this->assertEquals('foo@bar.org', $userPrefs1->email_address, 'email_address');
@@ -363,7 +370,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('newlook', $userPrefs1->theme, 'theme');
         $this->assertEquals(0, $userPrefs1->dirty_flag, 'dirty_flag');
 
-        $userPrefs2 = NOCCUserPrefs::readFromFile($defaultUserPrefs, './prefs/test2.pref', $ev);
+        $userPrefs2 = NOCCUserPrefs::readFromFile($defaultUserPrefs, $this->rootPath . './prefs/test2.pref', $ev);
 
         $this->assertEquals('Name Full', $userPrefs2->full_name, 'full_name');
         $this->assertEquals('bar@foo.org', $userPrefs2->email_address, 'email_address');

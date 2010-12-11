@@ -23,6 +23,11 @@ require_once dirname(__FILE__).'/../../classes/nocc_themes.php';
  */
 class NOCC_ThemesTest extends PHPUnit_Framework_TestCase {
     /**
+     * @var string
+     */
+    protected $rootPath;
+
+    /**
      * @var NOCC_Themes
      */
     protected $themes1;
@@ -52,11 +57,13 @@ class NOCC_ThemesTest extends PHPUnit_Framework_TestCase {
      * This method is called before a test is executed.
      */
     protected function setUp() {
+        $this->rootPath = dirname(__FILE__) . '/../';
+
         $this->themes1 = new NOCC_Themes('');
-        $this->themes2 = new NOCC_Themes('./themes', 'test1');
-        $this->themes3 = new NOCC_Themes('./themes/', 'TEST1');
+        $this->themes2 = new NOCC_Themes($this->rootPath . './themes', 'test1');
+        $this->themes3 = new NOCC_Themes($this->rootPath . './themes/', 'TEST1');
         $this->themes4 = new NOCC_Themes(array('bug'));
-        $this->themes5 = new NOCC_Themes('./themes/', array('bug'));
+        $this->themes5 = new NOCC_Themes($this->rootPath . './themes/', array('bug'));
     }
 
     /**
@@ -74,7 +81,7 @@ class NOCC_ThemesTest extends PHPUnit_Framework_TestCase {
      * Test case for exists().
      */
     public function testExists() {
-        $themes = new NOCC_Themes('./themes');
+        $themes = new NOCC_Themes($this->rootPath . './themes');
 
         $this->assertFalse(@$themes->exists(), 'exists()');
         $this->assertFalse($themes->exists(array('bug')), 'exists(array("bug"))');
@@ -88,7 +95,7 @@ class NOCC_ThemesTest extends PHPUnit_Framework_TestCase {
      * Test case for getThemeNames().
      */
     public function testGetThemeNames() {
-        $themes = new NOCC_Themes('./themes');
+        $themes = new NOCC_Themes($this->rootPath . './themes');
         $themeNames = $themes->getThemeNames();
 
         $this->assertEquals(2, count($themeNames), 'count($themeNames)');
@@ -111,7 +118,7 @@ class NOCC_ThemesTest extends PHPUnit_Framework_TestCase {
      * Test case for setDefaultThemeName().
      */
     public function testSetDefaultThemeName() {
-        $themes = new NOCC_Themes('./themes');
+        $themes = new NOCC_Themes($this->rootPath . './themes');
 
         $this->assertFalse(@$themes->setDefaultThemeName(), 'setDefaultThemeName()');
         $this->assertEquals('standard', $themes->getDefaultThemeName(), 'getDefaultThemeName()');
@@ -146,7 +153,7 @@ class NOCC_ThemesTest extends PHPUnit_Framework_TestCase {
      * Test case for setSelectedThemeName().
      */
     public function testSetSelectedThemeName() {
-        $themes = new NOCC_Themes('./themes');
+        $themes = new NOCC_Themes($this->rootPath . './themes');
 
         $this->assertFalse(@$themes->setSelectedThemeName(), 'setSelectedThemeName()');
         $this->assertEquals('standard', $themes->getSelectedThemeName(), 'getSelectedThemeName()');
