@@ -82,30 +82,7 @@ switch($action) {
         require './html/menu_mail.php';
         require './html/submenu_mail.php';
         require './html/html_mail.php';
-        //TODO: Use "mailData" DIV from file "html/html_mail.php"!
-        echo '<div class="mailData">';
-        foreach ($attachmentParts as $attachmentPart) { //for all attachment parts...
-            $partStructure = $attachmentPart->getPartStructure();
-
-            if ($partStructure->getInternetMediaType()->isPlainText() && $conf->display_text_attach) { //if plain text...
-                echo '<hr class="mailAttachSep" />';
-                echo '<div class="mailTextAttach">';
-                //TODO: Replace URLs and Smilies in text/plain attachment?
-                echo view_part($pop, $_REQUEST['mail'], $attachmentPart->getPartNumber(), (string)$attachmentPart->getEncoding(), $partStructure->getCharset());
-                echo '</div> <!-- .mailTextAttach -->';
-            }
-            else if ($partStructure->getInternetMediaType()->isImage() && !$partStructure->hasId() && $conf->display_img_attach) { //if attached image...
-                $imageType = (string)$attachmentPart->getInternetMediaType();
-                if (NOCC_Security::isSupportedImageType($imageType)) {
-                    echo '<hr class="mailAttachSep" />';
-                    echo '<div class="mailImgAttach">';
-                    echo '<img src="get_img.php?mail=' . $_REQUEST['mail'] . '&amp;num=' . $attachmentPart->getPartNumber() . '&amp;mime='
-                            . $imageType . '&amp;transfer=' . (string)$attachmentPart->getEncoding() . '" alt="" title="' . $partStructure->getName() . '" />';
-                    echo '</div> <!-- .mailImgAttach -->';
-                }
-            }
-        }
-        echo '</div> <!-- .mailData -->';
+        display_attachments($pop, $attachmentParts);
         require './html/submenu_mail.php';
         require './html/menu_mail.php';
         require './html/footer.php';
@@ -695,6 +672,40 @@ switch($action) {
 }
 
 /**
+ * Display attachments
+ * @param nocc_imap $pop
+ * @param array $attachmentParts Attachment parts
+ */
+function display_attachments($pop, $attachmentParts) {
+    global $conf;
+
+    //TODO: Use "mailData" DIV from file "html/html_mail.php"!
+    echo '<div class="mailData">';
+    foreach ($attachmentParts as $attachmentPart) { //for all attachment parts...
+        $partStructure = $attachmentPart->getPartStructure();
+
+        if ($partStructure->getInternetMediaType()->isPlainText() && $conf->display_text_attach) { //if plain text...
+            echo '<hr class="mailAttachSep" />';
+            echo '<div class="mailTextAttach">';
+            //TODO: Replace URLs and Smilies in text/plain attachment?
+            echo view_part($pop, $_REQUEST['mail'], $attachmentPart->getPartNumber(), (string)$attachmentPart->getEncoding(), $partStructure->getCharset());
+            echo '</div> <!-- .mailTextAttach -->';
+        }
+        else if ($partStructure->getInternetMediaType()->isImage() && !$partStructure->hasId() && $conf->display_img_attach) { //if attached image...
+            $imageType = (string)$attachmentPart->getInternetMediaType();
+            if (NOCC_Security::isSupportedImageType($imageType)) {
+                echo '<hr class="mailAttachSep" />';
+                echo '<div class="mailImgAttach">';
+                echo '<img src="get_img.php?mail=' . $_REQUEST['mail'] . '&amp;num=' . $attachmentPart->getPartNumber() . '&amp;mime='
+                        . $imageType . '&amp;transfer=' . (string)$attachmentPart->getEncoding() . '" alt="" title="' . $partStructure->getName() . '" />';
+                echo '</div> <!-- .mailImgAttach -->';
+            }
+        }
+    }
+    echo '</div> <!-- .mailData -->';
+}
+
+/**
  * Display embedded HTML images
  * @param array $content Content
  * @param array $attachmentParts Attachment parts
@@ -767,7 +778,7 @@ function add_reply_to_subject($subject) {
 
 /**
  * ...
- * @param array $pop
+ * @param nocc_imap $pop
  * @param array $subscribed
  * @return string
  */
