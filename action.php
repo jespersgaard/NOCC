@@ -61,22 +61,16 @@ switch($action) {
 
             $attachmentParts = array();
             $content = aff_mail($pop, $_REQUEST['mail'], NOCC_Request::getBoolValue('verbose'), $attachmentParts);
+
+            // Display or hide distant HTML images
+            if (!NOCC_Request::getBoolValue('display_images')) {
+                $content['body'] = NOCC_Security::disableHtmlImages($content['body']);
+            }
+            display_embedded_html_images($content, $attachmentParts);
         }
         catch (Exception $ex) {
             //TODO: Show error without NoccException!
             $ev = new NoccException($ex->getMessage());
-            require './html/header.php';
-            require './html/error.php';
-            require './html/footer.php';
-            break;
-        }
-
-        // Display or hide distant HTML images
-        if (!NOCC_Request::getBoolValue('display_images')) {
-            $content['body'] = NOCC_Security::disableHtmlImages($content['body']);
-        }
-        display_embedded_html_images($content, $attachmentParts);
-        if (NoccException::isException($ev)) {
             require './html/header.php';
             require './html/error.php';
             require './html/footer.php';
@@ -549,9 +543,7 @@ switch($action) {
         }
         catch (Exception $ex) {
             $ev = new NoccException($ex->getMessage());
-        }
 
-        if (NoccException::isException($ev)) {
             if ($action == 'login' || $action == 'cookie') {
                 session_name("NOCCSESSID");
                 $_SESSION['nocc_login'] = '';
@@ -564,6 +556,7 @@ switch($action) {
             require './html/footer.php';
             break;
         }
+
         if ($action == 'login') {
             // Subscribe to INBOX, usefull if it's not already done.
             if ($pop->is_imap()) {
