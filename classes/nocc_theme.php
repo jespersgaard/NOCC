@@ -145,6 +145,7 @@ class NOCC_Theme {
         if ($this->_exists) { //if exists...
             return $this->_realpath . '/header.php';
         }
+        return '';
     }
     
     /**
@@ -155,6 +156,7 @@ class NOCC_Theme {
         if ($this->_exists) { //if exists...
             return $this->_realpath . '/footer.php';
         }
+        return '';
     }
     
     /**
