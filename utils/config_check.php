@@ -31,14 +31,6 @@ function get_default_from_address() {
     return $from_address;
 }
 
-// Dynamically load imap module is needed
-if (!extension_loaded('imap')) {
-    if (!dl('imap.so')) {
-        print('error loading imap library');
-        exit;
-    }
-}
-
 // Detect base url
 if (!isset($conf->base_url) || $conf->base_url == '') {
   $path_info = pathinfo($_SERVER['SCRIPT_NAME']);

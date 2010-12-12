@@ -1,5 +1,9 @@
 NOCC 1.9.0  ???? ??, ????
 
+  Bugs
+    * Bug #3135831 : Call to undefined function dl() in config_check.php on line
+      (Tim Gerundt).
+
   Feature Requests
     * RFE #2985080 : Group items in character encoding list (Tim Gerundt).
 
