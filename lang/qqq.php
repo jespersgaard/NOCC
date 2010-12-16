@@ -49,6 +49,7 @@ $alt_prev = 'Navigation link at top of page. See [[Translating talk:NOCC#NOCC_sc
 {{Identical|Previous}}';
 $title_next_page = '{{Identical|Next page}}';
 $title_prev_page = '{{Identical|Previous page}}';
+$html_theme_label = '{{Identical|Theme}}';
 $html_login = 'Verb.{{Identical|Login}}';
 $html_user_label = '{{Identical|User}}';
 $html_passwd_label = '{{Identical|Password}}';
