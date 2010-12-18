@@ -26,9 +26,13 @@ require_once 'nocc_mailaddress.php';
  * @todo Rewrite to avoid global variables!
  */
 class NOCCUserPrefs {
+    // TODO: Hide behind get/setKey()!
     var $key;
+    // TODO: Hide behind get/setFullName()!
     var $full_name;
+    // TODO: Hide behind get/setEmailAddress()!
     var $email_address;
+    // TODO: Hide behind get/setMessagesPerPage()!
     var $msg_per_page;
     /**
      * Cc self?
@@ -60,10 +64,15 @@ class NOCCUserPrefs {
      * @access private
      */
     private $_displayStructuredText;
+    // TODO: Hide behind get/setOpenMessagesInSeperateWindow()!
     var $seperate_msg_win;
+    // TODO: Hide behind get/setReplyLeadin()!
     var $reply_leadin;
+    // TODO: Hide behind get/setSignature()!
     var $signature;
+    // TODO: Hide behind get/setWrapMessages()!
     var $wrap_msg;
+    // TODO: Hide behind get/setUseSignatureSeparator()!
     var $sig_sep;
     /**
      * Send HTML mail?
@@ -71,6 +80,7 @@ class NOCCUserPrefs {
      * @access private
      */
     private $_sendHtmlMail;
+    // TODO: Hide behind get/setUseGraphicalSmilies()!
     var $graphical_smilies;
     /**
      * Use sent folder?
@@ -78,6 +88,7 @@ class NOCCUserPrefs {
      * @access private
      */
     private $_useSentFolder;
+    // TODO: Hide behind get/setSentFolderName()!
     var $sent_folder_name;
     /**
      * Use trash folder?
@@ -85,11 +96,15 @@ class NOCCUserPrefs {
      * @access private
      */
     var $_useTrashFolder;
+    // TODO: Hide behind get/setTrashFolderName()!
     var $trash_folder_name;
+    // TODO: Hide behind get/setLang()!
     var $lang;
+    // TODO: Hide behind get/setTheme()!
     var $theme;
 
     // Set when preferences have not been commit
+    // TODO: Hide behind get/setIsDirty()!
     var $dirty_flag;
 
     /**
