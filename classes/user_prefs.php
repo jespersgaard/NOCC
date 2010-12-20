@@ -26,7 +26,7 @@ require_once 'nocc_mailaddress.php';
  * @todo Rewrite to avoid global variables!
  */
 class NOCCUserPrefs {
-    // TODO: Hide behind get/setKey()!
+    // TODO: Hide behind get/setKey()?
     var $key;
     // TODO: Hide behind get/setFullName()!
     var $full_name;
@@ -263,6 +263,7 @@ class NOCCUserPrefs {
      * @param object $ev Exception
      * @return NOCCUserPrefs User profile
      * @static
+     * @todo Rewrite to throw exception!
      */
     public static function read($key, &$ev) {
         global $conf;
@@ -288,6 +289,7 @@ class NOCCUserPrefs {
      * @param object $ev Exception
      * @return NOCCUserPrefs User profile
      * @static
+     * @todo Rewrite to throw exception!
      */
     public static function readFromFile($prefs, $filename, $ev) {
         /* Open the preferences file */
@@ -387,6 +389,7 @@ class NOCCUserPrefs {
      * @global object $conf
      * @global string $html_prefs_file_error
      * @param object $ev Exception
+     * @todo Rewrite to throw exception!
      */
     public function commit(&$ev) {
         global $conf;

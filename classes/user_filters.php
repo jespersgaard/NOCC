@@ -15,16 +15,30 @@
 
 require_once 'exception.php';
 
+/**
+ * Handling user filters
+ *
+ * @package    NOCC
+ * @todo Rename to NOCC_UserFilters!
+ * @todo Hide all preferenes behind getter/setter!
+ * @todo Rewrite to avoid global variables!
+ * @todo Add add() function?
+ * @todo Add delete() function?
+ */
 class NOCCUserFilters {
+        // TODO: Hide behind get/setKey()?
         var $key;
+        // TODO: Hide behind get/setFilterset()?
         var $filterset;
     
         // Set when preferences have not been commit
+        // TODO: Hide behind get/setIsDirty()!
         var $dirty_flag;
 
         /*
          * Default user profile
          */
+        //TODO: Rewrite to throw exception!
         function NOCCUserFilters($key, &$ev) {
                 global $conf;
 
@@ -44,6 +58,9 @@ class NOCCUserFilters {
          * returns a default profile. If it can be found, but not
          * read, it returns an exception.
          */
+        //TODO: Rewrite to throw exception!
+        //TODO: Split in read() and readFromFile()?
+        //TODO: Make static!
         function read($key, &$ev) {
                 global $conf;
 
@@ -86,6 +103,7 @@ class NOCCUserFilters {
         /*
          * If need be, write settings to file.
          */
+        //TODO: Rewrite to throw exception!
         function commit(&$ev) {
                 global $conf;
                 global $html_prefs_file_error;
