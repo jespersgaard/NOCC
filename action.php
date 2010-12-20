@@ -286,8 +286,7 @@ switch($action) {
                     // Don't want to remove, just unsubscribe.
                     //$pop->deletemailbox($removeoldbox, $ev);
                     //if(NoccException::isException($ev)) break ;
-                    $pop->unsubscribe($_REQUEST['removeoldbox'], $ev);
-                    if(NoccException::isException($ev)) break;
+                    $pop->unsubscribe($_REQUEST['removeoldbox']);
                 }
                 break;
 
@@ -295,8 +294,7 @@ switch($action) {
                 if ($_REQUEST['renamenewbox'] && $_REQUEST['renameoldbox']) {
                     $pop->renamemailbox($_REQUEST['renameoldbox'], $_REQUEST['renamenewbox'], $ev);
                     if(NoccException::isException($ev)) break;
-                    $pop->unsubscribe($_REQUEST['renameoldbox'], $ev);
-                    if(NoccException::isException($ev)) break;
+                    $pop->unsubscribe($_REQUEST['renameoldbox']);
                     $pop->subscribe($_REQUEST['renamenewbox'], $ev, true);
                     if(NoccException::isException($ev)) break;
                 }
@@ -304,8 +302,7 @@ switch($action) {
             
             case 'delete_folder':
                 if ($_REQUEST['deletebox']) {
-                    $pop->unsubscribe($_REQUEST['deletebox'], $ev);
-                    if(NoccException::isException($ev)) break;
+                    $pop->unsubscribe($_REQUEST['deletebox']);
                     $pop->deletemailbox($_REQUEST['deletebox'], $ev);
                     if(NoccException::isException($ev)) break;
                 }

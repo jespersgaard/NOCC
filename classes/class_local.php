@@ -232,9 +232,13 @@ class nocc_imap
         }
     }
 
-    //TODO: Rewrite to throw exception!
-    public function unsubscribe($old_box, &$ev) {
-        return imap_unsubscribe($this->conn, '{'.$this->server.'}'.$old_box);
+    /**
+     * Unsubscribe from a mailbox
+     * @param string $mailbox Mailbox
+     * @return bool Successful?
+     */
+    public function unsubscribe($mailbox) {
+        return @imap_unsubscribe($this->conn, '{' . $this->server . '}' . $mailbox);
     }
 
     //TODO: Rewrite to throw exception!
