@@ -26,143 +26,140 @@ require_once 'exception.php';
  * @todo Add delete() function?
  */
 class NOCCUserFilters {
-        // TODO: Hide behind get/setKey()?
-        var $key;
-        // TODO: Hide behind get/setFilterset()?
-        var $filterset;
-    
-        // Set when preferences have not been commit
-        // TODO: Hide behind get/setIsDirty()!
-        var $dirty_flag;
+    // TODO: Hide behind get/setKey()?
+    var $key;
+    // TODO: Hide behind get/setFilterset()?
+    var $filterset;
 
-        /*
-         * Default user profile
-         */
-        //TODO: Rewrite to throw exception!
-        function NOCCUserFilters($key, &$ev) {
-                global $conf;
+    // Set when preferences have not been commit
+    // TODO: Hide behind get/setIsDirty()!
+    var $dirty_flag;
 
-                $this->key = $key;
-                $this->filterset = array();
-                $this->dirty_flag = 1;
-                if (empty($conf->prefs_dir)) {
-                        $ev = new NoccException("User preferences are turned off but tried to create object.");
-                        return;
-                }
+    /*
+     * Default user profile
+     */
+    //TODO: Rewrite to throw exception!
+    function NOCCUserFilters($key, &$ev) {
+        global $conf;
 
+        $this->key = $key;
+        $this->filterset = array();
+        $this->dirty_flag = 1;
+        if (empty($conf->prefs_dir)) {
+            $ev = new NoccException("User preferences are turned off but tried to create object.");
+            return;
+        }
+    }
+
+    /*
+     * Return the current preferences for the given key. Key is
+     * 'login@domain'. If it cannot be found for any reason, it
+     * returns a default profile. If it can be found, but not
+     * read, it returns an exception.
+     */
+    //TODO: Rewrite to throw exception!
+    //TODO: Split in read() and readFromFile()?
+    //TODO: Make static!
+    function read($key, &$ev) {
+        global $conf;
+
+        $filters = new NOCCUserFilters($key, $ev);
+
+        /* Open the preferences file */
+        $filename = $conf->prefs_dir . '/' . $key . '.filter';
+        if (!file_exists($filename)) {
+            $filters->dirty_flag = 1;
+            $filters->commit($ev);
+            if(NoccException::isException($ev))
+                return;
+        }
+        $file = fopen($filename, 'r');
+        if (!$file) {
+            $ev = new NoccException("Could not open $filename for reading user preferences");
+            return;
         }
 
-        /*
-         * Return the current preferences for the given key. Key is
-         * 'login@domain'. If it cannot be found for any reason, it
-         * returns a default profile. If it can be found, but not
-         * read, it returns an exception.
-         */
-        //TODO: Rewrite to throw exception!
-        //TODO: Split in read() and readFromFile()?
-        //TODO: Make static!
-        function read($key, &$ev) {
-                global $conf;
+        /* Read in all the preferences */
+        while (!feof($file)) {
+            $line = trim(fgets($file, 1024));
+            $pipeAt = strpos($line, '|');
+            if($pipeAt <= 0) continue;
 
-                $filters = new NOCCUserFilters($key, $ev);
+            $name = substr($line, 0, $pipeAt);
+            $type = substr($line, $pipeAt + 1, 6);
+            $value = substr($line, $pipeAt + 8);
 
-                /* Open the preferences file */
-                $filename = $conf->prefs_dir . '/' . $key . '.filter';
-                if (!file_exists($filename)) {
-                        $filters->dirty_flag = 1;
-                        $filters->commit($ev);
-                        if(NoccException::isException($ev))
-                                return;
-                }
-                $file = fopen($filename, 'r');
-                if (!$file) {
-                        $ev = new NoccException("Could not open $filename for reading user preferences");
-                        return;
-                }
+            if (strlen($name) > 0) {
+                $filters->filterset[$name][$type] = $value;
+            }
+        }
+        fclose($file);
 
-                /* Read in all the preferences */
-                while (!feof($file)) {
-                        $line = trim(fgets($file, 1024));
-                        $pipeAt = strpos($line, '|');
-                        if($pipeAt <= 0) continue;
+        $filters->dirty_flag = 0;
+        return $filters;
+    }
 
-                        $name = substr($line, 0, $pipeAt);
-                        $type = substr($line, $pipeAt + 1, 6);
-                        $value = substr($line, $pipeAt + 8);
+    /*
+     * If need be, write settings to file.
+     */
+    //TODO: Rewrite to throw exception!
+    function commit(&$ev) {
+        global $conf;
+        global $html_prefs_file_error;
 
-                        if (strlen($name) > 0) {
-                                $filters->filterset[$name][$type] = $value;
-                        }
-                }
-                fclose($file);
- 
-                $filters->dirty_flag = 0;
-                return $filters;
+        // Do we need to write?
+        if(!$this->dirty_flag) return;
+
+        // Write prefs to file
+        $filename = $conf->prefs_dir . '/' . $this->key . '.filter';
+        if (file_exists($filename) && !is_writable($filename)) {
+            $ev = new NoccException($html_prefs_file_error);
+            return;
+        }
+        if (!is_writeable($conf->prefs_dir)) {
+            $ev = new NoccException($html_prefs_file_error);
+            return;
+        }
+        $file = fopen($filename, 'w');
+        if (!$file) {
+            $ev = new NoccException($html_prefs_file_error);
+            return;
         }
 
-        /*
-         * If need be, write settings to file.
-         */
-        //TODO: Rewrite to throw exception!
-        function commit(&$ev) {
-                global $conf;
-                global $html_prefs_file_error;
-
-                // Do we need to write?
-                if(!$this->dirty_flag) return;
-
-                // Write prefs to file
-                $filename = $conf->prefs_dir . '/' . $this->key . '.filter';
-                if (file_exists($filename) && !is_writable($filename)) {
-                        $ev = new NoccException($html_prefs_file_error);
-                        return;
+        fwrite($file, "super happy filter file\n");
+        foreach ($this->filterset as $name => $filter) {
+            foreach ($filter as $type => $thing) {
+                if ($type && $thing) {
+                    fwrite($file, $name.'|'.$type.'='.$thing."\n");
                 }
-                if (!is_writeable($conf->prefs_dir)) {
-                    $ev = new NoccException($html_prefs_file_error);
-                    return;
-                }
-                $file = fopen($filename, 'w');
-                if (!$file) {
-                        $ev = new NoccException($html_prefs_file_error);
-                        return;
-                }
-
-                fwrite($file, "super happy filter file\n");
-                foreach ($this->filterset as $name => $filter) {
-                        foreach ($filter as $type => $thing) {
-                                if ($type && $thing) {
-                                        fwrite($file, $name.'|'.$type.'='.$thing."\n");
-                                }
-                        }
-                }
-
-                fclose($file);
-
-                $this->dirty_flag = 0;
+            }
         }
 
-        /*
-         * Create the filter select box for the prefs page
-         */
-        function html_filter_select() {
-        
-                $output = '';
-                $pre = '<select class="button" name="filter" size="5">'."\n";
-                $post = '</select>'."\n";
-        
-                foreach ($this->filterset as $name => $filter) {
-                        $search = $filter['SEARCH'];
-                        $action = $filter['ACTION'];
-                        $output .= "\t<option value=\"$name\">$name : &lt;$search -> $action&gt; </option>\n";
-                }
+        fclose($file);
 
-                if ($output) {
-                        return $pre.$output.$post;
-                } else {
-                        return '';
-                }
+        $this->dirty_flag = 0;
+    }
+
+    /*
+     * Create the filter select box for the prefs page
+     */
+    function html_filter_select() {
+        $output = '';
+        $pre = '<select class="button" name="filter" size="5">'."\n";
+        $post = '</select>'."\n";
+
+        foreach ($this->filterset as $name => $filter) {
+            $search = $filter['SEARCH'];
+            $action = $filter['ACTION'];
+            $output .= "\t<option value=\"$name\">$name : &lt;$search -> $action&gt; </option>\n";
         }
 
+        if ($output) {
+            return $pre.$output.$post;
+        }
+        else {
+            return '';
+        }
+    }
 }
-
 ?>
