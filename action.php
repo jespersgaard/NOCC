@@ -269,15 +269,13 @@ switch($action) {
                 if ($_REQUEST['createnewbox']) {
                     $pop->createmailbox($_REQUEST['createnewbox'], $ev);
                     if(NoccException::isException($ev)) break;
-                    $pop->subscribe($_REQUEST['createnewbox'], $ev, true);
-                    if(NoccException::isException($ev)) break;
+                    $pop->subscribe($_REQUEST['createnewbox'], true);
                 }
                 break;
 
             case 'subscribe_folder':
                 if ($_REQUEST['subscribenewbox']) {
-                    $pop->subscribe($_REQUEST['subscribenewbox'], $ev, false);
-                    if(NoccException::isException($ev)) break;
+                    $pop->subscribe($_REQUEST['subscribenewbox'], false);
                 }
                 break;
 
@@ -295,8 +293,7 @@ switch($action) {
                     $pop->renamemailbox($_REQUEST['renameoldbox'], $_REQUEST['renamenewbox'], $ev);
                     if(NoccException::isException($ev)) break;
                     $pop->unsubscribe($_REQUEST['renameoldbox']);
-                    $pop->subscribe($_REQUEST['renamenewbox'], $ev, true);
-                    if(NoccException::isException($ev)) break;
+                    $pop->subscribe($_REQUEST['renamenewbox'], true);
                 }
                 break;
             
@@ -535,7 +532,7 @@ switch($action) {
         if ($action == 'login') {
             // Subscribe to INBOX, usefull if it's not already done.
             if ($pop->is_imap()) {
-                $pop->subscribe($_SESSION['nocc_folder'], $ev, false);
+                $pop->subscribe($_SESSION['nocc_folder'], false);
             }
             // If needed, store a cookie with all needed parameters
             if ($remember == "true") {

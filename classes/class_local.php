@@ -223,12 +223,18 @@ class nocc_imap
         return imap_mail_copy($this->conn, $mail, $new_box, 0);
     }
 
-    //TODO: Rewrite to throw exception!
-    public function subscribe($new_box, &$ev, $isnewbox) {
-        if ($isnewbox) {
-            return imap_subscribe($this->conn, '{'.$this->server.'}'.$this->namespace.$new_box);
+    /**
+     * Subscribe to a mailbox
+     * @param string $mailbox Mailbox
+     * @param bool $isNewMailbox Is new mailbox?
+     * @return bool Successful?
+     * @todo Is $isNewMailbox really nedded?
+     */
+    public function subscribe($mailbox, $isNewMailbox) {
+        if ($isNewMailbox) {
+            return @imap_subscribe($this->conn, '{' . $this->server . '}' . $this->namespace . $mailbox);
         } else {
-            return imap_subscribe($this->conn, '{'.$this->server.'}'.$new_box);
+            return @imap_subscribe($this->conn, '{' . $this->server . '}' . $mailbox);
         }
     }
 
