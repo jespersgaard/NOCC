@@ -73,12 +73,14 @@ class nocc_imap
         return $this;
     }
 
+    //TODO: Rewrite to throw exception!
     public function reopen($box, $flags = '', &$ev) {
         if (!imap_reopen($this->conn, $box, $flags)) {
             $ev = new NoccException(imap_last_error());
         }
     }
 
+    //TODO: Rewrite to throw exception!
     public function search($crit, $flags = '', &$ev) {
         $messages = imap_search($this->conn, $crit, $flags);
         if(is_array($messages))
@@ -187,28 +189,33 @@ class nocc_imap
 
     // From what I can find, this will not work on Cyrus imap servers .
     // [I will test this, I use Cyrus IMAP - Ross]
+    //TODO: Rewrite to throw exception!
     public function deletemailbox($old_box, &$ev) {
         if (!imap_deletemailbox($this->conn, '{'.$this->server.'}'.$old_box)) {
             $ev = new NoccException(imap_last_error());
         }
     }
 
+    //TODO: Rewrite to throw exception!
     public function renamemailbox($old_box, $new_box, &$ev) {
         if (!imap_renamemailbox($this->conn, '{'.$this->server.'}'.$old_box, '{'.$this->server.'}'.$this->namespace.mb_convert_encoding($new_box, 'UTF7-IMAP', 'UTF-8'))) {
             $ev = new NoccException(imap_last_error());
         }
     }
 
+    //TODO: Rewrite to throw exception!
     public function createmailbox($new_box, &$ev) {
         if (!imap_createmailbox($this->conn, '{'.$this->server.'}'.$this->namespace.mb_convert_encoding($new_box, 'UTF7-IMAP', 'UTF-8'))) {
             $ev = new NoccException(imap_last_error());
         }
     }
 
+    //TODO: Rewrite to throw exception!
     public function mail_copy($mail, $new_box, &$ev) {
         return imap_mail_copy($this->conn, $mail, $new_box, 0);
     }
 
+    //TODO: Rewrite to throw exception!
     public function subscribe($new_box, &$ev, $isnewbox) {
         if ($isnewbox) {
             return imap_subscribe($this->conn, '{'.$this->server.'}'.$this->namespace.$new_box);
@@ -217,18 +224,22 @@ class nocc_imap
         }
     }
 
+    //TODO: Rewrite to throw exception!
     public function unsubscribe($old_box, &$ev) {
         return imap_unsubscribe($this->conn, '{'.$this->server.'}'.$old_box);
     }
 
+    //TODO: Rewrite to throw exception!
     public function mail_move($mail, $new_box, &$ev) {
         return imap_mail_move($this->conn, $mail, $new_box, 0);
     }
 
+    //TODO: Rewrite to throw exception!
     public function expunge(&$ev) {
         return imap_expunge($this->conn);
     }
 
+    //TODO: Rewrite to throw exception!
     public function delete($mail, &$ev) {
         return imap_delete($this->conn, $mail, 0);
     }
@@ -356,14 +367,17 @@ class nocc_imap
         }
     }
 
+    //TODO: Rewrite to throw exception!
     public function mail_mark_read($mail, &$ev) {
         return imap_setflag_full($this->conn, imap_uid($this->conn, $mail), "\\Seen", ST_UID);
     }
 
+    //TODO: Rewrite to throw exception!
     public function mail_mark_unread($mail, &$ev) {
         return imap_clearflag_full($this->conn, imap_uid($this->conn, $mail), "\\Seen", ST_UID);
     }
 
+    //TODO: Rewrite to throw exception!
     public function exists($mailbox, &$ev) {
         $exists = false;
         $list = imap_list($this->conn, '{'.$this->server.'}', '*');
@@ -378,6 +392,7 @@ class nocc_imap
         return $exists;
     }
 
+    //TODO: Rewrite to throw exception!
     public function copytosentfolder($maildata, &$ev, $sent_folder_name) {
         if (!(imap_append($this->conn, '{'.$this->server.'}'.$this->namespace.$sent_folder_name, $maildata, "\\Seen"))) {
             $ev = new NoccException("could not copy mail into $sent_folder_name folder: ".imap_last_error());
