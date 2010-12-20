@@ -573,7 +573,7 @@ switch($action) {
                         }
                         if ($filters != null) {
                             foreach ($filters->filterset as $name => $filter) {
-                                $filter_messages = $pop->search($small_search . $filter['SEARCH'], '', $ev);
+                                $filter_messages = $pop->search($small_search . $filter['SEARCH'], $ev);
                                 if (is_array($filter_messages)) {
                                     $filter_to_folder = array();
                                     foreach ($filter_messages as $filt_msg_no) {

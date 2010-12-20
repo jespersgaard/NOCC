@@ -80,18 +80,25 @@ class nocc_imap
         }
     }
 
-    //TODO: Rewrite to throw exception!
-    public function search($crit, $flags = '', &$ev) {
-        $messages = imap_search($this->conn, $crit, $flags);
-        if(is_array($messages))
+    /**
+     * ...
+     * @param string $crit Search criteria
+     * @param object $ev Exception
+     * @return array Messages
+     * @todo Rewrite to throw exception!
+     */
+    public function search($crit, &$ev) {
+        $messages = imap_search($this->conn, $crit);
+
+        if (is_array($messages))
             return $messages;
         
         $error = imap_last_error();
-        if(empty($error))
+        if (empty($error))
             return array();
         
         $ev = new NoccException("imap_search: ".imap_last_error());
-        return;
+        return array();
     }
 
     /**
