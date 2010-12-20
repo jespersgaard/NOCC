@@ -74,8 +74,9 @@ class nocc_imap
     }
 
     //TODO: Rewrite to throw exception!
-    public function reopen($box, $flags = '', &$ev) {
-        if (!imap_reopen($this->conn, $box, $flags)) {
+    //TODO: Really needed?
+    public function reopen($box, &$ev) {
+        if (!imap_reopen($this->conn, $box)) {
             $ev = new NoccException(imap_last_error());
         }
     }
