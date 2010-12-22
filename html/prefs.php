@@ -7,9 +7,10 @@ $big_list = $pop->getmailboxesnames();
 
 // Build list for sent mails folder selection
 $sent_folders_list = array();
+$currentSentFolder = $user_prefs->getSentFolderName();
 if (count($big_list) > 1) {
   for ($i = 0; $i < count($big_list); $i++) {
-    if (isset($user_prefs->sent_folder_name) && $_SESSION['imap_namespace'] . $user_prefs->sent_folder_name == $big_list[$i]) {
+    if (!empty($currentSentFolder) && $_SESSION['imap_namespace'] . $currentSentFolder == $big_list[$i]) {
       array_push($sent_folders_list, "\t<option value=\"".$big_list[$i]."\" selected=\"selected\">".mb_convert_encoding($big_list[$i], 'UTF-8', 'UTF7-IMAP')."</option>\n");
     } else {
       array_push($sent_folders_list, "\t<option value=\"".$big_list[$i]."\">".mb_convert_encoding($big_list[$i], 'UTF-8', 'UTF7-IMAP')."</option>\n");

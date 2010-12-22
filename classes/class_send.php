@@ -253,7 +253,7 @@ class mime_mail {
             $ev = @mail($rcpt_to, $this->subject, '', $mime, '-f' . $this->strip_comment($this->from));
                 
             $user_prefs = $_SESSION['nocc_user_prefs'];
-            if ($user_prefs->getUseSentFolder() && isset($user_prefs->sent_folder_name) && $user_prefs->sent_folder_name !=null && $user_prefs->sent_folder_name != "") {
+            if ($user_prefs->getUseSentFolder() && $user_prefs->getSentFolderName() != '') {
                 // Copy email to Sent folder
                 //TODO: Optimize try block!
                 try {
@@ -265,7 +265,7 @@ class mime_mail {
                 }
                 if ($pop->is_imap()) {
                     $mime = "To: $rcpt_to" . $conf->crlf . "Subject: " . $this->subject . $conf->crlf . $mime;
-                    $copy_return = $pop->copytosentfolder($mime, $ev, $user_prefs->sent_folder_name);
+                    $copy_return = $pop->copytosentfolder($mime, $ev, $user_prefs->getSentFolderName());
                     if (NoccException::isException($ev)) {
                         return($ev);
                     }
@@ -291,7 +291,7 @@ class mime_mail {
                 }
                 $copy_return = 1;
                 $user_prefs = $_SESSION['nocc_user_prefs'];
-                if ($user_prefs->getUseSentFolder() && isset($user_prefs->sent_folder_name) && $user_prefs->sent_folder_name !=null && $user_prefs->sent_folder_name != "") {
+                if ($user_prefs->getUseSentFolder() && $user_prefs->getSentFolderName() != "") {
                     // Copy email to Sent folder
                     //TODO: Optimize try block!
                     try {
@@ -302,7 +302,7 @@ class mime_mail {
                         return($ev);
                     }
                     if ($pop->is_imap()) {
-                        $copy_return = $pop->copytosentfolder($smtp->data, $ev, $user_prefs->sent_folder_name);
+                        $copy_return = $pop->copytosentfolder($smtp->data, $ev, $user_prefs->getSentFolderName());
                         if (NoccException::isException($ev)) {
                             return($ev);
                         }

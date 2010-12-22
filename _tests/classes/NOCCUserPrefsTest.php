@@ -295,6 +295,28 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * Test case for getSentFolderName().
+     */
+    public function testGetSentFolderName() {
+        $this->assertEquals('', $this->userPrefs1->getSentFolderName());
+    }
+
+    /**
+     * Test case for setSentFolderName().
+     */
+    public function testSetSentFolderName() {
+        $userPrefs = new NOCCUserPrefs('');
+
+        $this->assertEquals('', $userPrefs->getSentFolderName(), 'default');
+        $userPrefs->setSentFolderName(true);
+        $this->assertEquals('', $userPrefs->getSentFolderName(), 'true');
+        $userPrefs->setSentFolderName(1);
+        $this->assertEquals('', $userPrefs->getSentFolderName(), '1');
+        $userPrefs->setSentFolderName('sent');
+        $this->assertEquals('sent', $userPrefs->getSentFolderName(), 'sent');
+    }
+
+    /**
      * Test case for getUseTrashFolder().
      */
     public function testGetUseTrashFolder() {
@@ -385,7 +407,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue($userPrefs1->getSendHtmlMail(), 'getSendHtmlMail()');
         $this->assertTrue($userPrefs1->graphical_smilies, 'graphical_smilies');
         $this->assertTrue($userPrefs1->getUseSentFolder(), 'getUseSentFolder()');
-        $this->assertEquals('Sent', $userPrefs1->sent_folder_name, 'sent_folder_name');
+        $this->assertEquals('Sent', $userPrefs1->getSentFolderName(), 'getSentFolderName()');
         $this->assertTrue($userPrefs1->getUseTrashFolder(), 'getUseTrashFolder()');
         $this->assertEquals('Trash', $userPrefs1->getTrashFolderName(), 'getTrashFolderName()');
         $this->assertEquals('de', $userPrefs1->lang, 'lang');
@@ -409,7 +431,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertFalse($userPrefs2->getSendHtmlMail(), 'getSendHtmlMail()');
         $this->assertFalse($userPrefs2->graphical_smilies, 'graphical_smilies');
         $this->assertFalse($userPrefs2->getUseSentFolder(), 'getUseSentFolder()');
-        $this->assertEquals('', $userPrefs2->sent_folder_name, 'sent_folder_name');
+        $this->assertEquals('', $userPrefs2->getSentFolderName(), 'getSentFolderName()');
         $this->assertFalse($userPrefs2->getUseTrashFolder(), 'getUseTrashFolder()');
         $this->assertEquals('', $userPrefs2->getTrashFolderName(), 'getTrashFolderName()');
         $this->assertEquals('en', $userPrefs2->lang, 'lang');
