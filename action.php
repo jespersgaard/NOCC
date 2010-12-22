@@ -465,7 +465,7 @@ switch($action) {
             $user_prefs->setUseTrashFolder(isset($_REQUEST['trash_folder']));
             if (isset($_REQUEST['trash_folder_name'])) {
                 $replace = str_replace($_SESSION['imap_namespace'], "", $_REQUEST['trash_folder_name']);
-                $user_prefs->trash_folder_name = safestrip($replace);
+                $user_prefs->setTrashFolderName(safestrip($replace));
             }
             if (isset($_REQUEST['lang']))
                 $user_prefs->lang = $_REQUEST['lang'];

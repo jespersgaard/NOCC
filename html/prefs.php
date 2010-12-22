@@ -19,9 +19,10 @@ if (count($big_list) > 1) {
 
 // Build list for deleted mails folder selection
 $trash_folders_list = array();
+$currentTrashFolder = $user_prefs->getTrashFolderName();
 if (count($big_list) > 1) {
   for ($i = 0; $i < count($big_list); $i++) {
-    if (isset($user_prefs->trash_folder_name) && $_SESSION['imap_namespace'] . $user_prefs->trash_folder_name == $big_list[$i]) {
+    if (!empty($currentTrashFolder) && $_SESSION['imap_namespace'] . $currentTrashFolder == $big_list[$i]) {
       array_push($trash_folders_list, "\t<option value=\"".$big_list[$i]."\" selected=\"selected\">".mb_convert_encoding($big_list[$i], 'UTF-8', 'UTF7-IMAP')."</option>\n");
     } else {
       array_push($trash_folders_list, "\t<option value=\"".$big_list[$i]."\">".mb_convert_encoding($big_list[$i], 'UTF-8', 'UTF7-IMAP')."</option>\n");

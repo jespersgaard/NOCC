@@ -331,6 +331,28 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * Test case for getTrashFolderName().
+     */
+    public function testGetTrashFolderName() {
+        $this->assertEquals('', $this->userPrefs1->getTrashFolderName());
+    }
+
+    /**
+     * Test case for setTrashFolderName().
+     */
+    public function testSetTrashFolderName() {
+        $userPrefs = new NOCCUserPrefs('');
+
+        $this->assertEquals('', $userPrefs->getTrashFolderName(), 'default');
+        $userPrefs->setTrashFolderName(true);
+        $this->assertEquals('', $userPrefs->getTrashFolderName(), 'true');
+        $userPrefs->setTrashFolderName(1);
+        $this->assertEquals('', $userPrefs->getTrashFolderName(), '1');
+        $userPrefs->setTrashFolderName('trash');
+        $this->assertEquals('trash', $userPrefs->getTrashFolderName(), 'trash');
+    }
+
+    /**
      * @todo Implement testRead().
      */
     public function testRead() {
@@ -365,7 +387,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue($userPrefs1->getUseSentFolder(), 'getUseSentFolder()');
         $this->assertEquals('Sent', $userPrefs1->sent_folder_name, 'sent_folder_name');
         $this->assertTrue($userPrefs1->getUseTrashFolder(), 'getUseTrashFolder()');
-        $this->assertEquals('Trash', $userPrefs1->trash_folder_name, 'trash_folder_name');
+        $this->assertEquals('Trash', $userPrefs1->getTrashFolderName(), 'getTrashFolderName()');
         $this->assertEquals('de', $userPrefs1->lang, 'lang');
         $this->assertEquals('newlook', $userPrefs1->theme, 'theme');
         $this->assertEquals(0, $userPrefs1->dirty_flag, 'dirty_flag');
@@ -389,7 +411,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertFalse($userPrefs2->getUseSentFolder(), 'getUseSentFolder()');
         $this->assertEquals('', $userPrefs2->sent_folder_name, 'sent_folder_name');
         $this->assertFalse($userPrefs2->getUseTrashFolder(), 'getUseTrashFolder()');
-        $this->assertEquals('', $userPrefs2->trash_folder_name, 'trash_folder_name');
+        $this->assertEquals('', $userPrefs2->getTrashFolderName(), 'getTrashFolderName()');
         $this->assertEquals('en', $userPrefs2->lang, 'lang');
         $this->assertEquals('standard', $userPrefs2->theme, 'theme');
         $this->assertEquals(0, $userPrefs2->dirty_flag, 'dirty_flag');

@@ -96,8 +96,12 @@ class NOCCUserPrefs {
      * @access private
      */
     var $_useTrashFolder;
-    // TODO: Hide behind get/setTrashFolderName()!
-    var $trash_folder_name;
+    /**
+     * Trash folder name?
+     * @var string
+     * @access private
+     */
+    private $_trashFolderName;
     // TODO: Hide behind get/setLang()!
     var $lang;
     // TODO: Hide behind get/setTheme()!
@@ -121,6 +125,7 @@ class NOCCUserPrefs {
         $this->_sendHtmlMail = false;
         $this->_useSentFolder = false;
         $this->_useTrashFolder = false;
+        $this->_trashFolderName = '';
         $this->dirty_flag = 1;
     }
 
@@ -253,6 +258,22 @@ class NOCCUserPrefs {
     }
 
     /**
+     * Get trash folder name from user preferences
+     * @return string Trash folder name
+     */
+    public function getTrashFolderName() {
+        return $this->_trashFolderName;
+    }
+
+    /**
+     * Set trash folder name from user preferences
+     * @param string $value Trash folder name
+     */
+    public function setTrashFolderName($value) {
+        $this->_trashFolderName = $this->_convertToString($value);
+    }
+
+    /**
      * Return the current preferences for the given key. Key is
      * 'login@domain'. If it cannot be found for any reason, it
      * returns a default profile. If it can be found, but not
@@ -368,7 +389,7 @@ class NOCCUserPrefs {
                     $prefs->setUseTrashFolder($value);
                     break;
                 case 'trash_folder_name':
-                    $prefs->trash_folder_name = $value;
+                    $prefs->setTrashFolderName($value);
                     break;
                 case 'lang':
                     $prefs->lang = $value;
@@ -437,7 +458,7 @@ class NOCCUserPrefs {
         fwrite($file, "sent_folder=".$this->_useSentFolder."\n");
         fwrite($file, "sent_folder_name=".str_replace($_SESSION['imap_namespace'], "", $this->sent_folder_name)."\n");
         fwrite($file, "trash_folder=".$this->_useTrashFolder."\n");
-        fwrite($file, "trash_folder_name=".str_replace($_SESSION['imap_namespace'], "", $this->trash_folder_name)."\n");
+        fwrite($file, "trash_folder_name=".str_replace($_SESSION['imap_namespace'], "", $this->_trashFolderName)."\n");
         fwrite($file, "lang=".$this->lang."\n");
         fwrite($file, "theme=".$this->theme."\n");
         fclose($file);
@@ -507,6 +528,19 @@ class NOCCUserPrefs {
             return false;
         }
         return true;
+    }
+
+    /**
+     * Convert value to string
+     * @param mixed $value Value
+     * @return string String value
+     * @access private
+     */
+    private function _convertToString($value) {
+        if (is_string($value)) {
+            return $value;
+        }
+        return '';
     }
 
     /**

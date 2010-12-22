@@ -60,7 +60,7 @@ if (isset($_REQUEST['only_one'])) {
         // If messages are opened in a new windows, we will reload the opener window
         // i.e. the one with messages list
         $_SESSION['message_deleted'] = "true";
-        $target_folder = $_SESSION['imap_namespace'].$user_prefs->trash_folder_name;
+        $target_folder = $_SESSION['imap_namespace'].$user_prefs->getTrashFolderName();
         if ($pop->is_imap()
                 && $user_prefs->getUseTrashFolder()
                 && $_SESSION['nocc_folder'] != $target_folder ) {
@@ -107,7 +107,7 @@ if (isset($_REQUEST['only_one'])) {
                 // If messages are opened in a new windows, we will reload the opener window
                 // i.e. the one with messages list
                 $_SESSION['message_deleted'] = "true";
-                $target_folder = $_SESSION['imap_namespace'].$user_prefs->trash_folder_name;
+                $target_folder = $_SESSION['imap_namespace'].$user_prefs->getTrashFolderName();
                 if ($pop->is_imap()
                         && $user_prefs->getUseTrashFolder()
                         && $_SESSION['nocc_folder'] != $target_folder ) {
