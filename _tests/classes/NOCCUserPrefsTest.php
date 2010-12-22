@@ -259,6 +259,42 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * Test case for getUseGraphicalSmilies().
+     */
+    public function testGetUseGraphicalSmilies() {
+        $this->assertFalse($this->userPrefs1->getUseGraphicalSmilies());
+    }
+
+    /**
+     * Test case for setUseGraphicalSmilies().
+     */
+    public function testSetUseGraphicalSmilies() {
+        $userPrefs = new NOCCUserPrefs('');
+
+        $this->assertFalse($userPrefs->getUseGraphicalSmilies(), 'default');
+        $userPrefs->setUseGraphicalSmilies(true);
+        $this->assertTrue($userPrefs->getUseGraphicalSmilies(), 'true');
+        $userPrefs->setUseGraphicalSmilies(false);
+        $this->assertFalse($userPrefs->getUseGraphicalSmilies(), 'false');
+        $userPrefs->setUseGraphicalSmilies(1);
+        $this->assertTrue($userPrefs->getUseGraphicalSmilies(), '1');
+        $userPrefs->setUseGraphicalSmilies(0);
+        $this->assertFalse($userPrefs->getUseGraphicalSmilies(), '0');
+        $userPrefs->setUseGraphicalSmilies('on');
+        $this->assertTrue($userPrefs->getUseGraphicalSmilies(), 'on');
+        $userPrefs->setUseGraphicalSmilies('off');
+        $this->assertFalse($userPrefs->getUseGraphicalSmilies(), 'off');
+        $userPrefs->setUseGraphicalSmilies('1');
+        $this->assertTrue($userPrefs->getUseGraphicalSmilies(), '"1"');
+        $userPrefs->setUseGraphicalSmilies('0');
+        $this->assertFalse($userPrefs->getUseGraphicalSmilies(), '"0"');
+        $userPrefs->setUseGraphicalSmilies('<invalid>');
+        $this->assertFalse($userPrefs->getUseGraphicalSmilies(), '<invalid>');
+        $userPrefs->setUseGraphicalSmilies(null);
+        $this->assertFalse($userPrefs->getUseGraphicalSmilies(), 'NULL');
+    }
+
+    /**
      * Test case for getUseSentFolder().
      */
     public function testGetUseSentFolder() {
@@ -405,7 +441,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('This is a signature...', $userPrefs1->signature, 'signature');
         $this->assertTrue($userPrefs1->sig_sep, 'sig_sep');
         $this->assertTrue($userPrefs1->getSendHtmlMail(), 'getSendHtmlMail()');
-        $this->assertTrue($userPrefs1->graphical_smilies, 'graphical_smilies');
+        $this->assertTrue($userPrefs1->getUseGraphicalSmilies(), 'getUseGraphicalSmilies()');
         $this->assertTrue($userPrefs1->getUseSentFolder(), 'getUseSentFolder()');
         $this->assertEquals('Sent', $userPrefs1->getSentFolderName(), 'getSentFolderName()');
         $this->assertTrue($userPrefs1->getUseTrashFolder(), 'getUseTrashFolder()');
@@ -429,7 +465,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('', $userPrefs2->signature, 'signature');
         $this->assertFalse($userPrefs2->sig_sep, 'sig_sep');
         $this->assertFalse($userPrefs2->getSendHtmlMail(), 'getSendHtmlMail()');
-        $this->assertFalse($userPrefs2->graphical_smilies, 'graphical_smilies');
+        $this->assertFalse($userPrefs2->getUseGraphicalSmilies(), 'getUseGraphicalSmilies()');
         $this->assertFalse($userPrefs2->getUseSentFolder(), 'getUseSentFolder()');
         $this->assertEquals('', $userPrefs2->getSentFolderName(), 'getSentFolderName()');
         $this->assertFalse($userPrefs2->getUseTrashFolder(), 'getUseTrashFolder()');

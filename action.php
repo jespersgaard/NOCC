@@ -456,7 +456,7 @@ switch($action) {
                 $user_prefs->wrap_msg = $_REQUEST['wrap_msg'];
             $user_prefs->sig_sep = isset($_REQUEST['sig_sep']);
             $user_prefs->setSendHtmlMail(isset($_REQUEST['html_mail_send']));
-            $user_prefs->graphical_smilies = isset($_REQUEST['graphical_smilies']);
+            $user_prefs->setUseGraphicalSmilies(isset($_REQUEST['graphical_smilies']));
             $user_prefs->setUseSentFolder(isset($_REQUEST['sent_folder']));
             if (isset($_REQUEST['sent_folder_name'])) {
                 $replace = str_replace($_SESSION['imap_namespace'], "", $_REQUEST['sent_folder_name']);

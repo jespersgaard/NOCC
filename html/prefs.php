@@ -82,7 +82,7 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="graphical_smilies" id="graphical_smilies" value="on" <?php if (isset($user_prefs->graphical_smilies) && $user_prefs->graphical_smilies) echo 'checked="checked"'; ?> /><label for="graphical_smilies"><?php echo convertLang2Html($html_use_graphical_smilies) ?></label>
+             <input type="checkbox" name="graphical_smilies" id="graphical_smilies" value="on" <?php if ($user_prefs->getUseGraphicalSmilies()) echo 'checked="checked"'; ?> /><label for="graphical_smilies"><?php echo convertLang2Html($html_use_graphical_smilies) ?></label>
            </td>
          </tr>
          <tr>

@@ -541,7 +541,7 @@ class nocc_imap
      */
     public function graphicalsmilies($body) {
         $user_prefs = $_SESSION['nocc_user_prefs'];
-        if (isset($user_prefs->graphical_smilies) && $user_prefs->graphical_smilies) {
+        if ($user_prefs->getUseGraphicalSmilies()) {
             $theme = new NOCC_Theme($_SESSION['nocc_theme']);
             $body = $theme->replaceTextSmilies($body);
         }

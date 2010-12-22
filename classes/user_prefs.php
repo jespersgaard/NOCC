@@ -80,8 +80,12 @@ class NOCCUserPrefs {
      * @access private
      */
     private $_sendHtmlMail;
-    // TODO: Hide behind get/setUseGraphicalSmilies()!
-    var $graphical_smilies;
+    /**
+     * Use graphical smilies?
+     * @var boolean
+     * @access private
+     */
+    private $_useGraphicalSmilies;
     /**
      * Use sent folder?
      * @var boolean
@@ -127,6 +131,7 @@ class NOCCUserPrefs {
         $this->_coloredQuotes = true;
         $this->_displayStructuredText = false;
         $this->_sendHtmlMail = false;
+        $this->_useGraphicalSmilies = false;
         $this->_useSentFolder = false;
         $this->_sendFolderName = '';
         $this->_useTrashFolder = false;
@@ -228,6 +233,22 @@ class NOCCUserPrefs {
      */
     public function setSendHtmlMail($value) {
         $this->_sendHtmlMail = $this->_convertToFalse($value);
+    }
+
+    /**
+     * Get graphical smilies using from user preferences
+     * @return boolean Use graphical smilies?
+     */
+    public function getUseGraphicalSmilies() {
+        return $this->_useGraphicalSmilies;
+    }
+
+    /**
+     * Set graphical smilies using from user preferences
+     * @param mixed $value Use graphical smilies?
+     */
+    public function setUseGraphicalSmilies($value) {
+        $this->_useGraphicalSmilies = $this->_convertToFalse($value);
     }
 
     /**
@@ -398,7 +419,7 @@ class NOCCUserPrefs {
                     $prefs->setSendHtmlMail($value);
                     break;
                 case 'graphical_smilies':
-                    $prefs->graphical_smilies = ($value == 1 || $value == 'on');
+                    $prefs->setUseGraphicalSmilies($value);
                     break;
                 case 'sent_folder':
                     $prefs->setUseSentFolder($value);
@@ -475,7 +496,7 @@ class NOCCUserPrefs {
         fwrite($file, "wrap_msg=".$this->wrap_msg."\n");
         fwrite($file, "sig_sep=".$this->sig_sep."\n");
         fwrite($file, "html_mail_send=".$this->_sendHtmlMail."\n");
-        fwrite($file, "graphical_smilies=".$this->graphical_smilies."\n");
+        fwrite($file, "graphical_smilies=".$this->_useGraphicalSmilies."\n");
         fwrite($file, "sent_folder=".$this->_useSentFolder."\n");
         fwrite($file, "sent_folder_name=".str_replace($_SESSION['imap_namespace'], "", $this->_sentFolderName)."\n");
         fwrite($file, "trash_folder=".$this->_useTrashFolder."\n");
