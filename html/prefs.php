@@ -41,7 +41,7 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel"><label for="full_name"><?php echo convertLang2Html($html_full_name_label) ?></label></td>
            <td class="prefsData">
-             <input class="button" type="text" name="full_name" id="full_name" value="<?php echo (isset($user_prefs->full_name)) ? $user_prefs->full_name : "" ?>" size="40"/>
+             <input class="button" type="text" name="full_name" id="full_name" value="<?php echo $user_prefs->getFullName() ?>" size="40"/>
            </td>
          </tr>
          <?php if ($conf->allow_address_change) { ?>

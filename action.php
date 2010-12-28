@@ -433,7 +433,7 @@ switch($action) {
 
         if (isset($_REQUEST['submit_prefs'])) {
             if (isset($_REQUEST['full_name']))
-                $user_prefs->full_name = safestrip($_REQUEST['full_name']);
+                $user_prefs->setFullName(safestrip($_REQUEST['full_name']));
             if (isset($_REQUEST['msg_per_page']))
                 $user_prefs->msg_per_page = $_REQUEST['msg_per_page'];
             if (isset($_REQUEST['email_address']))

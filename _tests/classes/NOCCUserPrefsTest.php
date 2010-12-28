@@ -43,6 +43,28 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * Test case for getFullName().
+     */
+    public function testGetFullName() {
+        $this->assertEquals('', $this->userPrefs1->getFullName());
+    }
+
+    /**
+     * Test case for setFullName().
+     */
+    public function testSetFullName() {
+        $userPrefs = new NOCCUserPrefs('');
+
+        $this->assertEquals('', $userPrefs->getFullName(), 'default');
+        $userPrefs->setFullName(true);
+        $this->assertEquals('', $userPrefs->getFullName(), 'true');
+        $userPrefs->setFullName(1);
+        $this->assertEquals('', $userPrefs->getFullName(), '1');
+        $userPrefs->setFullName('Full Name');
+        $this->assertEquals('Full Name', $userPrefs->getFullName(), 'Full Name');
+    }
+
+    /**
      * Test case for getCcSelf().
      */
     public function testGetCcSelf() {
@@ -428,7 +450,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
 
         $userPrefs1 = NOCCUserPrefs::readFromFile($defaultUserPrefs, $this->rootPath . './prefs/test1.pref', $ev);
         
-        $this->assertEquals('Full Name', $userPrefs1->full_name, 'full_name');
+        $this->assertEquals('Full Name', $userPrefs1->getFullName(), 'getFullName()');
         $this->assertEquals('foo@bar.org', $userPrefs1->email_address, 'email_address');
         $this->assertEquals(30, $userPrefs1->msg_per_page, 'msg_per_page');
         $this->assertTrue($userPrefs1->getCcSelf(), 'getCcSelf()');
@@ -452,7 +474,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
 
         $userPrefs2 = NOCCUserPrefs::readFromFile($defaultUserPrefs, $this->rootPath . './prefs/test2.pref', $ev);
 
-        $this->assertEquals('Name Full', $userPrefs2->full_name, 'full_name');
+        $this->assertEquals('Name Full', $userPrefs2->getFullName(), 'getFullName()');
         $this->assertEquals('bar@foo.org', $userPrefs2->email_address, 'email_address');
         $this->assertEquals(15, $userPrefs2->msg_per_page, 'msg_per_page');
         $this->assertFalse($userPrefs2->getCcSelf(), 'getCcSelf()');

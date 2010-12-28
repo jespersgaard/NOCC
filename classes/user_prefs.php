@@ -28,8 +28,12 @@ require_once 'nocc_mailaddress.php';
 class NOCCUserPrefs {
     // TODO: Hide behind get/setKey()?
     var $key;
-    // TODO: Hide behind get/setFullName()!
-    var $full_name;
+    /**
+     * Full name
+     * @var string
+     * @access private
+     */
+    private $_fullName;
     // TODO: Hide behind get/setEmailAddress()!
     var $email_address;
     // TODO: Hide behind get/setMessagesPerPage()!
@@ -125,6 +129,7 @@ class NOCCUserPrefs {
      */
     function __construct($key) {
         $this->key = $key;
+        $this->_fullName = '';
         $this->_ccSelf = false;
         $this->_hideAddresses = false;
         $this->_outlookQuoting = false;
@@ -137,6 +142,22 @@ class NOCCUserPrefs {
         $this->_useTrashFolder = false;
         $this->_trashFolderName = '';
         $this->dirty_flag = 1;
+    }
+
+    /**
+     * Get full name from user preferences
+     * @return string Full name
+     */
+    public function getFullName() {
+        return $this->_fullName;
+    }
+
+    /**
+     * Set full name from user preferences
+     * @param string $value Full name
+     */
+    public function setFullName($value) {
+        $this->_fullName = $this->_convertToString($value);
     }
 
     /**
@@ -377,7 +398,7 @@ class NOCCUserPrefs {
 
             switch ($key) {
                 case 'full_name':
-                    $prefs->full_name = $value;
+                    $prefs->setFullName($value);
                     break;
                 case 'email_address':
                     $prefs->email_address = $value;
@@ -482,7 +503,7 @@ class NOCCUserPrefs {
             return;
         }
 
-        fwrite($file, "full_name=".$this->full_name."\n");
+        fwrite($file, "full_name=".$this->_fullName."\n");
         fwrite($file, "email_address=".$this->email_address."\n");
         fwrite($file, "msg_per_page=".$this->msg_per_page."\n");
         fwrite($file, "cc_self=".$this->_ccSelf."\n");

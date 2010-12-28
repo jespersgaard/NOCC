@@ -25,8 +25,9 @@ function get_default_from_address() {
     }
     
     // Append name if known
-    if(!empty($user_prefs->full_name))
-        $from_address = '"' . $user_prefs->full_name . '" <' . $from_address . '>';
+    $fullName = $user_prefs->getFullName();
+    if (!empty($fullName))
+        $from_address = '"' . $fullName . '" <' . $from_address . '>';
 
     return $from_address;
 }
