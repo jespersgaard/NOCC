@@ -111,7 +111,7 @@ class NOCCUserPrefs {
      * @var boolean
      * @access private
      */
-    var $_useTrashFolder;
+    private $_useTrashFolder;
     /**
      * Trash folder name?
      * @var string
