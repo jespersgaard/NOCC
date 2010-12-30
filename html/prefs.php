@@ -3,8 +3,6 @@
   if (!isset($conf->loaded))
     die('Hacking attempt');
 
-$userPrefsEmailAddress = $user_prefs->getEmailAddress();
-
 $big_list = $pop->getmailboxesnames();
 
 // Build list for sent mails folder selection
@@ -50,7 +48,7 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel"><label for="email_address"><?php echo convertLang2Html($html_email_address_label) ?></label></td>
            <td class="prefsData">
-             <input class="button" type="text" name="email_address" id="email_address" value="<?php echo (!empty($userPrefsEmailAddress)) ? $userPrefsEmailAddress : get_default_from_address() ?>" size="40"/>
+             <input class="button" type="text" name="email_address" id="email_address" value="<?php echo ($user_prefs->getEmailAddress() != '') ? $user_prefs->getEmailAddress() : get_default_from_address() ?>" size="40"/>
            </td>
          </tr>
          <?php } ?>

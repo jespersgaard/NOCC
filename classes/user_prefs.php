@@ -164,6 +164,8 @@ class NOCCUserPrefs {
         $this->_fullName = $this->_convertToString($value);
     }
 
+    //TODO: Add hasFullName()?
+
     /**
      * Get email address from user preferences
      * @return string Email address
@@ -179,6 +181,8 @@ class NOCCUserPrefs {
     public function setEmailAddress($value) {
         $this->_emailAddress = $this->_convertToString($value);
     }
+
+    //TODO: Add hasEmailAddress()?
 
     //TODO: Add getFullEmailAddress()?
 
