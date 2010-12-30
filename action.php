@@ -437,7 +437,7 @@ switch($action) {
             if (isset($_REQUEST['msg_per_page']))
                 $user_prefs->msg_per_page = $_REQUEST['msg_per_page'];
             if (isset($_REQUEST['email_address']))
-                $user_prefs->email_address = safestrip($_REQUEST['email_address']);
+                $user_prefs->setEmailAddress(safestrip($_REQUEST['email_address']));
             $user_prefs->setCcSelf(isset($_REQUEST['cc_self']));
             $user_prefs->setHideAddresses(isset($_REQUEST['hide_addresses']));
             $user_prefs->setOutlookQuoting(isset($_REQUEST['outlook_quoting']));

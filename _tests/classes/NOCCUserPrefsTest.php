@@ -65,6 +65,28 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * Test case for getEmailAddress().
+     */
+    public function testGetEmailAddress() {
+        $this->assertEquals('', $this->userPrefs1->getEmailAddress());
+    }
+
+    /**
+     * Test case for getEmailAddress().
+     */
+    public function testSetEmailAddress() {
+        $userPrefs = new NOCCUserPrefs('');
+
+        $this->assertEquals('', $userPrefs->getEmailAddress(), 'default');
+        $userPrefs->setEmailAddress(true);
+        $this->assertEquals('', $userPrefs->getEmailAddress(), 'true');
+        $userPrefs->setEmailAddress(1);
+        $this->assertEquals('', $userPrefs->getEmailAddress(), '1');
+        $userPrefs->setEmailAddress('foo@bar.org');
+        $this->assertEquals('foo@bar.org', $userPrefs->getEmailAddress(), 'foo@bar.org');
+    }
+
+    /**
      * Test case for getCcSelf().
      */
     public function testGetCcSelf() {
@@ -451,7 +473,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $userPrefs1 = NOCCUserPrefs::readFromFile($defaultUserPrefs, $this->rootPath . './prefs/test1.pref', $ev);
         
         $this->assertEquals('Full Name', $userPrefs1->getFullName(), 'getFullName()');
-        $this->assertEquals('foo@bar.org', $userPrefs1->email_address, 'email_address');
+        $this->assertEquals('foo@bar.org', $userPrefs1->getEmailAddress(), 'getEmailAddress()');
         $this->assertEquals(30, $userPrefs1->msg_per_page, 'msg_per_page');
         $this->assertTrue($userPrefs1->getCcSelf(), 'getCcSelf()');
         $this->assertTrue($userPrefs1->getHideAddresses(), 'getHideAddresses()');
@@ -475,7 +497,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $userPrefs2 = NOCCUserPrefs::readFromFile($defaultUserPrefs, $this->rootPath . './prefs/test2.pref', $ev);
 
         $this->assertEquals('Name Full', $userPrefs2->getFullName(), 'getFullName()');
-        $this->assertEquals('bar@foo.org', $userPrefs2->email_address, 'email_address');
+        $this->assertEquals('bar@foo.org', $userPrefs2->getEmailAddress(), 'getEmailAddress()');
         $this->assertEquals(15, $userPrefs2->msg_per_page, 'msg_per_page');
         $this->assertFalse($userPrefs2->getCcSelf(), 'getCcSelf()');
         $this->assertFalse($userPrefs2->getHideAddresses(), 'getHideAddresses()');

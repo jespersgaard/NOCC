@@ -34,8 +34,12 @@ class NOCCUserPrefs {
      * @access private
      */
     private $_fullName;
-    // TODO: Hide behind get/setEmailAddress()!
-    var $email_address;
+    /**
+     * Email address
+     * @var string
+     * @access private
+     */
+    private $_emailAddress;
     // TODO: Hide behind get/setMessagesPerPage()!
     var $msg_per_page;
     /**
@@ -159,6 +163,24 @@ class NOCCUserPrefs {
     public function setFullName($value) {
         $this->_fullName = $this->_convertToString($value);
     }
+
+    /**
+     * Get email address from user preferences
+     * @return string Email address
+     */
+    public function getEmailAddress() {
+        return $this->_emailAddress;
+    }
+
+    /**
+     * Set email address from user preferences
+     * @param string $value Email address
+     */
+    public function setEmailAddress($value) {
+        $this->_emailAddress = $this->_convertToString($value);
+    }
+
+    //TODO: Add getFullEmailAddress()?
 
     /**
      * Get Cc self sending from user preferences
@@ -401,7 +423,7 @@ class NOCCUserPrefs {
                     $prefs->setFullName($value);
                     break;
                 case 'email_address':
-                    $prefs->email_address = $value;
+                    $prefs->setEmailAddress($value);
                     break;
                 case 'msg_per_page':
                     $prefs->msg_per_page = $value * 1;
@@ -504,7 +526,7 @@ class NOCCUserPrefs {
         }
 
         fwrite($file, "full_name=".$this->_fullName."\n");
-        fwrite($file, "email_address=".$this->email_address."\n");
+        fwrite($file, "email_address=".$this->_emailAddress."\n");
         fwrite($file, "msg_per_page=".$this->msg_per_page."\n");
         fwrite($file, "cc_self=".$this->_ccSelf."\n");
         fwrite($file, "hide_addresses=".$this->_hideAddresses."\n");
@@ -544,13 +566,13 @@ class NOCCUserPrefs {
         global $html_invalid_wrap_msg;
 
         if ($conf->allow_address_change) {
-            if (!NOCC_MailAddress::isValidAddress($this->email_address)) {
+            if (!NOCC_MailAddress::isValidAddress($this->_emailAddress)) {
                 $ev = new NoccException($html_invalid_email_address);
                 return;
             }
         }
         else {
-            $this->email_address = '';
+            $this->_emailAddress = '';
         }
 
         if (isset($this->msg_per_page) && !is_numeric($this->msg_per_page) ) {

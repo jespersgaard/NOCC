@@ -9,8 +9,9 @@ function get_default_from_address() {
     $from_address = '';
 
     // Determine e-mail address
-    if(!empty($user_prefs->email_address))
-        $from_address = $user_prefs->email_address;
+    $userPrefsEmailAddress = $user_prefs->getEmailAddress();
+    if (!empty($userPrefsEmailAddress))
+        $from_address = $userPrefsEmailAddress;
     else {
         if (isset($_SESSION['nocc_login_with_domain']) && $_SESSION['nocc_login_with_domain'] == 1) {
             $from_address = $_SESSION['nocc_login'];
@@ -25,9 +26,9 @@ function get_default_from_address() {
     }
     
     // Append name if known
-    $fullName = $user_prefs->getFullName();
-    if (!empty($fullName))
-        $from_address = '"' . $fullName . '" <' . $from_address . '>';
+    $userPrefsFullName = $user_prefs->getFullName();
+    if (!empty($userPrefsFullName))
+        $from_address = '"' . $userPrefsFullName . '" <' . $from_address . '>';
 
     return $from_address;
 }
