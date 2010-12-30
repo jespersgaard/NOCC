@@ -138,6 +138,7 @@ class NOCCUserPrefs {
     function __construct($key) {
         $this->key = $key;
         $this->_fullName = '';
+        $this->_emailAddress = '';
         $this->_ccSelf = false;
         $this->_hideAddresses = false;
         $this->_outlookQuoting = false;
