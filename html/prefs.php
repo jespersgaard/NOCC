@@ -171,7 +171,7 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="sig_sep" id="sig_sep" value="on" <?php if(isset($user_prefs->sig_sep) && $user_prefs->sig_sep) echo 'checked="checked"'; ?> /><label for="sig_sep"><?php echo convertLang2Html($html_usenet_separator) ?></label>
+             <input type="checkbox" name="sig_sep" id="sig_sep" value="on" <?php if ($user_prefs->getUseSignatureSeparator()) echo 'checked="checked"'; ?> /><label for="sig_sep"><?php echo convertLang2Html($html_usenet_separator) ?></label>
            </td>
          </tr>
          <?php } ?>

@@ -454,7 +454,7 @@ switch($action) {
                 }
             if (isset($_REQUEST['wrap_msg']))
                 $user_prefs->wrap_msg = $_REQUEST['wrap_msg'];
-            $user_prefs->sig_sep = isset($_REQUEST['sig_sep']);
+            $user_prefs->setUseSignatureSeparator(isset($_REQUEST['sig_sep']));
             $user_prefs->setSendHtmlMail(isset($_REQUEST['html_mail_send']));
             $user_prefs->setUseGraphicalSmilies(isset($_REQUEST['graphical_smilies']));
             $user_prefs->setUseSentFolder(isset($_REQUEST['sent_folder']));
@@ -726,7 +726,7 @@ function add_signature(&$body) {
     $user_prefs = $_SESSION['nocc_user_prefs'];
     if (isset($user_prefs->signature)) {
         // Add signature with separation if needed
-        if (isset($user_prefs->sig_sep) && $user_prefs->sig_sep)
+        if ($user_prefs->getUseSignatureSeparator())
             $body .= "\r\n\r\n"."-- \r\n".$user_prefs->signature;
         else
             $body .= "\r\n\r\n".$user_prefs->signature;

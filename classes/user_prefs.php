@@ -80,8 +80,12 @@ class NOCCUserPrefs {
     var $signature;
     // TODO: Hide behind get/setWrapMessages()!
     var $wrap_msg;
-    // TODO: Hide behind get/setUseSignatureSeparator()!
-    var $sig_sep;
+    /**
+     * Use signature separator?
+     * @var boolean
+     * @access private
+     */
+    private $_useSignatureSeparator;
     /**
      * Send HTML mail?
      * @var boolean
@@ -139,6 +143,7 @@ class NOCCUserPrefs {
         $this->_outlookQuoting = false;
         $this->_coloredQuotes = true;
         $this->_displayStructuredText = false;
+        $this->_useSignatureSeparator = false;
         $this->_sendHtmlMail = false;
         $this->_useGraphicalSmilies = false;
         $this->_useSentFolder = false;
@@ -264,6 +269,22 @@ class NOCCUserPrefs {
      */
     public function setDisplayStructuredText($value) {
         $this->_displayStructuredText = $this->_convertToFalse($value);
+    }
+
+    /**
+     * Get signature separator using from user preferences
+     * @return boolean Use signature separator
+     */
+    public function getUseSignatureSeparator() {
+        return $this->_useSignatureSeparator;
+    }
+
+    /**
+     * Set signature separator using from user preferences
+     * @param mixed $value Use signature separator
+     */
+    public function setUseSignatureSeparator($value) {
+        $this->_useSignatureSeparator = $this->_convertToFalse($value);
     }
 
     /**
@@ -460,7 +481,7 @@ class NOCCUserPrefs {
                     $prefs->wrap_msg = $value;
                     break;
                 case 'sig_sep':
-                    $prefs->sig_sep = ($value == 1 || $value == 'on');
+                    $prefs->setUseSignatureSeparator($value);
                     break;
                 case 'html_mail_send':
                     $prefs->setSendHtmlMail($value);
@@ -541,7 +562,7 @@ class NOCCUserPrefs {
         fwrite($file, "reply_leadin=".base64_encode($this->reply_leadin)."\n");
         fwrite($file, "signature=".base64_encode($this->signature)."\n");
         fwrite($file, "wrap_msg=".$this->wrap_msg."\n");
-        fwrite($file, "sig_sep=".$this->sig_sep."\n");
+        fwrite($file, "sig_sep=".$this->_useSignatureSeparator."\n");
         fwrite($file, "html_mail_send=".$this->_sendHtmlMail."\n");
         fwrite($file, "graphical_smilies=".$this->_useGraphicalSmilies."\n");
         fwrite($file, "sent_folder=".$this->_useSentFolder."\n");

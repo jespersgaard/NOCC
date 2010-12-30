@@ -267,6 +267,42 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * Test case for getUseSignatureSeparator().
+     */
+    public function testGetUseSignatureSeparator() {
+        $this->assertFalse($this->userPrefs1->getUseSignatureSeparator());
+    }
+
+    /**
+     * Test case for setUseSignatureSeparator().
+     */
+    public function testSetUseSignatureSeparator() {
+        $userPrefs = new NOCCUserPrefs('');
+
+        $this->assertFalse($userPrefs->getUseSignatureSeparator(), 'default');
+        $userPrefs->setUseSignatureSeparator(true);
+        $this->assertTrue($userPrefs->getUseSignatureSeparator(), 'true');
+        $userPrefs->setUseSignatureSeparator(false);
+        $this->assertFalse($userPrefs->getUseSignatureSeparator(), 'false');
+        $userPrefs->setUseSignatureSeparator(1);
+        $this->assertTrue($userPrefs->getUseSignatureSeparator(), '1');
+        $userPrefs->setUseSignatureSeparator(0);
+        $this->assertFalse($userPrefs->getUseSignatureSeparator(), '0');
+        $userPrefs->setUseSignatureSeparator('on');
+        $this->assertTrue($userPrefs->getUseSignatureSeparator(), 'on');
+        $userPrefs->setUseSignatureSeparator('off');
+        $this->assertFalse($userPrefs->getUseSignatureSeparator(), 'off');
+        $userPrefs->setUseSignatureSeparator('1');
+        $this->assertTrue($userPrefs->getUseSignatureSeparator(), '"1"');
+        $userPrefs->setUseSignatureSeparator('0');
+        $this->assertFalse($userPrefs->getUseSignatureSeparator(), '"0"');
+        $userPrefs->setUseSignatureSeparator('<invalid>');
+        $this->assertFalse($userPrefs->getUseSignatureSeparator(), '<invalid>');
+        $userPrefs->setUseSignatureSeparator(null);
+        $this->assertFalse($userPrefs->getUseSignatureSeparator(), 'NULL');
+    }
+
+    /**
      * Test case for getSendHtmlMail().
      */
     public function testGetSendHtmlMail() {
@@ -483,7 +519,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue($userPrefs1->seperate_msg_win, 'seperate_msg_win');
         $this->assertEquals('', $userPrefs1->reply_leadin, 'reply_leadin');
         $this->assertEquals('This is a signature...', $userPrefs1->signature, 'signature');
-        $this->assertTrue($userPrefs1->sig_sep, 'sig_sep');
+        $this->assertTrue($userPrefs1->getUseSignatureSeparator(), 'getUseSignatureSeparator()');
         $this->assertTrue($userPrefs1->getSendHtmlMail(), 'getSendHtmlMail()');
         $this->assertTrue($userPrefs1->getUseGraphicalSmilies(), 'getUseGraphicalSmilies()');
         $this->assertTrue($userPrefs1->getUseSentFolder(), 'getUseSentFolder()');
@@ -507,7 +543,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertFalse($userPrefs2->seperate_msg_win, 'seperate_msg_win');
         $this->assertEquals('', $userPrefs2->reply_leadin, 'reply_leadin');
         $this->assertEquals('', $userPrefs2->signature, 'signature');
-        $this->assertFalse($userPrefs2->sig_sep, 'sig_sep');
+        $this->assertFalse($userPrefs2->getUseSignatureSeparator(), 'getUseSignatureSeparator()');
         $this->assertFalse($userPrefs2->getSendHtmlMail(), 'getSendHtmlMail()');
         $this->assertFalse($userPrefs2->getUseGraphicalSmilies(), 'getUseGraphicalSmilies()');
         $this->assertFalse($userPrefs2->getUseSentFolder(), 'getUseSentFolder()');
