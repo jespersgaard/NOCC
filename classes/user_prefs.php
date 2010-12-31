@@ -76,10 +76,14 @@ class NOCCUserPrefs {
     var $seperate_msg_win;
     // TODO: Hide behind get/setReplyLeadin()!
     var $reply_leadin;
-    // TODO: Hide behind get/setSignature()!
-    var $signature;
     // TODO: Hide behind get/setWrapMessages()!
     var $wrap_msg;
+    /**
+     * Signature
+     * @var string
+     * @access private
+     */
+    private $_signature;
     /**
      * Use signature separator?
      * @var boolean
@@ -144,6 +148,7 @@ class NOCCUserPrefs {
         $this->_outlookQuoting = false;
         $this->_coloredQuotes = true;
         $this->_displayStructuredText = false;
+        $this->_signature = '';
         $this->_useSignatureSeparator = false;
         $this->_sendHtmlMail = false;
         $this->_useGraphicalSmilies = false;
@@ -270,6 +275,22 @@ class NOCCUserPrefs {
      */
     public function setDisplayStructuredText($value) {
         $this->_displayStructuredText = $this->_convertToFalse($value);
+    }
+
+    /**
+     * Get signature from user preferences
+     * @return string Signature
+     */
+    public function getSignature() {
+        return $this->_signature;
+    }
+
+    /**
+     * Set signature from user preferences
+     * @param string $value Signature
+     */
+    public function setSignature($value) {
+        $this->_signature = $this->_convertToString($value);
     }
 
     /**
@@ -473,7 +494,7 @@ class NOCCUserPrefs {
                     $prefs->seperate_msg_win = ($value == 1 || $value == 'on');
                     break;
                 case 'signature':
-                    $prefs->signature = base64_decode($value);
+                    $prefs->setSignature(base64_decode($value));
                     break;
                 case 'reply_leadin':
                     $prefs->reply_leadin = base64_decode($value);
@@ -561,7 +582,7 @@ class NOCCUserPrefs {
         fwrite($file, "display_struct=".$this->_displayStructuredText."\n");
         fwrite($file, "seperate_msg_win=".$this->seperate_msg_win."\n");
         fwrite($file, "reply_leadin=".base64_encode($this->reply_leadin)."\n");
-        fwrite($file, "signature=".base64_encode($this->signature)."\n");
+        fwrite($file, "signature=".base64_encode($this->_signature)."\n");
         fwrite($file, "wrap_msg=".$this->wrap_msg."\n");
         fwrite($file, "sig_sep=".$this->_useSignatureSeparator."\n");
         fwrite($file, "html_mail_send=".$this->_sendHtmlMail."\n");

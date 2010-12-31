@@ -267,6 +267,28 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * Test case for getSignature().
+     */
+    public function testGetSignature() {
+        $this->assertEquals('', $this->userPrefs1->getSignature());
+    }
+
+    /**
+     * Test case for getSignature().
+     */
+    public function testSetSignature() {
+        $userPrefs = new NOCCUserPrefs('');
+
+        $this->assertEquals('', $userPrefs->getSignature(), 'default');
+        $userPrefs->setSignature(true);
+        $this->assertEquals('', $userPrefs->getSignature(), 'true');
+        $userPrefs->setSignature(1);
+        $this->assertEquals('', $userPrefs->getSignature(), '1');
+        $userPrefs->setSignature('This is a signature...');
+        $this->assertEquals('This is a signature...', $userPrefs->getSignature(), 'This is a signature...');
+    }
+
+    /**
      * Test case for getUseSignatureSeparator().
      */
     public function testGetUseSignatureSeparator() {
@@ -518,7 +540,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue($userPrefs1->getDisplayStructuredText(), 'getDisplayStructuredText()');
         $this->assertTrue($userPrefs1->seperate_msg_win, 'seperate_msg_win');
         $this->assertEquals('', $userPrefs1->reply_leadin, 'reply_leadin');
-        $this->assertEquals('This is a signature...', $userPrefs1->signature, 'signature');
+        $this->assertEquals('This is a signature...', $userPrefs1->getSignature(), 'getSignature()');
         $this->assertTrue($userPrefs1->getUseSignatureSeparator(), 'getUseSignatureSeparator()');
         $this->assertTrue($userPrefs1->getSendHtmlMail(), 'getSendHtmlMail()');
         $this->assertTrue($userPrefs1->getUseGraphicalSmilies(), 'getUseGraphicalSmilies()');
@@ -542,7 +564,7 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertFalse($userPrefs2->getDisplayStructuredText(), 'getDisplayStructuredText()');
         $this->assertFalse($userPrefs2->seperate_msg_win, 'seperate_msg_win');
         $this->assertEquals('', $userPrefs2->reply_leadin, 'reply_leadin');
-        $this->assertEquals('', $userPrefs2->signature, 'signature');
+        $this->assertEquals('', $userPrefs2->getSignature(), 'getSignature()');
         $this->assertFalse($userPrefs2->getUseSignatureSeparator(), 'getUseSignatureSeparator()');
         $this->assertFalse($userPrefs2->getSendHtmlMail(), 'getSendHtmlMail()');
         $this->assertFalse($userPrefs2->getUseGraphicalSmilies(), 'getUseGraphicalSmilies()');

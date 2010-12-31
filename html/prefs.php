@@ -160,10 +160,10 @@ if (count($big_list) > 1) {
                $oFCKeditor->ToolbarSet = 'NOCC';
                $oFCKeditor->BasePath = 'fckeditor/';
                $oFCKeditor->Config['CustomConfigurationsPath'] = $conf->base_url . 'config/fckconfig.js';
-               $oFCKeditor->Value = isset($user_prefs->signature) ? $user_prefs->signature : "";
+               $oFCKeditor->Value = $user_prefs->getSignature();
                $oFCKeditor->Create();
              } else { ?>
-             <textarea class="button" name="signature" id="signature" rows="5" cols="40"><?php echo (isset($user_prefs->signature)) ? $user_prefs->signature : "" ?></textarea>
+             <textarea class="button" name="signature" id="signature" rows="5" cols="40"><?php echo $user_prefs->getSignature(); ?></textarea>
              <?php } ?>
            </td>
          </tr>

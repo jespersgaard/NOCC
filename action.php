@@ -448,9 +448,9 @@ switch($action) {
                 $user_prefs->reply_leadin = safestrip($_REQUEST['reply_leadin']);
             if (isset($_REQUEST['signature']))
                 if (NOCC_Request::getBoolValue('html_mail_send')) {
-                    $user_prefs->signature = $_REQUEST['signature'];
+                    $user_prefs->setSignature($_REQUEST['signature']);
                 } else {
-                    $user_prefs->signature = safestrip($_REQUEST['signature']);
+                    $user_prefs->setSignature(safestrip($_REQUEST['signature']));
                 }
             if (isset($_REQUEST['wrap_msg']))
                 $user_prefs->wrap_msg = $_REQUEST['wrap_msg'];
@@ -724,12 +724,13 @@ function display_embedded_html_images(&$content, $attachmentParts) {
 
 function add_signature(&$body) {
     $user_prefs = $_SESSION['nocc_user_prefs'];
-    if (isset($user_prefs->signature)) {
+    if ($user_prefs->getSignature() != '') {
         // Add signature with separation if needed
+        //TODO: Really add separator if HTML mail?
         if ($user_prefs->getUseSignatureSeparator())
-            $body .= "\r\n\r\n"."-- \r\n".$user_prefs->signature;
+            $body .= "\r\n\r\n"."-- \r\n".$user_prefs->getSignature();
         else
-            $body .= "\r\n\r\n".$user_prefs->signature;
+            $body .= "\r\n\r\n".$user_prefs->getSignature();
     }
 }
 
