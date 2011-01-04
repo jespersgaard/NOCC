@@ -2,7 +2,7 @@
 /**
  * Test cases for NOCC_Security.
  *
- * Copyright 2009-2010 Tim Gerundt <tim@gerundt.de>
+ * Copyright 2009-2011 Tim Gerundt <tim@gerundt.de>
  *
  * This file is part of NOCC. NOCC is free software under the terms of the
  * GNU General Public License. You should have received a copy of the license

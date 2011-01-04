@@ -3,6 +3,7 @@
  * Stuff that is always checked or run or initialised for every hit
  *
  * Copyright 2002 Ross Golder <ross@golder.org>
+ * Copyright 2008-2011 Tim Gerundt <tim@gerundt.de>
  *
  * This file is part of NOCC. NOCC is free software under the terms of the
  * GNU General Public License. You should have received a copy of the license

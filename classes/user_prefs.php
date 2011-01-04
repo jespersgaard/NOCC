@@ -4,6 +4,7 @@
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
+ * Copyright 2008-2011 Tim Gerundt <tim@gerundt.de>
  *
  * This file is part of NOCC. NOCC is free software under the terms of the
  * GNU General Public License. You should have received a copy of the license
@@ -80,6 +81,7 @@ class NOCCUserPrefs {
      * Wrap messages?
      * @var integer
      * @access private
+     * @todo Rename to wrapMessage?
      */
     private $_wrapMessages;
     /**

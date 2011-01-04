@@ -3,6 +3,7 @@
  * Class for handling user filters
  *
  * Copyright 2002 Mike Rylander <mrylander@mail.com>
+ * Copyright 2008-2011 Tim Gerundt <tim@gerundt.de>
  *
  * This file is part of NOCC. NOCC is free software under the terms of the
  * GNU General Public License. You should have received a copy of the license
