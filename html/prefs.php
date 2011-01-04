@@ -139,11 +139,11 @@ if (count($big_list) > 1) {
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
              <?php echo convertLang2Html($html_wrap) ?>
-             <input type="radio" name="wrap_msg" id="wrap_msg_80" value="80" <?php if($user_prefs->wrap_msg == 80) echo 'checked="checked"'; ?> /><label for="wrap_msg_80">80</label>
+             <input type="radio" name="wrap_msg" id="wrap_msg_80" value="80" <?php if($user_prefs->getWrapMessages() == 80) echo 'checked="checked"'; ?> /><label for="wrap_msg_80">80</label>
              &nbsp;&nbsp;
-             <input type="radio" name="wrap_msg" id="wrap_msg_72" value="72" <?php if($user_prefs->wrap_msg == 72) echo 'checked="checked"'; ?> /><label for="wrap_msg_72">72</label>
+             <input type="radio" name="wrap_msg" id="wrap_msg_72" value="72" <?php if($user_prefs->getWrapMessages() == 72) echo 'checked="checked"'; ?> /><label for="wrap_msg_72">72</label>
              &nbsp;&nbsp;
-             <input type="radio" name="wrap_msg" id="wrap_msg_0" value="0" <?php if(!isset($user_prefs->wrap_msg) || $user_prefs->wrap_msg == '' || $user_prefs->wrap_msg == '0') echo 'checked="checked"'; ?> /><label for="wrap_msg_0"><?php echo convertLang2Html($html_wrap_none) ?></label>
+             <input type="radio" name="wrap_msg" id="wrap_msg_0" value="0" <?php if($user_prefs->getWrapMessages() == 0) echo 'checked="checked"'; ?> /><label for="wrap_msg_0"><?php echo convertLang2Html($html_wrap_none) ?></label>
            </td>
          </tr>
       </table>

@@ -431,6 +431,7 @@ switch($action) {
             break;
         }
 
+        //TODO: Move all isset() to if()!
         if (isset($_REQUEST['submit_prefs'])) {
             if (isset($_REQUEST['full_name']))
                 $user_prefs->setFullName(safestrip($_REQUEST['full_name']));
@@ -453,7 +454,7 @@ switch($action) {
                     $user_prefs->setSignature(safestrip($_REQUEST['signature']));
                 }
             if (isset($_REQUEST['wrap_msg']))
-                $user_prefs->wrap_msg = $_REQUEST['wrap_msg'];
+                $user_prefs->setWrapMessages($_REQUEST['wrap_msg']);
             $user_prefs->setUseSignatureSeparator(isset($_REQUEST['sig_sep']));
             $user_prefs->setSendHtmlMail(isset($_REQUEST['html_mail_send']));
             $user_prefs->setUseGraphicalSmilies(isset($_REQUEST['graphical_smilies']));

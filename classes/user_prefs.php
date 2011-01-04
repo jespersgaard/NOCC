@@ -76,8 +76,12 @@ class NOCCUserPrefs {
     var $seperate_msg_win;
     // TODO: Hide behind get/setReplyLeadin()!
     var $reply_leadin;
-    // TODO: Hide behind get/setWrapMessages()!
-    var $wrap_msg;
+    /**
+     * Wrap messages?
+     * @var integer
+     * @access private
+     */
+    private $_wrapMessages;
     /**
      * Signature
      * @var string
@@ -148,6 +152,7 @@ class NOCCUserPrefs {
         $this->_outlookQuoting = false;
         $this->_coloredQuotes = true;
         $this->_displayStructuredText = false;
+        $this->_wrapMessages = 0;
         $this->_signature = '';
         $this->_useSignatureSeparator = false;
         $this->_sendHtmlMail = false;
@@ -275,6 +280,32 @@ class NOCCUserPrefs {
      */
     public function setDisplayStructuredText($value) {
         $this->_displayStructuredText = $this->_convertToFalse($value);
+    }
+
+    /**
+     * Get message wrapping from user preferences
+     * @return integer Wrap messages?
+     */
+    public function getWrapMessages() {
+        return $this->_wrapMessages;
+    }
+
+    /**
+     * Set message wrapping from user preferences
+     * @param integer Wrap messages?
+     */
+    public function setWrapMessages($value) {
+        $this->_wrapMessages = 0;
+        if (is_numeric($value)) { //if numeric...
+            switch ($value) {
+                case 80:
+                    $this->_wrapMessages = 80;
+                    break;
+                case 72:
+                    $this->_wrapMessages = 72;
+                    break;
+            }
+        }
     }
 
     /**
@@ -500,7 +531,7 @@ class NOCCUserPrefs {
                     $prefs->reply_leadin = base64_decode($value);
                     break;
                 case 'wrap_msg':
-                    $prefs->wrap_msg = $value;
+                    $prefs->setWrapMessages($value);
                     break;
                 case 'sig_sep':
                     $prefs->setUseSignatureSeparator($value);
@@ -583,7 +614,7 @@ class NOCCUserPrefs {
         fwrite($file, "seperate_msg_win=".$this->seperate_msg_win."\n");
         fwrite($file, "reply_leadin=".base64_encode($this->reply_leadin)."\n");
         fwrite($file, "signature=".base64_encode($this->_signature)."\n");
-        fwrite($file, "wrap_msg=".$this->wrap_msg."\n");
+        fwrite($file, "wrap_msg=".$this->_wrapMessages."\n");
         fwrite($file, "sig_sep=".$this->_useSignatureSeparator."\n");
         fwrite($file, "html_mail_send=".$this->_sendHtmlMail."\n");
         fwrite($file, "graphical_smilies=".$this->_useGraphicalSmilies."\n");
@@ -627,7 +658,7 @@ class NOCCUserPrefs {
             return;
         }
 
-        if (isset($this->wrap_msg) && !preg_match("/^(0|72|80)$/", $this->wrap_msg)) {
+        if (isset($this->_wrapMessages) && !preg_match("/^(0|72|80)$/", $this->_wrapMessages)) {
             $ev = new NoccException($html_invalid_wrap_msg);
             return;
         }

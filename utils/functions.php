@@ -590,18 +590,12 @@ function mailquote(&$body, &$from, $html_wrote) {
     $crlf = "\r\n";
     $from = ucwords(trim(preg_replace("|&lt;.*&gt;|", "", str_replace("\"", "", $from))));
 
-    if (isset($user_prefs->wrap_msg)) {
-        $wrap_msg = $user_prefs->wrap_msg;
-    } else {
-        $wrap_msg = 0;
-    }
-    // If we must wrap the message
-    if ($wrap_msg) {
+    $wrap_msg = $user_prefs->getWrapMessages();
+    if ($wrap_msg) { //If we must wrap the message...
         $msg = '';
         //Break message in table with "\r\n" as separator
         $tbl = explode("\r\n", $body);
-        // For each line
-        for ($i = 0, $buffer = ''; $i < count($tbl); ++$i) {
+        for ($i = 0, $buffer = ''; $i < count($tbl); ++$i) { //For each line...
             unset($buffer);
             // Number of "> "
             $q = substr_count($tbl[$i], "> ");

@@ -135,10 +135,9 @@ switch ($_REQUEST['sendaction']) {
 
         // Append advertisement tag, if set
         // Wrap outgoing message if needed
-        if (isset($user_prefs->wrap_msg))
-            $wrap_msg = $user_prefs->wrap_msg;
+        $wrap_msg = $user_prefs->getWrapMessages();
         if ($mail_body != '') {
-            if (isset ($wrap_msg) && $wrap_msg)
+            if ($wrap_msg)
                 $mail->body = wrap_outgoing_msg($mail_body, $wrap_msg, $mail->crlf);
             else
                 $mail->body = $mail_body;
