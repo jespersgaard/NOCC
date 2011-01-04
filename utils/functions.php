@@ -336,7 +336,7 @@ function remove_stuff($body, $mime) {
         $body = NOCC_Body::prepareHtmlLinks($body, $PHP_SELF);
     }
     elseif (preg_match('|plain|i', $mime)) {
-        $user_prefs = $_SESSION['nocc_user_prefs'];
+        $user_prefs = NOCC_Session::getUserPrefs();
         $body = htmlspecialchars($body);
         $body = NOCC_Body::prepareTextLinks($body, $PHP_SELF);
         if ($user_prefs->getColoredQuotes()) {
@@ -585,7 +585,7 @@ function display_address(&$address) {
  * @return string
  */
 function mailquote(&$body, &$from, $html_wrote) {
-    $user_prefs = $_SESSION['nocc_user_prefs'];
+    $user_prefs = NOCC_Session::getUserPrefs();
 
     $crlf = "\r\n";
     $from = ucwords(trim(preg_replace("|&lt;.*&gt;|", "", str_replace("\"", "", $from))));
@@ -727,7 +727,7 @@ function strip_tags2(&$string, $allow) {
 function get_per_page() {
     global $conf;
 
-    $user_prefs = $_SESSION['nocc_user_prefs'];
+    $user_prefs = NOCC_Session::getUserPrefs();
     $msg_per_page = 0;
     if (isset($conf->msg_per_page))
         $msg_per_page = $conf->msg_per_page;

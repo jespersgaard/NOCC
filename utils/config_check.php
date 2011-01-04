@@ -2,10 +2,10 @@
 
 // This function allows you to customise the default e-mail address
 function get_default_from_address() {
-    if(!isset($_SESSION['nocc_user_prefs']))
+    if (!NOCC_Session::existsUserPrefs())
         return '';
 
-    $user_prefs = $_SESSION['nocc_user_prefs'];
+    $user_prefs = NOCC_Session::getUserPrefs();
     $from_address = '';
 
     // Determine e-mail address

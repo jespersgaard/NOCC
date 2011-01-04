@@ -540,7 +540,7 @@ class nocc_imap
      * TODO: Static?
      */
     public function graphicalsmilies($body) {
-        $user_prefs = $_SESSION['nocc_user_prefs'];
+        $user_prefs = NOCC_Session::getUserPrefs();
         if ($user_prefs->getUseGraphicalSmilies()) {
             $theme = new NOCC_Theme($_SESSION['nocc_theme']);
             $body = $theme->replaceTextSmilies($body);

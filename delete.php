@@ -33,7 +33,7 @@ catch (Exception $ex) {
 
 $num_messages = $pop->num_msg();
 $url = "action.php";
-$user_prefs = $_SESSION['nocc_user_prefs'];
+$user_prefs = NOCC_Session::getUserPrefs();
 
 // Work out folder and target_folder
 $folder = $_SESSION['nocc_folder'];

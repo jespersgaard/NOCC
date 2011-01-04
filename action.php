@@ -724,7 +724,7 @@ function display_embedded_html_images(&$content, $attachmentParts) {
 }
 
 function add_signature(&$body) {
-    $user_prefs = $_SESSION['nocc_user_prefs'];
+    $user_prefs = NOCC_Session::getUserPrefs();
     if ($user_prefs->getSignature() != '') {
         // Add signature with separation if needed
         //TODO: Really add separator if HTML mail?

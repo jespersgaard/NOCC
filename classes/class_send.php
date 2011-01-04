@@ -252,7 +252,7 @@ class mime_mail {
             $rcpt_to = join(', ', $this->to);
             $ev = @mail($rcpt_to, $this->subject, '', $mime, '-f' . $this->strip_comment($this->from));
                 
-            $user_prefs = $_SESSION['nocc_user_prefs'];
+            $user_prefs = NOCC_Session::getUserPrefs();
             if ($user_prefs->getUseSentFolder() && $user_prefs->getSentFolderName() != '') {
                 // Copy email to Sent folder
                 //TODO: Optimize try block!
@@ -290,7 +290,7 @@ class mime_mail {
                     return($smtp_return);
                 }
                 $copy_return = 1;
-                $user_prefs = $_SESSION['nocc_user_prefs'];
+                $user_prefs = NOCC_Session::getUserPrefs();
                 if ($user_prefs->getUseSentFolder() && $user_prefs->getSentFolderName() != "") {
                     // Copy email to Sent folder
                     //TODO: Optimize try block!
