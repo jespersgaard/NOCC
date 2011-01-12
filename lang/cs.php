@@ -134,6 +134,7 @@ $html_mark = 'Vymazat';
 $html_att_label = 'Příloha:';
 $html_atts_label = 'Přílohy:';
 $html_unknown = '[neznámá]';
+$html_part_x = 'Část %s';
 $html_attach = 'Přiložit';
 $html_attach_forget = 'Soubor musí být přiložen před odesláním zprávy';
 $html_attach_delete = 'Vymazat vybrané';

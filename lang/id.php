@@ -27,6 +27,7 @@
  * @author Farras
  * @author Irwangatot
  * @author IvanLanin
+ * @author Mihxil
  */
 
 $default_date_format = '%d-%m-%Y';

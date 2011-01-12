@@ -22,6 +22,7 @@
  * @ingroup Language
  * @file
  *
+ * @author David1010
  * @author გიორგიმელა
  */
 
@@ -127,6 +128,7 @@ $html_mark = 'წაშლა';
 $html_att_label = 'მიმაგრებული ფაილი:';
 $html_atts_label = 'მიმაგრებული ფაილი:';
 $html_unknown = '[უცნობია]';
+$html_part_x = 'ნაწილი %s';
 $html_attach = 'ფაილის მიმაგრება';
 $html_attach_forget = 'თქვენ უნდა მიამაგროთ ფაილი წერილის გაგზავნამდე';
 $html_attach_delete = 'არჩეულის წაშლა';
@@ -169,6 +171,8 @@ $html_normal = 'ნორმალური';
 $html_high = 'მაღალი';
 $html_highest = 'ყველაზე მაღალი';
 $html_flagged = 'მონიშნული';
+$html_spam = 'სპამი';
+$html_spam_warning = 'ეს შეტყობინება კლასიფიცირდა, როგორც სპამი.';
 $html_receipt = 'მოითხოვეთ წაკითხვის დადასტურება';
 $html_select = 'არჩევა';
 $html_select_all = 'არჩევის ინვერტირება';

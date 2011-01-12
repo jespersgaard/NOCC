@@ -26,6 +26,7 @@
  * @author Crazymadlover
  * @author Dada
  * @author Dead3y3
+ * @author Evropi
  * @author Omnipaedista
  * @author Spyros Ioakim <sioakim@ace-hellas.gr>
  * @author Περίεργος
@@ -64,7 +65,7 @@ $html_lang_label = 'Γλώσσα:';
 $html_msgperpage_label = 'Μηνύματα ανά σελίδα:';
 $html_preferences = 'Προτιμήσεις';
 $html_full_name_label = 'Ονοματεπώνυμο:';
-$html_email_address_label = 'E-mail διεύθυνση:';
+$html_email_address_label = 'Διεύθυνση ηλεκτρονικού ταχυδρομείου:';
 $html_ccself = 'Αντίγραφο στον ευατό μου';
 $html_hide_addresses = 'Απόκρυψη διευθύνσεων';
 $html_outlook_quoting = 'παραθέσεις στο στυλ του Outlook';
@@ -134,6 +135,7 @@ $html_mark = 'Διαγραφή';
 $html_att_label = 'Συνημμένο:';
 $html_atts_label = 'Συνημμένα:';
 $html_unknown = '[άγνωστο]';
+$html_part_x = 'Μέρος %s';
 $html_attach = 'Επισύναψη';
 $html_attach_forget = 'Πρέπει να συννάψετε το αρχείο πρίν στείλετε το μήνυμα !';
 $html_attach_delete = 'Διαγραφή μαρκαρισμένων συνημμένων';
@@ -164,7 +166,7 @@ $html_nosubject = 'Χωρίς Θέμα';
 $html_send = 'Αποστολή';
 $html_cancel = 'Άκυρο';
 $html_no_mail = 'Δεν υπάρχουν μηνύματα.';
-$html_logout = 'Αποσύνδεση';
+$html_logout = 'Έξοδος';
 $html_msg = 'Μήνυμα';
 $html_msgs = 'Μηνύματα';
 $html_configuration = 'Αυτός ο διακομιστής δεν έχει οριστεί σωστά !';
@@ -212,7 +214,7 @@ $html_contact_err2 = 'Δεν μπορείτε να προσθέσετε μια �
 $html_contact_err3 = 'Δεν έχετε δικαιώματα πρόσβασης στον κατάλογο επαφών';
 $html_contact_none = 'Καμία επαφή δεν ήταν δυνατό να βρεθεί.';
 $html_del_msg = 'Διαγραφή επιλεγμένων μηνυμάτων ;';
-$html_down_mail = 'Κατέβασμα';
+$html_down_mail = 'Λήψη';
 $original_msg = '-- Πρωτότυπο Μήνυμα --';
 $to_empty = 'Το πεδίο \'Πρός\' δεν πρέπει να είναι άδειο !';
 $html_images_warning = 'Για την ασφάλειά σας, οι απομακρυσμένες εικόνες δεν εμφανίζονται.';

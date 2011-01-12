@@ -22,6 +22,7 @@
  * @ingroup Language
  * @file
  *
+ * @author Emperyan
  * @author Joseph
  * @author İsmail Özer <aceleyolla AT gmx DOT net>
  */
@@ -129,6 +130,7 @@ $html_mark = 'Sil';
 $html_att_label = 'Ek:';
 $html_atts_label = 'Ekler:';
 $html_unknown = '[bilinmiyor]';
+$html_part_x = 'Bölüm %s';
 $html_attach = 'Ekle';
 $html_attach_forget = 'İletiyi göndermeden önce dosyayı eklemelisiniz !';
 $html_attach_delete = 'İşaretleneni Sil';
@@ -171,6 +173,8 @@ $html_normal = 'Orta';
 $html_high = 'Yüksek';
 $html_highest = 'En yüksek';
 $html_flagged = 'İşaretli';
+$html_spam = 'Yığın mesaj (spam)';
+$html_spam_warning = 'Bu mesaj yığın mesajı (spam) olarak sınıflandırılmıştır.';
 $html_receipt = 'İleti okundu onayı gönderilsin';
 $html_select = 'Seç';
 $html_select_all = 'Ters seçim yap';

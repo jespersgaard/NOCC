@@ -14,7 +14,7 @@
  * @license    http://www.gnu.org/licenses/ GNU General Public License
  * @version    SVN: $Id$
  */
-/** Serbian Cyrillic ekavian (Српски (ћирилица))
+/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
  * 
  * See the qqq 'language' for message documentation incl. usage of parameters
  * To improve a translation please visit http://translatewiki.net
@@ -23,6 +23,7 @@
  * @file
  *
  * @author Charmed94
+ * @author Rancher
  * @author Михајло Анђелковић
  */
 
@@ -82,7 +83,7 @@ $html_folders_sub_failed = 'Не можете се претплатити на �
 $html_folders_unsub_failed = 'Не можете се одјавити из фасцикле!';
 $html_folders_rename_failed = 'Фасцикла се не може преименовати!';
 $html_folders_updated = 'Фасцикла је ажурирана';
-$html_folder_subscribe = 'Претплати се на';
+$html_folder_subscribe = 'Пријави ме на';
 $html_folder_rename = 'Преименуј';
 $html_folder_create = 'Направи нову фасциклу названу';
 $html_folder_remove = 'Одјави се из';
@@ -158,7 +159,7 @@ $html_nosubject = 'Без наслова';
 $html_send = 'Пошаљи';
 $html_cancel = 'Откажи';
 $html_no_mail = 'Нема поруке.';
-$html_logout = 'Одјави се';
+$html_logout = 'Одјави ме';
 $html_msg = 'Порука';
 $html_msgs = 'Поруке';
 $html_configuration = 'Овај сервер није исправно подешен!';
@@ -174,7 +175,7 @@ $html_spam = 'Непожељне поруке';
 $html_spam_warning = 'Овај порука је означена као непожељна.';
 $html_receipt = 'Затражи повратну потврду';
 $html_select = 'Изабери';
-$html_select_all = 'Обрни изабрано';
+$html_select_all = 'Обрни избор';
 $html_select_contacts = 'Изабери контакте';
 $html_loading_image = 'Учитавање слике';
 $html_send_confirmed = 'Ваша е-адреса је прихваћена за доставу';
