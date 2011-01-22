@@ -59,7 +59,7 @@ $html_msgperpage_label = 'Aanzahl Nohresschte op ein Sigk:';
 $html_preferences = 'Aanjabe';
 $html_full_name_label = 'Dä kumplätte Nam:';
 $html_email_address_label = 'De Adräß för de <i lang="en">e-mail</i>:';
-$html_ccself = 'Donn en Koppih vun de eruß jeschehkte Nohreschte aan mesch sälver schehke';
+$html_bccself = 'Bcc self';
 $html_hide_addresses = 'Adräße verschteische';
 $html_outlook_quoting = 'Ziteere em sellve Shtil wi „<i lang="en">Microsoft Outlook</i>“';
 $html_reply_to = 'Antwoote aan';

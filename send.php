@@ -124,11 +124,11 @@ switch ($_REQUEST['sendaction']) {
         $mail->headers .= 'User-Agent: ' . $conf->nocc_name . ' <' . $conf->nocc_url . '>';
         $mail->to = cut_address(trim($mail_to), 'UTF-8');
         $mail->cc = cut_address(trim($mail_cc), 'UTF-8');
-        $user_prefs = NOCC_Session::getUserPrefs();
-        if ($user_prefs->getCcSelf()) {
-            array_unshift($mail->cc, $mail->from);
-        }
         $mail->bcc = cut_address(trim($mail_bcc), 'UTF-8');
+        $user_prefs = NOCC_Session::getUserPrefs();
+        if ($user_prefs->getBccSelf()) {
+            array_unshift($mail->bcc, $mail->from);
+        }
         if ($mail_subject != '') {
             $mail_subject = trim($mail_subject);
             $mail->subject = '=?UTF-8?B?' . base64_encode($mail_subject) . '?=';

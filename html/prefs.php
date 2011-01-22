@@ -124,7 +124,7 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
-             <input type="checkbox" name="cc_self" id="cc_self" value="on" <?php if($user_prefs->getCcSelf()) echo 'checked="checked"'; ?> /><label for="cc_self"><?php echo convertLang2Html($html_ccself) ?></label>
+             <input type="checkbox" name="cc_self" id="cc_self" value="on" <?php if($user_prefs->getBccSelf()) echo 'checked="checked"'; ?> /><label for="cc_self"><?php echo convertLang2Html($html_bccself) ?></label>
            </td>
          </tr>
          <?php if (file_exists('fckeditor/fckeditor.php')) { ?>

@@ -44,11 +44,11 @@ class NOCCUserPrefs {
     // TODO: Hide behind get/setMessagesPerPage()!
     var $msg_per_page;
     /**
-     * Cc self?
+     * Bcc self?
      * @var boolean
      * @access private
      */
-    private $_ccSelf;
+    private $_bccSelf;
     /**
      * Hide addresses?
      * @var boolean
@@ -149,7 +149,7 @@ class NOCCUserPrefs {
         $this->key = $key;
         $this->_fullName = '';
         $this->_emailAddress = '';
-        $this->_ccSelf = false;
+        $this->_bccSelf = false;
         $this->_hideAddresses = false;
         $this->_outlookQuoting = false;
         $this->_coloredQuotes = true;
@@ -205,19 +205,19 @@ class NOCCUserPrefs {
     //TODO: Add getFullEmailAddress()?
 
     /**
-     * Get Cc self sending from user preferences
-     * @return boolean Cc self?
+     * Get Bcc self sending from user preferences
+     * @return boolean Bcc self?
      */
-    public function getCcSelf() {
-        return $this->_ccSelf;
+    public function getBccSelf() {
+        return $this->_bccSelf;
     }
 
     /**
-     * Set Cc self sending from user preferences
-     * @param mixed $value Cc self?
+     * Set Bcc self sending from user preferences
+     * @param mixed $value Bcc self?
      */
-    public function setCcSelf($value) {
-        $this->_ccSelf = $this->_convertToFalse($value);
+    public function setBccSelf($value) {
+        $this->_bccSelf = $this->_convertToFalse($value);
     }
 
     /**
@@ -509,7 +509,8 @@ class NOCCUserPrefs {
                     $prefs->msg_per_page = $value * 1;
                     break;
                 case 'cc_self':
-                    $prefs->setCcSelf($value);
+                case 'bcc_self':
+                    $prefs->setBccSelf($value);
                     break;
                 case 'hide_addresses':
                     $prefs->setHideAddresses($value);
@@ -608,7 +609,7 @@ class NOCCUserPrefs {
         fwrite($file, "full_name=".$this->_fullName."\n");
         fwrite($file, "email_address=".$this->_emailAddress."\n");
         fwrite($file, "msg_per_page=".$this->msg_per_page."\n");
-        fwrite($file, "cc_self=".$this->_ccSelf."\n");
+        fwrite($file, "bcc_self=".$this->_bccSelf."\n");
         fwrite($file, "hide_addresses=".$this->_hideAddresses."\n");
         fwrite($file, "outlook_quoting=".$this->_outlookQuoting."\n");
         fwrite($file, "colored_quotes=".$this->_coloredQuotes."\n");
