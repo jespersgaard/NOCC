@@ -14,9 +14,8 @@
  * @license    http://www.gnu.org/licenses/ GNU General Public License
  * @version    SVN: $Id$
  */
-
 /** Traditional Chinese (‪中文(繁體)‬)
- *
+ * 
  * See the qqq 'language' for message documentation incl. usage of parameters
  * To improve a translation please visit http://translatewiki.net
  *
@@ -24,6 +23,7 @@
  * @file
  *
  * @author Cary Leung <cary@cary.net>
+ * @author Mark85296341
  */
 
 $lang_locale = 'zh_TW.UTF-8';
@@ -56,9 +56,9 @@ $html_reply_short = '回覆';
 $html_reply_all = '回覆所有人';
 $html_forward = '轉寄';
 $html_forward_short = '轉寄';
-$html_delete = '删除';
+$html_delete = '刪除';
 $html_new = '新';
-$html_mark = '删除';
+$html_mark = '刪除';
 $html_att_label = '附件';
 $html_unknown = '[不明]';
 $html_attach = '附件';
