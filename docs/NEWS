@@ -8,6 +8,7 @@ NOCC 1.9.0  ???? ??, ????
     * RFE #2985080 : Group items in character encoding list (Tim Gerundt).
 
   Misc
+    * Use text links for next/previous mail navigation (Tim Gerundt).
     * Change "Cc self" to "Bcc self" (Tim Gerundt).
     * Fix a problem with shorted subjects in inbox (Tim Gerundt).
     * Don't show none attachment images (Tim Gerundt).
