@@ -22,6 +22,7 @@
  * @ingroup Language
  * @file
  *
+ * @author RajeshPandey
  * @author सरोज कुमार ढकाल
  */
 
@@ -127,6 +128,7 @@ $html_mark = 'मेटाउने';
 $html_att_label = 'यसमा जोडिएको:';
 $html_atts_label = 'यसमा जोडिएकाहरु:';
 $html_unknown = '[अज्ञात]';
+$html_part_x = 'भाग %s';
 $html_attach = 'जोड्ने';
 $html_attach_forget = 'तपाईको फाइल पठाउनु अघि जोड्नु पर्ने छ!';
 $html_attach_delete = 'छानिएको हटाउने';
@@ -169,6 +171,8 @@ $html_normal = 'सामान्य';
 $html_high = 'उच्च';
 $html_highest = 'अति उच्च';
 $html_flagged = 'फ्ल्याग गरिएको';
+$html_spam = 'स्प्याम';
+$html_spam_warning = 'यस संदेश लाइ स्प्याम को रूप मा वर्गीकृत गरिएको छ।';
 $html_receipt = 'फिर्ते रसिदको लागि अनुरोध गर्ने';
 $html_select = 'छान्ने';
 $html_select_all = 'छानिएको उल्ट्याउने';

@@ -22,6 +22,7 @@
  * @ingroup Language
  * @file
  *
+ * @author Hydra
  * @author Liu Hong <loyaliu@21cn.com>
  * @author PhiLiP
  * @author Wilsonmess
@@ -45,8 +46,8 @@ $title_next_page = '下一页';
 $title_prev_page = '上一页';
 $title_next_msg = '下一个邮件';
 $title_prev_msg = '上一个邮件';
-$html_theme_label = '主题';
-$html_welcome = '欢迎 %1$s';
+$html_theme_label = '主题：';
+$html_welcome = '欢迎到 %1$s';
 $html_login = '登录';
 $html_user_label = '用户：';
 $html_passwd_label = '密码：';
@@ -84,12 +85,13 @@ $html_folder_delete = '删除';
 $html_folder_to = '至';
 $html_filter_remove = '删除';
 $html_and = '和';
+$html_or = '或者';
 $html_view_header = '浏览邮件头';
 $html_remove_header = '隐藏邮件头';
 $html_inbox = '收件箱';
 $html_new_msg = '写邮件';
 $html_reply = '回复';
-$html_reply_short = 'Re：';
+$html_reply_short = '回复：';
 $html_reply_all = '回复所有';
 $html_forward = '转发';
 $html_delete = '删除';

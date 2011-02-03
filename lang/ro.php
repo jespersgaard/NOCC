@@ -23,6 +23,7 @@
  * @file
  *
  * @author Firilacroco
+ * @author Minisarm
  * @author Nicu Buculei <nicubunu@yahoo.com>
  * @author Stelistcristi
  */
@@ -47,7 +48,7 @@ $title_next_msg = 'Mesaj urmator';
 $title_prev_msg = 'Mesaj anterior';
 $html_theme_label = 'Tema:';
 $html_welcome = 'Bun venit la %1$s';
-$html_login = 'Nume';
+$html_login = 'Autentificare';
 $html_user_label = 'Utilizator:';
 $html_passwd_label = 'Parola:';
 $html_submit = 'Trimit';
@@ -124,6 +125,7 @@ $html_from_label = 'De la:';
 $html_subject = 'Subiect';
 $html_subject_label = 'Subiect';
 $html_date = 'Data';
+$html_date_label = 'Dată';
 $html_sent_label = 'Trimis:';
 $html_wrote = 'a scris';
 $html_size = 'Marime';
