@@ -464,6 +464,7 @@ class nocc_imap
             $element_charset =  ($source[$j]->charset == 'default') ? detect_charset($source[$j]->text) : $source[$j]->charset;
 
             $element_converted = os_iconv($element_charset, 'UTF-8', $source[$j]->text);
+            $result[$j] = new stdClass();
             $result[$j]->text = $element_converted;
             $result[$j]->charset = 'UTF-8';
         }
