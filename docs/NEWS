@@ -3,6 +3,8 @@ NOCC 1.9.0  ???? ??, ????
   Bugs
     * Bug #3135831 : Call to undefined function dl() in config_check.php on line
       (Tim Gerundt).
+    * Bug #3170865 : PHP5 strict - Creating default object from empty value
+      (Max Nokhrin).
 
   Feature Requests
     * RFE #2985080 : Group items in character encoding list (Tim Gerundt).

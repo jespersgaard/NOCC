@@ -23,6 +23,8 @@
 // ### Required parameters
 // ###
 
+$conf = new stdClass();
+
 // Will be checked by html/*.php file. If it's not available, these files won't
 // be loaded.
 $conf->loaded = true;
@@ -124,6 +126,7 @@ $conf->loaded = true;
 
 $i = 0;
 
+$conf->domains[$i] = new stdClass();
 $conf->domains[$i]->domain = '';
 $conf->domains[$i]->in = '';
 $conf->domains[$i]->smtp = '';
@@ -144,6 +147,7 @@ $conf->domains[$i]->quota_type = 'STORAGE';
 // lines and fill them in
 
 //$i++;
+//$conf->domains[$i] = new stdClass();
 //$conf->domains[$i]->domain = '';
 //$conf->domains[$i]->in = '';
 //$conf->domains[$i]->smtp = '';
@@ -161,6 +165,7 @@ $conf->domains[$i]->quota_type = 'STORAGE';
 //$conf->domains[$i]->quota_type = 'STORAGE';
 
 //$i++;
+//$conf->domains[$i] = new stdClass();
 //$conf->domains[$i]->domain = '';
 //$conf->domains[$i]->in = '';
 //$conf->domains[$i]->smtp = '';
