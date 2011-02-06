@@ -36,11 +36,13 @@ class NOCCUserFilters {
     // TODO: Hide behind get/setIsDirty()!
     var $dirty_flag;
 
-    /*
-     * Default user profile
+    /**
+     * Initialize the default user filters
+     * @param string $key Key
+     * @param object $ev Exception
+     * @todo Rewrite to throw exception!
      */
-    //TODO: Rewrite to throw exception!
-    function NOCCUserFilters($key, &$ev) {
+    function __construct($key, &$ev) {
         global $conf;
 
         $this->key = $key;
@@ -52,14 +54,16 @@ class NOCCUserFilters {
         }
     }
 
-    /*
+    /**
      * Return the current preferences for the given key. Key is
      * 'login@domain'. If it cannot be found for any reason, it
      * returns a default profile. If it can be found, but not
      * read, it returns an exception.
+     * @param string $key Key
+     * @param object $ev Exception
+     * @todo Rewrite to throw exception!
+     * @todo Split in read() and readFromFile()?
      */
-    //TODO: Rewrite to throw exception!
-    //TODO: Split in read() and readFromFile()?
     public static function read($key, &$ev) {
         global $conf;
 
@@ -99,11 +103,12 @@ class NOCCUserFilters {
         return $filters;
     }
 
-    /*
+    /**
      * If need be, write settings to file.
+     * @param object $ev Exception
+     * @todo Rewrite to throw exception!
      */
-    //TODO: Rewrite to throw exception!
-    function commit(&$ev) {
+    public function commit(&$ev) {
         global $conf;
         global $html_prefs_file_error;
 
@@ -140,10 +145,11 @@ class NOCCUserFilters {
         $this->dirty_flag = 0;
     }
 
-    /*
+    /**
      * Create the filter select box for the prefs page
+     * @return string HTML select box
      */
-    function html_filter_select() {
+    public function html_filter_select() {
         $output = '';
         $pre = '<select class="button" name="filter" size="5">'."\n";
         $post = '</select>'."\n";
