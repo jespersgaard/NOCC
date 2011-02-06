@@ -60,8 +60,7 @@ class NOCCUserFilters {
      */
     //TODO: Rewrite to throw exception!
     //TODO: Split in read() and readFromFile()?
-    //TODO: Make static!
-    function read($key, &$ev) {
+    public static function read($key, &$ev) {
         global $conf;
 
         $filters = new NOCCUserFilters($key, $ev);
