@@ -118,16 +118,16 @@ if (isset($_REQUEST['only_one'])) {
                 }
             }
             if (isset($_REQUEST['mark_read_mode']) && $_REQUEST['mark_mode'] == 'read') {
-                $pop->mail_mark_read($i, $ev);
+                $pop->mail_mark_read($i);
             }
             if (isset($_REQUEST['bottom_mark_read_mode']) && $_REQUEST['bottom_mark_mode'] == 'read') {
-                $pop->mail_mark_read($i, $ev);
+                $pop->mail_mark_read($i);
             }
             if (isset($_REQUEST['mark_read_mode']) && $_REQUEST['mark_mode'] == 'unread') {
-                $pop->mail_mark_unread($i, $ev);
+                $pop->mail_mark_unread($i);
             }
             if (isset($_REQUEST['bottom_mark_read_mode']) && $_REQUEST['bottom_mark_mode'] == 'unread') {
-                $pop->mail_mark_unread($i, $ev);
+                $pop->mail_mark_unread($i);
             }
         }
     }

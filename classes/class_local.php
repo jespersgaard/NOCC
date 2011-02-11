@@ -386,17 +386,28 @@ class nocc_imap
         }
     }
 
-    //TODO: Rewrite to throw exception!
-    public function mail_mark_read($mail, &$ev) {
-        return imap_setflag_full($this->conn, imap_uid($this->conn, $mail), "\\Seen", ST_UID);
+    /**
+     * ...
+     * @param integer $msgnum Message number
+     * @return boolean Successful?
+     * @todo Rename to markMailRead()?
+     */
+    public function mail_mark_read($msgnum) {
+        return imap_setflag_full($this->conn, $msgnum, '\\Seen');
+    }
+
+    /**
+     * ...
+     * @param integer $msgnum Message number
+     * @return boolean Successful?
+     * @todo Rename to markMailUnread()?
+     */
+    public function mail_mark_unread($msgnum) {
+        return imap_clearflag_full($this->conn, $msgnum, '\\Seen');
     }
 
     //TODO: Rewrite to throw exception!
-    public function mail_mark_unread($mail, &$ev) {
-        return imap_clearflag_full($this->conn, imap_uid($this->conn, $mail), "\\Seen", ST_UID);
-    }
-
-    //TODO: Rewrite to throw exception!
+    //TODO: In use?
     public function exists($mailbox, &$ev) {
         $exists = false;
         $list = imap_list($this->conn, '{'.$this->server.'}', '*');
