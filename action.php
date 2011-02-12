@@ -583,10 +583,8 @@ switch($action) {
                             }
                         }
                     }
-                    $pop->expunge($ev);
-                    if (NoccException::isException($ev)) {
-                        error_log("Error expunging mail for user '$user_key': ".$ev->getMessage());
-                        $ev = null;
+                    if (!$pop->expunge()) {
+                        error_log("Error expunging mail for user '$user_key': ".$pop->last_error());
                     }
                 }
             }

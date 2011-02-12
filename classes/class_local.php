@@ -74,6 +74,15 @@ class nocc_imap
         return $this;
     }
 
+    /**
+     * Get the last IMAP error that occurred during this page request
+     * @return string Last IMAP error
+     * @todo Rename to getLastError()?
+     */
+    public function last_error() {
+        return imap_last_error();
+    }
+
     //TODO: Rewrite to throw exception!
     //TODO: Really needed?
     public function reopen($box, &$ev) {
@@ -265,8 +274,11 @@ class nocc_imap
         return imap_mail_move($this->conn, $msgnum, $mailbox, 0);
     }
 
-    //TODO: Rewrite to throw exception!
-    public function expunge(&$ev) {
+    /**
+     * Delete all messages marked for deletion
+     * @return boolean Successful?
+     */
+    public function expunge() {
         return imap_expunge($this->conn);
     }
 
