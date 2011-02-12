@@ -32,6 +32,7 @@ class result
   public $charset = '';
 }
 
+//TODO: Use mail or message as name?
 class nocc_imap
 {
     private $server;
@@ -157,12 +158,23 @@ class nocc_imap
         return @imap_fetchbody($this->conn, $msgnum, '');
     }
 
+    /**
+     * Get the number of messages in the current mailbox
+     * @return integer Number of messages
+     * @todo Rename to GetMessageCount()?
+     */
     public function num_msg() {
         return imap_num_msg($this->conn);
     }
 
-    public function msgno($msgnum) {
-        return imap_msgno($this->conn, $msgnum);
+    /**
+     * Get the message sequence number for the given UID
+     * @param integer $uid Message UID
+     * @return integer Message sequence number
+     * @todo Rename to GetMessageNumber()?
+     */
+    public function msgno($uid) {
+        return imap_msgno($this->conn, $uid);
     }
 
     /**
@@ -416,7 +428,7 @@ class nocc_imap
     }
 
     /**
-     * ...
+     * Mark mail as read
      * @param integer $msgnum Message number
      * @return boolean Successful?
      * @todo Rename to markMailRead()?
@@ -426,7 +438,7 @@ class nocc_imap
     }
 
     /**
-     * ...
+     * Mark mail as unread
      * @param integer $msgnum Message number
      * @return boolean Successful?
      * @todo Rename to markMailUnread()?
