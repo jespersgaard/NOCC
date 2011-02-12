@@ -223,7 +223,7 @@ function aff_mail(&$pop, $mail, $verbose, &$attachmentParts = null) {
         'priority_text' => $mail_reader->getPriorityText(),
         'spam' => $mail_reader->isSpam(),
         'att' => $link_att,
-        'body' => $pop->graphicalsmilies($body),
+        'body' => graphicalsmilies($body),
         'body_mime' => convertLang2Html($body_mime),
         'body_transfer' => convertLang2Html($body_transfer),
         'header' => $header,
@@ -433,6 +433,20 @@ function format_time(&$time, &$lang) {
 
     // format dates
     return strftime($default_time_format, $time); 
+}
+
+/**
+ * Convert text smilies to graphical smilies
+ * @param string $body Body
+ * @return string Body
+ */
+function graphicalsmilies($body) {
+    $user_prefs = NOCC_Session::getUserPrefs();
+    if ($user_prefs->getUseGraphicalSmilies()) {
+        $theme = new NOCC_Theme($_SESSION['nocc_theme']);
+        $body = $theme->replaceTextSmilies($body);
+    }
+    return $body;
 }
 
 /**

@@ -553,19 +553,6 @@ class nocc_imap
     public function status($foldername) {
         return imap_status($this->conn, $foldername, SA_ALL);
     }
-
-    /**
-     * Convert text smilies to graphical smilies
-     * TODO: Static?
-     */
-    public function graphicalsmilies($body) {
-        $user_prefs = NOCC_Session::getUserPrefs();
-        if ($user_prefs->getUseGraphicalSmilies()) {
-            $theme = new NOCC_Theme($_SESSION['nocc_theme']);
-            $body = $theme->replaceTextSmilies($body);
-        }
-        return ($body);
-    }
 }
 
 ?>
