@@ -448,22 +448,6 @@ class nocc_imap
     }
 
     //TODO: Rewrite to throw exception!
-    //TODO: In use?
-    public function exists($mailbox, &$ev) {
-        $exists = false;
-        $list = imap_list($this->conn, '{'.$this->server.'}', '*');
-        if (is_array($list)) {
-           reset($list);
-           while (list($key, $val) = each($list)) {
-               if (imap_utf7_decode($val) == $this->namespace.$mailbox) {
-                   $exists = true;
-               }
-           }
-        }
-        return $exists;
-    }
-
-    //TODO: Rewrite to throw exception!
     public function copytosentfolder($maildata, &$ev, $sent_folder_name) {
         if (!(imap_append($this->conn, '{'.$this->server.'}'.$this->namespace.$sent_folder_name, $maildata, "\\Seen"))) {
             $ev = new NoccException("could not copy mail into $sent_folder_name folder: ".imap_last_error());
@@ -568,25 +552,6 @@ class nocc_imap
       
     public function status($foldername) {
         return imap_status($this->conn, $foldername, SA_ALL);
-    }
-
-    /**
-     * Test function
-     */
-    public function test() {
-        imap_mailboxmsginfo($this->conn, $ev);
-        if (NoccException::isException($ev)) {
-            print "<p class=\"error\">imap_mailboxmsginfo() failed: ".$ev->getMessage(). "</p>\n";
-            return;
-        }
-        print "<p>Date: "    . $check->Date    ."</p>\n" ;
-        print "<p>Driver: "  . $check->Driver  ."</p>\n" ;
-        print "<p>Mailbox: " . $check->Mailbox ."</p>\n" ;
-        print "<p>Messages: ". $check->Nmsgs   ."</p>\n" ;
-        print "<p>Recent: "  . $check->Recent  ."</p>\n" ;
-        print "<p>Unread: "  . $check->Unread  ."</p>\n" ;
-        print "<p>Deleted: " . $check->Deleted ."</p>\n" ;
-        print "<p>Size: "    . $check->Size    ."</p>\n" ;
     }
 
     /**
