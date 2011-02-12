@@ -569,15 +569,13 @@ switch($action) {
                         }
                         if ($filters != null) {
                             foreach ($filters->filterset as $name => $filter) {
-                                $filter_messages = $pop->search($small_search . $filter['SEARCH'], $ev);
-                                if (is_array($filter_messages)) {
-                                    $filter_to_folder = array();
-                                    foreach ($filter_messages as $filt_msg_no) {
-                                        if ($filter['ACTION'] == 'DELETE') {
-                                            $pop->delete($filt_msg_no);
-                                        } elseif (preg_match("/^MOVE:(.+)$/", $filter['ACTION'], $filter_to_folder)) {
-                                            $pop->mail_move($filt_msg_no, $filter_to_folder[1]);
-                                        }
+                                $filter_messages = $pop->search($small_search . $filter['SEARCH']);
+                                $filter_to_folder = array();
+                                foreach ($filter_messages as $filt_msg_no) {
+                                    if ($filter['ACTION'] == 'DELETE') {
+                                        $pop->delete($filt_msg_no);
+                                    } elseif (preg_match("/^MOVE:(.+)$/", $filter['ACTION'], $filter_to_folder)) {
+                                        $pop->mail_move($filt_msg_no, $filter_to_folder[1]);
                                     }
                                 }
                             }

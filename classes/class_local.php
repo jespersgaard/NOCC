@@ -93,23 +93,15 @@ class nocc_imap
     }
 
     /**
-     * ...
-     * @param string $crit Search criteria
-     * @param object $ev Exception
+     * Search messages matching the given search criteria
+     * @param string $criteria Search criteria
      * @return array Messages
-     * @todo Rewrite to throw exception!
      */
-    public function search($crit, &$ev) {
-        $messages = imap_search($this->conn, $crit);
-
-        if (is_array($messages))
+    public function search($criteria) {
+        $messages = @imap_search($this->conn, $criteria);
+        if (is_array($messages)) {
             return $messages;
-        
-        $error = imap_last_error();
-        if (empty($error))
-            return array();
-        
-        $ev = new NoccException("imap_search: ".imap_last_error());
+        }
         return array();
     }
 
