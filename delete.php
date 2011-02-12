@@ -49,7 +49,7 @@ if (isset($_REQUEST['only_one'])) {
     $mail = $_REQUEST['mail'];
     if (isset($_REQUEST['move_mode'])) {
         if ($target_folder != $folder) {
-            $pop->mail_move($mail, $target_folder, $ev);
+            $pop->mail_move($mail, $target_folder);
         }
     }
     if (isset($_REQUEST['copy_mode'])) {
@@ -65,7 +65,7 @@ if (isset($_REQUEST['only_one'])) {
         if ($pop->is_imap()
                 && $user_prefs->getUseTrashFolder()
                 && $_SESSION['nocc_folder'] != $target_folder ) {
-            $pop->mail_move($mail, $target_folder, $ev);
+            $pop->mail_move($mail, $target_folder);
         } else {
             $pop->delete($mail, $ev);
         }
@@ -83,12 +83,12 @@ if (isset($_REQUEST['only_one'])) {
         if (isset($_REQUEST['msg-'.$i])) {
             if (isset($_REQUEST['move_mode'])) {
                 if ($target_folder != $folder) {
-                    $pop->mail_move($i, $target_folder, $ev);
+                    $pop->mail_move($i, $target_folder);
                 }
             }
             if (isset($_REQUEST['bottom_move_mode'])) {
                 if ($bottom_target_folder != $folder) {
-                    $pop->mail_move($i, $bottom_target_folder, $ev);
+                    $pop->mail_move($i, $bottom_target_folder);
                 }
             }
             if (isset($_REQUEST['copy_mode'])) {
@@ -112,7 +112,7 @@ if (isset($_REQUEST['only_one'])) {
                 if ($pop->is_imap()
                         && $user_prefs->getUseTrashFolder()
                         && $_SESSION['nocc_folder'] != $target_folder ) {
-                    $pop->mail_move($i, $target_folder, $ev);
+                    $pop->mail_move($i, $target_folder);
                 } else {
                     $pop->delete($i, $ev);
                 }

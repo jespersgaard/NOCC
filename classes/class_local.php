@@ -254,9 +254,15 @@ class nocc_imap
         return @imap_unsubscribe($this->conn, '{' . $this->server . '}' . $mailbox);
     }
 
-    //TODO: Rewrite to throw exception!
-    public function mail_move($mail, $new_box, &$ev) {
-        return imap_mail_move($this->conn, $mail, $new_box, 0);
+    /**
+     * Move a mail to a mailbox
+     * @param integer $msgnum Message number
+     * @param string $mailbox Destination mailbox
+     * @return boolean Successful?
+     * @todo Rename to moveMail()?
+     */
+    public function mail_move($msgnum, $mailbox) {
+        return imap_mail_move($this->conn, $msgnum, $mailbox, 0);
     }
 
     //TODO: Rewrite to throw exception!
