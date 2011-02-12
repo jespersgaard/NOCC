@@ -270,9 +270,14 @@ class nocc_imap
         return imap_expunge($this->conn);
     }
 
-    //TODO: Rewrite to throw exception!
-    public function delete($mail, &$ev) {
-        return imap_delete($this->conn, $mail, 0);
+    /**
+     * Delete a mail
+     * @param integer $msgnum Message number
+     * @return boolean Successful?
+     * @todo Rename to deleteMail()?
+     */
+    public function delete($msgnum) {
+        return imap_delete($this->conn, $msgnum, 0);
     }
 
     public function close() {

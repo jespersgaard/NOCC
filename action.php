@@ -574,7 +574,7 @@ switch($action) {
                                     $filter_to_folder = array();
                                     foreach ($filter_messages as $filt_msg_no) {
                                         if ($filter['ACTION'] == 'DELETE') {
-                                            $pop->delete($filt_msg_no, $ev);
+                                            $pop->delete($filt_msg_no);
                                         } elseif (preg_match("/^MOVE:(.+)$/", $filter['ACTION'], $filter_to_folder)) {
                                             $pop->mail_move($filt_msg_no, $filter_to_folder[1]);
                                         }

@@ -67,7 +67,7 @@ if (isset($_REQUEST['only_one'])) {
                 && $_SESSION['nocc_folder'] != $target_folder ) {
             $pop->mail_move($mail, $target_folder);
         } else {
-            $pop->delete($mail, $ev);
+            $pop->delete($mail);
         }
         if ($mail - 1) {
             $url = "action.php?action=aff_mail&mail=".--$mail."&verbose=0";
@@ -114,7 +114,7 @@ if (isset($_REQUEST['only_one'])) {
                         && $_SESSION['nocc_folder'] != $target_folder ) {
                     $pop->mail_move($i, $target_folder);
                 } else {
-                    $pop->delete($i, $ev);
+                    $pop->delete($i);
                 }
             }
             if (isset($_REQUEST['mark_read_mode']) && $_REQUEST['mark_mode'] == 'read') {
