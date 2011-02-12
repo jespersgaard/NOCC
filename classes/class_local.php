@@ -219,9 +219,15 @@ class nocc_imap
         }
     }
 
-    //TODO: Rewrite to throw exception!
-    public function mail_copy($mail, $new_box, &$ev) {
-        return imap_mail_copy($this->conn, $mail, $new_box, 0);
+    /**
+     * Copy a mail to a mailbox
+     * @param integer $msgnum Message number
+     * @param string $mailbox Destination mailbox
+     * @return boolean Successful?
+     * @todo Rename to copyMail()?
+     */
+    public function mail_copy($msgnum, $mailbox) {
+        return imap_mail_copy($this->conn, $msgnum, $mailbox, 0);
     }
 
     /**

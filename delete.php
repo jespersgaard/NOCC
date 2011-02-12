@@ -54,7 +54,7 @@ if (isset($_REQUEST['only_one'])) {
     }
     if (isset($_REQUEST['copy_mode'])) {
         if ($target_folder != $folder) {
-            $pop->mail_copy($mail, $target_folder, $ev);
+            $pop->mail_copy($mail, $target_folder);
         }
     }
     if (isset($_REQUEST['delete_mode'])) {
@@ -93,12 +93,12 @@ if (isset($_REQUEST['only_one'])) {
             }
             if (isset($_REQUEST['copy_mode'])) {
                 if ($target_folder != $folder) {
-                    $pop->mail_copy($i, $target_folder, $ev);
+                    $pop->mail_copy($i, $target_folder);
                 }
             }
             if (isset($_REQUEST['bottom_copy_mode'])) {
                 if ($bottom_target_folder != $folder) {
-                    $pop->mail_copy($i, $bottom_target_folder, $ev);
+                    $pop->mail_copy($i, $bottom_target_folder);
                 }
             }
             if (isset($_REQUEST['forward_mode']) || isset($_REQUEST['bottom_forward_mode'])) {
