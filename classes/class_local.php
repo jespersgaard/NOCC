@@ -84,14 +84,6 @@ class nocc_imap
         return imap_last_error();
     }
 
-    //TODO: Rewrite to throw exception!
-    //TODO: Really needed?
-    public function reopen($box, &$ev) {
-        if (!imap_reopen($this->conn, $box)) {
-            $ev = new NoccException(imap_last_error());
-        }
-    }
-
     /**
      * Search messages matching the given search criteria
      * @param string $criteria Search criteria
