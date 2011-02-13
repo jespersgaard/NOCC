@@ -19,8 +19,11 @@
 
 require_once 'exception.php';
 
-class smtp
-{
+/**
+ * Sending a mail with SMTP
+ * @package    NOCC
+ */
+class smtp {
     var $smtp_server;
     var $port;
     var $from;
@@ -30,10 +33,11 @@ class smtp
     var $subject;
     var $data;
     var $sessionlog = '';
-        
-    // This function is the constructor don't forget this one
-    function smtp()
-    {
+    
+    /**
+     * Initialize the class
+     */
+    public function __construct() {
         $this->smtp_server = '';
         $this->port = '';
         $this->from = '';
@@ -44,8 +48,7 @@ class smtp
         $this->data = '';
     }
 
-    function smtp_open() 
-    {
+    public function smtp_open() {
         $smtp = fsockopen($this->smtp_server, $this->port, $errno, $errstr); 
         if (!$smtp)
             return new NoccException($html_smtp_no_con . ' : ' . $errstr); 
@@ -55,10 +58,9 @@ class smtp
             return new NoccException($html_smtp_error_unexpected . ' : ' . $line); 
         
         return $smtp;
-    } 
-    
-    function smtp_helo($smtp) 
-    {
+    }
+
+    public function smtp_helo($smtp) {
         /* 'localhost' not always works [Unk] */ 
         fputs($smtp, "helo " . $_SERVER['SERVER_NAME'] . "\r\n"); 
         $this->sessionlog .= "Sent: helo " . $_SERVER['SERVER_NAME'];
@@ -69,10 +71,9 @@ class smtp
             return new NoccException($html_smtp_error_unexpected . ' : ' . $line); 
         
         return (true);
-    } 
-  
-    function smtp_ehlo($smtp) 
-    {
+    }
+
+    public function smtp_ehlo($smtp) {
         /*
           A working EHLO command. Still, any received information is simply
           ignored.
@@ -86,11 +87,10 @@ class smtp
             if (substr($line, 0, 1) != '2')
                 return new NoccException($html_smtp_error_unexpected . ' : ' . $line); 
         }
-        return (true);
-    } 
-    
-    function smtp_auth($smtp)
-    {
+        return true;
+    }
+
+    public function smtp_auth($smtp) {
       global $conf;
       require_once './utils/crypt.php';
       switch ($_SESSION['smtp_auth']) {
@@ -129,11 +129,10 @@ class smtp
           case '':
               return (true);
       }
-      return (true);
+      return true;
     }
 
-    function smtp_mail_from($smtp) 
-    {
+    public function smtp_mail_from($smtp) {
         fputs($smtp, "MAIL FROM:$this->from\r\n"); 
         $this->sessionlog .= "Sent: MAIL FROM:$this->from";
         $line = fgets($smtp, 1024);
@@ -142,11 +141,10 @@ class smtp
         if (substr($line, 0, 1) <> '2')
             return new NoccException($html_smtp_error_unexpected . ' : ' . $line);
 
-        return (true);
+        return true;
     }
 
-    function smtp_rcpt_to($smtp)
-    {
+    public function smtp_rcpt_to($smtp) {
         // Modified by nicocha to use to, cc and bcc field
         while ($tmp = array_shift($this->to)) {
             if($tmp == '' || $tmp == '<>')
@@ -182,11 +180,10 @@ class smtp
             if (substr($line, 0, 1) <> '2')
                 return new NoccException($html_smtp_error_unexpected . ' : ' . $line);
         }
-        return (true);
-    } 
+        return true;
+    }
 
-    function smtp_data($smtp) 
-    {
+    public function smtp_data($smtp) {
         fputs($smtp, "DATA\r\n"); 
         $this->sessionlog .= "Sent: DATA";
         $line = fgets($smtp, 1024);
@@ -202,11 +199,10 @@ class smtp
         if (substr($line, 0, 1) !=  '2')
             return new NoccException($html_smtp_error_unexpected . ' : ' . $line); 
 
-        return (true);
+        return true;
     }
-  
-    function smtp_quit($smtp) 
-    {
+
+    public function smtp_quit($smtp) {
         fputs($smtp, "QUIT\r\n");
         $this->sessionlog .= "Sent: QUIT";
         $line = fgets($smtp, 1024);
@@ -215,11 +211,10 @@ class smtp
         if (substr($line, 0, 1) !=  '2')
             return new NoccException($html_smtp_error_unexpected . ' : ' . $line); 
 
-        return (true);
+        return true;
     }
 
-    function send()
-    {
+    public function send() {
         $smtp = $this->smtp_open();
         if(NoccException::isException($smtp))
             return $smtp;
