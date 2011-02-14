@@ -86,7 +86,7 @@ function inbox(&$pop, $skip = 0) {
         if ($_SESSION['ucb_pop_server']) {
             $newmail = $mail_reader->isUnreadUcb();
         }
-        
+
         $timestamp = $mail_reader->getTimestamp();
         $date = format_date($timestamp, $lang);
         $time = format_time($timestamp, $lang);
@@ -97,7 +97,7 @@ function inbox(&$pop, $skip = 0) {
                 'attach' => $mail_reader->hasAttachments(),
                 'to' => $to,
                 'from' => $mail_reader->getFromAddress(),
-                'subject' => $mail_reader->getSubject(), 
+                'subject' => $mail_reader->getSubject(),
                 'date' => $date,
                 'time' => $time,
                 'complete_date' => $date . ' ' . $time,
@@ -198,7 +198,7 @@ function aff_mail(&$pop, $mail, $verbose, &$attachmentParts = null) {
     // Get to
     $to = $mail_reader->getToAddress();
     $to = str_replace(',', ', ', $to);
-    
+
     // Get cc
     $cc = $mail_reader->getCcAddress();
     $cc = str_replace(',', ', ', $cc);
@@ -272,7 +272,7 @@ function detect_body_charset($body, $suspectedCharset) {
  */
 function fillAttachTabFromMailReader($mail_reader, &$attach_tab) {
     global $html_part_x;
-    
+
     $parts = $mail_reader->getAttachmentParts();
     foreach ($parts as $part) { //for all parts...
         $defaultname = sprintf($html_part_x, $part->getPartNumber());
@@ -350,9 +350,9 @@ function remove_stuff($body, $mime) {
         // Disable incoming message wordwrapping. Plain text message formatting should be done by the writter.
         // The client don't have to change the way the message is display (think to ASCII schemes).
         // $body = wordwrap($body, 80);
-        
+
         $body = nl2br($body);
-    }    
+    }
     return ($body);
 }
 
@@ -408,7 +408,7 @@ function format_date(&$date, &$lang) {
         $default_date_format = $no_locale_date_format;
 
     // format dates
-    return strftime($default_date_format, $date); 
+    return strftime($default_date_format, $date);
 }
 
 /**
@@ -432,7 +432,7 @@ function format_time(&$time, &$lang) {
     setlocale(LC_TIME, $lang_locale);
 
     // format dates
-    return strftime($default_time_format, $time); 
+    return strftime($default_time_format, $time);
 }
 
 /**
@@ -567,7 +567,7 @@ function clear_attachments() {
 }
 
 /**
- * This function chops the <mail@domain.com> bit from a 
+ * This function chops the <mail@domain.com> bit from a
  * full 'Blah Blah <mail@domain.com>' address, or not
  * depending on the 'hide_addresses' preference.
  * @global object $html_unknown
@@ -645,7 +645,7 @@ function mailquote(&$body, &$from, $html_wrote) {
     } else {
         $body = "> " . preg_replace("|\n|", "\n> ", trim($body));
     }
-    
+
     return($from . ' ' . $html_wrote . " :\n\n" . $body);
 
 }
@@ -906,7 +906,7 @@ function os_iconv($input_charset, $output_charset, &$text) {
 
 /**
  * Build a folder breadcrumb navigation...
- * @param string $folder 
+ * @param string $folder
  */
 function buildfolderlink($folder) {
     $folderpath = '';
@@ -937,12 +937,12 @@ function buildfolderlink($folder) {
  */
 function get_page_nav($pages, $skip) {
   global $html_page, $html_of, $alt_prev, $title_prev_page, $alt_next, $title_next_page;
-  
+
   $html = '';
   if ($pages > 1) { // if there several pages...
     $form_select = '<select class="button" name="skip" onchange="submit();">';
     $selected = '';
-    for ($i = 0; $i < $pages; $i++) { 
+    for ($i = 0; $i < $pages; $i++) {
         $xpage = $i + 1;
         if ($i == $skip) {
             $selected = 'selected="selected"';
@@ -956,7 +956,7 @@ function get_page_nav($pages, $skip) {
     $page = $skip + 1;
     $pskip = $skip - 1;
     $nskip = $skip + 1;
-    
+
     $start_page = $page - 2;
     $end_page = $page + 2;
     if ($page < 4) { // if first three pages...
@@ -974,7 +974,7 @@ function get_page_nav($pages, $skip) {
     if ($end_page > $pages) {
       $end_page = $pages;
     }
-    
+
     $html = '<form method="post" action="'.$_SERVER['PHP_SELF'].'">';
     $html .= '<div class="pagenav"><ul>';
     $html .= '<li class="pagexofy"><span>' . $html_page . ' ' . $form_select . ' ' . $html_of . ' ' . $pages . '</span></li>';
