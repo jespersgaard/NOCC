@@ -262,15 +262,15 @@ switch($action) {
             break;
         }
 
-    $do = "";
+    $do = '';
     if(isset($_REQUEST['do']))
         $do = trim(safestrip($_REQUEST['do']));
         switch ($do) {
             case 'create_folder':
                 if ($_REQUEST['createnewbox']) {
-                    $pop->createmailbox($_REQUEST['createnewbox'], $ev);
-                    if(NoccException::isException($ev)) break;
-                    $pop->subscribe($_REQUEST['createnewbox'], true);
+                    if ($pop->createmailbox($_REQUEST['createnewbox'])) {
+                        $pop->subscribe($_REQUEST['createnewbox'], true);
+                    }
                 }
                 break;
 

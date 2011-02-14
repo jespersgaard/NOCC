@@ -218,11 +218,14 @@ class nocc_imap
         }
     }
 
-    //TODO: Rewrite to throw exception!
-    public function createmailbox($new_box, &$ev) {
-        if (!imap_createmailbox($this->conn, '{'.$this->server.'}'.$this->namespace.mb_convert_encoding($new_box, 'UTF7-IMAP', 'UTF-8'))) {
-            $ev = new NoccException(imap_last_error());
-        }
+    /**
+     * Create a mailbox
+     * @param srtring $mailbox Mailbox
+     * @return boolean Successful?
+     * @todo Rename to createMailbox()?
+     */
+    public function createmailbox($mailbox) {
+        return imap_createmailbox($this->conn, '{' . $this->server . '}' . $this->namespace . mb_convert_encoding($mailbox, 'UTF7-IMAP', 'UTF-8'));
     }
 
     /**
