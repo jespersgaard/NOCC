@@ -58,6 +58,8 @@ $html_server_label = '{{Identical|Server}}';
 $html_lang_label = '{{Identical|Language}}';
 $html_msgperpage_label = 'Text before an input box in the user\'s \'preferences\'. The user chooses the number of messages to display together on each page of a list of messages.';
 $html_preferences = '{{Identical|Preferences}}';
+$html_bccself = 'This means: \'\'send a copy of the e-mail to my own address but hide this fact from all other receivers of the e-mail.\'\'
+"Bcc" stands for "blind carbon copy" and is here being used as a verb.';
 $html_signature = '{{Identical|Signature}}';
 $html_signature_label = '{{Identical|Signature}}';
 $html_display_struct = 'This is a prompt of a yes/no switch. If set to true (yes), NOCC will render few simple formatting options commonly used in plaintext ASCII e-mail via html markup, such as:
@@ -119,6 +121,7 @@ $html_delete = '{{Identical|Delete}}';
 $html_new = '{{Identical|New}}';
 $html_mark = '{{Identical|Delete}}';
 $html_unknown = '{{Identical|Unknown}}';
+$html_part_x = 'This message has to do with e-mails with attachments that are split up because the attachment cannot be sent in one e-mail. %s is the part number.';
 $html_attach_delete = 'This is a button label which appears under the list of attached files when writing an e-mail. When this button is clicked all selected file attachments are removed from the e-mail.';
 $html_from_label = '{{Identical|From}}';
 $html_subject = '{{Identical|Subject}}';

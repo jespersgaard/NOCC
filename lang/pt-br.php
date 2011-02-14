@@ -28,6 +28,7 @@
  * @author Giovani Zamboni <zambaxtz@terra.com.br>
  * @author Giro720
  * @author Luckas Blade
+ * @author Raylton P. Sousa
  * @author Renato Frederick <frederick@dahype.org>
  * @author Rodrigo Avila
  */
@@ -66,7 +67,7 @@ $html_msgperpage_label = 'Mensagens por página:';
 $html_preferences = 'Preferências';
 $html_full_name_label = 'Nome Completo:';
 $html_email_address_label = 'Endereço de Email:';
-$html_bccself = 'Bcc self';
+$html_bccself = 'Bcc alto';
 $html_hide_addresses = 'Ocultar Endereços';
 $html_outlook_quoting = 'Quotas no estilo Outlook';
 $html_reply_to = 'Responder para';

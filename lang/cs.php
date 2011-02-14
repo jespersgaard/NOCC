@@ -22,6 +22,7 @@
  * @ingroup Language
  * @file
  *
+ * @author Dontlietome7
  * @author Kuvaly
  * @author Lukas Mizoch <ragimiri@gmail.com>
  * @author Mormegil
@@ -65,7 +66,7 @@ $html_msgperpage_label = 'Zpráv na stránku:';
 $html_preferences = 'Nastavení';
 $html_full_name_label = 'Celé jméno:';
 $html_email_address_label = 'E-mailová adresa:';
-$html_bccself = 'Bcc self';
+$html_bccself = 'Poslat kopii odeslaných do vlastní e-mailové schránky';
 $html_hide_addresses = 'Skryj adresy';
 $html_outlook_quoting = 'Formátování ve stylu Outlook';
 $html_reply_to = 'Odpovědět';
