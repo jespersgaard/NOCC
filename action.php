@@ -301,8 +301,7 @@ switch($action) {
             case 'delete_folder':
                 if ($_REQUEST['deletebox']) {
                     $pop->unsubscribe($_REQUEST['deletebox']);
-                    $pop->deletemailbox($_REQUEST['deletebox'], $ev);
-                    if(NoccException::isException($ev)) break;
+                    $pop->deletemailbox($_REQUEST['deletebox']);
                 }
                 break;
 

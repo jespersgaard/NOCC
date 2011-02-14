@@ -201,13 +201,14 @@ class nocc_imap
         return new NOCC_HeaderInfo($headerinfo, $defaultcharset);
     }
 
-    // From what I can find, this will not work on Cyrus imap servers .
-    // [I will test this, I use Cyrus IMAP - Ross]
-    //TODO: Rewrite to throw exception!
-    public function deletemailbox($old_box, &$ev) {
-        if (!imap_deletemailbox($this->conn, '{'.$this->server.'}'.$old_box)) {
-            $ev = new NoccException(imap_last_error());
-        }
+    /**
+     * Delete a mailbox
+     * @param string $mailbox Mailbox
+     * @return boolean Successful?
+     * @todo Rename to deleteMailbox()?
+     */
+    public function deletemailbox($mailbox) {
+        return imap_deletemailbox($this->conn, '{' . $this->server . '}' . $mailbox);
     }
 
     //TODO: Rewrite to throw exception!
