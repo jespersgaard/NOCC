@@ -211,11 +211,15 @@ class nocc_imap
         return imap_deletemailbox($this->conn, '{' . $this->server . '}' . $mailbox);
     }
 
-    //TODO: Rewrite to throw exception!
-    public function renamemailbox($old_box, $new_box, &$ev) {
-        if (!imap_renamemailbox($this->conn, '{'.$this->server.'}'.$old_box, '{'.$this->server.'}'.$this->namespace.mb_convert_encoding($new_box, 'UTF7-IMAP', 'UTF-8'))) {
-            $ev = new NoccException(imap_last_error());
-        }
+    /**
+     * Rename a mailbox
+     * @param string $oldMailbox Old mailbox
+     * @param string $newMailbox New mailbox
+     * @return boolean Successful?
+     * @todo Rename to renameMailbox()?
+     */
+    public function renamemailbox($oldMailbox, $newMailbox) {
+        return imap_renamemailbox($this->conn, '{' . $this->server . '}' . $oldMailbox, '{' . $this->server . '}' . $this->namespace . mb_convert_encoding($newMailbox, 'UTF7-IMAP', 'UTF-8'));
     }
 
     /**

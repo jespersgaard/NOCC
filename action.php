@@ -291,10 +291,10 @@ switch($action) {
 
             case 'rename_folder':
                 if ($_REQUEST['renamenewbox'] && $_REQUEST['renameoldbox']) {
-                    $pop->renamemailbox($_REQUEST['renameoldbox'], $_REQUEST['renamenewbox'], $ev);
-                    if(NoccException::isException($ev)) break;
-                    $pop->unsubscribe($_REQUEST['renameoldbox']);
-                    $pop->subscribe($_REQUEST['renamenewbox'], true);
+                    if ($pop->renamemailbox($_REQUEST['renameoldbox'], $_REQUEST['renamenewbox'])) {
+                        $pop->unsubscribe($_REQUEST['renameoldbox']);
+                        $pop->subscribe($_REQUEST['renamenewbox'], true);
+                    }
                 }
                 break;
             
