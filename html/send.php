@@ -146,17 +146,15 @@
      <tr>
        <td>&nbsp;</td>
        <td class="sendData">
-         <?php if (!NOCC_Session::getSendHtmlMail() || !file_exists('fckeditor/fckeditor.php')) { ?>
+         <?php if (!NOCC_Session::getSendHtmlMail() || !file_exists('ckeditor/ckeditor.php')) { ?>
          <textarea name="mail_body" cols="82" rows="20"><?php echo (isset($mail_body) ? htmlspecialchars($mail_body) : '') ?></textarea>
          <?php
            } else {
-                include 'fckeditor/fckeditor.php';
-                $oFCKeditor = new FCKeditor('mail_body') ;
-                $oFCKeditor->ToolbarSet = 'NOCC';
-                $oFCKeditor->BasePath = 'fckeditor/';
-                $oFCKeditor->Config['CustomConfigurationsPath'] = $conf->base_url . 'config/fckconfig.js';
-                $oFCKeditor->Value = isset($mail_body) ? $mail_body : '';
-                $oFCKeditor->Create();
+                include 'ckeditor/ckeditor.php';
+                $oCKEditor = new CKEditor();
+                $oCKEditor->basePath = 'ckeditor/';
+                $oCKEditor->config['customConfig'] = $conf->base_url . 'config/ckeditor_config.js';
+                $oCKEditor->editor('mail_body', isset($mail_body) ? $mail_body : '');
            }
          ?>
        </td>

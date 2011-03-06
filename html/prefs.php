@@ -127,7 +127,7 @@ if (count($big_list) > 1) {
              <input type="checkbox" name="cc_self" id="cc_self" value="on" <?php if($user_prefs->getBccSelf()) echo 'checked="checked"'; ?> /><label for="cc_self"><?php echo convertLang2Html($html_bccself) ?></label>
            </td>
          </tr>
-         <?php if (file_exists('fckeditor/fckeditor.php')) { ?>
+         <?php if (file_exists('ckeditor/ckeditor.php')) { ?>
          <tr>
            <td class="prefsLabel">&nbsp;</td>
            <td class="prefsData">
@@ -154,14 +154,12 @@ if (count($big_list) > 1) {
          <tr>
            <td class="prefsLabel"><label for="signature"><?php echo convertLang2Html($html_signature_label) ?></label></td>
            <td class="prefsData">
-             <?php if ($user_prefs->getSendHtmlMail() && file_exists('fckeditor/fckeditor.php')) {
-               include 'fckeditor/fckeditor.php';
-               $oFCKeditor = new FCKeditor('signature');
-               $oFCKeditor->ToolbarSet = 'NOCC';
-               $oFCKeditor->BasePath = 'fckeditor/';
-               $oFCKeditor->Config['CustomConfigurationsPath'] = $conf->base_url . 'config/fckconfig.js';
-               $oFCKeditor->Value = $user_prefs->getSignature();
-               $oFCKeditor->Create();
+             <?php if ($user_prefs->getSendHtmlMail() && file_exists('ckeditor/ckeditor.php')) {
+               include 'ckeditor/ckeditor.php';
+               $oCKEditor = new CKEditor();
+               $oCKEditor->basePath = 'ckeditor/';
+               $oCKEditor->config['customConfig'] = $conf->base_url . 'config/ckeditor_config.js';
+               $oCKEditor->editor('signature', $user_prefs->getSignature());
              } else { ?>
              <textarea class="button" name="signature" id="signature" rows="5" cols="40"><?php echo $user_prefs->getSignature(); ?></textarea>
              <?php } ?>
