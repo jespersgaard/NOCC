@@ -24,6 +24,7 @@
  *
  * @author Emperyan
  * @author Joseph
+ * @author Vito Genovese
  * @author İsmail Özer <aceleyolla AT gmx DOT net>
  */
 
@@ -61,7 +62,7 @@ $html_msgperpage_label = 'Sayfa başına mesaj sayısı:';
 $html_preferences = 'Ayarlar';
 $html_full_name_label = 'Tam isim:';
 $html_email_address_label = 'E-posta Adresi:';
-$html_bccself = 'Bcc self';
+$html_bccself = 'Beni bcc listesine ekle';
 $html_hide_addresses = 'Adresleri gizli tut';
 $html_outlook_quoting = 'Outlook biçimi işaretle';
 $html_reply_to = 'Cevapla';
@@ -81,7 +82,7 @@ $html_send_html_mail = 'İletiyi HTML formatında gönder';
 $html_folders = 'Klasörler';
 $html_folders_create_failed = 'Klasör oluşturmada bir hata çıktı!';
 $html_folders_sub_failed = 'Klasörü paylaşmada hata oluştu!';
-$html_folders_unsub_failed = 'Klasörün paylaşımı kaldırlamadı!';
+$html_folders_unsub_failed = 'Klasörün paylaşımı kaldırılamadı!';
 $html_folders_rename_failed = 'Klasör farklı adlandırlamadı!';
 $html_folders_updated = 'Klasörler güncelleştirildi';
 $html_folder_subscribe = 'Klasörü paylaş';
