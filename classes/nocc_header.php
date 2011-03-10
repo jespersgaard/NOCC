@@ -75,6 +75,11 @@ class NOCC_Header {
                     $this->_contenttype = trim($content_type[0]);
                     break;
                 case 'x-spam-flag': //SpamAssassin (default)
+                    $value = strtolower(trim($header_field[1]));
+                    if ($value == 'yes') {
+                        $this->_spamflag = true;
+                    }
+                    break;
                 case 'x-kasspamfilter': //all-inkl.com
                     $this->_spamflag = true;
                     break;

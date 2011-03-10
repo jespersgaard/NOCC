@@ -10,6 +10,7 @@ NOCC 1.9.0  ???? ??, ????
     * RFE #2985080 : Group items in character encoding list (Tim Gerundt).
 
   Misc
+    * Check X-Spam-Flag for YES value (Tim Gerundt).
     * Switch from FCKeditor to CKEditor (Tim Gerundt).
     * Use text links for next/previous mail navigation (Tim Gerundt).
     * Change "Cc self" to "Bcc self" (Tim Gerundt).
