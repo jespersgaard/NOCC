@@ -634,7 +634,7 @@ switch($action) {
             else {
                 try {
                     // gather list of folders for menu_inbox_status
-                    $subscribed = $pop->getsubscribed($ev);
+                    $subscribed = $pop->getsubscribed();
 
                     $_SESSION['subscribed'] = $subscribed;
                 }
