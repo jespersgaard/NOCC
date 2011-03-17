@@ -385,6 +385,7 @@ class nocc_imap
     /**
      * ...
      * @return array Subscribed mailboxes
+     * @todo Really throw an exception?
      */
     public function getsubscribed() {
         $subscribed = @imap_getsubscribed($this->conn, '{' . $this->server . '}', '*');
@@ -538,12 +539,22 @@ class nocc_imap
         }
     }
 
-    public function get_quota_usage($mailbox) {
-        return @imap_get_quotaroot($this->conn, $mailbox);
+    /**
+     * Retrieve the quota settings
+     * @param string $quotaRoot Quota root (mailbox)
+     * @return array Quota settings
+     */
+    public function get_quota_usage($quotaRoot) {
+        return @imap_get_quotaroot($this->conn, $quotaRoot);
     }
-      
-    public function status($foldername) {
-        return imap_status($this->conn, $foldername, SA_ALL);
+
+    /**
+     * Return status information from a mailbox
+     * @param string $mailbox Mailbox
+     * @return object Status information
+     */
+    public function status($mailbox) {
+        return @imap_status($this->conn, $mailbox, SA_ALL);
     }
 }
 
