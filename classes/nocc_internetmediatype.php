@@ -45,6 +45,8 @@ class NOCC_InternetMediaType {
             $this->_type = $type;
             $this->_subtype = strtolower($subtype);
         }
+        //TODO: Maybe allow $type also as string if $subtype is string?
+        //TODO: Maybe allow $type also as string if $subtype is empty?
     }
 
     /**
