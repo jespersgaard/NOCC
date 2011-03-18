@@ -65,7 +65,8 @@ class NOCC_Security {
             "'<embed[^>]*>.*?</embed>'si",
             "'<applet[^>]*>.*?</applet>'si",
             "'<mocha[^>]*>.*?</mocha>'si",
-            "'<meta[^>]*>'si"
+            "'<meta[^>]*>'si",
+            "'<o:p[^>]*>.*?</o:p>'si" //Outlook
         );
         $cleanBody = preg_replace($dirtyTags, '', $body);
         return trim($cleanBody);
