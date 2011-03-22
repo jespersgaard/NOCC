@@ -312,7 +312,8 @@ if (isset($_SESSION['nocc_user']) && isset($_SESSION['nocc_domain'])) {
 
     // Preferences
     if (!NOCC_Session::existsUserPrefs()) {
-        $_SESSION['nocc_user_prefs'] = NOCCUserPrefs::read($user_key, $ev);
+        //TODO: Move to NOCC_Session::loadUserPrefs()?
+        NOCC_Session::setUserPrefs(NOCCUserPrefs::read($user_key, $ev));
         if(NoccException::isException($ev)) {
             echo "<p>User prefs error ($user_key): ".$ev->getMessage()."</p>";
             exit(1);

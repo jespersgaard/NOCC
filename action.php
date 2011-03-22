@@ -490,7 +490,7 @@ switch($action) {
                 break;
             }
 
-            $_SESSION['nocc_user_prefs'] = $user_prefs;
+            NOCC_Session::setUserPrefs($user_prefs);
         }
 
         require './html/header.php';

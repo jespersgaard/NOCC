@@ -40,9 +40,10 @@
   $_SESSION['quota_enable'] = base64_decode($_REQUEST['quota_enable']);
   $_SESSION['quota_type'] = base64_decode($_REQUEST['quota_type']);
 
-  if (!isset($_SESSION['nocc_user_prefs'])) {
+  if (!NOCC_Session::existsUserPrefs()) {
+      //TODO: Move to NOCC_Session::loadUserPrefs()?
       $user_key = NOCC_Session::getUserKey();
-      $_SESSION['nocc_user_prefs'] = NOCCUserPrefs::read($user_key, $ev);
+      NOCC_Session::setUserPrefs(NOCCUserPrefs::read($user_key, $ev));
       if (NoccException::isException($ev)) {
               echo "<p>User prefs error ($user_key): ".$ev->getMessage()."</p>";
               exit(1);
