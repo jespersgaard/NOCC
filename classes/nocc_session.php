@@ -57,8 +57,8 @@ class NOCC_Session {
      * @static
      */
     public static function getQuotaEnable() {
-        if (isset($_SESSION['quota_enable'])) {
-            return $_SESSION['quota_enable'];
+        if (isset($_SESSION['quota_enable']) && $_SESSION['quota_enable']) {
+            return true;
         }
         return false;
     }
