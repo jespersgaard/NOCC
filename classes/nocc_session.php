@@ -13,6 +13,8 @@
  * @version    SVN: $Id$
  */
 
+require_once 'user_prefs.php';
+
 /**
  * Wrapping the $_SESSION array
  *
@@ -99,7 +101,12 @@ class NOCC_Session {
      * @static
      */
     public static function existsUserPrefs() {
-        return isset($_SESSION['nocc_user_prefs']);
+        if (isset($_SESSION['nocc_user_prefs'])) {
+            if ($_SESSION['nocc_user_prefs'] instanceof NOCCUserPrefs) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -108,7 +115,7 @@ class NOCC_Session {
      * @static
      */
     public static function getUserPrefs() {
-        if (isset($_SESSION['nocc_user_prefs'])) {
+        if (NOCC_Session::existsUserPrefs()) {
             return $_SESSION['nocc_user_prefs'];
         }
         return new NOCCUserPrefs('');
