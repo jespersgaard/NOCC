@@ -1,3 +1,8 @@
+NOCC 1.9.1  March 26, 2011
+
+  Misc
+    * Fix a problem, if use wrong username or password (Tim Gerundt).
+
 NOCC 1.9.0  March 19, 2011
 
   Bugs
