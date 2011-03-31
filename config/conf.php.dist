@@ -272,10 +272,6 @@ $conf->default_smtp_port = 25;
 //Uncomment this to allow secure typed domain logins
 //$conf->typed_domain_login = '1';
 
-// Another tip for Xitami users, whose $_SERVER['PHP_SELF'] is broken
-// (see http://sourceforge.net/tracker/index.php?func=detail&aid=505194&group_id=12177&atid=112177)
-//$_SERVER['PHP_SELF'] = 'action.php';
-
 // ##
 // ## Login options
 // ##
