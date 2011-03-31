@@ -1,3 +1,8 @@
+NOCC 1.9.2  ???? ??, ????
+
+  Misc
+    * Add robots.txt to exclude all web crawlers (Tim Gerundt).
+
 NOCC 1.9.1  March 26, 2011
 
   Misc
