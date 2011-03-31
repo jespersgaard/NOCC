@@ -326,20 +326,18 @@ function GetAttachmentsTableRow($mail_reader) {
  * @return string
  */
 function remove_stuff($body, $mime) {
-    $PHP_SELF = $_SERVER['PHP_SELF'];
-
     if (preg_match('|html|i', $mime)) {
         $body = NOCC_Security::cleanHtmlBody($body);
         //TODO: Move to NOCC_Security::cleanHtmlBody() too?
         $body = preg_replace("|href=\"(.*)script:|i", 'href="nocc_removed_script:', $body);
         $body = preg_replace("|<([^>]*)java|i", '<nocc_removed_java_tag', $body);
         $body = preg_replace("|<([^>]*)&{.*}([^>]*)>|i", "<&{;}\\3>", $body);
-        $body = NOCC_Body::prepareHtmlLinks($body, $PHP_SELF);
+        $body = NOCC_Body::prepareHtmlLinks($body);
     }
     elseif (preg_match('|plain|i', $mime)) {
         $user_prefs = NOCC_Session::getUserPrefs();
         $body = htmlspecialchars($body);
-        $body = NOCC_Body::prepareTextLinks($body, $PHP_SELF);
+        $body = NOCC_Body::prepareTextLinks($body);
         if ($user_prefs->getColoredQuotes()) {
             $body = NOCC_Body::addColoredQuotes($body);
         }

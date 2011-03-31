@@ -22,13 +22,12 @@ class NOCC_Body {
     /**
      * Prepare HTML links
      * @param string $body Mail body
-     * @param string $baseUrl Base URL from NOCC
      * @return string Mail body with prepared HMTL links
      * @static
      */
-    public static function prepareHtmlLinks($body, $baseUrl) {
-        $body = preg_replace("|href=\"mailto:([a-zA-Z0-9\+\-=%&:_.~\?@]+[#a-zA-Z0-9\+]*)\"|i", "href=\"$baseUrl?action=write&amp;mail_to=$1\"", $body);
-        $body = preg_replace("|href=mailto:([a-zA-Z0-9\+\-=%&:_.~\?@]+[#a-zA-Z0-9\+]*)|i", "href=\"$baseUrl?action=write&amp;mail_to=$1\"", $body);
+    public static function prepareHtmlLinks($body) {
+        $body = preg_replace("|href=\"mailto:([a-zA-Z0-9\+\-=%&:_.~\?@]+[#a-zA-Z0-9\+]*)\"|i", "href=\"action.php?action=write&amp;mail_to=$1\"", $body);
+        $body = preg_replace("|href=mailto:([a-zA-Z0-9\+\-=%&:_.~\?@]+[#a-zA-Z0-9\+]*)|i", "href=\"action.php?action=write&amp;mail_to=$1\"", $body);
         $body = preg_replace("|href=\"([a-zA-Z0-9\+\/\;\-=%&:_.~\?]+[#a-zA-Z0-9\+]*)\"|i", "href=\"$1\" target=\"_blank\"", $body);
         $body = preg_replace("|href=([a-zA-Z0-9\+\/\;\-=%&:_.~\?]+[#a-zA-Z0-9\+]*)|i", "href=\"$1\" target=\"_blank\"", $body);
         return $body;
@@ -37,17 +36,16 @@ class NOCC_Body {
     /**
      * Prepare text links
      * @param string $body Mail body (prepared with htmlspecialchars())
-     * @param string $baseUrl Base URL from NOCC
      * @return string Mail body with prepared text links
      * @static
      */
-    public static function prepareTextLinks($body, $baseUrl) {
+    public static function prepareTextLinks($body) {
         $htmlEntities = array('&quot;', '&lt;', '&gt;');
         $noccEntities = array('«quot»', '«lt»', '«gt»');
 
         $body = str_replace($htmlEntities, $noccEntities, $body);
         $body = preg_replace("{(http|https|ftp)://([a-zA-Z0-9\+\/\;\-=%&:_.~\?]+[#a-zA-Z0-9\+:]*)}i", "<a href=\"$1://$2\" target=\"_blank\">$1://$2</a>", $body);
-        $body = preg_replace("/([0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,})/", "<a href=\"$baseUrl?action=write&amp;mail_to=\\1\">\\1</a>", $body);
+        $body = preg_replace("/([0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,})/", "<a href=\"action.php?action=write&amp;mail_to=\\1\">\\1</a>", $body);
         $body = str_replace($noccEntities, $htmlEntities, $body);
         return $body;
     }
