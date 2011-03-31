@@ -30,13 +30,13 @@
     echo '<td class="column'.$column; if ($_SESSION['nocc_sort'] == $column) echo ' sorted'; echo '">';
     switch ($column) {
       case '1': //From...
-        echo '<a href="'.$_SERVER['PHP_SELF'].'?action=write&amp;mail_to='.convertMailData2Html($tmp['from']).'" title="'.convertMailData2Html($tmp['from']).'">'.convertMailData2Html(display_address($tmp['from']), 55).'</a>&nbsp;';
+        echo '<a href="action.php?action=write&amp;mail_to='.convertMailData2Html($tmp['from']).'" title="'.convertMailData2Html($tmp['from']).'">'.convertMailData2Html(display_address($tmp['from']), 55).'</a>&nbsp;';
         break;
       case '2': //To...
         echo convertMailData2Html(display_address($tmp['to']), 55);
         break;
       case '3': //Subject...
-        echo '<a href="'.$_SERVER['PHP_SELF'].'?action=aff_mail&amp;mail='.$tmp['number'].'&amp;verbose=0&amp;" title="'; echo $tmp['subject']? convertMailData2Html($tmp['subject']) : $html_nosubject; echo '"'.$target_blank.'>'; echo $tmp['subject']? convertMailData2Html($tmp['subject'], 55) : $html_nosubject; echo '</a>';
+        echo '<a href="action.php?action=aff_mail&amp;mail='.$tmp['number'].'&amp;verbose=0&amp;" title="'; echo $tmp['subject']? convertMailData2Html($tmp['subject']) : $html_nosubject; echo '"'.$target_blank.'>'; echo $tmp['subject']? convertMailData2Html($tmp['subject'], 55) : $html_nosubject; echo '</a>';
         break;
       case '4': //Date...
         echo $tmp['date'] . '&nbsp;' . $tmp['time'];

@@ -6,7 +6,7 @@
 <div class="prefs">
 <h3><?php echo convertLang2Html($html_manage_filters_link) ?></h3>
 <?php if ($html_filter_select) { ?>
-<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+<form method="post" action="action.php">
 <div>
 <input type="hidden" name="action" value="managefilters" />
 <input type="hidden" name="do" value="delete" />
@@ -30,7 +30,7 @@ if ($html_filter_select) {
   echo convertLang2Html($html_filter_change_tip);
 }
 ?>
-<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+<form method="post" action="action.php">
 <div>
 <input type="hidden" name="action" value="managefilters" />
 <input type="hidden" name="do" value="create" />

@@ -12,19 +12,19 @@ $display_images = (isset($_REQUEST['display_images']) && $_REQUEST['display_imag
 $verbose = (isset($_REQUEST['verbose']) && $_REQUEST['verbose'] == 1) ? '1' : '0';
 if ($conf->use_verbose)
   if($verbose == '1')
-    echo '<tr><td class="mailSwitchHeaders dontPrint"><a href="' . $_SERVER['PHP_SELF'] . '?action=aff_mail&amp;mail=' . $content['msgnum'] . '&amp;verbose=0&amp;display_images='.$display_images.'">' . $html_remove_header . '</a></td>';
+    echo '<tr><td class="mailSwitchHeaders dontPrint"><a href="action.php?action=aff_mail&amp;mail=' . $content['msgnum'] . '&amp;verbose=0&amp;display_images='.$display_images.'">' . $html_remove_header . '</a></td>';
   else
-    echo '<tr><td class="mailSwitchHeaders dontPrint"><a href="' . $_SERVER['PHP_SELF'] . '?action=aff_mail&amp;mail=' . $content['msgnum'] . '&amp;verbose=1&amp;display_images='.$display_images.'">' . $html_view_header . '</a></td>';
+    echo '<tr><td class="mailSwitchHeaders dontPrint"><a href="action.php?action=aff_mail&amp;mail=' . $content['msgnum'] . '&amp;verbose=1&amp;display_images='.$display_images.'">' . $html_view_header . '</a></td>';
 else
     echo '<tr><td>&nbsp;</td>';
 
 // Next/prev message links
 echo '<td class="right dontPrint">';
 if (($content['prev'] != '') && ($content['prev'] != 0))
-  echo '<a href="' . $_SERVER['PHP_SELF'] . '?action=aff_mail&amp;mail=' . $content['prev'] . '&amp;verbose=' . $verbose . '" title="' . $title_prev_msg . '" rel="prev">&laquo; ' . $alt_prev . '</a>';
+  echo '<a href="action.php?action=aff_mail&amp;mail=' . $content['prev'] . '&amp;verbose=' . $verbose . '" title="' . $title_prev_msg . '" rel="prev">&laquo; ' . $alt_prev . '</a>';
 echo "&nbsp;";
 if (($content['next'] != '') && ($content['next'] != 0))
-  echo '<a href="' . $_SERVER['PHP_SELF'] . '?action=aff_mail&amp;mail=' . $content['next'] . '&amp;verbose=' . $verbose . '" title="' . $title_next_msg . '" rel="next">' . $alt_next . ' &raquo;</a>';
+  echo '<a href="action.php?action=aff_mail&amp;mail=' . $content['next'] . '&amp;verbose=' . $verbose . '" title="' . $title_next_msg . '" rel="next">' . $alt_next . ' &raquo;</a>';
 echo "</td></tr>";
 
 if ($conf->use_verbose && $verbose == '0') { //If displaying "normal" header...
@@ -98,7 +98,7 @@ if ($has_images && $display_images != 1) {
   echo('<div class="nopic">');
   echo($html_images_warning);
   echo('<br/>');
-  echo('<a href="'.$_SERVER['PHP_SELF'].'?action=aff_mail&mail='.$content['msgnum'].'&verbose='.$verbose.'&display_images=1">'.$html_images_display.'</a>');
+  echo('<a href="action.php?action=aff_mail&mail='.$content['msgnum'].'&verbose='.$verbose.'&display_images=1">'.$html_images_display.'</a>');
   echo('</div>');
 }
 if ($content['spam']) {

@@ -123,7 +123,7 @@ $_SESSION['nocc_loggedin'] = 1;
                     
                     // toggle activated tab
                     if ($contacts_ldap === true) {
-                        print( '<a href="'. $_SERVER['PHP_SELF'] . '?field='.$_GET['field'] .'&NOCCSESSID='.$_GET['NOCCSESSID'] .'">' . $tab_title_personal .'</a>' );
+                        print( '<a href="contacts.php?field='.$_GET['field'] .'&NOCCSESSID='.$_GET['NOCCSESSID'] .'">' . $tab_title_personal .'</a>' );
                     }
                     else {
                         echo $tab_title_personal;
@@ -136,7 +136,7 @@ $_SESSION['nocc_loggedin'] = 1;
                     
                     // toggle activated tab
                     if ($contacts_ldap === false) {
-                        print( '<a href="'. $_SERVER['PHP_SELF'] .'?is_ldap=1&field='.$_GET['field'].'&NOCCSESSID='.$_GET['NOCCSESSID'].'">' . $tab_title_group .'</a>' );
+                        print( '<a href="contacts.php?is_ldap=1&field='.$_GET['field'].'&NOCCSESSID='.$_GET['NOCCSESSID'].'">' . $tab_title_group .'</a>' );
                     }
                     else {
                         echo $tab_title_group;
@@ -151,7 +151,7 @@ $_SESSION['nocc_loggedin'] = 1;
       if ((!empty($_REQUEST['is_ldap'])) && (!empty($conf->contact_ldap_options['search']))) {
     ?>
         <div id="contact_search">
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" >
+            <form action="contacts.php" >
                 <input type="hidden" name="is_ldap" value="1" />
                 <input type="text" maxsize="16" size="16" name="ldap_filter" />
                     <?php 
@@ -397,7 +397,7 @@ $_SESSION['nocc_loggedin'] = 1;
         }
         else {
             // bye bye!!!
-            print('<a href="'. $_SERVER['PHP_SELF'] .'">'. $html_back .'</a>');
+            print('<a href="contacts.php">'. $html_back .'</a>');
         }
     }
     ?>

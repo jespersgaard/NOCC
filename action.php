@@ -791,7 +791,7 @@ function set_list_of_folders($pop, $subscribed) {
                     else {
                         $unseen_count = 0;
                     }
-                    $list_of_folders .= ' <a href="' . $_SERVER['PHP_SELF'] . '?folder=' . $folder_name
+                    $list_of_folders .= ' <a href="action.php?folder=' . $folder_name
                     . '">' . $folder_name . " ($status->unseen)" . '</a>';
                     $_SESSION['list_of_folders'] = $list_of_folders;
                     array_push($new_folders, $folder_name);

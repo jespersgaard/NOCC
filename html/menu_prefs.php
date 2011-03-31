@@ -6,14 +6,14 @@
 <div class="mainmenu">
   <ul>
     <li>
-      <a href="<?php echo $_SERVER['PHP_SELF'] ?>"><?php echo convertLang2Html($html_inbox); ?></a>
+      <a href="action.php"><?php echo convertLang2Html($html_inbox); ?></a>
     </li>
     <li>
-      <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=write"><?php echo convertLang2Html($html_new_msg) ?></a>
+      <a href="action.php?action=write"><?php echo convertLang2Html($html_new_msg) ?></a>
     </li>
     <?php if ($_SESSION['is_imap']) { ?>
     <li>
-      <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=managefolders" title="<?php echo convertLang2Html($html_manage_folders_link); ?>"><?php echo convertLang2Html($html_folders); ?></a>
+      <a href="action.php?action=managefolders" title="<?php echo convertLang2Html($html_manage_folders_link); ?>"><?php echo convertLang2Html($html_folders); ?></a>
     </li>
     <?php } ?>
     <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>

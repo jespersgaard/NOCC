@@ -19,13 +19,13 @@ $fldr_line = "";
 $reapply_filters = '';
 if ($pop->is_imap()) {
     if ($pop->get_folder_count() > 1) {
-        $fldr_line = "<form method=\"post\" action=\"".$_SERVER['PHP_SELF']."\"><div><label for=\"folder\">$html_other_folders:</label>  \n";
+        $fldr_line = "<form method=\"post\" action=\"action.php\"><div><label for=\"folder\">$html_other_folders:</label>  \n";
         $fldr_line .= $pop->html_folder_select('folder', $_SESSION['nocc_folder']);
         $fldr_line .= "<input type=\"submit\" class=\"button\" name=\"submit\" value=\"$html_gotofolder\" />";
         $fldr_line .= "</div></form>";
     }
     if ($_SESSION['nocc_folder'] == 'INBOX') {
-        $reapply_filters = '<form method="post" action="'.$_SERVER['PHP_SELF'].'"><div>'.
+        $reapply_filters = '<form method="post" action="action.php"><div>'.
             '<label for="reapply_filters"><input type="checkbox" name="reapply_filters" id="reapply_filters" value="1" /> '.
             $html_reapply_filters.'</label> <input class="button" type="submit" value="'.$html_submit.'" /></div></form>';
     }
@@ -105,10 +105,10 @@ if ($pop->is_imap()) {
                                 }
                                 echo '<th class="column'.$column; if ($_SESSION['nocc_sort'] == $column) echo ' sorted'; echo '">';
                                 if ($column_title != '') { //If we have a column title...
-                                    echo '<a href="'.$_SERVER['PHP_SELF'].'?sort='.$column.'&amp;sortdir='.$new_sortdir.'">'.$column_title.'</a>';
+                                    echo '<a href="action.php?sort='.$column.'&amp;sortdir='.$new_sortdir.'">'.$column_title.'</a>';
                                     if ($_SESSION['nocc_sort'] == $column) {
                                         echo '&nbsp;';
-                                        echo '<a href="'.$_SERVER['PHP_SELF'].'?sort='.$column.'&amp;sortdir='.$new_sortdir.'">';
+                                        echo '<a href="action.php?sort='.$column.'&amp;sortdir='.$new_sortdir.'">';
                                         echo '  <img src="themes/'.$_SESSION['nocc_theme'].'/img/'.$arrow.'.png" class="sort" alt="'.$html_sort.'" title="'.$html_sort_by.' '.$column_title.'" />';
                                         echo '</a>';
                                     }

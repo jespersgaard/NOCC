@@ -55,7 +55,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
     function prompt_delete (email, id)
     {
       if (confirm("<?php echo unhtmlentities($html_delete) ?> `" + email + "' <?php echo unhtmlentities($html_contact_del) ?> ?")) {
-        var url = '<?php echo $_SERVER['PHP_SELF'] . "?" . $query_str ?>&action=delete&id=' + id;
+        var url = '<?php echo "contacts_manager.php?" . $query_str ?>&action=delete&id=' + id;
         document.location.href = url;
       }
     }
@@ -91,7 +91,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
         }
   ?>
   <div class="contactAdd">
-    <form id="form2" method="post" action="<?php echo $_SERVER['PHP_SELF'] . "?" . $query_str ?>&amp;action=add">
+    <form id="form2" method="post" action="<?php echo "contacts_manager.php?" . $query_str ?>&amp;action=add">
       <table>
         <tr>
           <td colspan="2" class="contactsTitle">
@@ -144,7 +144,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
                   <td>
                     <p><?php echo i18n_message($html_contact_err1, $conf->contact_number_max) ?></p>
                     <p><?php echo convertLang2Html($html_contact_err2) ?>.</p>
-                    <p><a href="<?php echo $_SERVER['PHP_SELF']; ?>"><?php echo $html_back; ?></a></p>
+                    <p><a href="contacts_manager.php"><?php echo $html_back; ?></a></p>
                   </td>
                 </tr>
               </table>
@@ -199,7 +199,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
           echo "<script type=\"text/javascript\">self.history.go (-1)</script>";
         }
   ?>
-  <script type="text/javascript">self.location.href="<?php echo $_SERVER['PHP_SELF'] . "?" . $query_str ?>";</script>
+  <script type="text/javascript">self.location.href="<?php echo "contacts_manager.php?" . $query_str ?>";</script>
   <?php
         ;
         break;
@@ -240,7 +240,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
         <td><?php echo ($tab[2]) ? $tab[2] : "&nbsp;"; ?></td>
         <td><?php echo $tab[3]; ?></td>
         <td>
-          <input type="button" name="Submit5" value="<?php echo $html_modify ?>" class="button" onclick="self.location.href='<?php echo $_SERVER['PHP_SELF'] . "?" . $query_str ?>&amp;action=add_prompt&amp;id=<?php echo $i ?>&amp;modif=1'"/>
+          <input type="button" name="Submit5" value="<?php echo $html_modify ?>" class="button" onclick="self.location.href='<?php echo "contacts_manager.php?" . $query_str ?>&amp;action=add_prompt&amp;id=<?php echo $i ?>&amp;modif=1'"/>
         </td>
         <td>
           <input type="button" name="Submit" value="<?php echo $html_delete ?>" class="button" onclick="prompt_delete ('<?php echo $tab[3] ?>', <?php echo $i ?>)"/>
@@ -252,7 +252,7 @@ $query_str = session_name("NOCCSESSID") . "=" . session_id();
     </table>
   </div>
   <p class="contactsAddLink">
-    <a href="<?php echo $_SERVER['PHP_SELF'];; ?>?action=add_prompt&amp;<?php echo $query_str ?>"><?php echo convertLang2Html($html_contact_add) ?></a>
+    <a href="contacts_manager.php?action=add_prompt&amp;<?php echo $query_str ?>"><?php echo convertLang2Html($html_contact_add) ?></a>
   </p>
   <?php
     } // switch

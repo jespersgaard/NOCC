@@ -918,7 +918,7 @@ function buildfolderlink($folder) {
             echo ".";
         }
         $folderpath = $folderpath . $elements[$i];
-        echo "<a href=\"". $_SERVER['PHP_SELF'] . "?folder=" . $folderpath . "\">" . mb_convert_encoding($elements[$i], 'UTF-8', 'UTF7-IMAP') . "</a>";
+        echo "<a href=\"action.php?folder=" . $folderpath . "\">" . mb_convert_encoding($elements[$i], 'UTF-8', 'UTF7-IMAP') . "</a>";
     }
     echo "\n";
 }
@@ -975,15 +975,15 @@ function get_page_nav($pages, $skip) {
       $end_page = $pages;
     }
 
-    $html = '<form method="post" action="'.$_SERVER['PHP_SELF'].'">';
+    $html = '<form method="post" action="action.php">';
     $html .= '<div class="pagenav"><ul>';
     $html .= '<li class="pagexofy"><span>' . $html_page . ' ' . $form_select . ' ' . $html_of . ' ' . $pages . '</span></li>';
     if ($pskip > -1 ) // if NOT first page...
-      $html .= '<li class="prev"><a href="' . $_SERVER['PHP_SELF'] . '?skip=' . $pskip . '" title="' . $title_prev_page . '" rel="prev">&laquo; ' . $alt_prev . '</a></li>';
+      $html .= '<li class="prev"><a href="action.php?skip=' . $pskip . '" title="' . $title_prev_page . '" rel="prev">&laquo; ' . $alt_prev . '</a></li>';
     else // if first page...
       $html .= '<li class="prev"><span> &laquo; ' . $alt_prev . '</span></li>';
     if ($start_page > 1) {
-      $html .= '<li class="page"><a href="' . $_SERVER['PHP_SELF'] . '?skip=0" title="' . $html_page . ' 1" rel="first">1</a></li>';
+      $html .= '<li class="page"><a href="action.php?skip=0" title="' . $html_page . ' 1" rel="first">1</a></li>';
       if ($start_page > 2) {
         $html .= '<li class="extend"><span>&hellip;</span></li>';
       }
@@ -993,16 +993,16 @@ function get_page_nav($pages, $skip) {
       if ($xpage == $page) // if current page...
         $html .= '<li class="current"><span>' . $xpage . '</span></li>';
       else // if NOT current page...
-        $html .= '<li class="page"><a href="' . $_SERVER['PHP_SELF'] . '?skip=' . $xskip . '" title="' . $html_page . ' ' . $xpage . '">' . $xpage . '</a></li>';
+        $html .= '<li class="page"><a href="action.php?skip=' . $xskip . '" title="' . $html_page . ' ' . $xpage . '">' . $xpage . '</a></li>';
     }
     if ($end_page < $pages) {
       if ($end_page < $pages - 1) {
         $html .= '<li class="extend"><span>&hellip;</span></li>';
       }
-      $html .= '<li class="page"><a href="' . $_SERVER['PHP_SELF'] . '?skip=' . ($pages - 1) . '" title="' . $html_page . ' ' . $pages . '" rel="last">' . $pages . '</a></li>';
+      $html .= '<li class="page"><a href="action.php?skip=' . ($pages - 1) . '" title="' . $html_page . ' ' . $pages . '" rel="last">' . $pages . '</a></li>';
     }
     if ($nskip < $pages) // if NOT last page...
-      $html .= '<li class="next"><a href="' . $_SERVER['PHP_SELF'] . '?skip=' . $nskip . '" title="' . $title_next_page . '" rel="next">' . $alt_next . ' &raquo;</a></li>';
+      $html .= '<li class="next"><a href="action.php?skip=' . $nskip . '" title="' . $title_next_page . '" rel="next">' . $alt_next . ' &raquo;</a></li>';
     else // if last page...
       $html .= '<li class="next"><span>' . $alt_next . ' &raquo;</span></li>';
     $html .= '</ul></div>';

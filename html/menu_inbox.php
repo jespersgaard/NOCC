@@ -12,7 +12,7 @@ switch ($action) {
   case 'login':
   case 'cookie':
     $selected = 1;
-    $line = '<a href="'.$_SERVER['PHP_SELF'].'?action=write">'.$html_new_msg.'</a>';
+    $line = '<a href="action.php?action=write">'.$html_new_msg.'</a>';
     break;
   case 'write':
     $selected = 2;
@@ -32,21 +32,21 @@ switch ($action) {
     break;
   case 'managefolders':
     $selected = 3;
-    $line = '<a href="'.$_SERVER['PHP_SELF'].'?action=write">'.$html_new_msg.'</a>';
+    $line = '<a href="action.php?action=write">'.$html_new_msg.'</a>';
     break;
 }
 ?>
 <div class="mainmenu">
   <ul>
     <?php if ($selected == 1) echo '<li class="selected">'; else echo '<li>'; ?>
-      <a href="<?php echo $_SERVER['PHP_SELF'] ?>"><?php echo convertLang2Html($html_inbox); ?></a>
+      <a href="action.php"><?php echo convertLang2Html($html_inbox); ?></a>
     </li>
     <?php if ($selected == 2) echo '<li class="selected">'; else echo '<li>'; ?>
       <?php echo $line ?>
     </li>
     <?php if ($_SESSION['is_imap']) { ?>
     <?php if ($selected == 3) echo '<li class="selected">'; else echo '<li>'; ?>
-      <a href="<?php echo $_SERVER['PHP_SELF'] ?>?action=managefolders" title="<?php echo convertLang2Html($html_manage_folders_link); ?>"><?php echo convertLang2Html($html_folders); ?></a>
+      <a href="action.php?action=managefolders" title="<?php echo convertLang2Html($html_manage_folders_link); ?>"><?php echo convertLang2Html($html_folders); ?></a>
     </li>
     <?php } ?>
     <?php if ($conf->prefs_dir && isset($conf->contact_number_max) && $conf->contact_number_max != 0 ) { ?>

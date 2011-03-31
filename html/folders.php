@@ -18,7 +18,7 @@ if (count($big_list) > 1) {
 ?>
 <div class="prefs">
 <h3><?php echo convertLang2Html($html_folders) ?></h3>
-  <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+  <form method="post" action="action.php">
     <div>
       <input type="hidden" name="action" value="managefolders" />
       <input type="hidden" name="submit_folders" value="1" />
