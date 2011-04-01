@@ -1,6 +1,7 @@
 NOCC 1.9.2  ???? ??, ????
 
   Misc
+    * Internal links should be now work with SSL proxies (Tim Gerundt).
     * Add robots.txt to exclude all web crawlers (Tim Gerundt).
 
 NOCC 1.9.1  March 26, 2011
