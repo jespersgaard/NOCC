@@ -24,6 +24,7 @@
  *
  * @author Gabbe.g
  * @author Hno
+ * @author Per
  * @author Poxnar
  * @author Robert Niska <r.niska@redbox.d2g.nu>
  * @author Twobee
@@ -64,7 +65,7 @@ $html_msgperpage_label = 'Meddelanden per sida:';
 $html_preferences = 'Inställningar';
 $html_full_name_label = 'Fullt namn';
 $html_email_address_label = 'E-postadress';
-$html_bccself = 'Bcc self';
+$html_bccself = 'Hemlig kopia till mig själv';
 $html_hide_addresses = 'Göm adresser';
 $html_outlook_quoting = 'Outlook-liknande citering';
 $html_reply_to = 'Svara till';

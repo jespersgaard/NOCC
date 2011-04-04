@@ -25,6 +25,7 @@
  * @author David Gimeno i Ayuso <info@sima-pc.com>
  * @author Martorell
  * @author MuRe
+ * @author SMP
  * @author Solde
  * @author Ssola
  * @author Toniher
@@ -64,7 +65,7 @@ $html_msgperpage_label = 'Missatges per pàgina:';
 $html_preferences = 'Preferències';
 $html_full_name_label = 'Nom complet:';
 $html_email_address_label = 'Adreça de correu:';
-$html_bccself = 'Bcc self';
+$html_bccself = 'Envia\'m a mi una CCO';
 $html_hide_addresses = 'Amagar adreces';
 $html_outlook_quoting = 'Citar a l\'estil Outlook';
 $html_reply_to = 'Contestar a';

@@ -22,6 +22,7 @@
  * @ingroup Language
  * @file
  *
+ * @author Jon Harald Søby
  * @author Nghtwlkr
  * @author Rune Dalmo <runed@balder.narviknett.no>
  * @author Simny
@@ -61,7 +62,7 @@ $html_msgperpage_label = 'Meldinger per side:';
 $html_preferences = 'Innstillinger';
 $html_full_name_label = 'Fullt navn:';
 $html_email_address_label = 'E-postadresse:';
-$html_bccself = 'Bcc self';
+$html_bccself = 'Blindkopi til meg selv';
 $html_hide_addresses = 'Skjul adresser';
 $html_outlook_quoting = 'Outlook-liknende sitering';
 $html_reply_to = 'Svar til';
