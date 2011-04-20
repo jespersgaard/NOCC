@@ -25,6 +25,7 @@
  * @author Meno25
  * @author Mohamed Hadrouj <mohamed.hadrouj@wanadoo.co.ma>
  * @author OsamaK
+ * @author ترجمان05
  */
 
 $lang_locale = 'ar_AR.UTF-8';
@@ -32,7 +33,7 @@ $lang_dir = 'rtl';
 $default_date_format = '%A %d %B %Y';
 $no_locale_date_format = '%d-%m-%Y';
 $default_time_format = '%H:%M';
-$err_user_empty = 'ءاسم المستخدم غير صحيح';
+$err_user_empty = 'حقل تسجيل الدخول فارغ';
 $err_passwd_empty = ' كلمة السر غير صحيحة. أعد المحاولة';
 $alt_delete = 'ءازالة  الرسا ئل المختارة';
 $alt_delete_one = 'ءازالة الرسالة';
@@ -184,7 +185,7 @@ $html_contact_mod = 'عدّل مراسلا';
 $html_contact_first = 'الاسم الأول';
 $html_contact_last = 'الاسم الأخير';
 $html_contact_nick = 'الكنية';
-$html_contact_mail = 'بريد';
+$html_contact_mail = 'البريد الإلكتروني';
 $html_contact_list = 'قائمة معارف %1$s';
 $html_contact_del = 'من قائمة المراسلين';
 $html_contact_err1 = 'أقصى عدد للمراسلين هو "%1$d"';

@@ -159,6 +159,7 @@ $html_usenet_separator = 'Добавяне на Usenet разделител ("--
 $html_mark_as = 'Отбелязване като';
 $html_read = 'прочетено';
 $html_unread = 'непрочетено';
+$html_encoding_label = 'Кодиране:';
 $html_add = 'Добавяне';
 $html_contacts = '%1$s Контакти';
 $html_modify = 'Редактиране';

@@ -1,6 +1,6 @@
 <?php
 /**
- * Configuration file for the English language
+ * Language configuration file for NOCC
  *
  * Copyright 2001 Nicolas Chalanset <nicocha@free.fr>
  * Copyright 2001 Olivier Cahagne <cahagn_o@epita.fr>
@@ -14,43 +14,24 @@
  * @license    http://www.gnu.org/licenses/ GNU General Public License
  * @version    SVN: $Id$
  */
-
 /** English (English)
- *
+ * 
  * See the qqq 'language' for message documentation incl. usage of parameters
  * To improve a translation please visit http://translatewiki.net
  *
  * @ingroup Language
  * @file
+ *
+ * @author McDutchie
  */
 
-// Configuration for the days and months
-
-// What language to use (Here, english US --> en_US)
-// see '/usr/share/locale/' for more information
 $lang_locale = 'en_US.UTF-8';
-
-// Text Alignment
-// Can be right-to-left (rtl) which is needed for proper Arabic, Hebrew
-// Or left-to-right (ltr) which is default for most languages
 $lang_dir = 'ltr';
-
-// What format string should we pass to strftime() for messages sent on
-// days other than today?
 $default_date_format = '%Y-%m-%d';
-
-// If the local is not implemented on the host, how we display the date
 $no_locale_date_format = '%Y-%m-%d';
-
-// What format string should we pass to strftime() for messages sent
-// today?
 $default_time_format = '%I:%M %p';
-
-// Here is the configuration for the HTML
 $err_user_empty = 'The login field is empty';
 $err_passwd_empty = 'The password field is empty';
-
-// html message
 $alt_delete = 'Delete selected messages';
 $alt_delete_one = 'Delete the message';
 $alt_new_msg = 'New messages';
@@ -64,8 +45,6 @@ $title_prev_page = 'Previous page';
 $title_next_msg = 'Next message';
 $title_prev_msg = 'Previous message';
 $html_theme_label = 'Theme:';
-
-// index.php
 $html_welcome = 'Welcome to %1$s';
 $html_login = 'Login';
 $html_user_label = 'User:';
@@ -76,8 +55,6 @@ $html_server_label = 'Server:';
 $html_wrong = 'The login or the password are incorrect';
 $html_retry = 'Retry';
 $html_remember = 'Remember settings';
-
-// prefs.php
 $html_lang_label = 'Language:';
 $html_msgperpage_label = 'Messages per page:';
 $html_preferences = 'Preferences';
@@ -100,8 +77,6 @@ $html_trash_folder_label = 'Move deleted e-mails into a dedicated folder:';
 $html_colored_quotes = 'Colored quotes';
 $html_display_struct = 'Display structured text';
 $html_send_html_mail = 'Send e-mail in HTML format';
-
-// folders.php
 $html_folders = 'Folders';
 $html_folders_create_failed = 'Folder could not be created!';
 $html_folders_sub_failed = 'Could not subscribe to folder!';
@@ -114,8 +89,6 @@ $html_folder_create = 'Create new folder called';
 $html_folder_remove = 'Unsubscribe from';
 $html_folder_delete = 'Delete';
 $html_folder_to = 'to';
-
-// filters.php
 $html_filter_remove = 'Delete';
 $html_filter_body = 'Message Body';
 $html_filter_subject = 'Message Subject';
@@ -128,8 +101,6 @@ $html_filter_contains = 'contains';
 $html_filter_name = 'Filter Name';
 $html_filter_action = 'Filter Action';
 $html_filter_moveto = 'Move to';
-
-// Other pages
 $html_select_one = '--Select One--';
 $html_and = 'And';
 $html_new_msg_in = 'New messages in';
@@ -219,8 +190,6 @@ $html_mark_as = 'Mark as';
 $html_read = 'read';
 $html_unread = 'unread';
 $html_encoding_label = 'Character encoding:';
-
-// Contacts manager
 $html_add = 'Add';
 $html_contacts = '%1$s Contacts';
 $html_modify = 'Modify';
@@ -234,40 +203,27 @@ $html_contact_mail = 'E-mail';
 $html_contact_list = 'Contact list of %1$s';
 $html_contact_del = 'from the contact list';
 $html_contact_count = '%1$d Contacts';
-
 $html_contact_err1 = 'Maximum number of contacts is "%1$d"';
 $html_contact_err2 = 'You cannot add a new contact';
 $html_contact_err3 = 'You do not have access rights to contact list';
 $html_contact_none = 'No contacts could be found.';
 $html_del_msg = 'Delete selected messages?';
 $html_down_mail = 'Download';
-
 $original_msg = '-- Original Message --';
 $to_empty = 'The \'To\' field must not be empty!';
-
-// Images warning
 $html_images_warning = 'For your security, remote pictures are not displayed.';
 $html_images_display = 'Display pictures';
-
-// SMTP problems (class_smtp.php)
 $html_smtp_error_no_conn = 'Unable to open SMTP connection';
 $html_smtp_error_unexpected = 'Unexpected SMTP response:';
-
-// IMAP messages (class_local.php)
 $lang_could_not_connect = 'Could not connect to server';
 $lang_invalid_msg_num = 'Bad message number';
-
 $html_file_upload_attack = 'Possible file upload attack';
 $html_invalid_email_address = 'Invalid e-mail address';
 $html_invalid_msg_per_page = 'Invalid number of messages per page';
 $html_invalid_wrap_msg = 'Invalid message wrap width';
 $html_seperate_msg_win = 'Messages in separate window';
-
-// Exceptions
 $html_err_file_contacts = 'Unable to open contacts file for writing.';
 $html_session_file_error = 'Unable to open session file for writing.';
 $html_login_not_allowed = 'This login is not allowed for connection.';
-
-// Send delay
 $lang_err_send_delay = 'You must wait between two e-mails (%1$d seconds)';
 $html_search = 'Search';

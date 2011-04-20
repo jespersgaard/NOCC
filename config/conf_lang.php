@@ -167,6 +167,12 @@ $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'gl';
 $lang_array[$i]->label = 'Galego';
 
+// Hawaiian
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'haw';
+$lang_array[$i]->label = 'Hawai`i';
+
 // Hebrew
 $i++;
 $lang_array[$i] = new lang();
@@ -232,6 +238,12 @@ $i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'mk';
 $lang_array[$i]->label = 'Македонски';
+
+// Malay
+$i++;
+$lang_array[$i] = new lang();
+$lang_array[$i]->filename = 'ms';
+$lang_array[$i]->label = 'Bahasa Melayu';
 
 // Nepali
 $i++;
