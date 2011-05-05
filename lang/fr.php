@@ -23,6 +23,7 @@
  * @file
  *
  * @author IAlex
+ * @author Od1n
  * @author Peter17
  * @author Sherbrooke
  * @author Verdy p
@@ -147,7 +148,7 @@ $html_date_label = 'Date :';
 $html_sent_label = 'Envoyé le :';
 $html_wrote = 'a écrit';
 $html_size = 'Taille';
-$html_totalsize = 'Taille Totale';
+$html_totalsize = 'Taille totale';
 $html_kb = 'ko';
 $html_mb = 'Mo';
 $html_gb = 'Go';
@@ -209,7 +210,7 @@ $html_contact_err1 = 'Le nombre maximal de contacts est « %1$d »';
 $html_contact_err2 = 'Vous ne pouvez pas ajouter un nouveau contact';
 $html_contact_err3 = 'Vous n\'avez pas le droit d\'accéder à la liste de contacts';
 $html_contact_none = 'Aucun contact n\'a été trouvé';
-$html_del_msg = 'Supprimer le(s) message(s) sélectionné(s) ?';
+$html_del_msg = 'Supprimer les messages sélectionnés ?';
 $html_down_mail = 'Télécharger';
 $original_msg = '-- Message original --';
 $to_empty = 'Le champ « À » ne doit pas être vide !';
@@ -222,7 +223,7 @@ $lang_invalid_msg_num = 'Mauvais numéro de message';
 $html_file_upload_attack = 'Possibilité d\'attaque depuis le fichier uploadé';
 $html_invalid_email_address = 'Adresse courriel invalide';
 $html_invalid_msg_per_page = 'Nombre de messages par page invalide';
-$html_invalid_wrap_msg = 'Valeur de tronquature invalide';
+$html_invalid_wrap_msg = 'Valeur de troncature invalide';
 $html_seperate_msg_win = 'Messages dans des fenêtres séparées';
 $html_err_file_contacts = 'Impossible d\'ouvrir le fichier des contacts';
 $html_session_file_error = 'Impossible d\'ouvrir le fichier des sessions';

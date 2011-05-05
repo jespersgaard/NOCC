@@ -207,7 +207,7 @@ $html_contact_err2 = 'Do kann keine neuje Kumtak dobei donn';
 $html_contact_err3 = 'Do häs nit dat Rääsch för aan de Kumtak_Leß draan ze jonn';
 $html_contact_none = 'Mer han keine Kumtak jefonge.';
 $html_del_msg = 'Donn de ußjesoohte Nohreeschte fottschmiiße?';
-$html_down_mail = 'Erunger laade';
+$html_down_mail = 'Eronger laade';
 $original_msg = '-- Ojinaal Nohreesch --';
 $to_empty = 'Wä di <i lang="en">e-mail</i> krijje sull, moß aanjejovve sin!';
 $html_images_warning = 'Om Desch un Dinge Kompjutor nit en Jevaare ze bränge, dom_mer de Belder vun ußerhallef nit aanzeije.';

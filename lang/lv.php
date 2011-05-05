@@ -22,6 +22,7 @@
  * @ingroup Language
  * @file
  *
+ * @author Papuass
  * @author Yyy
  */
 
@@ -37,15 +38,19 @@ $alt_new_msg = 'Jaunas vēstules';
 $alt_reply = 'Atbildēt vēstules autoram';
 $alt_reply_all = 'Atbildēt visiem';
 $alt_forward = 'Pārsūtīt';
+$title_next_page = 'Nākamā lapa';
+$title_prev_page = 'Iepriekšējā lapa';
 $title_next_msg = 'Nākošā vēstule';
 $title_prev_msg = 'Iepriekšējā vēstule';
 $html_theme_label = 'Izskats:';
 $html_welcome = 'Laipni lūgti %1$s';
-$html_login = 'Lietotājvārds';
+$html_login = 'Lietotājs:';
+$html_passwd_label = 'Parole:';
 $html_submit = 'Ievadīt';
 $html_help = 'Palīdzība';
 $html_wrong = 'Lietotājvārds un parole nav pareizi';
 $html_retry = 'Mēģināt vēlreiz';
+$html_lang_label = 'Valoda:';
 $html_preferences = 'Uzstādījumi';
 $html_full_name_label = 'Pilns vārds:';
 $html_email_address_label = 'E-pasta adrese:';
@@ -73,12 +78,19 @@ $html_attach_delete = 'Novākt izvēlēto';
 $html_sort_by = 'Kārtot pēc';
 $html_sort = 'Kārtot';
 $html_from = 'No';
+$html_from_label = 'No:';
 $html_subject = 'Tēma';
+$html_subject_label = 'Temats:';
 $html_date = 'Datums';
+$html_date_label = 'Datums:';
 $html_sent_label = 'Sūtīt:';
 $html_wrote = 'rakstīja';
 $html_size = 'Izmērs';
 $html_totalsize = 'Kopējais izmērs';
+$html_kb = 'kB';
+$html_mb = 'MB';
+$html_gb = 'GB';
+$html_bytes = 'baiti';
 $html_filename = 'Faila nosaukums';
 $html_to = 'Kam';
 $html_nosubject = 'bez tēmas';
@@ -89,6 +101,7 @@ $html_logout = 'Beigt darbu';
 $html_msg = 'Vēstule';
 $html_msgs = 'Vēstules';
 $html_configuration = 'Serveris nav pareizi nokonfigurēts !';
+$html_priority = 'Prioritāte';
 $html_priority_label = 'Prioritāte:';
 $html_low = 'Zema';
 $html_normal = 'Normāla';
@@ -99,7 +112,13 @@ $html_send_confirmed = 'Vēstule tika pieņemta nosūtīšanai';
 $html_no_sendaction = 'Rīcība nav norādīta. Pamēģiniet ieslēgt Java-script.';
 $html_error_occurred = 'Kļūda';
 $html_prefs_file_error = 'Nevar atvērt uzstādījumu failu ierakstīšanai.';
+$html_back = 'Atpakaļ';
+$html_contact_first = 'Vārds';
+$html_contact_last = 'Uzvārds';
+$html_contact_mail = 'E-pasts';
+$html_contact_del = 'no kontaktu saraksta';
 $original_msg = '-- Original Message --';
 $to_empty = ' \'Kam\' laukumu nedrīkst atstāt tukšu !';
+$html_images_display = 'Rādīt attēlus';
 $html_smtp_error_no_conn = 'Nevar atvērt savienojumu';
 $html_smtp_error_unexpected = 'Negaidīta atbilde:';

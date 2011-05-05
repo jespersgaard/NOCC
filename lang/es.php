@@ -25,6 +25,7 @@
  * @author Crazymadlover
  * @author Gustavo Muslera <gmuslera@internet.com.uy>
  * @author Locos epraix
+ * @author Od1n
  * @author Peter17
  * @author Translationista
  */
@@ -210,7 +211,7 @@ $html_contact_err2 = 'No puede añadir un nuevo contacto';
 $html_contact_err3 = 'No tiene permisos de acceso a la lista de contactos';
 $html_contact_none = 'Ningún contacto pudo ser encontrado.';
 $html_del_msg = '¿Eliminar mensajes seleccionados?';
-$html_down_mail = 'Decsargar';
+$html_down_mail = 'Descargar';
 $original_msg = '-- Mensaje Original --';
 $to_empty = '¡El campo \'A\' no debe estar vacio!';
 $html_images_warning = 'Para su seguridad, las imágenes remotas no serán mostradas.';

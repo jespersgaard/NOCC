@@ -42,7 +42,7 @@ $alt_next = '{{Identical|Next}}
 
 [[File:Nocc_paging.jpg‎|thumb|250px|right]]
 Navigation link at top of page. See screenshot.';
-$alt_prev = 'Navigation link at top of page. See [[Translating talk:NOCC#NOCC_screenshots|screenshot]].
+$alt_prev = 'Navigation link at top of page. See [[Translating:NOCC#NOCC_screenshots|screenshot]].
 
 
 
@@ -53,6 +53,7 @@ $html_theme_label = '{{Identical|Theme}}';
 $html_login = 'Verb.{{Identical|Login}}';
 $html_user_label = '{{Identical|User}}';
 $html_passwd_label = '{{Identical|Password}}';
+$html_submit = 'Submit button label used on the login page and the preferences page.';
 $html_help = '{{Identical|Help}}';
 $html_server_label = '{{Identical|Server}}';
 $html_lang_label = '{{Identical|Language}}';
@@ -69,17 +70,17 @@ $html_display_struct = 'This is a prompt of a yes/no switch. If set to true (yes
 <span style="white-space:nowrap">"<code>/emphasised/</code>" → "<em>emphasised</em>"</span>, and
 <span style="white-space:nowrap">"<code>_underlined_</code>" → "<u>underlined</u>"</span>, and
 <span style="white-space:nowrap">"<code>|code|</code>" → "<code>code</code>"</span>.';
-$html_folders = 'Title of screen and tab. See [[Translating talk:NOCC#NOCC_screenshots|screenshot]].';
-$html_folder_subscribe = 'Part of the interface for managing folders, see the [[Translating talk:NOCC#NOCC_screenshots|screenshot]].';
-$html_folder_rename = 'Part of the interface for managing folders, see the [[Translating talk:NOCC#NOCC_screenshots|screenshot]]. It appears in the option to rename a folder: \'Rename [input box to select folder to be renamed] to [input box to write new name]\'.
+$html_folders = 'Title of screen and tab. See [[Translating:NOCC#NOCC_screenshots|screenshot]].';
+$html_folder_subscribe = 'Part of the interface for managing folders, see the [[Translating:NOCC#NOCC_screenshots|screenshot]].';
+$html_folder_rename = 'Part of the interface for managing folders, see the [[Translating:NOCC#NOCC_screenshots|screenshot]]. It appears in the option to rename a folder: \'Rename [input box to select folder to be renamed] to [input box to write new name]\'.
 
 {{Identical|Rename}}';
-$html_folder_create = 'Part of the interface for managing folders, see the [[Translating talk:NOCC#NOCC_screenshots|screenshot]].';
-$html_folder_remove = 'Part of the interface for managing folders, see the [[Translating talk:NOCC#NOCC_screenshots|screenshot]].';
-$html_folder_delete = 'Part of the interface for managing folders, see the [[Translating talk:NOCC#NOCC_screenshots|screenshot]].
+$html_folder_create = 'Part of the interface for managing folders, see the [[Translating:NOCC#NOCC_screenshots|screenshot]].';
+$html_folder_remove = 'Part of the interface for managing folders, see the [[Translating:NOCC#NOCC_screenshots|screenshot]].';
+$html_folder_delete = 'Part of the interface for managing folders, see the [[Translating:NOCC#NOCC_screenshots|screenshot]].
 
 {{Identical|Delete}}';
-$html_folder_to = 'Part of the interface for managing folders, see the [[Translating talk:NOCC#NOCC_screenshots|screenshot]]. It appears in the option to rename a folder: \'Rename [input box to select folder to be renamed] to [input box to write new name]\'.';
+$html_folder_to = 'Part of the interface for managing folders, see the [[Translating:NOCC#NOCC_screenshots|screenshot]]. It appears in the option to rename a folder: \'Rename [input box to select folder to be renamed] to [input box to write new name]\'.';
 $html_filter_remove = '[[File:Nocc_filter.png|150px|right]]
 Text of radio button. See screenshot.
 
@@ -112,9 +113,9 @@ $html_or = '{{Identical|Or}}';
 $html_move = '{{Identical|Move}}';
 $html_copy = '{{Identical|Copy}}';
 $html_page = '{{Identical|Page}}';
-$html_of = 'Appears at the top of a mailbox, to navigate between the pages of a mailbox. \'of\' is part of \'Page x of y\', where n is a page number in an input box and y is the total number of pages in the mailbox. See the [[Translating_talk:NOCC#NOCC_screenshots|screenshot]].';
+$html_of = 'Appears at the top of a mailbox, to navigate between the pages of a mailbox. \'of\' is part of \'Page x of y\', where n is a page number in an input box and y is the total number of pages in the mailbox. See the [[Translating:NOCC#NOCC_screenshots|screenshot]].';
 $html_reply = '{{Identical|Reply}}';
-$html_reply_short = 'Appears at the beginning of the subject box when replying to a message. It is short for reply. See the [[Translating_talk:NOCC#NOCC_screenshots|screenshot]].
+$html_reply_short = 'Appears at the beginning of the subject box when replying to a message. It is short for reply. See the [[Translating:NOCC#NOCC_screenshots|screenshot]].
 {{Identical|Re}}';
 $html_forward = '{{Identical|Forward}}';
 $html_delete = '{{Identical|Delete}}';
@@ -122,14 +123,18 @@ $html_new = '{{Identical|New}}';
 $html_mark = '{{Identical|Delete}}';
 $html_unknown = '{{Identical|Unknown}}';
 $html_part_x = 'This message has to do with e-mails with attachments that are split up because the attachment cannot be sent in one e-mail. %s is the part number.';
+$html_attach = '{{Identical|Attach}}';
 $html_attach_delete = 'This is a button label which appears under the list of attached files when writing an e-mail. When this button is clicked all selected file attachments are removed from the e-mail.';
+$html_from = '{{Identical|From}}';
 $html_from_label = '{{Identical|From}}';
 $html_subject = '{{Identical|Subject}}';
 $html_date = '{{Identical|Date}}';
 $html_date_label = '{{Identical|Date}}';
 $html_wrote = 'The text \'{email sender} wrote\' appears on the reply, before the original message.';
 $html_size = '{{Identical|Size}}';
-$html_filename = '{{Identical|Filename}}';
+$html_filename = 'Column header on the screen for writing an e-mail, in a table of files attached to the e-mail. See [http://nocc.sourceforge.net/screenshots/nocc15_write.png screenshot].
+
+{{Identical|Filename}}';
 $html_to_label = '{{Identical|To}}';
 $html_send = '{{Identical|Send}}';
 $html_cancel = '{{Identical|Cancel}}';

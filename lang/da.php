@@ -23,6 +23,7 @@
  * @file
  *
  * @author Christian Knudsen <chr@epun.dk>
+ * @author Peter Alberti
  * @author Thomas81
  */
 
@@ -53,16 +54,26 @@ $html_submit = 'Log ind';
 $html_help = 'Hjælp';
 $html_wrong = 'Brugernavn eller kodeord er forkert';
 $html_retry = 'Prøv igen';
+$html_remember = 'Husk indstillinger';
 $html_lang_label = 'Sprog:';
 $html_preferences = 'Indstillinger';
+$html_full_name_label = 'Fulde navn:';
+$html_hide_addresses = 'Skjul adresser';
+$html_reply_to = 'Svar til';
 $html_signature = 'Signatur';
 $html_signature_label = 'Signatur:';
 $html_send_html_mail = 'Send e-mail i HTML-format';
 $html_folders = 'Mapper';
+$html_folders_sub_failed = 'Kunne ikke abonnere på mappe!';
+$html_folders_unsub_failed = 'Kunne ikke afmelde mappe!';
+$html_folder_subscribe = 'Abonner på';
 $html_folder_rename = 'Omdøb';
+$html_folder_remove = 'Afmeld';
 $html_folder_delete = 'Slet';
 $html_folder_to = 'til';
 $html_filter_remove = 'Slet';
+$html_select_one = '--Vælg en--';
+$html_new_msg_in = 'Nye meddelelser i';
 $html_move = 'Flyt';
 $html_copy = 'Kopier';
 $html_page = 'Side';
@@ -80,10 +91,14 @@ $html_delete = 'Slet';
 $html_new = 'Ny';
 $html_mark = 'Slet';
 $html_att_label = 'Vedlagt fil:';
+$html_atts_label = 'Vedlagte filer:';
 $html_unknown = '[ukendt]';
+$html_part_x = 'Del %s';
 $html_attach = 'Vedlæg';
 $html_attach_forget = 'Du er nødt til at vedlægge filen, før du sender meddelelsen !';
 $html_attach_delete = 'Fjern markerede vedlæg';
+$html_attach_none = 'Du skal vælge en fil at vedlægge!';
+$html_sort_by = 'Sorter efter';
 $html_from = 'Fra';
 $html_from_label = 'Fra:';
 $html_subject = 'Emne';
@@ -91,13 +106,33 @@ $html_date = 'Dato';
 $html_sent_label = 'Sendt';
 $html_size = 'Størrelse';
 $html_totalsize = 'Total Størrelse';
+$html_kb = 'kB';
+$html_mb = 'MB';
+$html_gb = 'GB';
 $html_filename = 'Filnavn';
 $html_to = 'Til';
+$html_to_label = 'Til:';
 $html_nosubject = 'Intet emne';
 $html_cancel = 'Annullér';
 $html_no_mail = 'Ingen meddelelser';
 $html_logout = 'Log ud';
 $html_msg = 'Meddelelse';
 $html_msgs = 'Meddelelser';
+$html_lowest = 'Lavest';
+$html_low = 'Lav';
+$html_normal = 'Normal';
+$html_high = 'Høj';
+$html_highest = 'Højest';
+$html_error_occurred = 'Der opstod en fejl';
+$html_mark_as = 'Marker som';
+$html_read = 'læst';
+$html_unread = 'ulæst';
+$html_add = 'Tilføj';
+$html_back = 'Tilbage';
+$html_contact_first = 'Fornavn';
+$html_contact_last = 'Efternavn';
+$html_del_msg = 'Slet de valgte meddelelser?';
 $original_msg = '-- Oprindelig Meddelelse --';
 $to_empty = 'Feltet \'Til\' må ikke være tomt !';
+$html_images_display = 'Vis billeder';
+$html_search = 'Søg';

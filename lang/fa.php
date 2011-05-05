@@ -22,6 +22,7 @@
  * @ingroup Language
  * @file
  *
+ * @author Ebraminio
  * @author Huji
  * @author Reza1615
  */
@@ -141,7 +142,7 @@ $html_from = 'از';
 $html_from_label = 'از:';
 $html_subject = 'عنوان';
 $html_subject_label = 'موضوع:';
-$html_date = 'تاريخ';
+$html_date = 'تاریخ';
 $html_date_label = 'تاریخ:';
 $html_sent_label = 'فرستاده شد';
 $html_wrote = 'نوشت';
