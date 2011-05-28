@@ -73,7 +73,7 @@ $conf->loaded = true;
 //
 // Note : an other way to get proper domain detection with 'user@domain'
 // style logins and without setting domain into conf.php file is to
-// set 'login_with_domain' to '0', 'login_with_domain_character' to ''
+// set 'login_with_domain' to true, 'login_with_domain_character' to ''
 // and 'domains[$i]->domain' to ''. Then, user and domain will be automatically
 // set. This setting is ideal when NOCC webmail serves many domains and if you
 // don't want to set each domain into this file.
