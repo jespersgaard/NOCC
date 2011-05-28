@@ -41,6 +41,28 @@ class NOCC_Domain {
 
     /**
      * ...
+     * @return bool Has allowed logins?
+     */
+    public function hasAllowedLogins() {
+        if (isset($this->entry->login_allowed) && !empty($this->entry->login_allowed)) {
+            return true;
+        }
+        return false;  
+    }
+    
+    /**
+     * ...
+     * @return bool Has login aliases?
+     */
+    public function hasLoginAliases() {
+        if (isset($this->entry->login_aliases) && !empty($this->entry->login_aliases)) {
+            return true;
+        }
+        return false;  
+    }
+    
+    /**
+     * ...
      * @return bool Login with domain?
      */
     public function useLoginWithDomain() {

@@ -227,8 +227,7 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
     $_SESSION['quota_type'] = $conf->domains[$domainnum]->quota_type;
 
     // Check allowed logins
-    if (isset($conf->domains[$domainnum]->login_allowed)
-            && !empty($conf->domains[$domainnum]->login_allowed)) {
+    if ($domain->hasAllowedLogins()) {
         if (is_array($conf->domains[$domainnum]->login_allowed)) {
             if (!array_key_exists($_SESSION['nocc_login'], $conf->domains[$domainnum]->login_allowed)) {
                 $ev = new NoccException($html_login_not_allowed);
@@ -252,8 +251,7 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
     }
 
     //Do we have login aliases?
-    if (isset($conf->domains[$domainnum]->login_aliases)
-            && !empty($conf->domains[$domainnum]->login_aliases)) {
+    if ($domain->hasLoginAliases()) {
         if (is_array($conf->domains[$domainnum]->login_aliases)) {
             $_SESSION['nocc_login'] = str_replace(
                     array_keys($conf->domains[$domainnum]->login_aliases),
