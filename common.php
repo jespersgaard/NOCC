@@ -270,14 +270,13 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
 
     // Do we provide the domain with the login?
     if ($domain->useLoginWithDomain()) {
-        if (isset($conf->domains[$domainnum]->login_with_domain_character)
-                && $conf->domains[$domainnum]->login_with_domain_character != '') {
-            $_SESSION['nocc_login'] .= $conf->domains[$domainnum]->login_with_domain_character . $_SESSION['nocc_domain'];
+        if ($domain->hasLoginWithDomainCharacter()) {
+            $_SESSION['nocc_login'] .= $domain->getLoginWithDomainCharacter() . $_SESSION['nocc_domain'];
         } else if (preg_match("|([A-Za-z0-9]+)@([A-Za-z0-9]+)|", $_SESSION['nocc_login'], $regs)) {
             $_SESSION['nocc_login'] = $_SESSION['nocc_login'];
             $_SESSION['nocc_domain'] = $regs[2];
         } else {
-            $_SESSION['nocc_login'] .= "@" . $_SESSION['nocc_domain'];
+            $_SESSION['nocc_login'] .= '@' . $_SESSION['nocc_domain'];
         }
         $_SESSION['nocc_login_with_domain'] = true; 
     }

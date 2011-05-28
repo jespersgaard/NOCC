@@ -74,6 +74,28 @@ class NOCC_Domain {
     
     /**
      * ...
+     * @return bool Has login with domain character?
+     */
+    public function hasLoginWithDomainCharacter() {
+        if (isset($this->entry->login_with_domain_character) && !empty($this->entry->login_with_domain_character)) {
+            return true;
+        }
+        return false;
+    }
+    
+    /**
+     * ...
+     * @return string Login with domain character
+     */
+    public function getLoginWithDomainCharacter() {
+        if ($this->hasLoginWithDomainCharacter() && is_string($this->entry->login_with_domain_character)) {
+            return $this->entry->login_with_domain_character;
+        }
+        return '@';
+    }
+    
+    /**
+     * ...
      * @return bool Has login prefix?
      */
     public function hasLoginPrefix() {
