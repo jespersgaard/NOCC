@@ -221,6 +221,7 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
     $_SESSION['nocc_servr'] = $conf->domains[$domainnum]->in;
     $_SESSION['nocc_smtp_server'] = $conf->domains[$domainnum]->smtp;
     $_SESSION['nocc_smtp_port'] = $conf->domains[$domainnum]->smtp_port;
+    $_SESSION['smtp_auth'] = $conf->domains[$domainnum]->smtp_auth_method;
     $_SESSION['imap_namespace'] = $conf->domains[$domainnum]->imap_namespace;
     $_SESSION['ucb_pop_server'] = $conf->domains[$domainnum]->have_ucb_pop_server;
     $_SESSION['quota_enable'] = $conf->domains[$domainnum]->quota_enable;
@@ -288,9 +289,6 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
     //append suffix to login
     if($domain->hasLogonSuffix())
         $_SESSION['nocc_login'] .= $domain->getLoginSuffix();
-
-    //smtp auth
-    $_SESSION['smtp_auth'] = $conf->domains[$domainnum]->smtp_auth_method;
     
     unset($domain);
 }
