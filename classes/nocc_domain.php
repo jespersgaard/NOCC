@@ -1,0 +1,115 @@
+<?php
+/**
+ * Class for wrapping a $conf->domains entry
+ *
+ * Copyright 2011 Tim Gerundt <tim@gerundt.de>
+ *
+ * This file is part of NOCC. NOCC is free software under the terms of the
+ * GNU General Public License. You should have received a copy of the license
+ * along with NOCC.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @package    NOCC
+ * @license    http://www.gnu.org/licenses/ GNU General Public License
+ * @version    SVN: $Id$
+ */
+
+/**
+ * Wrapping a $conf->domains entry
+ *
+ * @package    NOCC
+ */
+class NOCC_Domain {
+    
+    /**
+     * $conf->domains entry
+     * @var stdClass
+     */
+    private $entry;
+    
+    /**
+     * Initialize the wrapper
+     * @param stdClass $entry $conf->domains entry
+     */
+    public function __construct($entry) {
+        if ($entry instanceof stdClass) {
+            $this->entry = $entry;
+        }
+        else {
+            $this->entry = new stdClass();
+        }
+    }
+
+    /**
+     * ...
+     * @return bool Login with domain?
+     */
+    public function useLoginWithDomain() {
+        if (isset($this->entry->login_with_domain) && $this->entry->login_with_domain == true) {
+            return true;
+        }
+        return false;
+    }
+    
+    /**
+     * ...
+     * @return bool Has login prefix?
+     */
+    public function hasLoginPrefix() {
+        if (isset($this->entry->login_prefix) && !empty($this->entry->login_prefix)) {
+            return true;
+        }
+        return false;
+    }
+    
+    /**
+     * ...
+     * @return string Login prefix
+     */
+    public function getLoginPrefix() {
+        if ($this->hasLogonPrefix() && is_string($this->entry->login_prefix)) {
+            return $this->entry->login_prefix;
+        }
+        return '';
+    }
+    
+    /**
+     * ...
+     * @return bool Has login suffix?
+     */
+    public function hasLogonSuffix() {
+        if (isset($this->entry->login_suffix) && !empty($this->entry->login_suffix)) {
+            return true;
+        }
+        return false;
+    }
+    
+    /**
+     * ...
+     * @return string Login suffix
+     */
+    public function getLoginSuffix() {
+        if ($this->hasLogonSuffix() && is_string($this->entry->login_suffix)) {
+            return $this->entry->login_suffix;
+        }
+        return '';
+    }
+    
+    /*
+    domain = 'sourceforge.net';
+    in = 'mail.sourceforge.net:110/pop3';
+    smtp = '';
+    smtp_port = 25;
+    login_with_domain = false;
+    login_with_domain_character = '@';
+    login_prefix = '';
+    login_suffix = '';
+    login_aliases = array();
+    login_allowed = array();
+    smtp_auth_method = '';
+    imap_namespace = 'INBOX.';
+    have_ucb_pop_server = false;
+    quota_enable = false;
+    quota_type = 'STORAGE';
+    */
+}
+?>

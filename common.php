@@ -42,6 +42,7 @@ require_once './classes/nocc_security.php';
 require_once './classes/nocc_body.php';
 require_once './classes/nocc_languages.php';
 require_once './classes/nocc_themes.php';
+require_once './classes/nocc_domain.php';
 require_once './classes/user_prefs.php';
 require_once './classes/user_filters.php';
 require_once './utils/functions.php';
@@ -213,6 +214,9 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
         require './html/footer.php';
         exit;
     }
+    
+    $domain = new NOCC_Domain($conf->domains[$domainnum]);
+    
     $_SESSION['nocc_domain'] = $conf->domains[$domainnum]->domain;
     $_SESSION['nocc_servr'] = $conf->domains[$domainnum]->in;
     $_SESSION['nocc_smtp_server'] = $conf->domains[$domainnum]->smtp;
@@ -267,8 +271,7 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
     }
 
     // Do we provide the domain with the login?
-    if (isset($conf->domains[$domainnum]->login_with_domain)
-            && ($conf->domains[$domainnum]->login_with_domain == 1)) {
+    if ($domain->useLoginWithDomain()) {
         if (isset($conf->domains[$domainnum]->login_with_domain_character)
                 && $conf->domains[$domainnum]->login_with_domain_character != '') {
             $_SESSION['nocc_login'] .= $conf->domains[$domainnum]->login_with_domain_character . $_SESSION['nocc_domain'];
@@ -278,19 +281,21 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
         } else {
             $_SESSION['nocc_login'] .= "@" . $_SESSION['nocc_domain'];
         }
-        $_SESSION['nocc_login_with_domain'] = 1; 
+        $_SESSION['nocc_login_with_domain'] = true; 
     }
 
     //append prefix to login
-    if(isset($conf->domains[$domainnum]->login_prefix))
-        $_SESSION['nocc_login'] = $conf->domains[$domainnum]->login_prefix . $_SESSION['nocc_login'];
+    if($domain->hasLoginPrefix())
+        $_SESSION['nocc_login'] = $domain->getLoginPrefix() . $_SESSION['nocc_login'];
 
     //append suffix to login
-    if(isset($conf->domains[$domainnum]->login_suffix))
-        $_SESSION['nocc_login'] .= $conf->domains[$domainnum]->login_suffix;
+    if($domain->hasLogonSuffix())
+        $_SESSION['nocc_login'] .= $domain->getLoginSuffix();
 
     //smtp auth
     $_SESSION['smtp_auth'] = $conf->domains[$domainnum]->smtp_auth_method;
+    
+    unset($domain);
 }
 
 // Or did the user provide the details themselves
