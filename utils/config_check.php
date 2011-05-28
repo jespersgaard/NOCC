@@ -12,7 +12,7 @@ function get_default_from_address() {
     if ($user_prefs->getEmailAddress() != '')
         $from_address = $user_prefs->getEmailAddress();
     else {
-        if (isset($_SESSION['nocc_login_with_domain']) && $_SESSION['nocc_login_with_domain'] == 1) {
+        if (isset($_SESSION['nocc_login_with_domain']) && $_SESSION['nocc_login_with_domain'] == true) {
             $from_address = $_SESSION['nocc_login'];
         } else if (preg_match("|([A-Za-z0-9]+)@([A-Za-z0-9]+)|", $_SESSION['nocc_login'])) {
             $from_address = $_SESSION['nocc_login'];

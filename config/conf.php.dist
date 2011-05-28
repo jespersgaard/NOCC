@@ -65,8 +65,8 @@ $conf->loaded = true;
 // $conf->domains[$i]->smtp_port = 25;
 //  Port number to connect to smtp server (usually 25)
 //
-// $conf->domains[$i]->login_with_domain = 1;
-//  Set value to 1 for 'user<char>domain.com' style logins
+// $conf->domains[$i]->login_with_domain = false;
+//  Set value to true for 'user<char>domain.com' style logins
 //
 // $conf->domains[$i]->login_with_domain_character = '@';
 //  Select character to use for login_with_domain option
@@ -107,12 +107,12 @@ $conf->loaded = true;
 //   'PLAIN' : AUTH PLAIN method
 //   'LOGIN' : AUTH LOGIN method
 //
-// $conf->domains[$i]->imap_namespace = "INBOX.";
+// $conf->domains[$i]->imap_namespace = 'INBOX.';
 //  Select IMAP Namespace
 //
 // $conf->domains[$i]->have_ucb_pop_server = false;
-//  For old UCB POP server, change this setting to 1 to enable
-//  new mail detection. Recommended: leave it to 0 for any other POP or
+//  For old UCB POP server, change this setting to true to enable
+//  new mail detection. Recommended: leave it to false for any other POP or
 //  IMAP server.
 //  See FAQ for more details.
 //
@@ -131,14 +131,14 @@ $conf->domains[$i]->domain = '';
 $conf->domains[$i]->in = '';
 $conf->domains[$i]->smtp = '';
 $conf->domains[$i]->smtp_port = 25;
-$conf->domains[$i]->login_with_domain = 0;
+$conf->domains[$i]->login_with_domain = false;
 $conf->domains[$i]->login_with_domain_character = '@';
 $conf->domains[$i]->login_prefix = '';
 $conf->domains[$i]->login_suffix = '';
 $conf->domains[$i]->login_aliases = array();
 $conf->domains[$i]->login_allowed = array();
 $conf->domains[$i]->smtp_auth_method = '';
-$conf->domains[$i]->imap_namespace = "INBOX.";
+$conf->domains[$i]->imap_namespace = 'INBOX.';
 $conf->domains[$i]->have_ucb_pop_server = false;
 $conf->domains[$i]->quota_enable = false;
 $conf->domains[$i]->quota_type = 'STORAGE';
@@ -152,14 +152,14 @@ $conf->domains[$i]->quota_type = 'STORAGE';
 //$conf->domains[$i]->in = '';
 //$conf->domains[$i]->smtp = '';
 //$conf->domains[$i]->smtp_port = 25;
-//$conf->domains[$i]->login_with_domain = 0;
+//$conf->domains[$i]->login_with_domain = false;
 //$conf->domains[$i]->login_with_domain_character = '@';
 //$conf->domains[$i]->login_prefix = '';
 //$conf->domains[$i]->login_suffix = '';
 //$conf->domains[$i]->login_aliases = array();
 //$conf->domains[$i]->login_allowed = array();
 //$conf->domains[$i]->smtp_auth_method = '';
-//$conf->domains[$i]->imap_namespace = "INBOX.";
+//$conf->domains[$i]->imap_namespace = 'INBOX.';
 //$conf->domains[$i]->have_ucb_pop_server = false;
 //$conf->domains[$i]->quota_enable = false;
 //$conf->domains[$i]->quota_type = 'STORAGE';
@@ -170,14 +170,14 @@ $conf->domains[$i]->quota_type = 'STORAGE';
 //$conf->domains[$i]->in = '';
 //$conf->domains[$i]->smtp = '';
 //$conf->domains[$i]->smtp_port = 25;
-//$conf->domains[$i]->login_with_domain = 0;
+//$conf->domains[$i]->login_with_domain = false;
 //$conf->domains[$i]->login_with_domain_character = '@';
 //$conf->domains[$i]->login_prefix = '';
 //$conf->domains[$i]->login_suffix = '';
 //$conf->domains[$i]->login_aliases = array();
 //$conf->domains[$i]->login_allowed = array();
 //$conf->domains[$i]->smtp_auth_method = '';
-//$conf->domains[$i]->imap_namespace = "INBOX.";
+//$conf->domains[$i]->imap_namespace = 'INBOX.';
 //$conf->domains[$i]->have_ucb_pop_server = false;
 //$conf->domains[$i]->quota_enable = false;
 //$conf->domains[$i]->quota_type = 'STORAGE';
