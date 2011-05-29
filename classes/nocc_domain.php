@@ -47,7 +47,29 @@ class NOCC_Domain {
         if (isset($this->entry->login_allowed) && !empty($this->entry->login_allowed)) {
             return true;
         }
-        return false;  
+        return false;
+    }
+    
+    /**
+     * ...
+     * @return bool Has allowed logins array?
+     */
+    public function hasAllowedLoginsArray() {
+        if ($this->hasAllowedLogins() && is_array($this->entry->login_allowed)) {
+            return true;
+        }
+        return false;
+    }
+    
+    /**
+     * ...
+     * @return bool Has allowed logins file?
+     */
+    public function hasAllowedLoginsFile() {
+        if ($this->hasAllowedLogins() && is_string($this->entry->login_allowed)) {
+            return file_exists(substr($this->entry->login_allowed, 1));
+        }
+        return false;
     }
     
     /**
@@ -58,7 +80,29 @@ class NOCC_Domain {
         if (isset($this->entry->login_aliases) && !empty($this->entry->login_aliases)) {
             return true;
         }
-        return false;  
+        return false;
+    }
+
+    /**
+     * ...
+     * @return bool Has login aliases array?
+     */
+    public function hasLoginAliasesArray() {
+        if ($this->hasLoginAliases() && is_array($this->entry->login_aliases)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * ...
+     * @return bool Has login aliases file?
+     */
+    public function hasLoginAliasesFile() {
+        if ($this->hasLoginAliases() && is_string($this->entry->login_aliases)) {
+            return file_exists(substr($this->entry->login_aliases, 1));
+        }
+        return false;
     }
     
     /**

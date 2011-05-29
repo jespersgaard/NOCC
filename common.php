@@ -229,7 +229,7 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
 
     // Check allowed logins
     if ($domain->hasAllowedLogins()) {
-        if (is_array($conf->domains[$domainnum]->login_allowed)) {
+        if ($domain->hasAllowedLoginsArray()) {
             if (!array_key_exists($_SESSION['nocc_login'], $conf->domains[$domainnum]->login_allowed)) {
                 $ev = new NoccException($html_login_not_allowed);
                 require './html/header.php';
@@ -238,7 +238,7 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
                 exit;
             }
         } else {
-            if (file_exists(substr($conf->domains[$domainnum]->login_allowed, 1))) {
+            if ($domain->hasAllowedLoginsFile()) {
                 include substr($conf->domains[$domainnum]->login_allowed, 1);
                 if (!array_key_exists($_SESSION['nocc_login'], $login_allowed)) {
                     $ev = new NoccException($html_login_not_allowed);
@@ -253,13 +253,13 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
 
     //Do we have login aliases?
     if ($domain->hasLoginAliases()) {
-        if (is_array($conf->domains[$domainnum]->login_aliases)) {
+        if ($domain->hasLoginAliasesArray()) {
             $_SESSION['nocc_login'] = str_replace(
                     array_keys($conf->domains[$domainnum]->login_aliases),
                     array_values($conf->domains[$domainnum]->login_aliases),
                     $_SESSION['nocc_login']);
         } else {
-            if (file_exists(substr($conf->domains[$domainnum]->login_aliases, 1))) {
+            if ($domain->hasLoginAliasesFile()) {
                 include substr($conf->domains[$domainnum]->login_aliases, 1);
                 $_SESSION['nocc_login'] = str_replace(
                         array_keys($login_alias),
