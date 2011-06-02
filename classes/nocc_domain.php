@@ -93,6 +93,21 @@ class NOCC_Domain {
         }
         return false;
     }
+    
+    /**
+     * ...
+     * @param string $login Alias login
+     * @return string Real login
+     */
+    public function replaceLoginFromAliasesArray($login) {
+        if ($this->hasLoginAliasesArray()) {
+            $aliasLogins = array_keys($this->entry->login_aliases);
+            $realLogins = array_values($this->entry->login_aliases);
+            
+            return str_replace($aliasLogins, $realLogins, $login);
+        }
+        return $login;
+    }
 
     /**
      * ...
