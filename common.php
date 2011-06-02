@@ -256,11 +256,7 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
             $_SESSION['nocc_login'] = $domain->replaceLoginFromAliasesArray($_SESSION['nocc_login']);
         }
         elseif ($domain->hasLoginAliasesFile()) {
-            include substr($conf->domains[$domainnum]->login_aliases, 1);
-            $_SESSION['nocc_login'] = str_replace(
-                    array_keys($login_alias),
-                    array_values($login_alias),
-                    $_SESSION['nocc_login']);
+            $_SESSION['nocc_login'] = $domain->replaceLoginFromAliasesFile($_SESSION['nocc_login']);
         }
     }
 

@@ -122,6 +122,25 @@ class NOCC_Domain {
     
     /**
      * ...
+     * @param string $login Alias login
+     * @return string Real login
+     */
+    public function replaceLoginFromAliasesFile($login) {
+        if ($this->hasLoginAliasesFile()) {
+            include substr($this->entry->login_aliases, 1);
+
+            if (isset($login_alias) && is_array($login_alias)) {
+                $aliasLogins = array_keys($login_alias);
+                $realLogins = array_values($login_alias);
+
+                return str_replace($aliasLogins, $realLogins, $login);
+            }
+        }
+        return $login;
+    }
+
+    /**
+     * ...
      * @return bool Login with domain?
      */
     public function useLoginWithDomain() {
