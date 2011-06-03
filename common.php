@@ -230,7 +230,7 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
     // Check allowed logins
     if ($domain->hasAllowedLogins()) {
         if ($domain->hasAllowedLoginsArray()) {
-            if (!array_key_exists($_SESSION['nocc_login'], $conf->domains[$domainnum]->login_allowed)) {
+            if (!$domain->isLoginFromAllowedArray($_SESSION['nocc_login'])) {
                 $ev = new NoccException($html_login_not_allowed);
                 require './html/header.php';
                 require './html/error.php';
