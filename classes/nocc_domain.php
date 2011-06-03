@@ -246,7 +246,7 @@ class NOCC_Domain {
      * @return string Login prefix
      */
     public function getLoginPrefix() {
-        if ($this->hasLogonPrefix() && is_string($this->entry->login_prefix)) {
+        if ($this->hasLoginPrefix() && is_string($this->entry->login_prefix)) {
             return $this->entry->login_prefix;
         }
         return '';
@@ -265,7 +265,7 @@ class NOCC_Domain {
      * ...
      * @return bool Has login suffix?
      */
-    public function hasLogonSuffix() {
+    public function hasLoginSuffix() {
         if (isset($this->entry->login_suffix) && !empty($this->entry->login_suffix)) {
             return true;
         }
@@ -277,7 +277,7 @@ class NOCC_Domain {
      * @return string Login suffix
      */
     public function getLoginSuffix() {
-        if ($this->hasLogonSuffix() && is_string($this->entry->login_suffix)) {
+        if ($this->hasLoginSuffix() && is_string($this->entry->login_suffix)) {
             return $this->entry->login_suffix;
         }
         return '';
