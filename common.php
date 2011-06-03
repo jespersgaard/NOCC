@@ -228,20 +228,16 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
     $_SESSION['quota_type'] = $conf->domains[$domainnum]->quota_type;
 
     // Check allowed logins
-    if ($domain->hasAllowedLogins()) {
-        if (!$domain->isAllowedLogin($_SESSION['nocc_login'])) {
-            $ev = new NoccException($html_login_not_allowed);
-            require './html/header.php';
-            require './html/error.php';
-            require './html/footer.php';
-            exit;
-        }
+    if (!$domain->isAllowedLogin($_SESSION['nocc_login'])) {
+        $ev = new NoccException($html_login_not_allowed);
+        require './html/header.php';
+        require './html/error.php';
+        require './html/footer.php';
+        exit;
     }
 
     //Do we have login aliases?
-    if ($domain->hasLoginAliases()) {
-        $_SESSION['nocc_login'] = $domain->replaceLoginAlias($_SESSION['nocc_login']);
-    }
+    $_SESSION['nocc_login'] = $domain->replaceLoginAlias($_SESSION['nocc_login']);
 
     // Do we provide the domain with the login?
     if ($domain->useLoginWithDomain()) {
