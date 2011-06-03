@@ -252,12 +252,7 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
 
     //Do we have login aliases?
     if ($domain->hasLoginAliases()) {
-        if ($domain->hasLoginAliasesArray()) {
-            $_SESSION['nocc_login'] = $domain->replaceLoginFromAliasesArray($_SESSION['nocc_login']);
-        }
-        elseif ($domain->hasLoginAliasesFile()) {
-            $_SESSION['nocc_login'] = $domain->replaceLoginFromAliasesFile($_SESSION['nocc_login']);
-        }
+        $_SESSION['nocc_login'] = $domain->replaceLoginAlias($_SESSION['nocc_login']);
     }
 
     // Do we provide the domain with the login?

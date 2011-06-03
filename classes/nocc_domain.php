@@ -87,7 +87,7 @@ class NOCC_Domain {
      * ...
      * @return bool Has login aliases array?
      */
-    public function hasLoginAliasesArray() {
+    private function hasLoginAliasesArray() {
         if ($this->hasLoginAliases() && is_array($this->entry->login_aliases)) {
             return true;
         }
@@ -99,7 +99,7 @@ class NOCC_Domain {
      * @param string $login Alias login
      * @return string Real login
      */
-    public function replaceLoginFromAliasesArray($login) {
+    private function replaceLoginFromAliasesArray($login) {
         if ($this->hasLoginAliasesArray()) {
             $aliasLogins = array_keys($this->entry->login_aliases);
             $realLogins = array_values($this->entry->login_aliases);
@@ -113,7 +113,7 @@ class NOCC_Domain {
      * ...
      * @return bool Has login aliases file?
      */
-    public function hasLoginAliasesFile() {
+    private function hasLoginAliasesFile() {
         if ($this->hasLoginAliases() && is_string($this->entry->login_aliases)) {
             return file_exists(substr($this->entry->login_aliases, 1));
         }
@@ -125,7 +125,7 @@ class NOCC_Domain {
      * @param string $login Alias login
      * @return string Real login
      */
-    public function replaceLoginFromAliasesFile($login) {
+    private function replaceLoginFromAliasesFile($login) {
         if ($this->hasLoginAliasesFile()) {
             include substr($this->entry->login_aliases, 1);
 
@@ -135,6 +135,21 @@ class NOCC_Domain {
 
                 return str_replace($aliasLogins, $realLogins, $login);
             }
+        }
+        return $login;
+    }
+
+    /**
+     * ...
+     * @param string $login Alias login
+     * @return string Real login
+     */
+    public function replaceLoginAlias($login) {
+        if ($this->hasLoginAliasesArray()) {
+            return $this->replaceLoginFromAliasesArray($login);
+        }
+        elseif ($this->hasLoginAliasesFile()) {
+            return $this->replaceLoginFromAliasesFile($login);
         }
         return $login;
     }
