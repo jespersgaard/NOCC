@@ -229,23 +229,12 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
 
     // Check allowed logins
     if ($domain->hasAllowedLogins()) {
-        if ($domain->hasAllowedLoginsArray()) {
-            if (!$domain->isLoginFromAllowedArray($_SESSION['nocc_login'])) {
-                $ev = new NoccException($html_login_not_allowed);
-                require './html/header.php';
-                require './html/error.php';
-                require './html/footer.php';
-                exit;
-            }
-        }
-        elseif ($domain->hasAllowedLoginsFile()) {
-            if (!$domain->isLoginFromAllowedFile($_SESSION['nocc_login'])) {
-                $ev = new NoccException($html_login_not_allowed);
-                require './html/header.php';
-                require './html/error.php';
-                require './html/footer.php';
-                exit;
-            }
+        if (!$domain->isAllowedLogin($_SESSION['nocc_login'])) {
+            $ev = new NoccException($html_login_not_allowed);
+            require './html/header.php';
+            require './html/error.php';
+            require './html/footer.php';
+            exit;
         }
     }
 

@@ -54,7 +54,7 @@ class NOCC_Domain {
      * ...
      * @return bool Has allowed logins array?
      */
-    public function hasAllowedLoginsArray() {
+    private function hasAllowedLoginsArray() {
         if ($this->hasAllowedLogins() && is_array($this->entry->login_allowed)) {
             return true;
         }
@@ -66,7 +66,7 @@ class NOCC_Domain {
      * @param string $login Login
      * @return bool Is allowed login?
      */
-    public function isLoginFromAllowedArray($login) {
+    private function isLoginFromAllowedArray($login) {
         if ($this->hasAllowedLoginsArray()) {
             return array_key_exists($login, $this->entry->login_allowed);
         }
@@ -77,7 +77,7 @@ class NOCC_Domain {
      * ...
      * @return bool Has allowed logins file?
      */
-    public function hasAllowedLoginsFile() {
+    private function hasAllowedLoginsFile() {
         if ($this->hasAllowedLogins() && is_string($this->entry->login_allowed)) {
             return file_exists(substr($this->entry->login_allowed, 1));
         }
@@ -89,13 +89,28 @@ class NOCC_Domain {
      * @param string $login Login
      * @return bool Is allowed login?
      */
-    public function isLoginFromAllowedFile($login) {
+    private function isLoginFromAllowedFile($login) {
         if ($this->hasAllowedLoginsFile()) {
             include substr($this->entry->login_allowed, 1);
 
             if (isset($login_allowed) && is_array($login_allowed)) {
                 return array_key_exists($login, $login_allowed);
             }
+        }
+        return true;
+    }
+
+    /**
+     * ...
+     * @param string $login Login
+     * @return bool Is allowed login?
+     */
+    public function isAllowedLogin($login) {
+        if ($this->hasAllowedLoginsArray()) {
+            return $this->isLoginFromAllowedArray($login);
+        }
+        elseif ($this->hasAllowedLoginsFile()) {
+            return $this->isLoginFromAllowedFile($login);
         }
         return true;
     }
