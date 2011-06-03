@@ -52,14 +52,39 @@ $action = '';
 if(isset($_REQUEST['action']))
     $action = safestrip($_REQUEST['action']);
 
+if ($action == 'logout') {
+    require_once './utils/proxy.php';
+    header('Location: ' . $conf->base_url . 'logout.php');
+    exit;
+}
+
+try {
+    $pop = new nocc_imap();
+}
+catch (Exception $ex) {
+    //TODO: Show error without NoccException!
+    $ev = new NoccException($ex->getMessage());
+
+    if ($action == 'login' || $action == 'cookie') {
+        session_name("NOCCSESSID");
+        $_SESSION['nocc_login'] = '';
+        $_SESSION['nocc_user_prefs'] = '';
+        session_destroy();
+        setcookie("NoccIdent");
+    }
+
+    require './html/header.php';
+    require './html/error.php';
+    require './html/footer.php';
+    exit;
+}
+
 switch($action) {
     //--------------------------------------------------------------------------------
     // Display a mail...
     //--------------------------------------------------------------------------------
     case 'aff_mail':
         try {
-            $pop = new nocc_imap();
-
             $attachmentParts = array();
             $content = aff_mail($pop, $_REQUEST['mail'], NOCC_Request::getBoolValue('verbose'), $attachmentParts);
 
@@ -92,14 +117,6 @@ switch($action) {
         break;
 
     //--------------------------------------------------------------------------------
-    // Logout...
-    //--------------------------------------------------------------------------------
-    case 'logout':
-        require_once './utils/proxy.php';
-        header("Location: ".$conf->base_url."logout.php");
-        break;
-
-    //--------------------------------------------------------------------------------
     // Write a mail...
     //--------------------------------------------------------------------------------
     case 'write':
@@ -107,17 +124,6 @@ switch($action) {
 
         if (isset($_REQUEST['mail_to']) && $_REQUEST['mail_to'] != "") {
             $mail_to = $_REQUEST['mail_to'];
-        }
-        try {
-            $pop = new nocc_imap();
-        }
-        catch (Exception $ex) {
-            //TODO: Show error without NoccException!
-            $ev = new NoccException($ex->getMessage());
-            require './html/header.php';
-            require './html/error.php';
-            require './html/footer.php';
-            exit;
         }
         $pop->close();
 
@@ -137,8 +143,6 @@ switch($action) {
     case 'reply':
     case 'reply_all':
         try {
-            $pop = new nocc_imap();
-
             $content = aff_mail($pop, $_REQUEST['mail'], NOCC_Request::getBoolValue('verbose'));
         }
         catch (Exception $ex) {
@@ -181,18 +185,6 @@ switch($action) {
     // Forward a mail...
     //--------------------------------------------------------------------------------
     case 'forward':
-        try {
-            $pop = new nocc_imap();
-        }
-        catch (Exception $ex) {
-            //TODO: Show error without NoccException!
-            $ev = new NoccException($ex->getMessage());
-            require './html/header.php';
-            require './html/error.php';
-            require './html/footer.php';
-            break;
-        }
-
         $mail_list = explode('$', $_REQUEST['mail']);
         $mail_body = '';
         for ($mail_num = 0; $mail_num < count($mail_list); $mail_num++) {
@@ -250,18 +242,6 @@ switch($action) {
     // Manage folders...
     //--------------------------------------------------------------------------------
     case 'managefolders':
-        try {
-            $pop = new nocc_imap();
-        }
-        catch (Exception $ex) {
-            //TODO: Show error without NoccException!
-            $ev = new NoccException($ex->getMessage());
-            require './html/header.php';
-            require './html/error.php';
-            require './html/footer.php';
-            break;
-        }
-
     $do = '';
     if(isset($_REQUEST['do']))
         $do = trim(safestrip($_REQUEST['do']));
@@ -322,17 +302,6 @@ switch($action) {
     // Manage filters...
     //--------------------------------------------------------------------------------
     case 'managefilters':
-        try {
-            $pop = new nocc_imap();
-        }
-        catch (Exception $ex) {
-            //TODO: Show error without NoccException!
-            $ev = new NoccException($ex->getMessage());
-            require './html/header.php';
-            require './html/error.php';
-            require './html/footer.php';
-            exit;
-        }
         $user_key = NOCC_Session::getUserKey();
         $filterset = NOCCUserFilters::read($user_key, $ev);
 
@@ -419,18 +388,6 @@ switch($action) {
     // Set preferences...
     //--------------------------------------------------------------------------------
     case 'setprefs':
-        try {
-            $pop = new nocc_imap();
-        }
-        catch (Exception $ex) {
-            //TODO: Show error without NoccException!
-            $ev = new NoccException($ex->getMessage());
-            require './html/header.php';
-            require './html/error.php)';
-            require './html/footer.php';
-            break;
-        }
-
         //TODO: Move all isset() to if()!
         if (isset($_REQUEST['submit_prefs'])) {
             if (isset($_REQUEST['full_name']))
@@ -509,27 +466,6 @@ switch($action) {
     // Login...
     //--------------------------------------------------------------------------------
     default:
-        //TODO: Optimize try block!
-        try {
-            $pop = new nocc_imap();
-        }
-        catch (Exception $ex) {
-            $ev = new NoccException($ex->getMessage());
-
-            if ($action == 'login' || $action == 'cookie') {
-                session_name("NOCCSESSID");
-                $_SESSION['nocc_login'] = '';
-                $_SESSION['nocc_user_prefs'] = '';
-                session_destroy();
-                setcookie("NoccIdent");
-            }
-
-            require './html/header.php';
-            require './html/error.php';
-            require './html/footer.php';
-            break;
-        }
-
         if ($action == 'login') {
             // Subscribe to INBOX, usefull if it's not already done.
             if ($pop->is_imap()) {
