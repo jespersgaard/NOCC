@@ -86,6 +86,22 @@ class NOCC_Domain {
     
     /**
      * ...
+     * @param string $login Login
+     * @return bool Is allowed login?
+     */
+    public function isLoginFromAllowedFile($login) {
+        if ($this->hasAllowedLoginsFile()) {
+            include substr($this->entry->login_allowed, 1);
+
+            if (isset($login_allowed) && is_array($login_allowed)) {
+                return array_key_exists($login, $login_allowed);
+            }
+        }
+        return true;
+    }
+
+    /**
+     * ...
      * @return bool Has login aliases?
      */
     public function hasLoginAliases() {
