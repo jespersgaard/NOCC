@@ -3,9 +3,7 @@
   if (!isset($conf->loaded))
     die('Hacking attempt');
 
-$action = "";
-if(isset($_REQUEST['action']))
-    $action = safestrip($_REQUEST['action']);
+$action = NOCC_Request::getStringValue('action');
 $selected = 0;
 switch ($action) {
   case '':

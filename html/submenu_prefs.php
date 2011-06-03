@@ -4,9 +4,7 @@
     die('Hacking attempt');
 
   if ($pop->is_imap() && $conf->prefs_dir) {
-    $action = '';
-    if(isset($_REQUEST['action']))
-      $action = safestrip($_REQUEST['action']);
+    $action = NOCC_Request::getStringValue('action');
     $selected = 0;
     switch ($action) {
       case '':

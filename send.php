@@ -40,15 +40,15 @@ require_once './classes/class_send.php';
 require_once './classes/class_smtp.php';
 
 if( isset($conf->allow_address_change) && $conf->allow_address_change )
-    $mail_from = safestrip($_REQUEST['mail_from']);
+    $mail_from = NOCC_Request::getStringValue('mail_from');
 else 
     $mail_from = get_default_from_address();
 
-$mail_to = safestrip($_REQUEST['mail_to']);
-$mail_cc = safestrip($_REQUEST['mail_cc']);
-$mail_bcc = safestrip($_REQUEST['mail_bcc']);
-$mail_subject = safestrip($_REQUEST['mail_subject']);
-$mail_body = safestrip($_REQUEST['mail_body']);
+$mail_to = NOCC_Request::getStringValue('mail_to');
+$mail_cc = NOCC_Request::getStringValue('mail_cc');
+$mail_bcc = NOCC_Request::getStringValue('mail_bcc');
+$mail_subject = NOCC_Request::getStringValue('mail_subject');
+$mail_body = NOCC_Request::getStringValue('mail_body');
 
 if (NOCC_Session::getSendHtmlMail()) {
     $mail_body = '<html><head></head><body>'.$mail_body.'</body></html>';
@@ -61,7 +61,7 @@ if (ini_get("file_uploads")) {
 }
 
 $mail_receipt = isset($_REQUEST['receipt']);
-$mail_priority = safestrip($_REQUEST['priority']);
+$mail_priority = NOCC_Request::getStringValue('priority');
 
 switch ($_REQUEST['sendaction']) {
     case unhtmlentities($html_attach):

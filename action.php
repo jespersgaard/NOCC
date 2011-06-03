@@ -24,9 +24,7 @@ clear_attachments();
 // Reset exception vector
 $ev = null;
 
-$remember = '';
-if(isset($_REQUEST['remember']))
-    $remember = safestrip($_REQUEST['remember']);
+$remember = NOCC_Request::getStringValue('remember');
 
 // Refresh quota usage
 if (!isset($_REQUEST['sort'])) {
@@ -48,9 +46,7 @@ if (!isset($_REQUEST['sort'])) {
 }
 
 // Act on 'action'
-$action = '';
-if(isset($_REQUEST['action']))
-    $action = safestrip($_REQUEST['action']);
+$action = NOCC_Request::getStringValue('action');
 
 if ($action == 'logout') {
     require_once './utils/proxy.php';
@@ -242,9 +238,7 @@ switch($action) {
     // Manage folders...
     //--------------------------------------------------------------------------------
     case 'managefolders':
-    $do = '';
-    if(isset($_REQUEST['do']))
-        $do = trim(safestrip($_REQUEST['do']));
+        $do = NOCC_Request::getStringValue('do');
         switch ($do) {
             case 'create_folder':
                 if ($_REQUEST['createnewbox']) {
