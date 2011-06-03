@@ -254,6 +254,15 @@ class NOCC_Domain {
     
     /**
      * ...
+     * @param string $login Login
+     * @return string Login with prefix
+     */
+    public function addLoginPrefix($login) {
+        return $this->getLoginPrefix() . $login;
+    }
+    
+    /**
+     * ...
      * @return bool Has login suffix?
      */
     public function hasLogonSuffix() {
@@ -272,6 +281,15 @@ class NOCC_Domain {
             return $this->entry->login_suffix;
         }
         return '';
+    }
+    
+    /**
+     * ...
+     * @param string $login Login
+     * @return string Login with suffix
+     */
+    public function addLoginSuffix($login) {
+        return $login . $this->getLoginSuffix();
     }
     
     /*

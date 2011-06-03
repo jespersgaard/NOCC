@@ -257,12 +257,10 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
     }
 
     //append prefix to login
-    if($domain->hasLoginPrefix())
-        $_SESSION['nocc_login'] = $domain->getLoginPrefix() . $_SESSION['nocc_login'];
+    $_SESSION['nocc_login'] = $domain->addLoginPrefix($_SESSION['nocc_login']);
 
     //append suffix to login
-    if($domain->hasLogonSuffix())
-        $_SESSION['nocc_login'] .= $domain->getLoginSuffix();
+    $_SESSION['nocc_login'] = $domain->addLoginSuffix($_SESSION['nocc_login']);
     
     unset($domain);
 }
