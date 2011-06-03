@@ -28,6 +28,9 @@ class NOCC_Request {
      */
     public static function getStringValue($key, $defaultValue = '') {
         if (isset($_REQUEST[$key])) {
+            if (get_magic_quotes_gpc()) {
+                return stripslashes($_REQUEST[$key]);
+            }
             return $_REQUEST[$key];
         }
         return $defaultValue;
