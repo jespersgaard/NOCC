@@ -385,11 +385,11 @@ switch($action) {
         //TODO: Move all isset() to if()!
         if (isset($_REQUEST['submit_prefs'])) {
             if (isset($_REQUEST['full_name']))
-                $user_prefs->setFullName(safestrip($_REQUEST['full_name']));
+                $user_prefs->setFullName(NOCC_Request::getStringValue('full_name'));
             if (isset($_REQUEST['msg_per_page']))
                 $user_prefs->msg_per_page = $_REQUEST['msg_per_page'];
             if (isset($_REQUEST['email_address']))
-                $user_prefs->setEmailAddress(safestrip($_REQUEST['email_address']));
+                $user_prefs->setEmailAddress(NOCC_Request::getStringValue('email_address'));
             $user_prefs->setBccSelf(isset($_REQUEST['cc_self']));
             $user_prefs->setHideAddresses(isset($_REQUEST['hide_addresses']));
             $user_prefs->setOutlookQuoting(isset($_REQUEST['outlook_quoting']));
@@ -397,12 +397,12 @@ switch($action) {
             $user_prefs->setDisplayStructuredText(isset($_REQUEST['display_struct']));
             $user_prefs->seperate_msg_win = isset($_REQUEST['seperate_msg_win']);
             if (isset($_REQUEST['reply_leadin']))
-                $user_prefs->reply_leadin = safestrip($_REQUEST['reply_leadin']);
+                $user_prefs->reply_leadin = NOCC_Request::getStringValue('reply_leadin');
             if (isset($_REQUEST['signature']))
                 if (NOCC_Request::getBoolValue('html_mail_send')) {
                     $user_prefs->setSignature($_REQUEST['signature']);
                 } else {
-                    $user_prefs->setSignature(safestrip($_REQUEST['signature']));
+                    $user_prefs->setSignature(NOCC_Request::getStringValue('signature'));
                 }
             if (isset($_REQUEST['wrap_msg']))
                 $user_prefs->setWrapMessages($_REQUEST['wrap_msg']);

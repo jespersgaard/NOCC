@@ -111,10 +111,10 @@ if (!isset($_SESSION['nocc_sortdir']))
 // Override session variables from request, if supplied
 if (isset($_REQUEST['user']) && !isset($_SESSION['nocc_loggedin'])) {
     unset($_SESSION['nocc_login']);
-    $_SESSION['nocc_user'] = safestrip($_REQUEST['user']);
+    $_SESSION['nocc_user'] = NOCC_Request::getStringValue('user');
 }
 if (isset($_REQUEST['passwd'])) {
-    $_SESSION['nocc_passwd'] = safestrip($_REQUEST['passwd']);
+    $_SESSION['nocc_passwd'] = NOCC_Request::getStringValue('passwd');
     $pwd_to_encrypt = true;
 }
 
@@ -125,9 +125,9 @@ if ($pwd_to_encrypt == true) {
 }
 
 if (isset($_REQUEST['sort']))
-    $_SESSION['nocc_sort'] = safestrip($_REQUEST['sort']);
+    $_SESSION['nocc_sort'] = NOCC_Request::getStringValue('sort');
 if (isset($_REQUEST['sortdir']))
-    $_SESSION['nocc_sortdir'] = safestrip($_REQUEST['sortdir']);
+    $_SESSION['nocc_sortdir'] = NOCC_Request::getStringValue('sortdir');
 
 //--------------------------------------------------------------------------------
 // Set and load the language...
@@ -263,9 +263,9 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
 
 // Or did the user provide the details themselves
 if (isset($_REQUEST['server'])) {
-    $server = safestrip($_REQUEST['server']);
+    $server = NOCC_Request::getStringValue('server');
     $servtype = strtolower($_REQUEST['servtype']);
-    $port = safestrip($_REQUEST['port']);
+    $port = NOCC_Request::getStringValue('port');
     $servr = $server.'/'.$servtype.':'.$port;
 
     // Use as default domain for user's address
