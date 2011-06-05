@@ -17,6 +17,8 @@
 
 require_once './common.php';
 
+//TODO: Move to own file
+//TODO: Rename to NOCC_AttachedFile
 class attached_file {
     var $file_name = '';
     var $tmp_file = '';
@@ -70,20 +72,21 @@ switch ($_REQUEST['sendaction']) {
             $_SESSION['nocc_attach_array'] = array();
         $attach_array = $_SESSION['nocc_attach_array'];
 
-        $num_attach = count($attach_array);
         //TODO: Check if "$conf->tmpdir" exists?
         $tmp_name = $conf->tmpdir.'/'.basename($mail_att['tmp_name'] . time() . '.att');
 
         // Adding the new file to the array
         if (@move_uploaded_file($mail_att['tmp_name'], $tmp_name)) {
-            $attach_array[] = new attached_file;
-            $attach_array[$num_attach]->file_name = basename($mail_att['name']);
-            $attach_array[$num_attach]->tmp_file = $tmp_name;
-            $attach_array[$num_attach]->file_size = $mail_att['size'];
-            $attach_array[$num_attach]->file_mime = $mail_att['type'];
+            $attachedFile = new attached_file();
+            $attachedFile->file_name = basename($mail_att['name']);
+            $attachedFile->tmp_file = $tmp_name;
+            $attachedFile->file_size = $mail_att['size'];
+            $attachedFile->file_mime = $mail_att['type'];
             if (empty($mail_att['type'])) {
-                $attach_array[$num_attach]->file_mime = trim(`file -b $tmp_name`);
+                $attachedFile->file_mime = trim(`file -b $tmp_name`);
             }
+            
+            $attach_array[] = $attachedFile;
         }
         else {
             $ev = new NoccException($html_file_upload_attack);
@@ -179,6 +182,7 @@ switch ($_REQUEST['sendaction']) {
             for ($msg_num = 0; $msg_num < count($mail_list); $msg_num++) {
                 $forward_msgnum = $mail_list[$msg_num];
                 $ev = "";
+                //TODO: Move outside for!
                 try {
                     $pop = new nocc_imap();
                 }
