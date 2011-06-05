@@ -234,16 +234,14 @@ switch ($_REQUEST['sendaction']) {
         // Rebuilding the attachments array with only the files the user wants to keep
         $tmp_array = array();
         $attach_array = $_SESSION['nocc_attach_array'];
-        for ($i = $j = 0; $i < count($attach_array); $i++) {
+        for ($i = 0; $i < count($attach_array); $i++) {
+            $attachedFile = $attach_array[$i];
             if (!isset($_REQUEST['file-'.$i])) {
-                $tmp_array[] = new attached_file;
-                $tmp_array[$j]->file_name = $attach_array[$i]->file_name;
-                $tmp_array[$j]->tmp_file = $attach_array[$i]->tmp_file;
-                $tmp_array[$j]->file_size = $attach_array[$i]->file_size;
-                $tmp_array[$j]->file_mime = $attach_array[$i]->file_mime;
-                $j++;
-            } else
-                @unlink($attach_array[$i]->tmp_file);
+                $tmp_array[] = $attachedFile;
+            }
+            else {
+                @unlink($attachedFile->tmp_file);
+            }
         }
 
         // Registering the new attachments array into the session
