@@ -24,6 +24,37 @@ class attached_file {
     var $tmp_file = '';
     var $file_size = '';
     var $file_mime = '';
+    
+    /**
+     * ...
+     * @return bool Exists?
+     */
+    public function exists() {
+        return file_exists($this->tmp_file);
+    }
+    
+    /**
+     * ...
+     * @return string Content
+     */
+    public function getContent() {
+        if ($this->exists()) {
+            $fp = fopen($this->tmp_file, 'rb');
+            //TODO: Check if the file size is 0!
+            $content = fread($fp, $this->file_size);
+            fclose($fp);
+            
+            return content;
+        }
+        return '';
+    }
+    
+    /**
+     * ...
+     */
+    public function delete() {
+        @unlink($this->tmp_file);
+    }
 }
 
 if (!isset($_SESSION['nocc_loggedin'])) {
@@ -160,16 +191,14 @@ switch ($_REQUEST['sendaction']) {
         if (isset($_SESSION['nocc_attach_array'])) {
             $attach_array = $_SESSION['nocc_attach_array'];
             for ($i = 0; $i < count($attach_array); $i++) {
+                $attachedFile = $attach_array[$i];
                 // If the temporary file exists, attach it
-                if (file_exists($attach_array[$i]->tmp_file)) {
-                    $fp = fopen($attach_array[$i]->tmp_file, 'rb');
-                    //TODO: Check if the file size is 0!
-                    $file = fread($fp, $attach_array[$i]->file_size);
-                    fclose($fp);
+                if ($attachedFile->exists()) {
+                    $content = $attachedFile->getContent();
                     // add it to the message, by default it is encoded in base64
-                    $mail->add_attachment($file, nocc_imap::qprint($attach_array[$i]->file_name), $attach_array[$i]->file_mime, 'base64', '');
+                    $mail->add_attachment($content, nocc_imap::qprint($attachedFile->file_name), $attachedFile->file_mime, 'base64', '');
                     // then we delete the temporary file
-                    unlink($attach_array[$i]->tmp_file);
+                    $attachedFile->delete();
                 }
             }
             // Finished with attachments array now.
@@ -240,7 +269,7 @@ switch ($_REQUEST['sendaction']) {
                 $tmp_array[] = $attachedFile;
             }
             else {
-                @unlink($attachedFile->tmp_file);
+                $attachedFile->delete();
             }
         }
 
