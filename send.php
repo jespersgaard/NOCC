@@ -207,22 +207,21 @@ switch ($_REQUEST['sendaction']) {
 
         // Add original message as attachment?
         if (isset($_REQUEST['forward_msgnum']) && $_REQUEST['forward_msgnum'] != "") {
+            try {
+                $pop = new nocc_imap();
+            }
+            catch (Exception $ex) {
+                //TODO: Show error without NoccException!
+                $ev = new NoccException($ex->getMessage());
+                require './html/header.php';
+                require './html/error.php';
+                require './html/footer.php';
+                break;
+            }
+
             $mail_list = explode('$', $_REQUEST['forward_msgnum']);
             for ($msg_num = 0; $msg_num < count($mail_list); $msg_num++) {
                 $forward_msgnum = $mail_list[$msg_num];
-                $ev = "";
-                //TODO: Move outside for!
-                try {
-                    $pop = new nocc_imap();
-                }
-                catch (Exception $ex) {
-                    //TODO: Show error without NoccException!
-                    $ev = new NoccException($ex->getMessage());
-                    require './html/header.php';
-                    require './html/error.php';
-                    require './html/footer.php';
-                    break;
-                }
 
                 $origmsg = $pop->fetchmessage($forward_msgnum);
 
