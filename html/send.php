@@ -126,7 +126,7 @@
                 echo '<input type="submit" class="button" onclick="btnClicked=this" name="sendaction" value="' . $html_attach_delete . '" />';
                 echo '</th>';
                 // FIXME: this should be in one message with $totalsize as a parameter
-                echo '<th>' . $html_totalsize_label . ' ' . $totalsize . ' ' . $html_bytes . '</th>';
+                echo '<th>' . $totalsize . ' ' . $html_bytes . '</th>';
                 echo '</tr>';
                 echo '</table>';
             } else {
