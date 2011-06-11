@@ -20,18 +20,41 @@ require_once './common.php';
 //TODO: Move to own file
 //TODO: Rename to NOCC_AttachedFile
 class attached_file {
-    var $file_name = '';
+    //TODO: Rename to $tmpFile and made private!
     var $tmp_file = '';
-    //TODO: Rename $file_size to $bytes
-    var $file_size = 0;
+    //TODO: Rename to $name and made private!
+    var $file_name = '';
+    /**
+     * Bytes
+     * @var integer
+     */
+    private $bytes = 0;
+    //TODO: Rename and made private!
     var $file_mime = '';
+    
+    /**
+     * ...
+     * @param string $tmpFile Temp file path
+     * @param string $name File name
+     * @param integer $bytes File size in bytes
+     * @param string $mime MIME type
+     */
+    public function __construct($tmpFile, $name, $bytes, $mime) {
+        $this->tmp_file = $tmpFile;
+        $this->file_name = $name;
+        $this->bytes = $bytes;
+        $this->file_mime = $mime;
+        if (empty($mime)) {
+            $attachedFile->file_mime = trim(`file -b $tmpFile`);
+        }
+    }
     
     /**
      * Get the number of bytes from the attached file
      * @return integer Number of bytes
      */
     public function getBytes() {
-        return $this->file_size;
+        return $this->bytes;
     }
     
     /**
@@ -39,8 +62,8 @@ class attached_file {
      * @return integer Size in kilobyte
      */
     public function getSize() {
-        if ($this->file_size > 1024) { //if more then 1024 bytes...
-            return ceil($this->file_size / 1024);
+        if ($this->bytes > 1024) { //if more then 1024 bytes...
+            return ceil($this->bytes / 1024);
         }
         return 1;
     }
@@ -61,7 +84,7 @@ class attached_file {
         if ($this->exists()) {
             $fp = fopen($this->tmp_file, 'rb');
             //TODO: Check if the file size is 0!
-            $content = fread($fp, $this->file_size);
+            $content = fread($fp, $this->bytes);
             fclose($fp);
             
             return content;
@@ -124,18 +147,11 @@ switch ($_REQUEST['sendaction']) {
         $attach_array = $_SESSION['nocc_attach_array'];
 
         //TODO: Check if "$conf->tmpdir" exists?
-        $tmp_name = $conf->tmpdir.'/'.basename($mail_att['tmp_name'] . time() . '.att');
+        $tmpFile = $conf->tmpdir.'/'.basename($mail_att['tmp_name'] . time() . '.att');
 
         // Adding the new file to the array
-        if (@move_uploaded_file($mail_att['tmp_name'], $tmp_name)) {
-            $attachedFile = new attached_file();
-            $attachedFile->file_name = basename($mail_att['name']);
-            $attachedFile->tmp_file = $tmp_name;
-            $attachedFile->file_size = $mail_att['size'];
-            $attachedFile->file_mime = $mail_att['type'];
-            if (empty($mail_att['type'])) {
-                $attachedFile->file_mime = trim(`file -b $tmp_name`);
-            }
+        if (@move_uploaded_file($mail_att['tmp_name'], $tmpFile)) {
+            $attachedFile = new attached_file($tmpFile, basename($mail_att['name']), $mail_att['size'], $mail_att['type']);
             
             $attach_array[] = $attachedFile;
         }
