@@ -111,14 +111,14 @@
                 echo '</tr>';
                 $totalsize = 0;
                 for ($i = 0; $i < count($attach_array); $i++) {
-                    $totalsize += $attach_array[$i]->file_size;
+                    $totalsize += $attach_array[$i]->getSize();
                     $att_name = nocc_imap::utf8($attach_array[$i]->file_name);
                     echo '<tr>';
                     echo '<td>';
                     echo '<input type="checkbox" name="file-' . $i . '" id="file-' . $i . '" />';
                     echo '</td>';
                     echo '<td><label for="file-' . $i . '">' . htmlentities($att_name, ENT_COMPAT, 'UTF-8') . '</label></td>';
-                    echo '<td>' . $attach_array[$i]->file_size . ' ' . $html_bytes . '</td>';
+                    echo '<td>' . $attach_array[$i]->getSize() . ' ' . $html_kb . '</td>';
                     echo '</tr>';
                 }
                 echo '<tr>';
@@ -126,7 +126,7 @@
                 echo '<input type="submit" class="button" onclick="btnClicked=this" name="sendaction" value="' . $html_attach_delete . '" />';
                 echo '</th>';
                 // FIXME: this should be in one message with $totalsize as a parameter
-                echo '<th>' . $totalsize . ' ' . $html_bytes . '</th>';
+                echo '<th>' . $totalsize . ' ' . $html_kb . '</th>';
                 echo '</tr>';
                 echo '</table>';
             } else {

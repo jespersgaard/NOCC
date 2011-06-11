@@ -22,8 +22,28 @@ require_once './common.php';
 class attached_file {
     var $file_name = '';
     var $tmp_file = '';
-    var $file_size = '';
+    //TODO: Rename $file_size to $bytes
+    var $file_size = 0;
     var $file_mime = '';
+    
+    /**
+     * Get the number of bytes from the attached file
+     * @return integer Number of bytes
+     */
+    public function getBytes() {
+        return $this->file_size;
+    }
+    
+    /**
+     * Get the size from the attached file in kilobyte
+     * @return integer Size in kilobyte
+     */
+    public function getSize() {
+        if ($this->file_size > 1024) { //if more then 1024 bytes...
+            return ceil($this->file_size / 1024);
+        }
+        return 1;
+    }
     
     /**
      * ...
