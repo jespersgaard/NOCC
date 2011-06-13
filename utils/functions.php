@@ -22,6 +22,7 @@ require_once './classes/nocc_mailreader.php';
 require_once './classes/nocc_theme.php';
 require_once './classes/nocc_quotausage.php';
 require_once './classes/nocc_mailaddress.php';
+require_once './classes/nocc_attachedfile.php';
 
 /**
  * Get UTF-8 string length
@@ -560,7 +561,7 @@ function clear_attachments() {
     global $conf;
     if (isset($_SESSION['nocc_attach_array']) && is_array($_SESSION['nocc_attach_array']))
         while ($tmp = array_shift($_SESSION['nocc_attach_array']))
-            @unlink($conf->tmpdir.'/'.$tmp->tmp_file);
+            $tmp->delete();
     unset($_SESSION['nocc_attach_array']);
 }
 

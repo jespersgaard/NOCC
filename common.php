@@ -43,6 +43,7 @@ require_once './classes/nocc_body.php';
 require_once './classes/nocc_languages.php';
 require_once './classes/nocc_themes.php';
 require_once './classes/nocc_domain.php';
+require_once './classes/nocc_attachedfile.php';
 require_once './classes/user_prefs.php';
 require_once './classes/user_filters.php';
 require_once './utils/functions.php';
