@@ -68,7 +68,7 @@ switch ($_REQUEST['sendaction']) {
 
         // Adding the new file to the array
         if (@move_uploaded_file($mail_att['tmp_name'], $tmpFile)) {
-            $attachedFile = new attached_file($tmpFile, basename($mail_att['name']), $mail_att['size'], $mail_att['type']);
+            $attachedFile = new NOCC_AttachedFile($tmpFile, basename($mail_att['name']), $mail_att['size'], $mail_att['type']);
             
             $attach_array[] = $attachedFile;
         }

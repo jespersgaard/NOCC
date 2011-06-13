@@ -17,9 +17,8 @@
  * Wrapping a attached file
  *
  * @package    NOCC
- * @todo Rename to NOCC_AttachedFile
  */
-class attached_file {
+class NOCC_AttachedFile {
     /**
      * Temp file path
      * @var string
