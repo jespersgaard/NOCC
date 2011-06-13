@@ -32,23 +32,26 @@ class attached_file {
      * @var integer
      */
     private $bytes = 0;
-    //TODO: Rename and made private!
-    var $file_mime = '';
+    /**
+     * MIME type
+     * @var string 
+     */
+    private $mimeType = '';
     
     /**
      * ...
      * @param string $tmpFile Temp file path
      * @param string $name File name
      * @param integer $bytes File size in bytes
-     * @param string $mime MIME type
+     * @param string $mimeType MIME type
      */
-    public function __construct($tmpFile, $name, $bytes, $mime) {
+    public function __construct($tmpFile, $name, $bytes, $mimeType) {
         $this->tmp_file = $tmpFile;
         $this->name = $name;
         $this->bytes = $bytes;
-        $this->file_mime = $mime;
-        if (empty($mime)) {
-            $attachedFile->file_mime = trim(`file -b $tmpFile`);
+        $this->mimeType = $mimeType;
+        if (empty($mimeType)) {
+            $attachedFile->mimeType = trim(`file -b $tmpFile`);
         }
     }
     
@@ -77,6 +80,14 @@ class attached_file {
             return ceil($this->bytes / 1024);
         }
         return 1;
+    }
+    
+    /**
+     * Get the MIME type from the attached file
+     * @return type MIME type
+     */
+    public function getMimeType() {
+        return $this->mimeType;
     }
     
     /**
@@ -243,7 +254,7 @@ switch ($_REQUEST['sendaction']) {
                 if ($attachedFile->exists()) {
                     $content = $attachedFile->getContent();
                     // add it to the message, by default it is encoded in base64
-                    $mail->add_attachment($content, nocc_imap::qprint($attachedFile->getName()), $attachedFile->file_mime, 'base64', '');
+                    $mail->add_attachment($content, nocc_imap::qprint($attachedFile->getName()), $attachedFile->getMimeType(), 'base64', '');
                     // then we delete the temporary file
                     $attachedFile->delete();
                 }
