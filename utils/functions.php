@@ -555,10 +555,8 @@ function view_part(&$pop, &$mail, $part_no, $transfer, $msg_charset) {
 /**
  * This function removes temporary attachment files and
  * removes any attachment information from the session
- * @global object $conf
  */
 function clear_attachments() {
-    global $conf;
     if (isset($_SESSION['nocc_attach_array']) && is_array($_SESSION['nocc_attach_array']))
         while ($tmp = array_shift($_SESSION['nocc_attach_array']))
             $tmp->delete();
