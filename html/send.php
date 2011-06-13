@@ -112,7 +112,7 @@
                 $totalsize = 0;
                 for ($i = 0; $i < count($attach_array); $i++) {
                     $totalsize += $attach_array[$i]->getSize();
-                    $att_name = nocc_imap::utf8($attach_array[$i]->file_name);
+                    $att_name = nocc_imap::utf8($attach_array[$i]->getName());
                     echo '<tr>';
                     echo '<td>';
                     echo '<input type="checkbox" name="file-' . $i . '" id="file-' . $i . '" />';

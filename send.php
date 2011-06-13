@@ -22,8 +22,11 @@ require_once './common.php';
 class attached_file {
     //TODO: Rename to $tmpFile and made private!
     var $tmp_file = '';
-    //TODO: Rename to $name and made private!
-    var $file_name = '';
+    /**
+     * File name
+     * @var string 
+     */
+    private $name = '';
     /**
      * Bytes
      * @var integer
@@ -41,12 +44,20 @@ class attached_file {
      */
     public function __construct($tmpFile, $name, $bytes, $mime) {
         $this->tmp_file = $tmpFile;
-        $this->file_name = $name;
+        $this->name = $name;
         $this->bytes = $bytes;
         $this->file_mime = $mime;
         if (empty($mime)) {
             $attachedFile->file_mime = trim(`file -b $tmpFile`);
         }
+    }
+    
+    /**
+     * Get the name from the attached file
+     * @return string File name
+     */
+    public function getName() {
+        return $this->name;
     }
     
     /**
@@ -232,7 +243,7 @@ switch ($_REQUEST['sendaction']) {
                 if ($attachedFile->exists()) {
                     $content = $attachedFile->getContent();
                     // add it to the message, by default it is encoded in base64
-                    $mail->add_attachment($content, nocc_imap::qprint($attachedFile->file_name), $attachedFile->file_mime, 'base64', '');
+                    $mail->add_attachment($content, nocc_imap::qprint($attachedFile->getName()), $attachedFile->file_mime, 'base64', '');
                     // then we delete the temporary file
                     $attachedFile->delete();
                 }
