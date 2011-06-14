@@ -93,14 +93,22 @@ class NOCC_MailAddress {
     }
 
     /**
+     * Simplify the mail address by replacing double quotes
+     * @param string $mailAddress Mail address
+     * @return string Simplify mail address
+     * @static
+     */
+    public static function simplify($mailAddress) {
+        return str_replace('"', '', $mailAddress);
+    }
+
+    /**
      * Chops the address part "<foo@bar.org>" from a full mail address "Foo Bar <foo@bar.org>"
      * @param string $mailAddress Mail address
      * @return string Name (or address)
      * @static
      */
     public static function chopAddress($mailAddress) {
-        $mailAddress = str_replace('"', '', $mailAddress);
-
         // If no '<', return full address.
         $bracketpos = strpos($mailAddress, '<');
         if ($bracketpos === false)

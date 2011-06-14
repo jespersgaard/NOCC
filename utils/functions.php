@@ -572,13 +572,15 @@ function clear_attachments() {
  * @return string
  * TODO: Move to NOCC_MailAddress as static function and rename?
  */
-function display_address(&$address) {
+function display_address($address) {
     global $html_unknown;
 
     // Check for null
     if ($address == '')
         return $html_unknown;
-
+    
+    $address = NOCC_MailAddress::simplify($address);
+    
     // Get preference
     $user_prefs = NOCC_Session::getUserPrefs();
 
