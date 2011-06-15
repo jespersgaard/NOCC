@@ -11,7 +11,7 @@ header("Content-type: text/html; Charset=UTF-8");
 
 // Don't call getPref unless session has been initialised enough for
 // prefs.php to find it's prefs file.
-$header_display_address = get_default_from_address();
+$header_display_address = NOCC_MailAddress::simplify(get_default_from_address());
 
 $theme = new NOCC_Theme($_SESSION['nocc_theme']);
 
