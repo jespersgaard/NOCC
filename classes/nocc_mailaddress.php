@@ -93,12 +93,15 @@ class NOCC_MailAddress {
     }
 
     /**
-     * Simplify the mail address by replacing double quotes
+     * Simplify the mail address by replacing double quotes and ident comma
      * @param string $mailAddress Mail address
      * @return string Simplify mail address
      * @static
      */
     public static function simplify($mailAddress) {
+        $mailAddress = str_replace(',', ', ', $mailAddress);
+        $mailAddress = str_replace('  ', ' ', $mailAddress);
+
         return str_replace('"', '', $mailAddress);
     }
 

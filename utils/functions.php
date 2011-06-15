@@ -72,14 +72,9 @@ function inbox(&$pop, $skip = 0) {
     }
 
     for ($i = $start_msg; $i < $end_msg; $i++) {
-        $to = '';
         $msgnum = $sorted[$i];
         $pop_msgno_msgnum = $pop->msgno($msgnum);
         $mail_reader = new NOCC_MailReader($pop_msgno_msgnum, $pop, false);
-
-        // Get to
-        $to = $mail_reader->getToAddress();
-        $to = str_replace(',', ', ', $to);
 
         $newmail = $mail_reader->isUnread();
         // Check "Status" line with UCB POP Server to see if this is a new message.
@@ -96,7 +91,7 @@ function inbox(&$pop, $skip = 0) {
                 'new' => $newmail,
                 'number' => $pop->msgno($msgnum),
                 'attach' => $mail_reader->hasAttachments(),
-                'to' => $to,
+                'to' => $mail_reader->getToAddress(),
                 'from' => $mail_reader->getFromAddress(),
                 'subject' => $mail_reader->getSubject(),
                 'date' => $date,
@@ -138,7 +133,7 @@ function aff_mail(&$pop, $mail, $verbose, &$attachmentParts = null) {
     $body = $body_charset = $to = $cc = '';
 
     // Message Found boolean
-    $msg_found = 0;
+    $msg_found = false;
 
     // Get message numbers in sorted order
     // Do not use message UID, in order to get correct messages number with IMAP connexion
@@ -150,7 +145,7 @@ function aff_mail(&$pop, $mail, $verbose, &$attachmentParts = null) {
         if ($mail == $sorted[$i]) {
             $prev_msg = ($i - 1 >= 0) ? $sorted[$i - 1] : 0;
             $next_msg = ($i + 1 < sizeof($sorted)) ? $sorted[$i + 1] : 0;
-            $msg_found = 1;
+            $msg_found = true;
             break;
         }
     }
@@ -196,14 +191,6 @@ function aff_mail(&$pop, $mail, $verbose, &$attachmentParts = null) {
 
     $link_att = GetAttachmentsTableRow($mail_reader);
 
-    // Get to
-    $to = $mail_reader->getToAddress();
-    $to = str_replace(',', ', ', $to);
-
-    // Get cc
-    $cc = $mail_reader->getCcAddress();
-    $cc = str_replace(',', ', ', $cc);
-
     $attachmentParts = $mail_reader->getAttachmentParts();
 
     $timestamp = $mail_reader->getTimestamp();
@@ -212,8 +199,8 @@ function aff_mail(&$pop, $mail, $verbose, &$attachmentParts = null) {
     $content = Array(
         'message_id' => $mail_reader->getMessageId(),
         'from' => $mail_reader->getFromAddress(),
-        'to' => $to,
-        'cc' => $cc,
+        'to' => $mail_reader->getToAddress(),
+        'cc' => $mail_reader->getCcAddress(),
         'reply_to' => $mail_reader->getReplyToAddress(),
         'subject' => $mail_reader->getSubject(),
         'timestamp' => $timestamp,
