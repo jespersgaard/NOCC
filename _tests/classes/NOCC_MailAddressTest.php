@@ -90,6 +90,19 @@ class NOCC_MailAddressTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * Test case for setName().
+     */
+    public function testSetName() {
+        $mailAddress = new NOCC_MailAddress('"Foo Bar" <foo@bar.org>');
+        
+        $this->assertEquals('Foo Bar', $mailAddress->getName(), '"Foo Bar" <foo@bar.org>');
+        $mailAddress->setName('Bar Foo');
+        $this->assertEquals('Bar Foo', $mailAddress->getName(), '"Bar Foo" <foo@bar.org>');
+        $mailAddress->setName(false);
+        $this->assertEquals('Bar Foo', $mailAddress->getName(), '"Bar Foo" <foo@bar.org>');
+    }
+
+    /**
      * Test case for getAddress().
      */
     public function testGetAddress() {
@@ -111,6 +124,19 @@ class NOCC_MailAddressTest extends PHPUnit_Framework_TestCase {
         $this->assertTrue($this->mailAddress4->hasAddress(), '"Foo Bar" <foo@bar.org>');
         //$this->assertTrue($this->mailAddress5->hasAddress(), 'bug');
         $this->assertTrue($this->mailAddress6->hasAddress(), 'foo@bar.org, Foobar');
+    }
+
+    /**
+     * Test case for setAddress().
+     */
+    public function testSetAddress() {
+        $mailAddress = new NOCC_MailAddress('"Foo Bar" <foo@bar.org>');
+        
+        $this->assertEquals('foo@bar.org', $mailAddress->getAddress(), '"Foo Bar" <foo@bar.org>');
+        $mailAddress->setAddress('bar@foo.com');
+        $this->assertEquals('bar@foo.com', $mailAddress->getAddress(), '"Foo Bar" <bar@foo.com>');
+        $mailAddress->setAddress(false);
+        $this->assertEquals('bar@foo.com', $mailAddress->getAddress(), '"Foo Bar" <bar@foo.com>');
     }
 
     /**

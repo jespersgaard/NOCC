@@ -82,6 +82,16 @@ class NOCC_MailAddress {
     }
 
     /**
+     * Set the name
+     * @param string $name Name
+     */
+    public function setName($name) {
+        if (isset($name) && is_string($name)) {
+            $this->_name = $name;
+        }
+    }
+
+    /**
      * Get the address
      * @return string Address
      */
@@ -95,6 +105,16 @@ class NOCC_MailAddress {
      */
     public function hasAddress() {
         return !empty($this->_address);
+    }
+
+    /**
+     * Set the address
+     * @param string $address Address
+     */
+    public function setAddress($address) {
+        if (isset($address) && is_string($address)) {
+            $this->_address = $address;
+        }
     }
 
     /**
