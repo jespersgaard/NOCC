@@ -39,8 +39,8 @@ class NOCC_BodyTest extends PHPUnit_Framework_TestCase {
 * <a href="http://nocc.sf.net/" target="_blank">NOCC</a>
 * <A href="http://nocc.sf.net/?lang=de" target="_blank">NOCC German</A>
 * <a href="http://nocc.sourceforge.net/docs/changelog.php" target="_blank">NOCC ChangeLog</a>
-* <a href="http://localhost/nocc/?action=write&amp;mail_to=nocc-discuss@lists.sourceforge.net">Mailing list</a>
-* <A href="http://localhost/nocc/?action=write&amp;mail_to=nocc-discuss@lists.sourceforge.net">Mailing list</A>';
+* <a href="action.php?action=write&amp;mail_to=nocc-discuss@lists.sourceforge.net">Mailing list</a>
+* <A href="action.php?action=write&amp;mail_to=nocc-discuss@lists.sourceforge.net">Mailing list</A>';
 
         $this->assertEquals($expected, NOCC_Body::prepareHtmlLinks($actual, 'http://localhost/nocc/'));
     }
@@ -76,8 +76,8 @@ class NOCC_BodyTest extends PHPUnit_Framework_TestCase {
 * &lt;<a href="http://nocc.sf.net/" target="_blank">http://nocc.sf.net/</a>&gt;
 * &lt;&lt;<a href="http://nocc.sf.net/" target="_blank">http://nocc.sf.net/</a>&gt;&gt;
 * [<a href="http://nocc.sf.net/" target="_blank">http://nocc.sf.net/</a>]
-* <a href="http://localhost/nocc/?action=write&amp;mail_to=nocc-discuss@lists.sourceforge.net">nocc-discuss@lists.sourceforge.net</a>
-* &lt;<a href="http://localhost/nocc/?action=write&amp;mail_to=nocc-discuss@lists.sourceforge.net">nocc-discuss@lists.sourceforge.net</a>&gt;';
+* <a href="action.php?action=write&amp;mail_to=nocc-discuss@lists.sourceforge.net">nocc-discuss@lists.sourceforge.net</a>
+* &lt;<a href="action.php?action=write&amp;mail_to=nocc-discuss@lists.sourceforge.net">nocc-discuss@lists.sourceforge.net</a>&gt;';
 
         $this->assertEquals($expected, NOCC_Body::prepareTextLinks($actual, 'http://localhost/nocc/'));
     }
