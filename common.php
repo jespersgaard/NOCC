@@ -250,7 +250,7 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
         } else {
             $_SESSION['nocc_login'] .= '@' . $_SESSION['nocc_domain'];
         }
-        $_SESSION['nocc_login_with_domain'] = true; 
+        $_SESSION['nocc_login_mailaddress'] = $_SESSION['nocc_login'];
     }
 
     //append prefix to login
