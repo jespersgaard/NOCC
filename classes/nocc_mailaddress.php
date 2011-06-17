@@ -98,6 +98,27 @@ class NOCC_MailAddress {
     }
 
     /**
+     * ...
+     */
+    public function __toString() {
+        if (!$this->hasAddress()) {
+            return '';
+        }
+        
+        if ($this->hasName()) {
+            $name = $this->getName();
+            if (strpos($name, ' ') !== false) {
+                return '"' . $name . '" <' . $this->getAddress() . '>';
+            }
+            else {
+                return $name . ' <' . $this->getAddress() . '>';
+            }
+        }
+        
+        return $this->getAddress();
+    }
+
+    /**
      * Is valid mail address?
      * @param string $address Mail address
      * @return bool Valid?
