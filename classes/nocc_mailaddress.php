@@ -63,10 +63,18 @@ class NOCC_MailAddress {
 
     /**
      * Get the name
-     * @return array Name
+     * @return string Name
      */
     public function getName() {
         return $this->_name;
+    }
+
+    /**
+     * Has a name?
+     * @return bool Has name?
+     */
+    public function hasName() {
+        return !empty($this->_name);
     }
 
     /**
@@ -75,6 +83,14 @@ class NOCC_MailAddress {
      */
     public function getAddress() {
         return $this->_address;
+    }
+
+    /**
+     * Has a address?
+     * @return string Has address?
+     */
+    public function hasAddress() {
+        return !empty($this->_address);
     }
 
     /**
