@@ -35,9 +35,10 @@ class NOCC_MailAddress {
 
     /**
      * Initialize the mail address wrapper
-     * @param string $mailAddress Mail address
+     * @param string $mailAddress Mail address (with or without Name)
+     * @param string $mailName Mail name (optional)
      */
-    function __construct($mailAddress) {
+    function __construct($mailAddress, $mailName = '') {
         $this->_name = '';
         $this->_address = '';
 
@@ -58,6 +59,9 @@ class NOCC_MailAddress {
                 //TODO: Check if is valid address!
                 $this->_address = trim($mailAddress);
             }
+        }
+        if (is_string($mailName) && !empty($mailName)) { //if name is set...
+            $this->_name = $mailName;
         }
     }
 
