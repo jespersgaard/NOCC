@@ -205,6 +205,14 @@ class NOCCUserPrefs {
     //TODO: Add getFullEmailAddress()?
 
     /**
+     * Get mail address from user preferences
+     * @return NOCC_MailAddress Mail address
+     */
+    public function getMailAddress() {
+        return new NOCC_MailAddress($this->_emailAddress, $this->_fullName);
+    }
+
+    /**
      * Get Bcc self sending from user preferences
      * @return boolean Bcc self?
      */

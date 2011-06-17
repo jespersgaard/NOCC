@@ -8,17 +8,15 @@ function get_default_from_address() {
         return '';
 
     $user_prefs = NOCC_Session::getUserPrefs();
-    $from_address = '';
 
-    // Determine e-mail address
-    if ($user_prefs->getEmailAddress() != '')
-        $from_address = $user_prefs->getEmailAddress();
-    elseif (isset($_SESSION['nocc_login_mailaddress'])) {
-        $from_address = $_SESSION['nocc_login_mailaddress'];
+    $mailAddress = $user_prefs->getMailAddress();
+
+    if (!$mailAddress->hasAddress()) {
+        if (isset($_SESSION['nocc_login_mailaddress'])) {
+            $mailAddress->setAddress($_SESSION['nocc_login_mailaddress']);
+        }
     }
-
-    $mailAddress = new NOCC_MailAddress($from_address, $user_prefs->getFullName());
-
+    
     return (string)$mailAddress;
 }
 

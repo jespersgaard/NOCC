@@ -17,6 +17,7 @@
 require_once 'PHPUnit/Framework.php';
 
 require_once dirname(__FILE__).'/../../classes/user_prefs.php';
+require_once dirname(__FILE__).'/../../classes/nocc_mailaddress.php';
 
 /**
  * Test class for NOCCUserPrefs.
@@ -84,6 +85,16 @@ class NOCCUserPrefsTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('', $userPrefs->getEmailAddress(), '1');
         $userPrefs->setEmailAddress('foo@bar.org');
         $this->assertEquals('foo@bar.org', $userPrefs->getEmailAddress(), 'foo@bar.org');
+    }
+
+    /**
+     * Test case for getMailAddress().
+     */
+    public function testGetMailAddress() {
+        $mailAddress = $this->userPrefs1->getMailAddress();
+        
+        $this->assertEquals('', $mailAddress->getName(), 'getName()');
+        $this->assertEquals('', $mailAddress->getAddress(), 'getAddress()');
     }
 
     /**
