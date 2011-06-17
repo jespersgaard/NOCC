@@ -1,5 +1,7 @@
 <?php
 
+require_once './classes/nocc_mailaddress.php';
+
 // This function allows you to customise the default e-mail address
 function get_default_from_address() {
     if (!NOCC_Session::existsUserPrefs())
@@ -14,19 +16,10 @@ function get_default_from_address() {
     elseif (isset($_SESSION['nocc_login_mailaddress'])) {
         $from_address = $_SESSION['nocc_login_mailaddress'];
     }
-    
-    // Append name if known
-    $fullName = $user_prefs->getFullName();
-    if (!empty($fullName)) {
-        if (strpos($fullName, ' ') !== false) {
-            return '"' . $fullName . '" <' . $from_address . '>';
-        }
-        else {
-            return $fullName . ' <' . $from_address . '>';
-        }
-    }
 
-    return $from_address;
+    $mailAddress = new NOCC_MailAddress($from_address, $user_prefs->getFullName());
+
+    return (string)$mailAddress;
 }
 
 // Detect base url
