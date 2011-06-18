@@ -251,6 +251,8 @@ if (isset($_REQUEST['domainnum']) && !(isset($_REQUEST['server']))) {
             $_SESSION['nocc_login'] .= '@' . $_SESSION['nocc_domain'];
         }
         $_SESSION['nocc_login_mailaddress'] = $_SESSION['nocc_login'];
+        //TODO: Drop $_SESSION['nocc_login_with_domain'] first, if we drop get_default_from_address() and "config_check.php"!
+        $_SESSION['nocc_login_with_domain'] = true;
     }
 
     //append prefix to login
