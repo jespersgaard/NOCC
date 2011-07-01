@@ -27,6 +27,7 @@
  */
 
 $lang_locale = 'mk_MK.UTF-8';
+$lang_dir = 'ltr';
 $default_date_format = '%d.%m.%Y';
 $no_locale_date_format = '%d.%m.%Y';
 $default_time_format = '%H:%M';

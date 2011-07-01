@@ -34,8 +34,17 @@
 $lang_locale = 'What language to use (Here, english US --> en_US). See [http://unicode.org/cldr/apps/survey CLDR] for more information';
 $lang_dir = '"ltr" if your language uses left-to-right script, "rtl" if right-to-left. Default is ltr.';
 $default_date_format = 'What format string should be passed to strftime() for messages sent on days other than today?';
-$no_locale_date_format = 'If the locale is not implemented on the host, how we display the date. %-signs, and the letters following them, indicate parts of a date. So do not translate them, but adjust the whole date pattern to the format used in your languages environment.';
-$default_time_format = 'What format string should be passed to strftime() for messages sent today? %-signs, and the letters following them, indicate parts of a time. So do not translate them, but adjust the entire pattern to the format used in your languages environment.';
+$no_locale_date_format = 'If the locale is not implemented on the host, how we display the date. %-signs, and the letters following them, indicate parts of a date. So do not translate them, but adjust the whole date pattern to the format used in your language\'s environment. See [http://www.php.net/manual/en/function.strftime.php PHP manual]
+
+* %Y = Four digit representation for the year
+* %m = Two digit representation of the month
+* %d = Two-digit day of the month (with leading zeros)';
+$default_time_format = 'What format string should be passed to [http://www.php.net/manual/en/function.strftime.php PHP strftime()] for messages sent today? %-signs, and the letters following them, indicate parts of a time. So do not translate them, but adjust the entire pattern to the format used in your language\'s environment. 
+
+* %I = Two digit representation of the hour in 12-hour format
+* %M = Two digit representation of the minute
+* %p = UPPER-CASE \'AM\' or \'PM\' based on the given time
+* %H = Two digit representation of the hour in 24-hour format';
 $alt_new_msg = '{{Identical|New messages}}';
 $alt_forward = '{{Identical|Forward}}';
 $alt_next = '{{Identical|Next}}
@@ -156,4 +165,5 @@ $html_back = '{{Identical|Back}}';
 $html_contact_mod = 'This means the same as \'amend the details of a contact\'.';
 $html_contact_list = '%1$s is the username';
 $html_down_mail = '{{Identical|Download}}';
+$html_session_file_error = 'Probably a system configuration error message. Probably refers to a PHP session which uses a file for each session. Therefore for languages which have to use an article, "a" or "the", before "file", "a" is probably best. See [[Thread:Translating talk:NOCC/Html session file error/reply (3)|discussion]].';
 $html_search = '{{Identical|Search}}';

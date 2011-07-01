@@ -23,6 +23,7 @@
  * @file
  *
  * @author Crazymadlover
+ * @author Dferg
  * @author Gustavo Muslera <gmuslera@internet.com.uy>
  * @author Locos epraix
  * @author Od1n
@@ -64,7 +65,7 @@ $html_msgperpage_label = 'Mensajes por página:';
 $html_preferences = 'Preferencias';
 $html_full_name_label = 'Nombre completo:';
 $html_email_address_label = 'Dirección de E-mail:';
-$html_bccself = 'Bcc self';
+$html_bccself = 'Enviar una copia oculta a mí mismo';
 $html_hide_addresses = 'Ocultar dirección';
 $html_outlook_quoting = 'Quotes tipo Outlook';
 $html_reply_to = 'Responder a';

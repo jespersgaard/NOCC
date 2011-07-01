@@ -22,6 +22,7 @@
  * @ingroup Language
  * @file
  *
+ * @author Klutzy
  * @author Kwj2772
  * @author Mhha
  * @author Roh,Kyoung-Min <rohbin@dreamwiz.com>
@@ -49,7 +50,7 @@ $title_next_msg = '다음 글';
 $title_prev_msg = '이전 글';
 $html_theme_label = '테마';
 $html_welcome = '%1$s에 오신 것을 환영합니다';
-$html_login = '접속아이디';
+$html_login = '로그인';
 $html_submit = '로그인';
 $html_help = '도움말';
 $html_wrong = '아이디가 없거나 비밀번호가 일치하지 않습니다';

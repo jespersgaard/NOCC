@@ -32,7 +32,7 @@
 $lang_locale = 'fi_FI.UTF-8';
 $default_date_format = '%d-%m-%Y';
 $no_locale_date_format = '%Y-%m-%d';
-$default_time_format = '%I:%M %p';
+$default_time_format = '%H.%M';
 $err_user_empty = 'Käyttäjätunnuskenttä on tyhjä';
 $err_passwd_empty = 'Salasanakenttä on tyhjä';
 $alt_delete = 'Poista valitut viestit';

@@ -24,12 +24,13 @@
  *
  * @author Lloffiwr
  * @author Sion Pennant <sion.pennant@powys.gov.uk>
+ * @author Xxglennxx
  */
 
 $lang_locale = 'cy_GB.UTF-8';
 $default_date_format = '%d-%m-%Y';
 $no_locale_date_format = '%d-%m-%Y';
-$default_time_format = '%I:%M %p';
+$default_time_format = '%H:%M';
 $err_user_empty = 'Mae\'r blwch mewngofnodi\'n wag';
 $err_passwd_empty = 'Mae\'r blwch cyfrinair yn wag';
 $alt_delete = 'Dileu\'r negeseuon sydd wedi eu dewis';
@@ -213,7 +214,7 @@ $original_msg = '-- Y Neges Wreiddiol --';
 $to_empty = 'Rhaid i chi lenwi\'r maes \'I\'!';
 $html_images_warning = 'Er mwyn eich diogelu, nid yw delweddau pell yn cael eu harddangos.';
 $html_images_display = 'Dangos delweddau';
-$html_smtp_error_no_conn = 'Methu agor cyswllt SMTP';
+$html_smtp_error_no_conn = 'Methu agor cysylltiad SMTP';
 $html_smtp_error_unexpected = 'Ymateb SMTP annisgwyledig:';
 $lang_could_not_connect = 'Yn methu cysylltu â\'r gweinydd';
 $lang_invalid_msg_num = 'Gwall ar rif y neges';
@@ -223,7 +224,7 @@ $html_invalid_msg_per_page = 'Nifer annilys o negeseuon y dudalen';
 $html_invalid_wrap_msg = 'Lled amlapio neges annilys';
 $html_seperate_msg_win = 'Negeseuon mewn ffenestr arall';
 $html_err_file_contacts = 'Yn methu agor ffeil y cysylltiadau ar gyfer ysgrifennu.';
-$html_session_file_error = 'Yn methu agor ffeil sesiwn er mwyn gallu ysgrifennu.';
+$html_session_file_error = 'Yn methu agor ffeil sesiwn ar gyfer ysgrifennu.';
 $html_login_not_allowed = 'Nid yw\'r mewngofnodiad yma\'n ddilys ar gyfer y cyswllt hwn.';
 $lang_err_send_delay = 'Rhaid oedi cyn anfon e-bost arall (%1$d eiliad)';
 $html_search = 'Chwilio';

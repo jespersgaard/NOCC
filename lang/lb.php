@@ -130,6 +130,7 @@ $html_spam_warning = 'Dëse Message gouf als Spam klasséiert.';
 $html_receipt = 'Eng Confirmatioun vum Liese froen';
 $html_select = 'Eraussichen';
 $html_select_all = 'Auswiel ëmdréinen';
+$html_select_contacts = 'Kontakter eraussichen';
 $html_loading_image = 'Luede vum Bild';
 $html_error_occurred = 'Et ass e Feeler geschitt';
 $html_wrap_none = 'Keen Zeilenëmbroch';
