@@ -73,6 +73,17 @@ class NOCC_Security {
     }
 
     /**
+     * Convert HTML to plain text
+     * @param string $string HTML
+     * @param string $charset Charset
+     * @return string Plain text
+     * @static
+     */
+    public static function convertHtmlToPlainText($string, $charset) {
+        return html_entity_decode(strip_tags($string), ENT_COMPAT, $charset);
+    }
+
+    /**
      * Is supported image type?
      * @param string $internetMediaType Internet media type (MIME type)
      * @return bool Supported image type?

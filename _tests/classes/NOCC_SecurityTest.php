@@ -183,6 +183,16 @@ class NOCC_SecurityTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * @todo Implement testConvertHtmlToPlainText().
+     */
+    public function testConvertHtmlToPlainText() {
+        // Remove the following lines when you implement this test.
+        $this->markTestIncomplete(
+                'This test has not been implemented yet.'
+        );
+    }
+
+    /**
      * Test case for isSupportedImageType().
      */
     public function testIsSupportedImageType() {
