@@ -666,10 +666,11 @@ function add_quoting(&$mail_body, $content) {
     global $original_msg, $html_from_label, $html_to_label, $html_sent_label, $html_subject_label;
     global $html_wrote;
 
+    $stripped_content = html_entity_decode(strip_tags($content['body']), ENT_COMPAT, $content['charset']);
     if ($user_prefs->getOutlookQuoting()) {
         $mail_body = $original_msg . "\n" . $html_from_label . ' ' . $content['from'] . "\n" . $html_to_label . ' '
                 . $content['to'] . "\n" . $html_sent_label .' ' . $content['complete_date'] . "\n" . $html_subject_label
-                . ' '. $content['subject'] . "\n\n" . enh_html_entity_decode(strip_tags($content['body'], ''));
+                . ' '. $content['subject'] . "\n\n" . $stripped_content;
     }
     else {
         if (isset($conf->enable_reply_leadin)
@@ -677,10 +678,9 @@ function add_quoting(&$mail_body, $content) {
                 && isset($user_prefs->reply_leadin)
                 && ($user_prefs->reply_leadin != '')) {
             $parsed_leadin = NOCCUserPrefs::parseLeadin($user_prefs->reply_leadin, $content);
-            $mail_body = mailquote(enh_html_entity_decode(strip_tags($content['body'], '')), $parsed_leadin, '');
+            $mail_body = mailquote($stripped_content, $parsed_leadin, '');
         }
         else {
-            $stripped_content = enh_html_entity_decode(strip_tags($content['body'], ''));
             $mail_body = mailquote($stripped_content, $content['from'], $html_wrote);
         }
     }

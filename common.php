@@ -47,7 +47,6 @@ require_once './classes/nocc_attachedfile.php';
 require_once './classes/user_prefs.php';
 require_once './classes/user_filters.php';
 require_once './utils/functions.php';
-require_once './utils/html_entity_decode.php';
 require_once './utils/crypt.php';
 require_once './utils/translation.php';
 

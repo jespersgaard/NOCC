@@ -1,6 +1,8 @@
 NOCC 1.9.2  ???? ??, ????
 
   Misc
+    * Drop old enh_html_entity_decode() function, which used the PHP license
+      (Tim Gerundt).
     * Always hide double quotes from mail addresses (Tim Gerundt).
     * Show attachment size in KB if write a mail (Tim Gerundt).
     * Internal links should be now work with SSL proxies (Tim Gerundt).
