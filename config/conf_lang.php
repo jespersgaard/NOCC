@@ -44,11 +44,13 @@ $lang_array[$i]->filename = 'an';
 $lang_array[$i]->label = 'Aragonés';
 
 // Arabic
+$i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'ar';
 $lang_array[$i]->label = 'العربية';
 
 // Egyptian Spoken Arabic
+$i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'arz';
 $lang_array[$i]->label = 'مصرى';
@@ -282,6 +284,7 @@ $lang_array[$i]->filename = 'pl';
 $lang_array[$i]->label = 'Polski';
 
 // Pashto
+$i++;
 $lang_array[$i] = new lang();
 $lang_array[$i]->filename = 'ps';
 $lang_array[$i]->label = 'پښتو';

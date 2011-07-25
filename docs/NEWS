@@ -1,5 +1,8 @@
 NOCC 1.9.2  ???? ??, ????
 
+  Bugs
+    * Bug #3376498 : Cannot choose polish lang (Perry Pretender).
+
   Misc
     * Drop old enh_html_entity_decode() function, which used the PHP license
       (Tim Gerundt).
