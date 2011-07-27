@@ -97,7 +97,6 @@ switch ($_REQUEST['sendaction']) {
         $mail->crlf = $conf->crlf;
         $mail->smtp_server = $_SESSION['nocc_smtp_server'];
         $mail->smtp_port = $_SESSION['nocc_smtp_port'];
-        $mail->charset = 'UTF-8';
         //TODO: No nice to use $mail->from as temp variable!
         $mail->from = cut_address(trim($mail_from), 'UTF-8');
         $mail->from = $mail->from[0];
@@ -179,6 +178,7 @@ switch ($_REQUEST['sendaction']) {
                 $origmsg = $pop->fetchmessage($forward_msgnum);
 
                 // Attach it
+                //TODO: Move filename to a own variable!
                 if (count($mail_list) == 1) {
                     $mail->add_attachment($origmsg, 'orig_msg.eml', 'message/rfc822', '', '');
                 } else {

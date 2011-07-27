@@ -109,7 +109,7 @@ class mime_mail {
         $this->body =  null;
         $this->smtp_server = 'localhost';
         $this->smtp_port = 25;
-        $this->charset = 'iso-8859-1';
+        $this->charset = 'UTF-8';
         $this->crlf = null;
         $this->priority = '3 (Normal)';
         $this->receipt = false;
