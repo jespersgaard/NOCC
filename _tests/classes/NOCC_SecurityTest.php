@@ -186,10 +186,14 @@ class NOCC_SecurityTest extends PHPUnit_Framework_TestCase {
      * @todo Implement testConvertHtmlToPlainText().
      */
     public function testConvertHtmlToPlainText() {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-                'This test has not been implemented yet.'
-        );
+        $html =
+"<p class=MsoNormal><font size=2 color=navy face=Arial><span style='font-size:
+10.0pt;font-family:Arial;color:navy'>This is just a &#8211; small test!</span></font></p>";
+
+        $expected =
+'This is just a – small test!';
+
+        $this->assertEquals($expected, NOCC_Security::convertHtmlToPlainText($html));
     }
 
     /**

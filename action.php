@@ -666,7 +666,7 @@ function add_quoting(&$mail_body, $content) {
     global $original_msg, $html_from_label, $html_to_label, $html_sent_label, $html_subject_label;
     global $html_wrote;
 
-    $stripped_content = NOCC_Security::convertHtmlToPlainText($content['body'], $content['charset']);
+    $stripped_content = NOCC_Security::convertHtmlToPlainText($content['body']);
     if ($user_prefs->getOutlookQuoting()) {
         $mail_body = $original_msg . "\n" . $html_from_label . ' ' . $content['from'] . "\n" . $html_to_label . ' '
                 . $content['to'] . "\n" . $html_sent_label .' ' . $content['complete_date'] . "\n" . $html_subject_label

@@ -73,14 +73,13 @@ class NOCC_Security {
     }
 
     /**
-     * Convert HTML to plain text
+     * Convert HTML to plain text (UTF-8)
      * @param string $string HTML
-     * @param string $charset Charset
-     * @return string Plain text
+     * @return string Plain text (UTF-8)
      * @static
      */
-    public static function convertHtmlToPlainText($string, $charset) {
-        return html_entity_decode(strip_tags($string), ENT_COMPAT, $charset);
+    public static function convertHtmlToPlainText($string) {
+        return html_entity_decode(strip_tags($string), ENT_COMPAT, 'UTF-8');
     }
 
     /**
