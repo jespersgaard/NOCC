@@ -4,6 +4,7 @@ NOCC 1.9.2  ???? ??, ????
     * Bug #3376498 : Cannot choose polish lang (Perry Pretender).
 
   Misc
+    * Tweak verbose header view (Tim Gerundt).
     * Drop old enh_html_entity_decode() function, which used the PHP license
       (Tim Gerundt).
     * Always hide double quotes from mail addresses (Tim Gerundt).

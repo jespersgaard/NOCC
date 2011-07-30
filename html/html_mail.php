@@ -85,6 +85,9 @@ if ($content['subject'] == '')
   echo '</td></tr>';
 }
 else { //If displaying "verbose" header...
+  echo '<tr><td colspan="2">';
+  echo '<pre class="mailVerboseHeader">'.htmlspecialchars(trim($content['header']), true).'</pre>';
+  echo '</td></tr>';
   if ($content['att'] != '') {
     echo $content['att'];
   }
@@ -107,10 +110,6 @@ if ($content['spam']) {
 ?>
 <div class="mailData">
 <?php
-if (!($conf->use_verbose && $verbose == '0')) { //If displaying "verbose" header...
-  //TODO: Rename this CSS class "mail" to "mailHeader"?
-  echo '<div class="mail"><pre>'.htmlspecialchars($content['header']).'</pre></div>';
-}
 //TODO: Rename this CSS class "mail" to "mailBody"?
 echo '<div class="mail">'.$content['body'].'</div>';
 

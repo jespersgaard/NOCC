@@ -552,11 +552,6 @@ img.sort {
   padding: .5em;
 }
 
-.mail pre {
-  margin: 0;
-  padding: 0;
-}
-
 hr.mailAttachSep {
   margin: 0;
   padding: 0;
@@ -611,6 +606,20 @@ hr.mailAttachSep {
   font-weight: bold;
   background-color: #F0F0F0;
   text-align: left;
+}
+
+.mailVerboseHeader {
+  margin: 0;
+  padding: 2px;
+  background-color: #F0F0F0;
+  text-align: left;
+  
+  /* http://sw-guide.de/2006-10/code-bloecke-pre-elemente-auf-webseiten/ */
+  white-space: pre-wrap; /* css-3 */
+  white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
 
 .attachments {
