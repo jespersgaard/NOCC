@@ -638,12 +638,10 @@ function display_embedded_html_images(&$content, $attachmentParts) {
         if ($partStructure->getInternetMediaType()->isImage() && $partStructure->hasId() && $conf->display_img_attach) { //if embedded image...
             $imageType = (string)$attachmentPart->getInternetMediaType();
             if (NOCC_Security::isSupportedImageType($imageType)) {
-                $new_img_src = 'src="get_img.php?mail=' . $_REQUEST['mail'] . '&amp;num='
-                        . $attachmentPart->getPartNumber() . '&amp;mime=' . $imageType . '&amp;transfer=' . (string)$attachmentPart->getEncoding() . '"';
-                $img_id = str_replace('<', '', $partStructure->getId());
-                $img_id = str_replace('>', '', $img_id);
-                $content['body'] = str_replace('src="cid:'.$img_id.'"', $new_img_src, $content['body']);
-                $content['body'] = str_replace('src=cid:'.$img_id, $new_img_src, $content['body']);
+                $new_img_src = 'get_img.php?mail=' . $_REQUEST['mail'] . '&amp;num='
+                        . $attachmentPart->getPartNumber() . '&amp;mime=' . $imageType . '&amp;transfer=' . (string)$attachmentPart->getEncoding();
+                $img_id = 'cid:' . trim($partStructure->getId(), '<>');
+                $content['body'] = str_replace($img_id, $new_img_src, $content['body']);
             }
         }
     }
