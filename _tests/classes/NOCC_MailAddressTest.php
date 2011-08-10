@@ -167,6 +167,22 @@ class NOCC_MailAddressTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * Test case for compareAddress().
+     */
+    public function testCompareAddress() {
+        $this->assertEquals(-1, NOCC_MailAddress::compareAddress('', ''));
+        $this->assertEquals(-1, NOCC_MailAddress::compareAddress(null, null), 'null, null');
+        $this->assertEquals(0, NOCC_MailAddress::compareAddress('foo@bar.org', 'bar@foo.org'), 'foo@bar.org, bar@foo.org');
+        $this->assertEquals(0, NOCC_MailAddress::compareAddress('Foo <foo@bar.org>', 'Bar <bar@foo.org>'), 'Foo <foo@bar.org>, Bar <bar@foo.org>');
+        $this->assertEquals(0, NOCC_MailAddress::compareAddress('foo@bar.org', 'BAR@FOO.ORG'), 'foo@bar.org, BAR@FOO.ORG');
+        $this->assertEquals(0, NOCC_MailAddress::compareAddress('Foo <foo@bar.org>', 'BAR <BAR@FOO.ORG>'), 'Foo <foo@bar.org>, BAR <BAR@FOO.ORG>');
+        $this->assertEquals(1, NOCC_MailAddress::compareAddress('foo@bar.org', 'foo@bar.org'), 'foo@bar.org, foo@bar.org');
+        $this->assertEquals(1, NOCC_MailAddress::compareAddress('Foo <foo@bar.org>', 'Foo <foo@bar.org>'), 'Foo <foo@bar.org>, Foo <foo@bar.org>');
+        $this->assertEquals(1, NOCC_MailAddress::compareAddress('foo@bar.org', 'FOO@BAR.ORG'), 'foo@bar.org, FOO@BAR.ORG');
+        $this->assertEquals(1, NOCC_MailAddress::compareAddress('Foo <foo@bar.org>', 'FOO <FOO@BAR.ORG>'), 'Foo <foo@bar.org>, FOO <FOO@BAR.ORG>');
+    }
+
+    /**
      * Test case for chopAddress().
      */
     public function testChopAddress() {

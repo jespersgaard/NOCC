@@ -152,6 +152,32 @@ class NOCC_MailAddress {
         }
         return false;
     }
+    
+    /**
+     * Are mail address are equal?
+     * @param string $a Mail address A (with or without Name)
+     * @param string $b Mail address B (with or without Name)
+     * @return int -1 (Invalid) or 0 (Unequal) or 1 (Equal);
+     */
+    public static function compareAddress($a, $b) {
+        if (!isset($a) || !isset($b)) {
+            return -1;
+        }
+        $mailAddressA = new NOCC_MailAddress($a);
+        if (!$mailAddressA->hasAddress()) {
+            return -1;
+        }
+        $mailAddressB = new NOCC_MailAddress($b);
+        if (!$mailAddressB->hasAddress()) {
+            return -1;
+        }
+        $addressA = mb_strtolower($mailAddressA->getAddress(), 'UTF-8');
+        $addressB = mb_strtolower($mailAddressB->getAddress(), 'UTF-8');
+        if ($addressA == $addressB) {
+            return 1;
+        }
+        return 0;
+    }
 
     /**
      * Simplify the mail address by replacing double quotes and ident comma
