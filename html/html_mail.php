@@ -29,12 +29,16 @@ echo "</td></tr>";
 
 if ($conf->use_verbose && $verbose == '0') { //If displaying "normal" header...
   echo '<tr><th class="mailHeaderLabel">'.$html_from_label.'</th><td class="mailHeaderData">'.htmlspecialchars(NOCC_MailAddress::simplify($content['from'])).'</td></tr>';
+  if (NOCC_MailAddress::compareAddress($content['from'], $content['reply_to']) == 0) { //if different 'From' and 'Reply-To' address...
+    //TODO: Change $html_reply_to to $html_reply_to_label and add ':'!
+    echo '<tr><th class="mailHeaderLabel">'.$html_reply_to.':</th><td class="mailHeaderData">'.htmlspecialchars(NOCC_MailAddress::simplify($content['reply_to'])).'</td></tr>';
+  }
   echo '<tr><th class="mailHeaderLabel">'.$html_to_label.'</th><td class="mailHeaderData">'.htmlspecialchars(NOCC_MailAddress::simplify($content['to'])).'</td></tr>';
   if ($content['cc'] != '') {
     echo '<tr><th class="mailHeaderLabel">'.$html_cc_label.'</th><td class="mailHeaderData">'.htmlspecialchars(NOCC_MailAddress::simplify($content['cc'])).'</td></tr>';
   }
 
-if ($content['subject'] == '')
+  if ($content['subject'] == '')
     $content['subject'] = $html_nosubject;
   echo '<tr><th class="mailHeaderLabel">'.$html_subject_label.'</th><td class="mailHeaderData">'.htmlspecialchars($content['subject']).'</td></tr>';
   echo '<tr><th class="mailHeaderLabel">'.$html_date_label.'</th><td class="mailHeaderData">'.$content['complete_date'].'</td></tr>';
