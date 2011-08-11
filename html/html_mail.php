@@ -33,7 +33,9 @@ if ($conf->use_verbose && $verbose == '0') { //If displaying "normal" header...
     //TODO: Change $html_reply_to to $html_reply_to_label and add ':'!
     echo '<tr><th class="mailHeaderLabel">'.$html_reply_to.':</th><td class="mailHeaderData">'.htmlspecialchars(NOCC_MailAddress::simplify($content['reply_to'])).'</td></tr>';
   }
-  echo '<tr><th class="mailHeaderLabel">'.$html_to_label.'</th><td class="mailHeaderData">'.htmlspecialchars(NOCC_MailAddress::simplify($content['to'])).'</td></tr>';
+  if ($content['to'] != '') {
+    echo '<tr><th class="mailHeaderLabel">'.$html_to_label.'</th><td class="mailHeaderData">'.htmlspecialchars(NOCC_MailAddress::simplify($content['to'])).'</td></tr>';
+  }
   if ($content['cc'] != '') {
     echo '<tr><th class="mailHeaderLabel">'.$html_cc_label.'</th><td class="mailHeaderData">'.htmlspecialchars(NOCC_MailAddress::simplify($content['cc'])).'</td></tr>';
   }
