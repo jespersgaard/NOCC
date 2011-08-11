@@ -64,6 +64,7 @@ $html_bccself = 'Bcc self';
 $html_hide_addresses = 'Hide addresses';
 $html_outlook_quoting = 'Outlook-style quoting';
 $html_reply_to = 'Reply to';
+$html_reply_to_label = 'Reply to:';
 $html_use_signature = 'Use signature';
 $html_signature = 'Signature';
 $html_signature_label = 'Signature:';

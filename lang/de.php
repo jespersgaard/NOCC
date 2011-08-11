@@ -72,6 +72,7 @@ $html_bccself = 'Kopie der gesendeten Nachrichten an die eigene Adresse schicken
 $html_hide_addresses = 'Adressen verstecken';
 $html_outlook_quoting = 'Aus Originalnachrichten im Outlook-Stil zitieren';
 $html_reply_to = 'Antwort an';
+$html_reply_to_label = 'Antwort an:';
 $html_use_signature = 'Signatur benutzen';
 $html_signature = 'Signatur';
 $html_signature_label = 'Signatur:';
