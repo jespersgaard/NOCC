@@ -24,6 +24,7 @@
  *
  * @author Crazymadlover
  * @author Dferg
+ * @author Fitoschido
  * @author Gustavo Muslera <gmuslera@internet.com.uy>
  * @author Locos epraix
  * @author Od1n
@@ -134,6 +135,7 @@ $html_mark = 'Borrar';
 $html_att_label = 'Archivo adjunto:';
 $html_atts_label = 'Adjuntos:';
 $html_unknown = '[desconocido]';
+$html_part_x = 'Parte %s';
 $html_attach = 'Adjuntar';
 $html_attach_forget = '¡Debe adjuntar sus archivos antes de enviar su mensaje!';
 $html_attach_delete = 'Eliminar archivos seleccionados';

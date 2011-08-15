@@ -70,6 +70,7 @@ $html_bccself = 'Bcc naar eigen e-mailadres';
 $html_hide_addresses = 'E-mailadressen verbergen';
 $html_outlook_quoting = 'Oorspronkelijk bericht in Outlook-stijl aanhalen';
 $html_reply_to = 'Antwoorden naar';
+$html_reply_to_label = 'Antwoorden naar:';
 $html_use_signature = 'Handtekening gebruiken';
 $html_signature = 'Handtekening';
 $html_signature_label = 'Handtekening:';
