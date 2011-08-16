@@ -15,8 +15,8 @@ Requirements
 Mandatory Items
 ---------------
 
-   * PHP 5.0.0 or later with IMAP (--with-imap) and iconv (--with-iconv) 
-     support. -- SEE NEXT SECTION 
+   * PHP 5.0.0 or later with IMAP (--with-imap), iconv (enabled by default) and
+     mbstring (--enable-mbstring) support. -- SEE NEXT SECTION 
   
    * A Web server supported by PHP (i.e. Apache for most people)
   
@@ -31,10 +31,10 @@ Optional Items
 Notes on PHP
 ------------
 
-   * PHP needs to be compiled with IMAP and iconv support (--with-imap and 
-     --with-iconv) at the configure stage).
-     register_globals directive must be set to 'Off'.
-     You'll find information on IMAP support for PHP at
+   * PHP needs to be compiled with IMAP, iconv and mbstring support
+     (--with-imap and --enable-mbstring at the configure stage).
+   * register_globals directive must be set to 'Off'.
+   * You'll find information on IMAP support for PHP at
      'http://www.php.net/manual/ref.imap.php'.
 
 Installing NOCC

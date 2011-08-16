@@ -31,9 +31,12 @@ if (!extension_loaded('imap')) {
   $ev = new NoccException("The IMAP module does not seem to be installed on this PHP setup, please see NOCC's documentation.");
 }
 
-if (!extension_loaded('iconv'))
-{
-  $ev = new NoccException("The Iconv module does not seem to be installed on this PHP setup, please see NOCC's documentation.");
+if (!extension_loaded('iconv')) {
+  $ev = new NoccException("The iconv module does not seem to be installed on this PHP setup, please see NOCC's documentation.");
+}
+
+if (!extension_loaded('mbstring')) {
+  $ev = new NoccException("The mbstring module does not seem to be installed on this PHP setup, please see NOCC's documentation.");
 }
 
 // PHP setup
