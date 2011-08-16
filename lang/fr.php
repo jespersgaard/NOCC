@@ -22,6 +22,7 @@
  * @ingroup Language
  * @file
  *
+ * @author Hashar
  * @author IAlex
  * @author Od1n
  * @author Peter17
@@ -67,6 +68,7 @@ $html_bccself = 'Recevoir une copie cachée';
 $html_hide_addresses = 'Cacher les adresses e-mail';
 $html_outlook_quoting = 'Citation à la Outlook';
 $html_reply_to = 'Répondre à';
+$html_reply_to_label = 'Répondre à:';
 $html_use_signature = 'Utiliser la signature';
 $html_signature = 'Signature';
 $html_signature_label = 'Signature :';

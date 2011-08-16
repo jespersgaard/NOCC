@@ -65,6 +65,7 @@ $html_bccself = 'Копію сабе';
 $html_hide_addresses = 'Схаваць адрасы';
 $html_outlook_quoting = 'Цытаваньне ў стылі Outlook';
 $html_reply_to = 'Адказаць';
+$html_reply_to_label = 'Адказаць:';
 $html_use_signature = 'Выкарыстоўваць подпіс';
 $html_signature = 'Подпіс';
 $html_signature_label = 'Подпіс:';

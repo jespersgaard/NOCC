@@ -65,6 +65,7 @@ $html_bccself = 'Bcc self';
 $html_hide_addresses = 'Скриј адреси';
 $html_outlook_quoting = 'Цитирање во стилот на Outlook';
 $html_reply_to = 'Одговори на';
+$html_reply_to_label = 'Одговори на:';
 $html_use_signature = 'Користи потпис';
 $html_signature = 'Потпис';
 $html_signature_label = 'Потпис:';

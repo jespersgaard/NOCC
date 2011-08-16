@@ -63,6 +63,7 @@ $html_bccself = 'Bcc proprie';
 $html_hide_addresses = 'Celar adresses';
 $html_outlook_quoting = 'Citation in stilo de Outlook';
 $html_reply_to = 'Responder a';
+$html_reply_to_label = 'Responder a:';
 $html_use_signature = 'Usar signatura';
 $html_signature = 'Signatura';
 $html_signature_label = 'Signatura:';
