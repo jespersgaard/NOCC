@@ -44,7 +44,7 @@ class NOCC_MailAddress {
 
         if (isset($mailAddress) && is_string($mailAddress) && !empty($mailAddress)) { //if mail address is set...
             //TODO: http://code.iamcal.com/php/rfc822/
-            $pos1 = strpos($mailAddress, '<');
+            $pos1 = strrpos($mailAddress, '<');
             $pos2 = strrpos($mailAddress, '>');
             if ($pos1 !== false && $pos2 !== false) { //if "<" AND ">" are found...
                 $name = trim(substr($mailAddress, 0, $pos1));
@@ -59,6 +59,8 @@ class NOCC_MailAddress {
                 //TODO: Check if is valid address!
                 $this->_address = trim($mailAddress);
             }
+            
+            //TODO: Drop MISSING_MAILBOX@SYNTAX_ERROR address?
         }
         if (is_string($mailName) && !empty($mailName)) { //if name is set...
             $this->_name = $mailName;
