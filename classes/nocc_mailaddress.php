@@ -201,20 +201,7 @@ class NOCC_MailAddress {
      * @static
      */
     public static function chopAddress($mailAddress) {
-        // If no '<', return full address.
-        $bracketpos = strpos($mailAddress, '<');
-        if ($bracketpos === false)
-            return $mailAddress;
-
-        // Return up to the first '<', or end of string if not found
-        $formatted_address = '';
-        while (!($bracketpos === false)) {
-            $formatted_address = substr($mailAddress, 0, $bracketpos - 1);
-            $formatted_address .= substr($mailAddress, strpos($mailAddress, '>') + 1);
-            $mailAddress = $formatted_address;
-            $bracketpos = strpos($mailAddress, '<');
-        }
-        return $mailAddress;
+        return preg_replace('|\s+<\S+@\S+>|', '', $mailAddress);
     }
 }
 ?>

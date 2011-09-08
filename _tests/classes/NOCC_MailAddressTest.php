@@ -201,10 +201,10 @@ class NOCC_MailAddressTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('bug', NOCC_MailAddress::chopAddress('bug'), 'bug');
         $this->assertEquals('foo@bar.org', NOCC_MailAddress::chopAddress('foo@bar.org'), 'foo@bar.org');
         $this->assertEquals('Foo Bar', NOCC_MailAddress::chopAddress('Foo Bar <foo@bar.org>'), 'Foo Bar <foo@bar.org>');
-        $this->assertEquals('Foo Bar', NOCC_MailAddress::chopAddress('Foo Bar <foo@bar.org>'), 'Foo Bar <foo@bar.org>');
-        $this->assertEquals('foo >> bar', NOCC_MailAddress::chopAddress('"foo >> bar" <foo@bar.org>'), '"foo >> bar" <foo@bar.org>');
-        $this->assertEquals('foo <> bar', NOCC_MailAddress::chopAddress('"foo <> bar" <foo@bar.org>'), '"foo <> bar" <foo@bar.org>');
-        $this->assertEquals('foo << bar', NOCC_MailAddress::chopAddress('"foo << bar" <foo@bar.org>'), '"foo << bar" <foo@bar.org>');
+        $this->assertEquals('"Foo Bar"', NOCC_MailAddress::chopAddress('"Foo Bar" <foo@bar.org>'), '"Foo Bar" <foo@bar.org>');
+        $this->assertEquals('"foo >> bar"', NOCC_MailAddress::chopAddress('"foo >> bar" <foo@bar.org>'), '"foo >> bar" <foo@bar.org>');
+        $this->assertEquals('"foo <> bar"', NOCC_MailAddress::chopAddress('"foo <> bar" <foo@bar.org>'), '"foo <> bar" <foo@bar.org>');
+        $this->assertEquals('"foo << bar"', NOCC_MailAddress::chopAddress('"foo << bar" <foo@bar.org>'), '"foo << bar" <foo@bar.org>');
     }
 }
 ?>
