@@ -63,6 +63,7 @@ $html_bccself = 'Scheck mer heimlesch en Koppih aan ming eije <i lang="en">e-mai
 $html_hide_addresses = 'Adräße verschteische';
 $html_outlook_quoting = 'Ziteere em sellve Shtil wi „<i lang="en">Microsoft Outlook</i>“';
 $html_reply_to = 'Antwoote aan';
+$html_reply_to_label = 'Antwoot aan:';
 $html_use_signature = '„Ongerschreff“ automattesch dronger seze';
 $html_signature = 'De „Ongerschreff“';
 $html_signature_label = '„Ongeschreff“:';

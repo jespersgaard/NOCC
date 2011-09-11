@@ -66,6 +66,7 @@ $html_bccself = 'Blindkopi til meg selv';
 $html_hide_addresses = 'Skjul adresser';
 $html_outlook_quoting = 'Outlook-liknende sitering';
 $html_reply_to = 'Svar til';
+$html_reply_to_label = 'Svar til:';
 $html_use_signature = 'Bruk signatur';
 $html_signature = 'Signatur';
 $html_signature_label = 'Signatur:';

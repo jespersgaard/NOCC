@@ -64,6 +64,7 @@ $html_bccself = 'Ekk ma-unan';
 $html_hide_addresses = 'Kuzhat ar chomlec\'hioù';
 $html_outlook_quoting = 'Menegoù e doare Outlook';
 $html_reply_to = 'Respont da';
+$html_reply_to_label = 'Respont da :';
 $html_use_signature = 'Implijout ar sinadur';
 $html_signature = 'Sinadur';
 $html_signature_label = 'Sinadur :';

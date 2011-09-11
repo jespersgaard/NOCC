@@ -25,6 +25,7 @@
  * @author Anton Jakimov <t0xa@ls2.lv>
  * @author EugeneZelenko
  * @author Lockal
+ * @author Lvova
  * @author Sergey Frolovithev <serg@spylog.ru>
  * @author Sk
  * @author Александр Сигачёв
@@ -69,6 +70,7 @@ $html_bccself = 'Копию себе';
 $html_hide_addresses = 'Спрятать адрес';
 $html_outlook_quoting = 'Цитирование в стиле Outlook';
 $html_reply_to = 'Ответить';
+$html_reply_to_label = 'Ответить на:';
 $html_use_signature = 'Использовать подпись';
 $html_signature = 'Подпись';
 $html_signature_label = 'Подпись:';

@@ -65,6 +65,7 @@ $html_bccself = 'Skp sebi';
 $html_hide_addresses = 'Skrij naslove';
 $html_outlook_quoting = 'navajanje v slogu Outlooka';
 $html_reply_to = 'Odgovor na';
+$html_reply_to_label = 'Odgovor na:';
 $html_use_signature = 'Uporabi podpis';
 $html_signature = 'Podpis';
 $html_signature_label = 'Podpis:';

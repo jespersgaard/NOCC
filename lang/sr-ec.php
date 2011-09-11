@@ -14,7 +14,7 @@
  * @license    http://www.gnu.org/licenses/ GNU General Public License
  * @version    SVN: $Id$
  */
-/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
  * 
  * See the qqq 'language' for message documentation incl. usage of parameters
  * To improve a translation please visit http://translatewiki.net
@@ -64,6 +64,7 @@ $html_bccself = 'Bcc себи';
 $html_hide_addresses = 'Сакриј адресе';
 $html_outlook_quoting = 'Outlook стил цитирања';
 $html_reply_to = 'Одговор на';
+$html_reply_to_label = 'Одговор на:';
 $html_use_signature = 'Користи потпис';
 $html_signature = 'Потпис';
 $html_signature_label = 'Потпис:';

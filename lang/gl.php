@@ -63,6 +63,7 @@ $html_bccself = 'Recibir unha copia oculta';
 $html_hide_addresses = 'Agochar os enderezos';
 $html_outlook_quoting = 'Citar ao estilo Outlook';
 $html_reply_to = 'Responder a';
+$html_reply_to_label = 'Responder a:';
 $html_use_signature = 'Usar a sinatura';
 $html_signature = 'Sinatura';
 $html_signature_label = 'Sinatura:';

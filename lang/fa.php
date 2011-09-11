@@ -24,6 +24,7 @@
  *
  * @author Ebraminio
  * @author Huji
+ * @author Omnia
  * @author Reza1615
  */
 
@@ -66,6 +67,7 @@ $html_bccself = 'رونوشت پنهان به خود';
 $html_hide_addresses = 'آدرسها به صورت پنهانى';
 $html_outlook_quoting = 'نقل قول شبيه Outlook';
 $html_reply_to = 'پاسخ به';
+$html_reply_to_label = 'پاسخ به :';
 $html_use_signature = 'استفاده از امضا';
 $html_signature = 'امضا';
 $html_signature_label = 'امضا:';

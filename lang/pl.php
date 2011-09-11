@@ -25,6 +25,7 @@
  * @author Ryszard Janiszewski <dex7@akacje.net>
  * @author Sp5uhe
  * @author Tomasz Mateja <tommat@pimpek.one.pl>
+ * @author Woytecr
  */
 
 $lang_locale = 'pl_PL.UTF-8';
@@ -65,6 +66,7 @@ $html_bccself = 'Prześlij do mnie ukrytą kopię';
 $html_hide_addresses = 'Nie pokazuj adresów email';
 $html_outlook_quoting = 'Cytowanie jak w Outlook';
 $html_reply_to = 'Odpisuj na adres';
+$html_reply_to_label = 'Odpowiedz do:';
 $html_use_signature = 'Używaj podpisu';
 $html_signature = 'Podpis';
 $html_signature_label = 'Podpis';

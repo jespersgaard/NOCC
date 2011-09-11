@@ -70,6 +70,7 @@ $html_bccself = 'Bcc self';
 $html_hide_addresses = 'Απόκρυψη διευθύνσεων';
 $html_outlook_quoting = 'παραθέσεις στο στυλ του Outlook';
 $html_reply_to = 'Απάντηση σε';
+$html_reply_to_label = 'Απάντηση σε:';
 $html_use_signature = 'Χρησιμοποίηση υπογραφής';
 $html_signature = 'Υπογραφή';
 $html_signature_label = 'Υπογραφή';

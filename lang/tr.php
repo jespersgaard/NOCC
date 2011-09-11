@@ -66,6 +66,7 @@ $html_bccself = 'Beni bcc listesine ekle';
 $html_hide_addresses = 'Adresleri gizli tut';
 $html_outlook_quoting = 'Outlook biçimi işaretle';
 $html_reply_to = 'Cevapla';
+$html_reply_to_label = 'Yanıtla:';
 $html_use_signature = 'İmza kullan';
 $html_signature = 'İmza';
 $html_signature_label = 'İmza:';

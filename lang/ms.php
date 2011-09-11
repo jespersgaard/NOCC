@@ -63,6 +63,7 @@ $html_bccself = 'Bcc diri';
 $html_hide_addresses = 'Sorokkan alamat';
 $html_outlook_quoting = 'Pemetikan ala Outlook';
 $html_reply_to = 'Balas';
+$html_reply_to_label = 'Balas:';
 $html_use_signature = 'Gunakan tandatangan';
 $html_signature = 'Tandatangan';
 $html_signature_label = 'Tandatangan:';
