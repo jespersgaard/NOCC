@@ -379,6 +379,7 @@ function link_att($mail, $attach_tab) {
  * @param string $lang
  * @return string
  * @todo Why is $lang not used?
+ * @todo Strict Standards: strftime() [function.strftime]: It is not safe to rely on the system's timezone settings. Please use the date.timezone setting, the TZ environment variable or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'Europe/Berlin' for 'CEST/2.0/DST' instead in /www/htdocs/v155331/lgmsworld-shop/nocc/utils/functions.php on line ...
  */
 function format_date(&$date, &$lang) {
     global $default_date_format;
@@ -405,6 +406,7 @@ function format_date(&$date, &$lang) {
  * @param string $lang
  * @return string
  * @todo Why is $lang not used?
+ * @todo Strict Standards: strftime() [function.strftime]: It is not safe to rely on the system's timezone settings. Please use the date.timezone setting, the TZ environment variable or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'Europe/Berlin' for 'CEST/2.0/DST' instead in /www/htdocs/v155331/lgmsworld-shop/nocc/utils/functions.php on line ...
  */
 function format_time(&$time, &$lang) {
     global $default_time_format;
@@ -1003,11 +1005,8 @@ function get_page_nav($pages, $skip) {
  * @return string
  */
 function removeUnicodeBOM($data) {
-    $data = str_replace("\xef\xbb\xbf", '', $data); //UTF-8
-    $data = str_replace("\xfe\xff", '', $data); //UTF-16 (BE)
-    $data = str_replace("\xff\xfe", '', $data); //UTF-16 (LE)
-    $data = str_replace("\0\0\xfe\xff", '', $data); //UTF-32 (BE)
-    $data = str_replace("\xff\xfe\0\0", '', $data); //UTF-32 (LE)
-    return $data;
+    //BOM: UTF-8, UTF-16 (BE), UTF-16 (LE), UTF-32 (BE), UTF-32 (LE)
+    $bom = array("\xef\xbb\xbf", "\xfe\xff", "\xff\xfe", "\0\0\xfe\xff", "\xff\xfe\0\0");
+    return str_replace($bom, '', $data);
 }
 ?>
