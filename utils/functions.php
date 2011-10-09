@@ -1005,8 +1005,21 @@ function get_page_nav($pages, $skip) {
  * @return string
  */
 function removeUnicodeBOM($data) {
-    //BOM: UTF-8, UTF-16 (BE), UTF-16 (LE), UTF-32 (BE), UTF-32 (LE)
-    $bom = array("\xef\xbb\xbf", "\xfe\xff", "\xff\xfe", "\0\0\xfe\xff", "\xff\xfe\0\0");
-    return str_replace($bom, '', $data);
+    if (substr($data, 0, 3) == pack('CCC', 0xEF, 0xBB, 0xBF)) { //UTF-8...
+        return substr($data, 3);
+    }
+    elseif (substr($data, 0, 2) == pack('CC', 0xFE, 0xFF)) { //UTF-16 (BE)...
+        return substr($data, 2);
+    }
+    elseif (substr($data, 0, 2) == pack('CC', 0xFF, 0xFE)) { //UTF-16 (LE)...
+        return substr($data, 2);
+    }
+    elseif (substr($data, 0, 4) == pack('CCCC', 0x00, 0x00, 0xFE, 0xFF)) { //UTF-32 (BE)...
+        return substr($data, 4);
+    }
+    elseif (substr($data, 0, 4) == pack('CCCC', 0x00, 0x00, 0xFF, 0xFE)) { //UTF-32 (LE)...
+        return substr($data, 4);
+    }
+    return $data;
 }
 ?>
