@@ -15,6 +15,8 @@
  * @version    SVN: $Id$
  */
 
+require_once './classes/nocc_session.php';
+
 NOCC_Session::start();
 
 if (file_exists('./config/conf.php')) {
