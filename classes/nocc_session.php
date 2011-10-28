@@ -22,6 +22,15 @@ require_once 'user_prefs.php';
  */
 class NOCC_Session {
     /**
+     * Get the URL query from the session
+     * @return string URL query
+     * @static
+     */
+    public static function getUrlQuery() {
+        return session_name() . '=' . session_id();
+    }
+    
+    /**
      * Get the user key from the session
      * @return string User key
      * @static
