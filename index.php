@@ -173,7 +173,5 @@ require './html/header.php';
             </script>
 <?php
 require './html/footer.php';
-session_name("NOCCSESSID");
-session_unset();
-session_destroy();
+NOCC_Session::destroy();
 ?>

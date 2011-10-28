@@ -56,9 +56,7 @@ $conf->nocc_url = 'http://nocc.sourceforge.net/';
 
 $pwd_to_encrypt = false;
 if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'login') {
-    NOCC_Session::start();
-    session_unset();
-    session_destroy();
+    NOCC_Session::destroy(true);
     $pwd_to_encrypt = true;
 }
 

@@ -33,8 +33,7 @@ else {
 require_once './utils/functions.php';
 
 clear_attachments();
-session_name("NOCCSESSID");
-session_destroy();
+NOCC_Session::destroy();
 //destroy authentification cookie
 setcookie("NoccIdent");
 require_once './utils/proxy.php';

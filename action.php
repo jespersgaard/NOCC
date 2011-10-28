@@ -62,10 +62,7 @@ catch (Exception $ex) {
     $ev = new NoccException($ex->getMessage());
 
     if ($action == 'login' || $action == 'cookie') {
-        session_name("NOCCSESSID");
-        $_SESSION['nocc_login'] = '';
-        $_SESSION['nocc_user_prefs'] = '';
-        session_destroy();
+        NOCC_Session::destroy();
         setcookie("NoccIdent");
     }
 

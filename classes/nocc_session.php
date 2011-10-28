@@ -31,6 +31,20 @@ class NOCC_Session {
     }
     
     /**
+     * Destroy the session
+     * @param bool $forceSessionStart Force session start?
+     * @static
+     */
+    public static function destroy($forceSessionStart = false) {
+        session_name('NOCCSESSID');
+        if ($forceSessionStart) {
+            session_start();
+        }
+        $_SESSION = array();
+        session_destroy();
+    }
+    
+    /**
      * Get the URL query from the session
      * @return string URL query
      * @static
