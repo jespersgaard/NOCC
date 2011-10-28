@@ -55,17 +55,15 @@ $conf->nocc_version = '1.9.2-dev';
 $conf->nocc_url = 'http://nocc.sourceforge.net/';
 
 $pwd_to_encrypt = false;
-if (isset ($_REQUEST['action']) && $_REQUEST['action'] == 'login') {
-    session_name("NOCCSESSID");
-    session_start();
+if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'login') {
+    NOCC_Session::start();
     session_unset();
     session_destroy();
     $pwd_to_encrypt = true;
 }
 
-session_name("NOCCSESSID");
 if ($from_rss == false) {
-    session_start();
+    NOCC_Session::start();
 }
 
 // Initialise session array

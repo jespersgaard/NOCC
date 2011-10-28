@@ -19,8 +19,7 @@
   require_once './utils/crypt.php';
   require_once './classes/user_prefs.php';
 
-  session_name("NOCCSESSID");
-  session_start();
+  NOCC_Session::start();
 
   $from_rss = true;
 

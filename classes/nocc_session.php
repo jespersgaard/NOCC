@@ -22,6 +22,15 @@ require_once 'user_prefs.php';
  */
 class NOCC_Session {
     /**
+     * Start the session
+     * @static
+     */
+    public static function start() {
+        session_name('NOCCSESSID');
+        session_start();
+    }
+    
+    /**
      * Get the URL query from the session
      * @return string URL query
      * @static
