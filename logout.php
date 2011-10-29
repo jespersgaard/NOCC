@@ -36,8 +36,7 @@ require_once './utils/functions.php';
 
 clear_attachments();
 NOCC_Session::destroy();
-//destroy authentification cookie
-setcookie("NoccIdent");
+NOCC_Session::deleteCookie();
 require_once './utils/proxy.php';
 Header('Location: ' . $conf->base_url . 'index.php');
 ?>

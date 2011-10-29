@@ -63,7 +63,7 @@ catch (Exception $ex) {
 
     if ($action == 'login' || $action == 'cookie') {
         NOCC_Session::destroy();
-        setcookie("NoccIdent");
+        NOCC_Session::deleteCookie();
     }
 
     require './html/header.php';
@@ -471,8 +471,7 @@ switch($action) {
                     require './html/footer.php';
                     break;
                 }
-                //store cookie for thirty days
-                setcookie('NoccIdent', NOCC_Session::getUserKey(), time()+60*60*24*30);
+                NOCC_Session::createCookie();
             }
         }
 

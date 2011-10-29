@@ -45,6 +45,23 @@ class NOCC_Session {
     }
     
     /**
+     * Create session cookie
+     * @static
+     */
+    public static function createCookie() {
+        //store cookie for thirty days
+        setcookie('NoccIdent', NOCC_Session::getUserKey(), time() + 2592000);
+    }
+    
+    /**
+     * Delete session cookie
+     * @static
+     */
+    public static function deleteCookie() {
+        setcookie('NoccIdent', '', time() - 3600);
+    }
+    
+    /**
      * Get the URL query from the session
      * @return string URL query
      * @static
