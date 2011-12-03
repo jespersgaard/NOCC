@@ -26,6 +26,7 @@
  * @author Huji
  * @author Omnia
  * @author Reza1615
+ * @author ZxxZxxZ
  */
 
 $lang_locale = 'fa.UTF-8';
@@ -148,7 +149,7 @@ $html_date = 'تاریخ';
 $html_date_label = 'تاریخ:';
 $html_sent_label = 'فرستاده شد';
 $html_wrote = 'نوشت';
-$html_size = 'سايز';
+$html_size = 'اندازه';
 $html_totalsize = 'سايز کل';
 $html_kb = 'کيلو بايت';
 $html_mb = 'مگابایت';

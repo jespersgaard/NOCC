@@ -30,6 +30,7 @@
  * @author Od1n
  * @author Peter17
  * @author Translationista
+ * @author Vivaelcelta
  */
 
 $lang_locale = 'es_ES.UTF-8';
@@ -70,6 +71,7 @@ $html_bccself = 'Enviar una copia oculta a mí mismo';
 $html_hide_addresses = 'Ocultar dirección';
 $html_outlook_quoting = 'Quotes tipo Outlook';
 $html_reply_to = 'Responder a';
+$html_reply_to_label = 'Responder a:';
 $html_use_signature = 'Usar firma';
 $html_signature = 'Firma';
 $html_signature_label = 'Firma:';

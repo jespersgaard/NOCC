@@ -22,6 +22,7 @@
  * @ingroup Language
  * @file
  *
+ * @author Als-Chlämens
  * @author Als-Holder
  */
 
@@ -63,6 +64,7 @@ $html_bccself = 'Kopi an di eige Adräss schicke';
 $html_hide_addresses = 'Adrässe verstecke';
 $html_outlook_quoting = 'Quoting im Outlook-Stil';
 $html_reply_to = 'Antwort an';
+$html_reply_to_label = 'Antwort aa:';
 $html_use_signature = 'Signatur verwände';
 $html_signature = 'Signatur';
 $html_signature_label = 'Unterschrift:';

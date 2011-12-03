@@ -27,6 +27,8 @@
  * @author Михајло Анђелковић
  */
 
+$lang_locale = 'sr_RS.UTF-8';
+$lang_dir = 'ltr';
 $default_date_format = '%d.%m.%Y.';
 $no_locale_date_format = '%d.%m.%Y.';
 $default_time_format = '%H:%M';
@@ -131,7 +133,7 @@ $html_att_label = 'Прилог:';
 $html_atts_label = 'Прилози:';
 $html_unknown = '(непознато)';
 $html_part_x = 'Део %s';
-$html_attach = 'Приложи';
+$html_attach = 'Закачи';
 $html_attach_forget = 'Морате приложити датотеку пре слања поруке.';
 $html_attach_delete = 'Уклони изабрано';
 $html_attach_none = 'Морате приложити датотеку.';

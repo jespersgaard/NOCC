@@ -62,6 +62,7 @@ $html_bccself = 'Schowanu kopiju se pósłaś';
 $html_hide_addresses = 'Adrese schowaś';
 $html_outlook_quoting = 'Citaty w stilu Outlook';
 $html_reply_to = 'Wótegroniś na';
+$html_reply_to_label = 'Wótegrono na';
 $html_use_signature = 'Signaturu wužywaś';
 $html_signature = 'Signatura';
 $html_signature_label = 'Signatura:';

@@ -26,6 +26,7 @@
  * @author Als-Holder
  * @author Benjamin Bräuer <ben1 AT gmx DOT de>
  * @author David Ferch <dferch AT tk-online DOT net>
+ * @author Kghbln
  * @author Purodha
  * @author The Evil IP address
  * @author Tim Gerundt <tim AT gerundt DOT de>
@@ -217,7 +218,7 @@ $html_contact_err2 = 'Sie können keinen neuen Kontakt hinzufügen';
 $html_contact_err3 = 'Sie haben keine Rechte, um auf die Kontaktliste zuzugreifen';
 $html_contact_none = 'Es konnten keine Kontakte gefunden werden.';
 $html_del_msg = 'Sollen die markierten Nachrichten gelöscht werden?';
-$html_down_mail = 'Download';
+$html_down_mail = 'Herunterladen';
 $original_msg = '-- Original Nachricht --';
 $to_empty = 'Das „An“-Feld darf nicht leer sein!';
 $html_images_warning = 'Zu Ihrer Sicherheit werden externe Bilder nicht angezeigt.';

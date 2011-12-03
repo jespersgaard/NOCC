@@ -23,6 +23,7 @@
  * @file
  *
  * @author David Gimeno i Ayuso <info@sima-pc.com>
+ * @author Gemmaa
  * @author Martorell
  * @author MuRe
  * @author SMP
@@ -69,6 +70,7 @@ $html_bccself = 'Envia\'m a mi una CCO';
 $html_hide_addresses = 'Amagar adreces';
 $html_outlook_quoting = 'Citar a l\'estil Outlook';
 $html_reply_to = 'Contestar a';
+$html_reply_to_label = 'Respondre a:';
 $html_use_signature = 'Usar signatura';
 $html_signature = 'Signatura';
 $html_signature_label = 'Firma:';

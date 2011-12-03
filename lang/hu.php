@@ -23,6 +23,7 @@
  * @file
  *
  * @author Dani
+ * @author Dj
  * @author Enbéká
  * @author Glanthor Reviol
  * @author Hajdu Zoltán <wirhock@wirhock.com>
@@ -63,10 +64,11 @@ $html_msgperpage_label = 'Oldalankénti üzenetek száma:';
 $html_preferences = 'Beállítások';
 $html_full_name_label = 'Teljes név:';
 $html_email_address_label = 'E-mail cím:';
-$html_bccself = 'Bcc self';
+$html_bccself = 'Titkos másolat magamnak';
 $html_hide_addresses = 'Címek elrejtése';
 $html_outlook_quoting = 'Outlook-stílusú idézés';
 $html_reply_to = 'Válasz';
+$html_reply_to_label = 'Válasz:';
 $html_use_signature = 'Aláírás használata';
 $html_signature = 'Aláírás';
 $html_signature_label = 'Aláírás:';
@@ -132,6 +134,7 @@ $html_mark = 'Törlés';
 $html_att_label = 'Csatolt fájl:';
 $html_atts_label = 'Csatolmányok:';
 $html_unknown = '[ismeretlen]';
+$html_part_x = '%s. rész';
 $html_attach = 'Csatol';
 $html_attach_forget = 'Csatolni kell a fájlt üzenetküldés előtt!';
 $html_attach_delete = 'Csatolmány törlése';

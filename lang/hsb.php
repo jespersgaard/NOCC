@@ -62,6 +62,7 @@ $html_bccself = 'Schowanu kopiju sej pósłać';
 $html_hide_addresses = 'Adresy schować';
 $html_outlook_quoting = 'Citat w stilu Outlook';
 $html_reply_to = 'Wotmołwa na';
+$html_reply_to_label = 'Wotmołwa na:';
 $html_use_signature = 'Signaturu wužiwać';
 $html_signature = 'Signatura';
 $html_signature_label = 'Signatura:';

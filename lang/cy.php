@@ -23,6 +23,7 @@
  * @file
  *
  * @author Lloffiwr
+ * @author Pwyll
  * @author Sion Pennant <sion.pennant@powys.gov.uk>
  * @author Xxglennxx
  */
@@ -65,6 +66,7 @@ $html_bccself = 'Anfon copi preifat atof fy hunan';
 $html_hide_addresses = 'Cuddio cyfeiriadau';
 $html_outlook_quoting = 'Dyfynodau tebyg i rai \'Outlook\'';
 $html_reply_to = 'Ymateb i';
+$html_reply_to_label = 'Ymateb i:';
 $html_use_signature = 'Defnyddio llofnod';
 $html_signature = 'Llofnod';
 $html_signature_label = 'Llofnod:';
