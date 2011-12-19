@@ -136,6 +136,7 @@ $html_unknown = '{{Identical|Unknown}}';
 $html_part_x = 'This message has to do with e-mails with attachments that are split up because the attachment cannot be sent in one e-mail. %s is the part number.';
 $html_attach = '{{Identical|Attach}}';
 $html_attach_delete = 'This is a button label which appears under the list of attached files when writing an e-mail. When this button is clicked all selected file attachments are removed from the e-mail.';
+$html_sort_by = '{{Identical|Sort by}}';
 $html_from = '{{Identical|From}}';
 $html_from_label = '{{Identical|From}}';
 $html_subject = '{{Identical|Subject}}';
