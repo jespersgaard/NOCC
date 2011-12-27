@@ -183,17 +183,59 @@ class NOCC_SecurityTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
-     * @todo Implement testConvertHtmlToPlainText().
+     * Test case for convertHtmlToPlainText().
      */
     public function testConvertHtmlToPlainText() {
-        $html =
+        $html1 =
 "<p class=MsoNormal><font size=2 color=navy face=Arial><span style='font-size:
 10.0pt;font-family:Arial;color:navy'>This is just a &#8211; small test!</span></font></p>";
 
-        $expected =
+        $expected1 =
 'This is just a – small test!';
+        
+        $html2 =
+"<p class=MsoNormal><font size=2 color=navy face=Arial><span style='font-size:
+10.0pt;font-family:Arial;color:navy'>Line 1</span></font></p>
+ 
+<p class=MsoNormal><font size=2 color=navy face=Arial><span style='font-size:
+10.0pt;font-family:Arial;color:navy'></span></font></p>
+ 
+<p class=MsoNormal><font size=2 color=navy face=Arial><span style='font-size:
+10.0pt;font-family:Arial;color:navy'></span></font></p>
+ 
+<div>
+ 
+<p class=MsoNormal><strong><b><font size=2 color=navy face=Arial><span
+style='font-size:10.0pt;font-family:Arial;color:navy'>Line 2</span></font></b>
+</strong><font color=navy><span style='color:navy'></span></font></p>
+ 
+<div>
+ 
+<p class=MsoNormal><font size=3 color=navy face=\"Times New Roman\"><span
+style='font-size:12.0pt;color:navy'>&nbsp;</span></font></p>
+ 
+</div>";
 
-        $this->assertEquals($expected, NOCC_Security::convertHtmlToPlainText($html));
+        $expected2 =
+'Line 1
+ 
+
+ 
+
+ 
+
+ 
+Line 2
+
+ 
+
+ 
+ 
+ 
+';
+
+        $this->assertEquals($expected1, NOCC_Security::convertHtmlToPlainText($html1));
+        $this->assertEquals($expected2, NOCC_Security::convertHtmlToPlainText($html2));
     }
 
     /**
