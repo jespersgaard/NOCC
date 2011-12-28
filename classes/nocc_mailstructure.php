@@ -251,6 +251,7 @@ class NOCC_MailStructure {
      * Get the (file) name from the structure
      * @param string $defaultname Default (file) name
      * @return string (File) name
+     * @todo I got a mail which use "name*" as parameter: string(52) "UTF-8''Bestellliste%20f%C3%BCr%20das%20Fotoalbum.doc"
      */
     public function getName($defaultname = '') {
         $name = $this->getValueFromParameters('name');

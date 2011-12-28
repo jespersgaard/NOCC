@@ -77,6 +77,7 @@ class NOCC_Security {
      * @param string $string HTML
      * @return string Plain text (UTF-8)
      * @static
+     * @todo Remove empty lines from Outlook HTML mails.
      */
     public static function convertHtmlToPlainText($string) {
         return html_entity_decode(strip_tags($string), ENT_COMPAT, 'UTF-8');
