@@ -16,7 +16,7 @@
  * @version    SVN: $Id$
  */
 
-  require_once './utils/crypt.php';
+  require_once './classes/nocc_session.php';
   require_once './classes/user_prefs.php';
 
   NOCC_Session::start();
