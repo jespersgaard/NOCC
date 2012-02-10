@@ -4,6 +4,7 @@ NOCC 1.9.2  ???? ??, ????
     * Bug #3376498 : Cannot choose polish lang (Perry Pretender).
 
   Misc
+    * Rename "Remember settings" to "Remember me" (Tim Gerundt).
     * Fix "PHP Fatal error" in RSS feed (Bretislav Kubesa).
     * Mark virus mails as SPAM too (Tim Gerundt).
     * Hide unknown "To" address in mail view (Tim Gerundt).
