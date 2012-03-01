@@ -23,6 +23,7 @@
  * @file
  *
  * @author David1010
+ * @author Gela
  * @author გიორგიმელა
  */
 
@@ -63,6 +64,7 @@ $html_bccself = 'დაიტოვეთ ასლი';
 $html_hide_addresses = 'დამალეთ მისამართი';
 $html_outlook_quoting = 'ციტირება Outlook-ის სტილში';
 $html_reply_to = 'უპასუხეთ';
+$html_reply_to_label = 'უპასუხეთ:';
 $html_use_signature = 'გამოიყენეთ ხელმოწერა';
 $html_signature = 'ხელმოწერ';
 $html_signature_label = 'ხელმოწერა:';

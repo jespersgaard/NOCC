@@ -22,6 +22,7 @@
  * @ingroup Language
  * @file
  *
+ * @author Amire80
  * @author Tzafrir Cohen <tzafrir@technion.ac.il>
  * @author YaronSh
  */
@@ -47,7 +48,7 @@ $title_next_msg = 'ההודעה הבאה';
 $title_prev_msg = 'ההודעות הבאות';
 $html_theme_label = 'ערכת נושא:';
 $html_welcome = 'ברוכים הבאים אל %1$s';
-$html_login = 'שם המשתמש';
+$html_login = 'כניסה';
 $html_submit = 'התחברות';
 $html_help = 'עזרה';
 $html_wrong = 'שם המשתמש או הסיסמה שגויים';
@@ -58,7 +59,7 @@ $html_msgperpage_label = 'הודעות בדף:';
 $html_preferences = 'העדפות';
 $html_full_name_label = 'שם מלא:';
 $html_email_address_label = 'כתובת דוא"ל:';
-$html_bccself = 'Bcc self';
+$html_bccself = 'עותק מוסתר לעצמך';
 $html_hide_addresses = 'הסתרת כתובות';
 $html_outlook_quoting = 'ציטוט בסגנון Outlook';
 $html_reply_to = 'תגובה אל';

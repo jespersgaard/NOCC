@@ -24,6 +24,7 @@
  *
  * @author Anton Jakimov <t0xa@ls2.lv>
  * @author EugeneZelenko
+ * @author Eugrus
  * @author Lockal
  * @author Lvova
  * @author Sergey Frolovithev <serg@spylog.ru>
@@ -115,7 +116,7 @@ $html_or = 'или';
 $html_move = 'Переместить';
 $html_copy = 'Копировать';
 $html_messages_to = 'выбранные письма в';
-$html_gotopage = 'Перейти на страницу';
+$html_gotopage = 'Перейти к странице';
 $html_gotofolder = 'Перейти в папку';
 $html_other_folders = 'Список папок';
 $html_page = 'Страница';

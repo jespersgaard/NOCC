@@ -22,6 +22,7 @@
  * @ingroup Language
  * @file
  *
+ * @author BeginaFelicysym
  * @author Ryszard Janiszewski <dex7@akacje.net>
  * @author Sp5uhe
  * @author Tomasz Mateja <tommat@pimpek.one.pl>
@@ -57,7 +58,7 @@ $html_server_label = 'Serwer';
 $html_wrong = 'Nazwa konta lub hasło są niepoprawne';
 $html_retry = 'Ponów';
 $html_remember = 'Zapamiętaj ustawienia';
-$html_lang_label = 'Język';
+$html_lang_label = 'Język:';
 $html_msgperpage_label = 'Wiadomości na stronie';
 $html_preferences = 'Ustawienia';
 $html_full_name_label = 'Nazwa wyświetlana';

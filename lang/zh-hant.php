@@ -22,9 +22,11 @@
  * @ingroup Language
  * @file
  *
+ * @author Breawycker
  * @author Cary Leung <cary@cary.net>
  * @author Lauhenry
  * @author Mark85296341
+ * @author Oapbtommy
  * @author Wrightbus
  */
 
@@ -52,7 +54,7 @@ $html_login = '登入';
 $html_user_label = '用戶︰';
 $html_passwd_label = '密碼：';
 $html_submit = '提交';
-$html_help = '幫助';
+$html_help = '說明';
 $html_server_label = '伺服器';
 $html_wrong = '登入名字或密碼不正確';
 $html_retry = '再嘗試';
@@ -72,7 +74,7 @@ $html_remove_header = '不顯示標題';
 $html_inbox = '信箱';
 $html_new_msg = '寫信件';
 $html_reply = '回覆';
-$html_reply_short = 'Re:';
+$html_reply_short = '回復：';
 $html_reply_all = '回覆所有人';
 $html_forward = '轉寄';
 $html_forward_short = 'Fwd:';

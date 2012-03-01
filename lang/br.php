@@ -24,6 +24,7 @@
  *
  * @author Fohanno
  * @author Fulup
+ * @author VIGNERON
  * @author Y-M D
  */
 
@@ -151,7 +152,7 @@ $html_kb = 'ko';
 $html_mb = 'Mo';
 $html_gb = 'Go';
 $html_bytes = 'okted';
-$html_filename = 'Restr';
+$html_filename = 'Anv ar restr';
 $html_to = 'Da';
 $html_to_label = 'Da :';
 $html_cc = 'Ek';
