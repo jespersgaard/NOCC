@@ -41,6 +41,7 @@ class nocc_imap
     private $conn;
     private $folder;
     private $namespace;
+    private $_isImap;
 
     /**
      * ...
@@ -70,7 +71,8 @@ class nocc_imap
         }
         $this->conn = $conn;
 
-        $_SESSION['is_imap'] = $this->is_imap();
+        $this->_isImap = $this->isImapCheck();
+        $_SESSION['is_imap'] = $this->_isImap;
 
         return $this;
     }
@@ -300,10 +302,25 @@ class nocc_imap
         return imap_close($this->conn, CL_EXPUNGE);
     }
 
+    /**
+     * ...
+     * @return bool Is IMAP?
+     * @todo Rename to isImap()?
+     */
     public function is_imap() {
-        //TODO: Move result to global variable!
+        return $this->_isImap;
+    }
+
+    /**
+     * ...
+     * @return bool Is IMAP?
+     */
+    private function isImapCheck() {
         $check = imap_check($this->conn);
-        return ($check->{'Driver'} == 'imap');
+        if ($check) {
+          return ($check->{'Driver'} == 'imap');
+        }
+        return false;
     }
 
     public static function utf7_decode($text) {
