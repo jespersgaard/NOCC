@@ -71,6 +71,8 @@ else {
 <?php
   if ($header_display_address != '') {
     echo "<h2>" . htmlspecialchars($header_display_address) . "</h2>\n";
+  }
+  if (isset($_SESSION['nocc_loggedin'])) {
     echo "<ul>\n";
     echo "  <li><a href=\"action.php?action=setprefs\">" . convertLang2Html($html_preferences) . "</a></li>\n";
     if ($conf->enable_logout)
