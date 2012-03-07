@@ -527,16 +527,19 @@ class nocc_imap
         }
     }
 
-    public function get_page_count() {
-        $num_messages = $this->num_msg();
-        if ($num_messages == 0) {
+    /**
+     * ...
+     * @param int $num_messages Number of messages
+     * @return int Page count
+     */
+    public function get_page_count($num_messages) {
+        if (!is_int($num_messages)) { //if NO integer...
             return 0;
         }
-        else {
-            $per_page = get_per_page();
-            $pages = ceil($num_messages / $per_page);
-            return $pages;
+        if ($num_messages == 0) { //if 0 messages...
+            return 0;
         }
+        return ceil($num_messages / get_per_page());
     }
 
     /**
