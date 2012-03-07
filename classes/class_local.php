@@ -301,7 +301,8 @@ class nocc_imap
     }
 
     public function is_imap() {
-        $check = imap_mailboxmsginfo($this->conn);
+        //TODO: Move result to global variable!
+        $check = imap_check($this->conn);
         return ($check->{'Driver'} == 'imap');
     }
 
