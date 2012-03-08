@@ -316,10 +316,36 @@ class nocc_imap
      * @return bool Is IMAP?
      */
     private function isImapCheck() {
+        //--------------------------------------------------------------------------------
+        // Check IMAP keywords...
+        //--------------------------------------------------------------------------------
+        $keywords = array('/imap', '/service=imap', ':143');
+        foreach ($keywords as $keyword) { //for each IMAP keyword...
+            if (stripos($this->server, $keyword) !== false) {
+                return true;
+            }
+        }
+
+        //--------------------------------------------------------------------------------
+        // Check POP3 keywords...
+        //--------------------------------------------------------------------------------
+        $keywords = array('/pop3', '/service=pop3', ':110');
+        foreach ($keywords as $keyword) { //for each POP3 keyword...
+            if (stripos($this->server, $keyword) !== false) {
+                return false;
+            }
+        }
+        //--------------------------------------------------------------------------------
+
+        //--------------------------------------------------------------------------------
+        // Check driver...
+        //--------------------------------------------------------------------------------
         $check = imap_check($this->conn);
         if ($check) {
           return ($check->{'Driver'} == 'imap');
         }
+        //--------------------------------------------------------------------------------
+
         return false;
     }
 
