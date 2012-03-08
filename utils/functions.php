@@ -73,6 +73,7 @@ function inbox(&$pop, $skip = 0) {
 
     for ($i = $start_msg; $i < $end_msg; $i++) {
         $msgnum = $sorted[$i];
+        //TODO: Really need $pop->msgno()? $pop->sort() should return already UID.
         $pop_msgno_msgnum = $pop->msgno($msgnum);
         $mail_reader = new NOCC_MailReader($pop_msgno_msgnum, $pop, false);
 
@@ -89,7 +90,7 @@ function inbox(&$pop, $skip = 0) {
         $msg_list[$i] =  Array(
                 'index' => $i,
                 'new' => $newmail,
-                'number' => $pop->msgno($msgnum),
+                'number' => $pop_msgno_msgnum,
                 'attach' => $mail_reader->hasAttachments(),
                 'to' => $mail_reader->getToAddress(),
                 'from' => $mail_reader->getFromAddress(),
