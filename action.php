@@ -701,7 +701,9 @@ function set_list_of_folders($pop, $subscribed) {
     $list_of_folders = '';
     foreach ($subscribed as $folder) {
         if (isset($_REQUEST['sort'])) {
-            $list_of_folders =  $_SESSION['list_of_folders'];
+            if (isset($_SESSION['list_of_folders'])) {
+                $list_of_folders = $_SESSION['list_of_folders'];
+            }
         }
         else {
             $folder_name = substr(strstr($folder->name, '}'), 1);
