@@ -154,23 +154,12 @@ class nocc_imap
     }
 
     /**
-     * Get the message sequence number for the given UID
-     * @param integer $uid Message UID
-     * @return integer Message sequence number
-     * @todo Rename to GetMessageNumber()?
-     */
-    public function msgno($uid) {
-        return imap_msgno($this->conn, $uid);
-    }
-
-    /**
      * ...
      * @param string $sort Sort criteria
      * @param integer $sortdir Sort direction
-     * @param boolean $useuid Use ID?
      * @return array Sorted message list
      */
-    public function sort($sort, $sortdir, $useuid) {
+    public function sort($sort, $sortdir) {
         switch($sort) {
             case '1': $imapsort = SORTFROM; break;
             case '2': $imapsort = SORTTO; break;
@@ -178,11 +167,7 @@ class nocc_imap
             case '4': $imapsort = SORTARRIVAL; break;
             case '5': $imapsort = SORTSIZE; break;
         }
-        if ($useuid) {
-            $sorted = imap_sort($this->conn, $imapsort, $sortdir, SE_UID|SE_NOPREFETCH);
-        } else {
-            $sorted = imap_sort($this->conn, $imapsort, $sortdir, SE_NOPREFETCH);
-        }
+        $sorted = imap_sort($this->conn, $imapsort, $sortdir, SE_NOPREFETCH);
         if (!is_array($sorted)) {
             throw new Exception('imap_sort() did not return an array.');
         }
