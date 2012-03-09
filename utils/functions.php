@@ -64,7 +64,7 @@ function inbox(&$pop, $skip = 0) {
     $start_msg = $skip * $per_page;
     $end_msg = $start_msg + $per_page;
 
-    $sorted = $pop->sort($sort, $sortdir, true);
+    $sorted = $pop->sort($sort, $sortdir, false);
 
     $end_msg = ($num_msg > $end_msg) ? $end_msg : $num_msg;
     if ($start_msg > $num_msg) {
@@ -73,9 +73,7 @@ function inbox(&$pop, $skip = 0) {
 
     for ($i = $start_msg; $i < $end_msg; $i++) {
         $msgnum = $sorted[$i];
-        //TODO: Really need $pop->msgno()? $pop->sort() should return already UID.
-        $pop_msgno_msgnum = $pop->msgno($msgnum);
-        $mail_reader = new NOCC_MailReader($pop_msgno_msgnum, $pop, false);
+        $mail_reader = new NOCC_MailReader($msgnum, $pop, false);
 
         $newmail = $mail_reader->isUnread();
         // Check "Status" line with UCB POP Server to see if this is a new message.
@@ -90,7 +88,7 @@ function inbox(&$pop, $skip = 0) {
         $msg_list[$i] =  Array(
                 'index' => $i,
                 'new' => $newmail,
-                'number' => $pop_msgno_msgnum,
+                'number' => $msgnum,
                 'attach' => $mail_reader->hasAttachments(),
                 'to' => $mail_reader->getToAddress(),
                 'from' => $mail_reader->getFromAddress(),
