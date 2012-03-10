@@ -697,31 +697,28 @@ function add_reply_to_subject($subject) {
  * @return string
  */
 function set_list_of_folders($pop, $subscribed) {
+    if (isset($_REQUEST['sort']) && isset($_SESSION['list_of_folders'])) {
+      return $_SESSION['list_of_folders'];
+    }
+    
     $new_folders = array();
     $list_of_folders = '';
     foreach ($subscribed as $folder) {
-        if (isset($_REQUEST['sort'])) {
-            if (isset($_SESSION['list_of_folders'])) {
-                $list_of_folders = $_SESSION['list_of_folders'];
-            }
-        }
-        else {
-            $folder_name = substr(strstr($folder->name, '}'), 1);
+        $folder_name = substr(strstr($folder->name, '}'), 1);
 
-            $status = $pop->status($folder->name);
-            if (!($status == false) && ($status->unseen > 0)) {
-                if (!in_array($folder_name, $new_folders)) {
-                    if (isset($unseen_messages)) {
-                        $unseen_count = count($unseen_messages);
-                    }
-                    else {
-                        $unseen_count = 0;
-                    }
-                    $list_of_folders .= ' <a href="action.php?folder=' . $folder_name
-                    . '">' . $folder_name . " ($status->unseen)" . '</a>';
-                    $_SESSION['list_of_folders'] = $list_of_folders;
-                    array_push($new_folders, $folder_name);
+        $status = $pop->status($folder->name);
+        if (!($status == false) && ($status->unseen > 0)) {
+            if (!in_array($folder_name, $new_folders)) {
+                if (isset($unseen_messages)) {
+                    $unseen_count = count($unseen_messages);
                 }
+                else {
+                    $unseen_count = 0;
+                }
+                $list_of_folders .= ' <a href="action.php?folder=' . $folder_name
+                . '">' . $folder_name . " ($status->unseen)" . '</a>';
+                $_SESSION['list_of_folders'] = $list_of_folders;
+                array_push($new_folders, $folder_name);
             }
         }
     }
