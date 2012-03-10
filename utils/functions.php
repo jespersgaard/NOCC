@@ -46,7 +46,7 @@ function utf8_substr($string, $start, $length = 0) {
 
 /**
  * ...
- * @param object $pop
+ * @param nocc_imap $pop
  * @param int $skip
  * @return array
  * @todo Rename!
@@ -95,14 +95,11 @@ function inbox(&$pop, $skip = 0) {
                 'subject' => $mail_reader->getSubject(),
                 'date' => $date,
                 'time' => $time,
-                'complete_date' => $date . ' ' . $time,
                 'size' => $mail_reader->getSize(),
                 'priority' => $mail_reader->getPriority(),
                 'priority_text' => $mail_reader->getPriorityText(),
                 'flagged' => $mail_reader->isFlagged(),
-                'spam' => $mail_reader->isSpam(),
-                'sort' => $sort,
-                'sortdir' => $sortdir);
+                'spam' => $mail_reader->isSpam());
     }
     return ($msg_list);
 }
@@ -113,7 +110,7 @@ function inbox(&$pop, $skip = 0) {
  * @global string $html_att_label
  * @global string $html_atts_label
  * @global string $lang_invalid_msg_num
- * @param object $pop
+ * @param nocc_imap $pop
  * @param int $mail
  * @param bool $verbose
  * @param array $attachmentParts
@@ -135,7 +132,6 @@ function aff_mail(&$pop, $mail, $verbose, &$attachmentParts = null) {
     $msg_found = false;
 
     // Get message numbers in sorted order
-    // Do not use message UID, in order to get correct messages number with IMAP connexion
     $sorted = $pop->sort($sort, $sortdir, false);
 
     // Finding the next and previous message number
