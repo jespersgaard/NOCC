@@ -4,6 +4,7 @@ NOCC 1.9.2  ???? ??, ????
     * Bug #3376498 : Cannot choose polish lang (Perry Pretender).
 
   Misc
+    * Update CKEditor to 3.6.2 (Tim Gerundt).
     * Small speed improvements for checking if IMAP or POP3 connection (Tim Gerundt).
     * "Preferences" and "Logout" menu was not always visible (Tim Gerundt).
     * Rename "Remember settings" to "Remember me" (Tim Gerundt).
