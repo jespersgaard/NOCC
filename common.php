@@ -51,7 +51,7 @@ require_once './utils/crypt.php';
 require_once './utils/translation.php';
 
 $conf->nocc_name = 'NOCC';
-$conf->nocc_version = '1.9.2-dev';
+$conf->nocc_version = '1.9.2';
 $conf->nocc_url = 'http://nocc.sourceforge.net/';
 
 $pwd_to_encrypt = false;
