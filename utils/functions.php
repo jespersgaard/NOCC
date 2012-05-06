@@ -64,7 +64,7 @@ function inbox(&$pop, $skip = 0) {
     $start_msg = $skip * $per_page;
     $end_msg = $start_msg + $per_page;
 
-    $sorted = $pop->sort($sort, $sortdir, false);
+    $sorted = $pop->sort($sort, $sortdir);
 
     $end_msg = ($num_msg > $end_msg) ? $end_msg : $num_msg;
     if ($start_msg > $num_msg) {
@@ -132,7 +132,7 @@ function aff_mail(&$pop, $mail, $verbose, &$attachmentParts = null) {
     $msg_found = false;
 
     // Get message numbers in sorted order
-    $sorted = $pop->sort($sort, $sortdir, false);
+    $sorted = $pop->sort($sort, $sortdir);
 
     // Finding the next and previous message number
     $prev_msg = $next_msg = 0;

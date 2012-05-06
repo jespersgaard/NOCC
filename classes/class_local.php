@@ -164,7 +164,7 @@ class nocc_imap
             case '1': $imapsort = SORTFROM; break;
             case '2': $imapsort = SORTTO; break;
             case '3': $imapsort = SORTSUBJECT; break;
-            case '4': $imapsort = SORTARRIVAL; break;
+            case '4': $imapsort = SORTDATE; break;
             case '5': $imapsort = SORTSIZE; break;
         }
         $sorted = imap_sort($this->conn, $imapsort, $sortdir, SE_NOPREFETCH);
