@@ -53,6 +53,7 @@ class NOCC_Security {
      */
     public static function cleanHtmlBody($body) {
         $dirtyTags = array (
+            "'<!doctype[^>]*>'si",
             "'<html[^>]*>'si",
             "'</html>'si",
             "'<body[^>]*>'si",

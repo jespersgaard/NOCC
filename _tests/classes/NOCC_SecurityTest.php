@@ -130,7 +130,8 @@ class NOCC_SecurityTest extends PHPUnit_Framework_TestCase {
      */
     public function testCleanHtmlBody() {
         $html1 =
-'<html>
+'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
   <head>
     <title>Test</TITLE>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
