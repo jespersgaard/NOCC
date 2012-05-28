@@ -1,5 +1,8 @@
 NOCC 1.9.3  ???? ??, 2012
 
+  Bugs
+    * Bug #3523093 : Session Hijacking with Cross Site Scripting (Gunnar Haslinger).
+
   Misc
     * Fix a problem with date sorting (Tim Gerundt).
 

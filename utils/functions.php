@@ -311,6 +311,7 @@ function GetAttachmentsTableRow($mail_reader) {
 function remove_stuff($body, $mime) {
     if (preg_match('|html|i', $mime)) {
         $body = NOCC_Security::cleanHtmlBody($body);
+        $body = NOCC_Security::purifyHtml($body);
         //TODO: Move to NOCC_Security::cleanHtmlBody() too?
         $body = preg_replace("|href=\"(.*)script:|i", 'href="nocc_removed_script:', $body);
         $body = preg_replace("|<([^>]*)java|i", '<nocc_removed_java_tag', $body);

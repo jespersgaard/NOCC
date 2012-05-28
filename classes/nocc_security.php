@@ -13,6 +13,8 @@
  * @version    SVN: $Id$
  */
 
+require_once dirname(__FILE__).'/../utils/htmLawed.php';
+
 /**
  * Security functions
  *
@@ -71,6 +73,20 @@ class NOCC_Security {
         );
         $cleanBody = preg_replace($dirtyTags, '', $body);
         return trim($cleanBody);
+    }
+
+    /**
+     * Purify HTML body (ensure that HTML code is standard-compliant and does not introduce security vulnerabilities)
+     * @param string $body HTML body
+     * @return string Purified HTML body
+     * @static
+     */
+    public static function purifyHtml($body) {
+        $config = array('keep_bad' => 0,
+                        'schemes' => 'href:aim,feed,file,ftp,gopher,http,https,irc,mailto,news,nntp,sftp,ssh,telnet; src:cid,http,https; style:!; *:file,http,https',
+                        'valid_xhtml' => 1);
+        
+        return htmLawed($body, $config);
     }
 
     /**

