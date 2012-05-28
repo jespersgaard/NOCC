@@ -119,7 +119,7 @@ class NOCC_AttachedFile {
             $content = fread($fp, $this->bytes);
             fclose($fp);
             
-            return content;
+            return $content;
         }
         return '';
     }
