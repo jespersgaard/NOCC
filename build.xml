@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+You need the following tools to run all tasks:
+ * Phing <http://phing.info/>
+   * phpDocumentor <http://www.phpdoc.org/>
+   * PHPunit <http://www.phpunit.de/>
+   * PHP_CodeSniffer <http://pear.php.net/package/PHP_CodeSniffer>
+   * PHP Mess Detector <http://phpmd.org/>
+   * 7-Zip <http://www.7-zip.org/>
+-->
+<project name="nocc" default="phplint" basedir=".">
+
+    <property file="build.properties" />
+
+    <!-- ============================================  -->
+    <!-- Target: prepare                               -->
+    <!-- ============================================  -->
+    <target name="prepare">
+        <mkdir dir="${project.build.dir}" />
+    </target>
+
+    <!-- ============================================  -->
+    <!-- (DEFAULT) Target: phplint                     --> 
+    <!-- ============================================  -->
+    <target name="phplint">
+        <phplint haltonfailure="true">
+            <fileset dir="${project.source.dir}">
+                <include name="**/*.php" />
+            </fileset>
+        </phplint>
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: phpunit                            --> 
+    <!-- ============================================  -->
+    <target name="phpunit" depends="prepare">
+        <phpunit haltonfailure="true" haltonerror="true">
+            <formatter type="plain"
+              todir="${project.build.dir}"
+              outfile="phpunit.txt" />
+            <batchtest>
+                <fileset dir="${project.test.dir}">
+                    <include name="**/*Test*.php" />
+                    <!-- The "NOCC_Theme" test don't work currently from phing! -->
+                    <exclude name="**/NOCC_ThemeTest.php" />
+                </fileset>
+            </batchtest>
+        </phpunit>
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: phpdoc                                --> 
+    <!-- ============================================  -->
+    <target name="phpdoc" depends="prepare" description="phpDocumentor">
+        <delete dir="${project.build.dir}/devdocs"
+          includeemptydirs="true"
+          failonerror="true" />
+
+        <phpdoc title="NOCC Developer Documentation"
+          destdir="${project.build.dir}/devdocs"
+          output="HTML:Smarty:PHP"
+          sourcecode="false"
+          defaultpackagename="NOCC" 
+          defaultcategoryname="default">
+            <fileset dir="${project.source.dir}">
+                <include name="**/*.php" />
+                <exclude name="ckeditor/**" />
+            </fileset>
+        </phpdoc>
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: phpcs                                 --> 
+    <!-- ============================================  -->
+    <target name="phpcs" depends="prepare" description="PHP_CodeSniffer">
+        <phpcodesniffer standard="PEAR"
+          sniffs="Generic_Sniffs_PHP_LowerCaseConstantSniff,
+                  Generic_Sniffs_PHP_DisallowShortOpenTagSniff,
+                  Generic_Sniffs_WhiteSpace_DisallowTabIndentSniff,
+                  PEAR_Sniffs_Functions_FunctionCallArgumentSpacingSniff"
+          haltonerror="true"
+          haltonwarning="true">
+            <fileset dir="${project.source.dir}">
+                <include name="**/*.php" />
+                <exclude name="ckeditor/**" />
+                <exclude name="_build/**" />
+                <exclude name="_tests/lang/**" />
+                <exclude name="_tests/themes/**" />
+            </fileset>
+            <formatter type="summary" outfile="${project.build.dir}/phpcs-summary.txt" />
+            <formatter type="full" outfile="${project.build.dir}/phpcs-full.txt" />
+        </phpcodesniffer>
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: phpmd                                 --> 
+    <!-- ============================================  -->
+    <target name="phpmd" depends="prepare" description="PHP Mess Detector">
+        <phpmd>
+            <fileset dir="${project.source.dir}">
+                <include name="**/*.php" />
+                <exclude name="ckeditor/**" />
+                <exclude name="_build/**" />
+                <exclude name="_tests/lang/**" />
+                <exclude name="_tests/themes/**" />
+            </fileset>
+            <formatter type="html" outfile="${project.build.dir}/phpmd.html" />
+        </phpmd>
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: prepare-release                       --> 
+    <!-- ============================================  -->
+    <target name="prepare-release" depends="prepare,phplint">
+        <delete dir="${project.release.build.dir}"
+          includeemptydirs="true"
+          failonerror="true" />
+
+        <copy todir="${project.release.build.dir}" >
+            <fileset dir="${project.source.dir}">
+                <include name="**/*" />
+                <exclude name="config/conf.php" />
+                <exclude name="build.properties" />
+                <exclude name="build.xml" />
+                <exclude name="prefs/**" />
+                <exclude name="_build/**" />
+                <exclude name="_tests/**" />
+                <exclude name="nbproject/**" /> <!-- Netbeans Project -->
+            </fileset>
+        </copy>
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: pack-release                          --> 
+    <!-- ============================================  -->
+    <target name="pack-release">
+        <echo>Create tar file...</echo>
+        <exec command="7z a -ttar ${project.build.dir}/${project.release.filename}.tar ${project.release.build.dir}/*"
+          dir="${project.build.dir}" checkreturn="true" />
+
+        <echo>Create tar.gz file...</echo>
+        <exec command="7z a -tgzip ${project.build.dir}/${project.release.filename}.tar.gz ${project.build.dir}/${project.release.filename}.tar"
+          dir="${project.build.dir}" checkreturn="true" />
+
+        <echo>Create zip file...</echo>
+        <exec command="7z a -tzip ${project.build.dir}/${project.release.filename}.zip ${project.release.build.dir}/*"
+          dir="${project.build.dir}" checkreturn="true" />
+
+        <echo>Create 7z file...</echo>
+        <exec command="7z a -t7z ${project.build.dir}/${project.release.filename}.7z ${project.release.build.dir}/*"
+          dir="${project.build.dir}" checkreturn="true" />
+    </target>
+
+</project>
